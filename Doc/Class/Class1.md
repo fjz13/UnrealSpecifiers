@@ -16,7 +16,7 @@ raw:
 
 
 blob
-![展示的图片](../Doc/Images/1.png)
+![展示的图片](../Images/1.png)
 
 raw:
-![展示的图片](../Doc/Images/1.png)
+![展示的图片](../Images/1.png)
