@@ -1,8 +1,8 @@
 # Atomic
 
+Description: 该结构总是被序列化为单个单元
 Type: bool
 Feature: UHT
-Description: 该结构总是被序列化为单个单元
 EStructFlagsOperation: |=
 Status: Done
 EStructFlags: STRUCT_Atomic (../../Flags/EStructFlags/STRUCT_Atomic.md)

@@ -1,8 +1,8 @@
 # CustomFieldNotify
 
-Type: bool
-Feature: UHT
 Description: 阻止UHT为该类生成FieldNotify的相关代码。
+Feature: UHT
+Type: bool
 EClassFlagsOperation: |=
 EClassFlags: HasCustomFieldNotify (../../Flags/EClassFlags/HasCustomFieldNotify.md)
 Status: Done

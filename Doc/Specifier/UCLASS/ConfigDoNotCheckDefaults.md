@@ -1,8 +1,8 @@
 # ConfigDoNotCheckDefaults
 
-Type: bool
-Feature: Config
 Description: 在保存配置的时候，决定是否要先根据Base或Default的配置来检查属性是否一致，如果一致就不用序列化写入下来。
+Feature: Config
+Type: bool
 EClassFlagsOperation: |=
 EClassFlags: CLASS_ConfigDoNotCheckDefaults (../../Flags/EClassFlags/CLASS_ConfigDoNotCheckDefaults.md)
 Status: Done

@@ -1,8 +1,8 @@
 # Const
 
-Type: bool
-Feature: Blueprint
 Description: 此类中的所有属性和函数都是const并且导出为const。此说明符由子类继承。
+Feature: Blueprint
+Type: bool
 Example: UCLASS(Blueprintable,Const)
 class INSIDER_API UMyClass_Const :public UObject
 {

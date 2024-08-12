@@ -1,8 +1,8 @@
 # MatchedSerializers
 
-Type: bool
-Feature: Serialization
 Description: 指定类支持文本结构序列化
+Feature: Serialization
+Type: bool
 EClassFlagsOperation: |=
 EClassFlags: CLASS_MatchedSerializers (../../Flags/EClassFlags/CLASS_MatchedSerializers.md)
 Status: Done

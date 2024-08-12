@@ -1,8 +1,8 @@
 # Deprecated
 
-Type: bool
-Feature: Trait
 Description: 此类已弃用，序列化时将不保存此类的对象。此说明符由子类继承。需要在类名前加上UDEPRECATED_，SpawnActor failed because class %s is deprecated。EditInline也都会被禁止。IsEditInlineClassAllowed，FBlueprintParentFilter不能被继承
+Feature: Trait
+Type: bool
 EClassFlagsOperation: |=
 EClassFlags: CLASS_Deprecated (../../Flags/EClassFlags/CLASS_Deprecated.md), CLASS_NotPlaceable (../../Flags/EClassFlags/CLASS_NotPlaceable.md)
 Meta: DeprecationMessage (../../Meta/Meta/DeprecationMessage.md), DeprecatedProperty (../../Meta/Meta/DeprecatedProperty.md)

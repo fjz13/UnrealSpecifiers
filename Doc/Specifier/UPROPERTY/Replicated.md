@@ -1,8 +1,8 @@
 # Replicated
 
+Description: 指定该属性应随网络进行复制。
 Type: bool
 Feature: Network
-Description: 指定该属性应随网络进行复制。
 EPropertyFlags: CPF_Net (../../Flags/EPropertyFlags/CPF_Net.md)
 Status: Done
 

@@ -1,8 +1,8 @@
 # HideCategories
 
-Type: strings=(abc，"d|e"，"x|y|z")
-Feature: DetailsPanel
 Description: 列出应在虚幻编辑器“属性（Property）”窗口中对于此类的对象隐藏的一个或多个类别。要隐藏未使用类别声明的属性，请使用声明变量的类的名称。此说明符会传播到子类。
+Feature: DetailsPanel
+Type: strings=(abc，"d|e"，"x|y|z")
 Example: HideCategories=(Category1, Category2, ...)
 Status: Done
 Sub-item: ShowCategories (ShowCategories.md)

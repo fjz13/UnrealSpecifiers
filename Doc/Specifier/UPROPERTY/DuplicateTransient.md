@@ -1,9 +1,9 @@
 # DuplicateTransient
 
-Type: bool
-Feature: Serialization
 Description: 说明在任意类型的复制中（复制/粘贴、二进制复制等），属性的值应被重设为类默认值。在复制的时候，该属性不被复制。
 意味着该属性在备复制后是用默认值。
+Type: bool
+Feature: Serialization
 Status: Done
 
 在文本导出的时候：

@@ -1,8 +1,8 @@
 # SealedEvent
 
+Description: 无法在子类中覆盖此函数。SealedEvent关键词只能用于事件。对于非事件函数，请将它们声明为static或final，以密封它们。
 Type: bool
 Feature: Behavior
-Description: 无法在子类中覆盖此函数。SealedEvent关键词只能用于事件。对于非事件函数，请将它们声明为static或final，以密封它们。
 Status: Invalid
 +=EFunctionFlags: FUNC_Final (../../Flags/EFunctionFlags/FUNC_Final.md)
 

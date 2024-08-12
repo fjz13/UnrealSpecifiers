@@ -1,8 +1,8 @@
 # Within
 
-Type: string="abc"
-Feature: Behavior
 Description: 此类的对象无法在OuterClassName对象的实例之外存在。这意味着，要创建此类的对象，需要提供OuterClassName的一个实例作为其Outer对象。该类的对象不能脱开OuterClassName的对象当做Outer来存在。意味着在创建该类的时候必须提供一个OuterClassName的Outer object。
+Feature: Behavior
+Type: string="abc"
 Example: Within=OuterClassName
 Status: Done
 Code: UClass* UClass::ClassWithin=XXX

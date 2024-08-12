@@ -1,8 +1,8 @@
 # immutable
 
+Description: Immutable is only legal in Object.h and is being phased out, do not use on new structs!
 Type: bool
 Feature: Serialization
-Description: Immutable is only legal in Object.h and is being phased out, do not use on new structs!
 EStructFlagsOperation: |=
 Status: Desprecated
 EStructFlags: STRUCT_Immutable (../../Flags/EStructFlags/STRUCT_Immutable.md)

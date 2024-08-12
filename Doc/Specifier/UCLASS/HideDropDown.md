@@ -1,8 +1,8 @@
 # HideDropDown
 
-Type: bool
-Feature: DetailsPanel
 Description: 在类选择器中隐藏此类
+Feature: DetailsPanel
+Type: bool
 EClassFlagsOperation: |=
 EClassFlags: CLASS_HideDropDown (../../Flags/EClassFlags/CLASS_HideDropDown.md)
 Status: Done

@@ -1,8 +1,8 @@
 # BlueprintInternalUseOnly
 
+Description: 指示不应向最终用户公开此函数。蓝图内部调用，不暴露给终端用户。。。
 Type: bool
 Feature: Blueprint, UHT
-Description: 指示不应向最终用户公开此函数。蓝图内部调用，不暴露给终端用户。。。
 MetaOperation: =true
 Meta: BlueprintInternalUseOnly (../../Meta/Meta/BlueprintInternalUseOnly.md), BlueprintType (../../Meta/Meta/BlueprintType.md)
 Status: Done

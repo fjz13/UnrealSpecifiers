@@ -1,8 +1,8 @@
 # WithValidation
 
+Description: 指定一个RPC函数在执行前需要验证，只有验证通过才可以执行。
 Type: bool
 Feature: Network
-Description: 指定一个RPC函数在执行前需要验证，只有验证通过才可以执行。
 Status: Done
 +=EFunctionFlags: FUNC_NetValidate (../../Flags/EFunctionFlags/FUNC_NetValidate.md)
 

@@ -1,12 +1,12 @@
 # Instanced
 
-Type: bool
-Feature: Behavior
-LimitedType: UObject*
 Description: 为对象属性创建一个实例，并作为子对象。
 和类DefaultToInstanced配合。用在对象引用属性上。
 在本对象创建的时候，会创建一个对象copy赋值给该对象引用属性，用做子对象。
 隐含了EditInline and Export.
+Type: bool
+Feature: Behavior
+LimitedType: UObject*
 EPropertyFlags: CPF_PersistentInstance (../../Flags/EPropertyFlags/CPF_PersistentInstance.md), CPF_ExportObject (../../Flags/EPropertyFlags/CPF_ExportObject.md), CPF_InstancedReference (../../Flags/EPropertyFlags/CPF_InstancedReference.md)
 MetaOperation: =true
 Meta: EditInline (../../Meta/Meta/EditInline.md)

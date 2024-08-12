@@ -1,8 +1,8 @@
 # SkipSerialization
 
+Description: 二进制序列化时跳过该属性。但在ExportText的时候依然可以导出。
 Type: bool
 Feature: Serialization
-Description: 二进制序列化时跳过该属性。但在ExportText的时候依然可以导出。
 EPropertyFlags: CPF_SkipSerialization (../../Flags/EPropertyFlags/CPF_SkipSerialization.md)
 Status: Done
 

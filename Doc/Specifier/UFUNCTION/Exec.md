@@ -1,9 +1,9 @@
 # Exec
 
+Description: 在特定类里注册一个函数为控制台命令，允许接受参数。
 Type: bool
 Feature: Behavior
 LimitedType: 特定的几个类
-Description: 在特定类里注册一个函数为控制台命令，允许接受参数。
 Status: Done
 +=EFunctionFlags: FUNC_Exec (../../Flags/EFunctionFlags/FUNC_Exec.md)
 

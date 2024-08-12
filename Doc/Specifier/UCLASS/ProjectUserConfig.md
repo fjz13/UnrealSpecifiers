@@ -1,8 +1,8 @@
 # ProjectUserConfig
 
-Type: bool
-Feature: Config
 Description: 只保存到项目用户设置里，即Project/Config/User*.ini
+Feature: Config
+Type: bool
 EClassFlagsOperation: |=
 EClassFlags: CLASS_ProjectUserConfig (../../Flags/EClassFlags/CLASS_ProjectUserConfig.md)
 Status: Done

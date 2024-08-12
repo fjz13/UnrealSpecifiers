@@ -1,8 +1,8 @@
 # NotBlueprintable
 
-Type: bool
-Feature: Blueprint
 Description: 不可在蓝图里继承
+Feature: Blueprint
+Type: bool
 MetaOperation: &=~
 Meta: BlueprintType (../../Meta/Meta/BlueprintType.md), IsBlueprintBase (../../Meta/Meta/IsBlueprintBase.md)
 Status: Done

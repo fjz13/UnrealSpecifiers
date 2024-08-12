@@ -1,8 +1,8 @@
 # NoExport
 
-Type: bool
-Feature: UHT
 Description: 指定该类的声明信息不会被UHT自动生成，必须手动编写，只对Native类有效。
+Feature: UHT
+Type: bool
 EClassFlagsOperation: |=
 EClassFlags: CLASS_NoExport (../../Flags/EClassFlags/CLASS_NoExport.md)
 Status: Done

@@ -1,8 +1,8 @@
 # BlueprintCallable
 
+Description: 暴露到蓝图中可被调用
 Type: bool
 Feature: Blueprint
-Description: 暴露到蓝图中可被调用
 Status: Done
 +=EFunctionFlags: FUNC_BlueprintCallable (../../Flags/EFunctionFlags/FUNC_BlueprintCallable.md)
 

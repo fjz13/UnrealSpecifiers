@@ -1,8 +1,8 @@
 # NotPlaceable
 
-Type: bool
-Feature: Behavior
 Description: 使继承自基类的Placeable说明符无效。指示不可以在编辑器中将此类的对象放置到关卡、UI场景或蓝图中。
+Feature: Behavior
+Type: bool
 EClassFlagsOperation: |=
 EClassFlags: CLASS_NotPlaceable (../../Flags/EClassFlags/CLASS_NotPlaceable.md)
 Status: Done

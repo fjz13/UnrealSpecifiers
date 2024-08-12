@@ -1,8 +1,8 @@
 # AssetRegistrySearchable
 
+Description: 标记该属性可以作为AssetRegistry的Tag和Value值来进行资产的过滤搜索，不能用在结构属性上
 Type: bool
 Feature: Behavior
-Description: 标记该属性可以作为AssetRegistry的Tag和Value值来进行资产的过滤搜索，不能用在结构属性上
 EPropertyFlags: CPF_AssetRegistrySearchable (../../Flags/EPropertyFlags/CPF_AssetRegistrySearchable.md)
 MetaOperation: Related
 Meta: RequiredAssetDataTags (../../Meta/Meta/RequiredAssetDataTags.md), DisallowedAssetDataTags (../../Meta/Meta/DisallowedAssetDataTags.md)

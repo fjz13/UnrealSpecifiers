@@ -1,8 +1,8 @@
 # Transient
 
+Description: 不序列化该属性，该属性初始化时候会被0填充。二进制和文本都不序列化该属性。
 Type: bool
 Feature: Serialization
-Description: 不序列化该属性，该属性初始化时候会被0填充。二进制和文本都不序列化该属性。
 Status: Done
 
 序列化的时候略过该属性，用0来填充默认值。一般用于一些临时中间变量或计算后的结果变量。

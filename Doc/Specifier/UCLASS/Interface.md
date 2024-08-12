@@ -1,8 +1,8 @@
 # Interface
 
-Type: bool
-Feature: Blueprint
 Description: 标识这个Class是个Interface。
+Feature: Blueprint
+Type: bool
 EClassFlagsOperation: |=
 EClassFlags: CLASS_Interface (../../Flags/EClassFlags/CLASS_Interface.md)
 Status: OnlyInternal

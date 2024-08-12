@@ -1,10 +1,10 @@
 # Transient
 
-Type: bool
-Feature: Serialization
 Description: 透明的，该类的所有对象都略过序列化。
 从不将属于此类的对象保存到磁盘。此说明符会传播到子类，但是可由NonTransient说明符覆盖。
 可以在子类被改写.
+Feature: Serialization
+Type: bool
 EClassFlagsOperation: |=
 EClassFlags: CLASS_Transient (../../Flags/EClassFlags/CLASS_Transient.md)
 Status: Done

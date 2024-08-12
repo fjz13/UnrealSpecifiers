@@ -1,8 +1,8 @@
 # CustomThunk
 
+Description: 指定UHT不为该函数生成蓝图调用的辅助函数，而需要用户自定义编写。
 Type: bool
 Feature: UHT
-Description: 指定UHT不为该函数生成蓝图调用的辅助函数，而需要用户自定义编写。
 MetaOperation: =true
 Meta: CustomThunk (../../Meta/Meta/CustomThunk.md)
 Status: Done

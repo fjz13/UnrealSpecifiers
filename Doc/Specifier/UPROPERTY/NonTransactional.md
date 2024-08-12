@@ -1,8 +1,8 @@
 # NonTransactional
 
+Description: 对该属性的改变操作，不会被包含进编辑器的Undo/redo命令中。
 Type: bool
 Feature: Editor
-Description: 对该属性的改变操作，不会被包含进编辑器的Undo/redo命令中。
 EPropertyFlags: CPF_NonTransactional (../../Flags/EPropertyFlags/CPF_NonTransactional.md)
 Status: Done
 

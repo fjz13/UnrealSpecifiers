@@ -1,8 +1,8 @@
 # Category
 
+Description: 右键蓝图节点中为函数指定类别，可以嵌套多级
 Type: strings=“a|b|c”
 Feature: Editor
-Description: 右键蓝图节点中为函数指定类别，可以嵌套多级
 Example: Category = "TopCategory|SubCategory|Etc”
 MetaOperation: =X
 Meta: Category (../../Meta/Meta/Category.md)

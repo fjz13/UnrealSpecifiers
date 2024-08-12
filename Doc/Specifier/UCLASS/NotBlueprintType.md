@@ -1,8 +1,8 @@
 # NotBlueprintType
 
-Type: bool
-Feature: Blueprint
 Description: 不可当做变量类型
+Feature: Blueprint
+Type: bool
 MetaOperation: -=
 Meta: BlueprintType (../../Meta/Meta/BlueprintType.md)
 Status: Done

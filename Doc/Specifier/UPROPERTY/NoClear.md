@@ -1,11 +1,11 @@
 # NoClear
 
-Type: bool
-Feature: DetailsPanel, Editor
-LimitedType: UObject*
 Description: 阻止从编辑器将此Object引用设为空。隐藏编辑器中的清除（和浏览）按钮。
 在属性编辑器中不可以设为None，隐藏Clear按钮。
 对对象的指针有效，在下拉菜单里不出现Clear按钮。
+Type: bool
+Feature: DetailsPanel, Editor
+LimitedType: UObject*
 EPropertyFlagsOperation: |=
 EPropertyFlags: CPF_NoClear (../../Flags/EPropertyFlags/CPF_NoClear.md)
 Status: Done

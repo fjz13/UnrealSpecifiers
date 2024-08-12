@@ -1,8 +1,8 @@
 # BlueprintPure
 
+Description: 此函数不对拥有它的对象产生任何影响，可在 蓝图 或 关卡蓝图 图表中执行。
 Type: bool
 Feature: Blueprint
-Description: 此函数不对拥有它的对象产生任何影响，可在 蓝图 或 关卡蓝图 图表中执行。
 Status: Done
 +=EFunctionFlags: FUNC_BlueprintCallable (../../Flags/EFunctionFlags/FUNC_BlueprintCallable.md), FUNC_BlueprintPure (../../Flags/EFunctionFlags/FUNC_BlueprintPure.md)
 

@@ -1,7 +1,7 @@
 # Optional
 
-Feature: Serialization
 Description: 标记该类的对象是可选的，在Cooking的时候可以选择是否要忽略保存它们。一般为EditorOnly的数据，如MetaData等。
+Feature: Serialization
 EClassFlagsOperation: |=
 EClassFlags: CLASS_Optional (../../Flags/EClassFlags/CLASS_Optional.md)
 Status: Done

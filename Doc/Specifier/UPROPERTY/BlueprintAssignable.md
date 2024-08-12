@@ -1,9 +1,9 @@
 # BlueprintAssignable
 
+Description: 在蓝图中可以为这个多播委托绑定事件
 Type: bool
 Feature: Blueprint
 LimitedType: Multicast Delegates
-Description: 在蓝图中可以为这个多播委托绑定事件
 EPropertyFlagsOperation: |=
 EPropertyFlags: CPF_BlueprintAssignable (../../Flags/EPropertyFlags/CPF_BlueprintAssignable.md)
 Status: Done

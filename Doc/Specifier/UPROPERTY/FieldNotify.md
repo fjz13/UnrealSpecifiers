@@ -1,9 +1,9 @@
 # FieldNotify
 
+Description: 在打开MVVM插件后，使得该属性变成支持FieldNotify的属性。
 Type: bool
 Feature: UHT
 LimitedType: ViewModel里的属性
-Description: 在打开MVVM插件后，使得该属性变成支持FieldNotify的属性。
 Status: Done
 
 在打开MVVM插件后，使得该属性变成支持FieldNotify的属性。

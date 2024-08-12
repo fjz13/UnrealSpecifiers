@@ -1,8 +1,8 @@
 # CollapseCategories
 
-Type: bool
-Feature: DetailsPanel
 Description: 隐藏带有多层Category的属性。 此说明符会传播到子类，可由DontCollapseCategories说明符覆盖。
+Feature: DetailsPanel
+Type: bool
 EClassFlagsOperation: |=
 EClassFlags: CLASS_CollapseCategories (../../Flags/EClassFlags/CLASS_CollapseCategories.md)
 Status: Done

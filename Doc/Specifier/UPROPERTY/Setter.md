@@ -1,8 +1,8 @@
 # Setter
 
+Description: 为属性增加一个C++的Set函数，只在C++层面应用。
 Type: string="abc"
 Feature: Blueprint
-Description: 为属性增加一个C++的Set函数，只在C++层面应用。
 Example: Setter=SetterFunctionName
 EPropertyFlagsOperation: |=
 Status: Done

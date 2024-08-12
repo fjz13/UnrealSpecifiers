@@ -1,8 +1,8 @@
 # ComponentWrapperClass
 
-Type: bool
-Feature: DetailsPanel
 Description: 指定该类为一个简单的封装类。控制子类的hideCategories和showCategories都被忽略。
+Feature: DetailsPanel
+Type: bool
 MetaOperation: +=
 Meta: IgnoreCategoryKeywordsInSubclasses (../../Meta/Meta/IgnoreCategoryKeywordsInSubclasses.md)
 Status: Done

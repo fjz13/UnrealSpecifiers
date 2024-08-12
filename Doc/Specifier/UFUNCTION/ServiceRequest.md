@@ -1,8 +1,8 @@
 # ServiceRequest
 
+Description: 此函数为RPC（远程过程调用）服务请求。rpc服务请求
 Type: bool
 Feature: Network
-Description: 此函数为RPC（远程过程调用）服务请求。rpc服务请求
 MetaOperation: =true
 Meta: CustomThunk (../../Meta/Meta/CustomThunk.md)
 Status: Invalid

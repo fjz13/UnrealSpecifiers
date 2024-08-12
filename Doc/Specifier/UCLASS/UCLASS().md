@@ -1,8 +1,8 @@
 # UCLASS()
 
-Type: bool
-Feature: Trait
 Description: 什么都不填写的默认值
+Feature: Trait
+Type: bool
 EClassFlagsOperation: |=
 EClassFlags: CLASS_MatchedSerializers (../../Flags/EClassFlags/CLASS_MatchedSerializers.md), CLASS_Native (../../Flags/EClassFlags/CLASS_Native.md), CLASS_RequiredAPI (../../Flags/EClassFlags/CLASS_RequiredAPI.md), CLASS_TokenStreamAssembled (../../Flags/EClassFlags/CLASS_TokenStreamAssembled.md), CLASS_Intrinsic (../../Flags/EClassFlags/CLASS_Intrinsic.md), CLASS_Constructed (../../Flags/EClassFlags/CLASS_Constructed.md)
 Status: Done

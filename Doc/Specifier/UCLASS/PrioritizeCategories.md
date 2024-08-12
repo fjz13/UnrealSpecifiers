@@ -1,8 +1,8 @@
 # PrioritizeCategories
 
-Type: strings=(abc，"d|e"，"x|y|z")
-Feature: DetailsPanel
 Description: 把指定的属性目录优先显示在前面
+Feature: DetailsPanel
+Type: strings=(abc，"d|e"，"x|y|z")
 MetaOperation: +=
 Meta: PrioritizeCategories (../../Meta/Meta/PrioritizeCategories.md)
 Status: Done

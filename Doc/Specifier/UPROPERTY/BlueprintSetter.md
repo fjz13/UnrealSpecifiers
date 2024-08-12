@@ -1,9 +1,9 @@
 # BlueprintSetter
 
-Type: string="abc"
-Feature: Blueprint
 Description: 采用一个自定义的set函数来读取。
 会默认设置BlueprintReadWrite.
+Type: string="abc"
+Feature: Blueprint
 Example: BlueprintSetter=SetterFunctionName
 EPropertyFlagsOperation: |=
 EPropertyFlags: CPF_BlueprintVisible (../../Flags/EPropertyFlags/CPF_BlueprintVisible.md)

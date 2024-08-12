@@ -1,8 +1,8 @@
 # BlueprintImplementableEvent
 
+Description: 指定一个函数调用点，可以在蓝图中重载实现。
 Type: bool
 Feature: Blueprint
-Description: 指定一个函数调用点，可以在蓝图中重载实现。
 Status: Done
 +=EFunctionFlags: FUNC_Event (../../Flags/EFunctionFlags/FUNC_Event.md), FUNC_Native (../../Flags/EFunctionFlags/FUNC_Native.md), FUNC_BlueprintEvent (../../Flags/EFunctionFlags/FUNC_BlueprintEvent.md)
 

@@ -1,8 +1,8 @@
 # GlobalUserConfig
 
-Type: bool
-Feature: Config
 Description: 只保存到全局用户设置里，即Engine/Config/User*.ini
+Feature: Config
+Type: bool
 EClassFlagsOperation: |=
 EClassFlags: CLASS_GlobalUserConfig (../../Flags/EClassFlags/CLASS_GlobalUserConfig.md)
 Status: Done

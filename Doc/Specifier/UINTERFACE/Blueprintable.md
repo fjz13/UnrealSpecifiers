@@ -1,8 +1,8 @@
 # Blueprintable
 
+Description: 可以在蓝图中实现
 Type: bool
 Feature: Blueprint
-Description: 可以在蓝图中实现
 MetaOperation: +=
 Meta: IsBlueprintBase (../../Meta/Meta/IsBlueprintBase.md), BlueprintType (../../Meta/Meta/BlueprintType.md)
 Status: Done

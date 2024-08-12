@@ -1,8 +1,8 @@
 # AdvancedClassDisplay
 
-Type: bool
-Feature: DetailsPanel
 Description: 把该类下的所有属性都默认显示在高级目录下
+Feature: DetailsPanel
+Type: bool
 MetaOperation: |=
 Meta: AdvancedClassDisplay (../../Meta/Meta/AdvancedClassDisplay.md)
 Status: Done

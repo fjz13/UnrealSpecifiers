@@ -1,8 +1,8 @@
 # ReplicatedUsing
 
+Description: ReplicatedUsing 说明符指定一个通知回调函数，在属性通过网络更新后执行。
 Type: string="abc"
 Feature: Network
-Description: ReplicatedUsing 说明符指定一个通知回调函数，在属性通过网络更新后执行。
 Example: ReplicatedUsing=FunctionName
 EPropertyFlags: CPF_Net (../../Flags/EPropertyFlags/CPF_Net.md), CPF_RepNotify (../../Flags/EPropertyFlags/CPF_RepNotify.md)
 Status: Done

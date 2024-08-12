@@ -1,8 +1,8 @@
 # TextExportTransient
 
+Description: 在ExportText导出为.COPY格式的时候，忽略该属性。复制拷贝依然会有文本生效
 Type: bool
 Feature: Serialization
-Description: 在ExportText导出为.COPY格式的时候，忽略该属性。复制拷贝依然会有文本生效
 EPropertyFlags: CPF_TextExportTransient (../../Flags/EPropertyFlags/CPF_TextExportTransient.md)
 Status: Done
 

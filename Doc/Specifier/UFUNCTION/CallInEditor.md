@@ -1,8 +1,8 @@
 # CallInEditor
 
+Description: 可以在Actor的细节面板上作为一个按钮来调用该函数。
 Type: bool
 Feature: Editor
-Description: 可以在Actor的细节面板上作为一个按钮来调用该函数。
 MetaOperation: =true
 Meta: CallInEditor (../../Meta/Meta/CallInEditor.md)
 Status: Done

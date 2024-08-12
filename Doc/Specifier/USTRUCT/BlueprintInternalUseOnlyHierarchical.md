@@ -1,8 +1,8 @@
 # BlueprintInternalUseOnlyHierarchical
 
+Description: 本身和子类都作为BlueprintInternalUseOnly使用，不能定义新BP变量。
 Type: bool
 Feature: Blueprint
-Description: 本身和子类都作为BlueprintInternalUseOnly使用，不能定义新BP变量。
 MetaOperation: +=
 Meta: BlueprintInternalUseOnlyHierarchical (../../Meta/Meta/BlueprintInternalUseOnlyHierarchical.md)
 Status: Done

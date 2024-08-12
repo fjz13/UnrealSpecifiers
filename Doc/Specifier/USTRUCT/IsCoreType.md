@@ -1,9 +1,9 @@
 # IsCoreType
 
+Description: 指定该结构是核心类，UHT在用它的时候不需要前向声明。
 Type: bool
 Feature: UHT
 LimitedType: 只在NoExportTypes.h供UHT使用
-Description: 指定该结构是核心类，UHT在用它的时候不需要前向声明。
 Status: Done
 
 "The 'IsCoreType' struct specifier is only valid in the NoExportTypes.h file”

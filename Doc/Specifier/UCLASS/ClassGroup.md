@@ -1,8 +1,8 @@
 # ClassGroup
 
-Type: string="a|b|c"
-Feature: Blueprint, Editor
 Description: 指示在虚幻编辑器的Actor浏览器中启用 组视图（Group View） 时，Actor浏览器 应在指定的 GroupName 中包含此类及此类的所有子类。
+Feature: Blueprint, Editor
+Type: string="a|b|c"
 Example: ClassGroup=GroupName
 MetaOperation: +=
 Meta: ClassGroupNames (../../Meta/Meta/ClassGroupNames.md)

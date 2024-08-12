@@ -1,8 +1,8 @@
 # DefaultToInstanced
 
-Type: bool
-Feature: Behavior
 Description: 指定该类的所有实例属性都默认是UPROPERTY(instanced)，即都默认创建新的实例，而不是对对象的引用。
+Feature: Behavior
+Type: bool
 EClassFlagsOperation: |=
 EClassFlags: CLASS_DefaultToInstanced (../../Flags/EClassFlags/CLASS_DefaultToInstanced.md)
 Status: Done

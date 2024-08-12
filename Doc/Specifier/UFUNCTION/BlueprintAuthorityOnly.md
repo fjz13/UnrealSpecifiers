@@ -1,8 +1,8 @@
 # BlueprintAuthorityOnly
 
+Description: 这个函数只能在拥有网络权限的端上运行。
 Type: bool
 Feature: Network
-Description: 这个函数只能在拥有网络权限的端上运行。
 Status: Done
 +=EFunctionFlags: FUNC_BlueprintAuthorityOnly (../../Flags/EFunctionFlags/FUNC_BlueprintAuthorityOnly.md)
 

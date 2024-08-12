@@ -1,8 +1,8 @@
 # Blueprintable
 
-Type: bool
-Feature: Blueprint
 Description: 可以在蓝图里被继承，也可当变量类型
+Feature: Blueprint
+Type: bool
 Example: UCLASS(Blueprintable)
 class INSIDER_API UMyClass_Blueprintable :public UObject
 {

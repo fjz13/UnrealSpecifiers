@@ -1,8 +1,8 @@
 # NoExport
 
+Description: 不会为该类创建自动生成代码，只用来给UHT提供解析定义。
 Type: bool
 Feature: UHT
-Description: 不会为该类创建自动生成代码，只用来给UHT提供解析定义。
 Example: E:\P4V\Engine\Source\Runtime\CoreUObject\Public\UObject\NoExportTypes.h里定义了很多，还有用!CPP包起来的。所以基本上都是只用来给UHT分析的作用
 Status: Done
 

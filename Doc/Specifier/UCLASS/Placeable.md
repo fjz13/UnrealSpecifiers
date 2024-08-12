@@ -1,8 +1,8 @@
 # Placeable
 
-Type: bool
-Feature: Behavior
 Description: 指示可在编辑器中创建此类，而且可将此类放置到关卡、UI场景或蓝图（取决于类类型）中。此标志会传播到所有子类；子类可使用NotPlaceable说明符覆盖此标志。
+Feature: Behavior
+Type: bool
 EClassFlagsOperation: &=~
 EClassFlags: CLASS_NotPlaceable (../../Flags/EClassFlags/CLASS_NotPlaceable.md)
 Status: Done

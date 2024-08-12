@@ -1,8 +1,8 @@
 # Intrinsic
 
-Type: bool
-Feature: UHT
 Description: 只在C++直接设定，一般新类不设定这个，标记这个的都是UE4内部原生的那些类，相当于已经在源码中手写了元数据代码。
+Feature: UHT
+Type: bool
 EClassFlagsOperation: |=
 EClassFlags: CLASS_Intrinsic (../../Flags/EClassFlags/CLASS_Intrinsic.md)
 Status: Done

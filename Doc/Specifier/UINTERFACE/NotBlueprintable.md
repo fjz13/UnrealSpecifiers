@@ -1,8 +1,8 @@
 # NotBlueprintable
 
+Description: 指定不可以在蓝图中实现
 Type: bool
 Feature: Blueprint
-Description: 指定不可以在蓝图中实现
 MetaOperation: -=
 等价于CannotImplementInterfaceInBlueprint
 Meta: IsBlueprintBase (../../Meta/Meta/IsBlueprintBase.md), BlueprintType (../../Meta/Meta/BlueprintType.md), CannotImplementInterfaceInBlueprint (../../Meta/Meta/CannotImplementInterfaceInBlueprint.md)

@@ -1,9 +1,9 @@
 # NotReplicated
 
+Description: 跳过复制。这只会应用到服务请求函数中的结构体成员和参数。
 Type: bool
 Feature: Network
 LimitedType: Struct members
-Description: 跳过复制。这只会应用到服务请求函数中的结构体成员和参数。
 EPropertyFlags: CPF_RepSkip (../../Flags/EPropertyFlags/CPF_RepSkip.md)
 Status: Done
 

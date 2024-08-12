@@ -1,9 +1,9 @@
 # FieldNotify
 
+Description: 为该函数创建一个FieldNotify的绑定点。
 Type: bool
 Feature: UHT
 LimitedType: ViewModel里的函数
-Description: 为该函数创建一个FieldNotify的绑定点。
 Status: Done
 
 为该函数创建一个FieldNotify的绑定点。

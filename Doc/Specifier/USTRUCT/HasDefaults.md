@@ -1,9 +1,9 @@
 # HasDefaults
 
+Description: 指定该结构的字段拥有默认值。这样如果作为函数参数或返回值时候，则可以提供默认值
 Type: bool
 Feature: UHT
 LimitedType: 只在NoExportTypes.h供UHT使用
-Description: 指定该结构的字段拥有默认值。这样如果作为函数参数或返回值时候，则可以提供默认值
 Status: Done
 EFunctionFlags: FUNC_HasDefaults (../../Flags/EFunctionFlags/FUNC_HasDefaults.md)
 

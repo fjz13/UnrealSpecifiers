@@ -1,8 +1,8 @@
 # Const
 
+Description: 不可更改的参数
 Type: bool
 Feature: Blueprint, Parameter
-Description: 不可更改的参数
 EPropertyFlagsOperation: |=
 EPropertyFlags: CPF_ConstParm (../../Flags/EPropertyFlags/CPF_ConstParm.md)
 Meta: NativeConst (../../Meta/Meta/NativeConst.md)

@@ -1,8 +1,8 @@
 # Client
 
+Description: 在Client-owned的Actor上（其实就是PlayerController）执行一个RPC函数，只运行在客户端上。对应的实现函数会添加_Implementation后缀。一般用于从Server发送一个RPC到Client
 Type: bool
 Feature: Network
-Description: 在Client-owned的Actor上（其实就是PlayerController）执行一个RPC函数，只运行在客户端上。对应的实现函数会添加_Implementation后缀。一般用于从Server发送一个RPC到Client
 Status: Done
 +=EFunctionFlags: FUNC_Net (../../Flags/EFunctionFlags/FUNC_Net.md), FUNC_NetClient (../../Flags/EFunctionFlags/FUNC_NetClient.md)
 

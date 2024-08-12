@@ -1,8 +1,8 @@
 # Interp
 
+Description: 指定该属性值可暴露到时间轴里编辑，在平常的Timeline或UMG的动画里
 Type: bool
 Feature: Behavior
-Description: 指定该属性值可暴露到时间轴里编辑，在平常的Timeline或UMG的动画里
 EPropertyFlags: CPF_Edit (../../Flags/EPropertyFlags/CPF_Edit.md), CPF_BlueprintVisible (../../Flags/EPropertyFlags/CPF_BlueprintVisible.md), CPF_Interp (../../Flags/EPropertyFlags/CPF_Interp.md)
 Status: Done
 

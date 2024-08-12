@@ -1,8 +1,8 @@
 # BlueprintNativeEvent
 
+Description: 可以在蓝图总重载实现，当时也在C++中提供一个默认实现。
 Type: bool
 Feature: Blueprint
-Description: 可以在蓝图总重载实现，当时也在C++中提供一个默认实现。
 Status: Done
 +=EFunctionFlags: FUNC_Event (../../Flags/EFunctionFlags/FUNC_Event.md), FUNC_BlueprintEvent (../../Flags/EFunctionFlags/FUNC_BlueprintEvent.md)
 

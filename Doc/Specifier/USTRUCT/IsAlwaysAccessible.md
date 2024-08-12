@@ -1,9 +1,9 @@
 # IsAlwaysAccessible
 
+Description: 指定UHT在生成文件的时候总是可以访问到改结构的声明，否则要在gen.cpp里生成镜像结构定义
 Type: bool
 Feature: UHT
 LimitedType: 只在NoExportTypes.h供UHT使用
-Description: 指定UHT在生成文件的时候总是可以访问到改结构的声明，否则要在gen.cpp里生成镜像结构定义
 Status: Done
 
 "The 'IsAlwaysAccessible' struct specifier is only valid in the NoExportTypes.h file”

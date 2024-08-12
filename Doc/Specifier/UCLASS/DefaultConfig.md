@@ -1,8 +1,8 @@
 # DefaultConfig
 
-Type: bool
-Feature: Config
 Description: 指定在编辑器里把Settings自动保存到Project/Config/DefaultXXX.ini里去
+Feature: Config
+Type: bool
 EClassFlagsOperation: |=
 EClassFlags: CLASS_DefaultConfig (../../Flags/EClassFlags/CLASS_DefaultConfig.md)
 Status: Done

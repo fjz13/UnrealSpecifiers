@@ -1,8 +1,8 @@
 # Variadic
 
+Description: 标识一个函数可以接受任意类型的多个参数（包括input/output)．
 Type: bool
 Feature: Blueprint, UHT
-Description: 标识一个函数可以接受任意类型的多个参数（包括input/output)．
 MetaOperation: ＝””
 Meta: Variadic (../../Meta/Meta/Variadic.md)
 Status: Done

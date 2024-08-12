@@ -1,11 +1,11 @@
 # Export
 
-Type: bool
-Feature: Behavior
-LimitedType: Object属性，或Object数组
 Description: 只适用于Object属性（或Object数组）。说明Object被复制时（例如复制/粘贴操作）指定到此属性的Object应整体导出为一个子Object块，而非只是输出Object引用本身。只用在对象引用属性上，或者对象数组上。
 指定该对象引用在被复制的时候，应该导出当做一个子对象，而不是仅仅复制引用。
 其实就是浅复制和深复制的区别。
+Type: bool
+Feature: Behavior
+LimitedType: Object属性，或Object数组
 EPropertyFlags: CPF_ExportObject (../../Flags/EPropertyFlags/CPF_ExportObject.md)
 Status: Done
 

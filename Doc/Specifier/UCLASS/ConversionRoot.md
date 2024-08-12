@@ -1,8 +1,8 @@
 # ConversionRoot
 
-Type: bool
-Feature: Trait
 Description: 允许Actor在自身以及子类之间做转换
+Feature: Trait
+Type: bool
 MetaOperation: |=
 Meta: IsConversionRoot (../../Meta/Meta/IsConversionRoot.md)
 Status: Done

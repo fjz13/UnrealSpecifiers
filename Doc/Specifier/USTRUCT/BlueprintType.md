@@ -1,8 +1,8 @@
 # BlueprintType
 
+Description: 将此结构体作为可以在蓝图中被用于变量的类型公开。可称为变量类型
 Type: bool
 Feature: Blueprint
-Description: 将此结构体作为可以在蓝图中被用于变量的类型公开。可称为变量类型
 Status: Done
 
 和UCLASS里的一样，可以允许这个结构在蓝图中声明变量

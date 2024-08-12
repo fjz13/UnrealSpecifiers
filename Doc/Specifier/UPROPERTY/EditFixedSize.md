@@ -1,9 +1,9 @@
 # EditFixedSize
 
+Description: 只适用于动态数组。这能防止用户通过虚幻编辑器属性窗口修改数组长度。只用在Array上，不允许用户修改数组大小
 Type: bool
 Feature: DetailsPanel, Editor
 LimitedType: TArray<T>
-Description: 只适用于动态数组。这能防止用户通过虚幻编辑器属性窗口修改数组长度。只用在Array上，不允许用户修改数组大小
 EPropertyFlags: CPF_EditFixedSize (../../Flags/EPropertyFlags/CPF_EditFixedSize.md)
 Status: Done
 

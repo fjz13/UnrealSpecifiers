@@ -1,8 +1,8 @@
 # Required
 
+Description: 指定函数的参数节点必须连接提供一个值
 Type: bool
 Feature: Blueprint, Parameter
-Description: 指定函数的参数节点必须连接提供一个值
 EPropertyFlagsOperation: |=
 EPropertyFlags: CPF_RequiredParm (../../Flags/EPropertyFlags/CPF_RequiredParm.md)
 Status: Done

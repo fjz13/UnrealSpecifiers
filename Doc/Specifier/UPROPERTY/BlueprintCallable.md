@@ -1,9 +1,9 @@
 # BlueprintCallable
 
+Description: 在蓝图中可以调用这个多播委托
 Type: bool
 Feature: Blueprint
 LimitedType: Multicast Delegates
-Description: 在蓝图中可以调用这个多播委托
 EPropertyFlagsOperation: |=
 EPropertyFlags: CPF_BlueprintCallable (../../Flags/EPropertyFlags/CPF_BlueprintCallable.md)
 Status: Done

@@ -1,8 +1,8 @@
 # Server
 
+Description: 在Client-owned的Actor上（PlayerController或Pawn）执行一个RPC函数，只运行在服务器上。对应的实现函数会添加_Implementation后缀
 Type: bool
 Feature: Network
-Description: 在Client-owned的Actor上（PlayerController或Pawn）执行一个RPC函数，只运行在服务器上。对应的实现函数会添加_Implementation后缀
 Status: Done
 +=EFunctionFlags: FUNC_Net (../../Flags/EFunctionFlags/FUNC_Net.md), FUNC_NetServer (../../Flags/EFunctionFlags/FUNC_NetServer.md)
 

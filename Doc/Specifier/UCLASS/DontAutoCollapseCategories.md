@@ -1,8 +1,8 @@
 # DontAutoCollapseCategories
 
-Type: strings="a，b，c"
-Feature: DetailsPanel
 Description: 使列出的类别的继承自父类的AutoCollapseCategories说明符无效。
+Feature: DetailsPanel
+Type: strings="a，b，c"
 Example: DontAutoCollapseCategories=(Category, Category, ...)
 MetaOperation: -=
 Meta: AutoCollapseCategories (../../Meta/Meta/AutoCollapseCategories.md)

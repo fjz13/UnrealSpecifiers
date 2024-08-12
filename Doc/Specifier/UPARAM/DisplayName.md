@@ -1,8 +1,8 @@
 # DisplayName
 
+Description: 更改函数参数在蓝图节点上的显示名字
 Type: string="abc"
 Feature: Blueprint, Parameter
-Description: 更改函数参数在蓝图节点上的显示名字
 Example: UPARAM(DisplayName="X (Roll)") float Roll
 MetaOperation: =XXX
 Meta: DisplayName (../../Meta/Meta/DisplayName.md)

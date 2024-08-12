@@ -1,8 +1,8 @@
 # EditorConfig
 
-Type: string="abc"
-Feature: Config
 Description: 指定保存的编辑器配置的文件名称。保存在GlocalUserConfig的Editor下
+Feature: Config
+Type: string="abc"
 MetaOperation: +=
 Meta: EditorConfig (../../Meta/Meta/EditorConfig.md)
 Status: Done

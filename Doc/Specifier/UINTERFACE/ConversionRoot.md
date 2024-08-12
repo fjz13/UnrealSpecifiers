@@ -1,8 +1,8 @@
 # ConversionRoot
 
+Description: Sets IsConversionRoot metadata flag for this interface.
 Type: bool
 Feature: Blueprint
-Description: Sets IsConversionRoot metadata flag for this interface.
 MetaOperation: +=
 Meta: IsConversionRoot (../../Meta/Meta/IsConversionRoot.md)
 Status: NotUsed

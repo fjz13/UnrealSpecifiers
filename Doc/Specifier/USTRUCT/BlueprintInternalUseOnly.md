@@ -1,8 +1,8 @@
 # BlueprintInternalUseOnly
 
+Description: 不可定义新BP变量，但可作为别的类的成员变量暴露和变量传递
 Type: bool
 Feature: Blueprint
-Description: 不可定义新BP变量，但可作为别的类的成员变量暴露和变量传递
 MetaOperation: +=
 Meta: BlueprintInternalUseOnly (../../Meta/Meta/BlueprintInternalUseOnly.md), BlueprintType (../../Meta/Meta/BlueprintType.md)
 Status: Done

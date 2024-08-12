@@ -1,8 +1,8 @@
 # NonPIEDuplicateTransient
 
+Description: 属性将在复制中被重设为默认值，除非其被复制用于PIE会话。在PIE里复制的时候，不复制
 Type: bool
 Feature: Serialization
-Description: 属性将在复制中被重设为默认值，除非其被复制用于PIE会话。在PIE里复制的时候，不复制
 EPropertyFlags: CPF_NonPIEDuplicateTransient (../../Flags/EPropertyFlags/CPF_NonPIEDuplicateTransient.md)
 Status: Done
 

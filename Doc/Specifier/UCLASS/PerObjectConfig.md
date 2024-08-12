@@ -1,9 +1,9 @@
 # PerObjectConfig
 
-Type: bool
-Feature: Config
 Description: 此类的配置信息将按对象存储，在.ini文件中，每个对象都有一个分段，根据对象命名，格式为[ObjectName ClassName]。此说明符会传播到子类。指定该配置是对每个对象都单独保存。
 在ini里会把每个对象的信息当做一个section，类似于[ObjectName ClassName]。
+Feature: Config
+Type: bool
 EClassFlagsOperation: |=
 EClassFlags: CLASS_PerObjectConfig (../../Flags/EClassFlags/CLASS_PerObjectConfig.md)
 Status: Done

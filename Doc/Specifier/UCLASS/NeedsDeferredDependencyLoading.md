@@ -1,7 +1,7 @@
 # NeedsDeferredDependencyLoading
 
-Type: bool
 Feature: Blueprint
+Type: bool
 EClassFlagsOperation: |=
 EClassFlags: CLASS_NeedsDeferredDependencyLoading (../../Flags/EClassFlags/CLASS_NeedsDeferredDependencyLoading.md)
 Status: Not Used

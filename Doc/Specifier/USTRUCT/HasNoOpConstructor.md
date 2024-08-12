@@ -1,9 +1,9 @@
 # HasNoOpConstructor
 
+Description: 指定该结构拥有ForceInit的构造函数，这样在作为BP function返回值的时候，可以调用来初始化
 Type: bool
 Feature: UHT
 LimitedType: 只在NoExportTypes.h供UHT使用
-Description: 指定该结构拥有ForceInit的构造函数，这样在作为BP function返回值的时候，可以调用来初始化
 Status: Done
 
 "The 'HasNoOpConstructor' struct specifier is only valid in the NoExportTypes.h file

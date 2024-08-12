@@ -1,8 +1,8 @@
 # ShowFunctions
 
-Type: strings=(abc，"d|e"，"x|y|z")
-Feature: DetailsPanel
 Description: 在属性查看器中显示列出的类别中的所有函数。
+Feature: DetailsPanel
+Type: strings=(abc，"d|e"，"x|y|z")
 Example: ShowFunctions=(FuncName1, FuncName1, ...)
 MetaOperation: -=
 Meta: HideFunctions (../../Meta/Meta/HideFunctions.md)

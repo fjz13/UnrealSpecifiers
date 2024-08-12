@@ -1,9 +1,9 @@
 # BlueprintGetter
 
-Type: string="abc"
-Feature: Blueprint
 Description: 采用一个自定义的get函数来读取。
 如果没有设置BlueprintSetter或BlueprintReadWrite, 则会默认设置BlueprintReadOnly.
+Type: string="abc"
+Feature: Blueprint
 Example: BlueprintGetter=GetterFunctionName
 EPropertyFlagsOperation: |=
 EPropertyFlags: CPF_BlueprintReadOnly (../../Flags/EPropertyFlags/CPF_BlueprintReadOnly.md), CPF_BlueprintVisible (../../Flags/EPropertyFlags/CPF_BlueprintVisible.md)

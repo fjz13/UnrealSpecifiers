@@ -1,8 +1,8 @@
 # EarlyAccessPreview
 
-Type: bool
-Feature: Trait
 Description: 标记为早期访问阶段
+Feature: Trait
+Type: bool
 MetaOperation: =EarlyAccess
 Meta: DevelopmentStatus (../../Meta/Meta/DevelopmentStatus.md)
 Status: Done

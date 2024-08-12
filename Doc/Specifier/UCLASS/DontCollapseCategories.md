@@ -1,8 +1,8 @@
 # DontCollapseCategories
 
-Type: bool
-Feature: DetailsPanel
 Description: 使继承自基类的CollapseCatogories说明符无效。
+Feature: DetailsPanel
+Type: bool
 EClassFlagsOperation: &=~
 EClassFlags: CLASS_CollapseCategories (../../Flags/EClassFlags/CLASS_CollapseCategories.md)
 Status: Done

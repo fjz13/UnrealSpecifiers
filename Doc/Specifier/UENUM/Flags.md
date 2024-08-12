@@ -1,8 +1,8 @@
 # Flags
 
+Description: 指定作为一个标志
 Type: bool
 Feature: Trait
-Description: 指定作为一个标志
 Status: Done
 EEnumFlags: Flags (../../Flags/EEnumFlags/Flags.md)
 

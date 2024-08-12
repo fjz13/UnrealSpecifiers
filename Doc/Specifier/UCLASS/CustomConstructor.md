@@ -1,8 +1,8 @@
 # CustomConstructor
 
-Type: bool
-Feature: UHT
 Description: 阻止构造函数声明自动生成。
+Feature: UHT
+Type: bool
 Example: UMyClass_CustomConstructor(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 EClassFlagsOperation: |=
 EClassFlags: CLASS_CustomConstructor (../../Flags/EClassFlags/CLASS_CustomConstructor.md)

@@ -1,8 +1,8 @@
 # SparseClassDataType
 
-Type: string="abc"
-Feature: Trait
 Description: 让Actor的一些重复不变的数据存放在一个共同的结构里，以达到减少内容使用量的目的
+Feature: Trait
+Type: string="abc"
 Meta: SparseClassDataTypes (../../Meta/Meta/SparseClassDataTypes.md)
 Status: Done
 RelatedMeta: NoGetter (../../Meta/Meta/NoGetter.md)

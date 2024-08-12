@@ -1,9 +1,9 @@
 # MinimalAPI
 
-Type: bool
-Feature: DllExport
 Description: 最小化API，向其他模块只暴露该类的类型信息，也可以被CastTo，但是该类的函数不导出（除非使用inline），不能跨模块被调用，但蓝图依然可以正常访问。
 这个选项节省了编译时间，因为不需要暴露出所有的函数。
+Feature: DllExport
+Type: bool
 EClassFlagsOperation: |=
 EClassFlags: CLASS_MinimalAPI (../../Flags/EClassFlags/CLASS_MinimalAPI.md)
 Status: Done

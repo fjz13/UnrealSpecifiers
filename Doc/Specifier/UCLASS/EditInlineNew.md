@@ -1,8 +1,8 @@
 # EditInlineNew
 
-Type: bool
-Feature: Behavior
 Description: 指定该类的对象可以在属性编辑器里创建，并引用到一个现有的Asset上。属性上也必须先标记Instanced或ShowInnerProperties。要和属性的Instanced配合。
+Feature: Behavior
+Type: bool
 EClassFlagsOperation: |=
 EClassFlags: CLASS_EditInlineNew (../../Flags/EClassFlags/CLASS_EditInlineNew.md)
 Status: Done

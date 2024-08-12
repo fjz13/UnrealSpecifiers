@@ -1,8 +1,8 @@
 # ShowCategories
 
-Type: strings=(abc，"d|e"，"x|y|z")
-Feature: DetailsPanel
 Description: 使列出的类别的继承自基类的HideCategories说明符无效。
+Feature: DetailsPanel
+Type: strings=(abc，"d|e"，"x|y|z")
 Example: ShowCategories=(Category1, Category2, ...)
 MetaOperation: +=
 Meta: HideCategories (../../Meta/Meta/HideCategories.md)

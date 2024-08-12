@@ -1,8 +1,8 @@
 # AutoCollapseCategories
 
-Type: strings=(abc，"d|e"，"x|y|z")
-Feature: DetailsPanel
 Description: AutoCollapseCategories说明符使父类上的 AutoExpandCategories 说明符的列出类别的效果无效。
+Feature: DetailsPanel
+Type: strings=(abc，"d|e"，"x|y|z")
 Example: AutoCollapseCategories=(Category1, Category2, ...)
 MetaOperation: +=&-=
 Meta: AutoCollapseCategories (../../Meta/Meta/AutoCollapseCategories.md), AutoExpandCategories (../../Meta/Meta/AutoExpandCategories.md)

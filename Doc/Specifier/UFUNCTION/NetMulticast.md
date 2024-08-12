@@ -1,8 +1,8 @@
 # NetMulticast
 
+Description: 此函数将在服务器上本地执行，也将复制到所有客户端上，无论该Actor的 NetOwner 为何。网络间广播。
 Type: bool
 Feature: Network
-Description: 此函数将在服务器上本地执行，也将复制到所有客户端上，无论该Actor的 NetOwner 为何。网络间广播。
 Status: Done
 +=EFunctionFlags: FUNC_Net (../../Flags/EFunctionFlags/FUNC_Net.md), FUNC_NetMulticast (../../Flags/EFunctionFlags/FUNC_NetMulticast.md)
 

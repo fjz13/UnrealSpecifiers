@@ -1,8 +1,8 @@
 # BlueprintCosmetic
 
+Description: 此函数为修饰性的，无法在DS上运行。
 Type: bool
 Feature: Network
-Description: 此函数为修饰性的，无法在DS上运行。
 Status: Done
 +=EFunctionFlags: FUNC_BlueprintCosmetic (../../Flags/EFunctionFlags/FUNC_BlueprintCosmetic.md)
 

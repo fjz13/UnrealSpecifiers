@@ -1,10 +1,10 @@
 # Config
 
-Type: string="abc"
-Feature: Config
 Description: 指定配置文件的名字。默认是保存在Saved/XXX.ini的Local文件中
 把CDO的值存储在init文件中。
 指示此类可在配置文件（.ini）中存储数据。如果存在任何使用config或globalconfig说明符声明的类属性，此说明符将使这些属性存储在指定的配置文件中。此说明符会传播到所有子类并且无法使此说明符无效，但是子类可通过重新声明config说明符并提供不同的ConfigName来更改配置文件。常见的ConfigName值是“Engine”、“Editor”、“Input”和“Game”。指定该类的属性可以被保存在ini文件中。这个不可以被子类撤销，但可以重新改写ConfigName
+Feature: Config
+Type: string="abc"
 Example: Config=ConfigName
 Common ConfigName values are "Engine", "Editor", "Input", and "Game".
 Status: Done

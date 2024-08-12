@@ -1,8 +1,8 @@
 # SaveGame
 
+Description: 在SaveGame的时候，标记只序列化有SaveGame标记的属性，而不序列化别的属性。
 Type: bool
 Feature: Serialization
-Description: 在SaveGame的时候，标记只序列化有SaveGame标记的属性，而不序列化别的属性。
 Status: Done
 
 在SaveGame的时候，标记只序列化有SaveGame标记的属性，而不序列化别的属性。特别的标识哪些属性是用于存档保存的。

@@ -1,8 +1,8 @@
 # AutoExpandCategories
 
-Type: strings=(abc，"d|e"，"x|y|z")
-Feature: DetailsPanel
 Description: 为此类的对象指定应自动在虚幻编辑器属性窗口中展开的一个或多个类别。要自动展开未使用类别声明的变量，请使用声明变量的类的名称。
+Feature: DetailsPanel
+Type: strings=(abc，"d|e"，"x|y|z")
 Example: AutoExpandCategories=(Category1, Category2, ...)
 MetaOperation: +=&-=
 Meta: AutoCollapseCategories (../../Meta/Meta/AutoCollapseCategories.md), AutoExpandCategories (../../Meta/Meta/AutoExpandCategories.md)
