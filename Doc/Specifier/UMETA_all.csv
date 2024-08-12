@@ -1,4 +1,0 @@
-﻿Name,Status,Type,Feature,LimitedType,Description,Example,EPropertyFlagsOperation,EPropertyFlags,MetaOperation,Meta,Code
-DisplayName,Done,"string=""abc""",Blueprint,,改变枚举的值的显示名称,,,,=XXX,DisplayName (../Meta/Meta/DisplayName.csv),
-Hidden,Not started,,,,隐藏该枚举值,,,,,,
-ToolTip,Not started,,,,,,,,,,
