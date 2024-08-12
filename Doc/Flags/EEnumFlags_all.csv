@@ -1,0 +1,3 @@
+﻿Name,Value,Description,Feature,UENUM,UENUM 1
+Flags,0x00000001,Whether the UEnum represents a set of flags,Trait,,Flags (Specifier/UENUM/Flags.md)
+NewerVersionExists,0x00000002,"If set, this UEnum has been replaced by a newer version",Trait,,

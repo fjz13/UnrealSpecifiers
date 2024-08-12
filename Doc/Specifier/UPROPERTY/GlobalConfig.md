@@ -1,0 +1,8 @@
+# GlobalConfig
+
+Type: bool
+Feature: Config
+Description: 和Config一样，只不过不能在子类中被修改该标记。不能设置默认值。如果没别的标记，则默认为 BlueprintReadOnly
+EPropertyFlagsOperation: |=
+EPropertyFlags: CPF_GlobalConfig (../../Flags/EPropertyFlags/CPF_GlobalConfig.md)
+Status: Done

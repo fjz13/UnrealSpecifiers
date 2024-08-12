@@ -1,0 +1,3 @@
+﻿Name,Status,Type,Feature,LimitedType,Description,Example,EEnumFlagsOperation,EEnumFlags,MetaOperation,Meta,Code
+Flags,Done,bool,Trait,,指定作为一个标志,,,Flags (../Flags/EEnumFlags/Flags.csv),,,
+BlueprintType,Done,bool,Blueprint,,可以作为蓝图变量,,,,+=,BlueprintType (../Meta/Meta/BlueprintType.csv),

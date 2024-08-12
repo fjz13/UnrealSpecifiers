@@ -1,0 +1,52 @@
+﻿Name,Value,Description,Feature,Related to UPARAM (1) (EPropertyFlags),UPARAM,UPROPERTY
+CPF_Edit,0x0000000000000001,Property is user-settable in the editor.,Editor,,,"EditAnywhere (Specifier/UPROPERTY/EditAnywhere.md), EditDefaultsOnly (Specifier/UPROPERTY/EditDefaultsOnly.md), EditInstanceOnly (Specifier/UPROPERTY/EditInstanceOnly.md), VisibleAnywhere (Specifier/UPROPERTY/VisibleAnywhere.md), VisibleDefaultsOnly (Specifier/UPROPERTY/VisibleDefaultsOnly.md), VisibleInstanceOnly (Specifier/UPROPERTY/VisibleInstanceOnly.md), Interp (Specifier/UPROPERTY/Interp.md)"
+CPF_ConstParm,0x0000000000000002,This is a constant function parameter,Trait,,Const (Specifier/UPARAM/Const.md),
+CPF_BlueprintVisible,0x0000000000000004,This property can be read by blueprint code,Blueprint,,,"BlueprintReadWrite (Specifier/UPROPERTY/BlueprintReadWrite.md), BlueprintReadOnly (Specifier/UPROPERTY/BlueprintReadOnly.md), BlueprintSetter (Specifier/UPROPERTY/BlueprintSetter.md), BlueprintGetter (Specifier/UPROPERTY/BlueprintGetter.md), Interp (Specifier/UPROPERTY/Interp.md)"
+CPF_ExportObject,0x0000000000000008,Object can be exported with actor.,Serialization,,,"Instanced (Specifier/UPROPERTY/Instanced.md), Export (Specifier/UPROPERTY/Export.md)"
+CPF_BlueprintReadOnly,0x0000000000000010,This property cannot be modified by blueprint code,Blueprint,,,"BlueprintReadOnly (Specifier/UPROPERTY/BlueprintReadOnly.md), BlueprintGetter (Specifier/UPROPERTY/BlueprintGetter.md)"
+CPF_Net,0x0000000000000020,Property is relevant to network replication.,Network,,,"Replicated (Specifier/UPROPERTY/Replicated.md), ReplicatedUsing (Specifier/UPROPERTY/ReplicatedUsing.md)"
+CPF_EditFixedSize,0x0000000000000040,"Indicates that elements of an array can be modified, but its size cannot be changed.",Editor,,,EditFixedSize (Specifier/UPROPERTY/EditFixedSize.md)
+CPF_Parm,0x0000000000000080,Function/When call parameter.,Function,,,
+CPF_OutParm,0x0000000000000100,Value is copied out after function call.,Function,,,
+CPF_ZeroConstructor,0x0000000000000200,memset is fine for construction,Trait,,,
+CPF_ReturnParm,0x0000000000000400,Return value.,Function,,,
+CPF_DisableEditOnTemplate,0x0000000000000800,Disable editing of this property on an archetype/sub-blueprint,Editor,,,"EditInstanceOnly (Specifier/UPROPERTY/EditInstanceOnly.md), VisibleInstanceOnly (Specifier/UPROPERTY/VisibleInstanceOnly.md)"
+CPF_NonNullable,0x0000000000001000,Object property can never be null,Trait,,,
+CPF_Transient,0x0000000000002000,"Property is transient: shouldn't be saved or loaded, except for Blueprint CDOs.",Serialization,,,
+CPF_Config,0x0000000000004000,Property should be loaded/saved as permanent profile.,Config,,,Config (Specifier/UPROPERTY/Config.md)
+CPF_RequiredParm,0x0000000000008000,Parameter must be linked explicitly in blueprint. Leaving the parameter out results in a compile error.,Editor,,Required (Specifier/UPARAM/Required.md),
+CPF_DisableEditOnInstance,0x0000000000010000,Disable editing on an instance of this class,Editor,,,"EditDefaultsOnly (Specifier/UPROPERTY/EditDefaultsOnly.md), VisibleDefaultsOnly (Specifier/UPROPERTY/VisibleDefaultsOnly.md)"
+CPF_EditConst,0x0000000000020000,Property is uneditable in the editor.,Editor,,,VisibleAnywhere (Specifier/UPROPERTY/VisibleAnywhere.md)
+CPF_GlobalConfig,0x0000000000040000,"Load config from base class, not subclass.",Config,,,GlobalConfig (Specifier/UPROPERTY/GlobalConfig.md)
+CPF_InstancedReference,0x0000000000080000,Property is a component references.,Trait,,,Instanced (Specifier/UPROPERTY/Instanced.md)
+CPF_DuplicateTransient,0x0000000000200000,"Property should always be reset to the default value during any type of duplication (copy/paste, binary duplication, etc.)",Serialization,,,
+CPF_SaveGame,0x0000000001000000,"Property should be serialized for save games, this is only checked for game-specific archives with ArIsSaveGame",Serialization,,,
+CPF_NoClear,0x0000000002000000,Hide clear button.,Editor,,,NoClear (Specifier/UPROPERTY/NoClear.md)
+CPF_ReferenceParm,0x0000000008000000,Value is passed by reference; CPF_OutParam and CPF_Param should also be set.,Function,,ref (Specifier/UPARAM/ref.md),
+CPF_BlueprintAssignable,0x0000000010000000,MC Delegates only.  Property should be exposed for assigning in blueprint code,Blueprint,,,BlueprintAssignable (Specifier/UPROPERTY/BlueprintAssignable.md)
+CPF_Deprecated,0x0000000020000000,"Property is deprecated.  Read it from an archive, but don't save it.",Trait,,,
+CPF_IsPlainOldData,0x0000000040000000,"If this is set, then the property can be memcopied instead of CopyCompleteValue / CopySingleValue",Trait,,,
+CPF_RepSkip,0x0000000080000000,Not replicated. For non replicated properties in replicated structs,Network,,NotReplicated (Specifier/UPARAM/NotReplicated.md),NotReplicated (Specifier/UPROPERTY/NotReplicated.md)
+CPF_RepNotify,0x0000000100000000,Notify actors when a property is replicated,Network,,,ReplicatedUsing (Specifier/UPROPERTY/ReplicatedUsing.md)
+CPF_Interp,0x0000000200000000,interpolatable property for use with cinematics,Editor,,,Interp (Specifier/UPROPERTY/Interp.md)
+CPF_NonTransactional,0x0000000400000000,Property isn't transacted,Editor,,,NonTransactional (Specifier/UPROPERTY/NonTransactional.md)
+CPF_EditorOnly,0x0000000800000000,Property should only be loaded in the editor,Editor,,,
+CPF_NoDestructor,0x0000001000000000,No destructor,Trait,,,
+CPF_AutoWeak,0x0000004000000000,"Only used for weak pointers, means the export type is autoweak",Trait,,,
+CPF_ContainsInstancedReference,0x0000008000000000,Property contains component references.,Trait,,,
+CPF_AssetRegistrySearchable,0x0000010000000000,asset instances will add properties with this flag to the asset registry automatically,Editor,,,AssetRegistrySearchable (Specifier/UPROPERTY/AssetRegistrySearchable.md)
+CPF_SimpleDisplay,0x0000020000000000,The property is visible by default in the editor details view,Editor,,,SimpleDisplay (Specifier/UPROPERTY/SimpleDisplay.md)
+CPF_AdvancedDisplay,0x0000040000000000,The property is advanced and not visible by default in the editor details view,Editor,,,AdvancedDisplay (Specifier/UPROPERTY/AdvancedDisplay.md)
+CPF_Protected,0x0000080000000000,property is protected from the perspective of script,Editor,,,
+CPF_BlueprintCallable,0x0000100000000000,MC Delegates only.  Property should be exposed for calling in blueprint code,Blueprint,,,BlueprintCallable (Specifier/UPROPERTY/BlueprintCallable.md)
+CPF_BlueprintAuthorityOnly,0x0000200000000000,MC Delegates only.  This delegate accepts (only in blueprint) only events with BlueprintAuthorityOnly.,Network,,,BlueprintAuthorityOnly (Specifier/UPROPERTY/BlueprintAuthorityOnly.md)
+CPF_TextExportTransient,0x0000400000000000,Property shouldn't be exported to text format (e.g. copy/paste),Serialization,,,TextExportTransient (Specifier/UPROPERTY/TextExportTransient.md)
+CPF_NonPIEDuplicateTransient,0x0000800000000000,Property should only be copied in PIE,Serialization,,,NonPIEDuplicateTransient (Specifier/UPROPERTY/NonPIEDuplicateTransient.md)
+CPF_ExposeOnSpawn,0x0001000000000000,Property is exposed on spawn,Trait,,,
+CPF_PersistentInstance,0x0002000000000000,A object referenced by the property is duplicated like a component. (Each actor should have an own instance.),Serialization,,,Instanced (Specifier/UPROPERTY/Instanced.md)
+CPF_UObjectWrapper,0x0004000000000000,"Property was parsed as a wrapper class like TSubclassOf<T>, FScriptInterface etc., rather than a USomething*",Trait,,,
+CPF_HasGetValueTypeHash,0x0008000000000000,This property can generate a meaningful hash value.,Trait,,,
+CPF_NativeAccessSpecifierPublic,0x0010000000000000,Public native access specifier,Trait,,,
+CPF_NativeAccessSpecifierProtected,0x0020000000000000,Protected native access specifier,Trait,,,
+CPF_NativeAccessSpecifierPrivate,0x0040000000000000,Private native access specifier,Trait,,,
+CPF_SkipSerialization,0x0080000000000000,"Property shouldn't be serialized, can still be exported to text",Serialization,,,SkipSerialization (Specifier/UPROPERTY/SkipSerialization.md)
