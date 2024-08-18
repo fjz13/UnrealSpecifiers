@@ -5,4 +5,4 @@ Description: 类已经被构造完成
 Feature: LoadConstruct
 Status: Not started
 Trait: DefaultC++
-UCLASS: UCLASS() (../../Specifier/UCLASS/UCLASS().md), 不写UCLASS() (../../Specifier/UCLASS/%E4%B8%8D%E5%86%99UCLASS().md)
+UCLASS: UCLASS() (../../Specifier/UCLASS/UCLASS().md)

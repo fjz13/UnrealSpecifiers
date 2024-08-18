@@ -1,6 +1,6 @@
-﻿Name,Status,Type,Feature,LimitedType,Description,Example,EPropertyFlagsOperation,EPropertyFlags,MetaOperation,Meta,Code
-DisplayName,Done,"string=""abc""","Blueprint, Parameter",,更改函数参数在蓝图节点上的显示名字,"UPARAM(DisplayName=""X (Roll)"") float Roll",,,=XXX,DisplayName (../Meta/Meta/DisplayName.csv),
-ref,Done,bool,"Blueprint, Parameter",,使得函数的参数变成引用类型,,,CPF_ReferenceParm (../Flags/EPropertyFlags/CPF_ReferenceParm.csv),,,
-Const,Done,bool,"Blueprint, Parameter",,不可更改的参数,,|=,CPF_ConstParm (../Flags/EPropertyFlags/CPF_ConstParm.csv),,NativeConst (../Meta/Meta/NativeConst.csv),
-Required,Done,bool,"Blueprint, Parameter",,指定函数的参数节点必须连接提供一个值,,|=,CPF_RequiredParm (../Flags/EPropertyFlags/CPF_RequiredParm.csv),,,
-NotReplicated,Invalid,,"Blueprint, Network, Parameter",,,,|=,CPF_RepSkip (../Flags/EPropertyFlags/CPF_RepSkip.csv),,,
+﻿Name,功能描述,引擎模块,常用程度
+DisplayName,更改函数参数在蓝图节点上的显示名字,"Blueprint, Parameter",5
+ref,使得函数的参数变成引用类型,"Blueprint, Parameter",5
+Const,指定该函数参数不可更改,"Blueprint, Parameter",1
+Required,指定函数的参数节点必须连接提供一个值,"Blueprint, Parameter",2
+NotReplicated,,"Blueprint, Network, Parameter",

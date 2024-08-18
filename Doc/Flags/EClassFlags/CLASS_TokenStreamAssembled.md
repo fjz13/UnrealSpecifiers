@@ -5,4 +5,4 @@ Description: 指定父类的TokenStream已经被成功合并到自身类上
 Feature: LoadConstruct
 Status: Not started
 Trait: DefaultC++
-UCLASS: UCLASS() (../../Specifier/UCLASS/UCLASS().md), 不写UCLASS() (../../Specifier/UCLASS/%E4%B8%8D%E5%86%99UCLASS().md)
+UCLASS: UCLASS() (../../Specifier/UCLASS/UCLASS().md)

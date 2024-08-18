@@ -3,4 +3,4 @@
 Value: 0x00000800
 Description: Event function.
 Feature: Trait
-UFUNCTION/UDELEGATE: BlueprintImplementableEvent (../../Specifier/UFUNCTIONea27c93c0d76/BlueprintImplementableEvent.md), BlueprintNativeEvent (../../Specifier/UFUNCTIONea27c93c0d76/BlueprintNativeEvent.md), ServiceRequest (../../Specifier/UFUNCTIONea27c93c0d76/ServiceRequest.md), ServiceResponse (../../Specifier/UFUNCTIONea27c93c0d76/ServiceResponse.md)
+UFUNCTION/UDELEGATE: BlueprintImplementableEvent (../../Specifier/UFUNCTION/BlueprintImplementableEvent.md), BlueprintNativeEvent (../../Specifier/UFUNCTION/BlueprintNativeEvent.md), ServiceRequest (../../Specifier/UFUNCTION/ServiceRequest.md), ServiceResponse (../../Specifier/UFUNCTION/ServiceResponse.md)
