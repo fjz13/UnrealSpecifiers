@@ -1,18 +1,17 @@
 # Abstract
 
-功能描述: 指定此类为抽象基类。可被继承，但不可生成对象。
-引擎模块: Blueprint
-元数据类型: bool
-EClassFlagsOperation: |=
-EClassFlags: CLASS_Abstract (../../Flags/EClassFlags/CLASS_Abstract.md)
-Status: Done
-常用程度: 5
+- **功能描述:** 指定此类为抽象基类。可被继承，但不可生成对象。
+- **引擎模块:** Blueprint
+- **元数据类型:** bool
+- EClassFlagsOperation: |=
+- EClassFlags: CLASS_Abstract (../../Flags/EClassFlags/CLASS_Abstract.md)
+- **常用程度:** ★★★★★
 
 指定此类为抽象基类。可被继承，但不可生成对象。
 
 一般是用在XXXBase基类。
 
-示例代码：
+## 示例代码：
 
 ```cpp
 /*
@@ -28,13 +27,13 @@ class INSIDER_API UMyClass_Abstract :public UObject
 UMyClass_Abstract* obj=NewObject<UMyClass_Abstract>();
 ```
 
-示例效果：
+## 示例效果：
 
 在蓝图中的ConstructObject不会出现该类。同时在C++中NewObject也会报错。
 
-![image.png](Abstract/image.png)
+![image.png](image.png)
 
-原理：
+## 原理：
 
 在NewObject的时候会进行Abstract的判断。
 
