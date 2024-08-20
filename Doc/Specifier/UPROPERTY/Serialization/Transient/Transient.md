@@ -1,12 +1,10 @@
 # Transient
 
-功能描述: 不序列化该属性，该属性初始化时候会被0填充。
-元数据类型: bool
-引擎模块: Serialization
-EPropertyFlagsOperation: |=
-EPropertyFlags: CPF_Transient (../../Flags/EPropertyFlags/CPF_Transient.md)
-Status: Done
-常用程度: 5
+- **功能描述：**不序列化该属性，该属性初始化时候会被0填充。
+- **元数据类型：**bool
+- **引擎模块：**Serialization
+- **作用机制：**在PropertyFlags中加入[CPF_Transient](../../../../Flags/EPropertyFlags/CPF_Transient.md)
+- **常用程度：★★★★★**
 
 序列化的时候略过该属性，用0来填充默认值。
 
@@ -14,7 +12,7 @@ Status: Done
 
 一般用于一些临时中间变量或计算后的结果变量。
 
-示例代码：
+## 示例代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -83,9 +81,9 @@ End Object
 
 可见obj2的MyInt_Transient 属性并没有从序列化中获得新值456.
 
-![Untitled](Transient/Untitled.png)
+![Untitled](Untitled.png)
 
-原理代码：
+## 原理代码：
 
 判断CPF_Transient的生效，只有在IsPersistent()的时候，并且不是在保存CDO。SetIsPersistent()的调用在很多地方都出现，比如在MemoryReader/MemoryWriter都是IsPersistent。
 
@@ -211,4 +209,4 @@ bool FProperty::ShouldPort( uint32 PortFlags/*=0*/ ) const
 
 因为不序列Transient属性，因此该属性修改值也并不会被保存起来。打开Asset的时候依然会是默认值，也并不会被复制。
 
-![Untitled](Transient/Untitled%201.png)
+![Untitled](Untitled%201.png)

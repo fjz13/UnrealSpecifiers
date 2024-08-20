@@ -1,18 +1,17 @@
 # BlueprintReadWrite
 
-功能描述: 可从蓝图读取或写入此属性。
-元数据类型: bool
-引擎模块: Blueprint
-EPropertyFlagsOperation: |=
-EPropertyFlags: CPF_BlueprintVisible (../../Flags/EPropertyFlags/CPF_BlueprintVisible.md)
-Status: Done
-常用程度: 5
+- **功能描述：**可从蓝图读取或写入此属性。
+
+- **元数据类型：**bool
+- **引擎模块：**Blueprint
+- **作用机制：**在PropertyFlags中加入[CPF_BlueprintVisible](../../../../Flags/EPropertyFlags/CPF_BlueprintVisible.md)
+- **常用程度：**★★★★★
 
 可从蓝图读取或写入此属性。
 
 此说明符与 BlueprintReadOnly 说明符不兼容。
 
-示例代码：
+## 示例代码：
 
 ```cpp
 public:
@@ -24,13 +23,13 @@ public:
 		int32 MyInt_ReadOnly = 123;
 ```
 
-示例效果：
+## 示例效果：
 
 蓝图中可读写：
 
-![Untitled](BlueprintReadWrite/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 如果有CPF_Edit | CPF_BlueprintVisible | CPF_BlueprintAssignable之一，则可以Get属性。
 

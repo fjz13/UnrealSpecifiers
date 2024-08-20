@@ -1,18 +1,16 @@
 # Experimental
 
-功能描述: 标明该类是试验性版本，当前没有文档描述，之后有可能废弃掉。
-引擎模块: Development
-元数据类型: bool
-MetaOperation: =Experimental
-Meta: DevelopmentStatus (../../Meta/Meta/DevelopmentStatus.md)
-Status: Done
-常用程度: 3
+- **功能描述：** 标明该类是试验性版本，当前没有文档描述，之后有可能废弃掉。
+- **引擎模块：**Development
+- **元数据类型：**bool
+- **作用机制：**在Meta中添加[DevelopmentStatus](../../../../Meta/Development/DevelopmentStatus.md)，将类标记为Experimental
+- **常用程度：★★★**
 
 标明该类是试验性版本，当前没有文档描述，之后有可能废弃掉。
 
 源码里的例子是Paper2D的类。这个标记会在类的元数据上加上{ "DevelopmentStatus", "Experimental" }。
 
-示例代码：
+## 示例代码：
 
 ```cpp
 /*
@@ -30,6 +28,6 @@ public:
 };
 ```
 
-示例效果：
+## 示例效果：
 
-![Untitled](Experimental/Untitled.png)
+![Untitled](Untitled.png)

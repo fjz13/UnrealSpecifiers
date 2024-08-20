@@ -1,19 +1,19 @@
 # NetMulticast
 
-功能描述: 定义一个多播RPC函数在服务器和客户端上都执行。对应的实现函数会添加_Implementation后缀。
-元数据类型: bool
-引擎模块: Network
-Status: Done
-+=EFunctionFlags: FUNC_Net (../../Flags/EFunctionFlags/FUNC_Net.md), FUNC_NetMulticast (../../Flags/EFunctionFlags/FUNC_NetMulticast.md)
-常用程度: 5
+- **功能描述：**定义一个多播RPC函数在服务器和客户端上都执行。对应的实现函数会添加_Implementation后缀。
+
+- **元数据类型：**bool
+- **引擎模块：**Network
+- **作用机制：**在FunctionFlags中加入[FUNC_Net](../../../../Flags/EFunctionFlags/FUNC_Net.md)、[FUNC_NetMulticast](../../../../Flags/EFunctionFlags/FUNC_NetMulticast.md)
+- **常用程度：★★★★★**
 
 定义一个多播RPC函数在服务器和客户端上都执行。对应的实现函数会添加_Implementation后缀。
 
 RPC执行的规则，参考文档：[https://docs.unrealengine.com/4.27/zh-CN/InteractiveExperiences/Networking/Actors/RPCs/](https://docs.unrealengine.com/4.27/zh-CN/InteractiveExperiences/Networking/Actors/RPCs/)
 
-![Untitled](Client/Untitled.png)
+![Untitled](Untitled.png)
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -35,9 +35,9 @@ void AMyFunction_Network::MyFunc_NetMulticast_Implementation()
 
 测试蓝图：PIE模式，一个ListenServer+2Client
 
-![Untitled](NetMulticast/Untitled.png)
+![Untitled](Untitled.png)
 
-测试输出结果：
+## 测试输出结果：
 
 ```cpp
 LogInsider: Display: 46715a00    MyFunc_NetMulticast_Implementation  BP_Network_C_1  NM_ListenServer Local:ROLE_Authority    Remote:ROLE_SimulatedProxy

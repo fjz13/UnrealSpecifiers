@@ -1,14 +1,15 @@
 # SparseClassDataType
 
-功能描述: 让Actor的一些重复不变的数据存放在一个共同的结构里，以达到减少内容使用量的目的
-引擎模块: Blueprint
-元数据类型: string="abc"
-Meta: SparseClassDataTypes (../../Meta/Meta/SparseClassDataTypes.md)
-Status: Done
-RelatedMeta: NoGetter (../../Meta/Meta/NoGetter.md)
-常用程度: 3
+- **功能描述：**让Actor的一些重复不变的数据存放在一个共同的结构里，以达到减少内容使用量的目的
+- **引擎模块：**Blueprint
+- **元数据类型：**string="abc"
+- **作用机制：**在Meta中增加[SparseClassDataTypes](../../../../Meta/Blueprint/SparseClassDataTypes.md)
+- **关联项：**[NoGetter](../../../../Meta/SparseDataType/NoGetter/NoGetter.md)
+- **常用程度：**★★★
 
-这是个重构和性能优化的点。在使用SparseClassDataType的时候，分为两种情况，一是以前的Actor想利用这个特性来优化，二是新创建的Actor一开始就想使用这个特性。以下分别介绍使用方法：
+这是个重构和性能优化的点。在使用SparseClassDataType的时候，分为两种情况，一是以前的Actor想利用这个特性来优化，二是新创建的Actor一开始就想使用这个特性。
+
+## 示例用法：
 
 分为两部分：
 
@@ -217,6 +218,8 @@ public:
 
 这样就达到了最终的效果，这个效果也对新的Actor要采用冗余属性的结果也是一样的。注意此时，在BP里是依然可以访问BlueprintReadOnly属性的，因为UHT和BP系统已经帮我们加了一层访问方便的控制。
 
+## 示例效果：
+
 UHT会帮我们生成C++访问函数：
 
 ```cpp
@@ -253,8 +256,8 @@ const FString& GetMyString_EditDefault_ReadOnly() const \
 
 在BP中依然可以访问：
 
-![Untitled](SparseClassDataType/Untitled.png)
+![Untitled](Untitled.png)
 
 在Class Defaults里也可以改变值：
 
-![Untitled](SparseClassDataType/Untitled%201.png)
+![Untitled](Untitled%201.png)

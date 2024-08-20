@@ -1,20 +1,19 @@
 # ShowFunctions
 
-功能描述: 在子类的函数覆盖列表里重新打开某些函数。
-引擎模块: Blueprint
-元数据类型: strings=(abc，"d|e"，"x|y|z")
-Example: ShowFunctions=(FuncName1, FuncName1, ...)
-MetaOperation: -=
-Meta: HideFunctions (../../Meta/Meta/HideFunctions.md)
-Status: Done
-Parent item: HideFunctions (HideFunctions.md)
-常用程度: 2
+- **功能描述：** 在子类的函数覆盖列表里重新打开某些函数。
+- **引擎模块：**Blueprint
+- **元数据类型：**strings=(abc，"d|e"，"x|y|z")
+- Example: ShowFunctions=(FuncName1, FuncName1, ...)
+- MetaOperation: -=
+- Meta: HideFunctions (../../Meta/Meta/HideFunctions.md)
+- **元数据类型：**HideFunctions (HideFunctions.md)
+- **常用程度：★★**
 
 在子类的函数覆盖列表里重新打开某些函数。
 
 测试代码和效果图见HideFunctions。
 
-原理：
+## 原理：
 
 UHT中的代码，可见ShowFunctions的作用就是去除掉之前设置的HideFunctions。
 

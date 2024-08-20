@@ -1,14 +1,11 @@
 # Config
 
-功能描述: 指定配置文件的名字，把该对象的值保存到ini配置文件中。
-引擎模块: Config
-元数据类型: string="abc"
-Example: Config=ConfigName
-Common ConfigName values are "Engine", "Editor", "Input", and "Game".
-Status: Done
-Code: FName UClass::ClassConfigName
-Sub-item: PerObjectConfig (PerObjectConfig.md), ConfigDoNotCheckDefaults (ConfigDoNotCheckDefaults.md), DefaultConfig (DefaultConfig.md), GlobalUserConfig (GlobalUserConfig.md), ProjectUserConfig (ProjectUserConfig.md)
-常用程度: 5
+- **功能描述：** 指定配置文件的名字，把该对象的值保存到ini配置文件中。
+- **引擎模块：**Config
+- **元数据类型：**string="abc"
+- **作用机制：**Config文件名存在FName UClass::ClassConfigName这个参数里
+- **关联项：**[PerObjectConfig](PerObjectConfig.md)、[ConfigDoNotCheckDefaults](ConfigDoNotCheckDefaults.md)、[DefaultConfig](DefaultConfig/DefaultConfig.md)、[GlobalUserConfig](GlobalUserConfig/GlobalUserConfig.md)、[ProjectUserConfig](ProjectUserConfig/ProjectUserConfig.md)
+- **常用程度：★★★★★**
 
 指定配置文件的名字，把该对象的值保存到ini配置文件中。
 
@@ -20,7 +17,7 @@ Sub-item: PerObjectConfig (PerObjectConfig.md), ConfigDoNotCheckDefaults (Config
 - 可以自己手动调用SaveConfig和LoadConfig来读写配置值。CDO的值会被引擎自己的从配置中读取而更新。
 - 想保存到配置文件里的属性要相应的用UPROPERTY(config)修饰。
 
-示例代码：
+## 示例代码：
 
 ```cpp
 UCLASS(Config = Game)
@@ -44,7 +41,7 @@ testObject->SaveConfig();
 MyPropertyWithConfig=123
 ```
 
-原理：
+## 原理：
 
 在引擎启动的时候UObjectLoadAllCompiledInDefaultProperties会加载所有Class的CDO，在多个调用链条之后会自动的调用CDO的LoadConfig来初始化CDO的值。
 

@@ -1,18 +1,16 @@
 # HideCategories
 
-功能描述: 在类的ClassDefaults属性面板里隐藏某些Category的属性。
-引擎模块: Category
-元数据类型: strings=(abc，"d|e"，"x|y|z")
-Example: HideCategories=(Category1, Category2, ...)
-Status: Done
-Sub-item: ShowCategories (ShowCategories.md)
-常用程度: 4
+- **功能描述：** 在类的ClassDefaults属性面板里隐藏某些Category的属性。
+- **引擎模块：**Category
+- **元数据类型：**strings=(abc，"d|e"，"x|y|z")
+- **关联项：**[ShowCategories](../ShowCategories/ShowCategories.md)
+- **常用程度：★★★★**
 
 在类的ClassDefaults属性面板里隐藏某些Category的属性。
 
 注意，要先在类里定义属性然后设置它的Category。HideCategories的信息会被UHT分析，并保存到UClass的元数据里去。HideCategories的信息可以被子类继承下来。
 
-示例代码：
+## 示例代码：
 
 ```cpp
 UCLASS(Blueprintable, hideCategories = MyGroup1)
@@ -51,13 +49,13 @@ public:
 
 ```
 
-示例效果：
+## 示例效果：
 
 注意这里，单独的MyGroup2和MyGroup3也都没有显示。所以判断的标准只要目录符合某个目录名字匹配就行。
 
-![Untitled](HideCategories/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 在GetClassHideCategories中检查ClassHideCategoriesMetaKey元数据。
 

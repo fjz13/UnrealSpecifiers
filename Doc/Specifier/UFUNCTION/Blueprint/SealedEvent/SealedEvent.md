@@ -1,16 +1,16 @@
 # SealedEvent
 
-功能描述: 无法在子类中覆盖此函数。SealedEvent关键词只能用于事件。对于非事件函数，请将它们声明为static或final，以密封它们。
-元数据类型: bool
-引擎模块: Behavior
-Status: Invalid
-+=EFunctionFlags: FUNC_Final (../../Flags/EFunctionFlags/FUNC_Final.md)
+- **功能描述：**无法在子类中覆盖此函数。SealedEvent关键词只能用于事件。对于非事件函数，请将它们声明为static或final，以密封它们。
+
+- **元数据类型：**bool
+- **引擎模块：**Behavior
+- **作用机制：**在FunctionFlags中添加[FUNC_Final](../../../../Flags/EFunctionFlags/FUNC_Final.md)
 
 在源码里搜索：发现都是用在网络的函数上
 
-![Untitled](SealedEvent/Untitled.png)
+![Untitled](Untitled.png)
 
-UHT中的处理：
+## UHT中的处理：
 
 ```cpp
 //先识别符号
@@ -44,7 +44,7 @@ if (FunctionExportFlags.HasAnyFlags(UhtFunctionExportFlags.SealedEvent) && Funct
 
 ```
 
-测试代码：
+## 测试代码：
 
 ```cpp
 //Error: "SealedEvent may only be used on events"

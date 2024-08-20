@@ -1,17 +1,14 @@
 # ClassGroup
 
-功能描述: 指定组件在Actor的AddComponent面板里的分组，以及在蓝图右键菜单中的分组。
-引擎模块: Category, Editor
-元数据类型: string="a|b|c"
-Example: ClassGroup=GroupName
-MetaOperation: +=
-Meta: ClassGroupNames (../../Meta/Meta/ClassGroupNames.md)
-Status: Done
-常用程度: 3
+- **功能描述：** 指定组件在Actor的AddComponent面板里的分组，以及在蓝图右键菜单中的分组。
+- **引擎模块：**Category, Editor
+- **元数据类型：**string="a|b|c"
+- **作用机制：**在Meta中增加[ClassGroupNames](../../../../Meta/DetailsPanel/ClassGroupNames.md)
+- **常用程度：★★★**
 
 指定组件在Actor的AddComponent面板里的分组，以及在蓝图右键菜单中的分组。
 
-示例代码：
+## 示例代码：
 
 ```cpp
 
@@ -27,17 +24,17 @@ public:
 };
 ```
 
-示例效果：
+## 示例效果：
 
 在添加组件的时候：
 
-![Untitled](ClassGroup/Untitled.png)
+![Untitled](Untitled.png)
 
 在蓝图中右键AddComponent，该测试只对带有BlueprintSpawnableComponent的UActorComponent起作用，因为只有BlueprintSpawnableComponent才可在蓝图中动态添加组件。
 
-![Untitled](ClassGroup/Untitled%201.png)
+![Untitled](Untitled%201.png)
 
-原理：
+## 原理：
 
 Metadata中的ClassGroupNames，被使用方法是UClass::GetClassGroupNames，这个又是在BlueprintComponentNodeSpawner中被使用。还有一个使用地方是ComponentTypeRegistry.cpp中，也是在判断Component。因此这个ClassGroup确实是只被Component使用的。
 

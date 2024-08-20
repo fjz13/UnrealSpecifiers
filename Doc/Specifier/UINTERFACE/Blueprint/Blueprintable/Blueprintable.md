@@ -1,15 +1,15 @@
 # Blueprintable
 
-功能描述: 可以在蓝图中实现
-元数据类型: bool
-引擎模块: Blueprint
-MetaOperation: +=
-Meta: IsBlueprintBase (../../Meta/Meta/IsBlueprintBase.md), BlueprintType (../../Meta/Meta/BlueprintType.md)
-Status: Done
-Sub-item: NotBlueprintable (NotBlueprintable.md)
-常用程度: 5
+- **功能描述：** 可以在蓝图中实现
+- **元数据类型：**bool
+- **引擎模块：**Blueprint
+- **作用机制：**在Meta中加入[IsBlueprintBase](../../../../Meta/Blueprint/IsBlueprintBase.md), [BlueprintType](../../../../Meta/Blueprint/BlueprintType.md)
+- **关联项：**[NotBlueprintable](../NotBlueprintable/NotBlueprintable.md)
+- **常用程度：★★★★★**
 
 是否可以在蓝图中实现。
+
+## 示例代码：
 
 ```cpp
 UINTERFACE(Blueprintable,MinimalAPI)
@@ -48,6 +48,8 @@ public:
 };
 ```
 
-示例效果：在蓝图中测试，发现UMyInterface_NotBlueprintable并不能找到。
+## 示例效果：
 
-![Untitled](Blueprintable/Untitled.png)
+在蓝图中测试，发现UMyInterface_NotBlueprintable并不能找到。
+
+![Untitled](Untitled.png)

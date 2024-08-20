@@ -1,10 +1,9 @@
 # NoExport
 
-功能描述: 指定UHT不要用来自动生成注册的代码，而只是进行词法分析提取元数据。
-元数据类型: bool
-引擎模块: UHT
-Status: Done
-常用程度: 1
+- **功能描述：**指定UHT不要用来自动生成注册的代码，而只是进行词法分析提取元数据。
+- **元数据类型：**bool
+- **引擎模块：**UHT
+- **常用程度：★**
 
 指定UHT不要用来自动生成注册的代码，而只是进行词法分析提取元数据。
 
@@ -113,9 +112,9 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 蓝图里的效果：依然可以当作变量。
 
-![Untitled](NoExport/Untitled.png)
+![Untitled](Untitled.png)
 
-![Untitled](NoExport/Untitled%201.png)
+![Untitled](Untitled%201.png)
 
 加上noexport的区别是不能用StaticStruct和没了TCppStructOps，不能做一些优化。其他还是可以正常使用，就像FVector一样。
 

@@ -1,10 +1,9 @@
 # MinimalAPI
 
-功能描述: 指定该UInterface对象不导出到别的模块
-元数据类型: bool
-引擎模块: DllExport
-Status: Done
-常用程度: 1
+- **功能描述：** 指定该UInterface对象不导出到别的模块
+- **元数据类型：**bool
+- **引擎模块：**DllExport
+- **常用程度：★**
 
 可以参照UCLASS里的MinimalAPI的解释。
 

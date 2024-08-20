@@ -1,17 +1,16 @@
 # FieldNotify
 
-功能描述: 为该函数创建一个FieldNotify的绑定点。
-元数据类型: bool
-引擎模块: UHT
-限制类型: ViewModel里的函数
-Status: Done
-常用程度: 3
+- **功能描述：**为该函数创建一个FieldNotify的绑定点。
+- **元数据类型：**bool
+- **引擎模块：**UHT
+- **限制类型：**ViewModel里的函数
+- **常用程度：**★★★
 
 为该函数创建一个FieldNotify的绑定点。
 
 需要注意的是，如果是Get函数则其返回值改变的时候，需要在别的触发改变的地方手动广播事件。正如下面的代码UE_MVVM_BROADCAST_FIELD_VALUE_CHANGED(GetHPPercent);所做的。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(BlueprintType)
@@ -55,7 +54,7 @@ public:
 
 ```
 
-测试效果：
+## 测试效果：
 
 可见GetHPPercent有生成一个FIELD。
 
@@ -82,8 +81,8 @@ public:
 	UE_FIELD_NOTIFICATION_IMPLEMENTATION_END(UMyViewModel);
 ```
 
-蓝图效果：
+## 蓝图效果：
 
 进度条可以绑定到GetHPPercent。
 
-![Untitled](FieldNotify/Untitled.png)
+![Untitled](Untitled.png)

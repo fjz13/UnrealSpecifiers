@@ -1,17 +1,16 @@
 # BlueprintCallable
 
-功能描述: 在蓝图中可以调用这个多播委托
-元数据类型: bool
-引擎模块: Blueprint
-限制类型: Multicast Delegates
-EPropertyFlagsOperation: |=
-EPropertyFlags: CPF_BlueprintCallable (../../Flags/EPropertyFlags/CPF_BlueprintCallable.md)
-Status: Done
-常用程度: 3
+- **功能描述：**在蓝图中可以调用这个多播委托
+
+- **元数据类型：**bool
+- **引擎模块：**Blueprint
+- **限制类型：**Multicast Delegates
+- **作用机制：**在PropertyFlags中加入[CPF_BlueprintCallable](../../../../Flags/EPropertyFlags/CPF_BlueprintCallable.md)
+- **常用程度：**★★★
 
 在蓝图中可以调用这个多播委托。
 
-示例代码：
+## 示例代码：
 
 ```cpp
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FMyDynamicMulticastDelegate_One, int32, Value);
@@ -29,9 +28,9 @@ UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FMyDynamicMulticastDelegate_One MyMulticastDelegate;
 ```
 
-示例效果：
+## 示例效果：
 
-![Untitled](BlueprintCallable/Untitled.png)
+![Untitled](Untitled.png)
 
 注意BlueprintAssignable和BlueprintCallable只能用于多播委托：
 

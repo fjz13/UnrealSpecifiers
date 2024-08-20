@@ -1,13 +1,12 @@
 # Transient
 
-功能描述: 指定该类的所有对象都略过序列化。
-引擎模块: Serialization
-元数据类型: bool
-EClassFlagsOperation: |=
-EClassFlags: CLASS_Transient (../../Flags/EClassFlags/CLASS_Transient.md)
-Status: Done
-Sub-item: NonTransient (NonTransient.md)
-常用程度: 3
+- **功能描述：**指定该类的所有对象都略过序列化。
+
+- **引擎模块：**Serialization
+- **元数据类型：**bool
+- **作用机制：**在ClassFlags中添加[CLASS_Transient](../../../../Flags/EClassFlags/CLASS_Transient.md)
+- **关联项：**[NonTransient](../NonTransient.md)
+- **常用程度：**★★★
 
 指定该类的所有对象都略过序列化。
 
@@ -15,7 +14,7 @@ Sub-item: NonTransient (NonTransient.md)
 - 会造成相应Object的RF_Transient标记。
 - 注意：UPROPERTY(Transient)只是指定这一个特定的属性不序列化。而UCLASS(Transient)是作用于该类的所有对象。
 
-示例代码：
+## 示例代码：
 
 ```cpp
 UCLASS(Blueprintable, Transient)
@@ -142,11 +141,13 @@ package->FullyLoad();
 UMyClass_Transient_Test* newTestObject=LoadObject<UMyClass_Transient_Test>(package, TEXT("testObject"),*assetPath);
 ```
 
-显示出来的对象：可以看到MyTransientObject 并没有被序列化到磁盘上，因此不会加载出来。
+## 示例效果：
 
-![Untitled](Transient/Untitled.png)
+可以看到MyTransientObject 并没有被序列化到磁盘上，因此不会加载出来。
 
-原理：
+![Untitled](Untitled.png)
+
+## 原理：
 
 在SavePackage的时候：RF_Transient会导致这个对象不会被HarvestExport，不会被放进SaveContext里
 

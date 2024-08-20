@@ -1,11 +1,10 @@
 # Flags
 
-功能描述: 把该枚举的值作为一个标志来拼接字符串输出。
-元数据类型: bool
-引擎模块: Trait
-Status: Done
-EEnumFlags: Flags (../../Flags/EEnumFlags/Flags.md)
-常用程度: 5
+- **功能描述：** 把该枚举的值作为一个标志来拼接字符串输出。
+- **元数据类型：**bool
+- **引擎模块：**Trait
+- **作用机制：**在EnumFlags中添加[Flags](../../../Flags/EEnumFlags/Flags.md)
+- **常用程度：★★★★★**
 
 把该枚举的值作为一个标志来拼接字符串输出。
 
@@ -15,7 +14,7 @@ EEnumFlags: Flags (../../Flags/EEnumFlags/Flags.md)
 
 注意和meta(bitflags)的区分，后者是标记该枚举可以作为一个标记，可以作为Bitmask被筛选中。
 
-示例代码：
+## 示例代码：
 
 ```cpp
 UENUM(BlueprintType)
@@ -61,17 +60,19 @@ void UMyActor_EnumBitFlags_Test::TestFlags()
 }
 ```
 
+## 示例效果：
+
 蓝图中的表示，依然只能选择单项。
 
-![Flags.gif](Flags/Flags.gif)
+![Flags.gif](Flags.gif)
 
 而测试代码里打印出来的字符串：
 
 可见outStr_Flags 的打印是字符串拼接的。
 
-![image.png](Flags/image.png)
+![image.png](image.png)
 
-原理：
+## 原理：
 
 只在GetValueOrBitfieldAsString这个函数中生效，所以要用这个方法测试才生效。
 

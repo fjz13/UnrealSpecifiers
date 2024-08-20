@@ -1,14 +1,11 @@
 # AutoExpandCategories
 
-功能描述: 指定此类的对象在细节面板中应该自动展开的Category。
-引擎模块: Category
-元数据类型: strings=(abc，"d|e"，"x|y|z")
-Example: AutoExpandCategories=(Category1, Category2, ...)
-MetaOperation: +=&-=
-Meta: AutoCollapseCategories (../../Meta/Meta/AutoCollapseCategories.md), AutoExpandCategories (../../Meta/Meta/AutoExpandCategories.md)
-Status: Done
-Sub-item: AutoCollapseCategories (AutoCollapseCategories.md)
-常用程度: 1
+- **功能描述：** 指定此类的对象在细节面板中应该自动展开的Category。
+- **引擎模块：**Category
+- **元数据类型：**strings=(abc，"d|e"，"x|y|z")
+- **作用机制：**在Meta中去除[AutoCollapseCategories](../../../../Meta/DetailsPanel/AutoCollapseCategories.md)，增加[AutoExpandCategories](../../../../Meta/DetailsPanel/AutoExpandCategories.md)
+- **关联项：**[AutoCollapseCategories](../AutoCollapseCategories/AutoCollapseCategories.md)
+- **常用程度：★**
 
 指定此类的对象在细节面板中应该自动展开的Category。
 
@@ -42,7 +39,7 @@ MyClass_AutoCollapseCategories="\"Object.MyGroup2.MyGroup2|MyGroup22\" \"Object.
 
 根据代码搜索规则，AutoExpandCategories 和AutoCollapseCategories的值要用空格隔开。顶层目录一开始默认就是打开的，所以AutoExpandCategories 一般用在子层目录。而且还有个限制是必须一级一级都打开。直接打开最子目录还不行。因此在示例代码里必须要把中间的二级目录"MyGroup4|MyGroup44"也都得写上。
 
-示例代码：
+## 示例代码：
 
 ```cpp
 UCLASS(Blueprintable, AutoExpandCategories = ("MyGroup2|MyGroup22", "MyGroup4|MyGroup44","MyGroup4|MyGroup44|MyGroup444"))
@@ -73,15 +70,15 @@ class ENGINE_API UDataLayerInstance : public UObject
 不可以打开子目录：UCLASS(Blueprintable, AutoExpandCategories = ("MyGroup2|MyGroup22", "MyGroup4|MyGroup44|MyGroup444"))
 ```
 
-示例效果：
+## 示例效果：
 
 在Saved\EditorPerProjectUserSettings中删除掉DetailCategories以及DetailPropertyExpansion下的MyClass_AutoCollapseCategories值之后再用testprops class=MyClass_AutoExpandCategories来打开该窗口：
 
 通过对比可以看出Expand确实可以自动展开子目录方便立马编辑。要求是AutoExpandCategories 里填的目录要和属性上的Category匹配
 
-![Untitled](AutoExpandCategories/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 UClass里提取AutoExpandCategories和AutoCollapseCategories的元数据来判断Category是否应该显示。
 

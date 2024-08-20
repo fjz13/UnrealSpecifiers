@@ -1,12 +1,11 @@
 # CustomFieldNotify
 
-功能描述: 阻止UHT为该类生成FieldNotify的相关代码。
-引擎模块: UHT
-元数据类型: bool
-EClassFlagsOperation: |=
-EClassFlags: HasCustomFieldNotify (../../Flags/EClassFlags/HasCustomFieldNotify.md)
-Status: Done
-常用程度: 0
+- **功能描述：**阻止UHT为该类生成FieldNotify的相关代码。
+
+- **引擎模块：**UHT
+- **元数据类型：**bool
+- **作用机制：**在ClassFlags中增加[HasCustomFieldNotify](../../../Flags/EClassFlags/HasCustomFieldNotify.md)
+- **常用程度：**0
 
 阻止UHT为该类生成FieldNotify的相关代码。
 
@@ -14,7 +13,7 @@ Status: Done
 
 如果自己的类也要自己UE_FIELD_NOTIFICATION_IMPLEMENT_CLASS_DESCRIPTOR，则可以用上CustomFieldNotify。
 
-源码例子：
+## 源码例子：
 
 ```cpp
 //E:\P4V\Engine\Source\Runtime\UMG\Public\FieldNotification\FieldNotificationDeclaration.h
@@ -42,7 +41,7 @@ UE_FIELD_NOTIFICATION_IMPLEMENT_CLASS_DESCRIPTOR_ThreeFields(UWidget, ToolTipTex
 
 ```
 
-原理：
+## 原理：
 
 在判断条件上可见HasCustomFieldNotify的判断。
 

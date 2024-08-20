@@ -1,13 +1,11 @@
 # EditInlineNew
 
-功能描述: 指定该类的对象可以在属性细节面板里直接内联创建，要和属性的Instanced配合。
-引擎模块: Instance
-元数据类型: bool
-EClassFlagsOperation: |=
-EClassFlags: CLASS_EditInlineNew (../../Flags/EClassFlags/CLASS_EditInlineNew.md)
-Status: Done
-Sub-item: NotEditInlineNew (NotEditInlineNew.md)
-常用程度: 5
+- **功能描述：** 指定该类的对象可以在属性细节面板里直接内联创建，要和属性的Instanced配合。
+- **引擎模块：**Instance
+- **元数据类型：**bool
+- **作用机制：**在ClassFlags中添加[CLASS_EditInlineNew](../../../../Flags/EClassFlags/CLASS_EditInlineNew.md)
+- **关联项：**NotEditInlineNew (NotEditInlineNew.md)
+- **常用程度：★★★★★**
 
 指定该类的对象可以在属性细节面板里直接内联创建。
 
@@ -18,6 +16,8 @@ EditInlineNew主要是用在UObject的子类上，一般不标EditInlineNew的�
 这个跟UPROPERTY上的Instanced能力是独立的。如果UCLASS上不加EditInlineNew，但是属性上加上Instanced，则在手动NewObject赋值该属性后，该属性也会展开内部属性来提供编辑功能。因为Instanced的属性会自动的在property上加上EditInline的meta。
 
 此说明符会传播到所有子类；子类可通过 NotEditInlineNew 说明符覆盖它。
+
+## 示例代码：
 
 ```cpp
 UCLASS(Blueprintable, EditInlineNew)
@@ -55,7 +55,7 @@ public:
 };
 ```
 
-示例效果：
+## 示例效果：
 
 EditInlineNew支持直接C++或BP子类创建对象实例，然后在上面编辑实例。
 
@@ -63,9 +63,9 @@ EditInlineNew支持直接C++或BP子类创建对象实例，然后在上面编�
 
 如果属性上没有Instanced则只能尝试去引用（找不到对象）。
 
-![image.png](EditInlineNew/image.png)
+![image.png](image.png)
 
-原理：
+## 原理：
 
 判断该类是否有CLASS_EditInlineNew来决定是否可内联创建编辑。
 

@@ -1,13 +1,11 @@
 # Blueprintable
 
-- **功能描述:** 可以在蓝图里被继承，隐含的作用也可当变量类型
-- **引擎模块:** Blueprint
-- **元数据类型:** bool
-- Example: 
-- MetaOperation: |=true
-- Meta: IsBlueprintBase (../../Meta/Meta/IsBlueprintBase.md), BlueprintType (../../Meta/Meta/BlueprintType.md)
-- Sub-item: NotBlueprintable (NotBlueprintable.md)
-- **常用程度:** ★★★★★
+- **功能描述：**可以在蓝图里被继承，隐含的作用也可当变量类型
+- **引擎模块：**Blueprint
+- **元数据类型：**bool
+- **作用机制：**在Meta添加[IsBlueprintBase](../../../../Meta/Blueprint/IsBlueprintBase.md)和[BlueprintType](../../../../Meta/Blueprint/BlueprintType.md)
+- **关联项：**[NotBlueprintable](../NotBlueprintable.md)
+- **常用程度：**★★★★★
 
 可以在蓝图里被继承，隐含的作用也可当变量类型。
 

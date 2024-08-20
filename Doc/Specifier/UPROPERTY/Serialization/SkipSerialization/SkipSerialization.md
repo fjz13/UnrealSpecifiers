@@ -1,15 +1,15 @@
 # SkipSerialization
 
-功能描述: 二进制序列化时跳过该属性，但在ExportText的时候依然可以导出。
-元数据类型: bool
-引擎模块: Serialization
-EPropertyFlags: CPF_SkipSerialization (../../Flags/EPropertyFlags/CPF_SkipSerialization.md)
-Status: Done
-常用程度: 3
+- **功能描述：**二进制序列化时跳过该属性，但在ExportText的时候依然可以导出。
+
+- **元数据类型：**bool
+- **引擎模块：**Serialization
+- **作用机制：**在PropertyFlags中加入[CPF_SkipSerialization](../../../../Flags/EPropertyFlags/CPF_SkipSerialization.md)
+- **常用程度：**★★★
 
 在进行普通的二进制序列化的时候，这个标记会阻止序列化。作用和Transient一样。但如果是ExportText，则依然可以把该属性导出。其内部用的ExportProperties。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -50,7 +50,7 @@ void UMyProperty_SerializationText_Test::RunTest()
 
 此时可见测试结果，该属性并没有被序列化进去。
 
-![Untitled](SkipSerialization/Untitled.png)
+![Untitled](Untitled.png)
 
 如果采用ExportText导出：T3D或COPY格式都行
 
@@ -75,7 +75,7 @@ Begin Object Class=/Script/Insider.MyProperty_SerializationText Name="MyProperty
 
 另外如果在编辑器里右击复制
 
-![Untitled](SkipSerialization/Untitled%201.png)
+![Untitled](Untitled%201.png)
 
 也可以产生文本的导出：
 
@@ -94,6 +94,6 @@ Begin Object Class=/Script/Insider.MyProperty_SerializationText Name="MyProperty
 }
 ```
 
-原理：
+## 原理：
 
 注意在判断一个Property是否应该序列化的时候，ShouldSerializeValue函数是用在普通的序列化的时候用来判断的。而在ExportText的时候，是用ShouldPort判断的。

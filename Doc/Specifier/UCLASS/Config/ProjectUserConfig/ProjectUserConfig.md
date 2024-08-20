@@ -1,17 +1,15 @@
 # ProjectUserConfig
 
-功能描述: 指定保存到的配置文件层级是项目用户设置 Project/Config/UserXXX.ini。
-引擎模块: Config
-元数据类型: bool
-EClassFlagsOperation: |=
-EClassFlags: CLASS_ProjectUserConfig (../../Flags/EClassFlags/CLASS_ProjectUserConfig.md)
-Status: Done
-Parent item: Config (Config.md)
-常用程度: 3
+- **功能描述：** 指定保存到的配置文件层级是项目用户设置 Project/Config/UserXXX.ini。
+- **引擎模块：**Config
+- **元数据类型：**bool
+- **作用机制：**在ClassFlags中增加[CLASS_ProjectUserConfig](../../../../Flags/EClassFlags/CLASS_ProjectUserConfig.md)
+- **关联项：**[Config](../Config.md)
+- **常用程度：★★★**
 
 指定保存到的配置文件层级是项目用户设置 Project/Config/UserXXX.ini。
 
-示例代码：
+## 示例代码：
 
 保存的目录是\Hello\Config\UserMyGame.ini
 
@@ -41,11 +39,11 @@ MyPropertyWithConfig=777
 MyPropertyWithGlobalConfig=888
 ```
 
-示例效果：
+## 示例效果：
 
-![Untitled](ProjectUserConfig/Untitled.png)
+![Untitled](Untitled.png)
 
-在源码中搜索：
+## 在源码中搜索：
 
 ```cpp
 UCLASS(config = Engine, projectuserconfig, meta = (DisplayName = "Rendering Overrides (Local)"))

@@ -1,12 +1,10 @@
 # CustomThunk
 
-功能描述: 指定UHT不为该函数生成蓝图调用的辅助函数，而需要用户自定义编写。
-元数据类型: bool
-引擎模块: UHT
-MetaOperation: =true
-Meta: CustomThunk (../../Meta/Meta/CustomThunk.md)
-Status: Done
-常用程度: 3
+- **功能描述：**指定UHT不为该函数生成蓝图调用的辅助函数，而需要用户自定义编写。
+- **元数据类型：**bool
+- **引擎模块：**UHT
+- **作用机制：**在Meta中加入[CustomThunk](../../../../Meta/UHT/CustomThunk.md)
+- **常用程度：**★★★
 
 指定UHT不为该函数生成蓝图调用的辅助函数，而需要用户自定义编写。
 
@@ -14,7 +12,7 @@ Status: Done
 
 CustomThunk一般是用于配合函数参数不定的情况，如各种通配符，或者需要自己更细致的自定义的逻辑处理。
 
-测试代码；
+## 测试代码；
 
 ```cpp
 UFUNCTION(BlueprintPure, CustomThunk)
@@ -45,9 +43,9 @@ DEFINE_FUNCTION(UMyFunction_Custom::execMyFunc_CustomDivide)
 }
 ```
 
-蓝图效果：
+## 蓝图效果：
 
-![Untitled](CustomThunk/Untitled.png)
+![Untitled](Untitled.png)
 
 可以看到，即使是用除以0，可以自定义报错信息。
 

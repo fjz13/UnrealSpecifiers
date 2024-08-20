@@ -1,14 +1,11 @@
 # HideFunctions
 
-功能描述: 在子类的函数覆盖列表里隐藏掉某些函数。
-引擎模块: Blueprint
-元数据类型: strings=(abc，"d|e"，"x|y|z")
-Example: HideFunctions=(FuncName1, FuncName1, ...)
-MetaOperation: +=
-Meta: HideFunctions (../../Meta/Meta/HideFunctions.md)
-Status: Done
-Sub-item: ShowFunctions (ShowFunctions.md)
-常用程度: 2
+- **功能描述：**在子类的函数覆盖列表里隐藏掉某些函数。
+- **引擎模块：**Blueprint
+- **元数据类型：**strings=(abc，"d|e"，"x|y|z")
+- **作用机制：**在Meta中增加[HideFunctions](../../../../Meta/Blueprint/HideFunctions.md)
+- **关联项：**[ShowFunctions](../ShowFunctions.md)
+- **常用程度：**★★
 
 在子类的函数覆盖列表里隐藏掉某些函数。
 
@@ -30,7 +27,7 @@ UCLASS(HideCategories = (CameraSettings), HideFunctions = (SetFieldOfView, SetAs
 class CINEMATICCAMERA_API UCineCameraComponent : public UCameraComponent
 ```
 
-示例代码：
+## 示例代码：
 
 ```cpp
 UCLASS(Blueprintable, HideFunctions = (MyFunc1, MyEvent2),hideCategories= EventCategory2)
@@ -73,19 +70,21 @@ public:
 };
 ```
 
+## 示例效果：
+
 发现Callable的函数是依然可以调用的。
 
-![Untitled](HideFunctions/Untitled.png)
+![Untitled](Untitled.png)
 
 在HideFunction子类里，函数重载会发现少两个
 
-![Untitled](HideFunctions/Untitled%201.png)
+![Untitled](Untitled%201.png)
 
 在ShowFunction的子类里可以重新打开Event2和EventCategory2
 
-![Untitled](HideFunctions/Untitled%202.png)
+![Untitled](Untitled%202.png)
 
-原理：
+## 原理：
 
 原理显示，HideFunctions其实只能填函数名字，想要隐藏一个目录下的函数，是需要HideCategories再额外定义的。
 

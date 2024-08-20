@@ -1,19 +1,18 @@
 # NonPIEDuplicateTransient
 
-功能描述: 在对象复制的时候，且在不是PIE的场合，忽略该属性。
-元数据类型: bool
-引擎模块: Serialization
-EPropertyFlagsOperation: |=
-EPropertyFlags: CPF_NonPIEDuplicateTransient (../../Flags/EPropertyFlags/CPF_NonPIEDuplicateTransient.md)
-Status: Done
-常用程度: 1
+- **功能描述：**在对象复制的时候，且在不是PIE的场合，忽略该属性。
+
+- **元数据类型：**bool
+- **引擎模块：**Serialization
+- **作用机制：**在PropertyFlags中加入[CPF_NonPIEDuplicateTransient](../../../../Flags/EPropertyFlags/CPF_NonPIEDuplicateTransient.md)
+- **常用程度：**★
 
 在对象复制的时候，且在不是PIE的场合，忽略该属性。
 
 - DuplicateTransient和NonPIEDuplicateTransient的区别是，前者在任何情况的对象复制时都忽略该属性，而后者在PIE的时候（也是在发生对象复制过程）依然会复制该属性，其他情况下的复制和前者行为一致。
 - PIE的时候本质就是把当前的编辑World里Actor复制一份到PIE的世界里，会触发Actor的复制。
 
-示例代码：
+## 示例代码：
 
 准备了一份DataAsset和Actor来分别验证复制行为的不同。
 
@@ -56,21 +55,21 @@ protected:
 };
 ```
 
-示例效果：
+## 示例效果：
 
 在对资产进行Duplidate的时候，发生DuplicateAsset然后DuplicateObject，这个时候PortFlags=PPF_Duplicate，然后会触发ShouldSerializeValue进行判断。这个时候会跳过该属性。
 
 可以看到NonPIEDuplicateTransient并不会被复制。
 
-![Untitled](NonPIEDuplicateTransient/Untitled.png)
+![Untitled](Untitled.png)
 
 在点击PIE的时候，可以看到NonPIEDuplicateTransient这个时候却是会复制值过去了。这是因为这个时候PortFlags=PPF_DuplicateForPIE&PPF_Duplicate
 
-![Untitled](NonPIEDuplicateTransient/Untitled%201.png)
+![Untitled](Untitled%201.png)
 
 结论是用于一些Cache数据，在复制的时候并不需要序列化复制，这样可以阻止两个不同的Actor采用同一份计算后的临时数据。但是又可以在PIE的时候，让Actor各自采用自己的一份数据，因为PIE的时候，本质就是把当前的编辑World里Actor复制一份到PIE的世界里，会触发Actor的复制。
 
-原理：
+## 原理：
 
 在文本导出的的时候，在不是PIE里的复制的时候，不序列化该属性。
 

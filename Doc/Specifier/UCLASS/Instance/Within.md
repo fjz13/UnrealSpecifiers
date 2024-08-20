@@ -1,12 +1,10 @@
 # Within
 
-功能描述: 指定对象创建的时候必须依赖于OuterClassName的对象作为Outer。
-引擎模块: Instance
-元数据类型: string="abc"
-Example: Within=OuterClassName
-Status: Done
-Code: UClass* UClass::ClassWithin=XXX
-常用程度: 3
+- **功能描述：** 指定对象创建的时候必须依赖于OuterClassName的对象作为Outer。
+- **引擎模块：**Instance
+- **元数据类型：**string="abc"
+- **作用机制：**保存在UClass* UClass::ClassWithin=XXX的XXX中
+- **常用程度：★★★**
 
 指定对象创建的时候必须依赖于OuterClassName的对象作为Outer。
 
@@ -14,7 +12,7 @@ Code: UClass* UClass::ClassWithin=XXX
 
 本类在这种情况一般是用来当做子对象来使用的。
 
-示例代码：
+## 示例代码：
 
 ```cpp
 UCLASS(Within= MyClass_Within_Outer)
@@ -33,7 +31,7 @@ public:
 	
 ```
 
-示例结果：
+## 示例结果：
 
 ```cpp
 //错误！Fatal error: Object MyClass_Within None created in Package instead of MyClass_Within_Outer
@@ -44,7 +42,7 @@ UMyClass_Within_Outer* objOuter = NewObject<UMyClass_Within_Outer>();
 UMyClass_Within* obj=NewObject<UMyClass_Within>(objOuter);
 ```
 
-原理：
+## 原理：
 
 生成的UClass的字段：UClass* ClassWithin会保存这个信息，然后在创建的时候StaticAllocateObject会测试 check(bCreatingCDO || !InOuter || InOuter->IsA(InClass->ClassWithin))。因此需要先创建Within的对象。
 

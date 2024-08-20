@@ -1,12 +1,10 @@
 # NeedsDeferredDependencyLoading
 
-引擎模块: Blueprint
-元数据类型: bool
-EClassFlagsOperation: |=
-EClassFlags: CLASS_NeedsDeferredDependencyLoading (../../Flags/EClassFlags/CLASS_NeedsDeferredDependencyLoading.md)
-Status: Not Used
+- **引擎模块：**Blueprint
+- **元数据类型：**bool
+- **作用机制：**在ClassFlags增加[CLASS_NeedsDeferredDependencyLoading](../../../Flags/EClassFlags/CLASS_NeedsDeferredDependencyLoading.md)
 
-源码例子：
+## 源码例子：
 
 ```cpp
 UCLASS(NeedsDeferredDependencyLoading, MinimalAPI)
@@ -15,7 +13,7 @@ class UBlueprintGeneratedClass : public UClass, public IBlueprintPropertyGuidPro
 }
 ```
 
-原理：
+## 原理：
 
 ```cpp
 if (ClassFlags.HasAnyFlags(EClassFlags.NeedsDeferredDependencyLoading) && !IsChildOf(Session.UClass))

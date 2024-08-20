@@ -1,12 +1,11 @@
 # Variadic
 
-功能描述: 标识一个函数可以接受任意类型的多个参数（包括input/output)．
-元数据类型: bool
-引擎模块: Blueprint, UHT
-MetaOperation: ＝””
-Meta: Variadic (../../Meta/Meta/Variadic.md)
-Status: Done
-常用程度: 3
+- **功能描述：**标识一个函数可以接受任意类型的多个参数（包括input/output)．
+
+- **元数据类型：**bool
+- **引擎模块：**Blueprint, UHT
+- **作用机制：**在Meta中加入[Variadic](../../../../Meta/Blueprint/Variadic.md)
+- **常用程度：**★★★
 
 标识一个函数可以接受任意类型的多个参数（包括input/output)．
 
@@ -20,9 +19,9 @@ UFUNCTION(BlueprintCallable, CustomThunk, Category = "Python|Execution", meta=(V
 
 蓝图的效果：
 
-![Untitled](Variadic/Untitled.png)
+![Untitled](Untitled.png)
 
-自己的示例代码：
+## 示例代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -76,16 +75,16 @@ DEFINE_FUNCTION(UMyFunction_Variadic::execPrintVariadicFields)
 }
 ```
 
-示例效果：
+## 示例效果：
 
-![Untitled](Variadic/Untitled%201.png)
+![Untitled](Untitled%201.png)
 
 打印：
 
 CallFunc_MakeVector_ReturnValue:(X=1.000000,Y=2.000000,Z=3.000000)
 CallFunc_MakeLiteralDouble_ReturnValue:456.000000
 
-原理：
+## 原理：
 
 普通的CustomThunk函数还有一些限制，参数名字和个数是在UFuntion里写死的，不能支持动态的个数。
 
@@ -97,15 +96,15 @@ BlueprintInternalUseOnly也要加上，否则会自动生成普通的蓝图函�
 
 以下是不加BlueprintInternalUseOnly自动生成的版本:
 
-![Untitled](Variadic/Untitled%202.png)
+![Untitled](Untitled%202.png)
 
 实际应该是：然后再手动添加参数。
 
-![Untitled](Variadic/Untitled%203.png)
+![Untitled](Untitled%203.png)
 
 和Ｗildcard的区别是，Ｗildcard的参数是任意类型的，但个数是固定好的．
 
-![Untitled](Variadic/Untitled%204.png)
+![Untitled](Untitled%204.png)
 
 官方添加的和**Python**交互的功能 [Added a Blueprint node for calling Python with args](https://link.zhihu.com/?target=https%3A//github.com/EpicGames/UnrealEngine/commit/61d0f65e1cded45ed94f0422eb931f446888e972)
 
@@ -113,7 +112,7 @@ BlueprintInternalUseOnly也要加上，否则会自动生成普通的蓝图函�
 
 [https://github.com/EpicGames/UnrealEngine/commit/61d0f65e1cded45ed94f0422eb931f446888e972](https://github.com/EpicGames/UnrealEngine/commit/61d0f65e1cded45ed94f0422eb931f446888e972)
 
-注释：
+## 注释：
 
 Implemented variadic function support for Blueprints
 

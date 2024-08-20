@@ -1,18 +1,16 @@
 # GlobalConfig
 
-功能描述: 和Config一样指定该属性可作为配置读取和写入ini中，但只会读取写入到配置文件里基类的值，而不会使用配置文件里子类里的值。
-元数据类型: bool
-引擎模块: Config
-EPropertyFlagsOperation: |=
-EPropertyFlags: CPF_GlobalConfig (../../Flags/EPropertyFlags/CPF_GlobalConfig.md)
-Status: Done
-常用程度: 3
+- **功能描述：**和Config一样指定该属性可作为配置读取和写入ini中，但只会读取写入到配置文件里基类的值，而不会使用配置文件里子类里的值。
+- **元数据类型：**bool
+- **引擎模块：**Config
+- **作用机制：**在PropertyFlags中加入[CPF_GlobalConfig](../../../../Flags/EPropertyFlags/CPF_GlobalConfig.md)
+- **常用程度：**★★★
 
 和Config一样指定该属性可作为配置读取和写入ini中，但只会读取写入到配置文件里基类的值，而不会使用配置文件里子类里的值。
 
 但是不同点在于，该属性在LoadConfig的时候，只会读取基类的ini，而不会去读取子类的ini。因为只有基类里的Ini设置在生效，相当于全局只有一个配置在生效，因此名字叫做GlobalConfig。
 
-示例代码：
+## 示例代码：
 
 ```cpp
 UCLASS(Config = MyOtherGame)
@@ -74,7 +72,7 @@ void UMyProperty_Config_Test::TestConfigLoad()
 }
 ```
 
-示例效果：
+## 示例效果：
 
 TestConfigSave之后，MyPropertyWithGlobalConfig=888，可见保存的时候也只会保存在基类上。
 
@@ -103,9 +101,9 @@ MyPropertyWithGlobalConfig=999
 
 可见testObjectChild 的值并没有使用ini里MyProperty_Config_Child下的999的值，而是同样的888.
 
-![image.png](GlobalConfig/image.png)
+![image.png](image.png)
 
-原理：
+## 原理：
 
 如果是bGlobalConfig ，会采用基类。
 

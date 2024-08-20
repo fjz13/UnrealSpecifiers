@@ -1,11 +1,10 @@
 # Optional
 
-功能描述: 标记该类的对象是可选的，在Cooking的时候可以选择是否要忽略保存它们。
-引擎模块: Serialization
-EClassFlagsOperation: |=
-EClassFlags: CLASS_Optional (../../Flags/EClassFlags/CLASS_Optional.md)
-Status: Done
-常用程度: 1
+- **功能描述：**标记该类的对象是可选的，在Cooking的时候可以选择是否要忽略保存它们。
+
+- **引擎模块：**Serialization
+- **作用机制：**在ClassFlags中添加[CLASS_Optional](../../../../Flags/EClassFlags/CLASS_Optional.md)
+- **常用程度：**★
 
 标记该类的对象是可选的，在Cooking的时候可以选择是否要忽略保存它们。
 
@@ -13,7 +12,7 @@ Status: Done
 - Optional的对象一般也包在WITH_EDITORONLY_DATA宏里，只在编辑器下使用。
 - 引擎在cook的时候，会根据EDITOROPTIONAL的配置来加上SAVE_Optional，从而选择是否一起序列化该对象值，比如metadata。
 
-示例代码：
+## 示例代码：
 
 ```cpp
 //ClassFlags:	CLASS_Optional | CLASS_MatchedSerializers | CLASS_Native | CLASS_RequiredAPI | CLASS_TokenStreamAssembled | CLASS_Intrinsic | CLASS_Constructed 
@@ -116,11 +115,11 @@ void UMyClass_Optional_Test::LoadPackageAndTest()
 
 ```
 
-示例效果：
+## 示例效果：
 
 正常的SavePackage发现是没有作用的，依然会序列化保存。特殊的保存方式在Cook阶段，本例就没有专门测试了。
 
-![Untitled](Optional/Untitled.png)
+![Untitled](Untitled.png)
 
 在源码里搜索Optional，可以看到一般是EditorOnlyData和CookedMetaData类在使用。
 

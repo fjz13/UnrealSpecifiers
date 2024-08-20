@@ -1,20 +1,18 @@
 # DefaultConfig
 
-功能描述: 指定保存到的配置文件层级是Project/Config/DefaultXXX.ini。
-引擎模块: Config
-元数据类型: bool
-EClassFlagsOperation: |=
-EClassFlags: CLASS_DefaultConfig (../../Flags/EClassFlags/CLASS_DefaultConfig.md)
-Status: Done
-Parent item: Config (Config.md)
-常用程度: 3
+- **功能描述：** 指定保存到的配置文件层级是Project/Config/DefaultXXX.ini。
+- **引擎模块：**Config
+- **元数据类型：**bool
+- **作用机制：**在ClassFlags中增加[CLASS_DefaultConfig](../../../../Flags/EClassFlags/CLASS_DefaultConfig.md)
+- **关联项：**[Config](../Config.md)
+- **常用程度：★★★**
 
 指定保存到的配置文件层级是Project/Config/DefaultXXX.ini。
 
 - 而不是默认的Saved/XXX.ini
 - 一般用在编辑器里把Settings自动保存到Project/Config/DefaultXXX.ini里去
 
-测试代码：
+## 示例代码：
 
 ```cpp
 UCLASS(Config = MyGame,DefaultConfig)
@@ -40,11 +38,11 @@ MyPropertyWithConfig=888
 
 ```
 
-示例结果：
+## 示例结果：
 
-![Untitled](DefaultConfig/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 代码里要使用Settings->TryUpdateDefaultConfigFile();，但发现TryUpdateDefaultConfigFile不管有没有DefaultConfig都可以调用，都可以保存到Default里。因此应该调用哪个SaveConfig（TryUpdateDefaultConfigFile，UpdateGlobalUserConfigFile，UpdateProjectUserConfigFile）是可以手动指定的。
 

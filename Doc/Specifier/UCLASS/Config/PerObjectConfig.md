@@ -1,20 +1,18 @@
 # PerObjectConfig
 
-功能描述: 在已经有config配置文件名字的情况下，指定应该按每个对象实例来存储值，而不是一个类一个存储值。
-引擎模块: Config
-元数据类型: bool
-EClassFlagsOperation: |=
-EClassFlags: CLASS_PerObjectConfig (../../Flags/EClassFlags/CLASS_PerObjectConfig.md)
-Status: Done
-Parent item: Config (Config.md)
-常用程度: 5
+- **功能描述：** 在已经有config配置文件名字的情况下，指定应该按每个对象实例来存储值，而不是一个类一个存储值。
+- **引擎模块：**Config
+- **元数据类型：**bool
+- **作用机制：**在ClassFlags中增加[CLASS_PerObjectConfig](../../../Flags/EClassFlags/CLASS_PerObjectConfig.md)
+- **关联项：**[Config](Config.md)
+- **常用程度：★★★★★**
 
 在已经有config配置文件名字的情况下，指定应该按每个对象实例来存储值，而不是一个类一个存储值。
 
 - 此类的配置信息将按对象存储，在.ini文件中，每个对象都有一个分段，根据对象命名，格式为[ObjectName ClassName]。
 - 此说明符会传播到子类。指定该配置是对每个对象都单独保存。
 
-测试代码：
+## 示例代码：
 
 注意ObjectName必须一致
 
@@ -59,7 +57,7 @@ MyPropertyWithConfig=456
 MyPropertyWithConfig=789
 ```
 
-原理：
+## 原理：
 
 对象构造的末期会尝试去读取配置。
 

@@ -1,17 +1,17 @@
 # TextExportTransient
 
-功能描述: 在ExportText导出为.COPY格式的时候，忽略该属性。
-元数据类型: bool
-引擎模块: Serialization
-EPropertyFlags: CPF_TextExportTransient (../../Flags/EPropertyFlags/CPF_TextExportTransient.md)
-Status: Done
-常用程度: 1
+- **功能描述：**在ExportText导出为.COPY格式的时候，忽略该属性。
+
+- **元数据类型：**bool
+- **引擎模块：**Serialization
+- **作用机制：**在PropertyFlags中加入[CPF_TextExportTransient](../../../Flags/EPropertyFlags/CPF_TextExportTransient.md)
+- **常用程度：**★
 
 在ExportText导出为.COPY格式的时候，忽略该属性。
 
 但鼠标复制拷贝属性依然会有文本导出生效。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -89,7 +89,7 @@ End Object
 
 因此可以发现在COPY格式的时候，MyInt_TextExportTransient并没有被导出。
 
-原理：
+## 原理：
 
 注意在判断一个Property是否应该序列化的时候，ShouldSerializeValue函数是用在普通的序列化的时候用来判断的。而在ExportText的时候，是用ShouldPort判断的。
 

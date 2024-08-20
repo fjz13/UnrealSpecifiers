@@ -1,20 +1,16 @@
 # BlueprintGetter
 
-功能描述: 为属性定义一个自定义的Get函数来读取。
-元数据类型: string="abc"
-引擎模块: Blueprint
-Example: BlueprintGetter=GetterFunctionName
-EPropertyFlagsOperation: |=
-EPropertyFlags: CPF_BlueprintReadOnly (../../Flags/EPropertyFlags/CPF_BlueprintReadOnly.md), CPF_BlueprintVisible (../../Flags/EPropertyFlags/CPF_BlueprintVisible.md)
-MetaOperation: =XXX
-Meta: BlueprintGetter (../../Meta/Meta/BlueprintGetter.md)
-Status: Done
-常用程度: 3
+- **功能描述：**为属性定义一个自定义的Get函数来读取。
+
+- **元数据类型：**string="abc"
+- **引擎模块：**Blueprint
+- **作用机制：**在PropertyFlags中加入[CPF_BlueprintReadOnly](../../../../Flags/EPropertyFlags/CPF_BlueprintReadOnly.md)、[CPF_BlueprintVisible](../../../../Flags/EPropertyFlags/CPF_BlueprintVisible.md)，在Meta中加入[BlueprintGetter](../../../../Meta/Blueprint/BlueprintGetter.md)
+- **常用程度：**★★★
 
 为属性定义一个自定义的Get函数来读取。
 如果没有设置BlueprintSetter或BlueprintReadWrite，则会默认设置BlueprintReadOnly，这个属性变成只读的。
 
-示例代码：
+## 示例代码：
 
 ```cpp
 public:
@@ -37,10 +33,10 @@ private:
 		int32 MyInt_WithSetter = 123;
 ```
 
-示例效果：
+## 示例效果：
 
 可见MyInt_WithGetter是只读的。
 
 而MyInt_WithSetter 是可读写的。
 
-![Untitled](BlueprintGetter/Untitled.png)
+![Untitled](Untitled.png)

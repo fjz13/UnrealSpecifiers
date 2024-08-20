@@ -1,15 +1,15 @@
 # FieldNotify
 
-功能描述: 在打开MVVM插件后，使得该属性变成支持FieldNotify的属性。
-元数据类型: bool
-引擎模块: MVVM, UHT
-限制类型: ViewModel里的属性
-Status: Done
-常用程度: 4
+- **功能描述：**在打开MVVM插件后，使得该属性变成支持FieldNotify的属性。
+
+- **元数据类型：**bool
+- **引擎模块：**MVVM, UHT
+- **限制类型：**ViewModel里的属性
+- **常用程度：**★★★★
 
 在打开MVVM插件后，使得该属性变成支持FieldNotify的属性。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(BlueprintType)
@@ -53,7 +53,7 @@ public:
 
 ```
 
-测试效果：
+## 测试效果：
 
 效果一方面是UHT生成的.generated.h里和.gen.cpp里的代码，具体的宏作用就不展开了，大家可查看其他更细致的MVVM相关文章。这里只要知道UHT会为标了FieldNotify的属性定义FFieldId以及FFieldNotificationClassDescriptor来标识一个接受可通知的属性。
 
@@ -84,4 +84,4 @@ public:
 
 这些控件的属性就可以和ViewModel里的属性绑定起来。
 
-![Untitled](FieldNotify/Untitled.png)
+![Untitled](Untitled.png)

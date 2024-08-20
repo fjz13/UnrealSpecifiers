@@ -1,12 +1,9 @@
 # ServiceRequest
 
-功能描述: 此函数为RPC（远程过程调用）服务请求。rpc服务请求
-元数据类型: bool
-引擎模块: Network
-MetaOperation: =true
-Meta: CustomThunk (../../Meta/Meta/CustomThunk.md)
-Status: Invalid
-+=EFunctionFlags: FUNC_Net (../../Flags/EFunctionFlags/FUNC_Net.md), FUNC_Event (../../Flags/EFunctionFlags/FUNC_Event.md), FUNC_NetReliable (../../Flags/EFunctionFlags/FUNC_NetReliable.md), FUNC_NetRequest (../../Flags/EFunctionFlags/FUNC_NetRequest.md)
+- **功能描述：**此函数为RPC（远程过程调用）服务请求。rpc服务请求
+- **元数据类型：**bool
+- **引擎模块：**Network
+- **作用机制：**在Meta中加入[CustomThunk](../../../Meta/UHT/CustomThunk.md)，在FunctionFlags加入[FUNC_Net](../../../Flags/EFunctionFlags/FUNC_Net.md)、[FUNC_Event](../../../Flags/EFunctionFlags/FUNC_Event.md)、[FUNC_NetReliable](../../../Flags/EFunctionFlags/FUNC_NetReliable.md)、[FUNC_NetRequest](../../../Flags/EFunctionFlags/FUNC_NetRequest.md)
 
 在源码里都没看到使用，只搜到
 
@@ -24,7 +21,7 @@ protected:
 };
 ```
 
-UDN回答：
+## UDN回答：
 
 Alex: Those specifiers were added quite a while ago as a way to mark functions as RPC requests/responses to and from a backend service, the name of which would be given as part of the specifier: UFUNCTION(ServiceRequest(<Endpoint Name>)). However, the feature was never fully implemented, and since then the specifiers have only been used internally (and even then, I don't believe "ServiceResponse" is used at all anymore). This is why there isn't any public documentation or examples available, as they're not formally supported in the engine. You can check out ServiceRequestSpecifier and ServiceResponseSpecifier in UhtFunctionSpecifiers.cs to see how UHT handles these specifiers.
 

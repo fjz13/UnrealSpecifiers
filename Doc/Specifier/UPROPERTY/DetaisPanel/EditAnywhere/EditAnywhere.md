@@ -1,16 +1,14 @@
 # EditAnywhere
 
-功能描述: 在默认值和实例的细节面板上均可编辑
-元数据类型: bool
-引擎模块: DetailsPanel, Editor
-EPropertyFlagsOperation: |=
-EPropertyFlags: CPF_Edit (../../Flags/EPropertyFlags/CPF_Edit.md)
-Status: Done
-常用程度: 5
+- **功能描述：**在默认值和实例的细节面板上均可编辑
+- **元数据类型：**bool
+- **引擎模块：**DetailsPanel, Editor
+- **作用机制：**在PropertyFlags中加入[CPF_Edit](../../../../Flags/EPropertyFlags/CPF_Edit.md)
+- **常用程度：★★★★★**
 
 在默认值和实例的细节面板上均可编辑。
 
-示例代码：
+## 示例代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -43,10 +41,10 @@ class INSIDER_API UMyProperty_Test :public UObject
 }
 ```
 
-示例效果：
+## 示例效果：
 
-![Untitled](EditAnywhere/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 CPF_Edit在源码里有非常多的使用，决定了很多地方属性是否可以显示和编辑。有兴趣可以自己去搜搜CPF_Edit的使用。

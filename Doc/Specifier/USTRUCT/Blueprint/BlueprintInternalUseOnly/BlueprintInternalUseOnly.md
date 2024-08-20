@@ -1,12 +1,10 @@
 # BlueprintInternalUseOnly
 
-功能描述: 不可定义新BP变量，但可作为别的类的成员变量暴露和变量传递
-元数据类型: bool
-引擎模块: Blueprint
-MetaOperation: +=
-Meta: BlueprintInternalUseOnly (../../Meta/Meta/BlueprintInternalUseOnly.md), BlueprintType (../../Meta/Meta/BlueprintType.md)
-Status: Done
-常用程度: 2
+- **功能描述：** 不可定义新BP变量，但可作为别的类的成员变量暴露和变量传递
+- **元数据类型：**bool
+- **引擎模块：**Blueprint
+- **作用机制：**在Meta中加入[BlueprintInternalUseOnly](../../../../Meta/Blueprint/BlueprintInternalUseOnly.md), [BlueprintType](../../../../Meta/Blueprint/BlueprintType.md)
+- **常用程度：**★★
 
 指明这个STRUCT会是个BlueprintType，但在蓝图编辑器中又不能声明新变量，但是可以作为别的类的成员变量暴露到蓝图中。
 
@@ -16,7 +14,7 @@ Status: Done
 
 如FTableRowBase本身并不能定义新变量，但是其子类（要加上BlueprintType）是可以定义新变量的，正常被使用。
 
-示例代码：
+## 示例代码：
 
 ```cpp
 //(BlueprintInternalUseOnly = true, BlueprintType = true, ModuleRelativePath = Struct/MyStruct_BlueprintInternalUseOnly.h)
@@ -52,11 +50,11 @@ public:
 
 ```
 
-示例效果：
+## 示例效果：
 
 NewVar是UMyClass_BlueprintInternalUseOnlyTest 类型的，依然可以访问内部的MyInternalStruct变量。
 
-![Untitled](BlueprintInternalUseOnly/Untitled.png)
+![Untitled](Untitled.png)
 
 源码里可以找到：
 
@@ -70,7 +68,7 @@ struct FTableRowBase
 {}
 ```
 
-原理：
+## 原理：
 
 ```cpp
 bool UEdGraphSchema_K2::IsAllowableBlueprintVariableType(const UScriptStruct* InStruct, const bool bForInternalUse)

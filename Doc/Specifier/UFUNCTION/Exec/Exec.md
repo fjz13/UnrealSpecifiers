@@ -1,12 +1,11 @@
 # Exec
 
-功能描述: 在特定类里注册一个函数为作为控制台命令，允许接受参数。
-元数据类型: bool
-引擎模块: Behavior
-限制类型: 特定的几个类
-Status: Done
-+=EFunctionFlags: FUNC_Exec (../../Flags/EFunctionFlags/FUNC_Exec.md)
-常用程度: 3
+- **功能描述：**在特定类里注册一个函数为作为控制台命令，允许接受参数。
+- **元数据类型：**bool
+- **引擎模块：**Behavior
+- **限制类型：**特定的几个类
+- **作用机制：**在FunctionFlags中加入[FUNC_Exec](../../../Flags/EFunctionFlags/FUNC_Exec.md)
+- **常用程度：**★★★
 
 一般特定的几个类是：UPlayerInput，APlayerController，APawn，AHUD，AGameModeBase，ACheatManager，AGameStateBase，APlayerCameraManager的子类。
 
@@ -18,7 +17,7 @@ UGameViewportClient，UGameInstance，UPlayer是继承于FExec的，因此本身
 
 如果是在编辑器中~执行命令，FConsoleCommandExecutor::ExecInternal，最后也会到ULocalPlayer::Exec。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -39,9 +38,9 @@ void AMyFunction_Exec::MyExec()
 
 在PIE的时候~打开控制台运行结果：
 
-![Untitled](Exec/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 根据源码中的流程：
 

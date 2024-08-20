@@ -1,12 +1,11 @@
 # Export
 
-功能描述: 在对Asset导出的时候，决定该类的对象应该导出内部的属性值，而是对象的路径。
-元数据类型: bool
-引擎模块: Serialization
-限制类型: Object属性，或Object数组
-EPropertyFlags: CPF_ExportObject (../../Flags/EPropertyFlags/CPF_ExportObject.md)
-Status: Done
-常用程度: 1
+- **功能描述：**在对Asset导出的时候，决定该类的对象应该导出内部的属性值，而是对象的路径。
+- **元数据类型：**bool
+- **引擎模块：**Serialization
+- **限制类型：**Object属性，或Object数组
+- **作用机制：**在PropertyFlags中加入[CPF_ExportObject](../../../../Flags/EPropertyFlags/CPF_ExportObject.md)
+- **常用程度：**★
 
 在对Asset导出的时候，决定该类的对象应该导出内部的属性值，而是对象的路径。
 
@@ -14,7 +13,7 @@ Status: Done
 - 只适用于Object属性（或Object数组），因为是用在对象的导出的上的。
 - 其实就是浅复制和深复制的区别。不标Export就是浅复制，只输出对象路径。标上Export后是深复制，也输出对象的内部属性。
 
-示例代码：
+## 示例代码：
 
 ```jsx
 UCLASS(Blueprintable, BlueprintType)
@@ -45,11 +44,11 @@ public:
 
 配置的对象值：
 
-![Untitled](Export/Untitled.png)
+![Untitled](Untitled.png)
 
 主要是用在Export 操作的时候，用来决定如何导出Object*属性的内容。NoExport的话是只输出对象引用的路径，而Export的话会输出这个对象其再内部的的属性值。
 
-![Untitled](Export/Untitled%201.png)
+![Untitled](Untitled%201.png)
 
 导出的文本：
 
@@ -65,7 +64,7 @@ End Object
 
 可以看到ObjectExport的对象也导出的字段值，但是ObjectWithoutExport只有路径。
 
-原理：
+## 原理：
 
 源码内作用的函数，要注意一点的是，要让Export标记在ExportProperties起作用，export标记不能用在对象的sub object上，否则会走ExportInnerObjects的调用路线。上面例子中ObjectExport和ObjectWithoutExport都是指向了外部的另外一个对象，所以用DataAsset来产生资产。
 

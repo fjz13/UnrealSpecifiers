@@ -1,12 +1,11 @@
 # HasDefaults
 
-功能描述: 指定该结构的字段拥有默认值。这样如果本结构作为函数参数或返回值时候，函数则可以为其提供默认值。
-元数据类型: bool
-引擎模块: UHT
-限制类型: 只在NoExportTypes.h供UHT使用
-Status: Done
-EFunctionFlags: FUNC_HasDefaults (../../Flags/EFunctionFlags/FUNC_HasDefaults.md)
-常用程度: 0
+- **功能描述：**指定该结构的字段拥有默认值。这样如果本结构作为函数参数或返回值时候，函数则可以为其提供默认值。
+- **元数据类型：**bool
+- **引擎模块：**UHT
+- **限制类型：**只在NoExportTypes.h供UHT使用
+- **作用机制：**在FunctionFlags中加入[FUNC_HasDefaults](../../../Flags/EFunctionFlags/FUNC_HasDefaults.md)
+- **常用程度：**0
 
 指定该结构的字段拥有默认值。
 
@@ -14,7 +13,7 @@ EFunctionFlags: FUNC_HasDefaults (../../Flags/EFunctionFlags/FUNC_HasDefaults.md
 
 NoExportTypes.h里的大部分结构都拥有该结构（88/135)，没有的是像FPackedXXX的。
 
-原理：
+## 原理：
 
 如果是一个class中的函数且参数用到了结构，如果该结构拥有HasDefaults，则会造成EFunctionFlags.HasDefaults
 

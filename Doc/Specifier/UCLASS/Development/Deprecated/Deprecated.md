@@ -1,19 +1,16 @@
 # Deprecated
 
-功能描述: 标明该类已经弃用。
-引擎模块: Development
-元数据类型: bool
-EClassFlagsOperation: |=
-EClassFlags: CLASS_Deprecated (../../Flags/EClassFlags/CLASS_Deprecated.md), CLASS_NotPlaceable (../../Flags/EClassFlags/CLASS_NotPlaceable.md)
-Meta: DeprecationMessage (../../Meta/Meta/DeprecationMessage.md), DeprecatedProperty (../../Meta/Meta/DeprecatedProperty.md)
-Status: Done
-常用程度: 3
+- **功能描述：** 标明该类已经弃用。
+- **引擎模块：**Development
+- **元数据类型：**bool
+- **作用机制：**在ClassFlags添加[CLASS_Deprecated](../../../../Flags/EClassFlags/CLASS_Deprecated.md)、[CLASS_NotPlaceable](../../../../Flags/EClassFlags/CLASS_NotPlaceable.md)，在Meta添加[DeprecationMessage](../../../../Meta/Development/DeprecationMessage.md)、[DeprecatedProperty](../../../../Meta/Development/DeprecatedProperty/DeprecatedProperty.md)
+- **常用程度：★★★**
 
 标明该类已经弃用。
 
 弃用会导致：不可被创建，不可被序列化保存，在继承列表里被过滤掉。此说明符子类会继承下来，标明子类也是废弃的。标上Deprecated 的类需要在类名前加上UDEPRECATED_的显眼前缀，但是类名不会变，Actor加ADEPRECATED_，UObject加UDEPRECATED_。ClassFLags里会标上CLASS_Deprecated和CLASS_NotPlaceable。注意还是可以正常NewObject使用的。而SpawnActor会失败，报错： failed because class %s is deprecated。EditInline也都会被禁止。
 
-示例代码：
+## 示例代码1：
 
 ```cpp
 UCLASS(Blueprintable)
@@ -29,13 +26,13 @@ class INSIDER_API UDEPRECATED_MyClass_Deprecated :public UObject
 };
 ```
 
-示例效果1：
+## 示例效果1：
 
 依然可以NewObject。
 
-![Untitled](Deprecated/Untitled.png)
+![Untitled](Untitled.png)
 
-示例代码2：
+## 示例代码2：
 
 但要注意这个是UE的标记。源码里还看见很多UE_DEPRECATED宏的使用，则是在VS编译器级别的标记，会根据使用引用情况在编译的步骤中生成警告。
 
@@ -95,13 +92,13 @@ warning : Member variable declaration: Deprecated property 'MyInt2Property_DEPRE
 UPROPERTY()	int MyInt2Property_DEPRECATED;
 ```
 
-示例效果2：
+## 示例效果2：
 
 属性和函数上加上Deprecated标记后，会在BP编译的时候生成警告。注意函数是先有一个正常的函数，在BP里连接完成之后再在C++里标记DeprecatedFunction才会生成警告，否则已经Deprecated的函数是无法再在BP里调用的。
 
-![Untitled](Deprecated/Untitled%201.png)
+![Untitled](Untitled%201.png)
 
-原理：
+## 原理：
 
 源码中有众多CLASS_Deprecated的判断，比如SpawnActor：
 

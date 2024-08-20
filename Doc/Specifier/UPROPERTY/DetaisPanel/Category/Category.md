@@ -1,17 +1,14 @@
 # Category
 
-功能描述: 指定属性的类别，使用 | 运算符定义嵌套类目。
-元数据类型: strings=“a|b|c”
-引擎模块: DetailsPanel, Editor
-Example: Category="TopCategory|SubCategory|...”
-MetaOperation: +=
-Meta: Category (../../Meta/Meta/Category.md)
-Status: Done
-常用程度: 5
+- **功能描述：**指定属性的类别，使用 | 运算符定义嵌套类目。
+- **元数据类型：**strings=“a|b|c”
+- **引擎模块：**DetailsPanel, Editor
+- **作用机制：**在Meta中加入[Category](../../../../Meta/DetailsPanel/Category.md)
+- **常用程度：★★★★★**
 
 指定属性的类别，使用 | 运算符定义嵌套类目。
 
-示例代码：
+## 示例代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -47,10 +44,10 @@ public:
 }
 ```
 
-示例效果：
+## 示例效果：
 
-![Untitled](Category/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 比较简单，把值设置到meta里的Category，之后读取出来使用。

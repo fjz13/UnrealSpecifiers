@@ -3,8 +3,7 @@
 - **功能描述:** 指定该结构在序列化的时候总是一整个输出全部属性，而不是只输出改变的属性。
 - **元数据类型:** bool
 - **引擎模块:** UHT
-- **EStructFlagsOperation: |=
-- **EStructFlags: STRUCT_Atomic (../../Flags/EStructFlags/STRUCT_Atomic.md)
+- **作用机制：**在StructFlags中加入[STRUCT_Atomic](../../../../Flags/EStructFlags/STRUCT_Atomic.md)
 - **常用程度:** ★
 
 指定该结构在序列化的时候总是一整个输出全部属性，而不是只输出改变的属性。
@@ -92,7 +91,7 @@ USerializationLibrary::SaveStructToMemory(AtomicStruct,AtomicMemoryChanged,EInsi
 
 可见AtomicMemoryChanged的占用内存大小比AtomicMemoryChanged多，因为这两个结构的属性虽然都改变了，但是AtomicStruct总是会把所有的属性都序列化出来。
 
-![Untitled](Atomic/Untitled.png)
+![Untitled](Untitled.png)
 
 ## 原理：
 

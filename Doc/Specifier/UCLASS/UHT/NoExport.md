@@ -1,12 +1,11 @@
 # NoExport
 
-功能描述: 指定UHT不要用来自动生成注册的代码，而只是进行词法分析提取元数据。
-引擎模块: UHT
-元数据类型: bool
-EClassFlagsOperation: |=
-EClassFlags: CLASS_NoExport (../../Flags/EClassFlags/CLASS_NoExport.md)
-Status: Done
-常用程度: 0
+- **功能描述：**指定UHT不要用来自动生成注册的代码，而只是进行词法分析提取元数据。
+
+- **引擎模块：**UHT
+- **元数据类型：**bool
+- **作用机制：**在ClassFlags中增加EClassFlags: [CLASS_NoExport](../../../Flags/EClassFlags/CLASS_NoExport.md)
+- **常用程度：**0
 
 指定UHT不要用来自动生成注册的代码，而只是进行词法分析提取元数据。
 
@@ -14,7 +13,7 @@ Status: Done
 
 引擎里的结构倒是经常用noexport来阻止生成UHT注册。因为结构其实不需要调用GetPrivateStaticClass来创建元数据。只要有Z_Construct_UScriptStruct_XXX来生成构造相应的UScriptStruct对象就行。
 
-测试代码:
+## 测试代码:
 
 ```cpp
 UCLASS(noexport)
@@ -25,7 +24,7 @@ public:
 };
 ```
 
-测试结果：
+## 测试结果：
 
 ```cpp
 编译的时候生成错误：

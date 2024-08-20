@@ -1,16 +1,15 @@
 # DuplicateTransient
 
-功能描述: 在对象复制或COPY格式导出的时候，忽略该属性。
-元数据类型: bool
-引擎模块: Serialization
-EPropertyFlagsOperation: |=
-EPropertyFlags: CPF_DuplicateTransient (../../Flags/EPropertyFlags/CPF_DuplicateTransient.md)
-Status: Done
-常用程度: 2
+- **功能描述：**在对象复制或COPY格式导出的时候，忽略该属性。
+
+- **元数据类型：**bool
+- **引擎模块：**Serialization
+- **作用机制：**在PropertyFlags中加入[CPF_DuplicateTransient](../../../../Flags/EPropertyFlags/CPF_DuplicateTransient.md)
+- **常用程度：**★★
 
 在对象复制或COPY格式导出的时候，忽略该属性。
 
-示例代码：
+## 示例代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -47,17 +46,17 @@ void UMyProperty_Serialization_Test::RunTest()
 
 ```
 
-示例效果：
+## 示例效果：
 
 复制蓝图，可以看到DuplicateTransient并不会被复制
 
-![Untitled](NonPIEDuplicateTransient/Untitled.png)
+![Untitled](Untitled.png)
 
 在采用C++复制的时候：也看到MyInt_DuplicateTransient 并不会产生复制，还是123而不是456。
 
-![Untitled](DuplicateTransient/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 在文本导出的时候，如果是T3D格式，则依然会导出。如果是COPY格式，则不导出。
 

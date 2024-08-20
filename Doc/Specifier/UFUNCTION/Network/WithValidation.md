@@ -1,17 +1,16 @@
 # WithValidation
 
-功能描述: 指定一个RPC函数在执行前需要验证，只有验证通过才可以执行。
-元数据类型: bool
-引擎模块: Network
-Status: Done
-+=EFunctionFlags: FUNC_NetValidate (../../Flags/EFunctionFlags/FUNC_NetValidate.md)
-常用程度: 5
+- **功能描述：**指定一个RPC函数在执行前需要验证，只有验证通过才可以执行。
+- **元数据类型：**bool
+- **引擎模块：**Network
+- **作用机制：**在FunctionFlags中加入[FUNC_NetValidate](../../../Flags/EFunctionFlags/FUNC_NetValidate.md)
+- **常用程度：★★★★★**
 
 指定一个RPC函数在执行前需要验证，只有验证通过才可以执行。
 
 WithValidation实际上可以用于Client，Server，NetMulticast的RPC函数，但一般来说还是用在Server的最多，因为一般是Server的数据最权威可以进行数据合法性校验。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -53,7 +52,7 @@ bool AMyFunction_Network::MyFunc2_NetMulticast_Validate()
 }
 ```
 
-测试结果：
+## 测试结果：
 
 ```cpp
 RunOnClient:
@@ -74,7 +73,9 @@ LogInsider: Display: 8f6a3700    MyFunc2_NetMulticast_Implementation BP_Network_
 
 ```
 
-原理：如果加上WithValidation标记，在UHT生成代码的时候就会：
+## 原理：
+
+如果加上WithValidation标记，在UHT生成代码的时候就会：
 
 ```cpp
 DEFINE_FUNCTION(AMyFunction_PlayerController::execMyFunc2_RunOnServer)

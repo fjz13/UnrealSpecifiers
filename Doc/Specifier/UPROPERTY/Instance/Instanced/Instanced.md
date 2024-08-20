@@ -1,14 +1,11 @@
 # Instanced
 
-功能描述: 指定对该对象属性的编辑赋值应该新创建一个实例并作为子对象，而不是寻找一个对象引用。
-元数据类型: bool
-引擎模块: Instance
-限制类型: UObject*
-EPropertyFlags: CPF_PersistentInstance (../../Flags/EPropertyFlags/CPF_PersistentInstance.md), CPF_ExportObject (../../Flags/EPropertyFlags/CPF_ExportObject.md), CPF_InstancedReference (../../Flags/EPropertyFlags/CPF_InstancedReference.md)
-MetaOperation: =true
-Meta: EditInline (../../Meta/Meta/EditInline.md)
-Status: Done
-常用程度: 3
+- **功能描述：**指定对该对象属性的编辑赋值应该新创建一个实例并作为子对象，而不是寻找一个对象引用。
+- **元数据类型：**bool
+- **引擎模块：**Instance
+- **限制类型：**UObject*
+- **作用机制：**在PropertyFlags中加入[CPF_PersistentInstance](../../../../Flags/EPropertyFlags/CPF_PersistentInstance.md), [CPF_ExportObject](../../../../Flags/EPropertyFlags/CPF_ExportObject.md), [CPF_InstancedReference](../../../../Flags/EPropertyFlags/CPF_InstancedReference.md)，在Meta中加入[EditInline](../../../../Meta/DetailsPanel/EditInline/EditInline.md)
+- **常用程度：**★★★
 
 指定对该对象属性的编辑赋值应该新创建一个实例并作为子对象，而不是寻找一个对象引用。
 
@@ -20,7 +17,7 @@ Status: Done
 
 当然，在C++里手动设置对象给这个属性的话还是都可以的。也要注意和UCLASS(DefaultToInstanced)区分，DefaultToInstanced是表明这个类的所有属性都默认的加上Instanced的意思，避免了对该类的所有属性每次都要手动设置。
 
-示例代码：
+## 示例代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType,editinlinenew)
@@ -48,8 +45,8 @@ public:
 };
 ```
 
-示例效果：
+## 示例效果：
 
 可见ObjectInstanced和Object弹出的编辑框是不同的。
 
-![Untitled](Instanced/Untitled.png)
+![Untitled](Untitled.png)

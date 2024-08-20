@@ -1,13 +1,13 @@
 # Replicated
 
-功能描述: 指定该属性应随网络进行复制。
-元数据类型: bool
-引擎模块: Network
-EPropertyFlags: CPF_Net (../../Flags/EPropertyFlags/CPF_Net.md)
-Status: Done
-常用程度: 5
+- **功能描述：**指定该属性应随网络进行复制。
 
-示例代码：
+- **元数据类型：**bool
+- **引擎模块：**Network
+- **作用机制：**在PropertyFlags中加入[CPF_Net](../../../Flags/EPropertyFlags/CPF_Net.md)
+- **常用程度：**★★★★★
+
+## 示例代码：
 
 记得要在cpp代码中相应添加GetLifetimeReplicatedProps函数
 

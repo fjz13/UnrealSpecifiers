@@ -1,14 +1,14 @@
 # HideDropDown
 
-功能描述: 在类选择器中隐藏此类
-引擎模块: TypePicker
-元数据类型: bool
-EClassFlagsOperation: |=
-EClassFlags: CLASS_HideDropDown (../../Flags/EClassFlags/CLASS_HideDropDown.md)
-Status: Done
-常用程度: 2
+- **功能描述：** 在类选择器中隐藏此类
+- **引擎模块：**TypePicker
+- **元数据类型：**bool
+- **作用机制：**在ClassFlags中添加[CLASS_HideDropDown](../../../../Flags/EClassFlags/CLASS_HideDropDown.md)
+- **常用程度：★★**
 
 在类选择器中隐藏此类，通常是TSubClassOf触发，或者Class变量触发的类选择窗口。这个时候，这个标识符可以阻止其出现。在源码里的使用，通常是一些旧的废弃的类或者Test类，Abstract类和基类。
+
+## 示例代码：
 
 ```cpp
 UCLASS(Blueprintable)
@@ -46,11 +46,11 @@ public:
 };
 ```
 
-示例结果：
+## 示例结果：
 
-![Untitled](HideDropDown/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 HideDropDown会造成CLASS_HideDropDown标记，从而在类型UI定制化的列表里把该类剔除出去。
 

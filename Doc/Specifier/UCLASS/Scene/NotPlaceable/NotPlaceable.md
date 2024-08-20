@@ -1,21 +1,19 @@
 # NotPlaceable
 
-功能描述: 标明该Actor不可被放置在关卡里
-引擎模块: Behavior
-元数据类型: bool
-EClassFlagsOperation: |=
-EClassFlags: CLASS_NotPlaceable (../../Flags/EClassFlags/CLASS_NotPlaceable.md)
-Status: Done
-Parent item: Placeable (Placeable.md)
-常用程度: 3
+- **功能描述：**标明该Actor不可被放置在关卡里
+- **引擎模块：**Behavior
+- **元数据类型：**bool
+- **作用机制：**在ClassFlags中添加[CLASS_NotPlaceable](../../../../Flags/EClassFlags/CLASS_NotPlaceable.md)
+- **关联项：**Placeable (Placeable.md)
+- **常用程度：★★★**
 
-标明该Actor不可被放置在关卡里，没法拖放到场景里。使继承自基类的Placeable说明符无效。会在ClassFlags里标记上CLASS_NotPlaceable，这个标记是可以继承的，意味着其所有的子类默认都不可放置。例如AWorldSettings其实就是一个notplaceable的Actor。
+标明该Actor不可被放置在关卡里，没法拖放到场景里。使继承自基类的Placeable说明符无效。会在ClassFlagss里标记上CLASS_NotPlaceable，这个标记是可以继承的，意味着其所有的子类默认都不可放置。例如AWorldSettings其实就是一个notplaceable的Actor。
 
 但是注意该类依然可以通过SpawnActor动态生成到关卡中。
 
 NotPlaceable的类是不出现在PlaceMode的类选择里去的。
 
-示例代码：
+## 示例代码：
 
 ```cpp
 UCLASS(Blueprintable,BlueprintType, NotPlaceable)
@@ -25,13 +23,13 @@ class INSIDER_API AMyActor_NotPlaceable :public AActor
 };
 ```
 
-示例效果：
+## 示例效果：
 
 拖动到场景里会发现不能创建Actor。
 
-![Untitled](NotPlaceable/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 如果直接是C++类AMyActor_NotPlaceable ，是可以直接从ContentBrowser拖到场景里去的。看源码可知，只有BP继承下来的子类才有受到这个限制。
 

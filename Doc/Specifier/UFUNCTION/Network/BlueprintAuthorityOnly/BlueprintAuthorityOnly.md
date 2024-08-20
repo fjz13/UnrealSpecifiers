@@ -1,11 +1,10 @@
 # BlueprintAuthorityOnly
 
-功能描述: 这个函数只能在拥有网络权限的端上运行。
-元数据类型: bool
-引擎模块: Network
-Status: Done
-+=EFunctionFlags: FUNC_BlueprintAuthorityOnly (../../Flags/EFunctionFlags/FUNC_BlueprintAuthorityOnly.md)
-常用程度: 3
+- **功能描述：**这个函数只能在拥有网络权限的端上运行。
+- **元数据类型：**bool
+- **引擎模块：**Network
+- **作用机制：**在FunctionFlags中添加[FUNC_BlueprintAuthorityOnly](../../../../Flags/EFunctionFlags/FUNC_BlueprintAuthorityOnly.md)
+- **常用程度：**★★★
 
 这个函数只能在拥有网络权限的端上运行。HasAuthority::（GetLocalRole() == ROLE_Authority）。共有4种NetRole: ROLE_None（不复制），ROLE_SimulatedProxy（在客户端上模拟的代理），ROLE_AutonomousProxy（在客户端上的匿名代理，接收玩家输入），ROLE_Authority（服务器拥有权限的）。
 
@@ -13,7 +12,7 @@ Status: Done
 
 注意在测试的时候需要把该Actor设置为Replicates。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -62,9 +61,9 @@ void AMyFunction_Network::PrintFuncStatus(AActor* actor, FString funcName)
 }
 ```
 
-蓝图代码：
+## 蓝图代码：
 
-![Untitled](BlueprintAuthorityOnly/Untitled.png)
+![Untitled](Untitled.png)
 
 对于不Replicated的Actor：
 
@@ -90,7 +89,7 @@ MyFunc_BlueprintAuthorityOnly   BP_Network_C_1  NM_ListenServer Local:ROLE_Autho
 
 结果可见，Default的函数在3个端上都可以运行，而BlueprintAuthorityOnly只能在服务器上运行。而Client上无法运行。
 
-原理：
+## 原理：
 
 ```cpp
 int32 AActor::GetFunctionCallspace( UFunction* Function, FFrame* Stack )

@@ -1,12 +1,10 @@
 # Getter
 
-功能描述: 为属性增加一个C++的Get函数，只在C++层面应用。
-元数据类型: string="abc"
-引擎模块: Blueprint
-Example: Getter=GetterFunctionName
-EPropertyFlagsOperation: |=
-Status: Done
-常用程度: 3
+- **功能描述：**为属性增加一个C++的Get函数，只在C++层面应用。
+
+- **元数据类型：**string="abc"
+- **引擎模块：**Blueprint
+- **常用程度：**★★★
 
 为属性增加一个C++的Get函数，只在C++层面应用。
 
@@ -16,7 +14,7 @@ Status: Done
 - GetXXX的函数必须自己手写，否则UHT会报错。
 - 我们当然也可以自己写GetSet函数，不需要写Getter和Setter的元数据。但写上Getter和Settter的好处是，万一在项目里别的地方，用到了反射来获取和设置值，这个时候如果没有标上Getter和Setter，就会直接从属性上获取值，从而跳过我们想要的自定义Get/Set流程。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 public:
@@ -43,7 +41,7 @@ void UMyProperty_Get::RunTest()
 }
 ```
 
-蓝图表现：
+## 蓝图表现：
 
 在测试的时候，可见如果是用GetValue_InContainer这种反射的方式来获取值，就会自动的调用到GetMyFloat，从而返回不同的值。
 
@@ -51,7 +49,7 @@ void UMyProperty_Get::RunTest()
 
 ![Untitled](Setter/Untitled.png)
 
-原理：
+## 原理：
 
 UHT在分析Getter标记后，会在gen.cpp里生成相应的函数包装。在构建FProperty的时候，就会创建TPropertyWithSetterAndGetter，之后在GetSingleValue_InContainer的时候就会调用到CallGetter。
 

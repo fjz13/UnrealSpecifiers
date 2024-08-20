@@ -1,12 +1,11 @@
 # BlueprintInternalUseOnly
 
-功能描述: 指示不应向最终用户公开此函数。蓝图内部调用，不暴露给用户。
-元数据类型: bool
-引擎模块: Blueprint, UHT
-MetaOperation: =true
-Meta: BlueprintInternalUseOnly (../../Meta/Meta/BlueprintInternalUseOnly.md), BlueprintType (../../Meta/Meta/BlueprintType.md)
-Status: Done
-常用程度: 3
+- **功能描述：**指示不应向最终用户公开此函数。蓝图内部调用，不暴露给用户。
+
+- **元数据类型：**bool
+- **引擎模块：**Blueprint, UHT
+- **作用机制：**在Meta中加入[BlueprintInternalUseOnly](../../../../Meta/Blueprint/BlueprintInternalUseOnly.md)、[BlueprintType](../../../../Meta/Blueprint/BlueprintType.md)
+- **常用程度：**★★★
 
 指示不应向最终用户公开此函数。蓝图内部调用，不暴露给用户。
 
@@ -18,7 +17,7 @@ Status: Done
 
 二是引擎在别的地方会为该函数声明去按照特定的规则创建另一个蓝图函数节点，因此要隐藏掉按照默认规则创建的这个。这种用法就是引擎源码里大量在使用的用法。
 
-示例代码1：
+## 示例代码1：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -40,7 +39,7 @@ public:
 
 在蓝图中只有MyFunc_Default是可以调用的。因此可以理解为这个函数依然暴露到蓝图，但是却又被隐藏起来了。不能让用户自己直接调用，但是可以在代码里通过查找函数名之类的间接可以调用到。
 
-![Untitled](BlueprintInternalUseOnly/Untitled.png)
+![Untitled](Untitled.png)
 
 在源码里找到一个示例，因此这个GetLevelScriptActor函数，可以不在蓝图中被调用，但是有可以通过名字查找到。方便生成一个UFunction以被注入到别的地方作为callback
 
@@ -53,7 +52,7 @@ ENGINE_API ALevelScriptActor* GetLevelScriptActor();
 GetLevelScriptActorNode->SetFromFunction(ULevelStreaming::StaticClass()->FindFunctionByName(GET_FUNCTION_NAME_CHECKED(ULevelStreaming, GetLevelScriptActor)));
 ```
 
-示例代码2：
+## 示例代码2：
 
 实现代码就不贴了，可以自己去项目里查看。
 
@@ -92,13 +91,13 @@ private:
 
 ```
 
-示例效果：
+## 示例效果：
 
 假如注释掉上述源码的BlueprintInternalUseOnly ，会发现在蓝图里可以有两个DelayLoop。上面的一个是按UBlueprintAsyncActionBase规则生成的，第二个是按普通的蓝图函数规则生成的。明显这种情况下我们并不想同时出现两个来给用户造成困惑。因此要加上BlueprintInternalUseOnly 来阻止生成默认的蓝图节点。
 
-![Untitled](BlueprintInternalUseOnly/Untitled%201.png)
+![Untitled](Untitled%201.png)
 
-原理：
+## 原理：
 
 关于UBlueprintAsyncActionBase的使用，UK2Node_BaseAsyncTask的函数实现里体现了书写继承于UBlueprintAsyncActionBase的规则，简单来说就是通过static 函数来当作Factory function，然后分析这个Proxy类的Delegate property来当作Pin。
 

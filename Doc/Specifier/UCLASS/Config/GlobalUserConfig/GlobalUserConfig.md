@@ -1,17 +1,15 @@
 # GlobalUserConfig
 
-功能描述: 指定保存到的配置文件层级是全局用户设置 Engine/Config/UserXXX.ini。
-引擎模块: Config
-元数据类型: bool
-EClassFlagsOperation: |=
-EClassFlags: CLASS_GlobalUserConfig (../../Flags/EClassFlags/CLASS_GlobalUserConfig.md)
-Status: Done
-Parent item: Config (Config.md)
-常用程度: 3
+- **功能描述：** 指定保存到的配置文件层级是全局用户设置 Engine/Config/UserXXX.ini。
+- **引擎模块：**Config
+- **元数据类型：**bool
+- **作用机制：**在ClassFlags中增加[CLASS_GlobalUserConfig](../../../../Flags/EClassFlags/CLASS_GlobalUserConfig.md)
+- **关联项：**[Config](../Config.md)
+- **常用程度：★★★**
 
 指定保存到的配置文件层级是全局用户设置 Engine/Config/UserXXX.ini。
 
-示例代码：
+## 示例代码：
 
 属性用Config或者GlobalConfig都是可以的。
 
@@ -40,11 +38,11 @@ public:
 MyPropertyWithGlobalConfig=999
 ```
 
-示例效果：
+## 示例效果：
 
-![Untitled](GlobalUserConfig/Untitled.png)
+![Untitled](Untitled.png)
 
-源码例子：
+## 源码例子：
 
 ```cpp
 UCLASS(config=Engine, globaluserconfig)

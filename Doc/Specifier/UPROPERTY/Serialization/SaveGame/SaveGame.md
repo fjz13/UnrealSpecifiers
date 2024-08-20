@@ -1,10 +1,9 @@
 # SaveGame
 
-功能描述: 在SaveGame存档的时候，只序列化有SaveGame标记的属性，而不序列化别的属性。
-元数据类型: bool
-引擎模块: Serialization
-Status: Done
-常用程度: 5
+- **功能描述：**在SaveGame存档的时候，只序列化有SaveGame标记的属性，而不序列化别的属性。
+- **元数据类型：**bool
+- **引擎模块：**Serialization
+- **常用程度：**★★★★★
 
 在SaveGame存档的时候，只序列化有SaveGame标记的属性，而不序列化别的属性。
 
@@ -14,7 +13,7 @@ Status: Done
 
 NoExportTypes.h里的很多基础结构内部属性都被标上了SaveGame。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 struct FMySaveGameArchive : public FObjectAndNameAsStringProxyArchive
@@ -94,13 +93,13 @@ void UMyProperty_SaveGame_Test::RunTest()
 
 测试结果，只有SaveGame标记的属性这个值才序列化进去。
 
-![Untitled](SaveGame/Untitled.png)
+![Untitled](Untitled.png)
 
 等价于在蓝图的细节面板里表示：
 
-![Untitled](SaveGame/Untitled%201.png)
+![Untitled](Untitled%201.png)
 
-原理：
+## 原理：
 
 只在ArIsSaveGame的时候检测这个标记，意味着这个标记只在检测USaveGame的对象的子对象结构属性的时候才用。但是ArIsSaveGame需要自己手动设置为true，否则默认这个机制是不工作的。实现的一种方式是自己手动加上一句Ar.ArIsSaveGame = true;，或者自己自定义一个FMySaveGameArchive来进行序列化。
 

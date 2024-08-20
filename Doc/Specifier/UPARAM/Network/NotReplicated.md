@@ -1,9 +1,7 @@
 # NotReplicated
 
-引擎模块: Blueprint, Network, Parameter
-EPropertyFlagsOperation: |=
-EPropertyFlags: CPF_RepSkip (../../Flags/EPropertyFlags/CPF_RepSkip.md)
-Status: Invalid
+- **引擎模块：**Blueprint, Network, Parameter
+- **作用机制：**在PropertyFlags中加入[CPF_RepSkip](../../../Flags/EPropertyFlags/CPF_RepSkip.md)
 
 参照UFUNCTION的ServiceRequest，该标识符弃用。
 

@@ -1,12 +1,10 @@
 # ComponentWrapperClass
 
-功能描述: 指定该类为一个简单的封装类，忽略掉子类的Category相关设置。
-引擎模块: Category
-元数据类型: bool
-MetaOperation: +=
-Meta: IgnoreCategoryKeywordsInSubclasses (../../Meta/Meta/IgnoreCategoryKeywordsInSubclasses.md)
-Status: Done
-常用程度: 2
+- **功能描述：** 指定该类为一个简单的封装类，忽略掉子类的Category相关设置。
+- **引擎模块：**Category
+- **元数据类型：**bool
+- **作用机制：**在Meta中增加[IgnoreCategoryKeywordsInSubclasses](../../../../Meta/DetailsPanel/IgnoreCategoryKeywordsInSubclasses.md)
+- **常用程度：★★**
 
 指定该类为一个简单的封装类，忽略掉子类的Category相关设置。
 
@@ -16,7 +14,7 @@ Status: Done
 
 ComponentWrapperClass在源码里搜了一下，只有一些Actor在用。
 
-示例代码：
+## 示例代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType, ComponentWrapperClass, hideCategories = MyGroup3)	//依然会显示出Property_Group3
@@ -44,13 +42,13 @@ public:
 };
 ```
 
-子类的实际作用效果：
+## 子类的实际作用效果：
 
 子类里的MyGroup3即使被隐藏了起来，也还是显示了出来。
 
-![Untitled](ComponentWrapperClass/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 ComponentWrapperClass实际会造成IgnoreCategoryKeywordsInSubclasses=true的元数据添加。因此在有了IgnoreCategoryKeywordsInSubclasses元数据之后，就不会判断之后的ShowCategories等设置了。
 

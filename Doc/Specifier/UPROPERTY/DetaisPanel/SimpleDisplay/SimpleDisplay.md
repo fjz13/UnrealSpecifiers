@@ -1,18 +1,16 @@
 # SimpleDisplay
 
-功能描述: 在细节面板中直接可见，不折叠到高级中。
-元数据类型: bool
-引擎模块: DetailsPanel, Editor
-EPropertyFlagsOperation: |=
-EPropertyFlags: CPF_SimpleDisplay (../../Flags/EPropertyFlags/CPF_SimpleDisplay.md)
-Status: Done
-常用程度: 3
+- **功能描述：**在细节面板中直接可见，不折叠到高级中。
+- **元数据类型：**bool
+- **引擎模块：**DetailsPanel, Editor
+- **作用机制：**在PropertyFlags中加入[CPF_SimpleDisplay](../../../../Flags/EPropertyFlags/CPF_SimpleDisplay.md)
+- **常用程度：**★★★
 
 在细节面板中直接可见，不折叠到高级中。
 
 默认情况下本身就是不折叠，但可以用来覆盖掉类上的AdvancedClassDisplay的设置。具体可参见AdvancedClassDisplay的代码和效果。
 
-示例代码：
+## 示例代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -28,11 +26,11 @@ class INSIDER_API UMyProperty_Test :public UObject
 }
 ```
 
-示例效果：
+## 示例效果：
 
-![Untitled](SimpleDisplay/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 如果有CPF_SimpleDisplay，则bAdvanced =false
 

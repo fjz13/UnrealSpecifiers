@@ -1,20 +1,17 @@
 # ShowCategories
 
-功能描述: 在类的ClassDefaults属性面板里显示某些Category的属性。
-引擎模块: Category
-元数据类型: strings=(abc，"d|e"，"x|y|z")
-Example: ShowCategories=(Category1, Category2, ...)
-MetaOperation: +=
-Meta: HideCategories (../../Meta/Meta/HideCategories.md)
-Status: Done
-Parent item: HideCategories (HideCategories.md)
-常用程度: 3
+- **功能描述：** 在类的ClassDefaults属性面板里显示某些Category的属性。
+- **引擎模块：**Category
+- **元数据类型：**strings=(abc，"d|e"，"x|y|z")
+- **作用机制：**在Meta中增加[HideCategories](../../../../Meta/DetailsPanel/HideCategories.md)
+- **关联项：**[HideCategories](../HideCategories/HideCategories.md)
+- **常用程度：★★★**
 
 在类的ClassDefaults属性面板里显示某些Category的属性。使列出的类别的继承自基类的HideCategories说明符无效。
 
 ShowCategories会被UHT分析，但不会被保存到UClass的元数据里去。它作用的方式是可以抹去之前基类设置的HideCategories的属性。ShowCategories可以被子类继承下来。
 
-示例代码：
+## 示例代码：
 
 ```cpp
 /*
@@ -56,11 +53,11 @@ public:
 
 ```
 
-示例效果：
+## 示例效果：
 
-![Untitled](ShowCategories/Untitled.png)
+![Untitled](./Image/Untitled.png)
 
-原理：
+## 原理：
 
 其实实际上UHT保存的只在HideCategories里，这点通过对类的元数据查看就可知。
 

@@ -1,19 +1,17 @@
 # BlueprintType
 
-功能描述: 可当做变量类型
-引擎模块: Blueprint
-元数据类型: bool
-MetaOperation: |=
-Meta: BlueprintType (../../Meta/Meta/BlueprintType.md)
-Status: Done
-Sub-item: NotBlueprintType (NotBlueprintType.md)
-常用程度: 5
+- **功能描述：**可当做变量类型
+- **引擎模块：**Blueprint
+- **元数据类型：**bool
+- **作用机制：**Meta增加[BlueprintType](../../../../Meta/Blueprint/BlueprintType.md)
+- **关联项：**[NotBlueprintType ](../NotBlueprintType.md)
+- **常用程度：**★★★★★
 
 可当做变量类型。
 
 关键是设置BlueprintType和NotBlueprintType这两个metadata.
 
-示例代码：
+## 示例代码：
 
 ```cpp
 
@@ -64,13 +62,13 @@ class INSIDER_API UMyClass_BlueprintType_To_NotBlueprintType:public UMyClass_Blu
 
 ```
 
-示例结果：
+## 示例结果：
 
 带有BlueprintType =true的才可以当作变量
 
-![Untitled](BlueprintType/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 在UEdGraphSchema_K2::IsAllowableBlueprintVariableType的3个重载函数分别判断UEnum，UClass，UScriptStruct能否当作变量。
 

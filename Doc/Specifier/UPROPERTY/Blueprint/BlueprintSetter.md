@@ -1,21 +1,17 @@
 # BlueprintSetter
 
-功能描述: 采用一个自定义的set函数来读取。
-元数据类型: string="abc"
-引擎模块: Blueprint
-Example: BlueprintSetter=SetterFunctionName
-EPropertyFlagsOperation: |=
-EPropertyFlags: CPF_BlueprintVisible (../../Flags/EPropertyFlags/CPF_BlueprintVisible.md)
-MetaOperation: =XXX
-Meta: BlueprintSetter (../../Meta/Meta/BlueprintSetter.md)
-Status: Done
-常用程度: 3
+- **功能描述：**采用一个自定义的set函数来读取。
+
+- **元数据类型：**string="abc"
+- **引擎模块：**Blueprint
+- **作用机制：**在PropertyFlags中加入[CPF_BlueprintVisible](../../../Flags/EPropertyFlags/CPF_BlueprintVisible.md)，在Meta中加入[BlueprintSetter](../../../Meta/Blueprint/BlueprintSetter.md)
+- **常用程度：**★★★
 
 采用一个自定义的set函数来读取。
 
 会默认设置BlueprintReadWrite。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 public:
@@ -38,11 +34,11 @@ private:
 		int32 MyInt_WithSetter = 123;
 ```
 
-蓝图表现：
+## 蓝图表现：
 
 ![Untitled](BlueprintGetter/Untitled.png)
 
-原理：
+## 原理：
 
 如果有MD_PropertySetFunction则用它来作为Set的调用。
 

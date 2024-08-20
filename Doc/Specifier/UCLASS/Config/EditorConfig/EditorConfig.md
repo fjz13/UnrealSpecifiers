@@ -1,12 +1,10 @@
 # EditorConfig
 
-功能描述: 用来在编辑器状态下保存信息。
-引擎模块: Config, Editor
-元数据类型: string="abc"
-MetaOperation: +=
-Meta: EditorConfig (../../Meta/Meta/EditorConfig.md)
-Status: Done
-常用程度: 1
+- **功能描述：** 用来在编辑器状态下保存信息。
+- **引擎模块：**Config, Editor
+- **元数据类型：**string="abc"
+- **作用机制：**在Meta中增加[EditorConfig](../../../../Meta/Config/EditorConfig.md)
+- **常用程度：★**
 
 用来在编辑器状态下保存信息。
 
@@ -14,7 +12,7 @@ Status: Done
 
 保存在：C:\Users\{user name}\AppData\Local\UnrealEngine\Editor。当前有：
 
-![Untitled](EditorConfig/Untitled.png)
+![Untitled](Untitled.png)
 
 在源码里搜索后，使用的时候必须继承于基类：
 
@@ -35,7 +33,7 @@ public:
 };
 ```
 
-示例代码：
+## 示例代码：
 
 ```cpp
 UCLASS(EditorConfig = "MyEditorGame")
