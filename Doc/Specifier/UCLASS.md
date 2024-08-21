@@ -1,11 +1,11 @@
 | Name                                                         | 引擎模块         | 功能描述                                                     | 常用程度 |
 | ------------------------------------------------------------ | ---------------- | ------------------------------------------------------------ | -------- |
 | [NoExport](UCLASS/UHT/NoExport.md)                              | UHT              | 指定UHT不要用来自动生成注册的代码，而只是进行词法分析提取元数据。 | 0        |
-| [Intrinsic](UCLASS/UHT/Intrinsic)                            | UHT              | 指定UHT完全不为此类生成代码，需要自己手写。                  | 0        |
-| [Blueprintable](UCLASS/Blueprint/Blueprintable/Blueprintable) | Blueprint        | 可以在蓝图里被继承，隐含的作用也可当变量类型                 | 5        |
-| [NotBlueprintable](UCLASS/Blueprint/NotBlueprintable)        | Blueprint        | 不可在蓝图里继承，隐含作用也不可当作变量                     | 4        |
-| [BlueprintType](UCLASS/Blueprint/BlueprintType/BlueprintType) | Blueprint        | 可当做变量类型                                               | 5        |
-| [NotBlueprintType](UCLASS/Blueprint/NotBlueprintType)        | Blueprint        | 不可当做变量类型                                             | 4        |
+| [Intrinsic](UCLASS/UHT/Intrinsic.md)                            | UHT              | 指定UHT完全不为此类生成代码，需要自己手写。                  | 0        |
+| [Blueprintable](UCLASS/Blueprint/Blueprintable/Blueprintable.md) | Blueprint        | 可以在蓝图里被继承，隐含的作用也可当变量类型                 | 5        |
+| [NotBlueprintable](UCLASS/Blueprint/NotBlueprintable.md)        | Blueprint        | 不可在蓝图里继承，隐含作用也不可当作变量                     | 4        |
+| [BlueprintType](UCLASS/Blueprint/BlueprintType/BlueprintType.md) | Blueprint        | 可当做变量类型                                               | 5        |
+| [NotBlueprintType](UCLASS/Blueprint/NotBlueprintType.md)        | Blueprint        | 不可当做变量类型                                             | 4        |
 | [Abstract](UCLASS/Blueprint/Abstract/Abstract.md)            | Blueprint        | 指定此类为抽象基类。可被继承，但不可生成对象。               | 5        |
 | [Const](UPARAM/Blueprint/Const/Const.md)                     | Blueprint        | 表示本类的内部属性不可在蓝图中被修改，只读不可写。           | 3        |
 | [MinimalAPI](UINTERFACE/UHT/MinimalAPI.md)                   | DllExport        | 不dll导出该类的函数，只导出类型信息当作变量。                | 3        |

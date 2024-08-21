@@ -1,6 +1,6 @@
 | Name                                                         | 引擎模块             | 功能描述                                                     | 常用程度 |
 | ------------------------------------------------------------ | -------------------- | ------------------------------------------------------------ | -------- |
-| [Deprecated](Development/Deprecated/Deprecated)              | Development          | 指定该元素要废弃的引擎版本号。                               | 1        |
+| [Deprecated](Development/Deprecated/Deprecated.md)              | Development          | 指定该元素要废弃的引擎版本号。                               | 1        |
 | [ModuleRelativePath](UHT/ModuleRelativePath.md)              | UHT                  | 记录类型定义的的头文件路径，为其处于模块的内部相对路径。     | 0        |
 | [Comment](Development/Comment/Comment.md)                    | Development          | 用来记录注释的内容                                           | 3        |
 | [FriendlyName](Development/FriendlyName.md)                  | Development          | 和DisplayName一样？                                          |          |
