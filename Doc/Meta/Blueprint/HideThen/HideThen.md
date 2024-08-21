@@ -1,16 +1,14 @@
-# HideThen
+﻿# HideThen
 
-功能描述: 隐藏异步蓝图节点的Then引脚
-使用位置: UCLASS
-Feature: Blueprint
-元数据类型: bool
-限制类型: 蓝图异步节点
-Status: Done
-Parent item: ExposedAsyncProxy (ExposedAsyncProxy.md)
+- **功能描述：** 隐藏异步蓝图节点的Then引脚
+- **使用位置：** UCLASS
+- **元数据类型：** bool
+- **限制类型：** 蓝图异步节点
+- **关联项：** [ExposedAsyncProxy](../ExposedAsyncProxy/ExposedAsyncProxy.md)
 
 在源码中HideThen只在UK2Node_BaseAsyncTask中判断，因此这个标签只作用于蓝图异步节点。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType,meta = (ExposedAsyncProxy = MyAsyncObject))
@@ -22,11 +20,11 @@ class INSIDER_API UMyFunction_Async :public UCancellableAsyncAction
 {}
 ```
 
-使用HideThen前后对比：
+## 使用HideThen前后对比：
 
-![Untitled](HideThen/Untitled.png)
+![Untitled](Untitled.png)
 
-源码位置：
+## 源码位置：
 
 ```cpp
 void UK2Node_BaseAsyncTask::AllocateDefaultPins()

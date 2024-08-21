@@ -1,9 +1,8 @@
-# AllowedParamType
+﻿# AllowedParamType
 
-使用位置: UFUNCTION
-引擎模块: AnimationGraph
-元数据类型: string="abc"
-Status: OnlyInternal
+- **使用位置：** UFUNCTION
+- **引擎模块：** AnimationGraph
+- **元数据类型：** string="abc"
 
 ```cpp
 // Sets a parameter's value in the supplied scope.

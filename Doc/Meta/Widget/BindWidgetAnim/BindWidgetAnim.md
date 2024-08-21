@@ -1,15 +1,12 @@
-# BindWidgetAnim
+﻿# BindWidgetAnim
 
-功能描述: 指定在C++类中该UWidgetAnimation属性一定要绑定到UMG下的某个动画
-使用位置: UPROPERTY
-Feature: UMG
-引擎模块: Widget Property
-元数据类型: bool
-限制类型: UWidget子类里UWidgetAnimation属性
-Example: UPROPERTY(meta=(BindWidgetAnim))
-Status: Done
-Sub-item: BindWidgetAnimOptional (BindWidgetAnimOptional.md)
-常用程度: 5
+- **功能描述：** 指定在C++类中该UWidgetAnimation属性一定要绑定到UMG下的某个动画
+- **使用位置：** UPROPERTY
+- **引擎模块：** Widget Property
+- **元数据类型：** bool
+- **限制类型：** UWidget子类里UWidgetAnimation属性
+- **关联项：** [BindWidgetAnimOptional](../BindWidgetAnimOptional/BindWidgetAnimOptional.md)
+- **常用程度：** ★★★★★
 
 指定在C++类中该UWidgetAnimation属性一定要绑定到UMG下的某个动画。
 
@@ -47,7 +44,7 @@ public:
 - 没有加BindWidgetAnim的MyAnimation_SameName必须注释掉，否则会和UMG里的MyAnimation_SameName名字冲突。
 - 再提一下，不能像Widget里一样先UMG里定义动画，然后再C++定义同名属性，因为WidgetAnimation是一定会创建BP变量的，这是关键不同。
 
-![Untitled](BindWidgetAnim/Untitled.png)
+![Untitled](Untitled.png)
 
 ## 原理：
 

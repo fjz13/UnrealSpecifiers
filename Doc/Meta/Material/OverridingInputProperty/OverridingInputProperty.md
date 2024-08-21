@@ -1,14 +1,12 @@
-# OverridingInputProperty
+﻿# OverridingInputProperty
 
-功能描述: 在UMaterialExpression中指定本float要覆盖的其他FExpressionInput 属性。
-使用位置: UPROPERTY
-Feature: Blueprint
-引擎模块: Material
-元数据类型: bool
-限制类型: UMaterialExpression::float
-Status: Done
-Sub-item: RequiredInput (RequiredInput.md)
-常用程度: 3
+- **功能描述：** 在UMaterialExpression中指定本float要覆盖的其他FExpressionInput 属性。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Material
+- **元数据类型：** bool
+- **限制类型：** UMaterialExpression::float
+- **关联项：** [RequiredInput](../RequiredInput.md)
+- **常用程度：** ★★★
 
 在UMaterialExpression中指定本float要覆盖的其他FExpressionInput 属性。
 
@@ -17,7 +15,7 @@ Sub-item: RequiredInput (RequiredInput.md)
 - 被OverridingInputProperty 指定的FExpressionInput 属性一般是RequiredInput = "false"，因为正常的逻辑是你都提供默认值了，那当然用户就不一定非得输入这个值了。当然也可以RequiredInput = "true"，提醒用户这个引脚最好要有个输入，但如果真没有，也可以用默认值。
 - 输出节点上的很多BaseColor之类的引脚就是又RequiredInput又提供默认值的。
 
-测试代码：
+## 测试代码：
 
 在Compile函数中模仿源码给大家示范如何正确处理这种属性来获得值。大家也可以参照源码中别的例子来参考。
 
@@ -67,7 +65,7 @@ public:
 
 ```
 
-测试结果：
+## 测试结果：
 
 可见MyAlpha和MyAlpha2的右边都有个默认值，二者又因为RequiredInput的不同而一个灰色一个白色。
 
@@ -75,9 +73,9 @@ public:
 
 右侧的材质最终输出表达式上的各个引脚更是有各种情况来让大家参考。
 
-![Untitled](OverridingInputProperty/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 其实也是根据Meta的标记，来改变引脚的可编辑状态以及输入框。
 

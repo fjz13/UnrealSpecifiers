@@ -1,14 +1,12 @@
-# CtrlMultiplier
+﻿# CtrlMultiplier
 
-功能描述: 指定数字输入框在Ctrl按下时鼠标轮滚动和鼠标拖动改变值的倍率。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: Numeric Property
-元数据类型: float/int
-限制类型: 数据结构：FVector，FRotator，FColor
-Status: Done
-Sub-item: ShiftMultiplier (ShiftMultiplier.md)
-常用程度: 2
+- **功能描述：** 指定数字输入框在Ctrl按下时鼠标轮滚动和鼠标拖动改变值的倍率。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Numeric Property
+- **元数据类型：** float/int
+- **限制类型：** 数据结构：FVector，FRotator，FColor
+- **关联项：** [ShiftMultiplier](../ShiftMultiplier.md)
+- **常用程度：** ★★
 
 指定数字输入框在Ctrl按下时鼠标轮滚动和鼠标拖动改变值的倍率。
 
@@ -17,7 +15,7 @@ Sub-item: ShiftMultiplier (ShiftMultiplier.md)
 - 在源码里发现FMathStructCustomization里会提取CtrlMultiplier和ShiftMultiplier的值，因此我们可以在一些数学结构上设置，如FVector，FRotator，FColor
 - 如果自己定义Customization和创建SSpinBox，则可以自己提取Multiplier的值自己设置到控件里去。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = MultiplierTest, meta = (CtrlMultiplier = "5"))
@@ -33,7 +31,7 @@ Sub-item: ShiftMultiplier (ShiftMultiplier.md)
 	FVector MyVector_HasShiftMultiplier;
 ```
 
-测试效果：
+## 测试效果：
 
 - 发现普通float属性测试并无效果，按下Ctrl和Shift依然是默认的改变值0.1和10.f
 - 普通的默认FVector，按下Ctrl和Shift也是默认的改变值0.1和10.f
@@ -41,9 +39,9 @@ Sub-item: ShiftMultiplier (ShiftMultiplier.md)
 - MyVector_HasShiftMultiplier，发现按下Shift，一下子改变幅度是100
 - 当然用鼠标拖动也是一样的效果，只是那样改变太过剧烈，演示效果不明显
 
-![Multipiler.gif](CtrlMultiplier/Multipiler.gif)
+![Multipiler.gif](/Multipiler.gif)
 
-原理：
+## 原理：
 
 ```cpp
 SNumericEntryBox的构造函数里：

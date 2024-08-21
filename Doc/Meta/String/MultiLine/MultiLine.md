@@ -1,17 +1,15 @@
-# MultiLine
+﻿# MultiLine
 
-功能描述: 使得文本属性编辑框支持换行。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: String/Text Property
-元数据类型: bool
-限制类型: FName/FString/Fext
-Status: Done
-常用程度: 5
+- **功能描述：** 使得文本属性编辑框支持换行。
+- **使用位置：** UPROPERTY
+- **引擎模块：** String/Text Property
+- **元数据类型：** bool
+- **限制类型：** FName/FString/Fext
+- **常用程度：** ★★★★★
 
 使得文本属性编辑框支持换行。换行后的字符串以”\r\n”分隔换行。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 	UPROPERTY(EditAnywhere, Category = MultiLineTest, meta = (MultiLine = true))
@@ -27,13 +25,13 @@ Status: Done
 	FText MyText_MultiLine_Password  = INVTEXT("Hello");
 ```
 
-测试结果：
+## 测试结果：
 
 按住Shift+Enter回车换行。
 
-![Untitled](MultiLine/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 原理也很简单，根据bIsMultiLine 创建特定的多行编辑控件SMultiLineEditableTextBox。
 

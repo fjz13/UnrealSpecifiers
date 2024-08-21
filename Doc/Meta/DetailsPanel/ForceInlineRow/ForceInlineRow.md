@@ -1,12 +1,10 @@
-# ForceInlineRow
+﻿# ForceInlineRow
 
-功能描述: 强制TMap属性里的结构key和其他Value合并到同一行来显示
-使用位置: UPROPERTY
-Feature: Editor
-元数据类型: bool
-Status: Done
-Parent item: EditInline (EditInline.md)
-常用程度: 1
+- **功能描述：** 强制TMap属性里的结构key和其他Value合并到同一行来显示
+- **使用位置：** UPROPERTY
+- **元数据类型：** bool
+- **关联项：** [EditInline](../EditInline/EditInline.md)
+- **常用程度：** ★
 
 强制TMap属性里的结构key和其他Value合并到同一行来显示。这里要注意的点是：
 
@@ -15,7 +13,7 @@ Parent item: EditInline (EditInline.md)
 - 该FStruct有注册相关的IPropertyTypeCustomization，这样才能自定义该结构的显示UI
 - 该IPropertyTypeCustomization的ShouldInlineKey返回false（默认就是），否则true的话则不管有没有标ForceInlineRow，都会合并成一行
 
-测试代码：
+## 测试代码：
 
 ```cpp
 public:
@@ -68,21 +66,21 @@ void FMyCommonStructCustomization::CustomizeHeader(TSharedRef<IPropertyHandle> P
 }
 ```
 
-测试效果：
+## 测试效果：
 
 可以见到MyStructMap的数据项展示就分为了两行。而带有ForceInlineRow之后，数据项UI就合并为一行，显得更加的简洁。
 
 在下面也特别观察到如果把FStruct作为Value，则是没有这个区别的。
 
-![Untitled](ForceInlineRow/Untitled.png)
+![Untitled](Untitled.png)
 
 假如不注册FMyCommonStruct相应的IPropertyTypeCustomization的话，则结构的属性UI采用默认方式显示，则都是分为两行。
 
-![Untitled](ForceInlineRow/Untitled%201.png)
+![Untitled](Untitled%201.png)
 
 而假如FMyCommonStruct的IPropertyTypeCustomization的ShouldInlineKey返回true，则会导致即使没有ForceInlineRow也会把该拥有该结构作为Key的属性给都合并为一行显示，这个时候就失去ForceInlineRow的作用和区别了。
 
-![Untitled](ForceInlineRow/Untitled%202.png)
+![Untitled](Untitled%202.png)
 
 ## 原理：
 

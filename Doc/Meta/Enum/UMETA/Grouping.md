@@ -1,16 +1,14 @@
-# Grouping
+﻿# Grouping
 
-功能描述: Enum /Script/Engine.EAlphaBlendOption
-使用位置: UENUM::UMETA
-Feature: Editor
-引擎模块: Enum Property
-元数据类型: bool
-Status: OnlyInternal
-常用程度: 0
+- **功能描述：** Enum /Script/Engine.EAlphaBlendOption
+- **使用位置：** UENUM::UMETA
+- **引擎模块：** Enum Property
+- **元数据类型：** bool
+- **常用程度：** 0
 
 感觉是用在Sequencer里面的，只用在SEasingFunctionGridWidget里面。
 
-源码例子：
+## 源码例子：
 
 ```cpp
 UENUM()
@@ -58,7 +56,7 @@ enum class EMovieSceneBuiltInEasing : uint8
 
 ```
 
-原理：
+## 原理：
 
 ```cpp
 TArray<SEasingFunctionGridWidget::FGroup> SEasingFunctionGridWidget::ConstructGroups(const TSet<EMovieSceneBuiltInEasing>& FilterExclude)

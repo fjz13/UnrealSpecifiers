@@ -1,14 +1,12 @@
-# MapParam
+﻿# MapParam
 
-功能描述: 指定一个函数为使用TMap<TKey,TValue>的函数，元素类型为通配符的泛型。
-使用位置: UFUNCTION
-Feature: Blueprint
-引擎模块: Blueprint
-元数据类型: string="abc"
-限制类型: TMap
-Status: Done
-Sub-item: MapKeyParam (MapKeyParam.md), MapValueParam (MapValueParam.md)
-常用程度: 3
+- **功能描述：** 指定一个函数为使用TMap<TKey,TValue>的函数，元素类型为通配符的泛型。
+- **使用位置：** UFUNCTION
+- **引擎模块：** Blueprint
+- **元数据类型：** string="abc"
+- **限制类型：** TMap
+- **关联项：** [MapKeyParam](MapKeyParam.md), [MapValueParam](MapValueParam.md)
+- **常用程度：** ★★★
 
 指定一个函数为使用TMap<TKey,TValue>的函数，元素类型为通配符的泛型。
 
@@ -16,7 +14,7 @@ Sub-item: MapKeyParam (MapKeyParam.md), MapValueParam (MapValueParam.md)
 
 在源码中，例子都是在UBlueprintMapLibrary中使用。
 
-测试代码：
+## 测试代码1：
 
 ```cpp
 	UFUNCTION(BlueprintPure, CustomThunk, meta = (MapParam = "TargetMap"))
@@ -25,11 +23,13 @@ Sub-item: MapKeyParam (MapKeyParam.md), MapValueParam (MapValueParam.md)
 	DECLARE_FUNCTION(execMyMap_Count);
 ```
 
-蓝图中效果：
+## 蓝图中效果1：
 
-![Untitled](MapParam/Untitled.png)
+![Untitled](Untitled.png)
 
-因为只支持一个MapParam，因此如果你书写这种代码：
+因为只支持一个MapParam，因此如果你书写这种代码 。
+
+## 测试代码2：
 
 ```cpp
 	UFUNCTION(BlueprintPure, CustomThunk, meta = (MapParam = "MapA,MapB"))
@@ -40,7 +40,7 @@ Sub-item: MapKeyParam (MapKeyParam.md), MapValueParam (MapValueParam.md)
 
 会导致MapParam搜索不到Pin，从而失去通配符的功能。
 
-![Untitled](MapParam/Untitled%201.png)
+![Untitled](Untitled%201.png)
 
 而如果要实现类似Add的功能，达到Key和Value的Pin类型也可以动态的根据Map的类型而自动的改变。则需要加上MapKeyParam 和MapValueParam 分别的指定另外的函数参数以便能找到正确的Pin，从而实现动态的根据Map类型而更改KeyValue Pin类型。MapKeyParam 和MapValueParam 指定的参数也可以为数组等容器，可以参照UBlueprintMapLibrary中的Keys和Values参数。
 
@@ -51,9 +51,9 @@ Sub-item: MapKeyParam (MapKeyParam.md), MapValueParam (MapValueParam.md)
 	DECLARE_FUNCTION(execMyMap_FindOrAdd);
 ```
 
-蓝图中的效果：
+## 蓝图中的效果2：
 
-![Untitled](MapParam/Untitled%202.png)
+![Untitled](Untitled%202.png)
 
 ## 原理代码:
 

@@ -1,19 +1,17 @@
-# Latent
+﻿# Latent
 
-功能描述: 标明一个函数是一个延迟异步操作
-使用位置: UFUNCTION
-Feature: Blueprint
-引擎模块: Blueprint
-元数据类型: bool
-Status: Done
-Sub-item: LatentInfo (LatentInfo.md), NeedsLatentFixup (NeedsLatentFixup.md), LatentCallbackTarget (LatentCallbackTarget.md)
-常用程度: 5
+- **功能描述：** 标明一个函数是一个延迟异步操作
+- **使用位置：** UFUNCTION
+- **引擎模块：** Blueprint
+- **元数据类型：** bool
+- **关联项：** [LatentInfo](LatentInfo.md), [NeedsLatentFixup](NeedsLatentFixup.md), [LatentCallbackTarget](LatentCallbackTarget.md)
+- **常用程度：** ★★★★★
 
 标明一个函数是一个延迟异步操作，需要配合LatentInfo来使用。
 
 会导致在逻辑执行上Then（也叫Complete）引脚需要手动触发（引擎内部触发），且函数右上角增加时钟的图标。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 class FMySleepAction : public FPendingLatentAction
@@ -63,9 +61,9 @@ public:
 };
 ```
 
-蓝图效果：
+## 蓝图效果：
 
-![Untitled](Latent/Untitled.png)
+![Untitled](Untitled.png)
 
 MySleep可以像Delay一样正常工作。但是MySleep2因为没有标明LatentInfo，因此LatentInfo函数参数没有被蓝图系统赋值，导致无法工作。
 

@@ -1,13 +1,11 @@
-# Deprecated
+﻿# Deprecated
 
-功能描述: 标识该FRigUnit为弃用状态，不在蓝图右键菜单中显示。
-使用位置: USTRUCT
-Feature: RigVM
-引擎模块: RigVMStruct
-元数据类型: bool
-限制类型: FRigUnit类型上
-Status: Done
-常用程度: 2
+- **功能描述：** 标识该FRigUnit为弃用状态，不在蓝图右键菜单中显示。
+- **使用位置：** USTRUCT
+- **引擎模块：** RigVMStruct
+- **元数据类型：** bool
+- **限制类型：** FRigUnit类型上
+- **常用程度：** ★★
 
 标识该FRigUnit为弃用状态，不在蓝图右键菜单中显示。
 
@@ -15,7 +13,7 @@ Status: Done
 
 注意这个时候要相应的实现GetUpgradeInfo()，否则会报错。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 USTRUCT(meta = (DisplayName = "MyRigDeprecated",Deprecated))
@@ -37,11 +35,11 @@ public:
 };
 ```
 
-测试效果：
+## 测试效果：
 
-![Untitled](Deprecated/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 在构建菜单项的时候略过Deprecated的节点。
 

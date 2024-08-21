@@ -1,14 +1,11 @@
-# GetAssetFilter
+﻿# GetAssetFilter
 
-功能描述: 指定一个UFUNCTION来对UObject*属性的可选资源进行排除过滤。
-使用位置: UPROPERTY
-Feature: Asset
-引擎模块: Asset Property
-元数据类型: string="abc"
-限制类型: UObject*
-Status: Done
-Code: bool FuncName(const FAssetData& AssetData) const;
-常用程度: 3
+- **功能描述：** 指定一个UFUNCTION来对UObject*属性的可选资源进行排除过滤。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Asset Property
+- **元数据类型：** string="abc"
+- **限制类型：** UObject*
+- **常用程度：** ★★★
 
 指定一个UFUNCTION来对UObject*属性的可选资源进行排除过滤。
 
@@ -16,7 +13,7 @@ Code: bool FuncName(const FAssetData& AssetData) const;
 - 函数的原型是bool FuncName(const FAssetData& AssetData) const;，返回true来排除掉该资产。
 - 这是一种让用户自定义资产过滤的方式。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -38,13 +35,13 @@ public:
 };
 ```
 
-测试效果：
+## 测试效果：
 
 可以见到，MyAsset_GetAssetFilter进行过滤后只允许DataAsset类型的资产。
 
-![Untitled](GetAssetFilter/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 在SPropertyEditorAsset（对应UObject类型属性）中有判断GetAssetFilter的meta，得到函数并附加到资产排除的回调里去。
 

@@ -1,13 +1,11 @@
-# CustomizeProperty
+﻿# CustomizeProperty
 
-功能描述: 使用在FAnimNode的成员属性上，告诉编辑器不要为它生成默认Details面板控件，后续会在DetailsCustomization里自定义创建相应的编辑控件。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: AnimationGraph
-元数据类型: bool
-限制类型: FAnimNode里的属性
-Status: Done
-常用程度: 1
+- **功能描述：** 使用在FAnimNode的成员属性上，告诉编辑器不要为它生成默认Details面板控件，后续会在DetailsCustomization里自定义创建相应的编辑控件。
+- **使用位置：** UPROPERTY
+- **引擎模块：** AnimationGraph
+- **元数据类型：** bool
+- **限制类型：** FAnimNode里的属性
+- **常用程度：** ★
 
 使用在FAnimNode的成员属性上，告诉编辑器不要为它生成默认Details面板控件，后续会在DetailsCustomization里自定义创建相应的编辑控件。
 
@@ -100,7 +98,7 @@ SlotName的效果如右侧所示。
 
 作为对比，MyString_CustomizeProperty_Other我们标上了CustomizeProperty但是没有为它创建UI，则没有显示出来，说明引擎默认的机制因此就把它的UI默认创建流程给跳过了。
 
-![Untitled](CustomizeProperty/Untitled.png)
+![Untitled](Untitled.png)
 
 ## 原理：
 

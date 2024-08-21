@@ -1,14 +1,11 @@
-# HidePin
+﻿# HidePin
 
-功能描述: 用在函数调用上，指定要隐藏的参数名称，也可以隐藏返回值。可以隐藏多个参数
-使用位置: UFUNCTION
-Feature: Blueprint
-引擎模块: Pin
-元数据类型: strings="a，b，c"
-Example: HidePin="Parameter1, Parameter2”
-Status: Done
-Sub-item: InternalUseParam (InternalUseParam.md)
-常用程度: 2
+- **功能描述：** 用在函数调用上，指定要隐藏的参数名称，也可以隐藏返回值。可以隐藏多个参数
+- **使用位置：** UFUNCTION
+- **引擎模块：** Pin
+- **元数据类型：** strings="a，b，c"
+- **关联项：** [InternalUseParam](../InternalUseParam/InternalUseParam.md)
+- **常用程度：** ★★
 
 源码里倒是经常发现和DefaultToSelf比较合同。既隐藏的同时，又有默认值。一起合并的效果是把一个静态函数调用，限制在一个参数直接为外部调用环境对象。
 
@@ -16,7 +13,7 @@ HidePin的值也经常是WorldContextObject，
 
 meta = (HidePin = "WorldContextObject", DefaultToSelf = "WorldContextObject")
 
-C++测试代码：
+## C++测试代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -63,13 +60,13 @@ public:
 };
 ```
 
-蓝图测试结果：
+## 蓝图测试结果：
 
-![Untitled](HidePin/Untitled.png)
+![Untitled](Untitled.png)
 
 可以看出BlueprintCallable和BlueprintPure其实都可以。另外ReturnValue是默认的返回值的名字，也可以通过这个来隐藏掉。
 
-原理：
+## 原理：
 
 在源码里搜索，唯一用到的是：
 

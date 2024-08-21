@@ -1,20 +1,17 @@
-# EditCondition
+﻿# EditCondition
 
-功能描述: 给一个属性指定另外一个属性或者表达式来作为是否可编辑的条件。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: DetailsPanel
-元数据类型: string="abc"
-Example: EditCondition="BooleanPropertyName”
-Status: Done
-Sub-item: EditConditionHides (EditConditionHides.md), InlineEditConditionToggle (InlineEditConditionToggle.md), HideEditConditionToggle (HideEditConditionToggle.md)
-常用程度: 5
+- **功能描述：** 给一个属性指定另外一个属性或者表达式来作为是否可编辑的条件。
+- **使用位置：** UPROPERTY
+- **引擎模块：** DetailsPanel
+- **元数据类型：** string="abc"
+- **关联项：** [EditConditionHides](../EditConditionHides/EditConditionHides.md), [InlineEditConditionToggle](../InlineEditConditionToggle/InlineEditConditionToggle.md), [HideEditConditionToggle](../HideEditConditionToggle/HideEditConditionToggle.md)
+- **常用程度：** ★★★★★
 
 给一个属性指定另外一个属性或者表达式来作为是否可编辑的条件。
 
 - 表达式里引用的属性必须得是同一个类或结构范围内的。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(BlueprintType)
@@ -49,14 +46,14 @@ public:
 };
 ```
 
-测试结果：
+## 测试结果：
 
 - 可以通过bool单个属性来控制其他属性是否可以编辑
 - 也可以通过一个表达式引入更复杂的计算机制来决定是否来编辑。
 
-![EditCondition.gif](EditCondition/EditCondition.gif)
+![EditCondition.gif](EditCondition.gif)
 
-原理：
+## 原理：
 
 在细节面板的属性初始化的时候，会判断该属性EditCondition设置，如果有值，会创建FEditConditionParser来解析表达式然后求值。
 

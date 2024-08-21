@@ -1,21 +1,19 @@
-# ValidateWidgetUsing
+﻿# ValidateWidgetUsing
 
-功能描述: 提供一个函数来验证当前属性值是否合法。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: Scene
-元数据类型: bool
-限制类型: 带有MakeEditWidget的FVector，FTransform
-Status: Done
-Parent item: MakeEditWidget (MakeEditWidget.md)
-常用程度: 3
+- **功能描述：** 提供一个函数来验证当前属性值是否合法。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Scene
+- **元数据类型：** bool
+- **限制类型：** 带有MakeEditWidget的FVector，FTransform
+- **关联项：** [MakeEditWidget](../MakeEditWidget/MakeEditWidget.md)
+- **常用程度：** ★★★
 
 ValidateWidgetUsing提供一个函数来验证当前属性值是否合法。
 
 - 当前属性要有MakeEditWidget的标记
 - 函数的原型是FString MyFunc()，返回非空表示错误信息。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 	UFUNCTION()
@@ -32,13 +30,13 @@ ValidateWidgetUsing提供一个函数来验证当前属性值是否合法。
 	FVector MyVector_MakeEditWidget_Validate;
 ```
 
-测试结果：
+## 测试结果：
 
 可见MyVector_MakeEditWidget_Validate长度超过100之后，控件颜色变成红色，并且显示出错误的信息在控件上。
 
-![Untitled](ValidateWidgetUsing/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 逻辑比较简单。发现有验证函数，就调用验证函数来验证。如果有错误信息，就一起改变最终输出的颜色和显示文字。
 

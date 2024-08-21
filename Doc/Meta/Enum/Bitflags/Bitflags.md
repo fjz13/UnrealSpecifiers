@@ -1,13 +1,11 @@
-# Bitflags
+﻿# Bitflags
 
-功能描述: 设定一个枚举支持采用位标记赋值，从而在蓝图中可以识别出来是BitMask
-使用位置: UENUM
-Feature: Blueprint
-引擎模块: Enum Property
-元数据类型: bool
-Status: Done
-Sub-item: UseEnumValuesAsMaskValuesInEditor (UseEnumValuesAsMaskValuesInEditor.md)
-常用程度: 5
+- **功能描述：** 设定一个枚举支持采用位标记赋值，从而在蓝图中可以识别出来是BitMask
+- **使用位置：** UENUM
+- **引擎模块：** Enum Property
+- **元数据类型：** bool
+- **关联项：** [UseEnumValuesAsMaskValuesInEditor](../UseEnumValuesAsMaskValuesInEditor/UseEnumValuesAsMaskValuesInEditor.md)
+- **常用程度：** ★★★★★
 
 常常和UPROPERTY上的bitmask一起配合使用。
 
@@ -45,8 +43,8 @@ int32 ColorFlags;
 
 如下图所示：EMyEnum_Flags就不会被列在选项里。而EMyEnum_BitFlags就可以被列进来。
 
-![Untitled](Bitflags/Untitled.png)
+![Untitled](/Untitled.png)
 
 如果没有UPROPERTY(bitmask)的配合使用，则蓝图里还是只能单项选择
 
-![Untitled](Bitflags/Untitled%201.png)
+![Untitled](/Untitled%201.png)

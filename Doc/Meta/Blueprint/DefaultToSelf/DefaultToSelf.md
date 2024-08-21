@@ -1,17 +1,14 @@
-# DefaultToSelf
+﻿# DefaultToSelf
 
-功能描述: 用在函数上，指定一个参数的默认值为Self值
-使用位置: UFUNCTION
-Feature: Blueprint
-引擎模块: Blueprint
-元数据类型: bool
-Example: DefaultToSelf=“ParameterName”
-Status: Done
-常用程度: 5
+- **功能描述：** 用在函数上，指定一个参数的默认值为Self值
+- **使用位置：** UFUNCTION
+- **引擎模块：** Blueprint
+- **元数据类型：** bool
+- **常用程度：** ★★★★★
 
 使得在蓝图调用的时候更加的便利，当然也要根据这个函数的需要。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS()
@@ -33,13 +30,13 @@ public:
 
 蓝图里的节点，可以看出蓝图编译器会自动的把DefaultToSelf指定的函数参数，自动的赋值到Self，当然这个和手动的连到self本质是一样的。额外一点，可以通过HidePin再隐藏掉这个函数参数，这样就默认把该蓝图节点所在的蓝图对象（Self）当作第一个函数参数，显得更加简洁一些。
 
-![Untitled](DefaultToSelf/Untitled.png)
+![Untitled](Untitled.png)
 
 如果是BlueprintPure也是可以的：
 
-![Untitled](DefaultToSelf/Untitled%201.png)
+![Untitled](Untitled%201.png)
 
-原理：
+## 原理：
 
 蓝图中的函数调用在编译的时候，会自动的创建SelfPin（名字为Target)。如果该函数是静态函数或HideSelfPin的标记，则会把SelfPin隐藏起来。其SelfPin的值就是当前蓝图运行时对象的值。因此DefaultToSelf的效果就是蓝图系统会自动的把这个参数的值赋值为被调用处的蓝图运行时对象，相当于C++ this指针的效果
 

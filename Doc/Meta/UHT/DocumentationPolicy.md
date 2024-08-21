@@ -1,13 +1,10 @@
-# DocumentationPolicy
+﻿# DocumentationPolicy
 
-功能描述: 指定文档验证的规则，当前只能设为Strict
-使用位置: Any
-Feature: Editor
-引擎模块: UHT
-元数据类型: string="abc"
-Example: DocumentationPolicy=Strict
-Status: Done
-常用程度: 1
+- **功能描述：** 指定文档验证的规则，当前只能设为Strict
+- **使用位置：** Any
+- **引擎模块：** UHT
+- **元数据类型：** string="abc"
+- **常用程度：** ★
 
 在UHT的ValidateDocumentationPolicy函数里，会发现这个值主要是用来判断类型或字段上是否有提供Comment或Tooltip，或者Float变量是否配了对应的“UIMin / UIMax”，以便提取出来这些信息生成对应的文档。
 
@@ -37,7 +34,7 @@ protected override void ValidateDocumentationPolicy(UhtDocumentationPolicy polic
 }
 ```
 
-源码中的类似例子：
+## 源码中的类似例子：
 
 ```cpp
 USTRUCT(meta=(DisplayName="Set Transform", Category="Transforms", TemplateName = "Set Transform", DocumentationPolicy = "Strict", Keywords="SetBoneTransform,SetControlTransform,SetInitialTransform,SetSpaceTransform", NodeColor="0, 0.364706, 1.0", Varying))
@@ -46,7 +43,7 @@ struct CONTROLRIG_API FRigUnit_SetTransform : public FRigUnitMutable
 }
 ```
 
-自己的测试代码：
+## 自己的测试代码：
 
 ```cpp
 UCLASS(BlueprintType, meta = (DocumentationPolicy=Strict))
@@ -129,7 +126,7 @@ class INSIDER_API UMyClass_DocumentationPolicy_TypeC :public UObject
 };
 ```
 
-产生的UHT编译报错：
+## 产生的UHT编译报错：
 
 ```cpp
 error : Class 'UMyClass_DocumentationPolicy' does not provide a tooltip / comment(DocumentationPolicy).

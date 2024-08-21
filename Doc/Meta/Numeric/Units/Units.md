@@ -1,15 +1,12 @@
-# Units
+﻿# Units
 
-功能描述: 设定属性值的单位，支持实时根据数值不同动态改变显示的单位。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: Numeric Property
-元数据类型: string="abc"
-限制类型: float,int32
-Example: Units=”cm”
-Status: Done
-Sub-item: ForceUnits (ForceUnits.md)
-常用程度: 3
+- **功能描述：** 设定属性值的单位，支持实时根据数值不同动态改变显示的单位。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Numeric Property
+- **元数据类型：** string="abc"
+- **限制类型：** float,int32
+- **关联项：** [ForceUnits](../ForceUnits.md)
+- **常用程度：** ★★★
 
 设定属性值的单位。一个单位有多个别名，如Kilograms和kg，Centimeters和cm，都是可以的。
 
@@ -19,9 +16,9 @@ Units的作用不光是设定单位，而且隐含着这个显示的单位字符
 
 要实现自动的调整显示单位的功能，首先需要在项目设置里设置单位系列。比如下图就在距离上设置了厘米，米，千米，毫米的单位（顺序不重要）。然后之后数字框显示距离的单位时就可以在这4者之间转换。
 
-![Untitled](Units/Untitled.png)
+![Untitled](Untitled.png)
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UPROPERTY(EditAnywhere, Category = UnitsTest)
@@ -34,13 +31,13 @@ UPROPERTY(EditAnywhere, Category = UnitsTest, Meta = (ForceUnits = "cm"))
 float MyFloat_HasForceUnits_Distance = 100.f;
 ```
 
-测试效果：
+## 测试效果：
 
 - 在项目设置里填入4个单位：cm，m，km，mm后开始测试。
 - 发现采用Units的属性，会自动的根据值的不同调整单位。而且也接受数字+单位的输入。
 - 发现采用ForceUnits的属性，也可以接受数字+单位的输入，但是在显示上却始终显示为cm，不会调整到别的单位。
 
-![Unit.gif](Units/Unit.gif)
+![Unit.gif](Unit.gif)
 
 ## 原理：
 

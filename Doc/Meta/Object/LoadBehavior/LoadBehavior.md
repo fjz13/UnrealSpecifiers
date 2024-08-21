@@ -1,13 +1,11 @@
-# LoadBehavior
+﻿# LoadBehavior
 
-功能描述: 用在UCLASS上标记这个类的加载行为，使得相应的TObjectPtr属性支持延迟加载。可选的加载行为默认为Eager，可改为LazyOnDemand。
-使用位置: UCLASS
-Feature: Editor
-引擎模块: Object Property
-元数据类型: string="abc"
-限制类型: TObjectPtr 
-Status: Done
-常用程度: 1
+- **功能描述：** 用在UCLASS上标记这个类的加载行为，使得相应的TObjectPtr属性支持延迟加载。可选的加载行为默认为Eager，可改为LazyOnDemand。
+- **使用位置：** UCLASS
+- **引擎模块：** Object Property
+- **元数据类型：** string="abc"
+- **限制类型：** TObjectPtr 
+- **常用程度：** ★
 
 用在UCLASS上标记这个类的加载行为，使得相应的TObjectPtr属性支持延迟加载。可选的加载行为默认为Eager，可改为LazyOnDemand。
 
@@ -94,7 +92,7 @@ LazyLoadImports=True
 - 其中MyLazyOnDemand_AssetPtr和MyLazyOnDemand_AssetPtr_EagerOnProperty的ObjectPtr的值是还没有Resolved的，其他的都可以查看到直接对象的值。
 - 可以得出的结论有，只有在UCLASS上标记LazyOnDemand才可以使得延迟加载生效。在属性上标记LoadBehavior 并不会起作用。直接UObject*的属性统统都会直接加载。
 
-![Untitled](LoadBehavior/Untitled.png)
+![Untitled](Untitled.png)
 
 ## 原理：
 

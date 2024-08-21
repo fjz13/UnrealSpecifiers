@@ -1,18 +1,16 @@
-# AlwaysAsPin
+﻿# AlwaysAsPin
 
-功能描述: 在动画蓝图中使得动画节点的某个属性总是暴露出来成为引脚
-使用位置: UPROPERTY
-Feature: Blueprint
-引擎模块: Pin
-元数据类型: bool
-限制类型: FAnimNode_Base
-Status: Done
-Parent item: PinShownByDefault (PinShownByDefault.md)
-常用程度: 3
+- **功能描述：** 在动画蓝图中使得动画节点的某个属性总是暴露出来成为引脚
+- **使用位置：** UPROPERTY
+- **引擎模块：** Pin
+- **元数据类型：** bool
+- **限制类型：** FAnimNode_Base
+- **关联项：** [PinShownByDefault](../PinShownByDefault/PinShownByDefault.md)
+- **常用程度：** ★★★
 
 和PinShownByDefault的区别是前者会导致只能一直显示为引脚。而PinShownByDefault默认显示为引脚，当也之后也可以改变。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 USTRUCT(BlueprintInternalUseOnly)
@@ -34,11 +32,11 @@ struct INSIDEREDITOR_API FAnimNode_MyTestPinShown : public FAnimNode_Base
 };
 ```
 
-测试效果：
+## 测试效果：
 
-![PinShown.gif](AlwaysAsPin/PinShown.gif)
+![PinShown.gif](PinShown.gif)
 
-原理：
+## 原理：
 
 根据源码的里的逻辑可见，bAlwaysShow 会导致bShowPin，和PinShownByDefault的区别是前者会导致只能一直显示为引脚。而PinShownByDefault默认显示为引脚，当也之后也可以改变。
 

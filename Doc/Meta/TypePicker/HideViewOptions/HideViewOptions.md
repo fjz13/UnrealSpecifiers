@@ -1,19 +1,17 @@
-# HideViewOptions
+﻿# HideViewOptions
 
-功能描述: 用于选择Class或Struct的属性上，隐藏在类选取器中修改显示选项的功能。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: TypePicker
-元数据类型: bool
-限制类型: TSubClassOf，FSoftClassPath，UClass*，UScriptStruct*，FInstancedStruct 
-Status: Done
-常用程度: 1
+- **功能描述：** 用于选择Class或Struct的属性上，隐藏在类选取器中修改显示选项的功能。
+- **使用位置：** UPROPERTY
+- **引擎模块：** TypePicker
+- **元数据类型：** bool
+- **限制类型：** TSubClassOf，FSoftClassPath，UClass*，UScriptStruct*，FInstancedStruct 
+- **常用程度：** ★
 
 用于选择Class或Struct的属性上，隐藏在类选取器中修改显示选项的功能。
 
 应用的属性类型有TSubClassOf，FSoftClassPath，UClass*，UScriptStruct*，FInstancedStruct 这种用于选择类型的属性。如果是TSoftObjectPtr或者FSoftObjectPath这种用于选择对象的则不起作用。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "HideViewOptionsTest|TSubclassOf")
@@ -47,11 +45,11 @@ Status: Done
 	FInstancedStruct MyInstancedStruct_HideViewOptions;
 ```
 
-测试效果：
+## 测试效果：
 
 可见如果没有HideViewOptions，则在弹出框的角落有个齿轮或者眼睛用于修改显示选项。
 
-![HideViewOptions.jpg](HideViewOptions/HideViewOptions.jpg)
+![HideViewOptions.jpg](HideViewOptions.jpg)
 
 ## 原理：
 

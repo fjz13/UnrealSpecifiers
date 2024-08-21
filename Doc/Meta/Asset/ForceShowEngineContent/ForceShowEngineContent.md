@@ -1,18 +1,16 @@
-# ForceShowEngineContent
+﻿# ForceShowEngineContent
 
-功能描述: 指定UObject*属性的资源可选列表里强制可选引擎的内建资源
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: Asset Property
-元数据类型: bool
-限制类型: UObject*
-Status: Done
-Sub-item: ForceShowPluginContent (ForceShowPluginContent.md)
-常用程度: 2
+- **功能描述：** 指定UObject*属性的资源可选列表里强制可选引擎的内建资源
+- **使用位置：** UPROPERTY
+- **引擎模块：** Asset Property
+- **元数据类型：** bool
+- **限制类型：** UObject*
+- **关联项：** [ForceShowPluginContent](ForceShowPluginContent.md)
+- **常用程度：** ★★
 
 指定UObject*属性的资源可选列表里强制可选引擎的内建资源。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -32,7 +30,7 @@ public:
 };
 ```
 
-测试结果：
+## 测试结果：
 
 可见MyAsset_Default默认是只包含本项目的资源。
 
@@ -40,9 +38,9 @@ MyAsset_ForceShowEngineContent的作用其实就是在选项卡里勾选ShowEngi
 
 MyAsset_ForceShowPluginContent的作用同样是在选项卡里勾选ShowPluginContent，可以选择别的插件里的资源。
 
-![Untitled](ForceShowEngineContent/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 在属性的资源选择器里会尝试寻找ForceShowEngineContent和ForceShowPluginContent，然后设置到AssetPickerConfig里，从而改变资源的可选类型。
 

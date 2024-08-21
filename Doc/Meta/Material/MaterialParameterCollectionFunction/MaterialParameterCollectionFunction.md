@@ -1,17 +1,15 @@
-# MaterialParameterCollectionFunction
+﻿# MaterialParameterCollectionFunction
 
-功能描述: 指定该函数是用于操作UMaterialParameterCollection，从而支持ParameterName的提取和验证
-使用位置: UFUNCTION
-Feature: Blueprint
-引擎模块: Material
-元数据类型: bool
-限制类型: 带有UMaterialParameterCollection参数的函数
-Status: Done
-常用程度: 3
+- **功能描述：** 指定该函数是用于操作UMaterialParameterCollection，从而支持ParameterName的提取和验证
+- **使用位置：** UFUNCTION
+- **引擎模块：** Material
+- **元数据类型：** bool
+- **限制类型：** 带有UMaterialParameterCollection参数的函数
+- **常用程度：** ★★★
 
 指定该函数是用于操作UMaterialParameterCollection，从而支持ParameterName的提取和验证。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 
@@ -29,11 +27,11 @@ public:
 };
 ```
 
-蓝图中效果：
+## 蓝图中效果：
 
 引擎自带的UKismetMaterialLibrary::SetScalarParameterValue和我们自己手动编写的MySetScalarParameterValue，会触发材质参数集合的蓝图节点验证检测。如果没有指定ParameterName，则会产生编译错误。而没有MaterialParameterCollectionFunction标记的MySetScalarParameterValue_NoError函数版本则只是当作一个普通的函数一样，一是不会自动提取MPC中的Parameters集合来选择，二是没有ParameterName为空的错误验证。
 
-![Untitled](MaterialParameterCollectionFunction/Untitled.png)
+![Untitled](Untitled.png)
 
 ## 原理：
 

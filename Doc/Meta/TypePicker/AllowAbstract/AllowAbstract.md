@@ -1,16 +1,13 @@
-# AllowAbstract
+﻿# AllowAbstract
 
-功能描述: 用于类属性，指定是否接受抽象类。
-使用位置: UPARAM, UPROPERTY
-Feature: Editor
-引擎模块: TypePicker
-元数据类型: bool
-限制类型: TSubClassOf, FSoftClassPath，UClass*
-Example: meta = (AllowAbstract)
-Status: Done
-常用程度: 2
+- **功能描述：** 用于类属性，指定是否接受抽象类。
+- **使用位置：** UPARAM, UPROPERTY
+- **引擎模块：** TypePicker
+- **元数据类型：** bool
+- **限制类型：** TSubClassOf, FSoftClassPath，UClass*
+- **常用程度：** ★★
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -40,13 +37,13 @@ public:
 	TSubclassOf<UMyCommonObject> MyClass_AllowAbstract;
 ```
 
-测试效果：
+## 测试效果：
 
 可见增加了AllowAbstract的属性的类选择器里增加了UMyCommonObjectChildAbstract 这个抽象类。
 
-![AllowAbstract.png](AllowAbstract/AllowAbstract.png)
+![AllowAbstract.png](AllowAbstract.png)
 
-原理：
+## 原理：
 
 其中的一个判断是IsEditInlineClassAllowed的判断，其中有bAllowAbstract。
 

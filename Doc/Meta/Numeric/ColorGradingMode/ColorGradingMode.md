@@ -1,20 +1,17 @@
-# ColorGradingMode
+﻿# ColorGradingMode
 
-功能描述: 使得一个FVector4属性成为颜色显示
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: Numeric Property
-元数据类型: string="abc"
-限制类型: FVector4
-Example: ColorGradingMode = "saturation/contrast/gamma/gain/offset"
-Status: Done
-常用程度: 2
+- **功能描述：** 使得一个FVector4属性成为颜色显示
+- **使用位置：** UPROPERTY
+- **引擎模块：** Numeric Property
+- **元数据类型：** string="abc"
+- **限制类型：** FVector4
+- **常用程度：** ★★
 
 使得一个FVector4属性成为颜色显示。因为FVector4和RGBA正好对应。
 
 必须配合UIMin，UIMax才能使用，否则会崩溃，因为FColorGradingVectorCustomization里直接对UIMinValue直接取值。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = ColorGradingModeTest, meta = ())
@@ -32,11 +29,11 @@ Status: Done
 	FVector4 MyVector4_Offset;
 ```
 
-测试效果：
+## 测试效果：
 
 可以发现没有ColorGradingMode 的依然是普通的FVector4，否则就会用颜色转盘来显示编辑。
 
-![Untitled](ColorGradingMode/Untitled.png)
+![Untitled](Untitled.png)
 
 ## 原理：
 

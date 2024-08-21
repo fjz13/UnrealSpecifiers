@@ -1,13 +1,11 @@
-# RequiredInput
+﻿# RequiredInput
 
-功能描述: 在UMaterialExpression中指定FExpressionInput属性是否要求输入，引脚显示白色或灰色。
-使用位置: UPROPERTY
-Feature: Blueprint
-引擎模块: Material
-元数据类型: bool
-限制类型: UMaterialExpression::FExpressionInput
-Status: Linked
-Parent item: OverridingInputProperty (OverridingInputProperty.md)
+- **功能描述：** 在UMaterialExpression中指定FExpressionInput属性是否要求输入，引脚显示白色或灰色。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Material
+- **元数据类型：** bool
+- **限制类型：** UMaterialExpression::FExpressionInput
+- **关联项：** [OverridingInputProperty](OverridingInputProperty/OverridingInputProperty.md)
 
 在UMaterialExpression中指定FExpressionInput属性是否要求输入，引脚显示白色或灰色。
 
@@ -15,7 +13,7 @@ Parent item: OverridingInputProperty (OverridingInputProperty.md)
 
 代码和效果参见OverridingInputProperty
 
-原理：
+## 原理：
 
 ```cpp
 

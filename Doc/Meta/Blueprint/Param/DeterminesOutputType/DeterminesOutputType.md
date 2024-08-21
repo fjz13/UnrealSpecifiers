@@ -1,14 +1,12 @@
-# DeterminesOutputType
+﻿# DeterminesOutputType
 
-功能描述: 指定一个参数的类型作为函数动态调整输出参数类型的参考类型
-使用位置: UFUNCTION
-Feature: Blueprint
-引擎模块: Blueprint
-元数据类型: string="abc"
-限制类型: Class或Object指针类型，或容器类型
-Status: Done
-Sub-item: DynamicOutputParam (DynamicOutputParam.md)
-常用程度: 3
+- **功能描述：** 指定一个参数的类型作为函数动态调整输出参数类型的参考类型
+- **使用位置：** UFUNCTION
+- **引擎模块：** Blueprint
+- **元数据类型：** string="abc"
+- **限制类型：** Class或Object指针类型，或容器类型
+- **关联项：** [DynamicOutputParam](../DynamicOutputParam.md)
+- **常用程度：** ★★★
 
 指定一个参数的类型作为函数输出参数的类型。
 
@@ -25,7 +23,7 @@ DeterminesOutputType的值指定了一个函数参数名称，即A。其TypeA的
 
 如果没有P1和P2，只把返回值当作TypeR，则可以不指定DynamicOutputParam也可以自动默认把返回值当作动态的输出参数。否则则需要手动书写DynamicOutputParam来指定哪些函数参数来支持动态类型。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 
@@ -93,27 +91,27 @@ public:
 
 ```
 
-蓝图中效果：
+## 蓝图中效果：
 
 用返回值当作输出参数的例子，注意到返回值类型实际变成了TArray<AMyCatActor*>。
 
-![1.png](DeterminesOutputType/1.png)
+![1.png](1.png)
 
 也可以加上DynamicOutputParam来指定输出参数作为动态类型参数：
 
-![2.png](DeterminesOutputType/2.png)
+![2.png](2.png)
 
 DynamicOutputParam可以指定多个参数
 
-![3.png](DeterminesOutputType/3.png)
+![3.png](3.png)
 
 DeterminesOutputType 的参数类型也可以是Object或者Object的容器：
 
-![4.png](DeterminesOutputType/4.png)
+![4.png](4.png)
 
 DeterminesOutputType 的参数甚至可以是结构里的某个属性，但是只有SplitStruct的时候才生效，因为这个时候结构的属性变量才变成函数的Pin，才可以进行DeterminesOutputType的名称比对。这个时候要书写成“A_B”，而不是“A.B”。
 
-![5.png](DeterminesOutputType/5.png)
+![5.png](5.png)
 
 ## 原理：
 

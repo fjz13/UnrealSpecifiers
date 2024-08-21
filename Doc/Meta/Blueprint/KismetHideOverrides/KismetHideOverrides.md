@@ -1,16 +1,13 @@
-# KismetHideOverrides
+﻿# KismetHideOverrides
 
-功能描述: 不允许被覆盖的蓝图事件的列表。
-使用位置: UCLASS
-Feature: Blueprint
-引擎模块: Blueprint
-元数据类型: strings="a，b，c"
-Example: KismetHideOverrides="Event1, Event2, ..”
-Status: NotWorked
+- **功能描述：** 不允许被覆盖的蓝图事件的列表。
+- **使用位置：** UCLASS
+- **引擎模块：** Blueprint
+- **元数据类型：** strings="a，b，c"
 
 在源码中发现ALevelScriptActor上面定义了很多，用来阻止被覆盖。
 
-样例：
+## 样例：
 
 ```cpp
 UCLASS(notplaceable, meta=(ChildCanTick, KismetHideOverrides = "ReceiveAnyDamage,ReceivePointDamage,ReceiveRadialDamage,ReceiveActorBeginOverlap,ReceiveActorEndOverlap,ReceiveHit,ReceiveDestroyed,ReceiveActorBeginCursorOver,ReceiveActorEndCursorOver,ReceiveActorOnClicked,ReceiveActorOnReleased,ReceiveActorOnInputTouchBegin,ReceiveActorOnInputTouchEnd,ReceiveActorOnInputTouchEnter,ReceiveActorOnInputTouchLeave"), HideCategories=(Collision,Rendering,Transformation), MinimalAPI)
@@ -20,9 +17,9 @@ class ALevelScriptActor : public AActor
 
 但是实际在LevelScriptActor的子类中依然可以覆盖该事件。有一些被隐藏的Event是其实通过HideCategories来做到的。因此该Meta其实并没有实现，如果要达到该效果，还是要通过HideFunctions或HideCategories来达成。
 
-![Untitled](KismetHideOverrides/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 可以看到这里面的判断，并没有用到该Meta
 

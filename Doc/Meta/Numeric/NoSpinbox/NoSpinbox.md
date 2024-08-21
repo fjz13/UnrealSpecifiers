@@ -1,17 +1,15 @@
-# NoSpinbox
+﻿# NoSpinbox
 
-功能描述: 使数值属性禁止默认的拖放和滚轮的UI编辑功能，数值属性包括int系列以及float系列。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: Numeric Property
-元数据类型: bool
-限制类型: Numeric Type, int / float
-Status: Done
-常用程度: 2
+- **功能描述：** 使数值属性禁止默认的拖放和滚轮的UI编辑功能，数值属性包括int系列以及float系列。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Numeric Property
+- **元数据类型：** bool
+- **限制类型：** Numeric Type, int / float
+- **常用程度：** ★★
 
 使数值属性禁止默认的拖放和滚轮的UI编辑功能，数值属性包括int系列以及float系列。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 public:
@@ -28,11 +26,11 @@ public:
 	float MyFloat_NoSpinbox = 123;
 ```
 
-测试效果：
+## 测试效果：
 
 发现带有NoSpinbox 的属性不能用鼠标左右拖动改变数值，也不能用鼠标滚轮改变数值。
 
-![SpinBoxTest.gif](NoSpinbox/SpinBoxTest.gif)
+![SpinBoxTest.gif](SpinBoxTest.gif)
 
 ## 原理：
 

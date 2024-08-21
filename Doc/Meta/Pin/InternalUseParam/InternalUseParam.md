@@ -1,18 +1,15 @@
-# InternalUseParam
+﻿# InternalUseParam
 
-功能描述: 用在函数调用上，指定要隐藏的参数名称，也可以隐藏返回值。可以隐藏多个参数
-使用位置: UFUNCTION
-Feature: Blueprint
-引擎模块: Pin
-元数据类型: strings="a，b，c"
-Example: InternalUseParam="Parameter1, Parameter2”
-Status: Done
-Parent item: HidePin (HidePin.md)
-常用程度: 2
+- **功能描述：** 用在函数调用上，指定要隐藏的参数名称，也可以隐藏返回值。可以隐藏多个参数
+- **使用位置：** UFUNCTION
+- **引擎模块：** Pin
+- **元数据类型：** strings="a，b，c"
+- **关联项：** [HidePin](../HidePin/HidePin.md)
+- **常用程度：** ★★
 
 该元数据和HidePin是等价的。
 
-C++测试代码：
+## C++测试代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -59,13 +56,13 @@ public:
 };
 ```
 
-蓝图测试结果：
+## 蓝图测试结果：
 
-![Untitled](HidePin/Untitled.png)
+![Untitled](Untitled.png)
 
 可以看出BlueprintCallable和BlueprintPure其实都可以。另外ReturnValue是默认的返回值的名字，也可以通过这个来隐藏掉。
 
-原理：
+## 原理：
 
 可见MD_InternalUseParam的使用也是在隐藏引脚。
 

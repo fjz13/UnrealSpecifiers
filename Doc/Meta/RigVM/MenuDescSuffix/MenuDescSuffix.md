@@ -1,17 +1,15 @@
-# MenuDescSuffix
+﻿# MenuDescSuffix
 
-功能描述: 标识FRigUnit在蓝图右键菜单项的名字后缀。
-使用位置: USTRUCT
-Feature: RigVM
-引擎模块: RigVMStruct
-元数据类型: bool
-限制类型: FRigUnit类型上
-Status: Done
-常用程度: 3
+- **功能描述：** 标识FRigUnit在蓝图右键菜单项的名字后缀。
+- **使用位置：** USTRUCT
+- **引擎模块：** RigVMStruct
+- **元数据类型：** bool
+- **限制类型：** FRigUnit类型上
+- **常用程度：** ★★★
 
 标识FRigUnit在蓝图右键菜单项的名字后缀。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 USTRUCT(meta = (DisplayName = "MyRigSuffix", MenuDescSuffix = "(MyVector)"))
@@ -30,13 +28,13 @@ public:
 };
 ```
 
-测试效果：
+## 测试效果：
 
 可见出现了"(MyVector)"的后缀。
 
-![Untitled](MenuDescSuffix/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 得到该数据，然后添加到DisplayName后面。
 

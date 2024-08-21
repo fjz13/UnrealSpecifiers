@@ -1,17 +1,15 @@
-# ShowOnlyInnerProperties
+﻿# ShowOnlyInnerProperties
 
-功能描述: 把结构属性的内部属性直接上提一个层级直接展示
-使用位置: UPROPERTY
-Feature: Editor
-元数据类型: bool
-限制类型: FStruct属性
-Status: Done
-Parent item: ShowInnerProperties (ShowInnerProperties.md)
-常用程度: 3
+- **功能描述：** 把结构属性的内部属性直接上提一个层级直接展示
+- **使用位置：** UPROPERTY
+- **元数据类型：** bool
+- **限制类型：** FStruct属性
+- **关联项：** [ShowInnerProperties](../ShowInnerProperties/ShowInnerProperties.md)
+- **常用程度：** ★★★
 
 把结构属性的内部属性直接上提一个层级直接展示，而不是像默认一样归属于一个可展开的父级结构。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -21,9 +19,9 @@ UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (ShowOnlyInnerProperties))
 FMyPropertyInner InnerStruct_ShowOnlyInnerProperties;
 ```
 
-效果对比：
+## 效果对比：
 
-![Untitled](ShowOnlyInnerProperties/Untitled.png)
+![Untitled](Untitled.png)
 
 可以发现InnerStruct_ShowOnlyInnerProperties的内部属性直接就显示在对象的当前层级上，而InnerStruct的属性有一个结构名称作为Category来展开。
 

@@ -1,13 +1,11 @@
-# MetaClass
+﻿# MetaClass
 
-功能描述: 用在软引用属性上，限定要选择的对象的基类
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: TypePicker
-元数据类型: string="abc"
-限制类型: FSoftClassPath，FSoftObjectPath
-Status: Done
-常用程度: 2
+- **功能描述：** 用在软引用属性上，限定要选择的对象的基类
+- **使用位置：** UPROPERTY
+- **引擎模块：** TypePicker
+- **元数据类型：** string="abc"
+- **限制类型：** FSoftClassPath，FSoftObjectPath
+- **常用程度：** ★★
 
 用在软引用属性上，限定要选择的资源的基类。
 
@@ -59,7 +57,7 @@ UScriptStruct* MyStructPtr_MetaClass;
 
 测试效果，只有MySoftClass_MetaClass和MySoftObject_MetaClass的选择列表里进行了筛选。
 
-![MetaClass.jpg](MetaClass/MetaClass.jpg)
+![MetaClass.jpg](MetaClass.jpg)
 
 ## 原理：
 

@@ -1,19 +1,17 @@
-# Aggregate
+﻿# Aggregate
 
-功能描述: 指定FRigUnit里的属性引脚为可扩展连续二元运算符的运算数。
-使用位置: UPROPERTY
-Feature: RigVM Pin
-引擎模块: RigVMStruct
-元数据类型: bool
-限制类型: FRigUnit下的属性
-Status: Done
-常用程度: 3
+- **功能描述：** 指定FRigUnit里的属性引脚为可扩展连续二元运算符的运算数。
+- **使用位置：** UPROPERTY
+- **引擎模块：** RigVMStruct
+- **元数据类型：** bool
+- **限制类型：** FRigUnit下的属性
+- **常用程度：** ★★★
 
 指定FRigUnit里的属性引脚为可扩展连续二元运算符的运算数。
 
 记得在Input和Output上都加上Aggregate。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 USTRUCT(meta = (DisplayName = "MyRigAggregate"))
@@ -35,13 +33,13 @@ public:
 };
 ```
 
-测试效果：
+## 测试效果：
 
 可见加了Aggregate之后，在蓝图节点上就可以继续动态AddPin。在左侧的Graph上也会创建中间MyRigAggregate节点。点开后，可以看见，其实就是继续组装原始的二元运算来达成继续AddPin的效果。
 
-![Untitled](Aggregate/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 识别该Meta然后然后把引脚加到AggregateInputs和AggregateOutputs里。
 

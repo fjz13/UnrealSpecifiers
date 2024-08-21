@@ -1,19 +1,17 @@
-# Abstract
+﻿# Abstract
 
-功能描述: 标识该FRigUnit为抽象类，不用实现Execute。
-使用位置: USTRUCT
-Feature: RigVM
-引擎模块: RigVMStruct
-元数据类型: bool
-限制类型: FRigUnit类型上
-Status: Done
-常用程度: 2
+- **功能描述：** 标识该FRigUnit为抽象类，不用实现Execute。
+- **使用位置：** USTRUCT
+- **引擎模块：** RigVMStruct
+- **元数据类型：** bool
+- **限制类型：** FRigUnit类型上
+- **常用程度：** ★★
 
 标识该FRigUnit为抽象类，不用实现Execute，常常用作别的FRigUnit类的基类使用。
 
 但如果还是实现了Execute，其实也还是可以在蓝图中调用的。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 USTRUCT(meta = (DisplayName = "MyRigAbstract",Abstract))
@@ -29,11 +27,11 @@ public:
 };
 ```
 
-测试效果：
+## 测试效果：
 
-![Untitled](Abstract/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 在一些内部处理的时候，当然会略过这种抽象基类。
 

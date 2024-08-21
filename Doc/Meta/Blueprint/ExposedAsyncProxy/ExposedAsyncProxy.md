@@ -1,15 +1,12 @@
-# ExposedAsyncProxy
+﻿# ExposedAsyncProxy
 
-功能描述: 在 Async Task 节点中公开此类的一个代理对象。
-使用位置: UCLASS
-Feature: Blueprint
-引擎模块: Blueprint
-元数据类型: string="abc"
-限制类型: Async Blueprint node
-Example: meta = (ExposedAsyncProxy = AsyncObjectName)
-Status: Done
-Sub-item: HideSpawnParms (HideSpawnParms.md), HasDedicatedAsyncNode (HasDedicatedAsyncNode.md), HideThen (HideThen.md)
-常用程度: 3
+- **功能描述：** 在 Async Task 节点中公开此类的一个代理对象。
+- **使用位置：** UCLASS
+- **引擎模块：** Blueprint
+- **元数据类型：** string="abc"
+- **限制类型：** Async Blueprint node
+- **关联项：** [HideSpawnParms](../Param/HideSpawnParms/HideSpawnParms.md), [HasDedicatedAsyncNode](../HasDedicatedAsyncNode/HasDedicatedAsyncNode.md), [HideThen](../HideThen/HideThen.md)
+- **常用程度：** ★★★
 
 在UK2Node_BaseAsyncTask中使用，用来为蓝图异步节点暴露一个异步对象引脚，以支持对这个异步行为的进一步操作。
 
@@ -17,7 +14,7 @@ Sub-item: HideSpawnParms (HideSpawnParms.md), HasDedicatedAsyncNode (HasDedicate
 
 基类都是继承自UBlueprintAsyncActionBase。利用ExposedAsyncProxy 指定异步任务对象的名字。在异步蓝图节点上继续返回异步对象，可以在之后支持取消该异步操作。
 
-测试代码：
+## 测试代码：
 
 UCancellableAsyncAction是引擎提供的继承自UBlueprintAsyncActionBase的一个便利的子类。UMyFunction_Async 定义了一个蓝图异步节点DelayLoop。
 
@@ -56,11 +53,11 @@ private:
 };
 ```
 
-默认的蓝图节点是：
+## 默认的蓝图节点是：
 
 如果UMyFunction_Async 直接继承自UBlueprintAsyncActionBase，并且没有设置ExposedAsyncProxy，则生成的蓝图异步节点为为下图。
 
-![Untitled](ExposedAsyncProxy/Untitled.png)
+![Untitled](Untitled.png)
 
 而如果继承自UCancellableAsyncAction (提供了Cancel方法)，并且设置ExposedAsyncProxy 为自己想要的AsyncObject引脚名称。
 
@@ -78,11 +75,11 @@ class INSIDER_API UMyFunction_Async :public UCancellableAsyncAction
 {}
 ```
 
-修改后的效果如下图：修改后：
+## 修改后的效果如下图：
 
-![Untitled](ExposedAsyncProxy/Untitled%201.png)
+![Untitled](Untitled%201.png)
 
-该Meta在源码中发生的位置：
+## 该Meta在源码中发生的位置：
 
 ```cpp
 void UK2Node_BaseAsyncTask::AllocateDefaultPins()

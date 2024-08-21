@@ -1,14 +1,11 @@
-# WorldContext
+﻿# WorldContext
 
-功能描述: 指定函数的一个参数自动接收WorldContext对象，以便确定当前运行所处于的World
-使用位置: UFUNCTION
-Feature: Blueprint
-引擎模块: Blueprint
-元数据类型: string="abc"
-Example: WorldContext = "MyWorldContextObjectParam”
-Status: Done
-Sub-item: CallableWithoutWorldContext (CallableWithoutWorldContext.md), ShowWorldContextPin (ShowWorldContextPin.md)
-常用程度: 5
+- **功能描述：** 指定函数的一个参数自动接收WorldContext对象，以便确定当前运行所处于的World
+- **使用位置：** UFUNCTION
+- **引擎模块：** Blueprint
+- **元数据类型：** string="abc"
+- **关联项：** [CallableWithoutWorldContext](../CallableWithoutWorldContext/CallableWithoutWorldContext.md), [ShowWorldContextPin](../ShowWorldContextPin/ShowWorldContextPin.md)
+- **常用程度：** ★★★★★
 
 指定函数的一个参数自动接收WorldContext对象，以便确定当前运行所处于的World。函数是BlueprintCallable或BlueprintPure都可以，静态函数或成员函数也都可以。一般情况下是用于函数库里的静态函数，典型的例子是UGameplayStatics中的众多static函数。
 
@@ -26,7 +23,7 @@ UWorld* World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorld
 UObject* WorldContextObject = EditorEngine->GetEditorWorldContext().World();
 ```
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -101,19 +98,19 @@ FString UMyFunctionLibrary_WorldContextTest::MyPure_HasWorldContextMeta(const UO
 }
 ```
 
-蓝图中的测试效果：
+## 蓝图中的测试效果：
 
 在Actor中调用，可以发现没指定WorldContext 的函数，会暴露出这个Object参数，让你必须手动指定。而带上WorldContext 的函数，则默认隐藏了起来WorldContextObject参数，因为WorldContextObject对象在Actor中可以自动被赋值（其值就是当前Actor)。
 
-![Untitled](WorldContext/Untitled.png)
+![Untitled](Untitled.png)
 
 在UMyObject_NoGetWorld的子类里，因为并没有实现GetWorld，因此无法获得World，从而没办法自动赋值WorldContextObject，所以并不能调用出MyFunc_HasWorldContextMeta。
 
-![Untitled](WorldContext/Untitled%201.png)
+![Untitled](Untitled%201.png)
 
 而在UMyObject_HasGetWorld的子类中调用，因为UMyObject_HasGetWorld实现了GetWorld，因此就可以允许调用MyFunc_HasWorldContextMeta，其WorldContextObject的值为UMyObject_HasGetWorld子类对象，在其身上会调用GetWorld()，从而获得之前注册进去的WorldPrivate对象。
 
-![Untitled](WorldContext/Untitled%202.png)
+![Untitled](Untitled%202.png)
 
 ## 原理：
 

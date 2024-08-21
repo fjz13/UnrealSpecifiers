@@ -1,20 +1,18 @@
-# MakeEditWidget
+﻿# MakeEditWidget
 
-功能描述: 使FVector和FTranform在场景编辑器里出现一个可移动的控件。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: Scene
-元数据类型: bool
-限制类型: FVector，FTranform
-Status: Done
-Sub-item: ValidateWidgetUsing (ValidateWidgetUsing.md)
-常用程度: 3
+- **功能描述：** 使FVector和FTranform在场景编辑器里出现一个可移动的控件。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Scene
+- **元数据类型：** bool
+- **限制类型：** FVector，FTranform
+- **关联项：** [ValidateWidgetUsing](../ValidateWidgetUsing/ValidateWidgetUsing.md)
+- **常用程度：** ★★★
 
 使FVector和FTranform在场景编辑器里出现一个可移动的控件。
 
 这样相比直接的数值编辑更加的直观一些。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(BlueprintType)
@@ -31,13 +29,13 @@ public:
 
 ```
 
-测试结果：
+## 测试结果：
 
 在蓝图里继承的AMyActor_EditWidget 子类里加上另外一个FTransform变量，可以看见“Show 3D Widget”的选项，这个和MyVector_MakeEditWidget都在场景里出现了可移动的控件。
 
-![Untitled](MakeEditWidget/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 判断如果是FVector或FTransform，并且有MakeEditWidget属性，则可以创建控件。
 

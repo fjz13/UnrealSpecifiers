@@ -1,14 +1,12 @@
-# AllowAnyActor
+﻿# AllowAnyActor
 
-功能描述: 用在ComponentReference属性上，在UseComponentPicker的情况下使得组件选取器扩大到场景里其他Actor下的其他组件。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: Component Property
-元数据类型: bool
-限制类型: FComponentReference，FSoftComponentReference
-Status: Done
-Parent item: UseComponentPicker (UseComponentPicker.md)
-常用程度: 2
+- **功能描述：** 用在ComponentReference属性上，在UseComponentPicker的情况下使得组件选取器扩大到场景里其他Actor下的其他组件。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Component Property
+- **元数据类型：** bool
+- **限制类型：** FComponentReference，FSoftComponentReference
+- **关联项：** [UseComponentPicker](UseComponentPicker/UseComponentPicker.md)
+- **常用程度：** ★★
 
 用在ComponentReference属性上，在UseComponentPicker的情况下使得组件选取器扩大到场景里其他Actor下的其他组件。
 
@@ -16,7 +14,7 @@ Parent item: UseComponentPicker (UseComponentPicker.md)
 
 测试代码和效果见UseComponentPicker。
 
-原理：
+## 原理：
 
 主要是FComponentReferenceCustomization。根据源码查看，bAllowAnyActor 只在已经有bUseComponentPicker的情况下生效，且用来对Actor列表进行过滤。
 

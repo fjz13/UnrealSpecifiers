@@ -1,17 +1,15 @@
-# Hidden
+﻿# Hidden
 
-功能描述: 隐藏UENUM的某个值
-使用位置: UENUM::UMETA
-Feature: Blueprint
-引擎模块: Enum Property
-元数据类型: bool
-限制类型: UENUM的值
-Status: Done
-常用程度: 5
+- **功能描述：** 隐藏UENUM的某个值
+- **使用位置：** UENUM::UMETA
+- **引擎模块：** Enum Property
+- **元数据类型：** bool
+- **限制类型：** UENUM的值
+- **常用程度：** ★★★★★
 
 隐藏UENUM的某个值。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 
@@ -33,13 +31,13 @@ public:
 };
 ```
 
-测试效果：
+## 测试效果：
 
-![Untitled](Hidden/5b4de771-be09-4342-8955-dc0f824ef97d.png)
+![Untitled](5b4de771-be09-4342-8955-dc0f824ef97d.png)
 
 但是蓝图里访问：
 
-![Untitled](Hidden/Untitled.png)
+![Untitled](Untitled.png)
 
 ## 原理：
 

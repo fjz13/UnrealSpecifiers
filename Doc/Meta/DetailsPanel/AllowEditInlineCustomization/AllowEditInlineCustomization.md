@@ -1,16 +1,14 @@
-# AllowEditInlineCustomization
+﻿# AllowEditInlineCustomization
 
-功能描述: 允许EditInline的对象属性可以自定义属性细节面板来编辑该对象内的数据。
-使用位置: UPROPERTY
-Feature: Editor
-元数据类型: string="abc"
-Status: Done
-Parent item: EditInline (EditInline.md)
-常用程度: 1
+- **功能描述：** 允许EditInline的对象属性可以自定义属性细节面板来编辑该对象内的数据。
+- **使用位置：** UPROPERTY
+- **元数据类型：** string="abc"
+- **关联项：** [EditInline](../EditInline/EditInline.md)
+- **常用程度：** ★
 
 允许EditInline的对象属性可以自定义属性细节面板来编辑该对象内的数据。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -39,9 +37,9 @@ public:
 
 ```
 
-效果：
+## 效果：
 
-![Untitled](AllowEditInlineCustomization/Untitled.png)
+![Untitled](Untitled.png)
 
 要做到自定义EditInline的效果，采用自定义的IPropertyTypeCustomization和RegisterCustomPropertyTypeLayout也能做到。区别是，正如上面代码里的UMyCustomAsset里面有两个同类型的UMyCommonObject*对象，假如用IPropertyTypeCustomization的方式，就会导致两个变量都变成自定义的UI模式。而用AllowEditInlineCustomization就可以使得其中你想要的那个变成自定义方式，而其他的不做改变。
 

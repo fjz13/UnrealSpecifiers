@@ -1,12 +1,10 @@
-# BlueprintCompilerGeneratedDefaults
+﻿# BlueprintCompilerGeneratedDefaults
 
-功能描述: 指定该属性的值是编译器生成的，因此在编译后无需复制，可以加速一些编译性能。
-使用位置: UPROPERTY
-Feature: Blueprint
-引擎模块: AnimationGraph
-元数据类型: bool
-限制类型: FAnimNode里的属性
-Status: OnlyInternal
+- **功能描述：** 指定该属性的值是编译器生成的，因此在编译后无需复制，可以加速一些编译性能。
+- **使用位置：** UPROPERTY
+- **引擎模块：** AnimationGraph
+- **元数据类型：** bool
+- **限制类型：** FAnimNode里的属性
 
 指定该属性的值是编译器生成的，因此在编译后无需复制，可以加速一些编译性能。
 
@@ -14,7 +12,7 @@ Status: OnlyInternal
 
 UAnimGraphNode_Base::OnProcessDuringCompilation函数就是编译后回调的函数。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 USTRUCT(BlueprintInternalUseOnly)
@@ -52,13 +50,13 @@ protected:
 
 ```
 
-测试效果：
+## 测试效果：
 
 这个因为是序列化的过程，因此并没有直观的示意图。
 
 可验证的结果是在FCPFUOWriter::ShouldSkipProperty可以见到MyString_CompilerDefaults属性跳过了复制。
 
-原理：
+## 原理：
 
 蓝图编译的过程，核心思想是生成一个新的Graph对象，然后把上一次编译的结果对象里的属性和只对象复制到这个新的对象里去。这一步操作是用UEngine::CopyPropertiesForUnrelatedObjects来完成的，再内部会继续用FCPFUOWriter::ShouldSkipProperty来判断是否该复制某个属性。而对于一些属性的值只是由编译器生成的临时值，反正下一次编译也会再生成，因此就不需要复制了，标上之后可以略微加速一些性能，虽然其实也不多。
 

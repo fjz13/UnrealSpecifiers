@@ -1,12 +1,10 @@
-# bShowOnlyWhenTrue
+﻿# bShowOnlyWhenTrue
 
-功能描述: 根据编辑器config配置文件里字段值来决定当前属性是否显示。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: DetailsPanel
-元数据类型: string="abc"
-Status: Done
-常用程度: 1
+- **功能描述：** 根据编辑器config配置文件里字段值来决定当前属性是否显示。
+- **使用位置：** UPROPERTY
+- **引擎模块：** DetailsPanel
+- **元数据类型：** string="abc"
+- **常用程度：** ★
 
 根据编辑器config配置文件里字段值来决定当前属性是否显示。
 
@@ -16,7 +14,7 @@ Status: Done
 
 在源码里没有找到使用的例子，但这依然是可以工作的。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 D:\github\GitWorkspace\Hello\Config\DefaultEditorPerProjectUserSettings.ini
@@ -40,13 +38,13 @@ public:
 };
 ```
 
-测试结果：
+## 测试结果：
 
 可见MyString_WithShowOnly就没有显示出来，因为我们在DefaultEditorPerProjectUserSettings中配置了ShowMyString=false。
 
-![Untitled](bShowOnlyWhenTrue/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 就是取得config中的值用来决定属性框是否显示。
 

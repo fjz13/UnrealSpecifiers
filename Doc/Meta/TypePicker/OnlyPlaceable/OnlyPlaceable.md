@@ -1,17 +1,15 @@
-# OnlyPlaceable
+﻿# OnlyPlaceable
 
-功能描述: 用在类属性上，指定是否只接受可被放置到场景里的Actor
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: TypePicker
-元数据类型: bool
-限制类型: TSubClassOf, FSoftClassPath，UClass*
-Status: Done
-常用程度: 2
+- **功能描述：** 用在类属性上，指定是否只接受可被放置到场景里的Actor
+- **使用位置：** UPROPERTY
+- **引擎模块：** TypePicker
+- **元数据类型：** bool
+- **限制类型：** TSubClassOf, FSoftClassPath，UClass*
+- **常用程度：** ★★
 
 可以排除掉一些AInfo等不能放进场景里的Actor类。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 
@@ -41,13 +39,13 @@ public:
 	TSubclassOf<AMyActor> MyActor_OnlyPlaceable;
 ```
 
-测试效果：
+## 测试效果：
 
 可见AMyActorChild_NotPlaceable 类因为加了NotPlaceable标记，就不能被MyActor_OnlyPlaceable属性选择上。
 
-![OnlyPlaceable.jpg](OnlyPlaceable/OnlyPlaceable.jpg)
+![OnlyPlaceable.jpg](OnlyPlaceable.jpg)
 
-原理：
+## 原理：
 
 ```cpp
 bool FPropertyHandleBase::GeneratePossibleValues(TArray<FString>& OutOptionStrings, TArray< FText >& OutToolTips, TArray<bool>& OutRestrictedItems, TArray<FText>* OutDisplayNames)

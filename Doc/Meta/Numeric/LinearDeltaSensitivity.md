@@ -1,14 +1,12 @@
-# LinearDeltaSensitivity
+﻿# LinearDeltaSensitivity
 
-功能描述: 在设定Delta后，进一步设定数字输入框变成线性改变以及改变的敏感度（值越大越不敏感）
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: Numeric Property
-元数据类型: float/int
-限制类型: float,int32
-Status: Linked
-Parent item: Delta (Delta.md)
-常用程度: 3
+- **功能描述：** 在设定Delta后，进一步设定数字输入框变成线性改变以及改变的敏感度（值越大越不敏感）
+- **使用位置：** UPROPERTY
+- **引擎模块：** Numeric Property
+- **元数据类型：** float/int
+- **限制类型：** float,int32
+- **关联项：** [Delta](Delta/Delta.md)
+- **常用程度：** ★★★
 
 生效的条件：
 
@@ -16,7 +14,7 @@ Parent item: Delta (Delta.md)
 2. 不设置UIMin, UIMax
 3. 设定LinearDeltaSensitivity >0
 
-测试代码：
+## 测试代码：
 
 ```cpp
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = DeltaTest, meta = (UIMin = "0", UIMax = "1000", Delta = 10))
@@ -27,13 +25,13 @@ Parent item: Delta (Delta.md)
 	float MyFloat_Delta10_LinearDeltaSensitivity50_UIMinMax = 100;
 ```
 
-测试效果：
+## 测试效果：
 
 效果解析请参见：Delta的解析
 
 ![Delta.gif](Delta/Delta.gif)
 
-原理：
+## 原理：
 
 可见只有没有UIMinMax且已经设置Delta后才能走进线性改变的代码分支。
 

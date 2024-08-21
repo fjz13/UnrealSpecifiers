@@ -1,14 +1,11 @@
-# ExpandEnumAsExecs
+﻿# ExpandEnumAsExecs
 
-功能描述: 指定多个enum或bool类型的函数参数，自动根据条目生成相应的多个输入或输出执行引脚，并根据实参值不同来相应改变控制流。
-使用位置: UFUNCTION
-Feature: Blueprint
-引擎模块: Blueprint
-元数据类型: strings="a，b，c"
-Example: ExpandEnumAsExecs="EnumA, EnumB | boolVal, ReturnValue”
-Status: Done
-Sub-item: ExpandBoolAsExecs (ExpandBoolAsExecs.md)
-常用程度: 5
+- **功能描述：** 指定多个enum或bool类型的函数参数，自动根据条目生成相应的多个输入或输出执行引脚，并根据实参值不同来相应改变控制流。
+- **使用位置：** UFUNCTION
+- **引擎模块：** Blueprint
+- **元数据类型：** strings="a，b，c"
+- **关联项：** [ExpandBoolAsExecs](../ExpandBoolAsExecs.md)
+- **常用程度：** ★★★★★
 
 指定多个enum或bool类型的函数参数，自动根据条目生成相应的多个输入或输出执行引脚，并根据实参值不同来相应改变控制流。
 
@@ -23,7 +20,7 @@ Sub-item: ExpandBoolAsExecs (ExpandBoolAsExecs.md)
 
 如果有多个输出Enum参数，会在函数的调用之后排成Sequecene来一一分别根据输出Enum的值来触发输出Exec。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UENUM(BlueprintType)
@@ -74,11 +71,11 @@ public:
 	static bool MyEnumAsExec_MultipleOut(FString Name, EMyExecPins InPins, EMyExecAnimalPins& OutAnimal, TEnumAsByte<EMyExecPins2::Type>& OutPins, FString& Result);
 ```
 
-蓝图效果：
+## 蓝图效果：
 
 可以对照上述上述的函数原型和蓝图节点，可以发现ExpandEnumAsExecs执行3种参数类型。同时也验证了在同时拥有多个输出Enum参数的时候(代码里是OutAnimal|OutPins|ReturnValue)，会按顺序执行3次输出，就像用Sequence节点连接在了一起一样。
 
-![Untitled](ExpandEnumAsExecs/Untitled.png)
+![Untitled](Untitled.png)
 
 ## 原理：
 

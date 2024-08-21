@@ -1,19 +1,17 @@
-# ShowDisplayNames
+﻿# ShowDisplayNames
 
-功能描述: 在Class和Struct属性上，指定类选择器显示另外的显示名称而不是类原始的名字。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: TypePicker
-元数据类型: bool
-限制类型: TSubClassOf，FSoftClassPath，UClass*，UScriptStruct*
-Status: Done
-常用程度: 1
+- **功能描述：** 在Class和Struct属性上，指定类选择器显示另外的显示名称而不是类原始的名字。
+- **使用位置：** UPROPERTY
+- **引擎模块：** TypePicker
+- **元数据类型：** bool
+- **限制类型：** TSubClassOf，FSoftClassPath，UClass*，UScriptStruct*
+- **常用程度：** ★
 
 在Class和Struct属性上，指定类选择器显示另外的显示名称而不是类原始的名字。
 
 类的显示名称指的是加在UCLASS或USTUCT上的DisplayName上的名字，这往往是对用户更友好的名字。类的原始名字就是类的类型名。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(BlueprintType, NotBlueprintable,DisplayName="This is MyCommonObjectChild")
@@ -54,13 +52,13 @@ UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ShowDisplayNamesTest|USc
 UScriptStruct* MyStructPtr_ShowDisplayNames;
 ```
 
-测试结果：
+## 测试结果：
 
 可见加上ShowDisplayNames后，显示在列表里的是“This is XXX”的更友好的名字，否则就是直接的类名。
 
 为了让效果更加直观，上面的测试代码里也加上了MetaClass，MetaStruct，AllowedClasses 用来限定选择范围。
 
-![ShowDisplayNames.jpg](ShowDisplayNames/ShowDisplayNames.jpg)
+![ShowDisplayNames.jpg](ShowDisplayNames.jpg)
 
 ## 原理：
 

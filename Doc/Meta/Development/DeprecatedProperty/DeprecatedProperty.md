@@ -1,17 +1,22 @@
-# DeprecatedProperty
+﻿# DeprecatedProperty
 
-功能描述: 标记弃用，引用到该属性的蓝图会触发一个警告
-使用位置: UPROPERTY
-Feature: Blueprint
-引擎模块: Development
-元数据类型: bool
-Status: Linked
-Related To UCLASS: Deprecated (../../Specifier/UCLASS/Deprecated.md)
-常用程度: 1
+- **功能描述：** 标记弃用，引用到该属性的蓝图会触发一个警告
+
+- **使用位置：** UPROPERTY
+
+- **引擎模块：** Development
+
+- **元数据类型：** bool
+
+- **关联项：** 
+
+  UCLASS：[Deprecated](../../../Specifier/UCLASS/Development/Deprecated/Deprecated.md)
+
+- **常用程度：** ★
 
 标记弃用，引用到该属性的蓝图会触发一个警告
 
-示例代码：
+## 示例代码：
 
 ```cpp
 // Simple
@@ -23,6 +28,6 @@ UPROPERTY(BlueprintReadWrite, meta=(DisplayName="PlantName", DeprecatedProperty,
 FString DEPRECATED_PlantName;
 ```
 
-![Untitled](DeprecatedProperty/Untitled.png)
+![Untitled](/Untitled.png)
 
-![Untitled](DeprecatedProperty/Untitled%201.png)
+![Untitled](/Untitled%201.png)

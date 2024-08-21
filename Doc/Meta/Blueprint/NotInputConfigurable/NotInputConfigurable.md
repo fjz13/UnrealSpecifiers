@@ -1,17 +1,15 @@
-# NotInputConfigurable
+﻿# NotInputConfigurable
 
-功能描述: 让一些UInputModifier和UInputTrigger不能在ProjectSettings里配置。
-使用位置: UCLASS
-Feature: Blueprint
-引擎模块: Blueprint
-元数据类型: bool
-限制类型: UInputModifier和UInputTrigger的子类
-Status: Done
-常用程度: 1
+- **功能描述：** 让一些UInputModifier和UInputTrigger不能在ProjectSettings里配置。
+- **使用位置：** UCLASS
+- **引擎模块：** Blueprint
+- **元数据类型：** bool
+- **限制类型：** UInputModifier和UInputTrigger的子类
+- **常用程度：** ★
 
 让一些UInputModifier和UInputTrigger不能在ProjectSettings里配置。
 
-源码例子：
+## 源码例子：
 
 ```cpp
 UCLASS(NotBlueprintable, meta = (DisplayName = "Chorded Action", NotInputConfigurable = "true"))
@@ -23,7 +21,7 @@ class ENHANCEDINPUT_API UInputTriggerCombo : public UInputTrigger
 {}
 ```
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS( meta = (NotInputConfigurable = "true"))
@@ -46,13 +44,13 @@ public:
 
 ```
 
-测试效果：
+## 测试效果：
 
 可见只有UMyInputTrigger_Configurable 可以编辑默认值。
 
-![Untitled](NotInputConfigurable/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 UEnhancedInputDeveloperSettings的UI定制化会收集UInputModifier和UInputTrigger的CDO对象，然后根据NotInputConfigurable过滤掉一些不能配置的。
 

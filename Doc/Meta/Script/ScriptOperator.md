@@ -1,12 +1,10 @@
-# ScriptOperator
+﻿# ScriptOperator
 
-功能描述: 把第一个参数为结构的静态函数包装成结构的运算符。
-使用位置: UFUNCTION
-Feature: Script
-引擎模块: Script
-元数据类型: string="a;b;c"
-Status: Done
-常用程度: 3
+- **功能描述：** 把第一个参数为结构的静态函数包装成结构的运算符。
+- **使用位置：** UFUNCTION
+- **引擎模块：** Script
+- **元数据类型：** string="a;b;c"
+- **常用程度：** ★★★
 
 把第一个参数为结构的静态函数包装成结构的运算符。
 
@@ -33,7 +31,7 @@ FMyStruct FuncName(const FMyStruct&, OtherType);  //这里OtherType可以是任�
 
 源码里也常见到和ScriptMethodSelfReturn使用的例子，如+=运算符上。但其实ScriptMethodSelfReturn不是必须的，在+=的时候，自然会把返回值应用到第一个参数上。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 USTRUCT(BlueprintType)
@@ -65,7 +63,7 @@ public:
 
 ```
 
-生成的py代码：
+## 生成的py代码：
 
 可见，在py里生成了__bool__，__eq__，__add__，__iadd__，__neg__的函数。同时IsValid加上了ScriptMethod，就有了另一个has_value函数。
 
@@ -136,7 +134,7 @@ class MyPythonMathStruct(StructBase):
         ...
 ```
 
-进行运行的测试：
+## 进行运行的测试：
 
 可见确实支持了数学+=运算符和bool的比较。
 
@@ -153,7 +151,7 @@ LogPython: print(-a)
 LogPython: <Struct 'MyPythonMathStruct' (0x0000074C90D5DCF0) {value: -6}>
 ```
 
-原理：
+## 原理：
 
 具体的包装函数都在GenerateWrappedOperator 里，具体想了解的可细看这里。
 

@@ -1,17 +1,15 @@
-# AllowedCharacters
+﻿# AllowedCharacters
 
-功能描述: 只允许文本框里可以输入这些字符。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: String/Text Property
-元数据类型: string="abc"
-限制类型: FName/FString/Fext
-Status: Done
-常用程度: 3
+- **功能描述：** 只允许文本框里可以输入这些字符。
+- **使用位置：** UPROPERTY
+- **引擎模块：** String/Text Property
+- **元数据类型：** string="abc"
+- **限制类型：** FName/FString/Fext
+- **常用程度：** ★★★
 
 只允许文本框里可以输入这些字符。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 public:
@@ -21,13 +19,13 @@ public:
 	FString MyString_AllowedCharacters_Chinese;
 ```
 
-测试效果：
+## 测试效果：
 
 可见第一个只能输入abcde，而fgh产生了报错。在测试中文的时候，如果粘贴进去对应的中文，则是OK的。否则也会产生报错，不允许输入进去。
 
-![Untitled](AllowedCharacters/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 SPropertyEditorText里实际保存了FCharRangeList 的AllowedCharacters用来限制字符。同样在字符串改变的时候，验证字符是否合法。
 

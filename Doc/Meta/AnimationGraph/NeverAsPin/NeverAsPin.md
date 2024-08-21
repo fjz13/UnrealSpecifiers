@@ -1,18 +1,16 @@
-# NeverAsPin
+﻿# NeverAsPin
 
-功能描述: 在动画蓝图中使得动画节点的某个属性总是不暴露出来成为引脚
-使用位置: UPROPERTY
-Feature: Blueprint
-引擎模块: Pin
-元数据类型: bool
-限制类型: FAnimNode_Base
-Status: NotUsed
-Parent item: PinShownByDefault (PinShownByDefault.md)
-常用程度: 3
+- **功能描述：** 在动画蓝图中使得动画节点的某个属性总是不暴露出来成为引脚
+- **使用位置：** UPROPERTY
+- **引擎模块：** Pin
+- **元数据类型：** bool
+- **限制类型：** FAnimNode_Base
+- **关联项：** [PinShownByDefault](../PinShownByDefault/PinShownByDefault.md)
+- **常用程度：** ★★★
 
 NeverAsPin源码中并没有用到，因为默认情况下就是不支持为引脚，所以不加也都一样。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 USTRUCT(BlueprintInternalUseOnly)
@@ -34,13 +32,13 @@ struct INSIDEREDITOR_API FAnimNode_MyTestPinShown : public FAnimNode_Base
 };
 ```
 
-测试效果：
+## 测试效果：
 
 MyInt_NeverAsPin只能和右边和默认的属性一样，不能显示为引脚。
 
-![PinShown.gif](NeverAsPin/PinShown.gif)
+![PinShown.gif](PinShown.gif)
 
-原理：
+## 原理：
 
 发现bNeverShow并没有用到，因为默认情况下就是不支持为引脚。
 

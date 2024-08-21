@@ -1,21 +1,19 @@
-# ScriptMethod
+﻿# ScriptMethod
 
-功能描述: 把静态函数导出变成第一个参数的成员函数。
-使用位置: UFUNCTION
-Feature: Script
-引擎模块: Script
-元数据类型: string="a;b;c"
-限制类型: static function
-Status: Done
-Sub-item: ScriptMethodMutable (ScriptMethodMutable.md), ScriptMethodSelfReturn (ScriptMethodSelfReturn.md)
-常用程度: 3
+- **功能描述：** 把静态函数导出变成第一个参数的成员函数。
+- **使用位置：** UFUNCTION
+- **引擎模块：** Script
+- **元数据类型：** string="a;b;c"
+- **限制类型：** static function
+- **关联项：** [ScriptMethodMutable](ScriptMethodMutable.md), [ScriptMethodSelfReturn](ScriptMethodSelfReturn.md)
+- **常用程度：** ★★★
 
 把静态函数导出变成第一个参数的成员函数。
 
 - 把func(A，B)变成A.func(B)，这样就可以给A对象添加成员函数方法。有点像C#里的扩展方法。
 - 也可以直接再提供一个名字来改变包装后的成员函数的名称。注意与ScriptName区分，ScriptName改变的是本身导出到脚本的名字，而ScriptMethod改变的是结果成员函数的名字。把func(A，B)改成A.OtherFunc(B)。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -49,7 +47,7 @@ public:
 
 ```
 
-测试效果：
+## 测试效果：
 
 可见在MyPythonStruct_ScriptMethod里增加了my_func_on_struct的方法，而MyPython_ScriptMethod里增加了my_func_on_object的方法。因此如果在py里你就可以把这两个函数当作成员函数一样调用。
 
@@ -156,7 +154,7 @@ class MyPython_ScriptMethod_Test(Object):
         ...
 ```
 
-原理：
+## 原理：
 
 在GenerateWrappedDynamicMethod中有详细的如何把静态函数包装成成员函数的过程。感兴趣的可以去细看。
 

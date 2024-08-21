@@ -1,18 +1,16 @@
-# BaseStruct
+﻿# BaseStruct
 
-功能描述: 指定FInstancedStruct属性选项列表选择的结构都必须继承于BaseStruct指向的结构。
-使用位置: UPROPERTY
-Feature: Blueprint
-引擎模块: TypePicker
-元数据类型: bool
-限制类型: FInstancedStruct
-Status: Done
-Sub-item: ExcludeBaseStruct (ExcludeBaseStruct.md), StructTypeConst (StructTypeConst.md)
-常用程度: 3
+- **功能描述：** 指定FInstancedStruct属性选项列表选择的结构都必须继承于BaseStruct指向的结构。
+- **使用位置：** UPROPERTY
+- **引擎模块：** TypePicker
+- **元数据类型：** bool
+- **限制类型：** FInstancedStruct
+- **关联项：** [ExcludeBaseStruct](../ExcludeBaseStruct.md), [StructTypeConst](../StructTypeConst.md)
+- **常用程度：** ★★★
 
 指定FInstancedStruct属性选项列表选择的结构都必须继承于BaseStruct指向的结构。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 
@@ -52,7 +50,7 @@ public:
 };
 ```
 
-测试结果：
+## 测试结果：
 
 可见MyStruct_BaseStruct的选择限制在FMyCommonStruct的自己以及子类。
 
@@ -60,9 +58,9 @@ public:
 
 加上StructTypeConst的MyStruct_Const就不能编辑了。
 
-![Untitled](BaseStruct/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 抽取BaseStruct的元信息以填充到StructFilter中去。
 

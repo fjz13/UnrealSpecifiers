@@ -1,19 +1,17 @@
-# NoElementDuplicate
+﻿# NoElementDuplicate
 
-功能描述: 去除TArray属性里数据项的Duplicate菜单项按钮。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: Container Property
-元数据类型: bool
-限制类型: TArray
-Status: Done
-常用程度: 1
+- **功能描述：** 去除TArray属性里数据项的Duplicate菜单项按钮。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Container Property
+- **元数据类型：** bool
+- **限制类型：** TArray
+- **常用程度：** ★
 
 去除TArray属性里数据项的Duplicate菜单项按钮。
 
 用于TArray属性，值可以是任何类型，可以是数值，结构，也可以是Object*。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 public:
@@ -24,11 +22,11 @@ public:
 	TArray<int32> MyIntArray_NoElementDuplicate;
 ```
 
-效果：
+## 效果：
 
 可以看到带有NoElementDuplicate的数组，在值的右侧下拉箭头的菜单项里只有两项。
 
-![Untitled](NoElementDuplicate/Untitled.png)
+![Untitled](Untitled.png)
 
 ## 原理：
 

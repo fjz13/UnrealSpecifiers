@@ -1,14 +1,12 @@
-# AssetBundles
+﻿# AssetBundles
 
-功能描述: 标明该属性其引用的资产属于哪一些AssetBundles。
-使用位置: UPROPERTY
-Feature: Asset
-引擎模块: Object Property
-元数据类型: strings="a，b，c"
-限制类型: UPrimaryDataAsset内部的FSoftObjectPtr，FSoftObjectPath 
-Status: Done
-Sub-item: IncludeAssetBundles (IncludeAssetBundles.md)
-常用程度: 3
+- **功能描述：** 标明该属性其引用的资产属于哪一些AssetBundles。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Object Property
+- **元数据类型：** strings="a，b，c"
+- **限制类型：** UPrimaryDataAsset内部的FSoftObjectPtr，FSoftObjectPath 
+- **关联项：** [IncludeAssetBundles](../IncludeAssetBundles/IncludeAssetBundles.md)
+- **常用程度：** ★★★
 
 用于UPrimaryDataAsset内部的 SoftObjectPtr 或 SoftObjectPath 属性，标明其引用的资产属于哪一些AssetBundles。
 
@@ -19,7 +17,7 @@ Sub-item: IncludeAssetBundles (IncludeAssetBundles.md)
 - AssetBundle可以叫做资产包，其实就是一个Asset的列表，我们对每个资产包起个名字来区分，比如UI，Game，这样其实也是对一些资产进行标签分类。这里的Asset我们不区分是PrimaryAsset还是SecondaryAsset，因为这是从用途上进行区分的，而不是加载方式。AssetBundle的作用是当我们加载PrimaryAsset的时候，这个PrimaryAsset本身可能引用着另外一些SecondaryAsset资产，各自有不同的用途。我们就可以把这些SecondaryAsset资产划分到不同的AssetBundle里，这样我们在加载PrimaryAsset的时候，可以通过额外提供AssetBundleName来更加精细化的控制SecondaryAsset资产的加载。
 - PrimaryAsset里的指定AssetBundle的Asset属性必须是软引用，否则是硬引用的话无论如何也会被加载进来。软引用的Asset在默认时候需要我们手动的进行加载，通过附加AssetBundle，就可以在加载PrimaryAsset的时候，附带的加载该软引用资产。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(BlueprintType)
@@ -38,7 +36,7 @@ public:
 };
 ```
 
-测试效果：
+## 测试效果：
 
 - 首先我们在BP里定义了UMyProperty_Asset_Item 的资产，并相应的配置上了引用的对象。如图所示，有一个图标是给UI和Game用的，有一个Mesh是专门给Game用的。大概设想一下在一些界面我们只需要道具的图标就可以了。
 - 然后在LoadPrimaryAsset的时候可以指定LoadBundles的名字，从而只加载特定的Bundle。如下图所示。
@@ -46,9 +44,9 @@ public:
 - 当指定Bundle为Game的时候，可以看见Icon和Mesh都加载了进来。
 - 要注意在编辑器下测试时候，如果之前已经加载了Mesh，因为还常驻在编辑器内存里。因此即使是使用名字UI，也仍然会发现Mesh可以被引用到。
 
-![AssetBundles.jpg](AssetBundles/AssetBundles.jpg)
+![AssetBundles.jpg](AssetBundles.jpg)
 
-原理：
+## 原理：
 
 首先UPrimaryDataAsset里有一个AssetBundleData保存着当前引用的AssetBundle的信息，这个信息是在编辑器环境下PreSave的时候保存的，会在UAssetManager::InitializeAssetBundlesFromMetadata里进行meta的分析和映射。之后在UAssetManager的LoadPrimaryAsset时内部调用 ChangeBundleStateForPrimaryAssets，然后检查AssetBundle把其他额外要一并加载的Asset添加到PathsToLoad，从而最终完成一并加载的这个逻辑。
 

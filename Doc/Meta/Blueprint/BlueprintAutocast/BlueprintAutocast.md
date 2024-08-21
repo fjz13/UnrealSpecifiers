@@ -1,12 +1,10 @@
-# BlueprintAutocast
+﻿# BlueprintAutocast
 
-功能描述: 告诉蓝图系统这个函数是用来支持从A类型到B类型的自动转换。
-使用位置: UFUNCTION
-Feature: Blueprint
-引擎模块: Blueprint
-元数据类型: bool
-Status: Done
-常用程度: 1
+- **功能描述：** 告诉蓝图系统这个函数是用来支持从A类型到B类型的自动转换。
+- **使用位置：** UFUNCTION
+- **引擎模块：** Blueprint
+- **元数据类型：** bool
+- **常用程度：** ★
 
 告诉蓝图系统这个函数是用来支持从A类型到B类型的自动转换。
 
@@ -14,7 +12,7 @@ Status: Done
 
 这种转换函数必须是BlueprintPure，因为其实是被动调用的，不带主动执行节点。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 USTRUCT(BlueprintType)
@@ -61,13 +59,13 @@ UFUNCTION(BlueprintPure, Category="Widget", meta = (CompactNodeTitle = "->", Blu
 static UMG_API FInputEvent GetInputEventFromKeyEvent(const FKeyEvent& Event);
 ```
 
-效果如图：
+## 示例效果：
 
 支持自动转换的FAutoCastTo就在拖拉连线的时候就会自动生成节点，而没有自动转换函数的FNoAutoCastTo就会产生报错。
 
-![Untitled](BlueprintAutocast/Untitled.png)
+![Untitled](Untitled.png)
 
-原理代码：
+## 原理代码：
 
 从这可以看出，该函数必须是static，C++中的Public函数，标上BlueprintPure，拥有返回值，且有一个输入参数。引擎里类型的自动转换关系是靠FAutocastFunctionMap来维护的。
 

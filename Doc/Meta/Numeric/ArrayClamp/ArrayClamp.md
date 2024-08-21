@@ -1,18 +1,15 @@
-# ArrayClamp
+﻿# ArrayClamp
 
-功能描述: 限定整数属性的值必须在指定数组的合法下标范围内，[0,ArrayClamp.Size()-1]
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: Numeric Property
-元数据类型: int32
-限制类型: int32
-Example: ArrayClamp="ArrayProperty”
-Status: Done
-常用程度: 3
+- **功能描述：** 限定整数属性的值必须在指定数组的合法下标范围内，[0,ArrayClamp.Size()-1]
+- **使用位置：** UPROPERTY
+- **引擎模块：** Numeric Property
+- **元数据类型：** int32
+- **限制类型：** int32
+- **常用程度：** ★★★
 
 限定整数属性的值必须在指定数组的合法下标范围内，[0,ArrayClamp.Size()-1]
 
-测试代码：
+## 测试代码：
 
 ```cpp
 public:
@@ -26,13 +23,13 @@ public:
 	TArray<int32> MyIntArray;
 ```
 
-测试效果：
+## 测试效果：
 
 可见拥有ArrayClamp的整数值被限制在数组的下标中。
 
-![ArrayClamp.gif](ArrayClamp/ArrayClamp.gif)
+![ArrayClamp.gif](ArrayClamp.gif)
 
-原理：
+## 原理：
 
 根据指定的数组名称在本类里寻找到Array属性，然后把本整数属性的值Clamp在该数组的下标范围内。
 

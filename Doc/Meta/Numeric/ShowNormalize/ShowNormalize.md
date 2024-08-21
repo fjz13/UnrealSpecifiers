@@ -1,17 +1,15 @@
-# ShowNormalize
+﻿# ShowNormalize
 
-功能描述: 使得FVector变量在细节面板出现一个正规化的按钮。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: Numeric Property
-元数据类型: bool
-限制类型: FVector
-Status: Done
-常用程度: 3
+- **功能描述：** 使得FVector变量在细节面板出现一个正规化的按钮。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Numeric Property
+- **元数据类型：** bool
+- **限制类型：** FVector
+- **常用程度：** ★★★
 
 使得FVector变量在细节面板出现一个正规化的按钮。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 	UPROPERTY(EditAnywhere, Category = VectorTest)
@@ -24,13 +22,13 @@ Status: Done
 	FVector MyVector_ShowNormalize;
 ```
 
-测试结果：
+## 测试结果：
 
 MyVector_ShowNormalize右侧的按钮可以把值正规化。
 
-![AllowPreserveRatio.gif](ShowNormalize/AllowPreserveRatio.gif)
+![AllowPreserveRatio.gif](AllowPreserveRatio.gif)
 
-原理：
+## 原理：
 
 其实就是UI定制化的时候检测出ShowNormalize就创建单独的UI。
 

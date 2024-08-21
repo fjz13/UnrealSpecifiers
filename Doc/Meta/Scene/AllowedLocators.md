@@ -1,19 +1,17 @@
-# AllowedLocators
+﻿# AllowedLocators
 
-功能描述: 用来给Sequencer定位可绑定的对象
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: Scene
-元数据类型: string="abc"
-限制类型: FUniversalObjectLocator
-Status: OnlyInternal
-常用程度: 1
+- **功能描述：** 用来给Sequencer定位可绑定的对象
+- **使用位置：** UPROPERTY
+- **引擎模块：** Scene
+- **元数据类型：** string="abc"
+- **限制类型：** FUniversalObjectLocator
+- **常用程度：** ★
 
 用来给Sequencer定位可绑定的对象。
 
 看起来是Sequencer用来定位Actor做属性绑定的辅助定位器。只用在FUniversalObjectLocator 这个写好的属性里，一般我们用不到去扩展这部分，因此只是OnlyInternal。
 
-源码中搜索得到：
+## 源码中搜索得到：
 
 ```cpp
 
@@ -35,7 +33,7 @@ struct FMovieSceneUniversalLocatorInfo
 
 看起来是允许定位的对象类型。
 
-原理：
+## 原理：
 
 ```cpp
 TMap<FName, TSharedPtr<ILocatorEditor>> ApplicableLocators;

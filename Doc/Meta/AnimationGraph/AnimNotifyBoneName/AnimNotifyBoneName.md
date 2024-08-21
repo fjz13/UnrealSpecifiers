@@ -1,20 +1,17 @@
-# AnimNotifyBoneName
+﻿# AnimNotifyBoneName
 
-功能描述: 使得UAnimNotify或UAnimNotifyState下的FName属性作为BoneName的作用。
-使用位置: UPROPERTY
-Feature: Behavior
-引擎模块: AnimationGraph
-元数据类型: bool
-限制类型: UAnimNotify或UAnimNotifyState子类下的FName属性
-Example: meta=(AnimNotifyBoneName="true")
-Status: Done
-常用程度: 2
+- **功能描述：** 使得UAnimNotify或UAnimNotifyState下的FName属性作为BoneName的作用。
+- **使用位置：** UPROPERTY
+- **引擎模块：** AnimationGraph
+- **元数据类型：** bool
+- **限制类型：** UAnimNotify或UAnimNotifyState子类下的FName属性
+- **常用程度：** ★★
 
 使得UAnimNotify或UAnimNotifyState下的FName属性作为BoneName的作用。
 
 在动画通知的时候，也常常需要一个传递骨骼名字参数，用普通的字符串参数显然不够定制化。因此给一个FName属性标上AnimNotifyBoneName就可以在配合的细节面板定制化里为它创建专门的更便于填写BoneName的UI。
 
-源码中例子：
+## 源码中例子：
 
 ```cpp
 UCLASS(const, hidecategories = Object, collapsecategories, meta = (DisplayName = "Play Niagara Particle Effect"), MinimalAPI)
@@ -34,7 +31,7 @@ class UAnimNotifyState_TimedNiagaraEffect : public UAnimNotifyState
 }
 ```
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(BlueprintType)
@@ -62,15 +59,15 @@ public:
 };
 ```
 
-测试效果：
+## 测试效果：
 
 在一个动画序列里加上动画通知，可以加两种：UAnimNotify或UAnimNotifyState。首先引擎里的自带例子UAnimNotify_PlayNiagaraEffect 和UAnimNotifyState_TimedNiagaraEffect ，可以看见在右侧的细节面板上的SocketName的UI不是普通的字符串。
 
 我们自己定义的MyBoneName的动画通知，也可以达成同样的效果。MyName_Bone因为加了AnimNotifyBoneName，就和普通的MyName不一样了。
 
-![Untitled](AnimNotifyBoneName/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 在定制化的时候，根据AnimNotify下的属性是否有这个标记，生成专门的的UI。
 

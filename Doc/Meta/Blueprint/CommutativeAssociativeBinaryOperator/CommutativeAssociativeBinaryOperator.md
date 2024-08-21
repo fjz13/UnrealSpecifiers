@@ -1,19 +1,16 @@
-# CommutativeAssociativeBinaryOperator
+﻿# CommutativeAssociativeBinaryOperator
 
-功能描述: 标记一个二元运算函数的运算支持交换律和结合律，在蓝图节点上增加一个“+”引脚，允许动态的直接添加多个输入值。
-使用位置: UFUNCTION
-Feature: Blueprint
-引擎模块: Blueprint
-元数据类型: bool
-Example: CommutativeAssociativeBinaryOperator=“true”
-Status: Done
-常用程度: 4
+- **功能描述：** 标记一个二元运算函数的运算支持交换律和结合律，在蓝图节点上增加一个“+”引脚，允许动态的直接添加多个输入值。
+- **使用位置：** UFUNCTION
+- **引擎模块：** Blueprint
+- **元数据类型：** bool
+- **常用程度：** ★★★★
 
 标记一个二元运算函数的运算支持交换律和结合律，在蓝图节点上增加一个“+”引脚，允许动态的直接添加多个输入值。而不需要自己手动创建多个本函数节点来运算，这是蓝图提供的便利功能之一。
 
 CommutativeAssociativeBinaryOperator的限制是函数必须是BlueprintPure并且有两个参数。否则会产生编译报错或功能失效。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 	UFUNCTION(BlueprintCallable, meta = (CommutativeAssociativeBinaryOperator))
@@ -30,9 +27,9 @@ CommutativeAssociativeBinaryOperator的限制是函数必须是BlueprintPure并�
 //	static float My_PureAdd3_WithBinaryOperator(float A, float B,float C) { return A + B+C; }
 ```
 
-蓝图效果：
+## 蓝图效果：
 
-![Untitled](CommutativeAssociativeBinaryOperator/Untitled.png)
+![Untitled](Untitled.png)
 
 ## 原理：
 

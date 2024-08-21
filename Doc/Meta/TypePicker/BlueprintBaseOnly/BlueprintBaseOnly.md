@@ -1,17 +1,15 @@
-# BlueprintBaseOnly
+﻿# BlueprintBaseOnly
 
-功能描述: 用于类属性，指定是否只接受可创建蓝图子类的基类
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: TypePicker
-元数据类型: bool
-限制类型: TSubClassOf, FSoftClassPath，UClass*
-Status: Done
-常用程度: 2
+- **功能描述：** 用于类属性，指定是否只接受可创建蓝图子类的基类
+- **使用位置：** UPROPERTY
+- **引擎模块：** TypePicker
+- **元数据类型：** bool
+- **限制类型：** TSubClassOf, FSoftClassPath，UClass*
+- **常用程度：** ★★
 
 这个限定在只想要可当作蓝图基类的类时会比较有用。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -41,13 +39,13 @@ public:
 	TSubclassOf<UMyCommonObject> MyClass_BlueprintBaseOnly;
 ```
 
-测试效果：
+## 测试效果：
 
 加了BlueprintBaseOnly的限定后，UMyCommonObjectChild_NotBlueprintable 这个类因为NotBlueprintable就不能被选择了。
 
-![BlueprintBaseOnly.jpg](BlueprintBaseOnly/BlueprintBaseOnly.jpg)
+![BlueprintBaseOnly.jpg](BlueprintBaseOnly.jpg)
 
-原理：
+## 原理：
 
 如果bBlueprintBaseOnly 则需要进一步判断CanCreateBlueprintOfClass，后者判断一个类是否可以创建蓝图子类。
 

@@ -1,20 +1,18 @@
-# Input
+﻿# Input
 
-功能描述: 指定FRigUnit下的该属性作为输入引脚。
-使用位置: UPROPERTY
-Feature: RigVM Pin
-引擎模块: RigVMStruct
-元数据类型: bool
-限制类型: FRigUnit中属性
-Status: Done
-Sub-item: Output (Output.md), Visible (Visible.md), Hidden (Hidden.md), DetailsOnly (DetailsOnly.md), Constant (Constant.md)
-常用程度: 5
+- **功能描述：** 指定FRigUnit下的该属性作为输入引脚。
+- **使用位置：** UPROPERTY
+- **引擎模块：** RigVMStruct
+- **元数据类型：** bool
+- **限制类型：** FRigUnit中属性
+- **关联项：** [Output](../Output.md), [Visible](../Visible/Visible.md), [Hidden](../Hidden.md), [DetailsOnly](../DetailsOnly/DetailsOnly.md), [Constant](../Constant.md)
+- **常用程度：** ★★★★★
 
 指定FRigUnit下的该属性作为输入引脚。
 
 值得注意的是，一个引脚如果同时加上Input和Output，那它就变成IO引脚，同时可作为输入和输出。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 USTRUCT(meta = (DisplayName="MyRig"))
@@ -46,7 +44,7 @@ public:
 };
 ```
 
-测试效果：
+## 测试效果：
 
 在ControlRig蓝图里就可以调用MyRig节点，注意观察属性在蓝图节点上的引脚表现以及在右侧细节面板的显示。
 
@@ -57,9 +55,9 @@ public:
 - MyFloat_Visible，可以作为输入引脚显示，右侧细节面板会显示。但是无法连接变量，意思是只能作为常量使用。
 - MyFloat_Hidden，如同MyFloat_Normal一样，在蓝图节点和细节面板都隐藏起来，只是作为自己的内部值使用。
 
-![Untitled](Input/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 根据属性上的Meta标记来区分引脚的方向。可以在源码里查看ERigVMPinDirection 的各个类型。
 

@@ -1,19 +1,17 @@
-# HideAssetPicker
+﻿# HideAssetPicker
 
-功能描述: 隐藏Object类型引脚上的AssetPicker的选择列表
-使用位置: UFUNCTION
-Feature: Editor
-引擎模块: Object Property
-元数据类型: strings="a，b，c"
-限制类型: UObject*
-Status: Done
-常用程度: 2
+- **功能描述：** 隐藏Object类型引脚上的AssetPicker的选择列表
+- **使用位置：** UFUNCTION
+- **引擎模块：** Object Property
+- **元数据类型：** strings="a，b，c"
+- **限制类型：** UObject*
+- **常用程度：** ★★
 
 隐藏Object类型引脚上的AssetPicker的选择列表。这在有时我们只是想要自己传递Object引用，不希望用户选择到引擎里别的资产的时候会比较有用。因为Asset类型其实也是Object，因此对于Object引用类型的参数叫做HideAssetPicker。
 
 在源码里并没有找到有使用的地方，但是这个功能是可用的。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 	UFUNCTION(BlueprintCallable)
@@ -23,11 +21,11 @@ Status: Done
 	static void MyFunc_HideAssetPicker(UObject* ObjectClass) {}
 ```
 
-蓝图效果：
+## 蓝图效果：
 
 默认的情况MyFunc_NoHideAssetPicker是可以弹出选择列表的。而MyFunc_HideAssetPicker则就隐藏了起来。
 
-![Untitled](HideAssetPicker/Untitled.png)
+![Untitled](Untitled.png)
 
 ## 原理：
 

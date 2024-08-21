@@ -1,13 +1,11 @@
-# LongPackageName
+﻿# LongPackageName
 
-功能描述: 使用UE的风格来选择Content以及子目录，或者把文件路径转换为长包名。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: Path Property
-元数据类型: bool
-限制类型: FDirectoryPath，FFilePath
-Status: Linked
-常用程度: 3
+- **功能描述：** 使用UE的风格来选择Content以及子目录，或者把文件路径转换为长包名。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Path Property
+- **元数据类型：** bool
+- **限制类型：** FDirectoryPath，FFilePath
+- **常用程度：** ★★★
 
 LongPackageName可以同时用在FDirectoryPath和FFilePath，都限制选取范围在Content目录内。
 

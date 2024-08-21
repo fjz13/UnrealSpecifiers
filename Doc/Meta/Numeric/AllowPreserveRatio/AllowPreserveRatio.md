@@ -1,17 +1,15 @@
-# AllowPreserveRatio
+﻿# AllowPreserveRatio
 
-功能描述: 在细节面板上为FVector属性添加一个比率锁。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: Numeric Property
-元数据类型: bool
-限制类型: FVector
-Status: Done
-常用程度: 3
+- **功能描述：** 在细节面板上为FVector属性添加一个比率锁。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Numeric Property
+- **元数据类型：** bool
+- **限制类型：** FVector
+- **常用程度：** ★★★
 
 在细节面板上为FVector属性添加一个比率锁。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 public:
@@ -25,13 +23,13 @@ public:
 	FVector MyVector_ShowNormalize;
 ```
 
-测试结果：
+## 测试结果：
 
 可见MyVector_AllowPreserveRatio的值在锁上之后可以形成固定的比率。
 
-![AllowPreserveRatio.gif](AllowPreserveRatio/AllowPreserveRatio.gif)
+![AllowPreserveRatio.gif](AllowPreserveRatio.gif)
 
-原理：
+## 原理：
 
 其实就是UI定制化的时候检测出AllowPreserveRatio就创建单独的UI。
 

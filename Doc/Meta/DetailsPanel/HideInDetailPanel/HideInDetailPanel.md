@@ -1,17 +1,15 @@
-# HideInDetailPanel
+﻿# HideInDetailPanel
 
-功能描述: 在Actor的事件面板里隐藏该动态多播委托属性。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: DetailsPanel
-元数据类型: bool
-限制类型: Actor里的动态多播委托
-Status: Done
-常用程度: 2
+- **功能描述：** 在Actor的事件面板里隐藏该动态多播委托属性。
+- **使用位置：** UPROPERTY
+- **引擎模块：** DetailsPanel
+- **元数据类型：** bool
+- **限制类型：** Actor里的动态多播委托
+- **常用程度：** ★★
 
 在Actor的事件面板里隐藏该动态多播委托属性。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(BlueprintType,Blueprintable)
@@ -30,7 +28,7 @@ public:
 
 ```
 
-测试效果：
+## 测试效果：
 
 测试步骤是在蓝图里创建AMyProperty_HideInDetailPanel 的子类，然后观察Event的显示情况。
 
@@ -38,9 +36,9 @@ public:
 
 不过MyEvent_HideInDetailPanel依然是可以在蓝图里进行绑定，只不过默认没显示在UI上而已。
 
-![Untitled](HideInDetailPanel/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 先判断没有这个标记，然后创建相应的UI控件。
 

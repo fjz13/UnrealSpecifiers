@@ -1,18 +1,16 @@
-# SystemGameplayAttribute
+﻿# SystemGameplayAttribute
 
-功能描述: 把UAbilitySystemComponent子类里面的属性暴露到FGameplayAttribute 选项框里。
-使用位置: UPROPERTY
-Feature: Blueprint
-引擎模块: GAS
-元数据类型: bool
-限制类型: UAbilitySystemComponent子类里面的属性
-Status: Done
-Parent item: HideInDetailsView (HideInDetailsView.md)
-常用程度: 3
+- **功能描述：** 把UAbilitySystemComponent子类里面的属性暴露到FGameplayAttribute 选项框里。
+- **使用位置：** UPROPERTY
+- **引擎模块：** GAS
+- **元数据类型：** bool
+- **限制类型：** UAbilitySystemComponent子类里面的属性
+- **关联项：** [HideInDetailsView](../HideInDetailsView/HideInDetailsView.md)
+- **常用程度：** ★★★
 
 把UAbilitySystemComponent子类里面的属性暴露到FGameplayAttribute 选项框里。
 
-源码例子：
+## 源码例子：
 
 ```cpp
 UCLASS(ClassGroup=AbilitySystem, hidecategories=(Object,LOD,Lighting,Transform,Sockets,TextureStreaming), editinlinenew, meta=(BlueprintSpawnableComponent))
@@ -28,7 +26,7 @@ class GAMEPLAYABILITIES_API UAbilitySystemComponent : public UGameplayTasksCompo
 }
 ```
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -54,13 +52,13 @@ public:
 
 ```
 
-测试效果：
+## 测试效果：
 
 可见MyFloat_System可以暴露到选项列表里去。
 
-![Untitled](SystemGameplayAttribute/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 也是在GetAllAttributeProperties判断属性上的SystemGameplayAttribute标记。
 

@@ -1,19 +1,17 @@
-# GetByRef
+﻿# GetByRef
 
-功能描述: 指定UHT为该属性生成返回引用的C++代码
-使用位置: UPROPERTY
-Feature: Blueprint
-引擎模块: UHT
-元数据类型: bool
-限制类型: 只用在SparseClassDataTypes 指定的结构里的属性。
-Status: Done
-Parent item: SparseClassDataTypes (SparseClassDataTypes.md)
+- **功能描述：** 指定UHT为该属性生成返回引用的C++代码
+- **使用位置：** UPROPERTY
+- **引擎模块：** UHT
+- **元数据类型：** bool
+- **限制类型：** 只用在SparseClassDataTypes 指定的结构里的属性。
+- **关联项：** [SparseClassDataTypes](SparseClassDataTypes.md)
 
 指定UHT为该属性生成返回引用的C++代码。
 
 只用在SparseClassDataTypes 指定的结构里的属性。
 
-代码例子：
+## 代码例子：
 
 ```cpp
 USTRUCT(BlueprintType)
@@ -38,7 +36,7 @@ class INSIDER_API AMyActor_SparseClassDataTypes :public AActor
 }
 ```
 
-生成的代码：
+## 生成的代码：
 
 可见，后者生成返回值是const FString&而不是FString。
 
@@ -48,7 +46,7 @@ FString GetMyString_EditDefault() const { return GetMySparseClassData(EGetSparse
 const FString& GetMyString_EditDefault_ReadOnly() const { return GetMySparseClassData(EGetSparseClassDataMethod::ArchetypeIfNull)->MyString_EditDefault_ReadOnly; }
 ```
 
-原理：
+## 原理：
 
 UHT中为SparseDataType生成代码的时候会判断GetByRef来分别生成不同的格式代码。
 

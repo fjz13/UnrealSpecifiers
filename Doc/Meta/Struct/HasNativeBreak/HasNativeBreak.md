@@ -1,14 +1,11 @@
-# HasNativeBreak
+﻿# HasNativeBreak
 
-功能描述: 为该结构指定一个C++内的UFunction函数作为Break节点的实现
-使用位置: USTRUCT
-Feature: Blueprint
-引擎模块: Struct
-元数据类型: string="abc"
-Example: HasNativeBreak="Module.Class.Function”
-Status: Done
-Sub-item: HasNativeMake (HasNativeMake.md)
-常用程度: 5
+- **功能描述：** 为该结构指定一个C++内的UFunction函数作为Break节点的实现
+- **使用位置：** USTRUCT
+- **引擎模块：** Struct
+- **元数据类型：** string="abc"
+- **关联项：** [HasNativeMake](../HasNativeMake.md)
+- **常用程度：** ★★★★★
 
 为该结构指定一个C++内的UFunction函数作为Break节点的实现
 
@@ -16,7 +13,7 @@ Sub-item: HasNativeMake (HasNativeMake.md)
 
 这个函数一般是BlueprintThreadSafe，因为这种纯Make和Break函数一般不带副作用，因此可以随便的多线程调用。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 //(BlueprintType = true, HasNativeBreak = /Script/Insider.MyHasNativeStructHelperLibrary.BreakMyHasNativeStruct, HasNativeMake = /Script/Insider.MyHasNativeStructHelperLibrary.MakeMyHasNativeStruct, ModuleRelativePath = Struct/MyStruct_NativeMakeBreak.h)
@@ -69,11 +66,11 @@ public:
 };
 ```
 
-蓝图节点：
+## 蓝图节点：
 
-![Untitled](HasNativeBreak/Untitled.png)
+![Untitled](Untitled.png)
 
-原理是：
+## 原理是：
 
 通过Meta里配置的值去找UFunction函数，因此我们配置的时候需要提供的是能找到UFunction的完整路径值。这个函数的签名会自动的被反射提取信息到UK2Node_CallFunction节点上，从而构造出不同样式的Make和Break蓝图节点。
 

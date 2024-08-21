@@ -1,17 +1,15 @@
-# NodeColor
+﻿# NodeColor
 
-功能描述: 指定FRigUnit蓝图节点的RGB颜色值。
-使用位置: USTRUCT
-Feature: RigVM
-引擎模块: RigVMStruct
-元数据类型: string="abc"
-限制类型: FRigUnit
-Status: Done
-常用程度: 2
+- **功能描述：** 指定FRigUnit蓝图节点的RGB颜色值。
+- **使用位置：** USTRUCT
+- **引擎模块：** RigVMStruct
+- **元数据类型：** string="abc"
+- **限制类型：** FRigUnit
+- **常用程度：** ★★
 
 指定FRigUnit蓝图节点的RGB颜色值。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 USTRUCT(meta = (DisplayName = "MyRigColor",NodeColor="1 0 0"))
@@ -30,13 +28,13 @@ public:
 };
 ```
 
-测试效果：
+## 测试效果：
 
 加上NodeColor之后，颜色从左变成右。
 
-![Untitled](NodeColor/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 从Meta中获取颜色值。
 

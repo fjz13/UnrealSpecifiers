@@ -1,20 +1,18 @@
-# ScriptConstant
+﻿# ScriptConstant
 
-功能描述: 把一个静态函数的返回值包装成为一个常量值。
-使用位置: UFUNCTION
-Feature: Script
-引擎模块: Script
-元数据类型: string="abc"
-Status: Done
-Sub-item: ScriptConstantHost (ScriptConstantHost.md)
-常用程度: 3
+- **功能描述：** 把一个静态函数的返回值包装成为一个常量值。
+- **使用位置：** UFUNCTION
+- **引擎模块：** Script
+- **元数据类型：** string="abc"
+- **关联项：** [ScriptConstantHost](ScriptConstantHost.md)
+- **常用程度：** ★★★
 
 把一个静态函数的返回值包装成为一个常量值。
 
 - 函数的名字即为常量的默认名称，但ScriptConstant也可以额外提供一个自定义名称。
 - 常量作用域默认存在于该静态函数的外部类中，但也可以通过ScriptConstantHost来指定到另外一个类型中。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 USTRUCT(BlueprintType)
@@ -57,7 +55,7 @@ public:
 
 ```
 
-生成的Py代码：
+## 生成的Py代码：
 
 ```cpp
 class MyPython_Constant_Test(Object):
@@ -88,7 +86,7 @@ class MyPython_ConstantOwner(Object):
     FIRST_STRING: str #: (str): My String Const
 ```
 
-运行的结果：
+## 运行的结果：
 
 可见在类中生成了相应的常量。而MyStringConst因为指定了ScriptConstantHost 而生成在别的类中。
 
@@ -105,7 +103,7 @@ LogPython: print(unreal.MyPython_ConstantOwner.FIRST_STRING)
 LogPython: First
 ```
 
-原理：
+## 原理：
 
 生成的逻辑在这个GenerateWrappedConstant 函数里。
 

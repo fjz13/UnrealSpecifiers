@@ -1,20 +1,18 @@
-# Visible
+﻿# Visible
 
-功能描述: 指定FRigUnit下的该属性为常量引脚，无法连接变量。
-使用位置: UPROPERTY
-Feature: RigVM Pin
-引擎模块: RigVMStruct
-元数据类型: bool
-限制类型: FRigUnit中属性
-Status: Done
-Parent item: Input (Input.md)
-常用程度: 3
+- **功能描述：** 指定FRigUnit下的该属性为常量引脚，无法连接变量。
+- **使用位置：** UPROPERTY
+- **引擎模块：** RigVMStruct
+- **元数据类型：** bool
+- **限制类型：** FRigUnit中属性
+- **关联项：** [Input](../Input/Input.md)
+- **常用程度：** ★★★
 
 指定FRigUnit下的该属性为常量引脚，无法连接变量。
 
 Visible和Input+Constant的效果是一致的。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 USTRUCT(meta = (DisplayName = "MyRig"))
@@ -49,13 +47,13 @@ public:
 };
 ```
 
-测试效果：
+## 测试效果：
 
 Visible和Input+Constant的效果是一致的，也是成为一个常量。
 
-![Untitled](Visible/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 ```cpp
 UENUM(BlueprintType)

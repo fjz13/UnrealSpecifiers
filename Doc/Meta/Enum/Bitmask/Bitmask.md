@@ -1,14 +1,12 @@
-# Bitmask
+﻿# Bitmask
 
-功能描述: 设定一个属性采用Bitmask赋值
-使用位置: UPROPERTY
-Feature: Blueprint
-引擎模块: Enum Property
-元数据类型: bool
-限制类型: 用来表示枚举值的int32
-Status: Done
-Sub-item: BitmaskEnum (BitmaskEnum.md)
-常用程度: 5
+- **功能描述：** 设定一个属性采用Bitmask赋值
+- **使用位置：** UPROPERTY
+- **引擎模块：** Enum Property
+- **元数据类型：** bool
+- **限制类型：** 用来表示枚举值的int32
+- **关联项：** [BitmaskEnum](../BitmaskEnum/BitmaskEnum.md)
+- **常用程度：** ★★★★★
 
 这个标记和enum身上的定义并没有一定的关系，因此可以单独定义。
 
@@ -55,6 +53,6 @@ public:
 
 都是可以在蓝图中用标记来定义
 
-![Untitled](Bitmask/Untitled.png)
+![Untitled](/Untitled.png)
 
 可以用BitmaskEnum进一步提供枚举值

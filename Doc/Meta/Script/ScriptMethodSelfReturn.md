@@ -1,13 +1,11 @@
-# ScriptMethodSelfReturn
+﻿# ScriptMethodSelfReturn
 
-功能描述: 在ScriptMethod的情况下，指定把这个函数的返回值要去覆盖该函数的第一个参数。
-使用位置: UFUNCTION
-Feature: Script
-引擎模块: Script
-元数据类型: bool
-Status: Done
-Parent item: ScriptMethod (ScriptMethod.md)
-常用程度: 2
+- **功能描述：** 在ScriptMethod的情况下，指定把这个函数的返回值要去覆盖该函数的第一个参数。
+- **使用位置：** UFUNCTION
+- **引擎模块：** Script
+- **元数据类型：** bool
+- **关联项：** [ScriptMethod](ScriptMethod.md)
+- **常用程度：** ★★
 
 在ScriptMethod的情况下，指定把这个函数的返回值要去覆盖该函数的第一个参数。
 
@@ -23,7 +21,7 @@ void A::Func2(B)
 }
 ```
 
-测试代码：
+## 测试代码：
 
 注意因为AppendStringOnStructViaRef参数是引用参数，所以为了结果应用到myStruct，在函数体内就不需要创建临时值，可以直接在myStruct上面修改。如果也用临时值的话，myStruct就无法得到修改，也就失去了ref参数的意义。
 
@@ -56,7 +54,7 @@ public:
 //static FMyPythonStruct_ScriptMethod AppendStringOnStructViaRefReturn(UPARAM(ref) FMyPythonStruct_ScriptMethod& myStruct, FString val);
 ```
 
-生成的py代码：
+## 生成的py代码：
 
 可见append_string_on_struct_return是没有返回值了。而append_string_on_struct有返回值。append_string_on_struct_via_ref也有返回值。
 
@@ -128,7 +126,7 @@ LogPython: print(a)
 LogPython: <Struct 'MyPythonStruct_ScriptMethod' (0x000008DEBAB08ED0) {my_string: "HelloWorld"}>
 ```
 
-原理：
+## 原理：
 
 把输出参数的第一个当作返回参数。输出参数其实就是函数里的返回值。SelfReturn的意思是这个值之后要去覆盖掉调用对象的值，也就是发生调用的对象。
 

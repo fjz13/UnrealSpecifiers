@@ -1,19 +1,17 @@
-# InlineEditConditionToggle
+﻿# InlineEditConditionToggle
 
-功能描述: 使这个bool属性在被用作EditCondition的时候内联到对方的属性行里成为一个单选框，而不是自己成为一个编辑行。
-使用位置: UPROPERTY
-Feature: Editor
-元数据类型: bool
-限制类型: bool
-Status: Done
-Parent item: EditCondition (EditCondition.md)
-常用程度: 5
+- **功能描述：** 使这个bool属性在被用作EditCondition的时候内联到对方的属性行里成为一个单选框，而不是自己成为一个编辑行。
+- **使用位置：** UPROPERTY
+- **元数据类型：** bool
+- **限制类型：** bool
+- **关联项：** [EditCondition](../EditCondition/EditCondition.md)
+- **常用程度：** ★★★★★
 
 使这个bool属性在被用作EditCondition的时候内联到对方的属性行里成为一个单选框，而不是自己成为一个编辑行。
 
 虽然EditCondition支持别的类型属性或者是表达式，但是这个InlineEditConditionToggle只支持bool属性。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 public:
@@ -30,13 +28,13 @@ public:
 	int32 MyInt_EditConditionExpression_UseInline = 123;
 ```
 
-测试效果：
+## 测试效果：
 
 可见MyBool_Inline变成了单选框。而MyThirdInt_Inline就没有被隐藏掉。
 
-![InlineEditConditionToggle.gif](InlineEditConditionToggle/InlineEditConditionToggle.gif)
+![InlineEditConditionToggle.gif](InlineEditConditionToggle.gif)
 
-原理：
+## 原理：
 
 可以看到用这个判断是否支持出现单选框。
 

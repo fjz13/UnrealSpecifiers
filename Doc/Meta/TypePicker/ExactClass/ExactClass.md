@@ -1,15 +1,12 @@
-# ExactClass
+﻿# ExactClass
 
-功能描述: 在同时设置AllowedClasses和GetAllowedClasses的时候，ExactClass指定只取这两个集合中类型完全一致的类型交集，否则取一致的交集再加上其子类。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: TypePicker
-元数据类型: bool
-限制类型: FSoftObjectPath，UObject*
-Example: ExactClass="true”
-Status: Done
-Parent item: AllowedClasses (AllowedClasses.md)
-常用程度: 1
+- **功能描述：** 在同时设置AllowedClasses和GetAllowedClasses的时候，ExactClass指定只取这两个集合中类型完全一致的类型交集，否则取一致的交集再加上其子类。
+- **使用位置：** UPROPERTY
+- **引擎模块：** TypePicker
+- **元数据类型：** bool
+- **限制类型：** FSoftObjectPath，UObject*
+- **关联项：** [AllowedClasses](../AllowedClasses/AllowedClasses.md)
+- **常用程度：** ★
 
 在同时设置AllowedClasses和GetAllowedClasses的时候，ExactClass指定只取这两个集合中类型完全一致的类型交集，否则取一致的交集再加上其子类。
 
@@ -17,7 +14,7 @@ Parent item: AllowedClasses (AllowedClasses.md)
 - 在二者区分度上很不容易理解。因为如果一致的类型刚好是其他类型的基类，则有没有取到“其子类”本身也没有关系。
 - 在测试代码里，构建了一个测试例子，AllowedClasses 里取Texture2D和TextureCube，GetAllowedClasses 里取TextureLightProfile和TextureCube。我们知道TextureLightProfile是继承于Texture2D的。因此如果ExactClass==true，则最后的筛选类型是TextureCube，因为要类型完全一致。而如果ExactClass==false，则最后的筛选类型是TextureCube和TextureLightProfile，因为TextureLightProfile是继承于对面的Texture2D，因此TextureLightProfile会被选中。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 	UFUNCTION()
@@ -43,12 +40,12 @@ Parent item: AllowedClasses (AllowedClasses.md)
 	FSoftObjectPath MySoftObject_ExactClass;
 ```
 
-测试效果：
+## 测试效果：
 
 - 可见没有ExactClass的时候，筛选类型是TextureCube和TextureLightProfile，总共有18项。
 - 而有ExactClass后，筛选类型是TextureCube，总共只有12项。
 
-![ExactClass.jpg](ExactClass/ExactClass.jpg)
+![ExactClass.jpg](ExactClass.jpg)
 
 ## 原理：
 

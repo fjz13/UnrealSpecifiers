@@ -1,13 +1,10 @@
-# ForceAsFunction
+﻿# ForceAsFunction
 
-功能描述: 把C++里用BlueprintImplementableEvent或NativeEvent定义的事件强制改为函数在子类中覆写。
-使用位置: UFUNCTION
-Feature: Blueprint
-引擎模块: Blueprint
-元数据类型: bool
-Example: meta = (ForceAsFunction)
-Status: Done
-常用程度: 3
+- **功能描述：** 把C++里用BlueprintImplementableEvent或NativeEvent定义的事件强制改为函数在子类中覆写。
+- **使用位置：** UFUNCTION
+- **引擎模块：** Blueprint
+- **元数据类型：** bool
+- **常用程度：** ★★★
 
 把C++里用BlueprintImplementableEvent或NativeEvent定义的事件强制改为函数在子类中覆写。
 
@@ -17,7 +14,7 @@ Status: Done
 - 事件不能有输出的参数，但是如果想要一个有输出的函数在蓝图类里覆写（得BlueprintImplementableEvent或NativeEvent），则默认的以事件方式重载是不行的。因此这个时候把这个事件强迫改为函数的形式，就可以正常的覆写。
 - 带有输出或返回参数的Event会默认被改为function，即使没有加上ForceAsFunction。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 
@@ -67,7 +64,7 @@ public:
 };
 ```
 
-蓝图中效果：
+## 蓝图中效果：
 
 在函数上覆写的时候，会发现只有MyNativeEvent_Default和MyImplementableEvent_Default被默认覆写为事件，其他都以函数的方式被覆写。
 
@@ -77,9 +74,9 @@ public:
 
 但无论是覆写为事件还是函数，被调用的时候用法并无区别。
 
-![Untitled](ForceAsFunction/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 判断一个函数是否是事件的逻辑为以下函数：
 

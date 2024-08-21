@@ -1,14 +1,12 @@
-# AnimGetter
+﻿# AnimGetter
 
-功能描述: 指定UAnimInstance及子类的该函数成为一个AnimGetter函数。
-使用位置: UFUNCTION
-Feature: Blueprint
-引擎模块: AnimationGraph
-元数据类型: bool
-限制类型: UAnimInstance及子类的函数
-Status: Done
-Sub-item: GetterContext (GetterContext.md)
-常用程度: 3
+- **功能描述：** 指定UAnimInstance及子类的该函数成为一个AnimGetter函数。
+- **使用位置：** UFUNCTION
+- **引擎模块：** AnimationGraph
+- **元数据类型：** bool
+- **限制类型：** UAnimInstance及子类的函数
+- **关联项：** [GetterContext](../GetterContext/GetterContext.md)
+- **常用程度：** ★★★
 
 指定UAnimInstance及子类的该函数成为一个AnimGetter函数。
 
@@ -21,7 +19,7 @@ Sub-item: GetterContext (GetterContext.md)
     - BlueprintPure，成为一个存获取值的函数
     - BlueprintInternalUseOnly = "true”，避免再生成一个默认的蓝图节点，只用UK2Node_AnimGetter包装而成的那个。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(BlueprintType)
@@ -50,16 +48,16 @@ public:
 
 ```
 
-测试效果：
+## 测试效果：
 
 分别定义使用了AssetPlayerIndex，MachineIndex，StateIndex，TransitionIndex的AnimGetter函数以及普通蓝图函数作为对比。分别查看在动画蓝图里几个作用域里的用法。
 
 - 可见在不管什么作用域，普通蓝图函数都可以调用（毕竟没有做Context的检查）。另外AssetPlayerIndex等参数都没有被自动填充，这几乎是没法用的，因为用户其实并不太懂如何去手填这些Index，最好是交给编译器来填充。
 - 图里高亮的是可以调用的AnimGetter函数。细看的话，可以分析发现规则是只有能正确填充AssetPlayerIndex等参数的才能调用。因此在Transition里能调用的最多，因为这个时候最叶子节点，有动画，又有状态机和Transition节点。
 
-![Untitled](AnimGetter/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 分析函数上的AnimGetter标记并且生成蓝图节点的功能基本都在UK2Node_AnimGetter这个类里。大家可自行查看。
 

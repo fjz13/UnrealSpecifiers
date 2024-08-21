@@ -1,17 +1,15 @@
-# AllowedTypes
+﻿# AllowedTypes
 
-功能描述: 为FPrimaryAssetId可以指定允许的资产类型。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: TypePicker
-元数据类型: strings="a，b，c"
-限制类型: FPrimaryAssetId
-Status: Done
-常用程度: 3
+- **功能描述：** 为FPrimaryAssetId可以指定允许的资产类型。
+- **使用位置：** UPROPERTY
+- **引擎模块：** TypePicker
+- **元数据类型：** strings="a，b，c"
+- **限制类型：** FPrimaryAssetId
+- **常用程度：** ★★★
 
 为FPrimaryAssetId可以指定允许的资产类型。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(BlueprintType)
@@ -28,15 +26,15 @@ public:
 
 ```
 
-测试结果：
+## 测试结果：
 
 在项目中已经事先定义了多个UPrimaryDataAsset，也在ProjectSettings里设置了。（如何定义请查看别的文章详解）。
 
 可见MyPrimaryAsset_Allowed的选项只有一个了，说明受到了限制。
 
-![Untitled](AllowedTypes/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 在FPrimaryAssetId 的定制化FPrimaryAssetIdCustomization中，会查看该标记，解析AllowedTypes的值并把它设置到成员变量AllowedTypes中去，最终达成筛选。
 

@@ -1,13 +1,11 @@
-# PropertyValidator
+﻿# PropertyValidator
 
-功能描述: 用名字指定一个UFUNCTION函数来进行文本的验证
-使用位置: UPROPERTY
-Feature: Blueprint
-引擎模块: String/Text Property
-元数据类型: string="abc"
-限制类型: FName/FString/Fext
-Status: Done
-常用程度: 3
+- **功能描述：** 用名字指定一个UFUNCTION函数来进行文本的验证
+- **使用位置：** UPROPERTY
+- **引擎模块：** String/Text Property
+- **元数据类型：** string="abc"
+- **限制类型：** FName/FString/Fext
+- **常用程度：** ★★★
 
 用名字指定一个UFUNCTION函数来进行文本的验证。
 
@@ -15,7 +13,7 @@ Status: Done
 
 函数的签名见如下代码。返回空的FText代表没有错误，否则即是错误信息。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 	UPROPERTY(EditAnywhere, Category = PropertyValidatorTest, meta = (PropertyValidator = "MyValidateMyString"))
@@ -32,11 +30,11 @@ Status: Done
 	}
 ```
 
-测试效果：
+## 测试效果：
 
-![Untitled](PropertyValidator/Untitled.png)
+![Untitled](Untitled.png)
 
-原理:
+## 原理:
 
 原理也比较简单，分为两部分。一是如何找到并创建该UFunction，二是调用该函数来验证字符串。
 

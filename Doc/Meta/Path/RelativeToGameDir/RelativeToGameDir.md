@@ -1,17 +1,15 @@
-# RelativeToGameDir
+﻿# RelativeToGameDir
 
-功能描述: 如果系统目录选择框的结果为Project的子目录，则转换为相对路径，否则返回绝对路径。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: Path Property
-元数据类型: bool
-限制类型: FFilePath 
-Status: Done
-常用程度: 3
+- **功能描述：** 如果系统目录选择框的结果为Project的子目录，则转换为相对路径，否则返回绝对路径。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Path Property
+- **元数据类型：** bool
+- **限制类型：** FFilePath 
+- **常用程度：** ★★★
 
 如果系统目录选择框的结果为Project的子目录，则转换为相对路径，否则返回绝对路径。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 public:
@@ -31,7 +29,7 @@ public:
 	FFilePath MyFilePath_FilePathFilter_INI;
 ```
 
-测试结果：
+## 测试结果：
 
 - FFilePath弹出的都为Windows系统的默认文件选择对话框。
 - MyFilePath_Default，弹出默认的系统文件选择对话框，可以选择任何路径的任何文件。
@@ -40,7 +38,7 @@ public:
 - MyFilePath_FilePathFilter，可以选择任何目录下的指定后缀名的文件。代码里示例为umap，则只能选择关卡文件。
 - MyFilePath_FilePathFilter_INI，演示了只能选取ini文件。FilePathFilter 支持我们采用“描述 | *.后缀名”的格式自己书写过滤方式，规则同windows系统选取规则一样，也可以同时写多个后缀名。
 
-![Untitled](RelativeToGameDir/Untitled.png)
+![Untitled](Untitled.png)
 
 ## 原理：
 

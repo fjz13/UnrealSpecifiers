@@ -1,14 +1,12 @@
-# ChildCanTick
+﻿# ChildCanTick
 
-功能描述: 标记允许其蓝图子类可以接受响应Tick事件
-使用位置: UCLASS
-Feature: Behavior
-引擎模块: Actor
-元数据类型: bool
-限制类型: Actor或ActorComponent子类
-Status: Done
-Sub-item: ChildCannotTick (ChildCannotTick.md)
-常用程度: 3
+- **功能描述：** 标记允许其蓝图子类可以接受响应Tick事件
+- **使用位置：** UCLASS
+- **引擎模块：** Actor
+- **元数据类型：** bool
+- **限制类型：** Actor或ActorComponent子类
+- **关联项：** [ChildCannotTick](../ChildCannotTick.md)
+- **常用程度：** ★★★
 
 要在蓝图中重载Tick事件函数并只会在编译的时候触发判断。
 
@@ -54,15 +52,15 @@ public:
 
 也注意到这个判断跟蓝图中是否开启Tick并没有关系。
 
-![Untitled](ChildCanTick/Untitled.png)
+![Untitled](Untitled.png)
 
-![Untitled](ChildCanTick/Untitled%201.png)
+![Untitled](Untitled%201.png)
 
 而AMyActor_ChildCanTick类里虽然已经手动关闭了PrimaryActorTick.bCanEverTick，但是在子类里依然可以正常的Tick（在编译的时候内部可以正常的再重新开启bCanEverTick）。
 
-![Untitled](ChildCanTick/Untitled%202.png)
+![Untitled](Untitled%202.png)
 
-源码里判断的逻辑：
+## 源码里判断的逻辑：
 
 开启bCanEverTick=true的条件有3，一是EngineSettings->bCanBlueprintsTickByDefault，二是父类是AActor或UActorComponent本身，三是C++基类上有ChildCanTick的标记。
 

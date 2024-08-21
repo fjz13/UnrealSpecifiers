@@ -1,13 +1,11 @@
-# MustImplement
+﻿# MustImplement
 
-功能描述: 指定TSubClassOf或FSoftClassPath属性选择的类必须实现该接口
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: TypePicker
-元数据类型: string="abc"
-限制类型: TSubClassOf, FSoftClassPath，UClass*
-Status: Done
-常用程度: 3
+- **功能描述：** 指定TSubClassOf或FSoftClassPath属性选择的类必须实现该接口
+- **使用位置：** UPROPERTY
+- **引擎模块：** TypePicker
+- **元数据类型：** string="abc"
+- **限制类型：** TSubClassOf, FSoftClassPath，UClass*
+- **常用程度：** ★★★
 
 指定TSubClassOf或FSoftClassPath属性选择的类必须实现该接口。
 
@@ -15,7 +13,7 @@ Status: Done
 - 在这种用于选择Class的属性上，如果不进行限制则会把引擎里的所有类都找出来让你选择，不是那么便利。
 - 因此引擎里增加了一些进一步筛选的机制。MustImplement就是用于筛选指定class属性必须实现某个接口。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(BlueprintType)
@@ -55,17 +53,17 @@ UFUNCTION(BlueprintCallable, meta=(Category="MustImplementTest|TSubclassOf"))
 static void SetMyClassMustImplement(UPARAM(meta=(MustImplement="MyCommonInterface")) TSubclassOf<UObject> MNyClass){}
 ```
 
-测试效果：
+## 测试效果：
 
 可以发现第一个没有筛选的结果，第二和第三个有了筛选后的结果。
 
-![MustImplement.png](MustImplement/MustImplement.png)
+![MustImplement.png](MustImplement.png)
 
 也可以放在在函数里作为参数：
 
-![Untitled](MustImplement/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 在FPropertyHandleBase生成可能值的时候，可以看到做了一系列的筛选。
 

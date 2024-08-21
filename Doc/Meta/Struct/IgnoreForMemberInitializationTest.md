@@ -1,13 +1,11 @@
-# IgnoreForMemberInitializationTest
+﻿# IgnoreForMemberInitializationTest
 
-功能描述: 使得该属性忽略结构的未初始验证。
-使用位置: UPROPERTY
-Feature: Behavior
-引擎模块: Struct
-元数据类型: bool
-限制类型: C++结构下的属性
-Status: Done
-常用程度: 2
+- **功能描述：** 使得该属性忽略结构的未初始验证。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Struct
+- **元数据类型：** bool
+- **限制类型：** C++结构下的属性
+- **常用程度：** ★★
 
 使得该属性忽略结构的未初始验证。
 
@@ -16,7 +14,7 @@ Status: Done
 - UE里的USTRUCT只是一个纯C++结构，不像用UCLASS定义的类都是一个UObject，后者的UPROPERTY属性会自动的都初始化为0，而结构里的UPROPERTY并不会自动的初始化，因此就需要我们手动的初始化。
 - 从实践来说，如果开发者清楚知道某变量未初始化不会影响逻辑，那即使未初始化也并没有关系。但现实是往往大家绝大多数情况下只是单纯的犯懒或者遗忘给属性初始化。因此还是建议大家尽量给结构里的所有属性都初始化值。但一些特殊情况下，某些属性确实不适合初始化，比如源码例子里一些FGuid变量，只在真正用到的时候才手动赋值，在这之前初始化什么值其实都意义不大。在这种情况下，就可以用IgnoreForMemberInitializationTest来使该属性忽略这个验证，避免输出报错信息。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 USTRUCT(BlueprintType)
@@ -32,7 +30,7 @@ struct INSIDER_API FMyStruct_InitTest
 };
 ```
 
-测试结果：
+## 测试结果：
 
 可见MyProperty因为没有IgnoreForMemberInitializationTest就报错了。
 
@@ -42,7 +40,7 @@ struct INSIDER_API FMyStruct_InitTest
 LogClass: Error: IntProperty FMyStruct_InitTest::MyProperty is not initialized properly. Module:Insider File:Property/Struct/MyProperty_Struct.h
 ```
 
-原理：
+## 原理：
 
 这个命令行调用AttemptToFindUninitializedScriptStructMembers，继而继续调用FindUninitializedScriptStructMembers来查找出UScriptStruct中的未初始化变量。具体的找出方式可以在该函数中细看。
 

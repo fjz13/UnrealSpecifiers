@@ -1,16 +1,14 @@
-# UnsafeDuringActorConstruction
+﻿# UnsafeDuringActorConstruction
 
-功能描述: 标明该函数不能在Actor的构造函数里调用
-使用位置: UFUNCTION
-Feature: Blueprint
-引擎模块: Blueprint
-元数据类型: bool
-Status: Done
-常用程度: 2
+- **功能描述：** 标明该函数不能在Actor的构造函数里调用
+- **使用位置：** UFUNCTION
+- **引擎模块：** Blueprint
+- **元数据类型：** bool
+- **常用程度：** ★★
 
 标明该函数不能在Actor的构造函数里调用。一般是涉及渲染及物理的函数，在Actor的构造期间不允许被调用。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -30,9 +28,9 @@ public:
 
 可以发现MyUnsafeFunction函数不能在Actor构造函数里被调用出来，而蓝图里自定义的函数加上UnsafeDuringActorConstruction 标志后也会生成相应的警告和编译错误信息。
 
-![Untitled](UnsafeDuringActorConstruction/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 在蓝图中有该系列的判断，一目了然。
 

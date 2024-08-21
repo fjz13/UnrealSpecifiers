@@ -1,13 +1,10 @@
-# HideSelfPin
+﻿# HideSelfPin
 
-功能描述: 用在函数调用上，隐藏默认的SelfPin，也就是Target，导致该函数只能在OwnerClass内调用。
-使用位置: UFUNCTION
-Feature: Blueprint
-引擎模块: Pin
-元数据类型: bool
-Example: HideSelfPin="true”
-Status: Done
-常用程度: 2
+- **功能描述：** 用在函数调用上，隐藏默认的SelfPin，也就是Target，导致该函数只能在OwnerClass内调用。
+- **使用位置：** UFUNCTION
+- **引擎模块：** Pin
+- **元数据类型：** bool
+- **常用程度：** ★★
 
 用在函数调用上，隐藏默认的SelfPin，也就是Target，导致该函数只能在OwnerClass内调用。
 
@@ -15,7 +12,7 @@ Status: Done
 
 和HidePin以及InternalUseParam比较类似，不过后者可以隐藏其他参数，HideSelfPin只能隐藏SelfPin
 
-逻辑代码：
+## 逻辑代码：
 
 可以看出SelfPin的bHidden 与否，受到一些情况的影响：
 
@@ -56,7 +53,7 @@ bool UK2Node_CallFunction::CreatePinsForFunctionCall(const UFunction* Function)
 }
 ```
 
-C++测试代码：
+## C++测试代码：
 
 ```cpp
 UCLASS()
@@ -88,15 +85,15 @@ public:
 };
 ```
 
-蓝图里测试效果：
+## 蓝图里测试效果：
 
 从第一个图可以看到，HideSelfPin用在Static函数并无效果。而InternalUseParam可以隐藏引脚。
 
-![Untitled](HideSelfPin/Untitled.png)
+![Untitled](Untitled.png)
 
 而对于类成员函数的测试结果可以看出：
 
 - 在类内部调用的时候，self可以被隐藏起来，但都可以调用。二者的区别是，MyFunc_Default这个默认的版本，也可以接受同类型的AMyFunction_HideSelfTest 不同对象实例来调用。而MyFunc_HideSelfPin只能被当前的对象来调用。
 - 而在左侧关卡蓝图中，通过一个AMyFunction_HideSelfTest 对象尝试调用这两个函数，可以发现MyFunc_Default可以调用，而MyFunc_HideSelfPin这个函数节点就无法被创建出来。就算用复制粘贴的方法硬创造出来，也因为失去了Self这个Target Pin而无法连接，从而无法调用。
 
-![Untitled](HideSelfPin/Untitled%201.png)
+![Untitled](Untitled%201.png)

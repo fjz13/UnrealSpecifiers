@@ -1,19 +1,17 @@
-# MaterialControlFlow
+﻿# MaterialControlFlow
 
-功能描述: 标识该UMaterialExpression为一个控制流节点，当前在材质蓝图右键菜单中隐藏。
-使用位置: UCLASS
-Feature: Editor
-引擎模块: Material
-元数据类型: bool
-限制类型: UMaterialExpression子类
-Status: Done
-常用程度: 1
+- **功能描述：** 标识该UMaterialExpression为一个控制流节点，当前在材质蓝图右键菜单中隐藏。
+- **使用位置：** UCLASS
+- **引擎模块：** Material
+- **元数据类型：** bool
+- **限制类型：** UMaterialExpression子类
+- **常用程度：** ★
 
 标识该UMaterialExpression为一个控制流节点，当前在材质蓝图右键菜单中隐藏。
 
 一般是在IfThenElse，ForLoop这种节点上，当前引擎实现还未完善，因此该功能禁用。
 
-源码例子：
+## 源码例子：
 
 ```cpp
 UCLASS(collapsecategories, hidecategories=Object, MinimalAPI)
@@ -25,13 +23,13 @@ class UMaterialExpressionIfThenElse : public UMaterialExpression
 {}
 ```
 
-测试效果：
+## 测试效果：
 
 可以找到If节点，但是无法调用IfThenElse节点。
 
-![Untitled](MaterialControlFlow/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 在遍历所有可用FMaterialExpression的时候，如果有MaterialControlFlow则略过。当前引擎下AllowMaterialControlFlow一直未false，未实现。
 

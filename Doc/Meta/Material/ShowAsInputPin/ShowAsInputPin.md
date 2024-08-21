@@ -1,13 +1,11 @@
-# ShowAsInputPin
+﻿# ShowAsInputPin
 
-功能描述: 使得UMaterialExpression里的一些基础类型属性变成材质节点上的引脚。
-使用位置: UPROPERTY
-Feature: Blueprint
-引擎模块: Material
-元数据类型: bool
-限制类型: UMaterialExpression里的属性
-Status: Done
-常用程度: 3
+- **功能描述：** 使得UMaterialExpression里的一些基础类型属性变成材质节点上的引脚。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Material
+- **元数据类型：** bool
+- **限制类型：** UMaterialExpression里的属性
+- **常用程度：** ★★★
 
 使得UMaterialExpression里的一些基础类型属性变成材质节点上的引脚。
 
@@ -15,7 +13,7 @@ Status: Done
 - 默认这些基础类型属性是不显示为引脚的。
 - ShowAsInputPin 值有两个选项，Primary可以直接显示出来，Advanced需要展开箭头后显示。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 
@@ -30,7 +28,7 @@ public:
 	float MyFloat_Advanced;
 ```
 
-测试结果：
+## 测试结果：
 
 可见MyFloat没有显示在节点上。
 
@@ -38,9 +36,9 @@ MyFloat_Primary显示在节点上。
 
 MyFloat_Advanced需要展开箭头后才显示出来。
 
-![Untitled](ShowAsInputPin/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 遍历UMaterialExpression里的属性，根据含有ShowAsInputPin 的类型来生成引脚。
 

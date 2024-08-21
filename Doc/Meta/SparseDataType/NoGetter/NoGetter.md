@@ -1,19 +1,24 @@
-# NoGetter
+﻿# NoGetter
 
-功能描述: 阻止UHT为该属性生成一个C++的get函数，只对稀疏类的结构数据里的属性生效。
-使用位置: UPROPERTY
-Feature: Blueprint
-引擎模块: SparseDataType
-元数据类型: bool
-Status: Done
-UCLASS: SparseClassDataType (../../Specifier/UCLASS/SparseClassDataType.md)
-常用程度: 1
+- **功能描述：** 阻止UHT为该属性生成一个C++的get函数，只对稀疏类的结构数据里的属性生效。
+
+- **使用位置：** UPROPERTY
+
+- **引擎模块：** SparseDataType
+
+- **元数据类型：** bool
+
+- **关联项：** 
+
+  UCLASS：[SparseClassDataType ](../../../Specifier/UCLASS/Blueprint/SparseClassDataType/SparseClassDataType.md)
+
+- **常用程度：** ★
 
 阻止UHT为该属性生成一个C++的get函数，只对稀疏类的结构数据里的属性生效。
 
 这个要和SparseClassDataTypes的用法一起配合看，且NoGetter不影响蓝图里对该属性的访问。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 USTRUCT(BlueprintType)
@@ -36,7 +41,7 @@ struct FMySparseClassData
 };
 ```
 
-测试结果：
+## 测试结果：
 
 在生成的.generated.h"中，会发现MyString_EditDefault_NoGetter 没有生成相应的C++ get函数。
 
@@ -51,7 +56,7 @@ const FString& GetMyString_EditDefault_ReadOnly() const { return GetMySparseClas
 
 而蓝图里是依然可以访问到的：
 
-![Untitled](NoGetter/Untitled.png)
+![Untitled](Untitled.png)
 
 ## 原理：
 

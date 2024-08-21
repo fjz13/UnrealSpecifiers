@@ -1,13 +1,11 @@
-# MaxPropertyDepth
+﻿# MaxPropertyDepth
 
-功能描述: 指定对象或结构在细节面板里展开的层数。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: DetailsPanel
-元数据类型: int32
-限制类型: 对象或结构属性
-Status: Done
-常用程度: 1
+- **功能描述：** 指定对象或结构在细节面板里展开的层数。
+- **使用位置：** UPROPERTY
+- **引擎模块：** DetailsPanel
+- **元数据类型：** int32
+- **限制类型：** 对象或结构属性
+- **常用程度：** ★
 
 指定对象或结构在细节面板里展开的层数。
 
@@ -16,7 +14,7 @@ Status: Done
 - 取值-1表示没有限制，0表示完全不展开，>0表示限制的层数。
 - 源码里没有找到例子，但却是可以工作的。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 USTRUCT(BlueprintType)
@@ -71,11 +69,11 @@ public:
 
 ```
 
-测试效果：
+## 测试效果：
 
-![Untitled](MaxPropertyDepth/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 在每个FPropertyNode构建子节点的时候，检查一下当前的MaxChildDepthAllowed ，超过了就不继续往下构建。
 

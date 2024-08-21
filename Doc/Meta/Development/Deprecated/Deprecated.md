@@ -1,13 +1,10 @@
-# Deprecated
+﻿# Deprecated
 
-功能描述: 指定该元素要废弃的引擎版本号。
-使用位置: Any
-Feature: Editor
-引擎模块: Development
-元数据类型: string="abc"
-Example: 指定该元素要废弃的引擎版本号。
-Status: Done
-常用程度: 1
+- **功能描述：** 指定该元素要废弃的引擎版本号。
+- **使用位置：** Any
+- **引擎模块：** Development
+- **元数据类型：** string="abc"
+- **常用程度：** ★
 
 指定该元素要废弃的引擎版本号。
 

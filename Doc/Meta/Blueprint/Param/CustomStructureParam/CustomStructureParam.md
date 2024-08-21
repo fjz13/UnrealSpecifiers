@@ -1,13 +1,10 @@
-# CustomStructureParam
+﻿# CustomStructureParam
 
-功能描述: 被CustomStructureParam标记的函数参数会变成Wildcard的通配符参数，其引脚的类型会等于连接的变量类型。
-使用位置: UFUNCTION
-Feature: Blueprint
-引擎模块: Blueprint
-元数据类型: strings="a，b，c"
-Example: CustomStructureParam=("Parameter1, Parameter2, ..")
-Status: Done
-常用程度: 5
+- **功能描述：** 被CustomStructureParam标记的函数参数会变成Wildcard的通配符参数，其引脚的类型会等于连接的变量类型。
+- **使用位置：** UFUNCTION
+- **引擎模块：** Blueprint
+- **元数据类型：** strings="a，b，c"
+- **常用程度：** ★★★★★
 
 被CustomStructureParam标记的多个函数参数会变成Wildcard的通配符参数，其引脚的类型会等于连接的变量类型。
 
@@ -55,9 +52,9 @@ FString UMyFunction_Custom::Generic_PrintStructFields(const UScriptStruct* Scrip
 
 ```
 
-蓝图中的效果：
+## 蓝图中的效果：
 
-![Untitled](CustomStructureParam/Untitled.png)
+![Untitled](Untitled.png)
 
 可以看到定义了一个接受通用结构参数的节点，然后打印出内部所有的属性。其中CustomStructureParam 指定函数的参数是自定义的类型。
 
@@ -68,7 +65,7 @@ UFUNCTION(BlueprintCallable, CustomThunk, Category = "DataTable", meta=(CustomSt
 static ENGINE_API bool GetDataTableRowFromName(UDataTable* Table, FName RowName, FTableRowBase& OutRow);
 ```
 
-原理：
+## 原理：
 
 首先拥有CustomStructureParam的参数会被识别为Wildcard属性。然后通过FCustomStructureParamHelper来控制Pin->PinType = LinkedTo->PinType;，从而改变Pin的实际类型。
 

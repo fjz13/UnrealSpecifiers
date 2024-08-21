@@ -1,17 +1,15 @@
-# DeprecatedNode
+﻿# DeprecatedNode
 
-功能描述: 用于BehaviorTreeNode或EnvQueryNode，说明该类已废弃，在编辑器中红色错误展示并有错误ToolTip提示
-使用位置: UCLASS
-Feature: Editor
-引擎模块: DetailsPanel
-元数据类型: bool
-限制类型: BehaviorTreeNode，EnvQueryNode
-Status: Done
-常用程度: 2
+- **功能描述：** 用于BehaviorTreeNode或EnvQueryNode，说明该类已废弃，在编辑器中红色错误展示并有错误ToolTip提示
+- **使用位置：** UCLASS
+- **引擎模块：** DetailsPanel
+- **元数据类型：** bool
+- **限制类型：** BehaviorTreeNode，EnvQueryNode
+- **常用程度：** ★★
 
 在AI行为树或EQS的节点上设置，标记该节点已经弃用。
 
-源码中的例子：
+## 源码中的例子：
 
 ```cpp
 UCLASS(meta = (DeprecatedNode, DeprecationMessage = "Please use IsAtLocation decorator instead."), MinimalAPI)
@@ -27,7 +25,7 @@ class UEnvQueryTest_Random : public UEnvQueryTest
 };
 ```
 
-C++测试代码：
+## C++测试代码：
 
 ```cpp
 UCLASS(meta = (DeprecatedNode, DeprecationMessage = "This BT node is deprecated. Don't use this anymore."), MinimalAPI)
@@ -39,9 +37,9 @@ class UBTTask_MyDeprecatedNode : public UBTTaskNode
 
 行为树里的结果，如果加上DeprecatedNode，就会红色显示，并提示错误信息。
 
-![Untitled](DeprecatedNode/Untitled.png)
+![Untitled](Untitled.png)
 
-源码里测试的代码：
+## 源码里测试的代码：
 
 ```cpp
 FString FGraphNodeClassHelper::GetDeprecationMessage(const UClass* Class)

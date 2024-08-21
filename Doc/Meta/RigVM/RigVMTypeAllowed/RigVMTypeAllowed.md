@@ -1,16 +1,14 @@
-# RigVMTypeAllowed
+﻿# RigVMTypeAllowed
 
-功能描述: 指定一个UENUM可以在FRigUnit的UEnum*属性中被选择。
-使用位置: UENUM
-Feature: Blueprint
-引擎模块: RigVMStruct
-元数据类型: bool
-Status: Done
-常用程度: 2
+- **功能描述：** 指定一个UENUM可以在FRigUnit的UEnum*属性中被选择。
+- **使用位置：** UENUM
+- **引擎模块：** RigVMStruct
+- **元数据类型：** bool
+- **常用程度：** ★★
 
 指定一个UENUM可以在FRigUnit的UEnum*属性中被选择。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 
@@ -46,13 +44,13 @@ public:
 };
 ```
 
-测试效果：
+## 测试效果：
 
 可见在选项列表中只有ERigMyEnumAllowed，没有ERigMyEnum。
 
-![Untitled](RigVMTypeAllowed/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 在生成选项的时候，判断 !Enum->IsAsset()说明是C++里的枚举，然后必须有RigVMTypeAllowed。
 

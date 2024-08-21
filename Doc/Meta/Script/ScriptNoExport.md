@@ -1,16 +1,14 @@
-# ScriptNoExport
+﻿# ScriptNoExport
 
-功能描述: 不导出该函数或属性到脚本。
-使用位置: UFUNCTION, UPROPERTY
-Feature: Script
-引擎模块: Script
-元数据类型: bool
-Status: Done
-常用程度: 3
+- **功能描述：** 不导出该函数或属性到脚本。
+- **使用位置：** UFUNCTION, UPROPERTY
+- **引擎模块：** Script
+- **元数据类型：** bool
+- **常用程度：** ★★★
 
 不导出该函数或属性到脚本。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType, meta = (ScriptName = "MyPythonLib"))
@@ -32,7 +30,7 @@ public:
 };
 ```
 
-测试效果py代码：
+## 测试效果py代码：
 
 可见默认的函数和属性都会导出到脚本里。而MyScriptFunc_NoExport和MyFloat_NoExport在py里并没有。
 
@@ -65,7 +63,7 @@ class MyPythonLib(BlueprintFunctionLibrary):
         ...
 ```
 
-原理：
+## 原理：
 
 根据这个ScriptNoExport来判断一个属性或函数是否导出。
 

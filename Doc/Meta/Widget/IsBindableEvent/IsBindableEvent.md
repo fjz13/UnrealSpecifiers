@@ -1,14 +1,11 @@
-# IsBindableEvent
+﻿# IsBindableEvent
 
-功能描述: 把一个动态单播委托暴露到UMG蓝图里以绑定相应事件。
-使用位置: UPROPERTY
-Feature: UMG
-引擎模块: Widget Property
-元数据类型: bool
-限制类型: UWidget子类里动态单播属性
-Example: UPROPERTY(meta=(IsBindableEvent))
-Status: Done
-常用程度: 3
+- **功能描述：** 把一个动态单播委托暴露到UMG蓝图里以绑定相应事件。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Widget Property
+- **元数据类型：** bool
+- **限制类型：** UWidget子类里动态单播属性
+- **常用程度：** ★★★
 
 把一个动态单播委托暴露到UMG蓝图里以绑定相应事件。
 
@@ -19,7 +16,7 @@ Status: Done
 - 动态单播委托（DECLARE_DYNAMIC_DELEGATE）默认是不在UMG里暴露的。但可以加上IsBindableEvent以便可以在其实例的细节面板上绑定。
 - UMG里的控件事件为什么要有多播和单播？其实多播和单播除了数量不同以外，最大的不同是多播没有返回值。这个例子可以对比UButton下的OnClicked多播事件和UImage下的OnMouseButtonDownEvent单播委托，前者是点击的事件，已经是个“结果”事件了，点击事件可能被多个地方响应，因此要设计成多播。而后者的OnMouseButtonDownEvent是鼠标按下的事件，有一个重要的逻辑是会根据返回值FEventReply的不同而决定该事件是否继续路由上去，因此只能用单播，只能绑定一个。
 
-源码例子：
+## 源码例子：
 
 ```cpp
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnButtonClickedEvent);
@@ -37,7 +34,7 @@ class UImage : public UWidget
 }
 ```
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(BlueprintType)
@@ -63,7 +60,7 @@ public:
 }
 ```
 
-测试结果：
+## 测试结果：
 
 操作步骤是在UMG_BindTest外再创建一个UMG，然后让UMG_BindTest成为子控件，然后观察其实例上的事件绑定，如下图右侧所示。
 
@@ -74,7 +71,7 @@ public:
 - 没有加IsBindableEvent 的MyClickedEvent因为名字以Event结尾也出现了可绑定的按钮，这只能说是当前的一个潜规则。源码注释也说以后会去除。
 - 另外这些委托我虽然都加上了EditAnywhere，但其实你也知道这并没法办法编辑。
 
-![Untitled](IsBindableEvent/Untitled.png)
+![Untitled](Untitled.png)
 
 ## 原理：
 

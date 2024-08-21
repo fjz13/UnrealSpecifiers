@@ -1,18 +1,15 @@
-# ShowWorldContextPin
+﻿# ShowWorldContextPin
 
-功能描述: 放在UCLASS上，指定本类里的函数调用都必须显示WorldContext引脚，无论其本来是否默认隐藏
-使用位置: UCLASS
-Feature: Blueprint
-元数据类型: bool
-Example: meta=(ShowWorldContextPin="true")
-Status: Done
-Parent item: WorldContext (WorldContext.md)
+- **功能描述：** 放在UCLASS上，指定本类里的函数调用都必须显示WorldContext引脚，无论其本来是否默认隐藏
+- **使用位置：** UCLASS
+- **元数据类型：** bool
+- **关联项：** [WorldContext](../WorldContext/WorldContext.md)
 
 放在UCLASS上，指定本类里的函数调用都必须显示WorldContext引脚，无论其本来是否默认隐藏，因为本Object类无法被当作WorldContextObject，即使实现了GetWorld()也要当作无法自动获得以此来让用户必须手动指定WorldContextObject。
 
 一般放在UObject上，但在源码里发现在AGameplayCueNotify_Actor，AEditorUtilityActor上也有。AEditorUtilityActor是因为本身不会在Runtime里运行，因此没有World。AGameplayCueNotify_Actor有可能在CDO上被使用和Recycle，因此可也不能假定必须有WorldContext。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -47,11 +44,11 @@ public:
 };
 ```
 
-蓝图测试效果：
+## 蓝图测试效果：
 
 可以见到虽然UMyObject_ShowWorldContextPin类实现了GetWorld()方法，但是即使是MyFunc_HasWorldContextMeta，WorldContextObject本来应该被自动赋值且隐藏的，但是在本类里也显式显示了出来。同时注意到PrintString也显示出了WorldContextObject。
 
-![Untitled](ShowWorldContextPin/Untitled.png)
+![Untitled](Untitled.png)
 
 ## 原理：
 

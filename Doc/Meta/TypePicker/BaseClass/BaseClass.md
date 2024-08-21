@@ -1,17 +1,15 @@
-# BaseClass
+﻿# BaseClass
 
-功能描述: 只在StateTree模块中使用，限制FStateTreeEditorNode选择的基类类型。
-使用位置: UPROPERTY
-Feature: Blueprint
-引擎模块: TypePicker
-元数据类型: bool
-限制类型: FStateTreeEditorNode属性
-Status: Done
-常用程度: 1
+- **功能描述：** 只在StateTree模块中使用，限制FStateTreeEditorNode选择的基类类型。
+- **使用位置：** UPROPERTY
+- **引擎模块：** TypePicker
+- **元数据类型：** bool
+- **限制类型：** FStateTreeEditorNode属性
+- **常用程度：** ★
 
 只在StateTree模块中使用，限制FStateTreeEditorNode选择的基类类型。
 
-源码例子：
+## 源码例子：
 
 ```cpp
 
@@ -27,13 +25,13 @@ struct STATETREEEDITORMODULE_API FStateTreeTransition
 }
 ```
 
-测试结果：
+## 测试结果：
 
 可见，虽然Conditions和Tasks的类型都是FStateTreeEditorNode，但是选项列表里的内容是不同的。这是由于其上面的BaseStruct和BaseClass 不同，分别限定了结构的基类类型以及蓝图类的基类。
 
-![Untitled](BaseClass/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 在FStateTreeEditorNode的UI定制化上获取该属性，然后用来过滤可用的节点类型。
 

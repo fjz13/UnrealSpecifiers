@@ -1,13 +1,11 @@
-# PinHiddenByDefault
+﻿# PinHiddenByDefault
 
-功能描述: 使得这个结构里的属性在蓝图里作为引脚时默认是隐藏的。
-使用位置: UPROPERTY
-Feature: Blueprint
-引擎模块: Pin
-元数据类型: bool
-限制类型: struct member property
-Status: Done
-常用程度: 2
+- **功能描述：** 使得这个结构里的属性在蓝图里作为引脚时默认是隐藏的。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Pin
+- **元数据类型：** bool
+- **限制类型：** struct member property
+- **常用程度：** ★★
 
 使得这个结构里的属性在蓝图里作为引脚时默认是隐藏的。
 
@@ -15,7 +13,7 @@ Status: Done
 
 该标记也可以在动画蓝图中，让动画节点的某些属性不暴露成引脚。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 USTRUCT(BlueprintType)
@@ -34,13 +32,13 @@ public:
 	static FMyPinHiddenTestStruct MyHiddenPinTestFunc(FMyPinHiddenTestStruct Input);
 ```
 
-测试结果：
+## 测试结果：
 
 可以发现MakeStruct和BreakStruct的节点，默认只有MyInt_NotHidden。当选择该蓝图节点时，可以在右侧细节面板看到MyInt_PinHiddenByDefault 的显示默认没有选中，这就是区别。
 
 同样的，当该结构当作函数输入和输出参数的时候，当用SplitStuctPin展开结构节点，会发现MyInt_PinHiddenByDefault 也被隐藏了起来。
 
-![Untitled](PinHiddenByDefault/Untitled.png)
+![Untitled](Untitled.png)
 
 ## 原理：
 

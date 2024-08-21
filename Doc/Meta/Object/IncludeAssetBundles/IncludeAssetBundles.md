@@ -1,14 +1,12 @@
-# IncludeAssetBundles
+﻿# IncludeAssetBundles
 
-功能描述: 用于UPrimaryDataAsset的子对象属性，指定应该继续递归到该子对象里去探测AssetBundle数据。
-使用位置: UPROPERTY
-Feature: Asset
-引擎模块: Object Property
-元数据类型: string="abc"
-限制类型: UPrimaryDataAsset内部的ObjectPtr属性
-Status: Done
-Parent item: AssetBundles (AssetBundles.md)
-常用程度: 2
+- **功能描述：** 用于UPrimaryDataAsset的子对象属性，指定应该继续递归到该子对象里去探测AssetBundle数据。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Object Property
+- **元数据类型：** string="abc"
+- **限制类型：** UPrimaryDataAsset内部的ObjectPtr属性
+- **关联项：** [AssetBundles](../AssetBundles/AssetBundles.md)
+- **常用程度：** ★★
 
 用于UPrimaryDataAsset的子对象属性，指定应该继续递归到该子对象里去探测AssetBundle数据。
 
@@ -18,7 +16,7 @@ Parent item: AssetBundles (AssetBundles.md)
 - 而如果再嵌套了一层，就是UPrimaryDataAsset下面拥有只对象，UMyProperty_Asset_ChildObject，而UMyProperty_Asset_ChildObject 里面又包含FSoftObjectPath ，希望它被属于AssetBundles 的一部分，在加载UPrimaryDataAsset的时候同时一并加载。这个时候就需要告诉引擎需要继续分析这个子对象。
 - 注意到UMyProperty_Asset_ChildObject我都是用TObjectPtr，是个硬引用，该对象在UMyProperty_Asset_Item 被加载的时候也会自然被加载进来。因此无论如何，UMyProperty_Asset_ChildObject 都会被加载进来。但是UMyProperty_Asset_ChildObject 内部的ChildIcon是用TSoftObjectPtr，是软引用，因此必须依赖AssetBundle的机制才会被加载。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(BlueprintType)
@@ -53,11 +51,11 @@ public:
 };
 ```
 
-测试效果：
+## 测试效果：
 
 配置的数据图的下部分，分别配置了两张图片。但在LoadPrimaryAsset后，只有MyChildObject_IncludeAssetBundles内部的ChildIcon才被加载进来。
 
-![IncludeAssetBundles.jpg](IncludeAssetBundles/IncludeAssetBundles.jpg)
+![IncludeAssetBundles.jpg](IncludeAssetBundles.jpg)
 
 如果分析UMyProperty_Asset_Item 的AssetBunbleData数据，会发现其Client只包含第二张Stone图片的路径。这是因为只有第二张图片才被分析到并包含进来。
 
@@ -85,7 +83,7 @@ public:
 			};
 ```
 
-原理：
+## 原理：
 
 UPrimaryDataAsset下的属性如果是个Object属性，只当有IncludeAssetBundles的时候，才会进一步递归向下探测。
 

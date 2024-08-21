@@ -1,16 +1,14 @@
-# EditConditionHides
+﻿# EditConditionHides
 
-功能描述: 在已经有EditCondition的情况下，指定该属性在EditCondition不满足的情况下隐藏起来。
-使用位置: UPROPERTY
-Feature: Editor
-元数据类型: bool
-Status: Done
-Parent item: EditCondition (EditCondition.md)
-常用程度: 5
+- **功能描述：** 在已经有EditCondition的情况下，指定该属性在EditCondition不满足的情况下隐藏起来。
+- **使用位置：** UPROPERTY
+- **元数据类型：** bool
+- **关联项：** [EditCondition](../EditCondition/EditCondition.md)
+- **常用程度：** ★★★★★
 
 在已经有EditCondition的情况下，指定该属性在EditCondition不满足的情况下隐藏起来。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(BlueprintType)
@@ -36,13 +34,13 @@ public:
 };
 ```
 
-测试效果：
+## 测试效果：
 
 下面的图中可以明显见到两个属性随着条件的满足显示了出来。
 
-![EditConditionHides.gif](EditConditionHides/EditConditionHides.gif)
+![EditConditionHides.gif](EditConditionHides.gif)
 
-原理：
+## 原理：
 
 其实就是加了个是否显示的判断。
 

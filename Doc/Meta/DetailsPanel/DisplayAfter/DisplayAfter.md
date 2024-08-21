@@ -1,20 +1,17 @@
-# DisplayAfter
+﻿# DisplayAfter
 
-功能描述: 使本属性在指定的属性之后显示。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: DetailsPanel
-元数据类型: string="abc"
-Example: DisplayAfter="PropertyName”
-Status: Done
-常用程度: 3
+- **功能描述：** 使本属性在指定的属性之后显示。
+- **使用位置：** UPROPERTY
+- **引擎模块：** DetailsPanel
+- **元数据类型：** string="abc"
+- **常用程度：** ★★★
 
 使本属性在指定的属性之后显示。
 
 - 默认情况下，属性在细节面板中的顺序是依照头文件中的定义顺序。但如果我们想自己调节这个顺序，就可以用该标记。
 - 限制条件是这两个属性必须得是在同一个Category下。这也很好理解，Category组织的优先级肯定更大。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(BlueprintType)
@@ -37,15 +34,15 @@ public:
 };
 ```
 
-测试效果：
+## 测试效果：
 
 可见MyInt_After直接在Int后显示。
 
 而MyInt_After2 因为在不同的Category下，因此就保留原样。
 
-![Untitled](DisplayAfter/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 检查该属性如果有DisplayAfter，就把它插入在指定的属性之后。
 

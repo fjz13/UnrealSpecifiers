@@ -1,12 +1,10 @@
-# ScriptName
+﻿# ScriptName
 
-功能描述: 在导出到脚本里时使用的名字
-使用位置: Any
-Feature: Script
-引擎模块: Script
-元数据类型: string="abc"
-Status: Done
-常用程度: 3
+- **功能描述：** 在导出到脚本里时使用的名字
+- **使用位置：** Any
+- **引擎模块：** Script
+- **元数据类型：** string="abc"
+- **常用程度：** ★★★
 
 指定导出到脚本中的名字。
 
@@ -17,7 +15,7 @@ Status: Done
 
 可在\UnrealEngine\Engine\Plugins\Experimental\PythonScriptPlugin\Source\PythonScriptPlugin\Private\PyTest.h里见到大量写好的测试用例。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -48,7 +46,7 @@ public:
 
 ```
 
-测试效果：
+## 测试效果：
 
 开启编辑器后，引擎会自动根据类型数据信息反射生成向相应的导出到py的胶水代码，我们在C++中定义的类就可以在\Intermediate\PythonStub\[unreal.py](http://unreal.py/)里查看其导出的脚本代码。
 
@@ -98,7 +96,7 @@ class MyPythonLib(BlueprintFunctionLibrary):
 
 ```
 
-原理：
+## 原理：
 
 在获取各个类型名字的时候，会先判断ScriptName，如果获得，就使用该名字。否则在GetFieldPythonNameImpl里会对名字进行python化处理。
 

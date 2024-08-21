@@ -1,14 +1,12 @@
-# HiddenByDefault
+﻿# HiddenByDefault
 
-功能描述: Struct的Make Struct和Break Struct节点中的引脚默认为隐藏状态
-使用位置: USTRUCT
-Feature: Blueprint
-引擎模块: Pin
-元数据类型: bool
-Status: Done
-常用程度: 1
+- **功能描述：** Struct的Make Struct和Break Struct节点中的引脚默认为隐藏状态
+- **使用位置：** USTRUCT
+- **引擎模块：** Pin
+- **元数据类型：** bool
+- **常用程度：** ★
 
-测试代码：
+## 测试代码：
 
 ```cpp
 //(BlueprintType = true, HiddenByDefault = , ModuleRelativePath = Struct/MyStruct_HiddenByDefault.h)
@@ -35,10 +33,10 @@ struct INSIDER_API FMyStruct_NotHidden
 };
 ```
 
-蓝图结果：
+## 蓝图结果：
 
-![Untitled](HiddenByDefault/Untitled.png)
+![Untitled](Untitled.png)
 
 所谓隐藏，指的是在节点的细节面板里需要手动选择某些属性。而不是像默认的一样一开始就全部自动打开。
 
-![Untitled](HiddenByDefault/Untitled%201.png)
+![Untitled](Untitled%201.png)

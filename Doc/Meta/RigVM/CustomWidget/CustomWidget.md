@@ -1,13 +1,11 @@
-# CustomWidget
+﻿# CustomWidget
 
-功能描述: 指定该FRigUnit里的属性要用自定义的控件来编辑。
-使用位置: UPROPERTY
-Feature: RigVM Pin
-引擎模块: RigVMStruct
-元数据类型: string="abc"
-限制类型: FRigUnit中的属性
-Status: Done
-常用程度: 2
+- **功能描述：** 指定该FRigUnit里的属性要用自定义的控件来编辑。
+- **使用位置：** UPROPERTY
+- **引擎模块：** RigVMStruct
+- **元数据类型：** string="abc"
+- **限制类型：** FRigUnit中的属性
+- **常用程度：** ★★
 
 指定该FRigUnit里的属性要用自定义的控件来编辑。
 
@@ -37,13 +35,13 @@ public:
 };
 ```
 
-测试效果：
+## 测试效果：
 
 可见MyString_Custom的Pin类型变成可选BoneName的列表。
 
-![Untitled](CustomWidget/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 ```cpp
 TSharedPtr<SGraphPin> FControlRigGraphPanelPinFactory::CreatePin_Internal(UEdGraphPin* InPin) const

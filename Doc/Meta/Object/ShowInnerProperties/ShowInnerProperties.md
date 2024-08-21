@@ -1,14 +1,12 @@
-# ShowInnerProperties
+﻿# ShowInnerProperties
 
-功能描述: 在属性细节面板中显示对象引用的内部属性
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: Object Property
-元数据类型: bool
-限制类型: UObject*
-Status: Done
-Sub-item: ShowOnlyInnerProperties (ShowOnlyInnerProperties.md), FullyExpand (FullyExpand.md), CollapsableChildProperties (CollapsableChildProperties.md)
-常用程度: 5
+- **功能描述：** 在属性细节面板中显示对象引用的内部属性
+- **使用位置：** UPROPERTY
+- **引擎模块：** Object Property
+- **元数据类型：** bool
+- **限制类型：** UObject*
+- **关联项：** [ShowOnlyInnerProperties](../ShowOnlyInnerProperties/ShowOnlyInnerProperties.md), [FullyExpand](../FullyExpand.md), [CollapsableChildProperties](../CollapsableChildProperties.md)
+- **常用程度：** ★★★★★
 
 在属性细节面板中显示对象引用的内部属性。
 
@@ -22,7 +20,7 @@ Sub-item: ShowOnlyInnerProperties (ShowOnlyInnerProperties.md), FullyExpand (Ful
 
 这种效果，和在UCLASS上设置EditInineNew配合其对象引用属性上设置Instanced，达成的效果很相似。区别是UCLASS上设置EditInineNew会使得一个类的对象属性引用可以在属性面板里创建对象， 而UPROPERTY上的Instanced，会使得这个属性自动的增加EditInline的meta，因此也会产生显示内部属性的同样效果。因此结论上来说，和ShowInnerProperties像的是本质是EditInline这个meta。但EditInline的效果多了一层是它支持对象容器，而ShowInnerProperties只支持单个对象引用属性。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 
@@ -133,9 +131,9 @@ void UMyProperty_Inner::InitInnerObject()
 }
 ```
 
-蓝图效果：
+## 蓝图效果：
 
-![Untitled](ShowInnerProperties/Untitled.png)
+![Untitled](Untitled.png)
 
 可以观察到：
 
@@ -174,7 +172,7 @@ void UMyProperty_Inner::AddActorMeta()
 
 ## 对比效果：
 
-![Untitled](ShowInnerProperties/Untitled%201.png)
+![Untitled](Untitled%201.png)
 
 可以发现，去除ShowInnerProperties后，ChildActorTemplate属性退化成一个普通的对象引用，我们无法在上面直接编辑对象的内部属性。
 

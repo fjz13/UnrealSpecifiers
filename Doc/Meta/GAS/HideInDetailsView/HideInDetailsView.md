@@ -1,14 +1,12 @@
-# HideInDetailsView
+﻿# HideInDetailsView
 
-功能描述: 把该UAttributeSet子类里的属性隐藏在FGameplayAttribute的选项列表里。
-使用位置: UCLASS, UPROPERTY
-Feature: Editor
-引擎模块: GAS
-元数据类型: bool
-限制类型: UAttributeSet
-Status: Done
-Sub-item: HideFromModifiers (HideFromModifiers.md), SystemGameplayAttribute (SystemGameplayAttribute.md)
-常用程度: 3
+- **功能描述：** 把该UAttributeSet子类里的属性隐藏在FGameplayAttribute的选项列表里。
+- **使用位置：** UCLASS, UPROPERTY
+- **引擎模块：** GAS
+- **元数据类型：** bool
+- **限制类型：** UAttributeSet
+- **关联项：** [HideFromModifiers](../HideFromModifiers/HideFromModifiers.md), [SystemGameplayAttribute](../SystemGameplayAttribute/SystemGameplayAttribute.md)
+- **常用程度：** ★★★
 
 把该UAttributeSet子类里的属性隐藏在FGameplayAttribute的选项列表里。
 
@@ -16,7 +14,7 @@ Sub-item: HideFromModifiers (HideFromModifiers.md), SystemGameplayAttribute (Sys
 
 在源码里用到的例子是UAbilitySystemTestAttributeSet，因为其就是一个专门用来测试的AS，因此希望不影响正常的选项列表。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS()
@@ -50,13 +48,13 @@ public:
 };
 ```
 
-测试效果：
+## 测试效果：
 
 可见只能选到UMyAttributeSet.HP属性，无法选择到UMyAttributeSet_Hide里的选项。
 
-![Untitled](HideInDetailsView/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 ```cpp
 PropertyModule.RegisterCustomPropertyTypeLayout( "GameplayAttribute", FOnGetPropertyTypeCustomizationInstance::CreateStatic( &FAttributePropertyDetails::MakeInstance ) );

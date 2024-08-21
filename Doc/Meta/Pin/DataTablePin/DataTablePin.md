@@ -1,13 +1,11 @@
-# DataTablePin
+﻿# DataTablePin
 
-功能描述: 指定一个函数参数为DataTable或CurveTable类型，以便为FName的其他参数提供RowNameList的选择。
-使用位置: UFUNCTION
-Feature: Blueprint
-引擎模块: Pin
-元数据类型: string="abc"
-限制类型: DataTable，CurveTable
-Status: Done
-常用程度: 2
+- **功能描述：** 指定一个函数参数为DataTable或CurveTable类型，以便为FName的其他参数提供RowNameList的选择。
+- **使用位置：** UFUNCTION
+- **引擎模块：** Pin
+- **元数据类型：** string="abc"
+- **限制类型：** DataTable，CurveTable
+- **常用程度：** ★★
 
 指定一个函数参数为UDataTable类型，这样就可以加载根据DataTable里的数据，为RowName提供一个List来选择，而不是手填。支持的类型是DataTable和CurveTable
 
@@ -24,7 +22,7 @@ UFUNCTION(BlueprintCallable, Category = "DataTable", meta = (ExpandEnumAsExecs="
 static ENGINE_API void EvaluateCurveTableRow(UCurveTable* CurveTable, FName RowName, float InXY, TEnumAsByte<EEvaluateCurveTableResult::Type>& OutResult, float& OutXY,const FString& ContextString);
 ```
 
-测试代码：
+## 测试代码：
 
 ```cpp
 	UFUNCTION(BlueprintCallable, meta = (DataTablePin="CurveTable"))
@@ -34,13 +32,13 @@ static ENGINE_API void EvaluateCurveTableRow(UCurveTable* CurveTable, FName RowN
 	static bool HasMyDataTableRow(UDataTable* TargetTable, FName MyRowName,FName OtherRowName){return false;}
 ```
 
-蓝图效果：
+## 蓝图效果：
 
 左侧为自己定义的函数节点，可以看见左侧的蓝图节点上的Name都变成了CurveTable和DataTable里的RowNameList，即使这些FName参数并没有什么特殊指定，但是蓝图系统里自动识别到FName类型并改变了实际的Pin Widget.
 
-![Untitled](DataTablePin/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 如果发现FName节点，会去尝试找DataTablePin，然后根据DataTablePin的类型来改变FName类型的Pin类型。
 

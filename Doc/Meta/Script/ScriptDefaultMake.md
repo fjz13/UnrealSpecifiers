@@ -1,19 +1,17 @@
-# ScriptDefaultMake
+﻿# ScriptDefaultMake
 
-功能描述: 禁用结构上的HasNativeMake，在脚本里构造的时候不调用C++里的NativeMake函数，而采用脚本内建的默认初始化方式。
-使用位置: USTRUCT
-Feature: Blueprint
-引擎模块: Script
-元数据类型: bool
-Status: Done
-Sub-item: ScriptDefaultBreak (ScriptDefaultBreak.md)
-常用程度: 1
+- **功能描述：** 禁用结构上的HasNativeMake，在脚本里构造的时候不调用C++里的NativeMake函数，而采用脚本内建的默认初始化方式。
+- **使用位置：** USTRUCT
+- **引擎模块：** Script
+- **元数据类型：** bool
+- **关联项：** [ScriptDefaultBreak](ScriptDefaultBreak.md)
+- **常用程度：** ★
 
 禁用结构上的HasNativeMake，在脚本里构造的时候不调用C++里的NativeMake函数，而采用脚本内建的默认初始化方式。
 
 ScriptDefaultBreak也是同理。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 
@@ -43,7 +41,7 @@ public:
 
 ```
 
-生成的py代码：
+## 生成的py代码：
 
 无论有没有加ScriptDefaultMake, ScriptDefaultBreak，MyPythonMBStructNative生成的py代码其实是一样的。不同点在于构成和to_tuple时候的结果不同。
 
@@ -84,7 +82,7 @@ class MyPythonMBStructNative(StructBase):
         ...
 ```
 
-运行的结果：
+## 运行的结果：
 
 - 第二段是加了ScriptDefaultMake, ScriptDefaultBreak后的效果。我故意在C++的Make和Break函数里做了一些不一样，可以观察到调用到C++里的函数。
 - 第一段是在代码里加上ScriptDefaultMake, ScriptDefaultBreak后（保留HasNativeMake，HasNativeBreak）调用的结果，可见C++里的Make/Break函数就没有再被调用到了。
@@ -103,7 +101,7 @@ LogPython: print(b.to_tuple())
 LogPython: (0, '')
 ```
 
-原理：
+## 原理：
 
 在FindMakeBreakFunction函数里，如果发现有ScriptDefaultMake或ScriptDefaultBreak标记，就不去使用C++里由HasNativeMake，HasNativeBreak指定的函数。
 

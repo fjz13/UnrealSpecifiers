@@ -1,16 +1,13 @@
-# ToolTip
+﻿# ToolTip
 
-功能描述: 在Meta里提供一个提示文本，覆盖代码注释里的文本
-使用位置: Any
-Feature: Editor
-引擎模块: Development
-元数据类型: string="abc"
-Example: ToolTip="Something you want to say”
-Status: Done
-Sub-item: ShortTooltip (ShortTooltip.md)
-常用程度: 3
+- **功能描述：** 在Meta里提供一个提示文本，覆盖代码注释里的文本
+- **使用位置：** Any
+- **引擎模块：** Development
+- **元数据类型：** string="abc"
+- **关联项：** [ShortTooltip](../ShortTooltip.md)
+- **常用程度：** ★★★
 
-测试代码：
+## 测试代码：
 
 ```cpp
 // This is a ToolTip out of Class.There're so so so so so so so many words I want to say, but here's too narrow.
@@ -73,15 +70,15 @@ class INSIDER_API UMyClass_ToolTip_TypeB :public UObject
 };
 ```
 
-测试效果：
+## 测试效果：
 
 在选取父类时候的提示：
 
 可以发现，如果提供了ToolTip，就会覆盖掉代码注释里的注释。同时也可以发现在下图中，提示的文本过长超过了选项框。这时如果提供了ShortToolTip，则会在父类选取器中显示ShortToolTip中的文本，从而简洁一点显示。在很多别的地方也同样应用这个规则，比如（该类型）变量上的提示，或者在选择变量类型的时候。
 
-![1234.png](ToolTip/1234.png)
+![1234.png](/1234.png)
 
-原理代码：
+## 原理代码：
 
 在源码里有FField和UField，普通的属性是FField，而像UClass是继承于UField，因此要注意FField::GetToolTipText的bShortTooltip一直是false，而UField::GetToolTipText则会传true。
 
@@ -191,9 +188,9 @@ FText FClassPickerDefaults::GetDescription() const
 
 变量和函数：
 
-![55.png](ToolTip/55.png)
+![55.png](/55.png)
 
-![77.png](ToolTip/77.png)
+![77.png](77.png)
 
 其他需要注意的是，代码里注释的文本也会当作ToolTip。支持//和/**/这两种格式。如果在ToolTip中想换行，可以直接加/n就可以。
 

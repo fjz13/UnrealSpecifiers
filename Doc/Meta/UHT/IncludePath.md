@@ -1,13 +1,11 @@
-# IncludePath
+﻿# IncludePath
 
-功能描述: 记录UClass的引用路径
-使用位置: UCLASS
-Feature: UHT
-引擎模块: UHT
-元数据类型: string="abc"
-限制类型: UCLASS上的信息
-Status: Done
-常用程度: 0
+- **功能描述：** 记录UClass的引用路径
+- **使用位置：** UCLASS
+- **引擎模块：** UHT
+- **元数据类型：** string="abc"
+- **限制类型：** UCLASS上的信息
+- **常用程度：** 0
 
 记录UClass的引用路径。
 
@@ -15,7 +13,7 @@ Status: Done
 
 有一个作用是在UHT生成.gen.cpp的时候，在头文件部分方便引用到该类的头文件。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(BlueprintType)
@@ -30,7 +28,7 @@ public:
 };
 ```
 
-其类型信息：
+## 其类型信息：
 
 ```cpp
 [class MyProperty_Template	Class->Struct->Field->Object	/Script/Insider.MyProperty_Template]
@@ -75,7 +73,7 @@ public:
 };
 ```
 
-原理：
+## 原理：
 
 同样也是在UHT中分析后添加的。具体的逻辑值请见ModuleRelativePath中的原理代码部分。
 

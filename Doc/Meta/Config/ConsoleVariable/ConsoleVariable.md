@@ -1,12 +1,10 @@
-# ConsoleVariable
+﻿# ConsoleVariable
 
-功能描述: 把一个Conifg属性的值同步到一个同名的控制台变量。
-使用位置: UPROPERTY
-Feature: Config
-引擎模块: Config
-元数据类型: string="abc"
-Status: Done
-常用程度: 5
+- **功能描述：** 把一个Conifg属性的值同步到一个同名的控制台变量。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Config
+- **元数据类型：** string="abc"
+- **常用程度：** ★★★★★
 
 把一个Conifg属性的值同步到一个同名的控制台变量。
 
@@ -16,7 +14,7 @@ Status: Done
 - 有了控制台变量之后，也需要专门的代码来对二者的值进行同步。见下述测试代码ImportConsoleVariableValues和ExportValuesToConsoleVariables的调用。
 - 另外要格外注意，ConsoleVariable 的设置是有优先级的。Console的优先级比ProjectSettings高，因此如果在Console中改变后再尝试在ProjectSettings中更改值，就会报错。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(config = InsiderSettings, defaultconfig)
@@ -64,15 +62,15 @@ void UMyProperty_InsiderSettings::PostEditChangeProperty(FPropertyChangedEvent& 
 #endif // #if WITH_EDITOR
 ```
 
-测试结果：
+## 测试结果：
 
 可见一开始的时候控制台和配置文件的值都是和ProjectSettings中的值同步。
 
 如果在Console中改变后再尝试在ProjectSettings中更改值，就会报错。
 
-![Untitled](ConsoleVariable/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 具体的值同步逻辑可见以下两个函数就知道了，无非是根据名字去寻找相应的ConsoleVariable 然后get/set值。
 

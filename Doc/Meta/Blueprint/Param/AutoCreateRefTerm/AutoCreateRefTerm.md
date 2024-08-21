@@ -1,13 +1,10 @@
-# AutoCreateRefTerm
+﻿# AutoCreateRefTerm
 
-功能描述: 指定函数的多个输入引用参数在没有连接的时候自动为其创建默认值
-使用位置: UFUNCTION
-Feature: Blueprint
-引擎模块: Blueprint
-元数据类型: strings="a，b，c"
-Example: AutoCreateRefTerm="Parameter1, Parameter2, ..”
-Status: Done
-常用程度: 5
+- **功能描述：** 指定函数的多个输入引用参数在没有连接的时候自动为其创建默认值
+- **使用位置：** UFUNCTION
+- **引擎模块：** Blueprint
+- **元数据类型：** strings="a，b，c"
+- **常用程度：** ★★★★★
 
 指定函数的多个输入引用参数在没有连接的时候自动为其创建默认值。
 
@@ -15,7 +12,7 @@ Status: Done
 
 当有些情况你想把函数的参数采用引用来传递，但是又不想每次都得必须连接一个变量，想在不连接的时候提供一个内联编辑的默认值，因此蓝图系统就提供了这么一个便利功能。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 	UFUNCTION(BlueprintCallable, meta = (AutoCreateRefTerm = "Location,Value"))
@@ -28,11 +25,11 @@ Status: Done
 	static bool MyFunc_NoRef(FVector Location, int32 Value) { return false; }
 ```
 
-蓝图效果：
+## 蓝图效果：
 
 可以见到MyFunc_NoAutoCreateRefTerm的函数会产生编译的报错，因为是引用参数但是却没有连接，导致引用缺少实参。
 
-![Untitled](AutoCreateRefTerm/Untitled.png)
+![Untitled](Untitled.png)
 
 ## 原理代码：
 

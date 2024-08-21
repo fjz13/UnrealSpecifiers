@@ -1,14 +1,12 @@
-# GetOptions
+﻿# GetOptions
 
-功能描述: 指定一个外部类的函数提供选项给FName或FString属性在细节面板中下拉选项框提供值列表。
-使用位置: UPARAM, UPROPERTY
-Feature: Editor
-引擎模块: String/Text Property
-元数据类型: string="abc"
-限制类型: FString,FName
-Status: Done
-Sub-item: GetKeyOptions (GetKeyOptions.md), GetValueOptions (GetValueOptions.md)
-常用程度: 5
+- **功能描述：** 指定一个外部类的函数提供选项给FName或FString属性在细节面板中下拉选项框提供值列表。
+- **使用位置：** UPARAM, UPROPERTY
+- **引擎模块：** String/Text Property
+- **元数据类型：** string="abc"
+- **限制类型：** FString,FName
+- **关联项：** [GetKeyOptions](../GetKeyOptions.md), [GetValueOptions](../GetValueOptions.md)
+- **常用程度：** ★★★★★
 
 指定一个外部类的函数提供选项给FName或FString属性在细节面板中下拉选项框提供值列表。
 
@@ -18,7 +16,7 @@ Sub-item: GetKeyOptions (GetKeyOptions.md), GetValueOptions (GetValueOptions.md)
 - 函数的原型是TArray<FString> FuncName() ，返回一个字符串类型，即使类型是FName，因为引擎内部会自己做转换。
 - 函数可以是成员函数，有可以是静态函数。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 USTRUCT(BlueprintType)
@@ -78,15 +76,15 @@ public:
 }
 ```
 
-测试效果：
+## 测试效果：
 
 根据下图，可见FText并没有起作用。其他带有GetOptions标记的在细节面板上都有一个下拉选项框。
 
 而另外当使用TMap的时候，还可以用GetKeyOptions 和GetValueOptions来分别单独为Key和Value提供不一样的选项列表，见MyMap_GetKeyValueOptions。
 
-![Untitled](GetOptions/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 大致流程是用GetPropertyOptionsMetaDataKey来判断一个属性是否支持选项框编辑，然后通过
 

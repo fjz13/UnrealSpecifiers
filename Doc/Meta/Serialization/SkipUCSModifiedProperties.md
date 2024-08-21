@@ -1,15 +1,13 @@
-# SkipUCSModifiedProperties
+﻿# SkipUCSModifiedProperties
 
-功能描述: 跳过序列化Component里某个属性
-使用位置: UPROPERTY
-Feature: Serialization
-引擎模块: Serialization
-元数据类型: bool
-限制类型: ActorComponent下的属性
-Status: OnlyInternal
-常用程度: 0
+- **功能描述：** 跳过序列化Component里某个属性
+- **使用位置：** UPROPERTY
+- **引擎模块：** Serialization
+- **元数据类型：** bool
+- **限制类型：** ActorComponent下的属性
+- **常用程度：** 0
 
-原理：
+## 原理：
 
 只在ActorComponent.cpp里用到，感觉是用于跳过序列化某个属性。
 也只在UPrimitiveComponent 里的BodyInstance用到。物理的表示信息是运行时生成的，确实不需要序列化。但其实标一个Transient也就可以了，只能说是混乱的用法了。

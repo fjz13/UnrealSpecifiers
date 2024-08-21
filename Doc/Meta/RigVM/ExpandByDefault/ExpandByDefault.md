@@ -1,16 +1,14 @@
-# ExpandByDefault
+﻿# ExpandByDefault
 
-功能描述: 把FRigUnit里的属性引脚默认展开。
-使用位置: UPROPERTY
-Feature: RigVM Pin
-引擎模块: RigVMStruct
-元数据类型: bool
-Status: Done
-常用程度: 3
+- **功能描述：** 把FRigUnit里的属性引脚默认展开。
+- **使用位置：** UPROPERTY
+- **引擎模块：** RigVMStruct
+- **元数据类型：** bool
+- **常用程度：** ★★★
 
 把FRigUnit里的属性引脚默认展开。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 USTRUCT(meta = (DisplayName = "MyRig"))
@@ -27,13 +25,13 @@ struct INSIDER_API FRigUnit_MyRig : public FRigUnit
 ｝
 ```
 
-测试效果：
+## 测试效果：
 
 可见MyStruct_ExpandByDefault默认状态下就把该结构展开。
 
-![Untitled](ExpandByDefault/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 识别该Meta然后设定该引脚的bIsExpanded状态。
 

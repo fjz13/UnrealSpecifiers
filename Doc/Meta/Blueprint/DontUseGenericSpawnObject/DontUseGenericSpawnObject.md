@@ -1,18 +1,15 @@
-# DontUseGenericSpawnObject
+﻿# DontUseGenericSpawnObject
 
-功能描述: 阻止使用蓝图中的Generic Create Object节点来生成本类的对象。
-使用位置: UCLASS
-Feature: Blueprint
-引擎模块: Blueprint
-元数据类型: bool
-限制类型: 既非Actor又非ActorComponent的BluprintType类时
-Example: DontUseGenericSpawnObject="true”
-Status: Done
-常用程度: 2
+- **功能描述：** 阻止使用蓝图中的Generic Create Object节点来生成本类的对象。
+- **使用位置：** UCLASS
+- **引擎模块：** Blueprint
+- **元数据类型：** bool
+- **限制类型：** 既非Actor又非ActorComponent的BluprintType类时
+- **常用程度：** ★★
 
 用于阻止该类被通用的ConstructObject蓝图节点所构造出来。在源码里典型里使用例子是UDragDropOperation和UUserWidget，前者由UK2Node_CreateDragDropOperation这个专门的节点建出来（内部调用UWidgetBlueprintLibrary::CreateDragDropOperation），后者由CreateWidget创建。因此这种的典型用法是你自己再创建一个New的函数来自己创建该Object。
 
-测试代码
+## 测试代码：
 
 ```cpp
 UCLASS(Blueprintable,meta=(DontUseGenericSpawnObject="true"))
@@ -33,11 +30,11 @@ public:
 };
 ```
 
-测试效果：
+## 测试效果：
 
-![Untitled](DontUseGenericSpawnObject/Untitled.png)
+![Untitled](Untitled.png)
 
-原理:
+## 原理：
 
 会提前验证是否包含DontUseGenericSpawnObject元数据，因为是采用GetBoolMetaData，因此必须写上=”true”
 

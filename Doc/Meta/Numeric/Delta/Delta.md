@@ -1,24 +1,22 @@
-# Delta
+﻿# Delta
 
-功能描述: 设定数字输入框值改变的幅度为Delta的倍数
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: Numeric Property
-元数据类型: float/int
-限制类型: float,int32
-Status: Done
-Sub-item: LinearDeltaSensitivity (LinearDeltaSensitivity.md)
-常用程度: 3
+- **功能描述：** 设定数字输入框值改变的幅度为Delta的倍数
+- **使用位置：** UPROPERTY
+- **引擎模块：** Numeric Property
+- **元数据类型：** float/int
+- **限制类型：** float,int32
+- **关联项：** [LinearDeltaSensitivity](../LinearDeltaSensitivity.md)
+- **常用程度：** ★★★
 
 设定数字输入框值改变的幅度为Delta的倍数。
 
-注意的事项是：
+## 注意的事项是：
 
 1. 在全局使得变化值成为Delta的倍数
 2. Delta默认值是0，这个时候代表没有设置，数字会指数改变。
 3. 注意和WheelStep的区别是，Delta在鼠标左右拖动和按下键盘方向键的时候生效，WheelStep是只在鼠标滚轮变化的时候生效。二者虽然都是用来控制变化幅度，但作用范围不同。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = DeltaTest)
@@ -33,7 +31,7 @@ Sub-item: LinearDeltaSensitivity (LinearDeltaSensitivity.md)
 	float MyFloat_Delta10_LinearDeltaSensitivity50_UIMinMax = 100;
 ```
 
-测试效果：
+## 测试效果：
 
 - MyFloat_DefaultDelta ，默认情况下鼠标往右拖动变化很剧烈，变化呈指数上升。
 - MyFloat_Delta10，鼠标往右拖动变化也很剧烈（最终到达的值也很巨大），但是变化始终以Delta为步幅。
@@ -41,7 +39,7 @@ Sub-item: LinearDeltaSensitivity (LinearDeltaSensitivity.md)
 - MyFloat_Delta10_LinearDeltaSensitivity50 ，在没有UIMinMax的情况下，且同时设置了LinearDeltaSensitivity，会导致鼠标往右拖动的整个过程中变化值始终是线性。LinearDeltaSensitivity越大越不敏感。因此一次一次缓慢的改变10
 - MyFloat_Delta10_LinearDeltaSensitivity50_UIMinMax ，如果上面一个再加上UIMinMax，则发现又失去了LinearDeltaSensitivity的效果。因为LinearDeltaSensitivity不能在有滚动条的情况下生效。
 
-![Delta.gif](Delta/Delta.gif)
+![Delta.gif](Delta.gif)
 
 ## 原理：
 

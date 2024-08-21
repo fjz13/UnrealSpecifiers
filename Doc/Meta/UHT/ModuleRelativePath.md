@@ -1,12 +1,10 @@
-# ModuleRelativePath
+﻿# ModuleRelativePath
 
-功能描述: 记录类型定义的的头文件路径，为其处于模块的内部相对路径。
-使用位置: Any
-Feature: UHT
-引擎模块: UHT
-元数据类型: string="abc"
-Status: Done
-常用程度: 0
+- **功能描述：** 记录类型定义的的头文件路径，为其处于模块的内部相对路径。
+- **使用位置：** Any
+- **引擎模块：** UHT
+- **元数据类型：** string="abc"
+- **常用程度：** 0
 
 记录当前元类型定义的的头文件路径，为相对模块的相对路径。
 
@@ -14,7 +12,7 @@ Status: Done
 
 和IncludePath的区别是，ModuleRelativePath 在各种类型信息上都有，而IncludePath只用于UCLASS上。另外ModuleRelativePath 的值可以包含“Classes/Public/Internal/Private”这4个以开头，我们一般也确实会建议把.h.cpp划分到这4个文件夹里。而IncludeFilePath 的值就会去掉这个头。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(BlueprintType)
@@ -29,7 +27,7 @@ public:
 };
 ```
 
-其元类型信息打印：
+## 其元类型信息打印：
 
 可以发现ModuleRelativePath 在类，属性和函数上都有该信息。
 
@@ -79,7 +77,7 @@ public:
 
 ```
 
-原理：
+## 原理：
 
 在UHT分析的时候，自动的为类型加上头文件的路径信息。
 

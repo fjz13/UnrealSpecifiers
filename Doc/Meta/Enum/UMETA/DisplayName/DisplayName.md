@@ -1,16 +1,14 @@
-# DisplayName
+﻿# DisplayName
 
-功能描述: 改变枚举值的显示名称
-使用位置: UENUM::UMETA
-Feature: Blueprint
-引擎模块: Enum Property
-元数据类型: string="abc"
-Status: Done
-常用程度: 5
+- **功能描述：** 改变枚举值的显示名称
+- **使用位置：** UENUM::UMETA
+- **引擎模块：** Enum Property
+- **元数据类型：** string="abc"
+- **常用程度：** ★★★★★
 
 改变枚举值的显示名称
 
-示例代码：
+## 示例代码：
 
 ```cpp
 /*
@@ -47,8 +45,8 @@ public:
 }
 ```
 
-示例效果：
+## 示例效果：
 
 可见改变了名称。
 
-![image.png](DisplayName/image.png)
+![image.png](image.png)

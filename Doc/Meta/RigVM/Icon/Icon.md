@@ -1,19 +1,17 @@
-# Icon
+﻿# Icon
 
-功能描述: 设定FRigUnit蓝图节点的图标。
-使用位置: USTRUCT
-Feature: RigVM
-引擎模块: RigVMStruct
-元数据类型: string="abc"
-限制类型: FRigUnit
-Status: Done
-常用程度: 2
+- **功能描述：** 设定FRigUnit蓝图节点的图标。
+- **使用位置：** USTRUCT
+- **引擎模块：** RigVMStruct
+- **元数据类型：** string="abc"
+- **限制类型：** FRigUnit
+- **常用程度：** ★★
 
 设定FRigUnit蓝图节点的图标。
 
 根据源码中的注释得知，Icon的格式是“StyleSetName|StyleName|SmallStyleName|StatusOverlayStyleName”，最后两项是可选的，可参考FSlateIcon的更多介绍。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 USTRUCT(meta = (DisplayName = "MyRigIcon",Icon="EditorStyle|GraphEditor.Macro.ForEach_16x"))
@@ -32,13 +30,13 @@ public:
 };
 ```
 
-测试效果：
+## 测试效果：
 
 可见加了Icon之后，左上角图标变成了其他，不是默认的f函数目标。
 
-![Untitled](Icon/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 ```cpp
 FSlateIcon URigVMEdGraphNode::GetIconAndTint(FLinearColor& OutColor) const

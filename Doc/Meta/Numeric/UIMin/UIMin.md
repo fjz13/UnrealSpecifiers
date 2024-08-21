@@ -1,20 +1,18 @@
-# UIMin
+﻿# UIMin
 
-功能描述: 指定数字输入框上滚动条拖动的最小范围值
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: Numeric Property
-元数据类型: float/int
-限制类型: float,int32
-Status: Done
-Sub-item: UIMax (UIMax.md), ClampMin (ClampMin.md), ClampMax (ClampMax.md)
-常用程度: 5
+- **功能描述：** 指定数字输入框上滚动条拖动的最小范围值
+- **使用位置：** UPROPERTY
+- **引擎模块：** Numeric Property
+- **元数据类型：** float/int
+- **限制类型：** float,int32
+- **关联项：** [UIMax](../UIMax.md), [ClampMin](../ClampMin.md), [ClampMax](../ClampMax.md)
+- **常用程度：** ★★★★★
 
 UIMin-UIMax和ClampMin-ClampMax的区别是，UI系列阻止用户在拖动鼠标的时候把值超过某个范围，但是用户依然可以手动输入超过这个范围的值。而Clamp系列是实际的值的范围限制，用户拖动或者手动输入值都不允许超过这个范围。
 
 这两个限制都无法限制蓝图下直接修改值。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = MinMaxTest)
@@ -29,13 +27,13 @@ UIMin-UIMax和ClampMin-ClampMax的区别是，UI系列阻止用户在拖动鼠�
 	float MyFloat_HasMinMax_ClampAndUI2= 100;
 ```
 
-测试效果：
+## 测试效果：
 
 - 从MyFloat_HasMinMax_UI发现，UIMin, UIMax限制数字输入框滚动条的范围，但依然可以手动输入超过的值999
 - 从MyFloat_HasMinMax_Clamp 发现，ClampMin，ClampMax 会同时限制UI和手动输入的范围。
 - 从MyFloat_HasMinMax_ClampAndUI和MyFloat_HasMinMax_ClampAndUI2发现，UI的滚动条会取UI的限制和Clamp限制的更窄范围，而实际输入值也是会被限制在更窄的范围内。
 
-![MinMax2.gif](UIMin/MinMax2.gif)
+![MinMax2.gif](MinMax2.gif)
 
 ## 原理：
 

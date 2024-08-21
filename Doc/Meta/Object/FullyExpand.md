@@ -1,10 +1,8 @@
-# FullyExpand
+﻿# FullyExpand
 
-使用位置: UPROPERTY
-Feature: Blueprint
-元数据类型: bool
-Status: NotWorked
-Parent item: ShowInnerProperties (ShowInnerProperties.md)
+- **使用位置：** UPROPERTY
+- **元数据类型：** bool
+- **关联项：** [ShowInnerProperties](ShowInnerProperties/ShowInnerProperties.md)
 
 但是没有发现该Meta被使用的原理代码。
 

@@ -1,12 +1,11 @@
-# DisplayValue
+﻿# DisplayValue
 
-功能描述: Enum /Script/Engine.AnimPhysCollisionType
-使用位置: UENUM::UMETA
-引擎模块: Enum Property
-Status: NotUsed
-常用程度: 0
+- **功能描述：** Enum /Script/Engine.AnimPhysCollisionType
+- **使用位置：** UENUM::UMETA
+- **引擎模块：** Enum Property
+- **常用程度：** 0
 
-源码例子：
+## 源码例子：
 
 ```cpp
 UENUM()

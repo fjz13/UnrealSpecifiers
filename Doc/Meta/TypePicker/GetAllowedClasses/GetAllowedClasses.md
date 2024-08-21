@@ -1,22 +1,19 @@
-# GetAllowedClasses
+﻿# GetAllowedClasses
 
-功能描述: 用在类或对象选择器上，通过一个函数来指定选择的对象必须属于某一些类型基类。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: TypePicker
-元数据类型: string="abc"
-限制类型: TSubClassOf，UClass*，UObject*，FSoftObjectPath
-Example: meta=(GetAllowedClasses="FuncName").
-Status: Done
+- **功能描述：** 用在类或对象选择器上，通过一个函数来指定选择的对象必须属于某一些类型基类。
+- **使用位置：** UPROPERTY
+- **引擎模块：** TypePicker
+- **元数据类型：** string="abc"
+- **限制类型：** TSubClassOf，UClass*，UObject*，FSoftObjectPath
 Code: TArray<UClass*> FuncName() const;
-Parent item: AllowedClasses (AllowedClasses.md)
-常用程度: 2
+- **关联项：** [AllowedClasses](../AllowedClasses/AllowedClasses.md)
+- **常用程度：** ★★
 
 AllowedClass是用直接指定类名字字符串的方式来限定基类。而GetAllowedClasses就更近一步，允许通过一个函数来返回筛选的基类。动态和自定义的灵活性就更高了。
 
 当然GetAllowedClasses不如AllowedClass支持那么多属性类型，只支持：TSubClassOf，UClass*，UObject*，FSoftObjectPath
 
-测试代码：
+## 测试代码：
 
 ```cpp
 public:
@@ -57,11 +54,11 @@ public:
 	FSoftObjectPath MySoftObject_GetAllowedClasses;
 ```
 
-测试效果：
+## 测试效果：
 
 可见Class选择器把可选范围限定到了设定的3个基类上。而对象选择器也把对象限定到了这3个基类。
 
-![GetAllowClasses.jpg](GetAllowedClasses/GetAllowClasses.jpg)
+![GetAllowClasses.jpg](GetAllowClasses.jpg)
 
 ## 原理：
 

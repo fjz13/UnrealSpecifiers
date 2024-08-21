@@ -1,9 +1,8 @@
-# CustomWidget
+﻿# CustomWidget
 
-使用位置: UFUNCTION, UPROPERTY
-引擎模块: AnimationGraph
-元数据类型: string="abc"
-Status: OnlyInternal
+- **使用位置：** UFUNCTION, UPROPERTY
+- **引擎模块：** AnimationGraph
+- **元数据类型：** string="abc"
 
 也可以放在属性上
 

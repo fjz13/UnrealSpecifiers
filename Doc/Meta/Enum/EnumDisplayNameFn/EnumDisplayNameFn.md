@@ -1,16 +1,14 @@
-# EnumDisplayNameFn
+﻿# EnumDisplayNameFn
 
-功能描述: 在Runtime下为枚举字段提供自定义名称的函数回调
-使用位置: UENUM
-Feature: Editor
-引擎模块: Enum Property
-元数据类型: string="abc"
-Status: Done
-常用程度: 2
+- **功能描述：** 在Runtime下为枚举字段提供自定义名称的函数回调
+- **使用位置：** UENUM
+- **引擎模块：** Enum Property
+- **元数据类型：** string="abc"
+- **常用程度：** ★★
 
 只在Runtime下生效，在Editor下依然不起作用。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 //[EMyEnum_CustomDisplay	Enum->Field->Object	/Script/Insider.EMyEnum_CustomDisplay]
@@ -55,9 +53,9 @@ FText GetMyEnumCustomDisplayName(int32 val)
 }
 ```
 
-测试蓝图：
+## 测试蓝图：
 
-![Untitled](EnumDisplayNameFn/Untitled.png)
+![Untitled](/Untitled.png)
 
 EnumDisplayNameFn 的函数设置是在gen.cpp中完成的，因此并不需要成为UFUNCTION。
 
@@ -76,7 +74,7 @@ const UECodeGen_Private::FEnumParams Z_Construct_UEnum_Insider_EMyEnum_CustomDis
 };
 ```
 
-原理代码：
+## 原理代码：
 
 ```cpp
 

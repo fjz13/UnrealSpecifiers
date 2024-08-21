@@ -1,18 +1,16 @@
-# HideEditConditionToggle
+﻿# HideEditConditionToggle
 
-功能描述: 用在使用EditCondition的属性上，表示该属性不想要其EditCondition用到的属性被隐藏起来。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: DetailsPanel
-元数据类型: bool
-限制类型: bool
-Status: Done
-Parent item: EditCondition (EditCondition.md)
-常用程度: 5
+- **功能描述：** 用在使用EditCondition的属性上，表示该属性不想要其EditCondition用到的属性被隐藏起来。
+- **使用位置：** UPROPERTY
+- **引擎模块：** DetailsPanel
+- **元数据类型：** bool
+- **限制类型：** bool
+- **关联项：** [EditCondition](../EditCondition/EditCondition.md)
+- **常用程度：** ★★★★★
 
 用在使用EditCondition的属性上，表示该属性不想要其EditCondition用到的属性被隐藏起来。和InlineEditConditionToggle是有相反的作用。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 
@@ -28,11 +26,11 @@ public:
 };
 ```
 
-测试效果：
+## 测试效果：
 
-![HideEditConditionToggle.gif](HideEditConditionToggle/HideEditConditionToggle.gif)
+![HideEditConditionToggle.gif](HideEditConditionToggle.gif)
 
-原理：
+## 原理：
 
 判断如果有HideEditConditionToggle，就支持不支持当前行有单选框的按钮。
 

@@ -1,15 +1,12 @@
-# BindWidget
+﻿# BindWidget
 
-功能描述: 指定在C++类中该Widget属性一定要绑定到UMG的某个同名控件。
-使用位置: UPROPERTY
-Feature: UMG
-引擎模块: Widget Property
-元数据类型: bool
-限制类型: UUserWidget子类里属性
-Example: UPROPERTY(meta=(BindWidget))
-Status: Done
-Sub-item: BindWidgetOptional (BindWidgetOptional.md), OptionalWidget (OptionalWidget.md)
-常用程度: 5
+- **功能描述：** 指定在C++类中该Widget属性一定要绑定到UMG的某个同名控件。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Widget Property
+- **元数据类型：** bool
+- **限制类型：** UUserWidget子类里属性
+- **关联项：** [BindWidgetOptional](../BindWidgetOptional/BindWidgetOptional.md), [OptionalWidget](../OptionalWidget.md)
+- **常用程度：** ★★★★★
 
 指定在C++类中该Widget属性一定要绑定到UMG的某个同名控件。
 
@@ -56,7 +53,7 @@ void UMyProperty_BindWidget::RunTest()
 - MyTextBlock_NotFound并没有值，这很符合逻辑，因为我们也没有在UMG中定义该控件。但是值得注意的是假如我们尝试在UMG中定义该名字的控件，会报错提示名字已经被占用。也很正常，因为这就像C++类的子类里定义成员变量，肯定不能出现成员变量冲突。但假如我们定义MyTextBlock_Bind就不会报这个“名字占用”的错，因为引擎知道C++里有一个同名属性是要用来引用该控件。因此这才是BindWidget的精确作用含义，只是作为提示。这个时候可能有人会问那我的UMG里的MyTextBlock_SameName是怎么创建上去的？不是会报错吗？答案是先在UMG里定义好，然后再在C++里定义，这样就不会报错了。
 - 假如最后MyTextBlock_Bind没有在UMG中定义，那么UMG在编译的时候会报想要绑定的控件找不到，提醒你自己说想要BindWidget结果你又不创建。
 
-![Untitled](BindWidget/Untitled.png)
+![Untitled](Untitled.png)
 
 ## 原理：
 

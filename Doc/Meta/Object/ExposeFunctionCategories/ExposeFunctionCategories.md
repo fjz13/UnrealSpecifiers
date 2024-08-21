@@ -1,14 +1,11 @@
-# ExposeFunctionCategories
+﻿# ExposeFunctionCategories
 
-功能描述: 指定该Object属性所属于的类里的某些目录下的函数可以直接在本类上暴露出来。
-使用位置: UPROPERTY
-Feature: Blueprint
-引擎模块: Object Property
-元数据类型: strings="a，b，c"
-限制类型: UObject*
-Example: ExposeFunctionCategories="Category1, Category2, ..”
-Status: Done
-常用程度: 3
+- **功能描述：** 指定该Object属性所属于的类里的某些目录下的函数可以直接在本类上暴露出来。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Object Property
+- **元数据类型：** strings="a，b，c"
+- **限制类型：** UObject*
+- **常用程度：** ★★★
 
 指定该Object属性所属于的类里的某些目录下的函数可以直接在本类上暴露出来。
 
@@ -28,7 +25,7 @@ private:
 }
 ```
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(BlueprintType)
@@ -61,9 +58,9 @@ public:
 
 而如果在MyObject_Expose这种内部对象上直接拖拉右键，则可以见到所有内部定义的函数。注意这里虽然有两个条目的MyExposeFunc1，但其实调用出来的是同一个函数，实际并没有影响。
 
-![Untitled](ExposeFunctionCategories/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 在蓝图右键菜单的构建过程中，会判断某个操作是否要过滤掉。这里的IsUnexposedMemberAction就是判断这个函数是否应该被过滤掉。大致的逻辑是取得其函数对应的属性，比如在UMyProperty_ExposeFunctionCategories_Test 这个Object身上，递归到子对象，其实有3个函数会进来参加测试。这3个函数（MyExposeFunc 1 2 3）各自有自己的Category，但都对应MyObject_Expose这个Property，因此其AllExposedCategories的值是我们定义的“FirstFunc,ThirdFunc”数组，最终只有两个函数通过测试，因此最后显示1，3两个函数。
 

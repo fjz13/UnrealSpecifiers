@@ -1,20 +1,17 @@
-# SetParam
+﻿# SetParam
 
-功能描述: 指定一个函数为使用Set<TItem>的函数，元素类型为通配符的泛型。
-使用位置: UFUNCTION
-Feature: Blueprint
-引擎模块: Blueprint
-元数据类型: string="A | B | C"
-限制类型: TSet
-Example: ”SetA | ItemA, SetB | ItemB”
-Status: Done
-常用程度: 3
+- **功能描述：** 指定一个函数为使用Set<TItem>的函数，元素类型为通配符的泛型。
+- **使用位置：** UFUNCTION
+- **引擎模块：** Blueprint
+- **元数据类型：** string="A | B | C"
+- **限制类型：** TSet
+- **常用程度：** ★★★
 
 源码在UBlueprintSetLibrary。
 
 SetParam支持多个Set和元素参数，以‘,’分隔开，然后Pin的引脚可以通过‘|’继续分隔，形成”SetA | ItemA, SetB | ItemB”的多组数据。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 	UFUNCTION(BlueprintCallable, CustomThunk, meta = (SetParam = "SetA|ItemA,SetB|ItemB"))
@@ -23,9 +20,9 @@ SetParam支持多个Set和元素参数，以‘,’分隔开，然后Pin的引�
 	DECLARE_FUNCTION(execMySet_Add2);
 ```
 
-蓝图里效果：
+## 蓝图里效果：
 
-![Untitled](SetParam/Untitled.png)
+![Untitled](Untitled.png)
 
 ## 原理：
 

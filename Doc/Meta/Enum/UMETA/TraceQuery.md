@@ -1,16 +1,14 @@
-# TraceQuery
+﻿# TraceQuery
 
-功能描述: Enum /Script/Engine.ECollisionChannel
-使用位置: UENUM::UMETA
-Feature: Editor
-引擎模块: Enum Property
-元数据类型: bool
-Status: OnlyInternal
-常用程度: 0
+- **功能描述：** Enum /Script/Engine.ECollisionChannel
+- **使用位置：** UENUM::UMETA
+- **引擎模块：** Enum Property
+- **元数据类型：** bool
+- **常用程度：** 0
 
 只在ECollisionChannel 上使用，指定哪些通道是用来Trace的。
 
-源码例子：
+## 源码例子：
 
 ```cpp
 UENUM(BlueprintType)
@@ -64,7 +62,7 @@ enum ECollisionChannel : int
 };
 ```
 
-原理：
+## 原理：
 
 ```cpp
 void UCollisionProfile::LoadProfileConfig(bool bForceInit)

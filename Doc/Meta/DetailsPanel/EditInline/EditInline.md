@@ -1,14 +1,18 @@
-# EditInline
+﻿# EditInline
 
-功能描述: 为对象属性创建一个实例，并作为子对象。
-使用位置: UPROPERTY
-Feature: Behavior
-引擎模块: DetailsPanel
-元数据类型: bool
-Status: Done
-Related to UPROPERTY: Instanced (../../Specifier/UPROPERTY/Instanced.md)
-Sub-item: NoEditInline (NoEditInline.md), AllowEditInlineCustomization (AllowEditInlineCustomization.md), ForceInlineRow (ForceInlineRow.md)
-常用程度: 3
+- **功能描述：** 为对象属性创建一个实例，并作为子对象。
+
+- **使用位置：** UPROPERTY
+
+- **引擎模块：** DetailsPanel
+
+- **元数据类型：** bool
+
+- **关联项：** [NoEditInline](../NoEditInline.md), [AllowEditInlineCustomization](../AllowEditInlineCustomization/AllowEditInlineCustomization.md), [ForceInlineRow](../ForceInlineRow/ForceInlineRow.md)
+
+  UPROPERTY：[Instanced](../../../Specifier/UPROPERTY/Instance/Instanced/Instanced.md)
+
+- **常用程度：** ★★★
 
 为对象属性创建一个实例，并作为子对象。
 
@@ -18,7 +22,7 @@ Sub-item: NoEditInline (NoEditInline.md), AllowEditInlineCustomization (AllowEdi
 
 可以设置在Struct上？看源码里也有该设置。但其实并没有效果。
 
-示例代码：
+## 示例代码：
 
 ```cpp
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -38,11 +42,11 @@ Sub-item: NoEditInline (NoEditInline.md), AllowEditInlineCustomization (AllowEdi
 	TArray<UMyProperty_EditInline_Sub*> MyObjectArray_NoEditInline;
 ```
 
-蓝图效果：
+## 蓝图效果：
 
-![Untitled](EditInline/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 会相应的设置EPropertyNodeFlags::EditInlineNew。
 

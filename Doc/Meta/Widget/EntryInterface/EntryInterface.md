@@ -1,14 +1,12 @@
-# EntryInterface
+﻿# EntryInterface
 
-功能描述: 限定EntryWidgetClass属性上可选类必须实现的接口，用在DynamicEntryBox和ListView这两个Widget上。
-使用位置: UCLASS, UPROPERTY
-Feature: UMG
-引擎模块: Widget Property
-元数据类型: string="abc"
-限制类型: UWidget子类
-Status: Done
-Sub-item: EntryClass (EntryClass.md)
-常用程度: 3
+- **功能描述：** 限定EntryWidgetClass属性上可选类必须实现的接口，用在DynamicEntryBox和ListView这两个Widget上。
+- **使用位置：** UCLASS, UPROPERTY
+- **引擎模块：** Widget Property
+- **元数据类型：** string="abc"
+- **限制类型：** UWidget子类
+- **关联项：** [EntryClass](../EntryClass.md)
+- **常用程度：** ★★★
 
 限定EntryWidgetClass属性上可选类必须实现的接口，用在DynamicEntryBox和ListView这两个Widget上。
 
@@ -35,7 +33,7 @@ class UMyListView : public UListViewBase, public ITypedUMGListView<UObject*>
 //3.之后在ClassPicker的时候，EntryClass指定其父类，EntryInterface指定类必须实现的接口
 ```
 
-源码中的用法：
+## 源码中的用法：
 
 ```cpp
 UCLASS(Abstract, NotBlueprintable, hidedropdown, meta = (EntryInterface = UserListEntry), MinimalAPI)
@@ -65,7 +63,7 @@ SNew(SClassPropertyEntryBox)
 
 在FDynamicEntryWidgetDetailsBase中判断EntryInterface和EntryClass，然后在SClassPropertyEntryBox中限定属性细节面板ClassPicker的可选类。FDynamicEntryWidgetDetailsBase是FListViewBaseDetails和FDynamicEntryBoxDetails的基类，因此ListView和DynamicBox的属性细节面板都由它进行定制化。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -115,15 +113,15 @@ public:
 };
 ```
 
-蓝图中的效果：
+## 蓝图中的效果：
 
 如果MyListView上没有指定EntryClass或EntryInterface，则在ListView的EntryWidgetClass属性上可以选择蓝图创建的UMG_MyEntry(继承自C++的UMyEntryWidget)。
 
-![Untitled](EntryInterface/Untitled.png)
+![Untitled](Untitled.png)
 
 如果如上面代码中所示，我们新创建一个接口为MyCustomListEntry，并且也新建一个新的MyCustomEntryWidget，然后在MyListView属性上指定EntryClass或EntryInterface（可以一起也可以单个），则ListView的EntryWidgetClass属性可选的类就被限制住了。
 
-![Untitled](EntryInterface/Untitled%201.png)
+![Untitled](Untitled%201.png)
 
 还有一种用法是当你想自定义一个ListView，可以选择继承自ListViewBase，然后在这个子类上直接限定EntryClass或EntryInterface，效果和上图是一样的。
 

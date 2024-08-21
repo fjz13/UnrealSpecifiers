@@ -1,13 +1,11 @@
-# FoldProperty
+﻿# FoldProperty
 
-功能描述: 在动画蓝图中使得动画节点的某个属性成为FoldProperty。
-使用位置: UPROPERTY
-Feature: Blueprint
-引擎模块: AnimationGraph
-元数据类型: bool
-限制类型: FAnimNode_Base下的属性
-Status: Done
-常用程度: 1
+- **功能描述：** 在动画蓝图中使得动画节点的某个属性成为FoldProperty。
+- **使用位置：** UPROPERTY
+- **引擎模块：** AnimationGraph
+- **元数据类型：** bool
+- **限制类型：** FAnimNode_Base下的属性
+- **常用程度：** ★
 
 在动画蓝图中使得动画节点的某个属性成为FoldProperty。
 
@@ -19,7 +17,7 @@ Status: Done
 
 自然的，不同的存储方式，自然要采用不同的访问方式。因此这些FoldProperty都是采用GET_ANIM_NODE_DATA来访问该数据。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 public:
@@ -27,11 +25,11 @@ public:
 	int32 MyInt_FoldProperty = 123;
 ```
 
-测试结果：
+## 测试结果：
 
-![Untitled](FoldProperty/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 编译的时候会把该FoldProperty添加到FoldRecords里。如果这个属性不是动态，也没有暴露成引脚连接，则会被当作常量。
 

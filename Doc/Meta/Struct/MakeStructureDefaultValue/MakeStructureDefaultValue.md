@@ -1,13 +1,11 @@
-# MakeStructureDefaultValue
+﻿# MakeStructureDefaultValue
 
-功能描述: 存储BP中自定义结构里的属性的默认值。
-使用位置: UPROPERTY
-Feature: Behavior
-引擎模块: Struct
-元数据类型: bool
-限制类型: BP里的用户自定义Struct
-Status: OnlyInternal
-常用程度: 1
+- **功能描述：** 存储BP中自定义结构里的属性的默认值。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Struct
+- **元数据类型：** bool
+- **限制类型：** BP里的用户自定义Struct
+- **常用程度：** ★
 
 存储BP中自定义结构里的属性的默认值。
 
@@ -15,13 +13,13 @@ Status: OnlyInternal
 - 而在蓝图中的用户自定义结构，并没有构造函数之类的机制。因此我们需要一个专门的Tab来填写属性的默认值。这些默认值就会存储在属性的元数据中。
 - 
 
-测试代码：
+## 测试代码：
 
 在蓝图中定义一个结构BP_StructDefaultTest，并填上默认值。
 
-![Untitled](MakeStructureDefaultValue/Untitled.png)
+![Untitled](Untitled.png)
 
-测试结果：
+## 测试结果：
 
 用测试命令行打印出其相关的信息，可以见到MyInt和MyString的真正属性名以及MakeStructureDefaultValue 的值。
 
@@ -48,7 +46,7 @@ Size:	24
 };
 ```
 
-原理：
+## 原理：
 
 在BP中结构创建变量保存的时候，如果发现默认值不为空，则设置到MakeStructureDefaultValue中去。之后再MakeStruct的时候就可以用上了。
 

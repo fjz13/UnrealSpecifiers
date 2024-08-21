@@ -1,18 +1,16 @@
-# AllowPrivateAccess
+﻿# AllowPrivateAccess
 
-功能描述: 允许一个在C++中private的属性，可以在蓝图中访问。
-使用位置: UPROPERTY
-Feature: Blueprint
-元数据类型: bool
-Status: Done
-Parent item: BlueprintProtected (BlueprintProtected.md)
-常用程度: 5
+- **功能描述：** 允许一个在C++中private的属性，可以在蓝图中访问。
+- **使用位置：** UPROPERTY
+- **元数据类型：** bool
+- **关联项：** [BlueprintProtected](../BlueprintProtected/BlueprintProtected.md)
+- **常用程度：** ★★★★★
 
 允许一个在C++中private的属性，可以在蓝图中访问。
 
 AllowPrivateAccess的意义是允许这个属性在C++是private的，不允许C++子类访问，但又允许其暴露到蓝图中访问。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 public:
@@ -33,13 +31,13 @@ private:
 
 在MyNativeInt_NativePrivate上如果尝试加上BlueprintReadWrite或BlueprintReadOnly都会触发UHT编译报错。
 
-蓝图里的效果：
+## 蓝图里的效果：
 
 默认情况下MyNativeInt_NativePrivate_AllowPrivateAccess在蓝图里的访问权限和MyNativeInt_NativePublic一致。
 
 如果读者想要修改改属性在蓝图中的访问权限，则可以配合加上BlueprintProtected和BlueprintPrivate。
 
-![Untitled](AllowPrivateAccess/Untitled.png)
+![Untitled](Untitled.png)
 
 ## 原理：
 

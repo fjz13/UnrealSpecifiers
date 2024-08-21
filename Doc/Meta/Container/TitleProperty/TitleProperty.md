@@ -1,18 +1,15 @@
-# TitleProperty
+﻿# TitleProperty
 
-功能描述: 指定结构数组里的结构成员属性内容来作为结构数组元素的显示标题。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: Container Property
-元数据类型: string="abc"
-限制类型: TArray<FStruct>
-Example: meta = (TitleProperty="{MyString}[{MyInt}]")
-Status: Done
-常用程度: 2
+- **功能描述：** 指定结构数组里的结构成员属性内容来作为结构数组元素的显示标题。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Container Property
+- **元数据类型：** string="abc"
+- **限制类型：** TArray<FStruct>
+- **常用程度：** ★★
 
 指定结构数组里的结构成员属性内容来作为结构数组元素的显示标题。
 
-重点是：
+## 重点是：
 
 - 作用目标为结构数组TArray<FStruct>，其他的TSet，TMap不支持。
 - TitleProperty顾名思义是用作标题的属性。但要更明确一些，标题指的是结构数组元素在细节面板里显示的标题。属性指的是结构数组里的结构里面的属性。
@@ -20,7 +17,7 @@ Status: Done
     - 如果TitleProperty里包含“{”，则会把里面的字符串当作一个FTextFormat（以“{ArgName}…”组织的格式字符串）。最终格式是以“{PropertyName}…”组织的字符串去找多个对应的属性。
     - 否则就会把TitleProperty的全部当作PropertyName，直接去找对应的属性名称。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 USTRUCT(BlueprintType)
@@ -45,13 +42,13 @@ UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = TitlePropertyTest, meta =
 TArray<FMyArrayTitleStruct> MyStructArray_HasTitleProperty;
 ```
 
-测试效果：
+## 测试效果：
 
 可以发现，下面的数组元素的标题变为了“Hello[x]”，而不是默认的“3 members”。
 
-![Untitled](TitleProperty/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 属性编辑器里属性节点如果发现有TitleProperty，则会生成一个FTitleMetadataFormatter的TitlePropertyFormatter 来进行字符串格式的解析和输出结果内容。其内部其实真正用的又是FTextFormat，这样才可以把多个属性的内容拼接成一个目标字符串。
 

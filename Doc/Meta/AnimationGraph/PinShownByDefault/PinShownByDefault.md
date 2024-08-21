@@ -1,14 +1,12 @@
-# PinShownByDefault
+﻿# PinShownByDefault
 
-功能描述: 在动画蓝图中使得动画节点的某个属性一开始就暴露出来成为引脚，但也可以改变。
-使用位置: UPROPERTY
-Feature: Blueprint
-引擎模块: AnimationGraph
-元数据类型: bool
-限制类型: FAnimNode_Base
-Status: Done
-Sub-item: AlwaysAsPin (AlwaysAsPin.md), NeverAsPin (NeverAsPin.md)
-常用程度: 3
+- **功能描述：** 在动画蓝图中使得动画节点的某个属性一开始就暴露出来成为引脚，但也可以改变。
+- **使用位置：** UPROPERTY
+- **引擎模块：** AnimationGraph
+- **元数据类型：** bool
+- **限制类型：** FAnimNode_Base
+- **关联项：** [AlwaysAsPin](../AlwaysAsPin/AlwaysAsPin.md), [NeverAsPin](../NeverAsPin/NeverAsPin.md)
+- **常用程度：** ★★★
 
 在动画蓝图中使得动画节点的某个属性一开始就暴露出来成为引脚。
 
@@ -18,7 +16,7 @@ PinShownByDefault目前只在动画蓝图节点上应用。
 
 相反的，可以用PinHiddenByDefault来隐藏属性成为引脚。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 USTRUCT(BlueprintInternalUseOnly)
@@ -49,13 +47,13 @@ class INSIDEREDITOR_API UAnimGraphNode_MyTestPinShown : public UAnimGraphNode_Ba
 };
 ```
 
-测试效果：
+## 测试效果：
 
 可见，同样的两个属性，MyInt_NotShown 默认情况不显示成节点，只能在细节面板里编辑。而MyInt_PinShownByDefault默认情况下成为引脚。当PinShownByDefault还可以改变去掉Pin的功能。
 
-![PinShown.gif](PinShownByDefault/PinShown.gif)
+![PinShown.gif](PinShown.gif)
 
-原理：
+## 原理：
 
 源码里唯一用的地方就是在FAnimBlueprintNodeOptionalPinManager，其实就是处理动画蓝图节点的Pin如何显示。
 

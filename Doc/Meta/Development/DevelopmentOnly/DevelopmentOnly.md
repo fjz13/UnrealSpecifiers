@@ -1,18 +1,16 @@
-# DevelopmentOnly
+﻿# DevelopmentOnly
 
-功能描述: 使得一个函数变为DevelopmentOnly，意味着只会在Development模式中运行。适用于调试输出之类的功能，但在最终发布版中会跳过。
-使用位置: UFUNCTION
-Feature: Blueprint
-引擎模块: Development
-元数据类型: bool
-Status: Done
-常用程度: 1
+- **功能描述：** 使得一个函数变为DevelopmentOnly，意味着只会在Development模式中运行。适用于调试输出之类的功能，但在最终发布版中会跳过。
+- **使用位置：** UFUNCTION
+- **引擎模块：** Development
+- **元数据类型：** bool
+- **常用程度：** ★
 
 使得一个函数变为DevelopmentOnly，意味着只会在Development模式中运行。适用于调试输出之类的功能，但在最终发布版中会跳过。
 
 源码中最典型的例子就是PrintString。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 	UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly))
@@ -22,11 +20,11 @@ Status: Done
 	static void MyFunc_NotDevelopmentOnly(){}
 ```
 
-蓝图效果：
+## 蓝图效果：
 
-![Untitled](DevelopmentOnly/Untitled.png)
+![Untitled](/Untitled.png)
 
-原理：
+## 原理：
 
 其会改变这个函数蓝图节点的状态为DevelopmentOnly，从而最终导致该node在shipping模式下被pass through。
 

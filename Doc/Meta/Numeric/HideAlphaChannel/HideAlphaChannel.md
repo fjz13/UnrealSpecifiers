@@ -1,17 +1,15 @@
-# HideAlphaChannel
+﻿# HideAlphaChannel
 
-功能描述: 使FColor或FLinearColor属性在编辑的时候隐藏Alpha通道。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: Numeric Property
-元数据类型: bool
-限制类型: FColor , FLinearColor 
-Status: Done
-常用程度: 3
+- **功能描述：** 使FColor或FLinearColor属性在编辑的时候隐藏Alpha通道。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Numeric Property
+- **元数据类型：** bool
+- **限制类型：** FColor , FLinearColor 
+- **常用程度：** ★★★
 
 使FColor或FLinearColor属性在编辑的时候隐藏Alpha通道。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 public:
@@ -28,13 +26,13 @@ public:
 	FLinearColor MyLinearColor_HideAlphaChannel;
 ```
 
-测试结果：
+## 测试结果：
 
 可见带有HideAlphaChannel的属性就没有了Alpha通道。
 
-![Untitled](HideAlphaChannel/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 ```cpp
 void FColorStructCustomization::CustomizeHeader(TSharedRef<class IPropertyHandle> InStructPropertyHandle, class FDetailWidgetRow& InHeaderRow, IPropertyTypeCustomizationUtils& StructCustomizationUtils)

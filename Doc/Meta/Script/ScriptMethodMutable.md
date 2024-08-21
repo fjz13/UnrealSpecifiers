@@ -1,14 +1,12 @@
-# ScriptMethodMutable
+﻿# ScriptMethodMutable
 
-功能描述: 把ScriptMethod的第一个const结构参数在调用上改成引用参数，函数内修改的值会保存下来。
-使用位置: UFUNCTION
-Feature: Script
-引擎模块: Script
-元数据类型: bool
-限制类型: 第一个参数是结构类型
-Status: Done
-Parent item: ScriptMethod (ScriptMethod.md)
-常用程度: 2
+- **功能描述：** 把ScriptMethod的第一个const结构参数在调用上改成引用参数，函数内修改的值会保存下来。
+- **使用位置：** UFUNCTION
+- **引擎模块：** Script
+- **元数据类型：** bool
+- **限制类型：** 第一个参数是结构类型
+- **关联项：** [ScriptMethod](ScriptMethod.md)
+- **常用程度：** ★★
 
 把ScriptMethod的第一个const结构参数在调用上改成引用参数，函数内修改的值会保存下来。
 
@@ -43,7 +41,7 @@ public:
 };
 ```
 
-测试效果：
+## 测试效果：
 
 看py里生成的代码是一致的，如果用UPARAM(ref)，则在MyPython_ScriptMethod_Test里面生成的my_func_on_struct_via_ref会返回结构MyPythonStruct_ScriptMethod来达成引用的效果。
 
@@ -165,7 +163,7 @@ LogPython: print(a)
 LogPython: <Struct 'MyPythonStruct_ScriptMethod' (0x0000092D08CD6ED0) {my_string: "First"}>
 ```
 
-原理：
+## 原理：
 
 判断如果有ScriptMethodMutable，会设置SelfReturn，从而再最后把函数调用中的临时值复制给原本的参数值，达成可变引用调用的效果。
 

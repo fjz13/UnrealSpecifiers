@@ -1,15 +1,12 @@
-# SupportDynamicSliderMinValue
+﻿# SupportDynamicSliderMinValue
 
-功能描述: 支持数字输入框上滚动条的最小范围值在Alt按下时被动态改变
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: Numeric Property
-元数据类型: bool
-限制类型: FVector4
-Example: SupportDynamicSliderMinValue = "true"
-Status: Done
-Sub-item: SupportDynamicSliderMaxValue (SupportDynamicSliderMaxValue.md)
-常用程度: 1
+- **功能描述：** 支持数字输入框上滚动条的最小范围值在Alt按下时被动态改变
+- **使用位置：** UPROPERTY
+- **引擎模块：** Numeric Property
+- **元数据类型：** bool
+- **限制类型：** FVector4
+- **关联项：** [SupportDynamicSliderMaxValue](../SupportDynamicSliderMaxValue.md)
+- **常用程度：** ★
 
 支持数字输入框上滚动条的最小范围值在Alt按下时被动态改变。
 
@@ -19,7 +16,7 @@ Sub-item: SupportDynamicSliderMaxValue (SupportDynamicSliderMaxValue.md)
 - 目前源码中只有继承了FMathStructCustomization的FColorGradingVectorCustomizationBase（对应FVector4）才提取SupportDynamicSliderMinValue，然后自己创建SNumericEntryBox，从而正确的设置SupportDynamicSliderMinValue的值。
 - 因此如果你也想使得自己的结构里的数字属性支持该功能，也需要手动创建Customization，然后在里面手动创建SNumericEntryBox，从而自己设置SupportDynamicSliderMinValue的值。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = DynamicSliderTest, meta = (UIMin = "0", UIMax = "1"))
@@ -29,11 +26,11 @@ Sub-item: SupportDynamicSliderMaxValue (SupportDynamicSliderMaxValue.md)
 	FVector4 MyVector4_SupportDynamicSlider;
 ```
 
-测试结果：
+## 测试结果：
 
 可以看见MyVector4_NoDynamicSlider并无法更改0-1的滚动条范围。而MyVector4_SupportDynamicSlider在按下Alt同时拖动鼠标后可以改变最小和最大的UI范围。
 
-![DynamicSlider.gif](SupportDynamicSliderMinValue/DynamicSlider.gif)
+![DynamicSlider.gif](DynamicSlider.gif)
 
 ## 原理：
 

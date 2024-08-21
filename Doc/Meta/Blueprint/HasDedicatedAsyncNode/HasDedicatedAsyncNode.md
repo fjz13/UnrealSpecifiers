@@ -1,10 +1,8 @@
-# HasDedicatedAsyncNode
+﻿# HasDedicatedAsyncNode
 
-使用位置: UCLASS
-Feature: Blueprint
-元数据类型: bool
-Status: Done
-Parent item: ExposedAsyncProxy (ExposedAsyncProxy.md)
+- **使用位置：** UCLASS
+- **元数据类型：** bool
+- **关联项：** [ExposedAsyncProxy](../ExposedAsyncProxy/ExposedAsyncProxy.md)
 
 隐藏UBlueprintAsyncActionBase子类里工厂方法自动生成的蓝图异步节点，以便自己可以手动自定义创建一个相应的UK2Node_XXX。
 
@@ -19,7 +17,7 @@ class UBlueprintAsyncActionBase : public UObject
 {}
 ```
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType,meta = (ExposedAsyncProxy = MyAsyncObject,HasDedicatedAsyncNode))
@@ -97,13 +95,13 @@ bool UK2Node_MyFunctionAsyncAction::HandleDelegates(const TArray<FBaseAsyncTaskH
 
 ```
 
-蓝图效果：
+## 蓝图效果：
 
 左侧是引擎自带的UK2Node_AsyncAction生成节点，右边是自定义的UK2Node_MyFunctionAsyncAction生成的蓝图节点，虽然功能一致，但是右边额外加了个注释以便区分。有了这个基础，你也可以在其中继续重载方法进一步自定义。
 
-![Untitled](HasDedicatedAsyncNode/Untitled.png)
+![Untitled](Untitled.png)
 
-当前在源码里有两处地方使用：
+## 当前在源码里有两处地方使用：
 
 ```cpp
 UCLASS(BlueprintType, meta = (ExposedAsyncProxy = "AsyncTask", HasDedicatedAsyncNode))
@@ -139,13 +137,14 @@ class UMovieSceneAsyncAction_SequencePrediction : public UBlueprintAsyncActionBa
 }
 ```
 
-生成的蓝图：
+## 生成的蓝图：
 
 UAsyncAction_RegisterGameplayMessageReceiver由自定义的UK2Node_GameplayMessageAsyncAction来创建蓝图节点，从而提供了一个泛型的Payload输出引脚。而UMovieSceneAsyncAction_SequencePrediction 里的工厂方法PredictWorldTransformAtTime，由于隐藏了自动生成的版本，又没有加上BlueprintInternalUseOnly来抑制UHT生成的版本，因此最终呈现的是普通版本的静态函数蓝图节点。
 
-![Untitled](HasDedicatedAsyncNode/Untitled%201.png)
+## ![Untitled](Untitled%201.png)
 
-源码里的作用机制：
+## 源码里的作用机制：
+
 可以看到，如果在类上有找到HasDedicatedAsyncNode，直接就返回nullptr，不再生成NodeSpawner，因此就阻止了蓝图节点的生成。
 
 ```cpp

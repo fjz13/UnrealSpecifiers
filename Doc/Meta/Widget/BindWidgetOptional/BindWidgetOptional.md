@@ -1,15 +1,12 @@
-# BindWidgetOptional
+﻿# BindWidgetOptional
 
-功能描述: 指定在C++类中该Widget属性可以绑定到UMG的某个同名控件，也可以不绑定。
-使用位置: UPROPERTY
-Feature: UMG
-引擎模块: Widget Property
-元数据类型: bool
-限制类型: UWidget子类里属性
-Example: UPROPERTY(meta=(BindWidgetOptional))
-Status: Done
-Parent item: BindWidget (BindWidget.md)
-常用程度: 3
+- **功能描述：** 指定在C++类中该Widget属性可以绑定到UMG的某个同名控件，也可以不绑定。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Widget Property
+- **元数据类型：** bool
+- **限制类型：** UWidget子类里属性
+- **关联项：** [BindWidget](../BindWidget/BindWidget.md)
+- **常用程度：** ★★★
 
 指定在C++类中该Widget属性可以绑定到UMG的某个同名控件，也可以不绑定。
 
@@ -37,11 +34,11 @@ class INSIDER_API UMyProperty_BindWidget :public UUserWidget
 };
 ```
 
-测试效果：
+## 测试效果：
 
-![Untitled](BindWidgetOptional/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 ```cpp
 

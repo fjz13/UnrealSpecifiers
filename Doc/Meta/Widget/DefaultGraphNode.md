@@ -1,12 +1,10 @@
-# DefaultGraphNode
+﻿# DefaultGraphNode
 
-功能描述: 标记引擎默认创建的蓝图节点。
-使用位置: UCLASS
-Feature: Blueprint
-引擎模块: Widget Property
-元数据类型: bool
-Status: OnlyInternal
-常用程度: 0
+- **功能描述：** 标记引擎默认创建的蓝图节点。
+- **使用位置：** UCLASS
+- **引擎模块：** Widget Property
+- **元数据类型：** bool
+- **常用程度：** 0
 
 标记引擎默认创建的蓝图节点。
 
@@ -14,7 +12,7 @@ Status: OnlyInternal
 
 只在内部使用，用户不需要自己使用。
 
-原理：
+## 原理：
 
 ```cpp
 

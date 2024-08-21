@@ -1,17 +1,14 @@
-# ThumbnailSize
+﻿# ThumbnailSize
 
-功能描述: 改变缩略图的大小。
-使用位置: UCLASS, UPROPERTY
-Feature: Editor
-引擎模块: Object Property
-元数据类型: bool
-Example: DisplayThumbnail="true”
-Status: NotWorked
-Parent item: DisplayThumbnail (DisplayThumbnail.md)
+- **功能描述：** 改变缩略图的大小。
+- **使用位置：** UCLASS, UPROPERTY
+- **引擎模块：** Object Property
+- **元数据类型：** bool
+- **关联项：** [DisplayThumbnail](DisplayThumbnail/DisplayThumbnail.md)
 
 改变缩略图的大小。但发现并不会起作用。
 
-原理：
+## 原理：
 
 ```cpp
 void SObjectPropertyEntryBox::Construct( const FArguments& InArgs )

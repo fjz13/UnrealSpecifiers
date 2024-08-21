@@ -1,14 +1,11 @@
-# ArrayParm
+﻿# ArrayParm
 
-功能描述: 指定一个函数为使用Array<*>的函数，数组元素类型为通配符的泛型。
-使用位置: UFUNCTION
-Feature: Blueprint
-引擎模块: Blueprint
-元数据类型: strings="a，b，c"
-Example: ArrayParm="ArrayA, ArrayB, ..”
-Status: Done
-Sub-item: ArrayTypeDependentParams (ArrayTypeDependentParams.md)
-常用程度: 3
+- **功能描述：** 指定一个函数为使用Array<*>的函数，数组元素类型为通配符的泛型。
+- **使用位置：** UFUNCTION
+- **引擎模块：** Blueprint
+- **元数据类型：** strings="a，b，c"
+- **关联项：** [ArrayTypeDependentParams](../ArrayTypeDependentParams/ArrayTypeDependentParams.md)
+- **常用程度：** ★★★
 
 指定一个函数为使用Array<*>的函数，数组元素类型为通配符的泛型。
 
@@ -20,7 +17,7 @@ ArrayParam可以指定多个，用逗号分隔开。
 
 因为数组元素类型为通配符的泛型，因此在C++中实现的时候，要配合CustomThunk来自己写一些蓝图逻辑胶水代码才好正确处理不同的数组类型。这部分可以参照源码里UKismetArrayLibrary的样例模仿。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(Blueprintable, BlueprintType)
@@ -42,8 +39,8 @@ public:
 };
 ```
 
-蓝图效果：
+## 蓝图效果：
 
-![Untitled](ArrayParm/Untitled.png)
+![Untitled](Untitled.png)
 
 可以看到，在没有连接具体数组类型的时候，Array是灰色的通配符类型。而连接上不同的数组类型，Array参数引脚就会自动变成相应的类型，这些逻辑是在UK2Node_CallArrayFunction中实现的，有兴趣的去自行翻阅。

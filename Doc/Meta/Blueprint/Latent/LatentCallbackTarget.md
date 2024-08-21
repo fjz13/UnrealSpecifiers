@@ -1,12 +1,10 @@
-# LatentCallbackTarget
+﻿# LatentCallbackTarget
 
-功能描述: 用在FLatentActionInfo::CallbackTarget属性上，告诉蓝图VM在哪个对象上调用函数。
-使用位置: UPROPERTY
-Feature: Behavior
-元数据类型: bool
-Status: OnlyInternal
-Parent item: Latent (Latent.md)
-常用程度: 1
+- **功能描述：** 用在FLatentActionInfo::CallbackTarget属性上，告诉蓝图VM在哪个对象上调用函数。
+- **使用位置：** UPROPERTY
+- **元数据类型：** bool
+- **关联项：** [Latent](Latent.md)
+- **常用程度：** ★
 
 用在FLatentActionInfo::CallbackTarget属性上，告诉蓝图VM在哪个对象上调用函数。
 
@@ -25,7 +23,7 @@ struct FLatentActionInfo
 
 ```
 
-源码里作用的地方：
+## 源码里作用的地方：
 
 ```cpp
 void EmitLatentInfoTerm(FBPTerminal* Term, FProperty* LatentInfoProperty, FBlueprintCompiledStatement* TargetLabel)

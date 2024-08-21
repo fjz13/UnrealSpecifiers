@@ -1,15 +1,12 @@
-# ProhibitedInterfaces
+﻿# ProhibitedInterfaces
 
-功能描述: 列出与蓝图类不兼容的接口，阻止实现
-使用位置: UCLASS
-Feature: Blueprint
-引擎模块: Blueprint
-元数据类型: strings="a，b，c"
-Example: ProhibitedInterfaces="Interface1, Interface2, ..”
-Status: Done
-常用程度: 2
+- **功能描述：** 列出与蓝图类不兼容的接口，阻止实现
+- **使用位置：** UCLASS
+- **引擎模块：** Blueprint
+- **元数据类型：** strings="a，b，c"
+- **常用程度：** ★★
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UINTERFACE(Blueprintable,MinimalAPI)
@@ -48,13 +45,13 @@ public:
 };
 ```
 
-测试结果：
+## 测试结果：
 
 发现UMyInterface_Second被阻止实现了，但是UMyInterface_First依然可以被实现
 
-![Untitled](ProhibitedInterfaces/Untitled.png)
+![Untitled](Untitled.png)
 
-原理代码：
+## 原理代码：
 
 可以看到在构造列表的时候，进行了过滤筛选。同时发现了.RightChop(1);的使用，因此填的接口名称，要加上U的前缀。如果UMyInterface_Second
 

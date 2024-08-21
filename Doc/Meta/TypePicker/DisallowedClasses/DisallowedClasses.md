@@ -1,22 +1,19 @@
-# DisallowedClasses
+﻿# DisallowedClasses
 
-功能描述: 用在类或对象选择器上，指定选择的对象排除掉某一些类型基类。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: TypePicker
-元数据类型: strings="a，b，c"
-限制类型: TSubClassOf，UClass*，FSoftClassPath，FComponentReference
-Example: DisallowedClasses="Class1, Class2, ..”
-Status: Done
-Parent item: AllowedClasses (AllowedClasses.md)
-常用程度: 3
+- **功能描述：** 用在类或对象选择器上，指定选择的对象排除掉某一些类型基类。
+- **使用位置：** UPROPERTY
+- **引擎模块：** TypePicker
+- **元数据类型：** strings="a，b，c"
+- **限制类型：** TSubClassOf，UClass*，FSoftClassPath，FComponentReference
+- **关联项：** [AllowedClasses](../AllowedClasses/AllowedClasses.md)
+- **常用程度：** ★★★
 
 用在类或对象选择器上，指定选择的对象排除掉某一些类型基类。
 
 - 类选择器的应用属性是：TSubClassOf，UClass*，FSoftClassPath。不能应用的属性是：UScriptStruct*
 - 对象选择器的应用属性是：FComponentReference。会发现相比AllowedClasses少了“UObject*， FSoftObjectPath，FPrimaryAssetId”，这是因为这3个对应的UI是SAssetPicker，而这个里面并没有应用FARFilter.RecursiveClassPathsExclusionSet来进行排除。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 public:
@@ -70,18 +67,18 @@ public:
 
 ```
 
-测试效果：
+## 测试效果：
 
 - 在类选择器上，可见加了DisallowedClasses 之后，就排除掉了AbilityAsync类。
 - 而在对象选择器上，却没必要发生作用。二者的可选对象列表是一样的。原因是因为SAssetPicker并没有实际上应用DisallowedClasses 。
 
-![DisallowedClasses.jpg](DisallowedClasses/DisallowedClasses.jpg)
+![DisallowedClasses.jpg](DisallowedClasses.jpg)
 
 而在FComponentReference上的测试效果是：
 
 DisallowedClasses可以排除掉MyActorComponent。
 
-![DisallowedClasses_ComponentReference.jpg](DisallowedClasses/DisallowedClasses_ComponentReference.jpg)
+![DisallowedClasses_ComponentReference.jpg](DisallowedClasses_ComponentReference.jpg)
 
 ## 原理：
 

@@ -1,14 +1,12 @@
-# ContentDir
+﻿# ContentDir
 
-功能描述: 使用UE的风格来选择Content以及子目录。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: Path Property
-元数据类型: bool
-限制类型: FDirectoryPath
-Status: Done
-Sub-item: RelativePath (RelativePath.md), RelativeToGameContentDir (RelativeToGameContentDir.md)
-常用程度: 3
+- **功能描述：** 使用UE的风格来选择Content以及子目录。
+- **使用位置：** UPROPERTY
+- **引擎模块：** Path Property
+- **元数据类型：** bool
+- **限制类型：** FDirectoryPath
+- **关联项：** [RelativePath](../RelativePath.md), [RelativeToGameContentDir](../RelativeToGameContentDir.md)
+- **常用程度：** ★★★
 
 使用UE的风格来选择Content以及子目录。
 
@@ -16,7 +14,7 @@ Sub-item: RelativePath (RelativePath.md), RelativeToGameContentDir (RelativeToGa
 
 在使用FDirectoryPath的时候，ContentDir和LongPackageName是等价的。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UCLASS(BlueprintType)
@@ -41,15 +39,15 @@ public:
 
 ```
 
-测试结果：
+## 测试结果：
 
 - 默认的MyDirectory_Default会打开系统对话框，可以选择任何目录。
 - MyDirectory_ContentDir和MyDirectory_LongPackageName，会如图所示弹出UE风格的对话框来选择目录。
 - MyDirectory_RelativeToGameContentDir和MyDirectory_RelativePath都会弹出系统对话框，不同的是MyDirectory_RelativeToGameContentDir最终的目录会限制在Content目录下（如果选择别的目录，会弹出错误警告），结果是个相对路径。MyDirectory_RelativePath的结果也是个相对路径，但是可以选择任意目录。
 
-![Untitled](ContentDir/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 FDirectoryPath的编辑有FDirectoryPathStructCustomization来定制化。根据其代码可见，如果有ContentDir或LongPackageName，则则是个ContentDir，则会采用OnPickContent来选择目录。内部再用ContentBrowserModule.Get().CreatePathPicker(PathPickerConfig)来创建专门的目录选择菜单。
 

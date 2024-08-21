@@ -1,14 +1,12 @@
-# NeedsLatentFixup
+﻿# NeedsLatentFixup
 
-功能描述: 用在FLatentActionInfo::Linkage属性上，告诉蓝图VM生成跳转信息
-使用位置: UPROPERTY
-Feature: Behavior
-元数据类型: bool
-Status: OnlyInternal
-Parent item: Latent (Latent.md)
-常用程度: 1
+- **功能描述：** 用在FLatentActionInfo::Linkage属性上，告诉蓝图VM生成跳转信息
+- **使用位置：** UPROPERTY
+- **元数据类型：** bool
+- **关联项：** [Latent](Latent.md)
+- **常用程度：** ★
 
-在源码里找到的用处：
+## 在源码里找到的用处：
 
 ```cpp
 USTRUCT(BlueprintInternalUseOnly)
@@ -25,7 +23,7 @@ struct FLatentActionInfo
 
 ```
 
-源码里发挥作用的地方：
+## 源码里发挥作用的地方：
 
 看着就是把Linkage这个属性进行单独的处理。用来在JumpTargetFixupMap里进行专门的跳转
 

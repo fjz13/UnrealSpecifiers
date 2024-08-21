@@ -1,11 +1,9 @@
-# OnEvaluate
+﻿# OnEvaluate
 
-使用位置: UPROPERTY
-Feature: Blueprint
-引擎模块: AnimationGraph
-Status: Invalid
+- **使用位置：** UPROPERTY
+- **引擎模块：** AnimationGraph
 
-原理：
+## 原理：
 
 在源码中发现，说明OnEvaluate已经放弃了。
 

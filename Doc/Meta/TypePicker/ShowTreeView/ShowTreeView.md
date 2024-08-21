@@ -1,19 +1,17 @@
-# ShowTreeView
+﻿# ShowTreeView
 
-功能描述: 用于选择Class或Struct的属性上，使得在类选取器中显示为树形而不是列表。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: TypePicker
-元数据类型: bool
-限制类型: TSubClassOf，FSoftClassPath，UClass*，UScriptStruct*，FInstancedStruct 
-Status: Done
-常用程度: 2
+- **功能描述：** 用于选择Class或Struct的属性上，使得在类选取器中显示为树形而不是列表。
+- **使用位置：** UPROPERTY
+- **引擎模块：** TypePicker
+- **元数据类型：** bool
+- **限制类型：** TSubClassOf，FSoftClassPath，UClass*，UScriptStruct*，FInstancedStruct 
+- **常用程度：** ★★
 
 用于选择Class或Struct的属性上，使得在类选取器中显示为树形而不是列表。
 
 应用的属性类型有TSubClassOf，FSoftClassPath，UClass*，UScriptStruct*，FInstancedStruct 这种用于选择类型的属性。如果是TSoftObjectPtr或者FSoftObjectPath这种用于选择对象的则不起作用。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ShowTreeViewTest|TSubclassOf")
@@ -47,13 +45,13 @@ Status: Done
 	FInstancedStruct MyInstancedStruct_ShowTreeView;
 ```
 
-测试结果：
+## 测试结果：
 
 可见带有ShowTreeView的属性，在弹出的选择框上显示的是树形而不是列表。
 
-![ShowTreeView.jpg](ShowTreeView/ShowTreeView.jpg)
+![ShowTreeView.jpg](ShowTreeView.jpg)
 
-原理：
+## 原理：
 
 在源码中对于TSubClassOf和UClass*有SPropertyEditorClass，对于FSoftClassPath有FSoftClassPathCustomization，对于UScriptStruct*有SPropertyEditorStruct，对于FInstancedStruct 有FInstancedStructDetails来进行UI定制化。
 

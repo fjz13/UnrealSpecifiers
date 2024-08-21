@@ -1,11 +1,9 @@
-# HideSpawnParms
+﻿# HideSpawnParms
 
-功能描述: 在UGamelayTask子类生成的蓝图异步节点上隐藏UGamelayTask子类继承链中某些属性。
-使用位置: UFUNCTION
-Feature: Blueprint
-元数据类型: strings="a，b，c"
-Status: Done
-Parent item: ExposedAsyncProxy (ExposedAsyncProxy.md)
+- **功能描述：** 在UGamelayTask子类生成的蓝图异步节点上隐藏UGamelayTask子类继承链中某些属性。
+- **使用位置：** UFUNCTION
+- **元数据类型：** strings="a，b，c"
+- **关联项：** [ExposedAsyncProxy](../../ExposedAsyncProxy/ExposedAsyncProxy.md)
 
 在UGamelayTask子类生成的蓝图异步节点上隐藏UGamelayTask子类继承链中某些属性。
 
@@ -18,9 +16,9 @@ HideSpawnParms 只在UK2Node_LatentGameplayTaskCall中判断，因此只作用�
 
 保留和去掉HideSpawnParms 的蓝图的节点都为：
 
-![Untitled](HideSpawnParms/Untitled.png)
+![Untitled](Untitled.png)
 
-源码里发生的位置：
+## 源码里发生的位置：
 
 ```cpp
 void UK2Node_LatentGameplayTaskCall::CreatePinsForClass(UClass* InClass)

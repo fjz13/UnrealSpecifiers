@@ -1,17 +1,15 @@
-# RowType
+﻿# RowType
 
-功能描述: 指定FDataTableRowHandle 属性的可选行类型的基类。
-使用位置: UPROPERTY
-Feature: Behavior
-引擎模块: TypePicker
-元数据类型: string="abc"
-限制类型: FDataTableRowHandle
-Status: Done
-常用程度: 3
+- **功能描述：** 指定FDataTableRowHandle 属性的可选行类型的基类。
+- **使用位置：** UPROPERTY
+- **引擎模块：** TypePicker
+- **元数据类型：** string="abc"
+- **限制类型：** FDataTableRowHandle
+- **常用程度：** ★★★
 
 指定FDataTableRowHandle 属性的可选行类型的基类。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 USTRUCT(BlueprintType)
@@ -38,15 +36,15 @@ public:
 
 ```
 
-测试结果：
+## 测试结果：
 
 在编辑器中创建基于FMyCommonRow 的DataTable，即DT_MyCommonRow。当然项目里也有别的RowStruct的DataTable。
 
 可以见到MyRowHandle_RowType的选项被限定到了DT_MyCommonRow，而且RowName也正确的显示了出来。
 
-![Untitled](RowType/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 也是针对于FDataTableRowHandle这个类型进行UI的定制化，如果有该RowType数据，则赋值到RowFilterStruct ，从而完成筛选。
 

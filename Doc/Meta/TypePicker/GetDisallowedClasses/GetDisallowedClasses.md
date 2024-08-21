@@ -1,22 +1,19 @@
-# GetDisallowedClasses
+﻿# GetDisallowedClasses
 
-功能描述: 用在类选择器上，通过一个函数来指定选择的类型列表中排除掉某一些类型基类。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: TypePicker
-元数据类型: string="abc"
-限制类型: TSubClassOf，UClass*
-Example: meta=(GetDisallowedClasses="FuncName").
-Status: Done
+- **功能描述：** 用在类选择器上，通过一个函数来指定选择的类型列表中排除掉某一些类型基类。
+- **使用位置：** UPROPERTY
+- **引擎模块：** TypePicker
+- **元数据类型：** string="abc"
+- **限制类型：** TSubClassOf，UClass*
 Code: TArray<UClass*> FuncName() const;
-Parent item: AllowedClasses (AllowedClasses.md)
-常用程度: 2
+- **关联项：** [AllowedClasses](../AllowedClasses/AllowedClasses.md)
+- **常用程度：** ★★
 
 大体和GetAllowedClasses相同，只是相反的作用。
 
 但作用的属性类型和DisallowedClasses相似，只能作用在类选择器上。因此经过测试下来，只能作用在TSubClassOf，UClass*。
 
-测试代码：
+## 测试代码：
 
 ```cpp
 UFUNCTION()
@@ -42,11 +39,11 @@ UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GetDisallowedClassesTest
 UClass* MyClassPtr_GetDisallowedClasses;
 ```
 
-测试效果：
+## 测试效果：
 
 可以发现加了GetDisallowedClasses之后，选择列表上少了一些类型。
 
-![GetDisallowedClasses.jpg](GetDisallowedClasses/GetDisallowedClasses.jpg)
+![GetDisallowedClasses.jpg](GetDisallowedClasses.jpg)
 
 ## 原理：
 

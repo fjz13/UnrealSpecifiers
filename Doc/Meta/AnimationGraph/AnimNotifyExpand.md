@@ -1,18 +1,16 @@
-# AnimNotifyExpand
+﻿# AnimNotifyExpand
 
-功能描述: 使得UAnimNotify或UAnimNotifyState下的属性直接展开到细节面板里。
-使用位置: UPROPERTY
-Feature: Editor
-引擎模块: AnimationGraph
-元数据类型: bool
-限制类型: UAnimNotify或UAnimNotifyState子类下的FName属性
-Status: NotUsed
+- **功能描述：** 使得UAnimNotify或UAnimNotifyState下的属性直接展开到细节面板里。
+- **使用位置：** UPROPERTY
+- **引擎模块：** AnimationGraph
+- **元数据类型：** bool
+- **限制类型：** UAnimNotify或UAnimNotifyState子类下的FName属性
 
 使得UAnimNotify或UAnimNotifyState下的属性直接展开到细节面板里。
 
 在源码里也没有找到应用的例子。
 
-原理：
+## 原理：
 
 看源码，里面写死了只对有限的引擎自带的几个类起效，因此自己的测试代码并不能生效。
 

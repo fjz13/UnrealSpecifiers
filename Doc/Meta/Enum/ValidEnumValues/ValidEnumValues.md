@@ -1,18 +1,18 @@
-# ValidEnumValues
+﻿# ValidEnumValues
 
-功能描述: 指定枚举属性值上可选的枚举值选项
-使用位置: UPROPERTY
-Feature: Blueprint
-引擎模块: Enum Property
-元数据类型: strings="a，b，c"
-限制类型: 枚举属性值
-Status: Done
-Sub-item: InvalidEnumValues (InvalidEnumValues.md), GetRestrictedEnumValues (GetRestrictedEnumValues.md), EnumValueDisplayNameOverrides (EnumValueDisplayNameOverrides.md), Enum (Enum.md)
-常用程度: 3
+- **功能描述：** 指定枚举属性值上可选的枚举值选项
+- **使用位置：** UPROPERTY
+- **引擎模块：** Enum Property
+- **元数据类型：** strings="a，b，c"
+- **限制类型：** 枚举属性值
+- **关联项：** [InvalidEnumValues](../InvalidEnumValues.md), [GetRestrictedEnumValues](../GetRestrictedEnumValues.md), [EnumValueDisplayNameOverrides](../EnumValueDisplayNameOverrides/EnumValueDisplayNameOverrides.md), [Enum](../Enum.md)
+- **常用程度：** ★★★
 
 指定枚举属性值上可选的枚举值选项，默认情况下。枚举属性在细节面板上可选项为全部的枚举值，但我们可以通过ValidEnumValues来限制只展示这些值。
 
 枚举属性的写法有3种，分别是enum class，TEnumAsByte和FString叠加enum meta的写法，这3种写法都会被视为一个枚举属性然后尝试产生combo list来让用户选择属性值。
+
+## 示例代码：
 
 ```cpp
 UENUM(BlueprintType)
@@ -67,13 +67,13 @@ public:
 };
 ```
 
-蓝图效果：
+## 蓝图效果：
 
 可见默认情况下枚举属性会显示全部5个枚举值，但其他3个枚举属性值的可选列表被限制到了3个。
 
-![Untitled](ValidEnumValues/Untitled.png)
+![Untitled](Untitled.png)
 
-原理：
+## 原理：
 
 下述的代码，
 

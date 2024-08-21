@@ -1,13 +1,10 @@
-# LatentInfo
+﻿# LatentInfo
 
-功能描述: 和Latent配合，指明哪个函数参数是LatentInfo参数。
-使用位置: UFUNCTION
-Feature: Blueprint
-元数据类型: string="abc"
-Example: LatentInfo="Parameter”
-Status: Linked
-Parent item: Latent (Latent.md)
-常用程度: 3
+- **功能描述：** 和Latent配合，指明哪个函数参数是LatentInfo参数。
+- **使用位置：** UFUNCTION
+- **元数据类型：** string="abc"
+- **关联项：** [Latent](Latent.md)
+- **常用程度：** ★★★
 
 Latent的函数需要FLatentActionInfo才能工作。FLatentActionInfo里记录着这个延迟操作的ID以及下一步要执行的函数名称等。在蓝图的虚拟机运行环境下，一个Latent函数执行的时候，蓝图VM会收集当前的函数上下文信息（典型的比如下Latent函数连接的下一个节点），然后继续赋值到Latent函数的FLatentActionInfo参数上，再配合FPendingLatentAction注册到FLatentActionManager里面去。等时间到达或者触发条件达成后，FLatentActionManager会触发CallbackTarget->ProcessEvent(ExecutionFunction, &(LinkInfo.LinkID))，从而继续执行下去。
 
