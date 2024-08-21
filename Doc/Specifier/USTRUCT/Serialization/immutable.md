@@ -1,9 +1,9 @@
 # immutable
 
-- **功能描述：**Immutable is only legal in Object.h and is being phased out, do not use on new structs!
-- **元数据类型：**bool
-- **引擎模块：**Serialization
-- **作用机制：**在StructFlags中加入[STRUCT_Immutable](../../../Flags/EStructFlags/STRUCT_Immutable.md)
+- **功能描述：** Immutable is only legal in Object.h and is being phased out, do not use on new structs!
+- **元数据类型：** bool
+- **引擎模块：** Serialization
+- **作用机制：** 在StructFlags中加入[STRUCT_Immutable](../../../Flags/EStructFlags/STRUCT_Immutable.md)
 
 当前只在noexporttypes.h里找到一堆Struct
 

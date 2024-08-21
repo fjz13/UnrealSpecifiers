@@ -1,9 +1,9 @@
 # ConversionRoot
 
-- **功能描述：** 在场景编辑器里允许Actor在自身以及子类之间做转换
-- **引擎模块：**Scene
-- **元数据类型：**bool
-- **作用机制：**在Meta中增加[IsConversionRoot](../../../../Meta/Blueprint/IsConversionRoot.md)
+- **功能描述：**  在场景编辑器里允许Actor在自身以及子类之间做转换
+- **引擎模块：** Scene
+- **元数据类型：** bool
+- **作用机制：** 在Meta中增加[IsConversionRoot](../../../../Meta/Blueprint/IsConversionRoot.md)
 - **常用程度：★**
 
 一般是用在Actor上，在Actor转换的时候用来限制转换的级别。比如ASkeletalMeshActor，AStaticMeshActor等。

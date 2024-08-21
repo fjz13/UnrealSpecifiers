@@ -1,10 +1,10 @@
 # ref
 
-- **功能描述：**使得函数的参数变成引用类型
+- **功能描述：** 使得函数的参数变成引用类型
 
-- **元数据类型：**bool
-- **引擎模块：**Blueprint, Parameter
-- **作用机制：**在PropertyFlags中加入[CPF_ReferenceParm](../../../../Flags/EPropertyFlags/CPF_ReferenceParm.md)
+- **元数据类型：** bool
+- **引擎模块：** Blueprint, Parameter
+- **作用机制：** 在PropertyFlags中加入[CPF_ReferenceParm](../../../../Flags/EPropertyFlags/CPF_ReferenceParm.md)
 - **常用程度：★★★★★**
 
 普通参数和引用参数的区别是，在获取参数的时候，Ref类型会直接获得实参的引用，而不是拷贝。这样就可以避免拷贝，保存修改。

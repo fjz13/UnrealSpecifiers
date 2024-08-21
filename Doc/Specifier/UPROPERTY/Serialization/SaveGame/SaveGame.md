@@ -1,9 +1,9 @@
 # SaveGame
 
-- **功能描述：**在SaveGame存档的时候，只序列化有SaveGame标记的属性，而不序列化别的属性。
-- **元数据类型：**bool
-- **引擎模块：**Serialization
-- **常用程度：**★★★★★
+- **功能描述：** 在SaveGame存档的时候，只序列化有SaveGame标记的属性，而不序列化别的属性。
+- **元数据类型：** bool
+- **引擎模块：** Serialization
+- **常用程度：** ★★★★★
 
 在SaveGame存档的时候，只序列化有SaveGame标记的属性，而不序列化别的属性。
 

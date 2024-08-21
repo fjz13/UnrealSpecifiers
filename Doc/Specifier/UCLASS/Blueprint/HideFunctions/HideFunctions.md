@@ -1,11 +1,11 @@
 # HideFunctions
 
-- **功能描述：**在子类的函数覆盖列表里隐藏掉某些函数。
-- **引擎模块：**Blueprint
-- **元数据类型：**strings=(abc，"d|e"，"x|y|z")
-- **作用机制：**在Meta中增加[HideFunctions](../../../../Meta/Blueprint/HideFunctions.md)
-- **关联项：**[ShowFunctions](../ShowFunctions.md)
-- **常用程度：**★★
+- **功能描述：** 在子类的函数覆盖列表里隐藏掉某些函数。
+- **引擎模块：** Blueprint
+- **元数据类型：** strings=(abc，"d|e"，"x|y|z")
+- **作用机制：** 在Meta中增加[HideFunctions](../../../../Meta/Blueprint/HideFunctions.md)
+- **关联项：** [ShowFunctions](../ShowFunctions.md)
+- **常用程度：** ★★
 
 在子类的函数覆盖列表里隐藏掉某些函数。
 

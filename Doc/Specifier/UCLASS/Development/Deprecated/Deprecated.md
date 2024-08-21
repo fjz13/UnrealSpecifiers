@@ -1,9 +1,9 @@
 # Deprecated
 
-- **功能描述：** 标明该类已经弃用。
-- **引擎模块：**Development
-- **元数据类型：**bool
-- **作用机制：**在ClassFlags添加[CLASS_Deprecated](../../../../Flags/EClassFlags/CLASS_Deprecated.md)、[CLASS_NotPlaceable](../../../../Flags/EClassFlags/CLASS_NotPlaceable.md)，在Meta添加[DeprecationMessage](../../../../Meta/Development/DeprecationMessage.md)、[DeprecatedProperty](../../../../Meta/Development/DeprecatedProperty/DeprecatedProperty.md)
+- **功能描述：**  标明该类已经弃用。
+- **引擎模块：** Development
+- **元数据类型：** bool
+- **作用机制：** 在ClassFlags添加[CLASS_Deprecated](../../../../Flags/EClassFlags/CLASS_Deprecated.md)、[CLASS_NotPlaceable](../../../../Flags/EClassFlags/CLASS_NotPlaceable.md)，在Meta添加[DeprecationMessage](../../../../Meta/Development/DeprecationMessage.md)、[DeprecatedProperty](../../../../Meta/Development/DeprecatedProperty/DeprecatedProperty.md)
 - **常用程度：★★★**
 
 标明该类已经弃用。

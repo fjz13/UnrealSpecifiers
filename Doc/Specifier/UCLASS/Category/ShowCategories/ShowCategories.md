@@ -1,10 +1,10 @@
 # ShowCategories
 
-- **功能描述：** 在类的ClassDefaults属性面板里显示某些Category的属性。
-- **引擎模块：**Category
-- **元数据类型：**strings=(abc，"d|e"，"x|y|z")
-- **作用机制：**在Meta中增加[HideCategories](../../../../Meta/DetailsPanel/HideCategories.md)
-- **关联项：**[HideCategories](../HideCategories/HideCategories.md)
+- **功能描述：**  在类的ClassDefaults属性面板里显示某些Category的属性。
+- **引擎模块：** Category
+- **元数据类型：** strings=(abc，"d|e"，"x|y|z")
+- **作用机制：** 在Meta中增加[HideCategories](../../../../Meta/DetailsPanel/HideCategories.md)
+- **关联项：** [HideCategories](../HideCategories/HideCategories.md)
 - **常用程度：★★★**
 
 在类的ClassDefaults属性面板里显示某些Category的属性。使列出的类别的继承自基类的HideCategories说明符无效。

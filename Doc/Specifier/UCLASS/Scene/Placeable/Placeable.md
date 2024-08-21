@@ -1,10 +1,10 @@
 # Placeable
 
-- **功能描述：** 标明该Actor可以放置在关卡里。
-- **引擎模块：**Scene
-- **元数据类型：**bool
-- **作用机制：**在ClassFlags中移除[CLASS_NotPlaceable](../../../../Flags/EClassFlags/CLASS_NotPlaceable.md)
-- **关联项：**[NotPlaceable](../NotPlaceable/NotPlaceable.md)
+- **功能描述：**  标明该Actor可以放置在关卡里。
+- **引擎模块：** Scene
+- **元数据类型：** bool
+- **作用机制：** 在ClassFlags中移除[CLASS_NotPlaceable](../../../../Flags/EClassFlags/CLASS_NotPlaceable.md)
+- **关联项：** [NotPlaceable](../NotPlaceable/NotPlaceable.md)
 - **常用程度：★★★**
 
 标明该Actor可以放置在关卡里。

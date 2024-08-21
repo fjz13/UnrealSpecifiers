@@ -1,9 +1,9 @@
 # Client
 
-- **功能描述：**在Client-owned的Actor上（PlayerController或Pawn）执行一个RPC函数，只运行在客户端上。对应的实现函数会添加_Implementation后缀。
-- **元数据类型：**bool
-- **引擎模块：**Network
-- **作用机制：**在FunctionFlags加入[FUNC_Net](../../../../Flags/EFunctionFlags/FUNC_Net.md)、[FUNC_NetClient](../../../../Flags/EFunctionFlags/FUNC_NetClient.md)
+- **功能描述：** 在Client-owned的Actor上（PlayerController或Pawn）执行一个RPC函数，只运行在客户端上。对应的实现函数会添加_Implementation后缀。
+- **元数据类型：** bool
+- **引擎模块：** Network
+- **作用机制：** 在FunctionFlags加入[FUNC_Net](../../../../Flags/EFunctionFlags/FUNC_Net.md)、[FUNC_NetClient](../../../../Flags/EFunctionFlags/FUNC_NetClient.md)
 - **常用程度：★★★★★**
 
 在Client-owned的Actor上（PlayerController或Pawn）执行一个RPC函数，只运行在客户端上。对应的实现函数会添加_Implementation后缀。

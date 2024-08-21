@@ -1,11 +1,11 @@
 # HasDefaults
 
-- **功能描述：**指定该结构的字段拥有默认值。这样如果本结构作为函数参数或返回值时候，函数则可以为其提供默认值。
-- **元数据类型：**bool
-- **引擎模块：**UHT
-- **限制类型：**只在NoExportTypes.h供UHT使用
-- **作用机制：**在FunctionFlags中加入[FUNC_HasDefaults](../../../Flags/EFunctionFlags/FUNC_HasDefaults.md)
-- **常用程度：**0
+- **功能描述：** 指定该结构的字段拥有默认值。这样如果本结构作为函数参数或返回值时候，函数则可以为其提供默认值。
+- **元数据类型：** bool
+- **引擎模块：** UHT
+- **限制类型：** 只在NoExportTypes.h供UHT使用
+- **作用机制：** 在FunctionFlags中加入[FUNC_HasDefaults](../../../Flags/EFunctionFlags/FUNC_HasDefaults.md)
+- **常用程度：** 0
 
 指定该结构的字段拥有默认值。
 

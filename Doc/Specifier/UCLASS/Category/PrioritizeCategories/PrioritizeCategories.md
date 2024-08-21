@@ -1,9 +1,9 @@
 # PrioritizeCategories
 
-- **功能描述：** 把指定的属性目录优先显示在细节面板的前面。
-- **引擎模块：**Category
-- **元数据类型：**strings=(abc，"d|e"，"x|y|z")
-- **作用机制：**在Meta中增加[PrioritizeCategories](../../../../Meta/DetailsPanel/PrioritizeCategories.md)
+- **功能描述：**  把指定的属性目录优先显示在细节面板的前面。
+- **引擎模块：** Category
+- **元数据类型：** strings=(abc，"d|e"，"x|y|z")
+- **作用机制：** 在Meta中增加[PrioritizeCategories](../../../../Meta/DetailsPanel/PrioritizeCategories.md)
 - **常用程度：★★★**
 
 把指定的属性目录优先显示在细节面板的前面。

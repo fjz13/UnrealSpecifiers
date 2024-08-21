@@ -1,11 +1,11 @@
 # Intrinsic
 
-- **功能描述：**指定UHT完全不为此类生成代码，需要自己手写。
+- **功能描述：** 指定UHT完全不为此类生成代码，需要自己手写。
 
-- **引擎模块：**UHT
-- **元数据类型：**bool
-- **作用机制：**在ClassFlags中增加[CLASS_Intrinsic](../../../Flags/EClassFlags/CLASS_Intrinsic.md)
-- **常用程度：**0
+- **引擎模块：** UHT
+- **元数据类型：** bool
+- **作用机制：** 在ClassFlags中增加[CLASS_Intrinsic](../../../Flags/EClassFlags/CLASS_Intrinsic.md)
+- **常用程度：** 0
 
 指定UHT完全不为此类生成代码，需要自己手写。
 

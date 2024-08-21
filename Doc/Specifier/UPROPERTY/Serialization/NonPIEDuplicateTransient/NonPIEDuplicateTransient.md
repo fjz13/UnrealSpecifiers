@@ -1,11 +1,11 @@
 # NonPIEDuplicateTransient
 
-- **功能描述：**在对象复制的时候，且在不是PIE的场合，忽略该属性。
+- **功能描述：** 在对象复制的时候，且在不是PIE的场合，忽略该属性。
 
-- **元数据类型：**bool
-- **引擎模块：**Serialization
-- **作用机制：**在PropertyFlags中加入[CPF_NonPIEDuplicateTransient](../../../../Flags/EPropertyFlags/CPF_NonPIEDuplicateTransient.md)
-- **常用程度：**★
+- **元数据类型：** bool
+- **引擎模块：** Serialization
+- **作用机制：** 在PropertyFlags中加入[CPF_NonPIEDuplicateTransient](../../../../Flags/EPropertyFlags/CPF_NonPIEDuplicateTransient.md)
+- **常用程度：** ★
 
 在对象复制的时候，且在不是PIE的场合，忽略该属性。
 

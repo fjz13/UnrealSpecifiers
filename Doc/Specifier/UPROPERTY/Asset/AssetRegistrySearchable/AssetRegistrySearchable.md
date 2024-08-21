@@ -1,10 +1,10 @@
 # AssetRegistrySearchable
 
-- **功能描述：**标记该属性可以作为AssetRegistry的Tag和Value值来进行资产的过滤搜索
-- **元数据类型：**bool
-- **引擎模块：**Asset
-- **作用机制：**在PropertyFlags中加入[CPF_AssetRegistrySearchable](../../../../Flags/EPropertyFlags/CPF_AssetRegistrySearchable.md)，在Meta中加入[RequiredAssetDataTags](../../../../Meta/Asset/RequiredAssetDataTags/RequiredAssetDataTags.md)、[DisallowedAssetDataTags](../../../../Meta/Asset/DisallowedAssetDataTags.md)
-- **常用程度：**★★★
+- **功能描述：** 标记该属性可以作为AssetRegistry的Tag和Value值来进行资产的过滤搜索
+- **元数据类型：** bool
+- **引擎模块：** Asset
+- **作用机制：** 在PropertyFlags中加入[CPF_AssetRegistrySearchable](../../../../Flags/EPropertyFlags/CPF_AssetRegistrySearchable.md)，在Meta中加入[RequiredAssetDataTags](../../../../Meta/Asset/RequiredAssetDataTags/RequiredAssetDataTags.md)、[DisallowedAssetDataTags](../../../../Meta/Asset/DisallowedAssetDataTags.md)
+- **常用程度：** ★★★
 
 不能用在结构属性上。
 

@@ -1,11 +1,11 @@
 # BlueprintType
 
-- **功能描述：**可当做变量类型
-- **引擎模块：**Blueprint
-- **元数据类型：**bool
-- **作用机制：**Meta增加[BlueprintType](../../../../Meta/Blueprint/BlueprintType.md)
-- **关联项：**[NotBlueprintType ](../NotBlueprintType.md)
-- **常用程度：**★★★★★
+- **功能描述：** 可当做变量类型
+- **引擎模块：** Blueprint
+- **元数据类型：** bool
+- **作用机制：** Meta增加[BlueprintType](../../../../Meta/Blueprint/BlueprintType.md)
+- **关联项：** [NotBlueprintType ](../NotBlueprintType.md)
+- **常用程度：** ★★★★★
 
 可当做变量类型。
 

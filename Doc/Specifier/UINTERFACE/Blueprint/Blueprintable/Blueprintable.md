@@ -1,10 +1,10 @@
 # Blueprintable
 
-- **功能描述：** 可以在蓝图中实现
-- **元数据类型：**bool
-- **引擎模块：**Blueprint
-- **作用机制：**在Meta中加入[IsBlueprintBase](../../../../Meta/Blueprint/IsBlueprintBase.md), [BlueprintType](../../../../Meta/Blueprint/BlueprintType.md)
-- **关联项：**[NotBlueprintable](../NotBlueprintable/NotBlueprintable.md)
+- **功能描述：**  可以在蓝图中实现
+- **元数据类型：** bool
+- **引擎模块：** Blueprint
+- **作用机制：** 在Meta中加入[IsBlueprintBase](../../../../Meta/Blueprint/IsBlueprintBase.md), [BlueprintType](../../../../Meta/Blueprint/BlueprintType.md)
+- **关联项：** [NotBlueprintable](../NotBlueprintable/NotBlueprintable.md)
 - **常用程度：★★★★★**
 
 是否可以在蓝图中实现。

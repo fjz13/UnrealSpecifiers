@@ -1,11 +1,11 @@
 # FieldNotify
 
-- **功能描述：**在打开MVVM插件后，使得该属性变成支持FieldNotify的属性。
+- **功能描述：** 在打开MVVM插件后，使得该属性变成支持FieldNotify的属性。
 
-- **元数据类型：**bool
-- **引擎模块：**MVVM, UHT
-- **限制类型：**ViewModel里的属性
-- **常用程度：**★★★★
+- **元数据类型：** bool
+- **引擎模块：** MVVM, UHT
+- **限制类型：** ViewModel里的属性
+- **常用程度：** ★★★★
 
 在打开MVVM插件后，使得该属性变成支持FieldNotify的属性。
 

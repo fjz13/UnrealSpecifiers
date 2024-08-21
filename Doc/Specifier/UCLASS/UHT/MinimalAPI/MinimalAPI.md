@@ -1,11 +1,11 @@
 # MinimalAPI
 
-- **功能描述：**不dll导出该类的函数，只导出类型信息当作变量。
+- **功能描述：** 不dll导出该类的函数，只导出类型信息当作变量。
 
-- **引擎模块：**DllExport
-- **元数据类型：**bool
-- **作用机制：**在ClassFlags增加[CLASS_MinimalAPI](../../../../Flags/EClassFlags/CLASS_MinimalAPI.md)
-- **常用程度：**★★★
+- **引擎模块：** DllExport
+- **元数据类型：** bool
+- **作用机制：** 在ClassFlags增加[CLASS_MinimalAPI](../../../../Flags/EClassFlags/CLASS_MinimalAPI.md)
+- **常用程度：** ★★★
 
 不dll导出该类的函数，只导出类型信息当作变量。
 

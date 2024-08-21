@@ -1,9 +1,9 @@
 # ComponentWrapperClass
 
-- **功能描述：** 指定该类为一个简单的封装类，忽略掉子类的Category相关设置。
-- **引擎模块：**Category
-- **元数据类型：**bool
-- **作用机制：**在Meta中增加[IgnoreCategoryKeywordsInSubclasses](../../../../Meta/DetailsPanel/IgnoreCategoryKeywordsInSubclasses.md)
+- **功能描述：**  指定该类为一个简单的封装类，忽略掉子类的Category相关设置。
+- **引擎模块：** Category
+- **元数据类型：** bool
+- **作用机制：** 在Meta中增加[IgnoreCategoryKeywordsInSubclasses](../../../../Meta/DetailsPanel/IgnoreCategoryKeywordsInSubclasses.md)
 - **常用程度：★★**
 
 指定该类为一个简单的封装类，忽略掉子类的Category相关设置。

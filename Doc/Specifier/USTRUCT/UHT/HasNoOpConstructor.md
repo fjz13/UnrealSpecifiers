@@ -1,10 +1,10 @@
 # HasNoOpConstructor
 
-- **功能描述：**指定该结构拥有ForceInit的构造函数，这样在作为BP function返回值的时候，可以调用来初始化
-- **元数据类型：**bool
-- **引擎模块：**UHT
-- **限制类型：**只在NoExportTypes.h供UHT使用
-- **常用程度：**0
+- **功能描述：** 指定该结构拥有ForceInit的构造函数，这样在作为BP function返回值的时候，可以调用来初始化
+- **元数据类型：** bool
+- **引擎模块：** UHT
+- **限制类型：** 只在NoExportTypes.h供UHT使用
+- **常用程度：** 0
 
 指定该结构拥有ForceInit的构造函数，这样在作为BP Function返回值或参数的时候，引擎就知道这个结构有这么一个构造函数可以调用来初始化。
 

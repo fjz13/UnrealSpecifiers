@@ -1,10 +1,10 @@
 # AutoExpandCategories
 
-- **功能描述：** 指定此类的对象在细节面板中应该自动展开的Category。
-- **引擎模块：**Category
-- **元数据类型：**strings=(abc，"d|e"，"x|y|z")
-- **作用机制：**在Meta中去除[AutoCollapseCategories](../../../../Meta/DetailsPanel/AutoCollapseCategories.md)，增加[AutoExpandCategories](../../../../Meta/DetailsPanel/AutoExpandCategories.md)
-- **关联项：**[AutoCollapseCategories](../AutoCollapseCategories/AutoCollapseCategories.md)
+- **功能描述：**  指定此类的对象在细节面板中应该自动展开的Category。
+- **引擎模块：** Category
+- **元数据类型：** strings=(abc，"d|e"，"x|y|z")
+- **作用机制：** 在Meta中去除[AutoCollapseCategories](../../../../Meta/DetailsPanel/AutoCollapseCategories.md)，增加[AutoExpandCategories](../../../../Meta/DetailsPanel/AutoExpandCategories.md)
+- **关联项：** [AutoCollapseCategories](../AutoCollapseCategories/AutoCollapseCategories.md)
 - **常用程度：★**
 
 指定此类的对象在细节面板中应该自动展开的Category。

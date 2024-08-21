@@ -1,11 +1,11 @@
 # DuplicateTransient
 
-- **功能描述：**在对象复制或COPY格式导出的时候，忽略该属性。
+- **功能描述：** 在对象复制或COPY格式导出的时候，忽略该属性。
 
-- **元数据类型：**bool
-- **引擎模块：**Serialization
-- **作用机制：**在PropertyFlags中加入[CPF_DuplicateTransient](../../../../Flags/EPropertyFlags/CPF_DuplicateTransient.md)
-- **常用程度：**★★
+- **元数据类型：** bool
+- **引擎模块：** Serialization
+- **作用机制：** 在PropertyFlags中加入[CPF_DuplicateTransient](../../../../Flags/EPropertyFlags/CPF_DuplicateTransient.md)
+- **常用程度：** ★★
 
 在对象复制或COPY格式导出的时候，忽略该属性。
 

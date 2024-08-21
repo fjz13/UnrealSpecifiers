@@ -1,9 +1,9 @@
 # ClassGroup
 
-- **功能描述：** 指定组件在Actor的AddComponent面板里的分组，以及在蓝图右键菜单中的分组。
-- **引擎模块：**Category, Editor
-- **元数据类型：**string="a|b|c"
-- **作用机制：**在Meta中增加[ClassGroupNames](../../../../Meta/DetailsPanel/ClassGroupNames.md)
+- **功能描述：**  指定组件在Actor的AddComponent面板里的分组，以及在蓝图右键菜单中的分组。
+- **引擎模块：** Category, Editor
+- **元数据类型：** string="a|b|c"
+- **作用机制：** 在Meta中增加[ClassGroupNames](../../../../Meta/DetailsPanel/ClassGroupNames.md)
 - **常用程度：★★★**
 
 指定组件在Actor的AddComponent面板里的分组，以及在蓝图右键菜单中的分组。

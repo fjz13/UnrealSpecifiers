@@ -1,9 +1,9 @@
 # Within
 
-- **功能描述：** 指定对象创建的时候必须依赖于OuterClassName的对象作为Outer。
-- **引擎模块：**Instance
-- **元数据类型：**string="abc"
-- **作用机制：**保存在UClass* UClass::ClassWithin=XXX的XXX中
+- **功能描述：**  指定对象创建的时候必须依赖于OuterClassName的对象作为Outer。
+- **引擎模块：** Instance
+- **元数据类型：** string="abc"
+- **作用机制：** 保存在UClass* UClass::ClassWithin=XXX的XXX中
 - **常用程度：★★★**
 
 指定对象创建的时候必须依赖于OuterClassName的对象作为Outer。

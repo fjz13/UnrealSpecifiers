@@ -1,11 +1,11 @@
 # CallInEditor
 
-- **功能描述：**可以在属性细节面板上作为一个按钮来调用该函数。
+- **功能描述：** 可以在属性细节面板上作为一个按钮来调用该函数。
 
-- **元数据类型：**bool
-- **引擎模块：**Editor
-- **作用机制：**在Meta中增加[CallInEditor](../../../../Meta/Blueprint/CallInEditor.md)
-- **常用程度：**★★★★★
+- **元数据类型：** bool
+- **引擎模块：** Editor
+- **作用机制：** 在Meta中增加[CallInEditor](../../../../Meta/Blueprint/CallInEditor.md)
+- **常用程度：** ★★★★★
 
 可以在属性细节面板上作为一个按钮来调用该函数。
 

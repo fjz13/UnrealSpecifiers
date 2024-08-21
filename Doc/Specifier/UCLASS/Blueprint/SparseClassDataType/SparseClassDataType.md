@@ -1,11 +1,11 @@
 # SparseClassDataType
 
-- **功能描述：**让Actor的一些重复不变的数据存放在一个共同的结构里，以达到减少内容使用量的目的
-- **引擎模块：**Blueprint
-- **元数据类型：**string="abc"
-- **作用机制：**在Meta中增加[SparseClassDataTypes](../../../../Meta/Blueprint/SparseClassDataTypes.md)
-- **关联项：**[NoGetter](../../../../Meta/SparseDataType/NoGetter/NoGetter.md)
-- **常用程度：**★★★
+- **功能描述：** 让Actor的一些重复不变的数据存放在一个共同的结构里，以达到减少内容使用量的目的
+- **引擎模块：** Blueprint
+- **元数据类型：** string="abc"
+- **作用机制：** 在Meta中增加[SparseClassDataTypes](../../../../Meta/Blueprint/SparseClassDataTypes.md)
+- **关联项：** [NoGetter](../../../../Meta/SparseDataType/NoGetter/NoGetter.md)
+- **常用程度：** ★★★
 
 这是个重构和性能优化的点。在使用SparseClassDataType的时候，分为两种情况，一是以前的Actor想利用这个特性来优化，二是新创建的Actor一开始就想使用这个特性。
 

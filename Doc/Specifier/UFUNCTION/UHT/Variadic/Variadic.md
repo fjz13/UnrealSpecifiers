@@ -1,11 +1,11 @@
 # Variadic
 
-- **功能描述：**标识一个函数可以接受任意类型的多个参数（包括input/output)．
+- **功能描述：** 标识一个函数可以接受任意类型的多个参数（包括input/output)．
 
-- **元数据类型：**bool
-- **引擎模块：**Blueprint, UHT
-- **作用机制：**在Meta中加入[Variadic](../../../../Meta/Blueprint/Variadic.md)
-- **常用程度：**★★★
+- **元数据类型：** bool
+- **引擎模块：** Blueprint, UHT
+- **作用机制：** 在Meta中加入[Variadic](../../../../Meta/Blueprint/Variadic.md)
+- **常用程度：** ★★★
 
 标识一个函数可以接受任意类型的多个参数（包括input/output)．
 

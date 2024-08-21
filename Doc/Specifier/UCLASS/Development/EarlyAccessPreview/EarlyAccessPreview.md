@@ -1,9 +1,9 @@
 # EarlyAccessPreview
 
-- **功能描述：** 标明该类是早期预览版，比试验版要更完善一些，但还是没到产品级。
-- **引擎模块：**Development
-- **元数据类型：**bool
-- **作用机制：**在Meta中添加[DevelopmentStatus](../../../../Meta/Development/DevelopmentStatus.md)，将类标记为EarlyAccess
+- **功能描述：**  标明该类是早期预览版，比试验版要更完善一些，但还是没到产品级。
+- **引擎模块：** Development
+- **元数据类型：** bool
+- **作用机制：** 在Meta中添加[DevelopmentStatus](../../../../Meta/Development/DevelopmentStatus.md)，将类标记为EarlyAccess
 - **常用程度：★★★**
 
 标明该类是早期预览版，比试验版要更完善一些，但还是没到产品级。

@@ -1,10 +1,10 @@
 # Optional
 
-- **功能描述：**标记该类的对象是可选的，在Cooking的时候可以选择是否要忽略保存它们。
+- **功能描述：** 标记该类的对象是可选的，在Cooking的时候可以选择是否要忽略保存它们。
 
-- **引擎模块：**Serialization
-- **作用机制：**在ClassFlags中添加[CLASS_Optional](../../../../Flags/EClassFlags/CLASS_Optional.md)
-- **常用程度：**★
+- **引擎模块：** Serialization
+- **作用机制：** 在ClassFlags中添加[CLASS_Optional](../../../../Flags/EClassFlags/CLASS_Optional.md)
+- **常用程度：** ★
 
 标记该类的对象是可选的，在Cooking的时候可以选择是否要忽略保存它们。
 

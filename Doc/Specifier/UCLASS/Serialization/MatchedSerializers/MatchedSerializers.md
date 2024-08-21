@@ -1,10 +1,10 @@
 # MatchedSerializers
 
-- **功能描述：**指定类支持文本结构序列化
-- **引擎模块：**Serialization
-- **元数据类型：**bool
-- **作用机制：**在ClassFlags中增加[CLASS_MatchedSerializers](../../../../Flags/EClassFlags/CLASS_MatchedSerializers.md)，在Meta中添加[MatchedSerializers](../../../../Meta/Serialization/MatchedSerializers.md)
-- **常用程度：**0
+- **功能描述：** 指定类支持文本结构序列化
+- **引擎模块：** Serialization
+- **元数据类型：** bool
+- **作用机制：** 在ClassFlags中增加[CLASS_MatchedSerializers](../../../../Flags/EClassFlags/CLASS_MatchedSerializers.md)，在Meta中添加[MatchedSerializers](../../../../Meta/Serialization/MatchedSerializers.md)
+- **常用程度：** 0
 
 该标识符只允许在NoExportTypes.h中使用，属于是引擎自用的内部标识符。
 

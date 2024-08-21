@@ -1,11 +1,11 @@
 # BlueprintNativeEvent
 
-- **功能描述：**可以在蓝图总覆盖实现，但是也在C++中提供一个默认实现。
+- **功能描述：** 可以在蓝图总覆盖实现，但是也在C++中提供一个默认实现。
 
-- **元数据类型：**bool
-- **引擎模块：**Blueprint
-- **作用机制：**在FunctionFlags中增加[FUNC_Event](../../../../Flags/EFunctionFlags/FUNC_Event.md)、[FUNC_BlueprintEvent](../../../../Flags/EFunctionFlags/FUNC_BlueprintEvent.md)
-- **常用程度：**★★★★★
+- **元数据类型：** bool
+- **引擎模块：** Blueprint
+- **作用机制：** 在FunctionFlags中增加[FUNC_Event](../../../../Flags/EFunctionFlags/FUNC_Event.md)、[FUNC_BlueprintEvent](../../../../Flags/EFunctionFlags/FUNC_BlueprintEvent.md)
+- **常用程度：** ★★★★★
 
 可以在蓝图总覆盖实现，但是也在C++中提供一个默认实现。
 

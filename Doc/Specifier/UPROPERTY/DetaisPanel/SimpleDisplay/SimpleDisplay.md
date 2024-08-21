@@ -1,10 +1,10 @@
 # SimpleDisplay
 
-- **功能描述：**在细节面板中直接可见，不折叠到高级中。
-- **元数据类型：**bool
-- **引擎模块：**DetailsPanel, Editor
-- **作用机制：**在PropertyFlags中加入[CPF_SimpleDisplay](../../../../Flags/EPropertyFlags/CPF_SimpleDisplay.md)
-- **常用程度：**★★★
+- **功能描述：** 在细节面板中直接可见，不折叠到高级中。
+- **元数据类型：** bool
+- **引擎模块：** DetailsPanel, Editor
+- **作用机制：** 在PropertyFlags中加入[CPF_SimpleDisplay](../../../../Flags/EPropertyFlags/CPF_SimpleDisplay.md)
+- **常用程度：** ★★★
 
 在细节面板中直接可见，不折叠到高级中。
 

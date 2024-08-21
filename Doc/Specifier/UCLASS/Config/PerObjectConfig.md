@@ -1,10 +1,10 @@
 # PerObjectConfig
 
-- **功能描述：** 在已经有config配置文件名字的情况下，指定应该按每个对象实例来存储值，而不是一个类一个存储值。
-- **引擎模块：**Config
-- **元数据类型：**bool
-- **作用机制：**在ClassFlags中增加[CLASS_PerObjectConfig](../../../Flags/EClassFlags/CLASS_PerObjectConfig.md)
-- **关联项：**[Config](Config.md)
+- **功能描述：**  在已经有config配置文件名字的情况下，指定应该按每个对象实例来存储值，而不是一个类一个存储值。
+- **引擎模块：** Config
+- **元数据类型：** bool
+- **作用机制：** 在ClassFlags中增加[CLASS_PerObjectConfig](../../../Flags/EClassFlags/CLASS_PerObjectConfig.md)
+- **关联项：** [Config](Config.md)
 - **常用程度：★★★★★**
 
 在已经有config配置文件名字的情况下，指定应该按每个对象实例来存储值，而不是一个类一个存储值。

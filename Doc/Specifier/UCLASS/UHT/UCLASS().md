@@ -1,11 +1,11 @@
 # UCLASS()
 
-- **功能描述：**留空的默认行为是不能在蓝图中被继承，不能在蓝图中定义变量，但拥有反射的功能。
+- **功能描述：** 留空的默认行为是不能在蓝图中被继承，不能在蓝图中定义变量，但拥有反射的功能。
 
-- **引擎模块：**UHT
-- **元数据类型：**bool
-- **作用机制：**在ClassFlags中增加[CLASS_MatchedSerializers](../../../Flags/EClassFlags/CLASS_MatchedSerializers.md), [CLASS_Native](../../../Flags/EClassFlags/CLASS_Native.md), [CLASS_RequiredAPI](../../../Flags/EClassFlags/CLASS_RequiredAPI.md), [CLASS_TokenStreamAssembled](../../../Flags/EClassFlags/CLASS_TokenStreamAssembled.md), [CLASS_Intrinsic](../../../Flags/EClassFlags/CLASS_Intrinsic.md), [CLASS_Constructed](../../../Flags/EClassFlags/CLASS_Constructed.md)
-- **关联项：**[不写UCLASS()](不写UCLASS().md)
+- **引擎模块：** UHT
+- **元数据类型：** bool
+- **作用机制：** 在ClassFlags中增加[CLASS_MatchedSerializers](../../../Flags/EClassFlags/CLASS_MatchedSerializers.md), [CLASS_Native](../../../Flags/EClassFlags/CLASS_Native.md), [CLASS_RequiredAPI](../../../Flags/EClassFlags/CLASS_RequiredAPI.md), [CLASS_TokenStreamAssembled](../../../Flags/EClassFlags/CLASS_TokenStreamAssembled.md), [CLASS_Intrinsic](../../../Flags/EClassFlags/CLASS_Intrinsic.md), [CLASS_Constructed](../../../Flags/EClassFlags/CLASS_Constructed.md)
+- **关联项：** [不写UCLASS()](不写UCLASS().md)
 - **常用程度：★★★★★**
 
 不能在蓝图中被继承，不能在蓝图中定义变量。

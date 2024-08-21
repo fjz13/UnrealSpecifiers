@@ -1,11 +1,11 @@
 # BlueprintInternalUseOnly
 
-- **功能描述：**指示不应向最终用户公开此函数。蓝图内部调用，不暴露给用户。
+- **功能描述：** 指示不应向最终用户公开此函数。蓝图内部调用，不暴露给用户。
 
-- **元数据类型：**bool
-- **引擎模块：**Blueprint, UHT
-- **作用机制：**在Meta中加入[BlueprintInternalUseOnly](../../../../Meta/Blueprint/BlueprintInternalUseOnly.md)、[BlueprintType](../../../../Meta/Blueprint/BlueprintType.md)
-- **常用程度：**★★★
+- **元数据类型：** bool
+- **引擎模块：** Blueprint, UHT
+- **作用机制：** 在Meta中加入[BlueprintInternalUseOnly](../../../../Meta/Blueprint/BlueprintInternalUseOnly.md)、[BlueprintType](../../../../Meta/Blueprint/BlueprintType.md)
+- **常用程度：** ★★★
 
 指示不应向最终用户公开此函数。蓝图内部调用，不暴露给用户。
 

@@ -1,10 +1,10 @@
 # Abstract
 
-- **功能描述：**指定此类为抽象基类。可被继承，但不可生成对象。
-- **引擎模块：**Blueprint
-- **元数据类型：**bool
-- **作用机制：**在ClassFlags中添加[CLASS_Abstract](../../../../Flags/EClassFlags/CLASS_Abstract.md)
-- **常用程度：**★★★★★
+- **功能描述：** 指定此类为抽象基类。可被继承，但不可生成对象。
+- **引擎模块：** Blueprint
+- **元数据类型：** bool
+- **作用机制：** 在ClassFlags中添加[CLASS_Abstract](../../../../Flags/EClassFlags/CLASS_Abstract.md)
+- **常用程度：** ★★★★★
 
 指定此类为抽象基类。可被继承，但不可生成对象。
 

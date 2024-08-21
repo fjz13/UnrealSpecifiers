@@ -1,10 +1,10 @@
 # NetMulticast
 
-- **功能描述：**定义一个多播RPC函数在服务器和客户端上都执行。对应的实现函数会添加_Implementation后缀。
+- **功能描述：** 定义一个多播RPC函数在服务器和客户端上都执行。对应的实现函数会添加_Implementation后缀。
 
-- **元数据类型：**bool
-- **引擎模块：**Network
-- **作用机制：**在FunctionFlags中加入[FUNC_Net](../../../../Flags/EFunctionFlags/FUNC_Net.md)、[FUNC_NetMulticast](../../../../Flags/EFunctionFlags/FUNC_NetMulticast.md)
+- **元数据类型：** bool
+- **引擎模块：** Network
+- **作用机制：** 在FunctionFlags中加入[FUNC_Net](../../../../Flags/EFunctionFlags/FUNC_Net.md)、[FUNC_NetMulticast](../../../../Flags/EFunctionFlags/FUNC_NetMulticast.md)
 - **常用程度：★★★★★**
 
 定义一个多播RPC函数在服务器和客户端上都执行。对应的实现函数会添加_Implementation后缀。

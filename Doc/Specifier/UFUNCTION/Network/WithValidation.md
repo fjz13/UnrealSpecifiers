@@ -1,9 +1,9 @@
 # WithValidation
 
-- **功能描述：**指定一个RPC函数在执行前需要验证，只有验证通过才可以执行。
-- **元数据类型：**bool
-- **引擎模块：**Network
-- **作用机制：**在FunctionFlags中加入[FUNC_NetValidate](../../../Flags/EFunctionFlags/FUNC_NetValidate.md)
+- **功能描述：** 指定一个RPC函数在执行前需要验证，只有验证通过才可以执行。
+- **元数据类型：** bool
+- **引擎模块：** Network
+- **作用机制：** 在FunctionFlags中加入[FUNC_NetValidate](../../../Flags/EFunctionFlags/FUNC_NetValidate.md)
 - **常用程度：★★★★★**
 
 指定一个RPC函数在执行前需要验证，只有验证通过才可以执行。

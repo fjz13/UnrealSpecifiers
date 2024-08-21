@@ -1,12 +1,12 @@
 # Transient
 
-- **功能描述：**指定该类的所有对象都略过序列化。
+- **功能描述：** 指定该类的所有对象都略过序列化。
 
-- **引擎模块：**Serialization
-- **元数据类型：**bool
-- **作用机制：**在ClassFlags中添加[CLASS_Transient](../../../../Flags/EClassFlags/CLASS_Transient.md)
-- **关联项：**[NonTransient](../NonTransient.md)
-- **常用程度：**★★★
+- **引擎模块：** Serialization
+- **元数据类型：** bool
+- **作用机制：** 在ClassFlags中添加[CLASS_Transient](../../../../Flags/EClassFlags/CLASS_Transient.md)
+- **关联项：** [NonTransient](../NonTransient.md)
+- **常用程度：** ★★★
 
 指定该类的所有对象都略过序列化。
 

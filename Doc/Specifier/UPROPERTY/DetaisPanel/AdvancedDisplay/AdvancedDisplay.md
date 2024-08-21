@@ -1,9 +1,9 @@
 # AdvancedDisplay
 
-- **功能描述：**被折叠到高级栏下，要手动打开。一般用在不太常用的属性上面。
-- **元数据类型：**bool
-- **引擎模块：**DetailsPanel, Editor
-- **作用机制：**在PropertyFlags中加入[CPF_AdvancedDisplay](../../../../Flags/EPropertyFlags/CPF_AdvancedDisplay.md)
+- **功能描述：** 被折叠到高级栏下，要手动打开。一般用在不太常用的属性上面。
+- **元数据类型：** bool
+- **引擎模块：** DetailsPanel, Editor
+- **作用机制：** 在PropertyFlags中加入[CPF_AdvancedDisplay](../../../../Flags/EPropertyFlags/CPF_AdvancedDisplay.md)
 - **常用程度：★★★★★**
 
 被折叠到高级栏下，要手动打开。一般用在不太常用的属性上面。

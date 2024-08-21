@@ -1,10 +1,10 @@
 # DefaultConfig
 
-- **功能描述：** 指定保存到的配置文件层级是Project/Config/DefaultXXX.ini。
-- **引擎模块：**Config
-- **元数据类型：**bool
-- **作用机制：**在ClassFlags中增加[CLASS_DefaultConfig](../../../../Flags/EClassFlags/CLASS_DefaultConfig.md)
-- **关联项：**[Config](../Config.md)
+- **功能描述：**  指定保存到的配置文件层级是Project/Config/DefaultXXX.ini。
+- **引擎模块：** Config
+- **元数据类型：** bool
+- **作用机制：** 在ClassFlags中增加[CLASS_DefaultConfig](../../../../Flags/EClassFlags/CLASS_DefaultConfig.md)
+- **关联项：** [Config](../Config.md)
 - **常用程度：★★★**
 
 指定保存到的配置文件层级是Project/Config/DefaultXXX.ini。

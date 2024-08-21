@@ -1,10 +1,10 @@
 # ConfigDoNotCheckDefaults
 
-- **功能描述：** 指定在保存配置值的时候忽略上一级的配置值的一致性检查。
-- **引擎模块：**Config
-- **元数据类型：**bool
-- **作用机制：**在ClassFlags中增加[CLASS_ConfigDoNotCheckDefaults](../../../Flags/EClassFlags/CLASS_ConfigDoNotCheckDefaults.md)
-- **关联项：**[Config](Config.md)
+- **功能描述：**  指定在保存配置值的时候忽略上一级的配置值的一致性检查。
+- **引擎模块：** Config
+- **元数据类型：** bool
+- **作用机制：** 在ClassFlags中增加[CLASS_ConfigDoNotCheckDefaults](../../../Flags/EClassFlags/CLASS_ConfigDoNotCheckDefaults.md)
+- **关联项：** [Config](Config.md)
 - **常用程度：★**
 
 指定在保存配置值的时候忽略上一级的配置值的一致性检查。

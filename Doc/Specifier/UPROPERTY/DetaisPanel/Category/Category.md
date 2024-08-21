@@ -1,9 +1,9 @@
 # Category
 
-- **功能描述：**指定属性的类别，使用 | 运算符定义嵌套类目。
-- **元数据类型：**strings=“a|b|c”
-- **引擎模块：**DetailsPanel, Editor
-- **作用机制：**在Meta中加入[Category](../../../../Meta/DetailsPanel/Category.md)
+- **功能描述：** 指定属性的类别，使用 | 运算符定义嵌套类目。
+- **元数据类型：** strings=“a|b|c”
+- **引擎模块：** DetailsPanel, Editor
+- **作用机制：** 在Meta中加入[Category](../../../../Meta/DetailsPanel/Category.md)
 - **常用程度：★★★★★**
 
 指定属性的类别，使用 | 运算符定义嵌套类目。

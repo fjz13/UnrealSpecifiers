@@ -1,12 +1,12 @@
 # NoClear
 
-- **功能描述：**指定该属性的编辑选项中不出现Clear按钮，不允许置null。
+- **功能描述：** 指定该属性的编辑选项中不出现Clear按钮，不允许置null。
 
-- **元数据类型：**bool
-- **引擎模块：**DetailsPanel, Editor
-- **限制类型：**引用类型
-- **作用机制：**在PropertyFlags中加入[CPF_NoClear](../../../../Flags/EPropertyFlags/CPF_NoClear.md)
-- **常用程度：**★★★
+- **元数据类型：** bool
+- **引擎模块：** DetailsPanel, Editor
+- **限制类型：** 引用类型
+- **作用机制：** 在PropertyFlags中加入[CPF_NoClear](../../../../Flags/EPropertyFlags/CPF_NoClear.md)
+- **常用程度：** ★★★
 
 指定该属性的编辑选项中不出现Clear按钮。
 

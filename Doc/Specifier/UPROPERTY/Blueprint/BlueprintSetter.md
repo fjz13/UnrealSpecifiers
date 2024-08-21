@@ -1,11 +1,11 @@
 # BlueprintSetter
 
-- **功能描述：**采用一个自定义的set函数来读取。
+- **功能描述：** 采用一个自定义的set函数来读取。
 
-- **元数据类型：**string="abc"
-- **引擎模块：**Blueprint
-- **作用机制：**在PropertyFlags中加入[CPF_BlueprintVisible](../../../Flags/EPropertyFlags/CPF_BlueprintVisible.md)，在Meta中加入[BlueprintSetter](../../../Meta/Blueprint/BlueprintSetter.md)
-- **常用程度：**★★★
+- **元数据类型：** string="abc"
+- **引擎模块：** Blueprint
+- **作用机制：** 在PropertyFlags中加入[CPF_BlueprintVisible](../../../Flags/EPropertyFlags/CPF_BlueprintVisible.md)，在Meta中加入[BlueprintSetter](../../../Meta/Blueprint/BlueprintSetter.md)
+- **常用程度：** ★★★
 
 采用一个自定义的set函数来读取。
 

@@ -1,10 +1,10 @@
 # Const
 
-- **功能描述：**表示本类的内部属性不可在蓝图中被修改，只读不可写。
-- **引擎模块：**Blueprint
-- **元数据类型：**bool
-- **作用机制：**在ClassFlags中添加[CLASS_Abstract](../../../../Flags/EClassFlags/CLASS_Const.md)
-- **常用程度：**★★★
+- **功能描述：** 表示本类的内部属性不可在蓝图中被修改，只读不可写。
+- **引擎模块：** Blueprint
+- **元数据类型：** bool
+- **作用机制：** 在ClassFlags中添加[CLASS_Abstract](../../../../Flags/EClassFlags/CLASS_Const.md)
+- **常用程度：** ★★★
 
 表示本类的内部属性不可在蓝图中被修改，只读不可写。
 

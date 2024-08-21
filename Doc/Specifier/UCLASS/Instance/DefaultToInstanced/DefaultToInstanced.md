@@ -1,9 +1,9 @@
 # DefaultToInstanced
 
-- **功能描述：** 指定该类的所有实例属性都默认是UPROPERTY(instanced)，即都默认创建新的实例，而不是对对象的引用。
-- **引擎模块：**Instance
-- **元数据类型：**bool
-- **作用机制：**在ClassFlags中添加[CLASS_DefaultToInstanced](../../../../Flags/EClassFlags/CLASS_DefaultToInstanced.md)
+- **功能描述：**  指定该类的所有实例属性都默认是UPROPERTY(instanced)，即都默认创建新的实例，而不是对对象的引用。
+- **引擎模块：** Instance
+- **元数据类型：** bool
+- **作用机制：** 在ClassFlags中添加[CLASS_DefaultToInstanced](../../../../Flags/EClassFlags/CLASS_DefaultToInstanced.md)
 - **常用程度：★★★★**
 
 指定该类的所有实例属性都默认是UPROPERTY(instanced)，即都默认创建新的实例，而不是对对象的引用。

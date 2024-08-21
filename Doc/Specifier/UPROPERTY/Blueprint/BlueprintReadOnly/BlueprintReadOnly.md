@@ -1,10 +1,10 @@
 # BlueprintReadOnly
 
-- **功能描述：**此属性可由蓝图读取，但不能被修改。
-- **元数据类型：**bool
-- **引擎模块：**Blueprint
-- **作用机制：**在PropertyFlags中加入[CPF_BlueprintVisible](../../../../Flags/EPropertyFlags/CPF_BlueprintVisible.md), [CPF_BlueprintReadOnly](../../../../Flags/EPropertyFlags/CPF_BlueprintReadOnly.md)
-- **常用程度：**★★★★★
+- **功能描述：** 此属性可由蓝图读取，但不能被修改。
+- **元数据类型：** bool
+- **引擎模块：** Blueprint
+- **作用机制：** 在PropertyFlags中加入[CPF_BlueprintVisible](../../../../Flags/EPropertyFlags/CPF_BlueprintVisible.md), [CPF_BlueprintReadOnly](../../../../Flags/EPropertyFlags/CPF_BlueprintReadOnly.md)
+- **常用程度：** ★★★★★
 
 此属性可由蓝图读取，但不能被修改。此说明符与 BlueprintReadWrite 说明符不兼容。
 

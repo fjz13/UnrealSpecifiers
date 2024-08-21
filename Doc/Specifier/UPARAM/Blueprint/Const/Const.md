@@ -1,10 +1,10 @@
 # Const
 
-- **功能描述：**指定该函数参数不可更改
-- **元数据类型：**bool
-- **引擎模块：**Blueprint, Parameter
-- **作用机制：**在PropertyFlags中加入[CPF_ConstParm](../../../../Flags/EPropertyFlags/CPF_ConstParm.md)，在Meta中加入[NativeConst](../../../../Meta/Blueprint/NativeConst.md)
-- **常用程度：**★
+- **功能描述：** 指定该函数参数不可更改
+- **元数据类型：** bool
+- **引擎模块：** Blueprint, Parameter
+- **作用机制：** 在PropertyFlags中加入[CPF_ConstParm](../../../../Flags/EPropertyFlags/CPF_ConstParm.md)，在Meta中加入[NativeConst](../../../../Meta/Blueprint/NativeConst.md)
+- **常用程度：** ★
 
 指定该函数参数不可更改。
 

@@ -1,9 +1,9 @@
 # BlueprintInternalUseOnlyHierarchical
 
-- **功能描述：** 在BlueprintInternalUseOnly的基础上，增加了子类也不能定义新BP变量的限制。
-- **元数据类型：**bool
-- **引擎模块：**Blueprint
-- **作用机制：**在Meta中加入[BlueprintInternalUseOnlyHierarchical](../../../Meta/Blueprint/BlueprintInternalUseOnlyHierarchical.md)
+- **功能描述：**  在BlueprintInternalUseOnly的基础上，增加了子类也不能定义新BP变量的限制。
+- **元数据类型：** bool
+- **引擎模块：** Blueprint
+- **作用机制：** 在Meta中加入[BlueprintInternalUseOnlyHierarchical](../../../Meta/Blueprint/BlueprintInternalUseOnlyHierarchical.md)
 - **常用程度：★**
 
 在BlueprintInternalUseOnly的基础上，增加了子类也不能定义新BP变量的限制。

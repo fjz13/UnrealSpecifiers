@@ -1,11 +1,11 @@
 # Exec
 
-- **功能描述：**在特定类里注册一个函数为作为控制台命令，允许接受参数。
-- **元数据类型：**bool
-- **引擎模块：**Behavior
-- **限制类型：**特定的几个类
-- **作用机制：**在FunctionFlags中加入[FUNC_Exec](../../../Flags/EFunctionFlags/FUNC_Exec.md)
-- **常用程度：**★★★
+- **功能描述：** 在特定类里注册一个函数为作为控制台命令，允许接受参数。
+- **元数据类型：** bool
+- **引擎模块：** Behavior
+- **限制类型：** 特定的几个类
+- **作用机制：** 在FunctionFlags中加入[FUNC_Exec](../../../Flags/EFunctionFlags/FUNC_Exec.md)
+- **常用程度：** ★★★
 
 一般特定的几个类是：UPlayerInput，APlayerController，APawn，AHUD，AGameModeBase，ACheatManager，AGameStateBase，APlayerCameraManager的子类。
 

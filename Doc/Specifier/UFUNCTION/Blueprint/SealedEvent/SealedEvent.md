@@ -1,10 +1,10 @@
 # SealedEvent
 
-- **功能描述：**无法在子类中覆盖此函数。SealedEvent关键词只能用于事件。对于非事件函数，请将它们声明为static或final，以密封它们。
+- **功能描述：** 无法在子类中覆盖此函数。SealedEvent关键词只能用于事件。对于非事件函数，请将它们声明为static或final，以密封它们。
 
-- **元数据类型：**bool
-- **引擎模块：**Behavior
-- **作用机制：**在FunctionFlags中添加[FUNC_Final](../../../../Flags/EFunctionFlags/FUNC_Final.md)
+- **元数据类型：** bool
+- **引擎模块：** Behavior
+- **作用机制：** 在FunctionFlags中添加[FUNC_Final](../../../../Flags/EFunctionFlags/FUNC_Final.md)
 
 在源码里搜索：发现都是用在网络的函数上
 

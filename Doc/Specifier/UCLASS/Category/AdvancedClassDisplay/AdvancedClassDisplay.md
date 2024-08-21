@@ -1,9 +1,9 @@
 # AdvancedClassDisplay
 
-- **功能描述：** 把该类下的所有属性都默认显示在高级目录下
-- **引擎模块：**Category
-- **元数据类型：**bool
-- **作用机制：**在Meta增加[AdvancedClassDisplay](../../../../Meta/DetailsPanel/AdvancedClassDisplay.md)
+- **功能描述：**  把该类下的所有属性都默认显示在高级目录下
+- **引擎模块：** Category
+- **元数据类型：** bool
+- **作用机制：** 在Meta增加[AdvancedClassDisplay](../../../../Meta/DetailsPanel/AdvancedClassDisplay.md)
 - **常用程度：★★★★**
 
 让这个类的所有属性显示在本身类的Detail面板的“高级”栏目下显示。

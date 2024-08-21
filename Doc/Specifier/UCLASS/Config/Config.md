@@ -1,10 +1,10 @@
 # Config
 
-- **功能描述：** 指定配置文件的名字，把该对象的值保存到ini配置文件中。
-- **引擎模块：**Config
-- **元数据类型：**string="abc"
-- **作用机制：**Config文件名存在FName UClass::ClassConfigName这个参数里
-- **关联项：**[PerObjectConfig](PerObjectConfig.md)、[ConfigDoNotCheckDefaults](ConfigDoNotCheckDefaults.md)、[DefaultConfig](DefaultConfig/DefaultConfig.md)、[GlobalUserConfig](GlobalUserConfig/GlobalUserConfig.md)、[ProjectUserConfig](ProjectUserConfig/ProjectUserConfig.md)
+- **功能描述：**  指定配置文件的名字，把该对象的值保存到ini配置文件中。
+- **引擎模块：** Config
+- **元数据类型：** string="abc"
+- **作用机制：** Config文件名存在FName UClass::ClassConfigName这个参数里
+- **关联项：** [PerObjectConfig](PerObjectConfig.md)、[ConfigDoNotCheckDefaults](ConfigDoNotCheckDefaults.md)、[DefaultConfig](DefaultConfig/DefaultConfig.md)、[GlobalUserConfig](GlobalUserConfig/GlobalUserConfig.md)、[ProjectUserConfig](ProjectUserConfig/ProjectUserConfig.md)
 - **常用程度：★★★★★**
 
 指定配置文件的名字，把该对象的值保存到ini配置文件中。

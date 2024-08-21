@@ -1,12 +1,12 @@
 # BlueprintAssignable
 
-- **功能描述：**在蓝图中可以为这个多播委托绑定事件
+- **功能描述：** 在蓝图中可以为这个多播委托绑定事件
 
-- **元数据类型：**bool
-- **引擎模块：**Blueprint
-- **限制类型：**Multicast Delegates
-- **作用机制：**在PropertyFlags中加入[CPF_BlueprintAssignable](../../../../Flags/EPropertyFlags/CPF_BlueprintAssignable.md)
-- **常用程度：**★★★
+- **元数据类型：** bool
+- **引擎模块：** Blueprint
+- **限制类型：** Multicast Delegates
+- **作用机制：** 在PropertyFlags中加入[CPF_BlueprintAssignable](../../../../Flags/EPropertyFlags/CPF_BlueprintAssignable.md)
+- **常用程度：** ★★★
 
 ## C++的测试代码：
 

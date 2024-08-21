@@ -1,11 +1,11 @@
 # Replicated
 
-- **功能描述：**指定该属性应随网络进行复制。
+- **功能描述：** 指定该属性应随网络进行复制。
 
-- **元数据类型：**bool
-- **引擎模块：**Network
-- **作用机制：**在PropertyFlags中加入[CPF_Net](../../../Flags/EPropertyFlags/CPF_Net.md)
-- **常用程度：**★★★★★
+- **元数据类型：** bool
+- **引擎模块：** Network
+- **作用机制：** 在PropertyFlags中加入[CPF_Net](../../../Flags/EPropertyFlags/CPF_Net.md)
+- **常用程度：** ★★★★★
 
 ## 示例代码：
 

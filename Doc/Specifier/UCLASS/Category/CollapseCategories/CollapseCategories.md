@@ -1,10 +1,10 @@
 # CollapseCategories
 
-- **功能描述：** 在类的属性面板里隐藏所有带Category的属性，但是只对带有多个嵌套Category的属性才起作用。
-- **引擎模块：**Category
-- **元数据类型：**bool
-- **作用机制：**在ClassFlags中添加[CLASS_CollapseCategories](../../../../Flags/EClassFlags/CLASS_CollapseCategories.md)
-- **关联项：**[DontCollapseCategories](../DontCollapseCategories.md)
+- **功能描述：**  在类的属性面板里隐藏所有带Category的属性，但是只对带有多个嵌套Category的属性才起作用。
+- **引擎模块：** Category
+- **元数据类型：** bool
+- **作用机制：** 在ClassFlags中添加[CLASS_CollapseCategories](../../../../Flags/EClassFlags/CLASS_CollapseCategories.md)
+- **关联项：** [DontCollapseCategories](../DontCollapseCategories.md)
 - **常用程度：★★**
 
 在类的属性面板里隐藏所有带Category的属性，但是只对带有多个嵌套Category的属性才起作用。

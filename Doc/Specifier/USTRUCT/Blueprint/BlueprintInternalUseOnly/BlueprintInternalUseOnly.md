@@ -1,10 +1,10 @@
 # BlueprintInternalUseOnly
 
-- **功能描述：** 不可定义新BP变量，但可作为别的类的成员变量暴露和变量传递
-- **元数据类型：**bool
-- **引擎模块：**Blueprint
-- **作用机制：**在Meta中加入[BlueprintInternalUseOnly](../../../../Meta/Blueprint/BlueprintInternalUseOnly.md), [BlueprintType](../../../../Meta/Blueprint/BlueprintType.md)
-- **常用程度：**★★
+- **功能描述：**  不可定义新BP变量，但可作为别的类的成员变量暴露和变量传递
+- **元数据类型：** bool
+- **引擎模块：** Blueprint
+- **作用机制：** 在Meta中加入[BlueprintInternalUseOnly](../../../../Meta/Blueprint/BlueprintInternalUseOnly.md), [BlueprintType](../../../../Meta/Blueprint/BlueprintType.md)
+- **常用程度：** ★★
 
 指明这个STRUCT会是个BlueprintType，但在蓝图编辑器中又不能声明新变量，但是可以作为别的类的成员变量暴露到蓝图中。
 

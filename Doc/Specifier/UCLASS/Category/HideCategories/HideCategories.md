@@ -1,9 +1,9 @@
 # HideCategories
 
-- **功能描述：** 在类的ClassDefaults属性面板里隐藏某些Category的属性。
-- **引擎模块：**Category
-- **元数据类型：**strings=(abc，"d|e"，"x|y|z")
-- **关联项：**[ShowCategories](../ShowCategories/ShowCategories.md)
+- **功能描述：**  在类的ClassDefaults属性面板里隐藏某些Category的属性。
+- **引擎模块：** Category
+- **元数据类型：** strings=(abc，"d|e"，"x|y|z")
+- **关联项：** [ShowCategories](../ShowCategories/ShowCategories.md)
 - **常用程度：★★★★**
 
 在类的ClassDefaults属性面板里隐藏某些Category的属性。

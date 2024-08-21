@@ -1,10 +1,10 @@
 # IsAlwaysAccessible
 
-- **功能描述：**指定UHT在生成文件的时候总是可以访问到改结构的声明，否则要在gen.cpp里生成镜像结构定义
-- **元数据类型：**bool
-- **引擎模块：**UHT
-- **限制类型：**只在NoExportTypes.h供UHT使用
-- **常用程度：**0
+- **功能描述：** 指定UHT在生成文件的时候总是可以访问到改结构的声明，否则要在gen.cpp里生成镜像结构定义
+- **元数据类型：** bool
+- **引擎模块：** UHT
+- **限制类型：** 只在NoExportTypes.h供UHT使用
+- **常用程度：** 0
 
 指定该结构的声明是否在UHT为NoExportTypes.h生成的gen.cpp里总是可以访问到。
 

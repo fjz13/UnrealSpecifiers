@@ -1,11 +1,11 @@
 # CustomFieldNotify
 
-- **功能描述：**阻止UHT为该类生成FieldNotify的相关代码。
+- **功能描述：** 阻止UHT为该类生成FieldNotify的相关代码。
 
-- **引擎模块：**UHT
-- **元数据类型：**bool
-- **作用机制：**在ClassFlags中增加[HasCustomFieldNotify](../../../Flags/EClassFlags/HasCustomFieldNotify.md)
-- **常用程度：**0
+- **引擎模块：** UHT
+- **元数据类型：** bool
+- **作用机制：** 在ClassFlags中增加[HasCustomFieldNotify](../../../Flags/EClassFlags/HasCustomFieldNotify.md)
+- **常用程度：** 0
 
 阻止UHT为该类生成FieldNotify的相关代码。
 

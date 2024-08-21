@@ -1,9 +1,9 @@
 # BlueprintType
 
-- **功能描述：** 允许这个结构在蓝图中声明变量
-- **元数据类型：**bool
-- **引擎模块：**Blueprint
-- **作用机制：**在Meta中加入[BlueprintType](../../../../Meta/Blueprint/BlueprintType.md)
+- **功能描述：**  允许这个结构在蓝图中声明变量
+- **元数据类型：** bool
+- **引擎模块：** Blueprint
+- **作用机制：** 在Meta中加入[BlueprintType](../../../../Meta/Blueprint/BlueprintType.md)
 - **常用程度：★★★★★**
 
 和UCLASS里的一样，可以允许这个结构在蓝图中声明变量

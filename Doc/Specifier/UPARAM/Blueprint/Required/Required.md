@@ -1,11 +1,11 @@
 # Required
 
-- **功能描述：**指定函数的参数节点必须连接提供一个值
+- **功能描述：** 指定函数的参数节点必须连接提供一个值
 
-- **元数据类型：**bool
-- **引擎模块：**Blueprint, Parameter
-- **作用机制：**在PropertyFlags中加入[CPF_RequiredParm](../../../../Flags/EPropertyFlags/CPF_RequiredParm.md)
-- **常用程度：**★★
+- **元数据类型：** bool
+- **引擎模块：** Blueprint, Parameter
+- **作用机制：** 在PropertyFlags中加入[CPF_RequiredParm](../../../../Flags/EPropertyFlags/CPF_RequiredParm.md)
+- **常用程度：** ★★
 
 指定函数的参数节点必须连接个变量来提供一个值。
 

@@ -1,11 +1,11 @@
 # NoExport
 
-- **功能描述：**指定UHT不要用来自动生成注册的代码，而只是进行词法分析提取元数据。
+- **功能描述：** 指定UHT不要用来自动生成注册的代码，而只是进行词法分析提取元数据。
 
-- **引擎模块：**UHT
-- **元数据类型：**bool
-- **作用机制：**在ClassFlags中增加EClassFlags: [CLASS_NoExport](../../../Flags/EClassFlags/CLASS_NoExport.md)
-- **常用程度：**0
+- **引擎模块：** UHT
+- **元数据类型：** bool
+- **作用机制：** 在ClassFlags中增加EClassFlags: [CLASS_NoExport](../../../Flags/EClassFlags/CLASS_NoExport.md)
+- **常用程度：** 0
 
 指定UHT不要用来自动生成注册的代码，而只是进行词法分析提取元数据。
 

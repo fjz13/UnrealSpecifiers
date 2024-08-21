@@ -1,11 +1,11 @@
 # Instanced
 
-- **功能描述：**指定对该对象属性的编辑赋值应该新创建一个实例并作为子对象，而不是寻找一个对象引用。
-- **元数据类型：**bool
-- **引擎模块：**Instance
-- **限制类型：**UObject*
-- **作用机制：**在PropertyFlags中加入[CPF_PersistentInstance](../../../../Flags/EPropertyFlags/CPF_PersistentInstance.md), [CPF_ExportObject](../../../../Flags/EPropertyFlags/CPF_ExportObject.md), [CPF_InstancedReference](../../../../Flags/EPropertyFlags/CPF_InstancedReference.md)，在Meta中加入[EditInline](../../../../Meta/DetailsPanel/EditInline/EditInline.md)
-- **常用程度：**★★★
+- **功能描述：** 指定对该对象属性的编辑赋值应该新创建一个实例并作为子对象，而不是寻找一个对象引用。
+- **元数据类型：** bool
+- **引擎模块：** Instance
+- **限制类型：** UObject*
+- **作用机制：** 在PropertyFlags中加入[CPF_PersistentInstance](../../../../Flags/EPropertyFlags/CPF_PersistentInstance.md), [CPF_ExportObject](../../../../Flags/EPropertyFlags/CPF_ExportObject.md), [CPF_InstancedReference](../../../../Flags/EPropertyFlags/CPF_InstancedReference.md)，在Meta中加入[EditInline](../../../../Meta/DetailsPanel/EditInline/EditInline.md)
+- **常用程度：** ★★★
 
 指定对该对象属性的编辑赋值应该新创建一个实例并作为子对象，而不是寻找一个对象引用。
 

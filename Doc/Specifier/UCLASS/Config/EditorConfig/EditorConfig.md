@@ -1,9 +1,9 @@
 # EditorConfig
 
-- **功能描述：** 用来在编辑器状态下保存信息。
-- **引擎模块：**Config, Editor
-- **元数据类型：**string="abc"
-- **作用机制：**在Meta中增加[EditorConfig](../../../../Meta/Config/EditorConfig.md)
+- **功能描述：**  用来在编辑器状态下保存信息。
+- **引擎模块：** Config, Editor
+- **元数据类型：** string="abc"
+- **作用机制：** 在Meta中增加[EditorConfig](../../../../Meta/Config/EditorConfig.md)
 - **常用程度：★**
 
 用来在编辑器状态下保存信息。

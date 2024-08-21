@@ -1,12 +1,12 @@
 # EditFixedSize
 
-- **功能描述：**在细节面板上不允许改变该容器的元素个数。
+- **功能描述：** 在细节面板上不允许改变该容器的元素个数。
 
-- **元数据类型：**bool
-- **引擎模块：**DetailsPanel, Editor
-- **限制类型：**TArray<T>，TSet<T>，TMap<T>
-- **作用机制：**在PropertyFlags中加入[CPF_EditFixedSize](../../../../Flags/EPropertyFlags/CPF_EditFixedSize.md)
-- **常用程度：**★★★
+- **元数据类型：** bool
+- **引擎模块：** DetailsPanel, Editor
+- **限制类型：** TArray<T>，TSet<T>，TMap<T>
+- **作用机制：** 在PropertyFlags中加入[CPF_EditFixedSize](../../../../Flags/EPropertyFlags/CPF_EditFixedSize.md)
+- **常用程度：** ★★★
 
 在细节面板上不允许改变该容器的元素个数。
 
