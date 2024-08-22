@@ -1,5 +1,0 @@
-﻿Name,引擎模块,功能描述,常用程度
-MinimalAPI,DllExport,指定该UInterface对象不导出到别的模块,1
-Blueprintable,Blueprint,可以在蓝图中实现,5
-NotBlueprintable,Blueprint,指定不可以在蓝图中实现,3
-ConversionRoot,Blueprint,Sets IsConversionRoot metadata flag for this interface.,

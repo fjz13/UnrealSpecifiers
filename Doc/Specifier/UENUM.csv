@@ -1,3 +1,0 @@
-﻿Name,引擎模块,功能描述,常用程度
-Flags,Trait,把该枚举的值作为一个标志来拼接字符串输出。,5
-BlueprintType,Blueprint,可以作为蓝图变量,5
