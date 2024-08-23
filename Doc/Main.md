@@ -4,40 +4,40 @@
 
 # Specifier
 
-[UCLASS](Specifier/UCLASS.csv)
+[UCLASS](Specifier/UCLASS.md)
 
-[UPROPERTY](Specifier/UPROPERTY.csv)
+[UPROPERTY](Specifier/UPROPERTY.md)
 
-[USTRUCT](Specifier/USTRUCT.csv)
+[USTRUCT](Specifier/USTRUCT.md)
 
-[UENUM](Specifier/UENUM.csv)
+[UENUM](Specifier/UENUM.md)
 
-[UINTERFACE](Specifier/UINTERFACE.csv)
+[UINTERFACE](Specifier/UINTERFACE.md)
 
-[UFUNCTION](Specifier/UFUNCTION.csv)
+[UFUNCTION](Specifier/UFUNCTION.md)
 
-[UPARAM](Specifier/UPARAM.csv)
+[UPARAM](Specifier/UPARAM.md)
 
 
 # Meta
 
 
-[Meta](Meta/Meta.csv)
+[Meta](Meta/Meta.md)
 
 # Flags
 
 
-[EClassFlags](Flags/EClassFlags.csv)
+[EClassFlags](Flags/EClassFlags.md)
 
-[EObjectMark](Flags/EObjectMark.csv)
+[EObjectMark](Flags/EObjectMark.md)
 
-[EStructFlags](Flags/EStructFlags.csv)
+[EStructFlags](Flags/EStructFlags.md)
 
-[EFunctionFlags](Flags/EFunctionFlags.csv)
+[EFunctionFlags](Flags/EFunctionFlags.md)
 
-[EPropertyFlags](Flags/EPropertyFlags.csv)
+[EPropertyFlags](Flags/EPropertyFlags.md)
 
-[EEnumFlags](Flags/EEnumFlags.csv)
+[EEnumFlags](Flags/EEnumFlags.md)
 
 
 
