@@ -141,7 +141,7 @@ class UMovieSceneAsyncAction_SequencePrediction : public UBlueprintAsyncActionBa
 
 UAsyncAction_RegisterGameplayMessageReceiver由自定义的UK2Node_GameplayMessageAsyncAction来创建蓝图节点，从而提供了一个泛型的Payload输出引脚。而UMovieSceneAsyncAction_SequencePrediction 里的工厂方法PredictWorldTransformAtTime，由于隐藏了自动生成的版本，又没有加上BlueprintInternalUseOnly来抑制UHT生成的版本，因此最终呈现的是普通版本的静态函数蓝图节点。
 
-## ![Untitled](Untitled%201.png)
+![Untitled](Untitled%201.png)
 
 ## 源码里的作用机制：
 
