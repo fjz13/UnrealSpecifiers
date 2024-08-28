@@ -1,0 +1,13 @@
+(/Game/BP_MyActor	Package->Object	/Game/BP_MyActor)
+	[BP_MyActor_C	BlueprintGeneratedClass->Class->Struct->Field->Object	/Game/BP_MyActor.BP_MyActor_C]
+		{
+			USceneComponent* DefaultSceneRoot;
+			UMyReferenceTestAsset* HardAsset;
+			UClass* HardAssetClass;
+			TSoftObjectPtr<UMyReferenceTestAsset> SoftAsset;
+			TSoftClassPtr<UMyReferenceTestAsset>  SoftAssetClass;
+		};
+		(DefaultSceneRoot_GEN_VARIABLE	SceneComponent->ActorComponent->Object	/Game/BP_MyActor.BP_MyActor_C:DefaultSceneRoot_GEN_VARIABLE)
+		(SimpleConstructionScript_0	SimpleConstructionScript->Object	/Game/BP_MyActor.BP_MyActor_C:SimpleConstructionScript_0)
+			(SCS_Node_0	SCS_Node->Object	/Game/BP_MyActor.BP_MyActor_C:SimpleConstructionScript_0.SCS_Node_0)
+	(Default__BP_MyActor_C	BP_MyActor_C->Actor->Object	/Game/BP_MyActor.Default__BP_MyActor_C)

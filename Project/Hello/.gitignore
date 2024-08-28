@@ -1,0 +1,14 @@
+/.vs
+**/Intermediate
+**/Saved
+**/Binaries
+/Build
+/DerivedDataCache
+/obj
+
+# SuperBookmarks data file
+.vs\Hello\v15\.SuperBookmarks.dat
+_ReSharper.Caches
+.idea
+/.idea
+/Content/StarterContent

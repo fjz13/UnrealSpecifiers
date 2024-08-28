@@ -1,0 +1,87 @@
+WithoutAPI的导出函数，可以得到类型元数据，但是不能创建，因为C++里实际上没有该类型的实际信息数据。但是定义在.h里的信息因为是内联的所以依然可以访问。
+不能用NewObject创建对象，因为GetPrivateStaticClass没有导出，没法调用。
+UCLASS()
+class UMyClass_WithoutAPI :public UObject
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		int32 MyProperty;
+	UFUNCTION(BlueprintCallable)
+		void MyFunc();
+};
+
+class UClass * StaticClass<class UMyClass_WithoutAPI>(void)
+class UClass * Z_Construct_UClass_UMyClass_WithoutAPI(void)
+class UClass * Z_Construct_UClass_UMyClass_WithoutAPI_NoRegister(void)
+class UFunction * Z_Construct_UFunction_UMyClass_WithoutAPI_MyFunc(void)
+
+--------------------------------------------------------------------------------
+MinimalAPI的导出函数，同样不能得到属性和函数的信息，但是可以调用构造函数了，同时因为GetPrivateStaticClass导出了，所以可以NewObject了
+UCLASS(MinimalAPI)
+class UMyClass_MinimalAPI :public UObject
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		int32 MyProperty;
+	UFUNCTION(BlueprintCallable)
+		void MyFunc();
+};
+
+
+class UClass * StaticClass<class UMyClass_MinimalAPI>(void)
+class UClass * Z_Construct_UClass_UMyClass_MinimalAPI(void)
+class UClass * Z_Construct_UClass_UMyClass_MinimalAPI_NoRegister(void)
+class UFunction * Z_Construct_UFunction_UMyClass_MinimalAPI_MyFunc(void)
+
+UMyClass_MinimalAPI::UMyClass_MinimalAPI(class FVTableHelper &)
+UMyClass_MinimalAPI::UMyClass_MinimalAPI(class FObjectInitializer const &)
+void UMyClass_MinimalAPI::`default constructor closure'(void)
+class UClass * UMyClass_MinimalAPI::GetPrivateStaticClass(void)
+
+--------------------
+ModuleAPI的导出函数，多了函数的导出。
+UCLASS()
+class INSIDER_API UMyClass_ModuleAPI :public UObject
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		int32 MyProperty;
+	UFUNCTION(BlueprintCallable)
+		void MyFunc();
+};
+
+class UClass * StaticClass<class UMyClass_ModuleAPI>(void)
+class UClass * Z_Construct_UClass_UMyClass_ModuleAPI(void)
+class UClass * Z_Construct_UClass_UMyClass_ModuleAPI_NoRegister(void)
+class UFunction * Z_Construct_UFunction_UMyClass_ModuleAPI_MyFunc(void)
+
+UMyClass_ModuleAPI::UMyClass_ModuleAPI(class FVTableHelper &)
+UMyClass_ModuleAPI::UMyClass_ModuleAPI(class FObjectInitializer const &)
+void UMyClass_ModuleAPI::`default constructor closure'(void)
+class UClass * UMyClass_ModuleAPI::GetPrivateStaticClass(void)
+
+void UMyClass_ModuleAPI::StaticRegisterNativesUMyClass_ModuleAPI(void)
+void UMyClass_ModuleAPI::__DefaultConstructor(class FObjectInitializer const &)
+void * UMyClass_ModuleAPI::operator new(unsigned __int64,enum EInternal *)
+void * UMyClass_ModuleAPI::operator new(unsigned __int64,enum EInternal,class UObject *,class FName,enum EObjectFlags)
+UMyClass_ModuleAPI::~UMyClass_ModuleAPI(void)
+class UClass * UMyClass_ModuleAPI::StaticClass(void)
+enum EClassCastFlags UMyClass_ModuleAPI::StaticClassCastFlags(void)
+wchar_t const * UMyClass_ModuleAPI::StaticPackage(void)
+const UMyClass_ModuleAPI::`vftable'
+class UObject * UMyClass_ModuleAPI::__VTableCtorCaller(class FVTableHelper &)
+void UMyClass_ModuleAPI::MyFunc(void)
+void UMyClass_ModuleAPI::execMyFunc(class UObject *,struct FFrame &,void * const)
+
+
+
+
+
+
+
+
+
+InitializeModule

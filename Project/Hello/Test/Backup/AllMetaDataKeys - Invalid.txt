@@ -1,0 +1,111 @@
+AbilityLevel
+AttachLocationType
+AttachType
+CanFlattenStruct: ScriptStruct /Script/Engine.PerPlatformFloat
+ComponentClass: Function /Script/Engine.Actor:FindComponentByTag
+DataflowCollection: ScriptStruct /Script/DataflowNodes.DataflowCollectionAddScalarVertexPropertyNode
+ExecuteContext: ScriptStruct /Script/RigVM.RigVMFunction_MathBoolToFloat
+ExecuteContextType: ScriptStruct /Script/ControlRig.RigDispatchFactory
+Experimental: Class /Script/MRMesh.MeshReconstructorBase
+Name: Enum /Script/Engine.ETextGender
+ObjectInitializerConstructorDeclared: Class /Script/Engine.ActorComponent
+PackageLocalizationNamespace: Package /Engine/EditorResources/S_Actor
+
+//一大串：
+D:\github\UnrealEngine\Engine\Plugins\Runtime\RigVM\Source\RigVM\Private\RigVMCore\RigVMStruct.cpp
+EntryInterface: Class /Script/UMG.ListViewBase
+
+Added:
+GetByRef: Function /Script/Insider.MyProperty_Set:GetMyArray
+DisplayValue: Enum /Script/Engine.AnimPhysCollisionType
+Grouping: Enum /Script/Engine.EAlphaBlendOption
+TraceQuery: Enum /Script/Engine.ECollisionChannel
+HasNativeBreak: ScriptStruct /Script/Engine.Vector_NetQuantize
+HasNativeMake: ScriptStruct /Script/Engine.Vector_NetQuantize
+DisableNativeTick: Class /Script/UMG.UserWidget
+
+DefaultGraphNode: K2Node_Event /Game/Property/Widget/UMG_BindTest.UMG_BindTest:EventGraph.K2Node_Event_0
+ViewmodelBlueprintWidgetExtension: Function /Script/UMG.ListView:BP_SetListItems
+DataflowFlesh: ScriptStruct /Script/DataflowNodes.FloatOverrideDataflowNode
+
+FieldNotifyInterfaceParam: Function /Script/Engine.FieldNotificationLibrary:BroadcastFieldsValueChanged
+
+GetterContext: Function /Script/Engine.AnimInstance:GetInstanceCurrentStateElapsedTime
+AnimGetter: Function /Script/Engine.AnimInstance:GetCurrentStateName
+
+HiddenNode: Class /Script/AITestSuite.TestBTDecorator_Blackboard
+HideInDetailsView: Class /Script/GameplayAbilities.AbilitySystemTestAttributeSet
+
+D:\github\UnrealEngine\Engine\Source\Editor\MaterialEditor\Private\MaterialExpressionClasses.cpp
+MaterialControlFlow: Class /Script/Engine.MaterialExpressionExecBegin
+MaterialNewHLSLGenerator: Class /Script/Engine.MaterialExpressionLess
+Private: Class /Script/InterchangeImport.MaterialExpressionMaterialXRamp4
+
+NiagaraClearEachFrame: ScriptStruct /Script/Niagara.NiagaraSpawnInfo
+NiagaraInternalType: ScriptStruct /Script/Niagara.NiagaraHalf
+
+NotInputConfigurable: Class /Script/EnhancedInput.InputTriggerChordAction
+
+ObjectSetType: Class /Script/StatsViewer.CookerStats
+
+SequencerBindingResolverLibrary: Class /Script/MovieScene.BuiltInDynamicBindingResolverLibrary
+TakeRecorderDisplayName: Class /Script/TakeRecorderSources.TakeRecorderActorSource
+CommandLineID: Class /Script/MovieSceneCapture.NullAudioCaptureProtocol
+
+
+Todo:
+
+
+Icon: ScriptStruct /Script/RigVM.RigVMFunction_Sequence
+IgnoreClassThumbnail: Class /Script/RigVMDeveloper.RigVMBlueprint
+NodeColor: ScriptStruct /Script/RigVM.RigVMDispatch_CastEnumToInt
+Constant: ScriptStruct /Script/RigVM.RigVMFunction_MathQuaternionScale
+RigVMTypeAllowed: Enum /Script/RigVM.ERigVMTransformSpace
+ShowVariableNameInTitle: ScriptStruct /Script/ControlRig.RigUnit_Control
+TemplateName: ScriptStruct /Script/RigVM.RigVMFunction_VisualDebugVectorNoSpace
+TitleColor: ScriptStruct /Script/RigVM.RigVMFunction_Sequence
+Varying: ScriptStruct /Script/RigVM.RigVMFunction_GetDeltaTime
+
+
+//////////////////////////////
+
+const FName FRigVMStruct::DeprecatedMetaName("Deprecated");
+const FName FRigVMStruct::InputMetaName("Input");
+const FName FRigVMStruct::OutputMetaName("Output");
+const FName FRigVMStruct::IOMetaName("IO");
+const FName FRigVMStruct::HiddenMetaName("Hidden");
+const FName FRigVMStruct::VisibleMetaName("Visible");
+const FName FRigVMStruct::DetailsOnlyMetaName("DetailsOnly");
+const FName FRigVMStruct::AbstractMetaName("Abstract");
+const FName FRigVMStruct::CategoryMetaName("Category");
+const FName FRigVMStruct::DisplayNameMetaName("DisplayName");
+const FName FRigVMStruct::MenuDescSuffixMetaName("MenuDescSuffix");
+const FName FRigVMStruct::ShowVariableNameInTitleMetaName("ShowVariableNameInTitle");
+const FName FRigVMStruct::CustomWidgetMetaName("CustomWidget");
+const FName FRigVMStruct::ConstantMetaName("Constant");
+const FName FRigVMStruct::TitleColorMetaName("TitleColor");
+const FName FRigVMStruct::NodeColorMetaName("NodeColor");
+const FName FRigVMStruct::IconMetaName("Icon");
+const FName FRigVMStruct::KeywordsMetaName("Keywords");
+const FName FRigVMStruct::TemplateNameMetaName = FRigVMRegistry::TemplateNameMetaName;
+const FName FRigVMStruct::FixedSizeArrayMetaName("FixedSizeArray");
+const FName FRigVMStruct::ShowOnlySubPinsMetaName("ShowOnlySubPins");
+const FName FRigVMStruct::HideSubPinsMetaName("HideSubPins");
+const FName FRigVMStruct::ArraySizeMetaName("ArraySize");
+const FName FRigVMStruct::AggregateMetaName("Aggregate");
+const FName FRigVMStruct::ExpandPinByDefaultMetaName("ExpandByDefault");
+const FName FRigVMStruct::DefaultArraySizeMetaName("DefaultArraySize");
+const FName FRigVMStruct::VaryingMetaName("Varying");
+const FName FRigVMStruct::SingletonMetaName("Singleton");
+const FName FRigVMStruct::SliceContextMetaName("SliceContext");
+const FName FRigVMStruct::ExecuteName = TEXT("Execute");
+const FName FRigVMStruct::ExecuteContextName = TEXT("ExecuteContext");
+const FName FRigVMStruct::ForLoopCountPinName("Count");
+const FName FRigVMStruct::ForLoopContinuePinName("Continue");
+const FName FRigVMStruct::ForLoopCompletedPinName("Completed");
+const FName FRigVMStruct::ForLoopIndexPinName("Index");
+const FName FRigVMStruct::ComputeLazilyMetaName("Lazy");
+const FName FRigVMStruct::ControlFlowBlockToRunName("BlockToRun");
+const FName FRigVMStruct::ControlFlowCompletedName("Completed");
+const FName FRigVMStruct::ControlFlowCountName("Count");
+const FName FRigVMStruct::ControlFlowIndexName("Index");

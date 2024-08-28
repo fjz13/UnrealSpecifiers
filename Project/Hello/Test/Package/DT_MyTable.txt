@@ -1,0 +1,4 @@
+(/Game/DT_MyTable	Package->Object	/Game/DT_MyTable)
+	(PackageMetaData	MetaData->Object	/Game/DT_MyTable.PackageMetaData)
+	(DT_MyTable	DataTable->Object	/Game/DT_MyTable.DT_MyTable)
+		(AssetImportData	AssetImportData->Object	/Game/DT_MyTable.DT_MyTable:AssetImportData)

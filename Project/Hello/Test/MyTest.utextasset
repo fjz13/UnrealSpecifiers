@@ -1,0 +1,207 @@
+{
+	"Names": [
+		"/Game/MyTest",
+		"/Script/CoreUObject",
+		"/Script/Hello",
+		"Class",
+		"FloatProperty",
+		"MetaData",
+		"MyDataAsset",
+		"MyTest",
+		"None",
+		"Package",
+		"PackageLocalizationNamespace",
+		"PackageMetaData",
+		"Score"
+	],
+	"GatherableTextData": [
+	],
+	"DependsMap": [
+		[
+		],
+		[
+		]
+	],
+	"SoftReferences": [
+	],
+	"SearchableNames": [
+	],
+	"Thumbnails": {
+	},
+	"AssetRegistry": [
+		{
+			"Path": "MyTest",
+			"Class": "MyDataAsset",
+			"Tags": {
+				"NativeClass": "Class'/Script/Hello.MyDataAsset'"
+			}
+		}
+	],
+	"WorldLevelInfo": {
+	},
+	"PackageMetaData": {
+		"Properties": {
+		},
+		"HasGuid": false,
+		"ObjectMetaDataMap": [
+		],
+		"RootMetaDataMap": [
+			[
+				"Name:PackageLocalizationNamespace",
+				"2423BB6341D1A12C7203CBB38B61448F"
+			]
+		]
+	},
+	"MyTest": {
+		"Properties": {
+			"Score": {
+				"Tag": {
+					"Name": "Name:Score",
+					"Type": "Name:FloatProperty",
+					"Size": 0,
+					"ArrayIndex": 0,
+					"HasPropertyGuid": 0
+				},
+				"Value": 9999
+			}
+		},
+		"HasGuid": false
+	},
+	"ImportTable": [
+		{
+			"ClassPackage": "Name:/Script/CoreUObject",
+			"ClassName": "Name:Class",
+			"OuterIndex": -3,
+			"ObjectName": "Name:MetaData"
+		},
+		{
+			"ClassPackage": "Name:/Script/CoreUObject",
+			"ClassName": "Name:Class",
+			"OuterIndex": -4,
+			"ObjectName": "Name:MyDataAsset"
+		},
+		{
+			"ClassPackage": "Name:/Script/CoreUObject",
+			"ClassName": "Name:Package",
+			"OuterIndex": 0,
+			"ObjectName": "Name:/Script/CoreUObject"
+		},
+		{
+			"ClassPackage": "Name:/Script/CoreUObject",
+			"ClassName": "Name:Package",
+			"OuterIndex": 0,
+			"ObjectName": "Name:/Script/Hello"
+		}
+	],
+	"ExportTable": [
+		{
+			"ClassIndex": -1,
+			"SuperIndex": 0,
+			"TemplateIndex": 0,
+			"OuterIndex": 0,
+			"ObjectName": "Name:PackageMetaData",
+			"ObjectFlags": 2,
+			"SerialSize": 0,
+			"SerialOffset": 0,
+			"bForcedExport": false,
+			"bNotForClient": true,
+			"bNotForServer": true,
+			"PackageGuid": "00000000000000000000000000000000",
+			"PackageFlags": 0,
+			"bNotAlwaysLoadedForEditorGame": false,
+			"bIsAsset": false,
+			"FirstExportDependency": -1,
+			"SerializationBeforeSerializationDependencies": 0,
+			"CreateBeforeSerializationDependencies": 0,
+			"SerializationBeforeCreateDependencies": 0,
+			"CreateBeforeCreateDependencies": 0
+		},
+		{
+			"ClassIndex": -2,
+			"SuperIndex": 0,
+			"TemplateIndex": 0,
+			"OuterIndex": 0,
+			"ObjectName": "Name:MyTest",
+			"ObjectFlags": 3,
+			"SerialSize": 0,
+			"SerialOffset": 0,
+			"bForcedExport": false,
+			"bNotForClient": false,
+			"bNotForServer": false,
+			"PackageGuid": "00000000000000000000000000000000",
+			"PackageFlags": 0,
+			"bNotAlwaysLoadedForEditorGame": true,
+			"bIsAsset": true,
+			"FirstExportDependency": -1,
+			"SerializationBeforeSerializationDependencies": 0,
+			"CreateBeforeSerializationDependencies": 0,
+			"SerializationBeforeCreateDependencies": 0,
+			"CreateBeforeCreateDependencies": 0
+		}
+	],
+	"Summary": {
+		"Tag": -1641380927,
+		"LegacyFileVersion": -7,
+		"LegacyUE3Version": 864,
+		"FileVersionUE4": 517,
+		"FileVersionLicenseeUE4": 0,
+		"CustomVersions": [
+			{
+				"Key": "E4B068EDF49442E9A231DA0B2E46BB41",
+				"Version": 26
+			}
+		],
+		"TotalHeaderSize": 0,
+		"FolderName": "None",
+		"PackageFlags": 0,
+		"NameCount": 13,
+		"NameOffset": 0,
+		"LocalizationId": "2423BB6341D1A12C7203CBB38B61448F",
+		"GatherableTextDataCount": 0,
+		"GatherableTextDataOffset": 0,
+		"ExportCount": 2,
+		"ExportOffset": 0,
+		"ImportCount": 4,
+		"ImportOffset": 0,
+		"DependsOffset": 0,
+		"SoftPackageReferencesCount": 0,
+		"SoftPackageReferencesOffset": 0,
+		"SearchableNamesOffset": 0,
+		"ThumbnailTableOffset": 0,
+		"Guid": "37B7C8E9415E845799F633A5DCC2D268",
+		"GenerationCount": 1,
+		"Generations": [
+			{
+				"ExportCount": 2,
+				"NameCount": 13
+			}
+		],
+		"SavedByEngineVersion": {
+			"Major": 0,
+			"Minor": 0,
+			"Patch": 0,
+			"Changelist": 0,
+			"Branch": ""
+		},
+		"CompatibleWithEngineVersion": {
+			"Major": 0,
+			"Minor": 0,
+			"Patch": 0,
+			"Changelist": 0,
+			"Branch": ""
+		},
+		"CompressionFlags": 0,
+		"CompressedChunks": [
+		],
+		"PackageSource": 2695368446,
+		"AdditionalPackagesToCook": [
+		],
+		"AssetRegistryDataOffset": 0,
+		"BulkDataStartOffset": 0,
+		"WorldTileInfoDataOffset": 0,
+		"ChunkIDs": [
+		],
+		"PreloadDependencyCount": -1,
+		"PreloadDependencyOffset": 0
+	}
+}

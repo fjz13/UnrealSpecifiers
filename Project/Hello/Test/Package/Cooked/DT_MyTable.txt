@@ -1,0 +1,2 @@
+(/Game/DT_MyTable	Package->Object	/Game/DT_MyTable)
+	(DT_MyTable	DataTable->Object	/Game/DT_MyTable.DT_MyTable)
