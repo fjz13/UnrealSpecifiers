@@ -15,45 +15,38 @@
 
 文档必然有各种缺漏错误不足之处，欢迎提交PR或与我反馈联系，让虚幻社区更多人受益。
 
-
-
 # Specifier
 
 以下是各个标识符的表格链接：
 
-[UCLASS](Specifier/UCLASS.md)
+- [UCLASS](Specifier/UCLASS.md)
+- [UINTERFACE](Specifier/UINTERFACE.md)
 
-[UINTERFACE](Specifier/UINTERFACE.md)
+- [USTRUCT](Specifier/USTRUCT.md)
 
-[USTRUCT](Specifier/USTRUCT.md)
+- [UENUM](Specifier/UENUM.md)
+- [UFUNCTION](Specifier/UFUNCTION.md)
 
-[UENUM](Specifier/UENUM.md)
+- [UPARAM](Specifier/UPARAM.md)
 
-[UFUNCTION](Specifier/UFUNCTION.md)
-
-[UPARAM](Specifier/UPARAM.md)
-
-[UPROPERTY](Specifier/UPROPERTY.md)
+- [UPROPERTY](Specifier/UPROPERTY.md)
 
 # Meta
 
-以下是各个meta表格链接：
+以下是meta表格链接：
 
-
-[Meta](Meta/Meta.md)
+- [Meta](Meta/Meta.md)
 
 # Flags
 
 以下是各个Flags表格链接，列出来只是因为标识符的内部作用机制会添加和移除Flags，放在这里供你阅读参考。不用去细研究每个flags的用处。
 
-[EClassFlags](Flags/EClassFlags.md)
+- [EClassFlags](Flags/EClassFlags.md)
 
-[EStructFlags](Flags/EStructFlags.md)
+- [EStructFlags](Flags/EStructFlags.md)
 
-[EEnumFlags](Flags/EEnumFlags.md)
+- [EEnumFlags](Flags/EEnumFlags.md)
 
-[EFunctionFlags](Flags/EFunctionFlags.md)
+- [EFunctionFlags](Flags/EFunctionFlags.md)
 
-[EPropertyFlags](Flags/EPropertyFlags.md)
-
-[EObjectMark](Flags/EObjectMark.md)
+- [EPropertyFlags](Flags/EPropertyFlags.md)
