@@ -465,7 +465,7 @@ input:
   Specifier\UPROPERTY\UHT\Native.md: '{"noYAML":true,"doctoc":true,"replace":{"\\[#\\]":593}}'
 
 output:
-  name: target\mergedFile.md
+  name: PDF\UE5标识符详解.md
   doctoc: true
   pandoc:
     css: '-c path/to/theme.css'
