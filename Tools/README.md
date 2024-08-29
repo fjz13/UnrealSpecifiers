@@ -22,3 +22,6 @@ powershell Set-ExecutionPolicy RemoteSigned
 
 七、在Typora打开UE5标识符详解.md，然后导出PDF。
 
+
+
+注意：在使用图片时，请遵循这个格式：!\[name](name.png)
