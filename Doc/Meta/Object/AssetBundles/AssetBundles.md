@@ -44,7 +44,7 @@ public:
 - 当指定Bundle为Game的时候，可以看见Icon和Mesh都加载了进来。
 - 要注意在编辑器下测试时候，如果之前已经加载了Mesh，因为还常驻在编辑器内存里。因此即使是使用名字UI，也仍然会发现Mesh可以被引用到。
 
-![AssetBundles.jpg](AssetBundles.jpg)
+![AssetBundles](AssetBundles.jpg)
 
 ## 原理：
 

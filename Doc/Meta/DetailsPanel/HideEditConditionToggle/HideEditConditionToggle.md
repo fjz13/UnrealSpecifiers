@@ -28,7 +28,7 @@ public:
 
 ## 测试效果：
 
-![HideEditConditionToggle.gif](HideEditConditionToggle.gif)
+![HideEditConditionToggle](HideEditConditionToggle.gif)
 
 ## 原理：
 

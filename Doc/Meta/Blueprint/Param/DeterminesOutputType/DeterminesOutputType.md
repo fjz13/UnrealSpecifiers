@@ -95,23 +95,23 @@ public:
 
 用返回值当作输出参数的例子，注意到返回值类型实际变成了TArray<AMyCatActor*>。
 
-![1.png](1.png)
+![pic_a](pic_a.png)
 
 也可以加上DynamicOutputParam来指定输出参数作为动态类型参数：
 
-![2.png](2.png)
+![pic_b](pic_b.png)
 
 DynamicOutputParam可以指定多个参数
 
-![3.png](3.png)
+![pic_c](pic_c.png)
 
 DeterminesOutputType 的参数类型也可以是Object或者Object的容器：
 
-![4.png](4.png)
+![pic_d](pic_d.png)
 
 DeterminesOutputType 的参数甚至可以是结构里的某个属性，但是只有SplitStruct的时候才生效，因为这个时候结构的属性变量才变成函数的Pin，才可以进行DeterminesOutputType的名称比对。这个时候要书写成“A_B”，而不是“A.B”。
 
-![5.png](5.png)
+![pic_e](pic_e.png)
 
 ## 原理：
 

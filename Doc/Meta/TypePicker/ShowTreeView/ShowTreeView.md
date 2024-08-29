@@ -49,7 +49,7 @@
 
 可见带有ShowTreeView的属性，在弹出的选择框上显示的是树形而不是列表。
 
-![ShowTreeView.jpg](ShowTreeView.jpg)
+![ShowTreeView](ShowTreeView.jpg)
 
 ## 原理：
 

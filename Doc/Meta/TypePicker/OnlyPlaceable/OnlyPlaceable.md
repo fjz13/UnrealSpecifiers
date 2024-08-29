@@ -43,7 +43,7 @@ public:
 
 可见AMyActorChild_NotPlaceable 类因为加了NotPlaceable标记，就不能被MyActor_OnlyPlaceable属性选择上。
 
-![OnlyPlaceable.jpg](OnlyPlaceable.jpg)
+![OnlyPlaceable](OnlyPlaceable.jpg)
 
 ## 原理：
 

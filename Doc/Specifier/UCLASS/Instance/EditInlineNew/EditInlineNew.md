@@ -63,7 +63,7 @@ EditInlineNew支持直接C++或BP子类创建对象实例，然后在上面编�
 
 如果属性上没有Instanced则只能尝试去引用（找不到对象）。
 
-![image.png](image.png)
+![image](image.png)
 
 ## 原理：
 

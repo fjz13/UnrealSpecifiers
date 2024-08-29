@@ -58,7 +58,7 @@ UScriptStruct* MyStructPtr_ShowDisplayNames;
 
 为了让效果更加直观，上面的测试代码里也加上了MetaClass，MetaStruct，AllowedClasses 用来限定选择范围。
 
-![ShowDisplayNames.jpg](ShowDisplayNames.jpg)
+![ShowDisplayNames](ShowDisplayNames.jpg)
 
 ## 原理：
 

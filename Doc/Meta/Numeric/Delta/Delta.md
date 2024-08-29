@@ -39,7 +39,7 @@
 - MyFloat_Delta10_LinearDeltaSensitivity50 ，在没有UIMinMax的情况下，且同时设置了LinearDeltaSensitivity，会导致鼠标往右拖动的整个过程中变化值始终是线性。LinearDeltaSensitivity越大越不敏感。因此一次一次缓慢的改变10
 - MyFloat_Delta10_LinearDeltaSensitivity50_UIMinMax ，如果上面一个再加上UIMinMax，则发现又失去了LinearDeltaSensitivity的效果。因为LinearDeltaSensitivity不能在有滚动条的情况下生效。
 
-![Delta.gif](Delta.gif)
+![Delta](Delta.gif)
 
 ## 原理：
 

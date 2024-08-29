@@ -49,7 +49,7 @@
 
 可见如果没有HideViewOptions，则在弹出框的角落有个齿轮或者眼睛用于修改显示选项。
 
-![HideViewOptions.jpg](HideViewOptions.jpg)
+![HideViewOptions](HideViewOptions.jpg)
 
 ## 原理：
 

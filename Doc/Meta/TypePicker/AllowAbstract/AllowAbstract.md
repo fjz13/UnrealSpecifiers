@@ -41,7 +41,7 @@ public:
 
 可见增加了AllowAbstract的属性的类选择器里增加了UMyCommonObjectChildAbstract 这个抽象类。
 
-![AllowAbstract.png](AllowAbstract.png)
+![AllowAbstract](AllowAbstract.png)
 
 ## 原理：
 

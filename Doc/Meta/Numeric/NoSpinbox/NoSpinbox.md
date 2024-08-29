@@ -30,7 +30,7 @@ public:
 
 发现带有NoSpinbox 的属性不能用鼠标左右拖动改变数值，也不能用鼠标滚轮改变数值。
 
-![SpinBoxTest.gif](SpinBoxTest.gif)
+![SpinBoxTest](SpinBoxTest.gif)
 
 ## 原理：
 

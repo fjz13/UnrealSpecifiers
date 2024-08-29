@@ -33,7 +33,7 @@ UIMin-UIMax和ClampMin-ClampMax的区别是，UI系列阻止用户在拖动鼠�
 - 从MyFloat_HasMinMax_Clamp 发现，ClampMin，ClampMax 会同时限制UI和手动输入的范围。
 - 从MyFloat_HasMinMax_ClampAndUI和MyFloat_HasMinMax_ClampAndUI2发现，UI的滚动条会取UI的限制和Clamp限制的更窄范围，而实际输入值也是会被限制在更窄的范围内。
 
-![MinMax2.gif](MinMax2.gif)
+![MinMax2](MinMax2.gif)
 
 ## 原理：
 

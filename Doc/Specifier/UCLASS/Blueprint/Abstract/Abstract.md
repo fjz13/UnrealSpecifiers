@@ -30,7 +30,7 @@ UMyClass_Abstract* obj=NewObject<UMyClass_Abstract>();
 
 在蓝图中的ConstructObject不会出现该类。同时在C++中NewObject也会报错。
 
-![image.png](image.png)
+![image](image.png)
 
 ## 原理：
 

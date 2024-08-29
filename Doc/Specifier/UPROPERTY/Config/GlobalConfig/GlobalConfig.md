@@ -101,7 +101,7 @@ MyPropertyWithGlobalConfig=999
 
 可见testObjectChild 的值并没有使用ini里MyProperty_Config_Child下的999的值，而是同样的888.
 
-![image.png](image.png)
+![image](image.png)
 
 ## 原理：
 

@@ -76,7 +76,7 @@ class INSIDER_API UMyClass_ToolTip_TypeB :public UObject
 
 可以发现，如果提供了ToolTip，就会覆盖掉代码注释里的注释。同时也可以发现在下图中，提示的文本过长超过了选项框。这时如果提供了ShortToolTip，则会在父类选取器中显示ShortToolTip中的文本，从而简洁一点显示。在很多别的地方也同样应用这个规则，比如（该类型）变量上的提示，或者在选择变量类型的时候。
 
-![1234.png](/1234.png)
+![1234](/1234.png)
 
 ## 原理代码：
 
@@ -188,9 +188,9 @@ FText FClassPickerDefaults::GetDescription() const
 
 变量和函数：
 
-![55.png](/55.png)
+![55](/55.png)
 
-![77.png](77.png)
+![77](77.png)
 
 其他需要注意的是，代码里注释的文本也会当作ToolTip。支持//和/**/这两种格式。如果在ToolTip中想换行，可以直接加/n就可以。
 

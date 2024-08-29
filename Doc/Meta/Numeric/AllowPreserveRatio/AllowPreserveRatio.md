@@ -27,7 +27,7 @@ public:
 
 可见MyVector_AllowPreserveRatio的值在锁上之后可以形成固定的比率。
 
-![AllowPreserveRatio.gif](AllowPreserveRatio.gif)
+![AllowPreserveRatio](AllowPreserveRatio.gif)
 
 ## 原理：
 

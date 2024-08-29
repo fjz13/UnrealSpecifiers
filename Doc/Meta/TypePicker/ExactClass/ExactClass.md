@@ -45,7 +45,7 @@
 - 可见没有ExactClass的时候，筛选类型是TextureCube和TextureLightProfile，总共有18项。
 - 而有ExactClass后，筛选类型是TextureCube，总共只有12项。
 
-![ExactClass.jpg](ExactClass.jpg)
+![ExactClass](ExactClass.jpg)
 
 ## 原理：
 

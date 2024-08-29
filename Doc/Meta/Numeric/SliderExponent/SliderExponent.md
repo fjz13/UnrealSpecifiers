@@ -27,7 +27,7 @@ public:
 
 可见SliderExponent=5的效果导致100的文本值落在UI 1000的范围内一开始就处于快0.3的位置，且变动的范围在500前比较精细，500后比较迅速。跟前者形成对比。
 
-![SliderExponent.gif](SliderExponent.gif)
+![SliderExponent](SliderExponent.gif)
 
 ## 原理：
 

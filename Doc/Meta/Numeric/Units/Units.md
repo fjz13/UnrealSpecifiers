@@ -37,7 +37,7 @@ float MyFloat_HasForceUnits_Distance = 100.f;
 - 发现采用Units的属性，会自动的根据值的不同调整单位。而且也接受数字+单位的输入。
 - 发现采用ForceUnits的属性，也可以接受数字+单位的输入，但是在显示上却始终显示为cm，不会调整到别的单位。
 
-![Unit.gif](Unit.gif)
+![Unit](Unit.gif)
 
 ## 原理：
 

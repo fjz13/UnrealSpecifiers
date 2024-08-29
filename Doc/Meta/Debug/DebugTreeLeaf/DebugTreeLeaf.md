@@ -34,4 +34,4 @@ public:
 
 UMyClass_DebugTreeLeaf对象作为一个类的成员变量（或者其他），在蓝图中调试查看变量，开启BlueprintDebugger查看变量属性时。如果没有加上DebugTreeLeaf，则会默认的展开所有内部属性。而如果加上DebugTreeLeaf标志，则会停止递归，阻止属性变量的展开。
 
-![Snipaste_2024-02-29_21-17-51.png](Snipaste_2024-02-29_21-17-51.png)
+![Snipaste_2024-02-29_21-17-51](Snipaste_2024-02-29_21-17-51.png)

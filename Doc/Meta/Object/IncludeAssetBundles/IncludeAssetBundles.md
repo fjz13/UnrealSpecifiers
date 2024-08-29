@@ -55,7 +55,7 @@ public:
 
 配置的数据图的下部分，分别配置了两张图片。但在LoadPrimaryAsset后，只有MyChildObject_IncludeAssetBundles内部的ChildIcon才被加载进来。
 
-![IncludeAssetBundles.jpg](IncludeAssetBundles.jpg)
+![IncludeAssetBundles](IncludeAssetBundles.jpg)
 
 如果分析UMyProperty_Asset_Item 的AssetBunbleData数据，会发现其Client只包含第二张Stone图片的路径。这是因为只有第二张图片才被分析到并包含进来。
 

@@ -26,7 +26,7 @@
 
 MyVector_ShowNormalize右侧的按钮可以把值正规化。
 
-![AllowPreserveRatio.gif](AllowPreserveRatio.gif)
+![AllowPreserveRatio](AllowPreserveRatio.gif)
 
 ## 原理：
 

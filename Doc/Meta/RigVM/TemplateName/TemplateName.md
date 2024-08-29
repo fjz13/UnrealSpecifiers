@@ -51,7 +51,7 @@ public:
 
 可见一开始的节点是SetMyTemplate，然后根据引脚类型的不同，再实际Resolve成FRigUnit_MyTemplate_Float 或者是FRigUnit_MyTemplate_Int 。因为我没有实现SetMyString，所以FString类型的是不能连接到引脚的。
 
-![RigVM_Template.gif](RigVM_Template.gif)
+![RigVM_Template](RigVM_Template.gif)
 
 ## 原理：
 

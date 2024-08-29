@@ -51,7 +51,7 @@ class INSIDEREDITOR_API UAnimGraphNode_MyTestPinShown : public UAnimGraphNode_Ba
 
 可见，同样的两个属性，MyInt_NotShown 默认情况不显示成节点，只能在细节面板里编辑。而MyInt_PinShownByDefault默认情况下成为引脚。当PinShownByDefault还可以改变去掉Pin的功能。
 
-![PinShown.gif](PinShown.gif)
+![PinShown](PinShown.gif)
 
 ## 原理：
 

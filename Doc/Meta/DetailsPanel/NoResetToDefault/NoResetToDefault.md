@@ -23,7 +23,7 @@ public:
 
 可以发现默认的属性在改变值后，右侧会出现一个重置按钮，以便让属性重置回默认值。NoResetToDefault的作用就是去除这个功能。
 
-![ResetToDefaultTest.gif](ResetToDefaultTest.gif)
+![ResetToDefaultTest](ResetToDefaultTest.gif)
 
 ## 原理：
 

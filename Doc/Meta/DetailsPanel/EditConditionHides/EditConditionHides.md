@@ -38,7 +38,7 @@ public:
 
 下面的图中可以明显见到两个属性随着条件的满足显示了出来。
 
-![EditConditionHides.gif](EditConditionHides.gif)
+![EditConditionHides](EditConditionHides.gif)
 
 ## 原理：
 

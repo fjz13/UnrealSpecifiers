@@ -29,7 +29,7 @@
 
 效果解析请参见：Delta的解析
 
-![Delta.gif](Delta/Delta.gif)
+![Delta](Delta/Delta.gif)
 
 ## 原理：
 

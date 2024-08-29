@@ -35,7 +35,7 @@
 - 加上EditFixedOrder的TArray就无法改变顺序了。
 - 其他TSet，TMap是不支持该meta的，因为其内部本身顺序也无关。
 
-![EditFixedOrder.gif](EditFixedOrder.gif)
+![EditFixedOrder](EditFixedOrder.gif)
 
 ## 原理：
 

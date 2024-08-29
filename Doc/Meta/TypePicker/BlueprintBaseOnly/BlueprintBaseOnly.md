@@ -43,7 +43,7 @@ public:
 
 加了BlueprintBaseOnly的限定后，UMyCommonObjectChild_NotBlueprintable 这个类因为NotBlueprintable就不能被选择了。
 
-![BlueprintBaseOnly.jpg](BlueprintBaseOnly.jpg)
+![BlueprintBaseOnly](BlueprintBaseOnly.jpg)
 
 ## 原理：
 

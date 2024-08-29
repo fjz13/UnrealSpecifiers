@@ -24,7 +24,7 @@ public:
 
 可以看到，拥有Multiple 的只能按照5的倍数来增长。
 
-![Multiple.gif](Multiple.gif)
+![Multiple](Multiple.gif)
 
 ## 原理：
 

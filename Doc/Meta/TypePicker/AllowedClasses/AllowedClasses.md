@@ -81,13 +81,13 @@ class INSIDER_API UMyPrimaryDataAsset :public UPrimaryDataAsset
 - 在对象选择器上，加上了AllowedClasses = "/Script/Engine.Texture2D"之后，就把类型限定到纹理上。
 - 在FPrimaryAssetId 属性的资产筛选上，加了AllowedClasses 之后，可以限定到MyPrimaryDataAsset类型，图上是BP_MyPrimaryAsset。注意一下UMyPrimaryDataAsset 需要在ProjectSettings里设置上。
 
-![AllowClasses.jpg](AllowClasses.jpg)
+![AllowClasses](AllowClasses.jpg)
 
 测试FComponentReference的效果：
 
 结合上述代码，可见默认情况下，FComponentReference可选择的范围是当前Actor下所有Component。而加上AllowedClasses后，可以把选择的范围限定到代码里描述的MyActorComponent。
 
-![AllowClasses_ComponentReference.jpg](AllowClasses_ComponentReference.jpg)
+![AllowClasses_ComponentReference](AllowClasses_ComponentReference.jpg)
 
 ## 原理：
 

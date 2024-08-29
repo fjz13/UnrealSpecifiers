@@ -57,7 +57,7 @@ UScriptStruct* MyStructPtr_MetaClass;
 
 测试效果，只有MySoftClass_MetaClass和MySoftObject_MetaClass的选择列表里进行了筛选。
 
-![MetaClass.jpg](MetaClass.jpg)
+![MetaClass](MetaClass.jpg)
 
 ## 原理：
 

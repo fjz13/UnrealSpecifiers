@@ -34,7 +34,7 @@
 - 第二个加上UseComponentPicker后，列出了当前Actor下的所有组件，但是不能选择到其他Actor的组件。
 - 第三个继续加上AllowAnyActor后，列出了所有Actor的所有组件。
 
-![UseComponentPicker.jpg](UseComponentPicker.jpg)
+![UseComponentPicker](UseComponentPicker.jpg)
 
 ## 原理:
 

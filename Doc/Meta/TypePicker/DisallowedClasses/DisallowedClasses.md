@@ -72,13 +72,13 @@ public:
 - 在类选择器上，可见加了DisallowedClasses 之后，就排除掉了AbilityAsync类。
 - 而在对象选择器上，却没必要发生作用。二者的可选对象列表是一样的。原因是因为SAssetPicker并没有实际上应用DisallowedClasses 。
 
-![DisallowedClasses.jpg](DisallowedClasses.jpg)
+![DisallowedClasses](DisallowedClasses.jpg)
 
 而在FComponentReference上的测试效果是：
 
 DisallowedClasses可以排除掉MyActorComponent。
 
-![DisallowedClasses_ComponentReference.jpg](DisallowedClasses_ComponentReference.jpg)
+![DisallowedClasses_ComponentReference](DisallowedClasses_ComponentReference.jpg)
 
 ## 原理：
 

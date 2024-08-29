@@ -23,7 +23,7 @@
 
 拥有MetaStruct 的可以把类型列表筛选到MyCommonStruct的子类上。
 
-![MetaStruct.jpg](MetaStruct.jpg)
+![MetaStruct](MetaStruct.jpg)
 
 ## 原理：
 

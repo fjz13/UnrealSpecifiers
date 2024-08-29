@@ -36,7 +36,7 @@ struct INSIDEREDITOR_API FAnimNode_MyTestPinShown : public FAnimNode_Base
 
 MyInt_NeverAsPin只能和右边和默认的属性一样，不能显示为引脚。
 
-![PinShown.gif](PinShown.gif)
+![PinShown](PinShown.gif)
 
 ## 原理：
 
