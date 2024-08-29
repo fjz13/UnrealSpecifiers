@@ -28,6 +28,6 @@ UPROPERTY(BlueprintReadWrite, meta=(DisplayName="PlantName", DeprecatedProperty,
 FString DEPRECATED_PlantName;
 ```
 
-![Untitled](/Untitled.png)
+![Untitled](Untitled.png)
 
-![Untitled](/Untitled%201.png)
+![Untitled%201](Untitled%201.png)

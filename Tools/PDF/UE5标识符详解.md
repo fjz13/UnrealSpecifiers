@@ -919,19 +919,19 @@
 |CLASS_NotPlaceable                  |Behavior            |Inherit                                                                                                                                                                                                                                                         |0x00000200u|不能被放置在场景中                                                                                                                                                                                                |Deprecated, NotPlaceable, Placeable|                    |
 |CLASS_ReplicationDataIsSetUp        |Behavior            |                                                                                                                                                                                                                                                                |0x00000800u|是否在该类仍然需要调用SetUpRuntimeReplicationData                                                                                                                                                                   |                                                                                                                                       |                    |
 |CLASS_MinimalAPI                    |DllExport           |                                                                                                                                                                                                                                                                |0x00080000u|指定该类的最小导出，只导出获得类指针的函数                                                                                                                                                                                    |MinimalAPI                                                                                            |                    |
-|CLASS_RequiredAPI                   |DllExport           |DefaultC++, Internal                                                                                                                                                                                                                                            |0x00100000u|指定该类必须具有DLL导出，导出所有函数和属性                                                                                                                                                                                  |UCLASS()md)                                                                                                |                    |
+|CLASS_RequiredAPI                   |DllExport           |DefaultC++, Internal                                                                                                                                                                                                                                            |0x00100000u|指定该类必须具有DLL导出，导出所有函数和属性                                                                                                                                                                                  |UCLASS()                                                                                                |                    |
 |                                    |DllExport           |                                                                                                                                                                                                                                                                |     |                                                                                                                                                                                                         |                                                                                                                                       |                    |
 |CLASS_DefaultToInstanced            |LoadConstruct       |Inherit                                                                                                                                                                                                                                                         |0x00200000u|指定引用到该类的所有引用都默认创建个实例对象                                                                                                                                                                                   |DefaultToInstanced                                                                            |                    |
 |CLASS_HasInstancedReference         |LoadConstruct       |Inherit                                                                                                                                                                                                                                                         |0x00800000u|类拥有组件属性                                                                                                                                                                                                  |                                                                                                                                       |                    |
 |CLASS_Parsed                        |LoadConstruct       |                                                                                                                                                                                                                                                                |0x00000010u|成功解析完成                                                                                                                                                                                                   |                                                                                                                                       |                    |
-|CLASS_TokenStreamAssembled          |LoadConstruct       |DefaultC++                                                                                                                                                                                                                                                      |0x00400000u|指定父类的TokenStream已经被成功合并到自身类上                                                                                                                                                                             |UCLASS()md)                                                                                                |                    |
+|CLASS_TokenStreamAssembled          |LoadConstruct       |DefaultC++                                                                                                                                                                                                                                                      |0x00400000u|指定父类的TokenStream已经被成功合并到自身类上                                                                                                                                                                             |UCLASS()                                                                                                |                    |
 |CLASS_LayoutChanging                |LoadConstruct       |                                                                                                                                                                                                                                                                |     |指定该类的内存布局已经被改变，因此目前还不能创建CDO                                                                                                                                                                              |                                                                                                                                       |                    |
-|CLASS_Constructed                   |LoadConstruct       |DefaultC++                                                                                                                                                                                                                                                      |0x20000000u|类已经被构造完成                                                                                                                                                                                                 |UCLASS()md)                                                                                                |                    |
+|CLASS_Constructed                   |LoadConstruct       |DefaultC++                                                                                                                                                                                                                                                      |0x20000000u|类已经被构造完成                                                                                                                                                                                                 |UCLASS()                                                                                                |                    |
 |CLASS_NeedsDeferredDependencyLoading|LoadConstruct       |Inherit                                                                                                                                                                                                                                                         |     |指定该类需要延迟依赖加载                                                                                                                                                                                             |NeedsDeferredDependencyLoading                                                    |                    |
 |CLASS_Transient                     |LoadConstruct       |Inherit                                                                                                                                                                                                                                                         |0x00000008u|透明的，在序列化的时候被跳过                                                                                                                                                                                           |Transient, NonTransient                                             |                    |
 |CLASS_MatchedSerializers            |LoadConstruct       |DefaultC++, Internal                                                                                                                                                                                                                                            |0x00000020u|                                                                                                                                                                                                         |UCLASS(), MatchedSerializers                                   |                    |
-|CLASS_Native                        |Traits              |DefaultC++                                                                                                                                                                                                                                                      |0x00000080u|指定为原生类，C++里创建的类                                                                                                                                                                                          |UCLASS()md)                                                                                                |                    |
-|CLASS_Intrinsic                     |Traits              |DefaultC++                                                                                                                                                                                                                                                      |0x10000000u|类在C++中定义，且没有UHT生成的代码                                                                                                                                                                                     |Intrinsic, UCLASS()md)                                                     |                    |
+|CLASS_Native                        |Traits              |DefaultC++                                                                                                                                                                                                                                                      |0x00000080u|指定为原生类，C++里创建的类                                                                                                                                                                                          |UCLASS()                                                                                                |                    |
+|CLASS_Intrinsic                     |Traits              |DefaultC++                                                                                                                                                                                                                                                      |0x10000000u|类在C++中定义，且没有UHT生成的代码                                                                                                                                                                                     |Intrinsic, UCLASS()                                                     |                    |
 |CLASS_Interface                     |Traits              |                                                                                                                                                                                                                                                                |0x00004000u|该类是一个接口                                                                                                                                                                                                  |Interface                                                                                              |                    |
 |CLASS_Optional                      |Traits              |Inherit                                                                                                                                                                                                                                                         |0x00000010u|This object type may not be available in certain context. (i.e. game runtime or in certain configuration). Optional class data is saved separately to other object types. (i.e. might use sidecar files) |Optional                                                                                                |                    |
 |CLASS_Config                        |Config              |Inherit                                                                                                                                                                                                                                                         |0x00000004u|在构造的时候载入对象的config配置                                                                                                                                                                                      |                                                                                                                                       |                    |
@@ -1278,7 +1278,7 @@ struct INSIDEREDITOR_API FAnimNode_MyTestPinShown : public FAnimNode_Base
 
 ## 测试效果：
 
-![F:\UnrealSpecifiers\Doc\Meta\AnimationGraph\AlwaysAsPin\PinShown.gif](PinShown.gif)
+![PinShown](F:\UnrealSpecifiers\Doc\Meta\AnimationGraph\AlwaysAsPin\PinShown.gif)
 
 ## 原理：
 
@@ -2021,7 +2021,7 @@ struct INSIDEREDITOR_API FAnimNode_MyTestPinShown : public FAnimNode_Base
 
 MyInt_NeverAsPin只能和右边和默认的属性一样，不能显示为引脚。
 
-![F:\UnrealSpecifiers\Doc\Meta\AnimationGraph\NeverAsPin\PinShown.gif](PinShown.gif)
+![PinShown](F:\UnrealSpecifiers\Doc\Meta\AnimationGraph\NeverAsPin\PinShown.gif)
 
 ## 原理：
 
@@ -2126,7 +2126,7 @@ class INSIDEREDITOR_API UAnimGraphNode_MyTestPinShown : public UAnimGraphNode_Ba
 
 可见，同样的两个属性，MyInt_NotShown 默认情况不显示成节点，只能在细节面板里编辑。而MyInt_PinShownByDefault默认情况下成为引脚。当PinShownByDefault还可以改变去掉Pin的功能。
 
-![F:\UnrealSpecifiers\Doc\Meta\AnimationGraph\PinShownByDefault\PinShown.gif](PinShown.gif)
+![PinShown](F:\UnrealSpecifiers\Doc\Meta\AnimationGraph\PinShownByDefault\PinShown.gif)
 
 ## 原理：
 
@@ -6059,23 +6059,23 @@ public:
 
 用返回值当作输出参数的例子，注意到返回值类型实际变成了TArray<AMyCatActor*>。
 
-![F:\UnrealSpecifiers\Doc\Meta\Blueprint\Param\DeterminesOutputType\1.png](1.png)
+![pic_a](F:\UnrealSpecifiers\Doc\Meta\Blueprint\Param\DeterminesOutputType\pic_a.png)
 
 也可以加上DynamicOutputParam来指定输出参数作为动态类型参数：
 
-![F:\UnrealSpecifiers\Doc\Meta\Blueprint\Param\DeterminesOutputType\2.png](2.png)
+![pic_b](F:\UnrealSpecifiers\Doc\Meta\Blueprint\Param\DeterminesOutputType\pic_b.png)
 
 DynamicOutputParam可以指定多个参数
 
-![F:\UnrealSpecifiers\Doc\Meta\Blueprint\Param\DeterminesOutputType\3.png](3.png)
+![pic_c](F:\UnrealSpecifiers\Doc\Meta\Blueprint\Param\DeterminesOutputType\pic_c.png)
 
 DeterminesOutputType 的参数类型也可以是Object或者Object的容器：
 
-![F:\UnrealSpecifiers\Doc\Meta\Blueprint\Param\DeterminesOutputType\4.png](4.png)
+![pic_d](F:\UnrealSpecifiers\Doc\Meta\Blueprint\Param\DeterminesOutputType\pic_d.png)
 
 DeterminesOutputType 的参数甚至可以是结构里的某个属性，但是只有SplitStruct的时候才生效，因为这个时候结构的属性变量才变成函数的Pin，才可以进行DeterminesOutputType的名称比对。这个时候要书写成“A_B”，而不是“A.B”。
 
-![F:\UnrealSpecifiers\Doc\Meta\Blueprint\Param\DeterminesOutputType\5.png](5.png)
+![pic_e](F:\UnrealSpecifiers\Doc\Meta\Blueprint\Param\DeterminesOutputType\pic_e.png)
 
 ## 原理：
 
@@ -7200,7 +7200,7 @@ bool FKismetEditorUtilities::IsClassABlueprintSpawnableComponent(const UClass* C
 - 第二个加上UseComponentPicker后，列出了当前Actor下的所有组件，但是不能选择到其他Actor的组件。
 - 第三个继续加上AllowAnyActor后，列出了所有Actor的所有组件。
 
-![F:\UnrealSpecifiers\Doc\Meta\Component\UseComponentPicker\UseComponentPicker.jpg](UseComponentPicker.jpg)
+![UseComponentPicker](F:\UnrealSpecifiers\Doc\Meta\Component\UseComponentPicker\UseComponentPicker.jpg)
 
 ## 原理:
 
@@ -7638,7 +7638,7 @@ void FItemPropertyNode::InitChildNodes()
 - 加上EditFixedOrder的TArray就无法改变顺序了。
 - 其他TSet，TMap是不支持该meta的，因为其内部本身顺序也无关。
 
-![F:\UnrealSpecifiers\Doc\Meta\Container\EditFixedOrder\EditFixedOrder.gif](EditFixedOrder.gif)
+![EditFixedOrder](F:\UnrealSpecifiers\Doc\Meta\Container\EditFixedOrder\EditFixedOrder.gif)
 
 ## 原理：
 
@@ -7966,7 +7966,7 @@ public:
 
 UMyClass_DebugTreeLeaf对象作为一个类的成员变量（或者其他），在蓝图中调试查看变量，开启BlueprintDebugger查看变量属性时。如果没有加上DebugTreeLeaf，则会默认的展开所有内部属性。而如果加上DebugTreeLeaf标志，则会停止递归，阻止属性变量的展开。
 
-![F:\UnrealSpecifiers\Doc\Meta\Debug\DebugTreeLeaf\Snipaste_2024-02-29_21-17-51.png](Snipaste_2024-02-29_21-17-51.png)
+![Snipaste_2024-02-29_21-17-51](F:\UnrealSpecifiers\Doc\Meta\Debug\DebugTreeLeaf\Snipaste_2024-02-29_21-17-51.png)
 
 
 ﻿# AdvancedClassDisplay
@@ -8553,7 +8553,7 @@ public:
 - 可以通过bool单个属性来控制其他属性是否可以编辑
 - 也可以通过一个表达式引入更复杂的计算机制来决定是否来编辑。
 
-![F:\UnrealSpecifiers\Doc\Meta\DetailsPanel\EditCondition\EditCondition.gif](EditCondition.gif)
+![EditCondition](F:\UnrealSpecifiers\Doc\Meta\DetailsPanel\EditCondition\EditCondition.gif)
 
 ## 原理：
 
@@ -8619,7 +8619,7 @@ public:
 
 下面的图中可以明显见到两个属性随着条件的满足显示了出来。
 
-![F:\UnrealSpecifiers\Doc\Meta\DetailsPanel\EditConditionHides\EditConditionHides.gif](EditConditionHides.gif)
+![EditConditionHides](F:\UnrealSpecifiers\Doc\Meta\DetailsPanel\EditConditionHides\EditConditionHides.gif)
 
 ## 原理：
 
@@ -8955,7 +8955,7 @@ public:
 
 ## 测试效果：
 
-![F:\UnrealSpecifiers\Doc\Meta\DetailsPanel\HideEditConditionToggle\HideEditConditionToggle.gif](HideEditConditionToggle.gif)
+![HideEditConditionToggle](F:\UnrealSpecifiers\Doc\Meta\DetailsPanel\HideEditConditionToggle\HideEditConditionToggle.gif)
 
 ## 原理：
 
@@ -9128,7 +9128,7 @@ public:
 
 可见MyBool_Inline变成了单选框。而MyThirdInt_Inline就没有被隐藏掉。
 
-![F:\UnrealSpecifiers\Doc\Meta\DetailsPanel\InlineEditConditionToggle\InlineEditConditionToggle.gif](InlineEditConditionToggle.gif)
+![InlineEditConditionToggle](F:\UnrealSpecifiers\Doc\Meta\DetailsPanel\InlineEditConditionToggle\InlineEditConditionToggle.gif)
 
 ## 原理：
 
@@ -9361,7 +9361,7 @@ public:
 
 可以发现默认的属性在改变值后，右侧会出现一个重置按钮，以便让属性重置回默认值。NoResetToDefault的作用就是去除这个功能。
 
-![F:\UnrealSpecifiers\Doc\Meta\DetailsPanel\NoResetToDefault\ResetToDefaultTest.gif](ResetToDefaultTest.gif)
+![ResetToDefaultTest](F:\UnrealSpecifiers\Doc\Meta\DetailsPanel\NoResetToDefault\ResetToDefaultTest.gif)
 
 ## 原理：
 
@@ -9501,7 +9501,7 @@ public:
 
 MyProperty_WithComment是单独只加的Comment，就没有了鼠标悬停效果。
 
-![F:\UnrealSpecifiers\Doc\Meta\Development\Comment\Comment.gif](Comment.gif)
+![Comment](F:\UnrealSpecifiers\Doc\Meta\Development\Comment\Comment.gif)
 
 
 ﻿# Deprecated
@@ -9560,9 +9560,9 @@ UPROPERTY(BlueprintReadWrite, meta=(DisplayName="PlantName", DeprecatedProperty,
 FString DEPRECATED_PlantName;
 ```
 
-![Untitled](/Untitled.png)
+![Untitled](F:\UnrealSpecifiers\Doc\Meta\Development\DeprecatedProperty\Untitled.png)
 
-![Untitled](/Untitled%201.png)
+![Untitled%201](F:\UnrealSpecifiers\Doc\Meta\Development\DeprecatedProperty\Untitled%201.png)
 
 
 ﻿# DeprecationMessage
@@ -9616,7 +9616,7 @@ FString PlantName;
 
 ## 蓝图效果：
 
-![Untitled](/Untitled.png)
+![Untitled](F:\UnrealSpecifiers\Doc\Meta\Development\DevelopmentOnly\Untitled.png)
 
 ## 原理：
 
@@ -9756,7 +9756,7 @@ class INSIDER_API UMyClass_ToolTip_TypeB :public UObject
 
 可以发现，如果提供了ToolTip，就会覆盖掉代码注释里的注释。同时也可以发现在下图中，提示的文本过长超过了选项框。这时如果提供了ShortToolTip，则会在父类选取器中显示ShortToolTip中的文本，从而简洁一点显示。在很多别的地方也同样应用这个规则，比如（该类型）变量上的提示，或者在选择变量类型的时候。
 
-![1234.png](/1234.png)
+![1234](F:\UnrealSpecifiers\Doc\Meta\Development\ToolTip\1234.png)
 
 ## 原理代码：
 
@@ -9868,9 +9868,9 @@ FText FClassPickerDefaults::GetDescription() const
 
 变量和函数：
 
-![55.png](/55.png)
+![55](F:\UnrealSpecifiers\Doc\Meta\Development\ToolTip\55.png)
 
-![F:\UnrealSpecifiers\Doc\Meta\Development\ToolTip\77.png](77.png)
+![77](F:\UnrealSpecifiers\Doc\Meta\Development\ToolTip\77.png)
 
 其他需要注意的是，代码里注释的文本也会当作ToolTip。支持//和/**/这两种格式。如果在ToolTip中想换行，可以直接加/n就可以。
 
@@ -9956,11 +9956,11 @@ int32 ColorFlags;
 
 如下图所示：EMyEnum_Flags就不会被列在选项里。而EMyEnum_BitFlags就可以被列进来。
 
-![Untitled](/Untitled.png)
+![Untitled](F:\UnrealSpecifiers\Doc\Meta\Enum\Bitflags\Untitled.png)
 
 如果没有UPROPERTY(bitmask)的配合使用，则蓝图里还是只能单项选择
 
-![Untitled](/Untitled%201.png)
+![Untitled1](F:\UnrealSpecifiers\Doc\Meta\Enum\Bitflags\Untitled1.png)
 
 
 ﻿# Bitmask
@@ -10018,7 +10018,7 @@ public:
 
 都是可以在蓝图中用标记来定义
 
-![Untitled](/Untitled.png)
+![Untitled](F:\UnrealSpecifiers\Doc\Meta\Enum\Bitmask\Untitled.png)
 
 可以用BitmaskEnum进一步提供枚举值
 
@@ -10047,7 +10047,7 @@ public:
 
 如果没有标上BitmaskEnum，则无法提供标记的的名称值
 
-![Untitled](/Untitled.png)
+![Untitled](F:\UnrealSpecifiers\Doc\Meta\Enum\BitmaskEnum\Untitled.png)
 
 
 ﻿# Enum
@@ -10118,7 +10118,7 @@ FText GetMyEnumCustomDisplayName(int32 val)
 
 ## 测试蓝图：
 
-![Untitled](/Untitled.png)
+![Untitled](F:\UnrealSpecifiers\Doc\Meta\Enum\EnumDisplayNameFn\Untitled.png)
 
 EnumDisplayNameFn 的函数设置是在gen.cpp中完成的，因此并不需要成为UFUNCTION。
 
@@ -10307,7 +10307,7 @@ public:
 
 可见改变了名称。
 
-![F:\UnrealSpecifiers\Doc\Meta\Enum\UMETA\DisplayName\image.png](image.png)
+![image](F:\UnrealSpecifiers\Doc\Meta\Enum\UMETA\DisplayName\image.png)
 
 
 ﻿# DisplayValue
@@ -10650,11 +10650,11 @@ enum class EMyEnum_BitFlagsInEditor:uint8
 
 ## 测试的蓝图1：
 
-![Untitled](F:\UnrealSpecifiers\Doc\Meta\Enum\UseEnumValuesAsMaskValuesInEditor\Untitled.png)
+![Untitled_a](F:\UnrealSpecifiers\Doc\Meta\Enum\UseEnumValuesAsMaskValuesInEditor\Untitled_a.png)
 
 ## 测试的蓝图2：
 
-![Untitled](F:\UnrealSpecifiers\Doc\Meta\Enum\UseEnumValuesAsMaskValuesInEditor\Untitled%201.png)
+![Untitled_b](F:\UnrealSpecifiers\Doc\Meta\Enum\UseEnumValuesAsMaskValuesInEditor\Untitled_b.png)
 
 因此可以看出前者是1<<2+1<<2，而后者是1|2，因此后者是直接把枚举值作为已经位移后的值
 
@@ -11177,7 +11177,7 @@ class UMaterialExpressionLess : public UMaterialExpressionBinaryOp
 
 材质蓝图里无法调用Less。
 
-![Untitled](/Untitled.png)
+![Untitled](F:\UnrealSpecifiers\Doc\Meta\Material\MaterialNewHLSLGenerator\Untitled.png)
 
 ## 原理：
 
@@ -11868,7 +11868,7 @@ public:
 
 可见MyVector_AllowPreserveRatio的值在锁上之后可以形成固定的比率。
 
-![F:\UnrealSpecifiers\Doc\Meta\Numeric\AllowPreserveRatio\AllowPreserveRatio.gif](AllowPreserveRatio.gif)
+![AllowPreserveRatio](F:\UnrealSpecifiers\Doc\Meta\Numeric\AllowPreserveRatio\AllowPreserveRatio.gif)
 
 ## 原理：
 
@@ -11936,7 +11936,7 @@ public:
 
 可见拥有ArrayClamp的整数值被限制在数组的下标中。
 
-![F:\UnrealSpecifiers\Doc\Meta\Numeric\ArrayClamp\ArrayClamp.gif](ArrayClamp.gif)
+![ArrayClamp](F:\UnrealSpecifiers\Doc\Meta\Numeric\ArrayClamp\ArrayClamp.gif)
 
 ## 原理：
 
@@ -12137,7 +12137,7 @@ EColorGradingModes FColorGradingVectorCustomizationBase::GetColorGradingMode() c
 - MyVector_HasShiftMultiplier，发现按下Shift，一下子改变幅度是100
 - 当然用鼠标拖动也是一样的效果，只是那样改变太过剧烈，演示效果不明显
 
-![Multipiler.gif](/Multipiler.gif)
+![Multipiler](F:\UnrealSpecifiers\Doc\Meta\Numeric\CtrlMultiplier\Multipiler.gif)
 
 ## 原理：
 
@@ -12210,7 +12210,7 @@ void FMathStructCustomization::MakeHeaderRow(TSharedRef<class IPropertyHandle>& 
 - MyFloat_Delta10_LinearDeltaSensitivity50 ，在没有UIMinMax的情况下，且同时设置了LinearDeltaSensitivity，会导致鼠标往右拖动的整个过程中变化值始终是线性。LinearDeltaSensitivity越大越不敏感。因此一次一次缓慢的改变10
 - MyFloat_Delta10_LinearDeltaSensitivity50_UIMinMax ，如果上面一个再加上UIMinMax，则发现又失去了LinearDeltaSensitivity的效果。因为LinearDeltaSensitivity不能在有滚动条的情况下生效。
 
-![F:\UnrealSpecifiers\Doc\Meta\Numeric\Delta\Delta.gif](Delta.gif)
+![Delta](F:\UnrealSpecifiers\Doc\Meta\Numeric\Delta\Delta.gif)
 
 ## 原理：
 
@@ -12417,7 +12417,7 @@ void FColorStructCustomization::MakeHeaderRow(TSharedRef<class IPropertyHandle>&
 
 效果解析请参见：Delta的解析
 
-![Delta.gif](F:\UnrealSpecifiers\Doc\Meta\Numeric\Delta\Delta.gif)
+![Delta](F:\UnrealSpecifiers\Doc\Meta\Numeric\Delta\Delta.gif)
 
 ## 原理：
 
@@ -12475,7 +12475,7 @@ public:
 
 可以看到，拥有Multiple 的只能按照5的倍数来增长。
 
-![F:\UnrealSpecifiers\Doc\Meta\Numeric\Multiple\Multiple.gif](Multiple.gif)
+![Multiple](F:\UnrealSpecifiers\Doc\Meta\Numeric\Multiple\Multiple.gif)
 
 ## 原理：
 
@@ -12535,7 +12535,7 @@ public:
 
 发现带有NoSpinbox 的属性不能用鼠标左右拖动改变数值，也不能用鼠标滚轮改变数值。
 
-![F:\UnrealSpecifiers\Doc\Meta\Numeric\NoSpinbox\SpinBoxTest.gif](SpinBoxTest.gif)
+![SpinBoxTest](F:\UnrealSpecifiers\Doc\Meta\Numeric\NoSpinbox\SpinBoxTest.gif)
 
 ## 原理：
 
@@ -12628,7 +12628,7 @@ Shift的模式可以认为是一种快调模式，可以快速的改变值。
 
 MyVector_ShowNormalize右侧的按钮可以把值正规化。
 
-![F:\UnrealSpecifiers\Doc\Meta\Numeric\ShowNormalize\AllowPreserveRatio.gif](AllowPreserveRatio.gif)
+![AllowPreserveRatio](F:\UnrealSpecifiers\Doc\Meta\Numeric\ShowNormalize\AllowPreserveRatio.gif)
 
 ## 原理：
 
@@ -12686,7 +12686,7 @@ public:
 
 可见SliderExponent=5的效果导致100的文本值落在UI 1000的范围内一开始就处于快0.3的位置，且变动的范围在500前比较精细，500后比较迅速。跟前者形成对比。
 
-![F:\UnrealSpecifiers\Doc\Meta\Numeric\SliderExponent\SliderExponent.gif](SliderExponent.gif)
+![SliderExponent](F:\UnrealSpecifiers\Doc\Meta\Numeric\SliderExponent\SliderExponent.gif)
 
 ## 原理：
 
@@ -12781,7 +12781,7 @@ void FColorStructCustomization::CustomizeHeader(TSharedRef<class IPropertyHandle
 
 可以看见MyVector4_NoDynamicSlider并无法更改0-1的滚动条范围。而MyVector4_SupportDynamicSlider在按下Alt同时拖动鼠标后可以改变最小和最大的UI范围。
 
-![F:\UnrealSpecifiers\Doc\Meta\Numeric\SupportDynamicSliderMinValue\DynamicSlider.gif](DynamicSlider.gif)
+![DynamicSlider](F:\UnrealSpecifiers\Doc\Meta\Numeric\SupportDynamicSliderMinValue\DynamicSlider.gif)
 
 ## 原理：
 
@@ -12883,7 +12883,7 @@ UIMin-UIMax和ClampMin-ClampMax的区别是，UI系列阻止用户在拖动鼠�
 - 从MyFloat_HasMinMax_Clamp 发现，ClampMin，ClampMax 会同时限制UI和手动输入的范围。
 - 从MyFloat_HasMinMax_ClampAndUI和MyFloat_HasMinMax_ClampAndUI2发现，UI的滚动条会取UI的限制和Clamp限制的更窄范围，而实际输入值也是会被限制在更窄的范围内。
 
-![F:\UnrealSpecifiers\Doc\Meta\Numeric\UIMin\MinMax2.gif](MinMax2.gif)
+![MinMax2](F:\UnrealSpecifiers\Doc\Meta\Numeric\UIMin\MinMax2.gif)
 
 ## 原理：
 
@@ -13035,7 +13035,7 @@ float MyFloat_HasForceUnits_Distance = 100.f;
 - 发现采用Units的属性，会自动的根据值的不同调整单位。而且也接受数字+单位的输入。
 - 发现采用ForceUnits的属性，也可以接受数字+单位的输入，但是在显示上却始终显示为cm，不会调整到别的单位。
 
-![F:\UnrealSpecifiers\Doc\Meta\Numeric\Units\Unit.gif](Unit.gif)
+![Unit](F:\UnrealSpecifiers\Doc\Meta\Numeric\Units\Unit.gif)
 
 ## 原理：
 
@@ -13161,7 +13161,7 @@ MyFloat_SmallWheelStep的UI范围只有10，则默认改变幅度0.1
 
 指定WheelStep =10，则一下子变化10
 
-![F:\UnrealSpecifiers\Doc\Meta\Numeric\WheelStep\WheelStep2.gif](WheelStep2.gif)
+![WheelStep2](F:\UnrealSpecifiers\Doc\Meta\Numeric\WheelStep\WheelStep2.gif)
 
 ## 原理：
 
@@ -13250,7 +13250,7 @@ public:
 - 当指定Bundle为Game的时候，可以看见Icon和Mesh都加载了进来。
 - 要注意在编辑器下测试时候，如果之前已经加载了Mesh，因为还常驻在编辑器内存里。因此即使是使用名字UI，也仍然会发现Mesh可以被引用到。
 
-![F:\UnrealSpecifiers\Doc\Meta\Object\AssetBundles\AssetBundles.jpg](AssetBundles.jpg)
+![AssetBundles](F:\UnrealSpecifiers\Doc\Meta\Object\AssetBundles\AssetBundles.jpg)
 
 ## 原理：
 
@@ -13759,7 +13759,7 @@ public:
 
 配置的数据图的下部分，分别配置了两张图片。但在LoadPrimaryAsset后，只有MyChildObject_IncludeAssetBundles内部的ChildIcon才被加载进来。
 
-![F:\UnrealSpecifiers\Doc\Meta\Object\IncludeAssetBundles\IncludeAssetBundles.jpg](IncludeAssetBundles.jpg)
+![IncludeAssetBundles](F:\UnrealSpecifiers\Doc\Meta\Object\IncludeAssetBundles\IncludeAssetBundles.jpg)
 
 如果分析UMyProperty_Asset_Item 的AssetBunbleData数据，会发现其Client只包含第二张Stone图片的路径。这是因为只有第二张图片才被分析到并包含进来。
 
@@ -16432,7 +16432,7 @@ public:
 
 可见一开始的节点是SetMyTemplate，然后根据引脚类型的不同，再实际Resolve成FRigUnit_MyTemplate_Float 或者是FRigUnit_MyTemplate_Int 。因为我没有实现SetMyString，所以FString类型的是不能连接到引脚的。
 
-![F:\UnrealSpecifiers\Doc\Meta\RigVM\TemplateName\RigVM_Template.gif](RigVM_Template.gif)
+![RigVM_Template](F:\UnrealSpecifiers\Doc\Meta\RigVM\TemplateName\RigVM_Template.gif)
 
 ## 原理：
 
@@ -19304,7 +19304,7 @@ public:
 
 可见增加了AllowAbstract的属性的类选择器里增加了UMyCommonObjectChildAbstract 这个抽象类。
 
-![F:\UnrealSpecifiers\Doc\Meta\TypePicker\AllowAbstract\AllowAbstract.png](AllowAbstract.png)
+![AllowAbstract](F:\UnrealSpecifiers\Doc\Meta\TypePicker\AllowAbstract\AllowAbstract.png)
 
 ## 原理：
 
@@ -19443,13 +19443,13 @@ class INSIDER_API UMyPrimaryDataAsset :public UPrimaryDataAsset
 - 在对象选择器上，加上了AllowedClasses = "/Script/Engine.Texture2D"之后，就把类型限定到纹理上。
 - 在FPrimaryAssetId 属性的资产筛选上，加了AllowedClasses 之后，可以限定到MyPrimaryDataAsset类型，图上是BP_MyPrimaryAsset。注意一下UMyPrimaryDataAsset 需要在ProjectSettings里设置上。
 
-![F:\UnrealSpecifiers\Doc\Meta\TypePicker\AllowedClasses\AllowClasses.jpg](AllowClasses.jpg)
+![AllowClasses](F:\UnrealSpecifiers\Doc\Meta\TypePicker\AllowedClasses\AllowClasses.jpg)
 
 测试FComponentReference的效果：
 
 结合上述代码，可见默认情况下，FComponentReference可选择的范围是当前Actor下所有Component。而加上AllowedClasses后，可以把选择的范围限定到代码里描述的MyActorComponent。
 
-![F:\UnrealSpecifiers\Doc\Meta\TypePicker\AllowedClasses\AllowClasses_ComponentReference.jpg](AllowClasses_ComponentReference.jpg)
+![AllowClasses_ComponentReference](F:\UnrealSpecifiers\Doc\Meta\TypePicker\AllowedClasses\AllowClasses_ComponentReference.jpg)
 
 ## 原理：
 
@@ -19774,7 +19774,7 @@ public:
 
 加了BlueprintBaseOnly的限定后，UMyCommonObjectChild_NotBlueprintable 这个类因为NotBlueprintable就不能被选择了。
 
-![F:\UnrealSpecifiers\Doc\Meta\TypePicker\BlueprintBaseOnly\BlueprintBaseOnly.jpg](BlueprintBaseOnly.jpg)
+![BlueprintBaseOnly](F:\UnrealSpecifiers\Doc\Meta\TypePicker\BlueprintBaseOnly\BlueprintBaseOnly.jpg)
 
 ## 原理：
 
@@ -19902,13 +19902,13 @@ public:
 - 在类选择器上，可见加了DisallowedClasses 之后，就排除掉了AbilityAsync类。
 - 而在对象选择器上，却没必要发生作用。二者的可选对象列表是一样的。原因是因为SAssetPicker并没有实际上应用DisallowedClasses 。
 
-![F:\UnrealSpecifiers\Doc\Meta\TypePicker\DisallowedClasses\DisallowedClasses.jpg](DisallowedClasses.jpg)
+![DisallowedClasses](F:\UnrealSpecifiers\Doc\Meta\TypePicker\DisallowedClasses\DisallowedClasses.jpg)
 
 而在FComponentReference上的测试效果是：
 
 DisallowedClasses可以排除掉MyActorComponent。
 
-![F:\UnrealSpecifiers\Doc\Meta\TypePicker\DisallowedClasses\DisallowedClasses_ComponentReference.jpg](DisallowedClasses_ComponentReference.jpg)
+![DisallowedClasses_ComponentReference](F:\UnrealSpecifiers\Doc\Meta\TypePicker\DisallowedClasses\DisallowedClasses_ComponentReference.jpg)
 
 ## 原理：
 
@@ -20035,7 +20035,7 @@ TArray<FSmartObjectDefinitionDataProxy> DefinitionData;
 - 可见没有ExactClass的时候，筛选类型是TextureCube和TextureLightProfile，总共有18项。
 - 而有ExactClass后，筛选类型是TextureCube，总共只有12项。
 
-![F:\UnrealSpecifiers\Doc\Meta\TypePicker\ExactClass\ExactClass.jpg](ExactClass.jpg)
+![ExactClass](F:\UnrealSpecifiers\Doc\Meta\TypePicker\ExactClass\ExactClass.jpg)
 
 ## 原理：
 
@@ -20181,7 +20181,7 @@ public:
 
 可见Class选择器把可选范围限定到了设定的3个基类上。而对象选择器也把对象限定到了这3个基类。
 
-![F:\UnrealSpecifiers\Doc\Meta\TypePicker\GetAllowedClasses\GetAllowClasses.jpg](GetAllowClasses.jpg)
+![GetAllowClasses](F:\UnrealSpecifiers\Doc\Meta\TypePicker\GetAllowedClasses\GetAllowClasses.jpg)
 
 ## 原理：
 
@@ -20280,7 +20280,7 @@ UClass* MyClassPtr_GetDisallowedClasses;
 
 可以发现加了GetDisallowedClasses之后，选择列表上少了一些类型。
 
-![F:\UnrealSpecifiers\Doc\Meta\TypePicker\GetDisallowedClasses\GetDisallowedClasses.jpg](GetDisallowedClasses.jpg)
+![GetDisallowedClasses](F:\UnrealSpecifiers\Doc\Meta\TypePicker\GetDisallowedClasses\GetDisallowedClasses.jpg)
 
 ## 原理：
 
@@ -20385,7 +20385,7 @@ void PropertyEditorUtils::GetAllowedAndDisallowedClasses(const TArray<UObject*>&
 
 可见如果没有HideViewOptions，则在弹出框的角落有个齿轮或者眼睛用于修改显示选项。
 
-![F:\UnrealSpecifiers\Doc\Meta\TypePicker\HideViewOptions\HideViewOptions.jpg](HideViewOptions.jpg)
+![HideViewOptions](F:\UnrealSpecifiers\Doc\Meta\TypePicker\HideViewOptions\HideViewOptions.jpg)
 
 ## 原理：
 
@@ -20484,7 +20484,7 @@ UScriptStruct* MyStructPtr_MetaClass;
 
 测试效果，只有MySoftClass_MetaClass和MySoftObject_MetaClass的选择列表里进行了筛选。
 
-![F:\UnrealSpecifiers\Doc\Meta\TypePicker\MetaClass\MetaClass.jpg](MetaClass.jpg)
+![MetaClass](F:\UnrealSpecifiers\Doc\Meta\TypePicker\MetaClass\MetaClass.jpg)
 
 ## 原理：
 
@@ -20555,7 +20555,7 @@ void FSoftObjectPathCustomization::CustomizeHeader( TSharedRef<IPropertyHandle> 
 
 拥有MetaStruct 的可以把类型列表筛选到MyCommonStruct的子类上。
 
-![F:\UnrealSpecifiers\Doc\Meta\TypePicker\MetaStruct\MetaStruct.jpg](MetaStruct.jpg)
+![MetaStruct](F:\UnrealSpecifiers\Doc\Meta\TypePicker\MetaStruct\MetaStruct.jpg)
 
 ## 原理：
 
@@ -20648,7 +20648,7 @@ static void SetMyClassMustImplement(UPARAM(meta=(MustImplement="MyCommonInterfac
 
 可以发现第一个没有筛选的结果，第二和第三个有了筛选后的结果。
 
-![F:\UnrealSpecifiers\Doc\Meta\TypePicker\MustImplement\MustImplement.png](MustImplement.png)
+![MustImplement](F:\UnrealSpecifiers\Doc\Meta\TypePicker\MustImplement\MustImplement.png)
 
 也可以放在在函数里作为参数：
 
@@ -20785,7 +20785,7 @@ public:
 
 可见AMyActorChild_NotPlaceable 类因为加了NotPlaceable标记，就不能被MyActor_OnlyPlaceable属性选择上。
 
-![F:\UnrealSpecifiers\Doc\Meta\TypePicker\OnlyPlaceable\OnlyPlaceable.jpg](OnlyPlaceable.jpg)
+![OnlyPlaceable](F:\UnrealSpecifiers\Doc\Meta\TypePicker\OnlyPlaceable\OnlyPlaceable.jpg)
 
 ## 原理：
 
@@ -20985,7 +20985,7 @@ UScriptStruct* MyStructPtr_ShowDisplayNames;
 
 为了让效果更加直观，上面的测试代码里也加上了MetaClass，MetaStruct，AllowedClasses 用来限定选择范围。
 
-![F:\UnrealSpecifiers\Doc\Meta\TypePicker\ShowDisplayNames\ShowDisplayNames.jpg](ShowDisplayNames.jpg)
+![ShowDisplayNames](F:\UnrealSpecifiers\Doc\Meta\TypePicker\ShowDisplayNames\ShowDisplayNames.jpg)
 
 ## 原理：
 
@@ -21102,7 +21102,7 @@ FText SPropertyEditorStruct::GetDisplayValue() const
 
 可见带有ShowTreeView的属性，在弹出的选择框上显示的是树形而不是列表。
 
-![F:\UnrealSpecifiers\Doc\Meta\TypePicker\ShowTreeView\ShowTreeView.jpg](ShowTreeView.jpg)
+![ShowTreeView](F:\UnrealSpecifiers\Doc\Meta\TypePicker\ShowTreeView\ShowTreeView.jpg)
 
 ## 原理：
 
@@ -22061,7 +22061,7 @@ class UListViewBase : public UWidget
 
 可以发现在改变bSimpleTextMode的时候，左侧预览界面会一下下的在跳动刷新。而在点击改变别的按钮的时候就没有该效果。
 
-![F:\UnrealSpecifiers\Doc\Meta\Widget\DesignerRebuild\DesignerRebuild1.gif](DesignerRebuild1.gif)
+![DesignerRebuild1](F:\UnrealSpecifiers\Doc\Meta\Widget\DesignerRebuild\DesignerRebuild1.gif)
 
 ## 测试代码：
 
@@ -22082,7 +22082,7 @@ public:
 
 可见在改变普通的属性MyInt 的时候，界面并不会刷新。而在改变MyInt_DesignerRebuild 的时候，界面左上角的数字在跳动（虽然整个界面其实并没有什么实质变化）。
 
-![F:\UnrealSpecifiers\Doc\Meta\Widget\DesignerRebuild\DesignerRebuild2.gif](DesignerRebuild2.gif)
+![DesignerRebuild2](F:\UnrealSpecifiers\Doc\Meta\Widget\DesignerRebuild\DesignerRebuild2.gif)
 
 ## 原理：
 
@@ -22525,7 +22525,7 @@ UMyClass_Abstract* obj=NewObject<UMyClass_Abstract>();
 
 在蓝图中的ConstructObject不会出现该类。同时在C++中NewObject也会报错。
 
-![F:\UnrealSpecifiers\Doc\Specifier\UCLASS\Blueprint\Abstract\image.png](image.png)
+![image](F:\UnrealSpecifiers\Doc\Specifier\UCLASS\Blueprint\Abstract\image.png)
 
 ## 原理：
 
@@ -22798,11 +22798,11 @@ public:
 
 在蓝图子类中尝试修改属性会报错。
 
-![F:\UnrealSpecifiers\Doc\Specifier\UCLASS\Blueprint\Const\image.png](image.png)
+![image](F:\UnrealSpecifiers\Doc\Specifier\UCLASS\Blueprint\Const\image.png)
 
 跟蓝图Class Settings里打开这个开关设定的一样
 
-![image.png](F:\UnrealSpecifiers\Doc\Specifier\UCLASS\Blueprint\Const\image%201.png)
+![image](F:\UnrealSpecifiers\Doc\Specifier\UCLASS\Blueprint\Const\image%201.png)
 
 ![Untitled](F:\UnrealSpecifiers\Doc\Specifier\UCLASS\Blueprint\Const\Untitled.png)
 
@@ -24802,7 +24802,7 @@ public:
 - MyObject_DefaultToInstanced因为类上有DefaultToInstanced，因此该属性是Instanced。当然我们也可以手动给属性加上Instanced标记，正如MyObject_NotDefaultToInstanced_Instanced和MyObject_DefaultToInstanced_Instanced。出现了创建实例的窗口，但是还不能创建在细节面板里直接创建对象。
 - MyObject_DefaultToInstanced_EditInlineNew，MyObject_NotDefaultToInstanced_EditInlineNew_Instanced，MyObject_DefaultToInstanced_EditInlineNew_Instanced这3个都可以直接在细节面板创建对象实例。是因为这个类本身要有EditInlineNew，另外这个属性要有Instanced（要嘛在该类上设置DefaultToInstanced以此该类的所有属性都自动是Instanced，或者在属性上单个设置Instanced）
 
-![F:\UnrealSpecifiers\Doc\Specifier\UCLASS\Instance\DefaultToInstanced\image.png](image.png)
+![image](F:\UnrealSpecifiers\Doc\Specifier\UCLASS\Instance\DefaultToInstanced\image.png)
 
 ## 原理：
 
@@ -24881,7 +24881,7 @@ EditInlineNew支持直接C++或BP子类创建对象实例，然后在上面编�
 
 如果属性上没有Instanced则只能尝试去引用（找不到对象）。
 
-![F:\UnrealSpecifiers\Doc\Specifier\UCLASS\Instance\EditInlineNew\image.png](image.png)
+![image](F:\UnrealSpecifiers\Doc\Specifier\UCLASS\Instance\EditInlineNew\image.png)
 
 ## 原理：
 
@@ -27253,13 +27253,13 @@ void UMyActor_EnumBitFlags_Test::TestFlags()
 
 蓝图中的表示，依然只能选择单项。
 
-![F:\UnrealSpecifiers\Doc\Specifier\UENUM\Flags\Flags.gif](Flags.gif)
+![Flags](F:\UnrealSpecifiers\Doc\Specifier\UENUM\Flags\Flags.gif)
 
 而测试代码里打印出来的字符串：
 
 可见outStr_Flags 的打印是字符串拼接的。
 
-![F:\UnrealSpecifiers\Doc\Specifier\UENUM\Flags\image.png](image.png)
+![image](F:\UnrealSpecifiers\Doc\Specifier\UENUM\Flags\image.png)
 
 ## 原理：
 
@@ -29614,7 +29614,7 @@ MyPropertyWithGlobalConfig=999
 
 可见testObjectChild 的值并没有使用ini里MyProperty_Config_Child下的999的值，而是同样的888.
 
-![F:\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Config\GlobalConfig\image.png](image.png)
+![image](F:\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Config\GlobalConfig\image.png)
 
 ## 原理：
 

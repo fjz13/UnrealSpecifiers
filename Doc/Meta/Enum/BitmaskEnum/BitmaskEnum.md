@@ -22,4 +22,4 @@ public:
 
 如果没有标上BitmaskEnum，则无法提供标记的的名称值
 
-![Untitled](/Untitled.png)
+![Untitled](Untitled.png)

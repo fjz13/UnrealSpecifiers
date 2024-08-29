@@ -53,6 +53,6 @@ public:
 
 都是可以在蓝图中用标记来定义
 
-![Untitled](/Untitled.png)
+![Untitled](Untitled.png)
 
 可以用BitmaskEnum进一步提供枚举值

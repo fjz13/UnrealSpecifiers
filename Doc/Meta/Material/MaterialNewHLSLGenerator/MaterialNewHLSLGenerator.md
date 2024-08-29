@@ -27,7 +27,7 @@ class UMaterialExpressionLess : public UMaterialExpressionBinaryOp
 
 材质蓝图里无法调用Less。
 
-![Untitled](/Untitled.png)
+![Untitled](Untitled.png)
 
 ## 原理：
 

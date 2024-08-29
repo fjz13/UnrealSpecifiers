@@ -55,7 +55,7 @@ FText GetMyEnumCustomDisplayName(int32 val)
 
 ## 测试蓝图：
 
-![Untitled](/Untitled.png)
+![Untitled](Untitled.png)
 
 EnumDisplayNameFn 的函数设置是在gen.cpp中完成的，因此并不需要成为UFUNCTION。
 

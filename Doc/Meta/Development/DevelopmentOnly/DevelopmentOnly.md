@@ -22,7 +22,7 @@
 
 ## 蓝图效果：
 
-![Untitled](/Untitled.png)
+![Untitled](Untitled.png)
 
 ## 原理：
 

@@ -39,7 +39,7 @@
 - MyVector_HasShiftMultiplier，发现按下Shift，一下子改变幅度是100
 - 当然用鼠标拖动也是一样的效果，只是那样改变太过剧烈，演示效果不明显
 
-![Multipiler](/Multipiler.gif)
+![Multipiler](Multipiler.gif)
 
 ## 原理：
 

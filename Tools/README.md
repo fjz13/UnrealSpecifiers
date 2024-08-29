@@ -16,7 +16,7 @@ powershell Set-ExecutionPolicy RemoteSigned
 
 六、在VSCode里打开“PDF\UE5标识符详解.md"文件，使用正则搜索符号`\[([^\]]+)\]\(([^\)]+\.md)\)`替换为'$1'来把所有文件超链接去除，因为PDF内不支持超链接会生成错误。
 
-另外搜索“\[UCLASS()](UCLASS/UHT/UCLASS().md)”和“ \[UCLASS()](UCLASS().md)”替换成"UCLASS()",
+另外搜索“\[UCLASS()](UCLASS/UHT/UCLASS().md)”和“ \[UCLASS()](UCLASS().md)”和" \[UCLASS()](../Specifier/UCLASS/UHT/UCLASS().md) "替换成"UCLASS()",
 
 搜索“\[不写UCLASS()](UCLASS/UHT/不写UCLASS().md)”和“\[不写UCLASS()](不写UCLASS().md)”替换成“不写UCLASS()”
 

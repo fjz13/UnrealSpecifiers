@@ -43,8 +43,8 @@ int32 ColorFlags;
 
 如下图所示：EMyEnum_Flags就不会被列在选项里。而EMyEnum_BitFlags就可以被列进来。
 
-![Untitled](/Untitled.png)
+![Untitled](Untitled.png)
 
 如果没有UPROPERTY(bitmask)的配合使用，则蓝图里还是只能单项选择
 
-![Untitled](/Untitled%201.png)
+![Untitled1](Untitled1.png)
