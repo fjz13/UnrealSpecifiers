@@ -1,0 +1,59 @@
+(/Game/BP_MyActor	Package->Object	/Game/BP_MyActor)
+	(PackageMetaData	MetaData->Object	/Game/BP_MyActor.PackageMetaData)
+	(BP_MyActor	Blueprint->BlueprintCore->Object	/Game/BP_MyActor.BP_MyActor)
+		(EventGraph	EdGraph->Object	/Game/BP_MyActor.BP_MyActor:EventGraph)
+			(K2Node_Event_0	K2Node_Event->K2Node_EditablePinBase->K2Node->EdGraphNode->Object	/Game/BP_MyActor.BP_MyActor:EventGraph.K2Node_Event_0) [DefaultGraphNode = true]
+			(K2Node_Event_1	K2Node_Event->K2Node_EditablePinBase->K2Node->EdGraphNode->Object	/Game/BP_MyActor.BP_MyActor:EventGraph.K2Node_Event_1) [DefaultGraphNode = true]
+			(K2Node_Event_2	K2Node_Event->K2Node_EditablePinBase->K2Node->EdGraphNode->Object	/Game/BP_MyActor.BP_MyActor:EventGraph.K2Node_Event_2) [DefaultGraphNode = true]
+		(UserConstructionScript	EdGraph->Object	/Game/BP_MyActor.BP_MyActor:UserConstructionScript)
+			(K2Node_FunctionEntry_0	K2Node_FunctionEntry->K2Node_FunctionTerminator->K2Node_EditablePinBase->K2Node->EdGraphNode->Object	/Game/BP_MyActor.BP_MyActor:UserConstructionScript.K2Node_FunctionEntry_0) [DefaultGraphNode = true]
+		(SceneThumbnailInfo_0	SceneThumbnailInfo->ThumbnailInfo->Object	/Game/BP_MyActor.BP_MyActor:SceneThumbnailInfo_0)
+		(ExecuteUbergraph_BP_MyActor	EdGraph->Object	/Game/BP_MyActor.BP_MyActor:ExecuteUbergraph_BP_MyActor)
+		(EdGraph_0	EdGraph->Object	/Game/BP_MyActor.BP_MyActor:EdGraph_0)
+			(K2Node_FunctionEntry_0	K2Node_FunctionEntry->K2Node_FunctionTerminator->K2Node_EditablePinBase->K2Node->EdGraphNode->Object	/Game/BP_MyActor.BP_MyActor:EdGraph_0.K2Node_FunctionEntry_0)
+	[BP_MyActor_C	BlueprintGeneratedClass->Class->Struct->Field->Object	/Game/BP_MyActor.BP_MyActor_C] [BlueprintType = true]
+		{
+			[Category = Default]
+			USceneComponent* DefaultSceneRoot;
+			[DisplayName = Hard Asset, Category = Default, MultiLine = true]
+			UMyReferenceTestAsset* HardAsset;
+			[DisplayName = Hard Asset Class, Category = Default, MultiLine = true]
+			UClass* HardAssetClass;
+			[DisplayName = Soft Asset, Category = Default, MultiLine = true]
+			TSoftObjectPtr<UMyReferenceTestAsset> SoftAsset;
+			[DisplayName = Soft Asset Class, Category = Default, MultiLine = true]
+			TSoftClassPtr<UMyReferenceTestAsset>  SoftAssetClass;
+		};
+		(SimpleConstructionScript_0	SimpleConstructionScript->Object	/Game/BP_MyActor.BP_MyActor_C:SimpleConstructionScript_0)
+			(SCS_Node_0	SCS_Node->Object	/Game/BP_MyActor.BP_MyActor_C:SimpleConstructionScript_0.SCS_Node_0)
+		(DefaultSceneRoot_GEN_VARIABLE	SceneComponent->ActorComponent->Object	/Game/BP_MyActor.BP_MyActor_C:DefaultSceneRoot_GEN_VARIABLE)
+	(Default__BP_MyActor_C	BP_MyActor_C->Actor->Object	/Game/BP_MyActor.Default__BP_MyActor_C)
+	[SKEL_BP_MyActor_C	BlueprintGeneratedClass->Class->Struct->Field->Object	/Game/BP_MyActor.SKEL_BP_MyActor_C] [BlueprintType = true]
+		{
+			FPointerToUberGraphFrame UberGraphFrame = {};
+			[Category = Default]
+			USceneComponent* DefaultSceneRoot;
+			[DisplayName = Hard Asset, Category = Default, MultiLine = true]
+			UMyReferenceTestAsset* HardAsset;
+			[DisplayName = Hard Asset Class, Category = Default, MultiLine = true]
+			UClass* HardAssetClass;
+			[DisplayName = Soft Asset, Category = Default, MultiLine = true]
+			TSoftObjectPtr<UMyReferenceTestAsset> SoftAsset;
+			[DisplayName = Soft Asset Class, Category = Default, MultiLine = true]
+			TSoftClassPtr<UMyReferenceTestAsset>  SoftAssetClass;
+		};
+		[ReceiveBeginPlay	Function->Struct->Field->Object	/Game/BP_MyActor.SKEL_BP_MyActor_C:ReceiveBeginPlay] [DisplayName = BeginPlay, ModuleRelativePath = Classes/GameFramework/Actor.h]
+		{
+		};
+		[ReceiveActorBeginOverlap	Function->Struct->Field->Object	/Game/BP_MyActor.SKEL_BP_MyActor_C:ReceiveActorBeginOverlap] [Category = Collision, DisplayName = ActorBeginOverlap, ModuleRelativePath = Classes/GameFramework/Actor.h]
+		{
+			AActor* OtherActor;
+		};
+		[ReceiveTick	Function->Struct->Field->Object	/Game/BP_MyActor.SKEL_BP_MyActor_C:ReceiveTick] [DisplayName = Tick, ModuleRelativePath = Classes/GameFramework/Actor.h]
+		{
+			float DeltaSeconds;
+		};
+		[UserConstructionScript	Function->Struct->Field->Object	/Game/BP_MyActor.SKEL_BP_MyActor_C:UserConstructionScript] [BlueprintInternalUseOnly = true, DisplayName = Construction Script, ModuleRelativePath = Classes/GameFramework/Actor.h]
+		{
+		};
+	(Default__SKEL_BP_MyActor_C	SKEL_BP_MyActor_C->Actor->Object	/Game/BP_MyActor.Default__SKEL_BP_MyActor_C)

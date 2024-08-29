@@ -1,0 +1,31 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "MyPlugin",
+	"Description": "MyPlugin",
+	"Category": "Other",
+	"CreatedBy": "Jianzhao Fu",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"SupportURL": "",
+	"EngineVersion": "5.4.0",
+	"EnabledByDefault": false,
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "MyPlugin",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"WhitelistPlatforms": [ "Win64", "Android", "Mac", "IOS" ]
+		},
+		{
+			"Name": "MyPluginEditor",
+			"Type": "UncookedOnly",
+			"LoadingPhase": "Default",
+			"WhitelistPlatforms": [ "Win64", "Android", "Mac", "IOS" ]
+		}
+	]
+}

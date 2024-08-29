@@ -1,0 +1,3 @@
+(/Game/DA_MyReferenceTest	Package->Object	/Game/DA_MyReferenceTest)
+	(PackageMetaData	MetaData->Object	/Game/DA_MyReferenceTest.PackageMetaData)
+	(DA_MyReferenceTest	MyReferenceTestAsset->PrimaryDataAsset->DataAsset->Object	/Game/DA_MyReferenceTest.DA_MyReferenceTest)
