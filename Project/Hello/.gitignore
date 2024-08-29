@@ -12,3 +12,5 @@ _ReSharper.Caches
 .idea
 /.idea
 /Content/StarterContent
+Hello.sln
+*.vsconfig
