@@ -12,6 +12,8 @@
 只在ActorComponent.cpp里用到，感觉是用于跳过序列化某个属性。
 也只在UPrimitiveComponent 里的BodyInstance用到。物理的表示信息是运行时生成的，确实不需要序列化。但其实标一个Transient也就可以了，只能说是混乱的用法了。
 
+SimpleConstructionScript指的是这个组件是在Actor的蓝图面板里添加进去的，而不是再蓝图通过AddComponent里动态添加的。
+
 ```cpp
 UCLASS(abstract, HideCategories=(Mobility, VirtualTexture), ShowCategories=(PhysicsVolume), MinimalAPI)
 class UPrimitiveComponent : public USceneComponent, public INavRelevantInterface, public IInterface_AsyncCompilation, public IPhysicsComponent
@@ -20,6 +22,12 @@ class UPrimitiveComponent : public USceneComponent, public INavRelevantInterface
 	FBodyInstance BodyInstance;
 }
 
+void UActorComponent::DetermineUCSModifiedProperties()
+{
+  	if (CreationMethod == EComponentCreationMethod::SimpleConstructionScript)
+    {
+   	 //TMap<UActorComponent*, TArray<FSimpleMemberReference>> AllUCSModifiedProperties;
+    	//把组件里和CDO不一样的属性存到AllUCSModifiedProperties里
 		class FComponentPropertySkipper : public FArchive
 		{
 		public:
@@ -44,4 +52,7 @@ class UPrimitiveComponent : public USceneComponent, public INavRelevantInterface
 					);
 			}
 		} PropertySkipper;
+    
+        }
+    }
 ```

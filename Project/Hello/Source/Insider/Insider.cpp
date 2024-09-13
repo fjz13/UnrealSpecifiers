@@ -116,9 +116,6 @@ static int32 GetHiddenFunctions(uint32 Indent, UClass* Class, bool bShowFunLibs,
 void FInsiderModule::StartupModule()
 {
 
-	
-
-
 	//UMyActor_EnumBitFlags_Test::TestFlags();
 	//UMyProperty_Config_Test::TestConfigLoad();
 
