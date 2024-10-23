@@ -1,8 +1,8 @@
 # UE5标识符详解
 
 - **作者：** 大钊
-- **文档版本：** 1.0
-- **修订日期：** 2024/08/27
+- **文档版本：** 1.1
+- **修订日期：** 2024/10/23
 - **适用引擎版本：** UE5.4
 - **GitHub地址：** https://github.com/fjz13/UnrealSpecifiers
 - **知乎地址：** https://www.zhihu.com/people/fjz13

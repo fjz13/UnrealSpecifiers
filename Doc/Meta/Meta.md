@@ -389,7 +389,7 @@
 
 | Name                                                         | 引擎模块      | 功能描述                                                     | 常用程度 |
 | ------------------------------------------------------------ | ------------- | ------------------------------------------------------------ | -------- |
-| [SkipUCSModifiedProperties](Serialization/SkipUCSModifiedProperties.md) | Serialization | 跳过序列化Component里某个属性                                | 💀        |
+| [SkipUCSModifiedProperties](Serialization/SkipUCSModifiedProperties.md) | Serialization | 允许ActorComponent里的属性在Actor构造函数里被修改后依然保存下来 | ★        |
 | [MatchedSerializers](Serialization/MatchedSerializers.md)    | Serialization | 只在NoExportTypes.h中使用，标明采用结构序列化器。是否支持文本导入导出 | 💀        |
 
 
