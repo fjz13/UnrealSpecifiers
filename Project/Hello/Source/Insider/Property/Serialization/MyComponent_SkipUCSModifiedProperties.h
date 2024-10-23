@@ -18,3 +18,30 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (SkipUCSModifiedProperties))
 	FString MyString_Skip = TEXT("Hello");
 };
+
+UCLASS(Blueprintable, BlueprintType)
+class INSIDER_API AMyProperty_SkipUCSModifiedProperties_BaseActor :public AActor
+{
+public:
+	GENERATED_BODY()
+
+	UPROPERTY(BlueprintReadWrite,EditDefaultsOnly)
+	bool CanCallConstruction=false;
+};
+
+
+UCLASS(Blueprintable, BlueprintType)
+class INSIDER_API AMyProperty_SkipUCSModifiedProperties_TestActor :public AActor
+{
+public:
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AMyProperty_SkipUCSModifiedProperties_BaseActor> ActorClass;
+	
+	UFUNCTION(CallInEditor)
+	void CreateActor();
+
+	UFUNCTION(CallInEditor)
+	void CleanupActor();
+};
