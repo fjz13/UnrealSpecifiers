@@ -15,6 +15,11 @@
 
 文档必然有各种缺漏错误不足之处，欢迎提交PR或与我反馈联系，让虚幻社区更多人受益。
 
+## 配套资料：
+
+- 这是我在**Unreal Fest Shanghai 2024**上的演讲：[UE5(标识符, meta=(详解, 史上最全)) | 大钊 Epic Games 虚幻社区经理](https://www.bilibili.com/video/BV1152LYrECW/)
+- 以及我在知乎上的介绍文章：[UE5标识符详解 | 史上最全](https://zhuanlan.zhihu.com/p/717920216)(大钊)
+
 ## 目录内容介绍
 
 - 文档阅读请从 [Doc/zh/Main.md](Doc/zh/Main.md) 开始，内部开始划分表格以进行分类。
@@ -42,6 +47,13 @@ Greetings everyone, I am Jack Fu. Inspired by the frequent questions within the 
 For the best experience, it is recommended to view the various markdown files on GitHub or clone them to benefit from the organized directory structure and linked navigation. For those with limited internet access, a PDF version of the e-book is also available. At the beginning of the document, there is a comprehensive table of specifiers, allowing for a quick overview of their functions. For specific specifiers, please utilize the search function to locate them.
 
 The document is bound to have its share of omissions, errors, and inadequacies. I welcome pull requests or feedback to help improve this resource and benefit the wider Unreal Engine community.
+
+## Supporting Materials: 
+
+- This is my presentation at **Unreal Fest Shanghai 2024**: [UE5 (Specifiers, meta=(Detailed Explanation, Most Comprehensive Ever)) | Jack Fu, Epic Games Unreal Community Manager](https://www.bilibili.com/video/BV1152LYrECW/) 
+-  And my introductory article on Zhihu: [UE5 Specifiers Detailed Explanation | Most Comprehensive Ever](https://zhuanlan.zhihu.com/p/717920216)(Jack Fu)
+
+
 
 ## Table of Contents Introduction 
 
