@@ -1,0 +1,1 @@
+merge-markdown -m manifest-zh.yml

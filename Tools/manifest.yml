@@ -500,7 +500,7 @@ input:
   ../Doc/Meta/Widget/BindWidgetAnimOptional/BindWidgetAnimOptional.md: '{"noYAML":true,"doctoc":true}'
 
 output:
-  name: PDF/UE5标识符详解.md
+  name: PDF/UE5标识符详解-大钊.md
   doctoc: true
   pandoc:
     css: '-c path/to/theme.css'

@@ -1,0 +1,7 @@
+i18n:
+  fromTo:
+    zh: en
+    # en:
+
+ignore:
+  - _*

@@ -51,7 +51,6 @@
 
 - EPropertyFlags
 
-
 # UCLASS(标识符)
 
 ## UHT
@@ -61,8 +60,8 @@
 | NoExport                         | UHT      | 指定UHT不要用来自动生成注册的代码，而只是进行词法分析提取元数据。 | 💀        |
 | Intrinsic                       | UHT      | 指定UHT完全不为此类生成代码，需要自己手写。                  | 💀        |
 | Interface                       | UHT      | 标识这个Class是个Interface。                                 | 💀        |
-| UCLASS()                         | UHT      | 留空的默认行为是不能在蓝图中被继承，不能在蓝图中定义变量，但拥有反射的功能。 | ★★★★★    |
-| 不写UCLASS()                 | UHT      | 只是作为一个普通的C++对象，没有反射功能。                    | ★        |
+| UCLASS_Empty                         | UHT      | 留空的默认行为是不能在蓝图中被继承，不能在蓝图中定义变量，但拥有反射的功能。 | ★★★★★    |
+| Without_UCLASS                 | UHT      | 只是作为一个普通的C++对象，没有反射功能。                    | ★        |
 | CustomThunkTemplates | UHT      | Specifies the struct that contains the CustomThunk implementations | 💀        |
 | CustomConstructor       | UHT      | 阻止构造函数声明自动生成。                                   | 💀        |
 | CustomFieldNotify       | UHT      | 阻止UHT为该类生成FieldNotify的相关代码。                     | 💀        |
@@ -162,7 +161,6 @@
 | Optional        | Serialization | 标记该类的对象是可选的，在Cooking的时候可以选择是否要忽略保存它们。 | ★        |
 | MatchedSerializers | Serialization | 指定类支持文本结构序列化                                     | 💀        |
 
-
 # UINTERFACE(标识符)
 
 ## DllExport
@@ -179,7 +177,6 @@
 | Blueprintable | Blueprint | 可以在蓝图中实现                                        | ★★★★★    |
 | NotBlueprintable | Blueprint | 指定不可以在蓝图中实现                                  | ★★★      |
 | ConversionRoot           | Blueprint | Sets IsConversionRoot metadata flag for this interface. | 💀        |
-
 
 # USTRUCT(标识符)
 
@@ -210,7 +207,6 @@
 | ------------------------------------------------------------ | ------------- | ------------------------------------------------------------ | -------- |
 | immutable              | Serialization | Immutable is only legal in Object.h and is being phased out, do not use on new structs! | 💀        |
 
-
 # UENUM(标识符)
 
  ## Trait
@@ -225,7 +221,6 @@
 | Name                                    | 引擎模块  | 功能描述                                   | 常用程度 |
 | --------------------------------------- | --------- | ------------------------------------------ | -------- |
 | BlueprintType | Blueprint | 可以作为蓝图变量                           | ★★★★★    |
-
 
 # UFUNCTION(标识符)
 
@@ -282,7 +277,6 @@
 | Variadic               | Blueprint, UHT | 标识一个函数可以接受任意类型的多个参数（包括input/output)．  | ★★★      |
 | FieldNotify      | UHT            | 为该函数创建一个FieldNotify的绑定点。                        | ★★★      |
 
-
 # UPARAM(标识符)
 
  ## Blueprint
@@ -300,7 +294,6 @@
 | Name                                                       | 功能描述                             | 引擎模块                      | 常用程度 |
 | ---------------------------------------------------------- | ------------------------------------ | ----------------------------- | -------- |
 | NotReplicated           |                                      | Blueprint, Network, Parameter | 💀        |
-
 
 # UPROPERTY(标识符)
 
@@ -408,7 +401,6 @@
 | Name                                                                                                     | 引擎模块                 | 功能描述                                                                                                                 | 常用程度  |
 |----------------------------------------------------------------------------------------------------------|----------------------|----------------------------------------------------------------------------------------------------------------------|-------|
 | AssetRegistrySearchable            | Asset                | 标记该属性可以作为AssetRegistry的Tag和Value值来进行资产的过滤搜索                                                                          | ★★★   |
-
 
 # Meta = (元数据)
 
@@ -894,7 +886,6 @@
 | BindWidgetAnim    | Widget   | 指定在C++类中该UWidgetAnimation属性一定要绑定到UMG下的某个动画 | ★★★★★    |
 | BindWidgetAnimOptional | Widget   | 指定在C++类中该UWidgetAnimation属性可以要绑定到UMG下的某个动画，也可以不绑定。 | ★★★      |
 
-
 # ClassFlags :
 
 |Name                                |Feature             |Trait                                                                                                                                                                                                                                                           |Value|Description                                                                                                                                                                                              |UCLASS                                                                                                                                 |Related to UPROPERTY|
@@ -913,19 +904,19 @@
 |CLASS_NotPlaceable                  |Behavior            |Inherit                                                                                                                                                                                                                                                         |0x00000200u|不能被放置在场景中                                                                                                                                                                                                |Deprecated, NotPlaceable, Placeable|                    |
 |CLASS_ReplicationDataIsSetUp        |Behavior            |                                                                                                                                                                                                                                                                |0x00000800u|是否在该类仍然需要调用SetUpRuntimeReplicationData                                                                                                                                                                   |                                                                                                                                       |                    |
 |CLASS_MinimalAPI                    |DllExport           |                                                                                                                                                                                                                                                                |0x00080000u|指定该类的最小导出，只导出获得类指针的函数                                                                                                                                                                                    |MinimalAPI                                                                                            |                    |
-|CLASS_RequiredAPI                   |DllExport           |DefaultC++, Internal                                                                                                                                                                                                                                            |0x00100000u|指定该类必须具有DLL导出，导出所有函数和属性                                                                                                                                                                                  |UCLASS()                                                                                                |                    |
+|CLASS_RequiredAPI                   |DllExport           |DefaultC++, Internal                                                                                                                                                                                                                                            |0x00100000u|指定该类必须具有DLL导出，导出所有函数和属性                                                                                                                                                                                  |UCLASS_Empty                                                                                                |                    |
 |                                    |DllExport           |                                                                                                                                                                                                                                                                |     |                                                                                                                                                                                                         |                                                                                                                                       |                    |
 |CLASS_DefaultToInstanced            |LoadConstruct       |Inherit                                                                                                                                                                                                                                                         |0x00200000u|指定引用到该类的所有引用都默认创建个实例对象                                                                                                                                                                                   |DefaultToInstanced                                                                            |                    |
 |CLASS_HasInstancedReference         |LoadConstruct       |Inherit                                                                                                                                                                                                                                                         |0x00800000u|类拥有组件属性                                                                                                                                                                                                  |                                                                                                                                       |                    |
 |CLASS_Parsed                        |LoadConstruct       |                                                                                                                                                                                                                                                                |0x00000010u|成功解析完成                                                                                                                                                                                                   |                                                                                                                                       |                    |
 |CLASS_TokenStreamAssembled          |LoadConstruct       |DefaultC++                                                                                                                                                                                                                                                      |0x00400000u|指定父类的TokenStream已经被成功合并到自身类上                                                                                                                                                                             |UCLASS()                                                                                                |                    |
 |CLASS_LayoutChanging                |LoadConstruct       |                                                                                                                                                                                                                                                                |     |指定该类的内存布局已经被改变，因此目前还不能创建CDO                                                                                                                                                                              |                                                                                                                                       |                    |
-|CLASS_Constructed                   |LoadConstruct       |DefaultC++                                                                                                                                                                                                                                                      |0x20000000u|类已经被构造完成                                                                                                                                                                                                 |UCLASS()                                                                                                |                    |
+|CLASS_Constructed                   |LoadConstruct       |DefaultC++                                                                                                                                                                                                                                                      |0x20000000u|类已经被构造完成                                                                                                                                                                                                 |UCLASS_Empty                                                                                                |                    |
 |CLASS_NeedsDeferredDependencyLoading|LoadConstruct       |Inherit                                                                                                                                                                                                                                                         |     |指定该类需要延迟依赖加载                                                                                                                                                                                             |NeedsDeferredDependencyLoading                                                    |                    |
 |CLASS_Transient                     |LoadConstruct       |Inherit                                                                                                                                                                                                                                                         |0x00000008u|透明的，在序列化的时候被跳过                                                                                                                                                                                           |Transient, NonTransient                                             |                    |
-|CLASS_MatchedSerializers            |LoadConstruct       |DefaultC++, Internal                                                                                                                                                                                                                                            |0x00000020u|                                                                                                                                                                                                         |UCLASS(), MatchedSerializers                                   |                    |
-|CLASS_Native                        |Traits              |DefaultC++                                                                                                                                                                                                                                                      |0x00000080u|指定为原生类，C++里创建的类                                                                                                                                                                                          |UCLASS()                                                                                                |                    |
-|CLASS_Intrinsic                     |Traits              |DefaultC++                                                                                                                                                                                                                                                      |0x10000000u|类在C++中定义，且没有UHT生成的代码                                                                                                                                                                                     |Intrinsic, UCLASS()                                                     |                    |
+|CLASS_MatchedSerializers            |LoadConstruct       |DefaultC++, Internal                                                                                                                                                                                                                                            |0x00000020u|                                                                                                                                                                                                         |UCLASS_Empty, MatchedSerializers                                   |                    |
+|CLASS_Native                        |Traits              |DefaultC++                                                                                                                                                                                                                                                      |0x00000080u|指定为原生类，C++里创建的类                                                                                                                                                                                          |UCLASS_Empty                                                                                                |                    |
+|CLASS_Intrinsic                     |Traits              |DefaultC++                                                                                                                                                                                                                                                      |0x10000000u|类在C++中定义，且没有UHT生成的代码                                                                                                                                                                                     |Intrinsic, UCLASS_Empty                                                     |                    |
 |CLASS_Interface                     |Traits              |                                                                                                                                                                                                                                                                |0x00004000u|该类是一个接口                                                                                                                                                                                                  |Interface                                                                                              |                    |
 |CLASS_Optional                      |Traits              |Inherit                                                                                                                                                                                                                                                         |0x00000010u|This object type may not be available in certain context. (i.e. game runtime or in certain configuration). Optional class data is saved separately to other object types. (i.e. might use sidecar files) |Optional                                                                                                |                    |
 |CLASS_Config                        |Config              |Inherit                                                                                                                                                                                                                                                         |0x00000004u|在构造的时候载入对象的config配置                                                                                                                                                                                      |                                                                                                                                       |                    |
@@ -935,7 +926,6 @@
 |CLASS_GlobalUserConfig              |Config              |Inherit                                                                                                                                                                                                                                                         |0x08000000u|类Setttings被保存到<AppData>/..../Blah.ini                                                                                                                                                                    |GlobalUserConfig                                                                                |                    |
 |CLASS_ConfigDoNotCheckDefaults      |Config              |Inherit                                                                                                                                                                                                                                                         |0x40000000u|指定对象配置将不会检查base/defaults ini                                                                                                                                                                             |ConfigDoNotCheckDefaults                                                                |                    |
 |HasCustomFieldNotify                |                    |                                                                                                                                                                                                                                                                |     |                                                                                                                                                                                                         |CustomFieldNotify                                                                              |                    |
-
 
 # StructFlags :
 | Name                              | Value      | Description                                                  | USTRUCT                                                      |
@@ -966,14 +956,12 @@
 | STRUCT_NewerVersionExists         | 0x01000000 | If set, this structure has been replaced via reinstancing    |                                                              |
 | STRUCT_CanEditChange              | 0x02000000 | If set, this struct will have CanEditChange on it in the editor to determine if a child property can be edited |                                                              |
 
-
 # EnumFlags :
 
 | Name               | Feature | Value      | Description                                             | UENUM | UENUM 1                                    |
 | ------------------ | ------- | ---------- | ------------------------------------------------------- | ----- | ------------------------------------------ |
 | Flags              | Trait   | 0x00000001 | Whether the UEnum represents a set of flags             |       | Flags |
 | NewerVersionExists | Trait   | 0x00000002 | If set, this UEnum has been replaced by a newer version |       |                                            |
-
 
 # FunctionFlags :
 |Name                                |Feature             |Value                                                                                                                                                                                                                                                           |Description|UFUNCTION/UDELEGATE                                                                                                                                                                                      |UFUNCTION/UDELEGATE 1                                                                                                                  |USTRUCT                                       |
@@ -1008,7 +996,6 @@
 |FUNC_EditorOnly                     |Trait               |0x20000000                                                                                                                                                                                                                                                      |function can only be called from an editor scrippt.|                                                                                                                                                                                                         |                                                                                                                                       |                                              |
 |FUNC_Const                          |Trait               |0x40000000                                                                                                                                                                                                                                                      |function can be called from blueprint code, and only reads state (never writes state)|                                                                                                                                                                                                         |                                                                                                                                       |                                              |
 |FUNC_NetValidate                    |Network             |0x80000000                                                                                                                                                                                                                                                      |function must supply a _Validate implementation|WithValidation                                                                                                                                                   |                                                                                                                                       |                                              |
-
 
 # PropertyFlags :
 | Name                               | Feature       | Value              | Description                                                  | UPARAM                                            | UPROPERTY                                                    |
@@ -1064,7 +1051,6 @@
 | CPF_NativeAccessSpecifierProtected | Trait         | 0x0020000000000000 | Protected native access specifier                            |                                                   |                                                              |
 | CPF_NativeAccessSpecifierPrivate   | Trait         | 0x0040000000000000 | Private native access specifier                              |                                                   |                                                              |
 | CPF_SkipSerialization              | Serialization | 0x0080000000000000 | Property shouldn't be serialized, can still be exported to text |                                                   | SkipSerialization |
-
 
 # NoExport
 
@@ -1178,7 +1164,7 @@ bool FKismetEditorUtilities::IsClassABlueprintInterface(const UClass* Class)
 - **引擎模块：** UHT
 - **元数据类型：** bool
 - **作用机制：** 在ClassFlags中增加CLASS_MatchedSerializers, CLASS_Native, CLASS_RequiredAPI, CLASS_TokenStreamAssembled, CLASS_Intrinsic, CLASS_Constructed
-- **关联项：** 不写UCLASS()
+- **关联项：** Without_UCLASS
 - **常用程度：★★★★★**
 
 不能在蓝图中被继承，不能在蓝图中定义变量。
@@ -1209,13 +1195,13 @@ public:
 
 默认的拥有这些标志：CLASS_MatchedSerializers | CLASS_Native | CLASS_RequiredAPI | CLASS_TokenStreamAssembled | CLASS_Intrinsic | CLASS_Constructed
 
-# 不写UCLASS()
+# Without_UCLASS
 
 - **功能描述：** 只是作为一个普通的C++对象，没有反射功能。
 
 - **引擎模块：** UHT
 - **元数据类型：** bool
-- **关联项：** UCLASS()
+- **关联项：** UCLASS_Empty
 - **常用程度：** ★
 
 只是作为一个普通的C++对象，没有反射功能。
@@ -1225,7 +1211,7 @@ public:
 ```cpp
 class INSIDER_API UMyClass_NoUCLASS :public UObject
 {
-	
+
 };
 ```
 
@@ -1288,11 +1274,11 @@ public:
 		UE_FIELD_NOTIFICATION_DECLARE_ENUM_FIELD(bIsEnabled)
 		UE_FIELD_NOTIFICATION_DECLARE_ENUM_FIELD_END()
 	UE_FIELD_NOTIFICATION_DECLARE_CLASS_DESCRIPTOR_BASE_END();
-	
-	
+
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, FieldNotify, Getter="GetIsEnabled", Setter="SetIsEnabled", BlueprintGetter="GetIsEnabled", BlueprintSetter="SetIsEnabled", Category="Behavior")
 	uint8 bIsEnabled:1;
-	
+
 	//cpp
 UE_FIELD_NOTIFICATION_IMPLEMENT_CLASS_DESCRIPTOR_ThreeFields(UWidget, ToolTipText, Visibility, bIsEnabled);
 
@@ -1369,13 +1355,13 @@ class INSIDER_API UMyClass_Blueprintable_To_NotBlueprintable :public UMyClass_Bl
 
 只有带有Blueprintable才可以被选做基类。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Blueprint\Blueprintable\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Blueprint\Blueprintable\Untitled.png)
 
 不过是否能够当做变量的规则，还是会依赖父类的Blueprint标记。因此以下这3个都是可以当做变量的。
 
 其中UMyClass_Blueprintable_To_NotBlueprintable可以当做变量是因为父类UMyClass_Blueprintable可以当做变量，因此就继承了下来。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Blueprint\Blueprintable\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Blueprint\Blueprintable\Untitled%201.png)
 
 ## 原理：
 
@@ -1385,7 +1371,7 @@ class INSIDER_API UMyClass_Blueprintable_To_NotBlueprintable :public UMyClass_Bl
 bool FKismetEditorUtilities::CanCreateBlueprintOfClass(const UClass* Class)
 {
 	bool bCanCreateBlueprint = false;
-	
+
 	if (Class)
 	{
 		bool bAllowDerivedBlueprints = false;
@@ -1401,10 +1387,10 @@ bool FKismetEditorUtilities::CanCreateBlueprintOfClass(const UClass* Class)
 			|| (Class == UObject::StaticClass())
 			|| (Class == USceneComponent::StaticClass() || Class == UActorComponent::StaticClass())
 			|| bIsBPGC;  // BPs are always considered inheritable
-			
+
 		bCanCreateBlueprint &= bIsValidClass;
 	}
-	
+
 	return bCanCreateBlueprint;
 }
 ```
@@ -1417,8 +1403,6 @@ bool FKismetEditorUtilities::CanCreateBlueprintOfClass(const UClass* Class)
 - **作用机制：** 在Meta去除IsBlueprintBase和BlueprintType
 - **关联项：** Blueprintable
 - **常用程度：★★★★**
-
-
 
 # BlueprintType
 
@@ -1488,7 +1472,7 @@ class INSIDER_API UMyClass_BlueprintType_To_NotBlueprintType:public UMyClass_Blu
 
 带有BlueprintType =true的才可以当作变量
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Blueprint\BlueprintType\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Blueprint\BlueprintType\Untitled.png)
 
 ## 原理：
 
@@ -1555,7 +1539,7 @@ UMyClass_Abstract* obj=NewObject<UMyClass_Abstract>();
 
 在蓝图中的ConstructObject不会出现该类。同时在C++中NewObject也会报错。
 
-![image](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Blueprint\Abstract\image.png)
+![image](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Blueprint\Abstract\image.png)
 
 ## 原理：
 
@@ -1588,7 +1572,7 @@ bool StaticAllocateObjectErrorTests( const UClass* InClass, UObject* InOuter, FN
 		}
 	}
 	}
-	
+
 	bool FScopedAllowAbstractClassAllocation::IsDisallowedAbstractClass(const UClass* InClass, EObjectFlags InFlags)
 {
 	if (((InFlags& RF_ClassDefaultObject) == 0) && InClass->HasAnyClassFlags(CLASS_Abstract))
@@ -1637,13 +1621,13 @@ public:
 
 在蓝图子类中尝试修改属性会报错。
 
-![image](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Blueprint\Const\image.png)
+![image](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Blueprint\Const\image.png)
 
 跟蓝图Class Settings里打开这个开关设定的一样
 
-![image](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Blueprint\Const\image%201.png)
+![image](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Blueprint\Const\image%201.png)
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Blueprint\Const\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Blueprint\Const\Untitled.png)
 
 ## 原理：
 
@@ -1772,15 +1756,15 @@ public:
 
 发现Callable的函数是依然可以调用的。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Blueprint\HideFunctions\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Blueprint\HideFunctions\Untitled.png)
 
 在HideFunction子类里，函数重载会发现少两个
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Blueprint\HideFunctions\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Blueprint\HideFunctions\Untitled%201.png)
 
 在ShowFunction的子类里可以重新打开Event2和EventCategory2
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Blueprint\HideFunctions\Untitled%202.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Blueprint\HideFunctions\Untitled%202.png)
 
 ## 原理：
 
@@ -1986,7 +1970,7 @@ UClass* Z_Construct_UClass_AMyActor_SparseClassDataTypes()
 UFUNCTION(BlueprintPure)
 int32 GetMyMyInt_BlueprintReadOnly()const
 {
-	return GetMySparseClassData()->MyInt_BlueprintReadOnly; 
+	return GetMySparseClassData()->MyInt_BlueprintReadOnly;
 }
 ```
 
@@ -2063,11 +2047,11 @@ const FString& GetMyString_EditDefault_ReadOnly() const \
 
 在BP中依然可以访问：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Blueprint\SparseClassDataType\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Blueprint\SparseClassDataType\Untitled.png)
 
 在Class Defaults里也可以改变值：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Blueprint\SparseClassDataType\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Blueprint\SparseClassDataType\Untitled%201.png)
 
 # NeedsDeferredDependencyLoading
 
@@ -2166,7 +2150,7 @@ public:
 
 可以正常在蓝图中调用函数和属性。蓝图函数库中的方法也可以调用，说明UHT对MinimalAPI还是依然生成反射的调用信息的，蓝图调用是只需要反射信息就可以的，因为是自己模块把函数和属性的指针注册到系统里，因此并不需要dll导出。只不过在dll导出工具里查看dll导出的函数列表并没有该函数。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\UHT\MinimalAPI\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\UHT\MinimalAPI\Untitled.png)
 
 查看dll导出函数列表：
 
@@ -2201,7 +2185,7 @@ public: void __cdecl UMyClass_MinimalAPI_BlueprintFunctionLibary::`default const
 public: void __cdecl UMyClass_MinimalAPI_BlueprintType::`default constructor closure'(void) __ptr64
 ```
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\UHT\MinimalAPI\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\UHT\MinimalAPI\Untitled%201.png)
 
 在跨模块调用的时候，因为没有dll导出，因此会触发链接错误。
 
@@ -2220,7 +2204,7 @@ a->MyProperty++;
 auto* a = NewObject<UMyClass_NotMinimalAPI>();
 
 //第三种错误
-//error LNK2019: unresolved external symbol "public: static void __cdecl UMyClass_MinimalAPI_BlueprintFunctionLibary::MyFuncInMinimalAPI(void)" (?MyFuncInMinimalAPI@UMyClass_MinimalAPI_BlueprintFunctionLibary@@SAXXZ) 
+//error LNK2019: unresolved external symbol "public: static void __cdecl UMyClass_MinimalAPI_BlueprintFunctionLibary::MyFuncInMinimalAPI(void)" (?MyFuncInMinimalAPI@UMyClass_MinimalAPI_BlueprintFunctionLibary@@SAXXZ)
 //referenced in function "public: void __cdecl UMyClass_UseMinimalAPI::TestFunc(void)" (?TestFunc@UMyClass_UseMinimalAPI@@QEAAXXZ)
 UMyClass_MinimalAPI_BlueprintFunctionLibary::MyFuncInMinimalAPI();
 
@@ -2257,11 +2241,11 @@ public:
 
 在添加组件的时候：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Category\ClassGroup\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Category\ClassGroup\Untitled.png)
 
 在蓝图中右键AddComponent，该测试只对带有BlueprintSpawnableComponent的UActorComponent起作用，因为只有BlueprintSpawnableComponent才可在蓝图中动态添加组件。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Category\ClassGroup\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Category\ClassGroup\Untitled%201.png)
 
 ## 原理：
 
@@ -2336,7 +2320,7 @@ public:
 
 ## 示例效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Category\ShowCategories\Image\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Category\ShowCategories\Image\Untitled.png)
 
 ## 原理：
 
@@ -2370,7 +2354,7 @@ void FEditorCategoryUtils::GetClassHideCategories(const UStruct* Class, TArray<F
 		const FString& HideCategories = Class->GetMetaData(ClassHideCategoriesMetaKey);
 
 		HideCategories.ParseIntoArray(CategoriesOut, TEXT(" "), /*InCullEmpty =*/true);
-		
+
 		if (bHomogenize)
 		{
 			for (FString& Category : CategoriesOut)
@@ -2437,7 +2421,7 @@ public:
 
 注意这里，单独的MyGroup2和MyGroup3也都没有显示。所以判断的标准只要目录符合某个目录名字匹配就行。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Category\HideCategories\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Category\HideCategories\Untitled.png)
 
 ## 原理：
 
@@ -2471,7 +2455,7 @@ void FEditorCategoryUtils::GetClassHideCategories(const UStruct* Class, TArray<F
 		const FString& HideCategories = Class->GetMetaData(ClassHideCategoriesMetaKey);
 
 		HideCategories.ParseIntoArray(CategoriesOut, TEXT(" "), /*InCullEmpty =*/true);
-		
+
 		if (bHomogenize)
 		{
 			for (FString& Category : CategoriesOut)
@@ -2517,7 +2501,7 @@ public:
 };
 
 /*
-ClassFlags: CLASS_MatchedSerializers | CLASS_Native | CLASS_RequiredAPI | CLASS_TokenStreamAssembled | CLASS_Intrinsic | CLASS_Constructed 
+ClassFlags: CLASS_MatchedSerializers | CLASS_Native | CLASS_RequiredAPI | CLASS_TokenStreamAssembled | CLASS_Intrinsic | CLASS_Constructed
 */
 UCLASS(Blueprintable, dontCollapseCategories)
 class INSIDER_API UMyClass_DontCollapseCategories :public UMyClass_CollapseCategories
@@ -2531,7 +2515,7 @@ public:
 
 第一个是UMyClass_CollapseCategories 的效果，第二个是UMyClass_DontCollapseCategories 的效果，可见一些属性被隐藏了起来。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Category\CollapseCategories\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Category\CollapseCategories\Untitled.png)
 
 ## 原理：
 
@@ -2637,7 +2621,7 @@ class ENGINE_API UDataLayerInstance : public UObject
 
 通过对比可以看出Expand确实可以自动展开子目录方便立马编辑。要求是AutoExpandCategories 里填的目录要和属性上的Category匹配
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Category\AutoExpandCategories\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Category\AutoExpandCategories\Untitled.png)
 
 ## 原理：
 
@@ -2695,7 +2679,7 @@ public:
 
 关闭了Group22的展开，但是444的展开依然继承了
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Category\AutoCollapseCategories\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Category\AutoCollapseCategories\Untitled.png)
 
 # DontAutoCollapseCategories
 
@@ -2796,7 +2780,7 @@ public:
 
 可见Property_Group333排到了最前面。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Category\PrioritizeCategories\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Category\PrioritizeCategories\Untitled.png)
 
 ## 原理：
 
@@ -2862,7 +2846,7 @@ public:
 
 子类里的MyGroup3即使被隐藏了起来，也还是显示了出来。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Category\ComponentWrapperClass\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Category\ComponentWrapperClass\Untitled.png)
 
 ## 原理：
 
@@ -2880,8 +2864,8 @@ void FBlueprintEditorUtils::RecreateClassMetaData(UBlueprint* Blueprint, UClass*
 
 if (!ParentClass->HasMetaData(FBlueprintMetadata::MD_IgnoreCategoryKeywordsInSubclasses)) //如果没有这个设置
 		{
-			// we want the categories just as they appear in the parent class 
-			// (set bHomogenize to false) - especially since homogenization 
+			// we want the categories just as they appear in the parent class
+			// (set bHomogenize to false) - especially since homogenization
 			// could inject spaces
 
 			//以下这些操作是当没有这个设置的时候，子类会继承父类的目录设置。
@@ -2947,7 +2931,7 @@ public:
 
 MyProperty_Simple即使在AdvancedClassDisplay的类中也依然是简单的显示。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Category\AdvancedClassDisplay\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Category\AdvancedClassDisplay\Untitled.png)
 
 ## 原理：
 
@@ -3007,7 +2991,7 @@ public:
 
 ## 示例结果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\TypePicker\HideDropDown\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\TypePicker\HideDropDown\Untitled.png)
 
 ## 原理：
 
@@ -3071,7 +3055,7 @@ class INSIDER_API UDEPRECATED_MyClass_Deprecated :public UObject
 
 依然可以NewObject。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Development\Deprecated\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Development\Deprecated\Untitled.png)
 
 ## 示例代码2：
 
@@ -3109,7 +3093,7 @@ public:
 		UMyClass_Deprecated_Test* obj=NewObject<UMyClass_Deprecated_Test>();
 		UDEPRECATED_MyClass_Deprecated* obj2 = NewObject<UDEPRECATED_MyClass_Deprecated>();
 		obj->MyProperty_Deprecated= obj2;
-		obj->MyProperty_Deprecated->MyFunc(); 
+		obj->MyProperty_Deprecated->MyFunc();
 
 		obj->MyIntProperty++;
 		obj->MyFunc(obj2);
@@ -3137,7 +3121,7 @@ UPROPERTY()	int MyInt2Property_DEPRECATED;
 
 属性和函数上加上Deprecated标记后，会在BP编译的时候生成警告。注意函数是先有一个正常的函数，在BP里连接完成之后再在C++里标记DeprecatedFunction才会生成警告，否则已经Deprecated的函数是无法再在BP里调用的。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Development\Deprecated\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Development\Deprecated\Untitled%201.png)
 
 ## 原理：
 
@@ -3186,7 +3170,7 @@ public:
 
 ## 示例效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Development\Experimental\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Development\Experimental\Untitled.png)
 
 # EarlyAccessPreview
 
@@ -3218,7 +3202,7 @@ public:
 
 ## 示例结果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Development\EarlyAccessPreview\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Development\EarlyAccessPreview\Untitled.png)
 
 # Within
 
@@ -3250,7 +3234,7 @@ class INSIDER_API UMyClass_Within_Outer :public UObject
 public:
 };
 
-	
+
 ```
 
 ## 示例结果：
@@ -3321,7 +3305,7 @@ public:
 	int32 MyProperty;
 };
 
-//	ClassFlags:	CLASS_MatchedSerializers | CLASS_Native | CLASS_RequiredAPI | CLASS_DefaultToInstanced | CLASS_TokenStreamAssembled | CLASS_Intrinsic | CLASS_Constructed 
+//	ClassFlags:	CLASS_MatchedSerializers | CLASS_Native | CLASS_RequiredAPI | CLASS_DefaultToInstanced | CLASS_TokenStreamAssembled | CLASS_Intrinsic | CLASS_Constructed
 UCLASS(Blueprintable, DefaultToInstanced)
 class INSIDER_API UMyClass_DefaultToInstanced :public UObject
 {
@@ -3331,7 +3315,7 @@ public:
 	int32 MyProperty;
 };
 
-//	ClassFlags:	CLASS_MatchedSerializers | CLASS_Native | CLASS_EditInlineNew | CLASS_RequiredAPI | CLASS_DefaultToInstanced | CLASS_TokenStreamAssembled | CLASS_Intrinsic | CLASS_Constructed 
+//	ClassFlags:	CLASS_MatchedSerializers | CLASS_Native | CLASS_EditInlineNew | CLASS_RequiredAPI | CLASS_DefaultToInstanced | CLASS_TokenStreamAssembled | CLASS_Intrinsic | CLASS_Constructed
 UCLASS(Blueprintable, DefaultToInstanced, EditInlineNew)
 class INSIDER_API UMyClass_DefaultToInstanced_EditInlineNew :public UObject
 {
@@ -3390,7 +3374,7 @@ public:
 - MyObject_DefaultToInstanced因为类上有DefaultToInstanced，因此该属性是Instanced。当然我们也可以手动给属性加上Instanced标记，正如MyObject_NotDefaultToInstanced_Instanced和MyObject_DefaultToInstanced_Instanced。出现了创建实例的窗口，但是还不能创建在细节面板里直接创建对象。
 - MyObject_DefaultToInstanced_EditInlineNew，MyObject_NotDefaultToInstanced_EditInlineNew_Instanced，MyObject_DefaultToInstanced_EditInlineNew_Instanced这3个都可以直接在细节面板创建对象实例。是因为这个类本身要有EditInlineNew，另外这个属性要有Instanced（要嘛在该类上设置DefaultToInstanced以此该类的所有属性都自动是Instanced，或者在属性上单个设置Instanced）
 
-![image](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Instance\DefaultToInstanced\image.png)
+![image](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Instance\DefaultToInstanced\image.png)
 
 ## 原理：
 
@@ -3469,7 +3453,7 @@ EditInlineNew支持直接C++或BP子类创建对象实例，然后在上面编�
 
 如果属性上没有Instanced则只能尝试去引用（找不到对象）。
 
-![image](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Instance\EditInlineNew\image.png)
+![image](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Instance\EditInlineNew\image.png)
 
 ## 原理：
 
@@ -3523,7 +3507,7 @@ class INSIDER_API AMyActor_NotPlaceable :public AActor
 
 拖动到场景里会发现不能创建Actor。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Scene\NotPlaceable\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Scene\NotPlaceable\Untitled.png)
 
 ## 原理：
 
@@ -3582,7 +3566,7 @@ placeable没法清除父类的notplaceable标记。
 ## 示例代码：
 
 ```cpp
-UCLASS(Blueprintable, BlueprintType,placeable)	
+UCLASS(Blueprintable, BlueprintType,placeable)
 class INSIDER_API AMyActor_Placeable :public AMyActor_NotPlaceable
 {
 	GENERATED_BODY()
@@ -3592,7 +3576,7 @@ error : The 'placeable' specifier cannot override a 'nonplaceable' base class. C
 
 ## 示例效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Scene\Placeable\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Scene\Placeable\Untitled.png)
 
 # ConversionRoot
 
@@ -3626,15 +3610,15 @@ class INSIDER_API AMyActor_ConversionRoot :public AActor
 
 在蓝图中创建其子类BP_ConversionRoot_Child1和BP_ConversionRoot_Child2。然后把BP_ConversionRoot_Child1拖放进场景里创建个Actor，也创建个普通的蓝图Actor作为对比。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Scene\ConversionRoot\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Scene\ConversionRoot\Untitled.png)
 
 在关卡中选择Child1，会允许ConvertActor，在ConverstionRoot的自身以及所有子类之间做转换。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Scene\ConversionRoot\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Scene\ConversionRoot\Untitled%201.png)
 
 如果是普通的Actor，因为没有定义ConversionRoot，则不能做转换。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Scene\ConversionRoot\Untitled%202.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Scene\ConversionRoot\Untitled%202.png)
 
 ## 原理：
 
@@ -3933,7 +3917,7 @@ MyPropertyWithConfig=888
 
 ## 示例结果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Config\DefaultConfig\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Config\DefaultConfig\Untitled.png)
 
 ## 原理：
 
@@ -4023,7 +4007,7 @@ MyPropertyWithGlobalConfig=999
 
 ## 示例效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Config\GlobalUserConfig\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Config\GlobalUserConfig\Untitled.png)
 
 ## 源码例子：
 
@@ -4045,7 +4029,7 @@ public:
 	// Location on disk of Java (falls back to JAVA_HOME environment variable if this is left blank)
 	UPROPERTY(GlobalConfig, EditAnywhere, Category = SDKConfig, Meta = (DisplayName = "Location of JAVA (the directory usually contains 'jdk')"))
 	FDirectoryPath JavaPath;
-	
+
 	// Which SDK to package and compile Java with (a specific version or (without quotes) 'latest' for latest version on disk, or 'matchndk' to match the NDK API Level)
 	UPROPERTY(GlobalConfig, EditAnywhere, Category = SDKConfig, Meta = (DisplayName = "SDK API Level (specific version, 'latest', or 'matchndk' - see tooltip)"))
 	FString SDKAPILevel;
@@ -4099,7 +4083,7 @@ MyPropertyWithGlobalConfig=888
 
 ## 示例效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Config\ProjectUserConfig\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Config\ProjectUserConfig\Untitled.png)
 
 ## 在源码中搜索：
 
@@ -4124,7 +4108,7 @@ class ENGINE_API URendererOverrideSettings : public UDeveloperSettings
 
 保存在：C:\Users\{user name}\AppData\Local\UnrealEngine\Editor。当前有：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Config\EditorConfig\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Config\EditorConfig\Untitled.png)
 
 在源码里搜索后，使用的时候必须继承于基类：
 
@@ -4298,11 +4282,11 @@ FSavePackageArgs saveArgs{};
 saveArgs.Error = GError;
 
 //ObjectFlags:	RF_NoFlags
-UMyClass_Transient_Test* testObject = NewObject<UMyClass_Transient_Test>(package, TEXT("testObject"));	
-//ObjectFlags:	RF_Transient 
-testObject->MyTransientObject = NewObject<UMyClass_Transient>(testObject, TEXT("MyTransientObject"));	
+UMyClass_Transient_Test* testObject = NewObject<UMyClass_Transient_Test>(package, TEXT("testObject"));
+//ObjectFlags:	RF_Transient
+testObject->MyTransientObject = NewObject<UMyClass_Transient>(testObject, TEXT("MyTransientObject"));
 //ObjectFlags:	RF_NoFlags
-testObject->MyNonTransientObject = NewObject<UMyClass_NonTransient>(testObject, TEXT("MyNonTransientObject"));	
+testObject->MyNonTransientObject = NewObject<UMyClass_NonTransient>(testObject, TEXT("MyNonTransientObject"));
 
 testObject->MyTransientObject->MyProperty = 456;
 testObject->MyNonTransientObject->MyProperty = 456;
@@ -4328,7 +4312,7 @@ UMyClass_Transient_Test* newTestObject=LoadObject<UMyClass_Transient_Test>(packa
 
 可以看到MyTransientObject 并没有被序列化到磁盘上，因此不会加载出来。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Serialization\Transient\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Serialization\Transient\Untitled.png)
 
 ## 原理：
 
@@ -4392,7 +4376,7 @@ void FPackageHarvester::TryHarvestExport(UObject* InObject)
 ## 示例代码：
 
 ```cpp
-//ClassFlags:	CLASS_Optional | CLASS_MatchedSerializers | CLASS_Native | CLASS_RequiredAPI | CLASS_TokenStreamAssembled | CLASS_Intrinsic | CLASS_Constructed 
+//ClassFlags:	CLASS_Optional | CLASS_MatchedSerializers | CLASS_Native | CLASS_RequiredAPI | CLASS_TokenStreamAssembled | CLASS_Intrinsic | CLASS_Constructed
 UCLASS(Optional)
 class INSIDER_API UMyClass_Optional :public UObject
 {
@@ -4444,16 +4428,16 @@ void UMyClass_Optional_Test::CreatePackageAndSave()
 	saveArgs.Error = GError;
 	saveArgs.SaveFlags=SAVE_NoError;
 
-	//SAVE_Optional = 0x00008000,	///< Indicate that we to save optional exports. This flag is only valid while cooking. Optional exports are filtered if not specified during cooking. 
+	//SAVE_Optional = 0x00008000,	///< Indicate that we to save optional exports. This flag is only valid while cooking. Optional exports are filtered if not specified during cooking.
 
-	UMyClass_Optional_Test* testObject = NewObject<UMyClass_Optional_Test>(package, TEXT("testObject"));	
+	UMyClass_Optional_Test* testObject = NewObject<UMyClass_Optional_Test>(package, TEXT("testObject"));
 
 #if WITH_EDITORONLY_DATA
-	testObject->MyOptionalObject = NewObject<UMyClass_Optional>(testObject, TEXT("MyOptionalObject"));	
+	testObject->MyOptionalObject = NewObject<UMyClass_Optional>(testObject, TEXT("MyOptionalObject"));
 	testObject->MyOptionalObject->MyProperty = 456;
 #endif
 
-	testObject->MyNotOptionalObject = NewObject<UMyClass_NotOptional>(testObject, TEXT("MyNotOptionalObject"));	
+	testObject->MyNotOptionalObject = NewObject<UMyClass_NotOptional>(testObject, TEXT("MyNotOptionalObject"));
 
 	testObject->MyNotOptionalObject->MyProperty = 456;
 
@@ -4496,7 +4480,7 @@ void UMyClass_Optional_Test::LoadPackageAndTest()
 
 正常的SavePackage发现是没有作用的，依然会序列化保存。特殊的保存方式在Cook阶段，本例就没有专门测试了。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Serialization\Optional\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Serialization\Optional\Untitled.png)
 
 在源码里搜索Optional，可以看到一般是EditorOnlyData和CookedMetaData类在使用。
 
@@ -4727,19 +4711,19 @@ void UMyClass_MatchedSerializers_Test::RemoveClassFlag()
 
 在编辑器中创建测试数据Asset
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Serialization\MatchedSerializers\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Serialization\MatchedSerializers\Untitled.png)
 
 然后在Editor选项里打开TextAssetFormatSupport(UEditorExperimentalSettings::bTextAssetFormatSupport)
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Serialization\MatchedSerializers\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Serialization\MatchedSerializers\Untitled%201.png)
 
 然后在资产上就出现3个菜单支持把资产导出为文本。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Serialization\MatchedSerializers\Untitled%202.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Serialization\MatchedSerializers\Untitled%202.png)
 
 ExportToTextFormat会在蓝图资产的同目录生成一个.utxt的文件，格式为json。通过动态的增删CLASS_MatchedSerializers这个标记来对比这个标记产生的差异：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UCLASS\Serialization\MatchedSerializers\Untitled%203.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UCLASS\Serialization\MatchedSerializers\Untitled%203.png)
 
 可以发现，序列化出来的内容有明显的差异，不带有CLASS_MatchedSerializers标记的产生的右侧结果，把所有的字段值压进一个二进制buffer里（Data字段）。
 
@@ -4879,7 +4863,7 @@ public:
 
 在蓝图中测试，发现UMyInterface_NotBlueprintable并不能找到。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UINTERFACE\Blueprint\Blueprintable\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UINTERFACE\Blueprint\Blueprintable\Untitled.png)
 
 # NotBlueprintable
 
@@ -4892,7 +4876,7 @@ public:
 
 在Class Settings里的Interface里找不到不允许实现的接口。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UINTERFACE\Blueprint\NotBlueprintable\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UINTERFACE\Blueprint\NotBlueprintable\Untitled.png)
 
 什么情况下需要用到该标记？虽然不能在蓝图中实现，但是依然可以在C++里实现，也可以通过反射判断一个对象是否实现该接口。
 
@@ -4923,7 +4907,7 @@ NoExportTypes.h里使用了很多该例子。定义的结构常常用!CPP宏包�
 USTRUCT(noexport, BlueprintType) //如果不写noexport，会报错：Expected a GENERATED_BODY() at the start of the struct、
 struct FFloatRK4SpringInterpolator
 {
-	
+
 	UPROPERTY(EditAnywhere, Category = "FloatRK4SpringInterpolator")
 	float StiffnessConstant;
 
@@ -4969,7 +4953,7 @@ USTRUCT(BlueprintType,noexport)
 struct INSIDER_API FMyStruct_NoExport
 {
 	//抑制：GENERATED_BODY()解释生成的：
-	//static class UScriptStruct* StaticStruct();	
+	//static class UScriptStruct* StaticStruct();
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float Score;
@@ -5019,9 +5003,9 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 蓝图里的效果：依然可以当作变量。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\USTRUCT\UHT\NoExport\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\USTRUCT\UHT\NoExport\Untitled.png)
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\USTRUCT\UHT\NoExport\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\USTRUCT\UHT\NoExport\Untitled%201.png)
 
 加上noexport的区别是不能用StaticStruct和没了TCppStructOps，不能做一些优化。其他还是可以正常使用，就像FVector一样。
 
@@ -5157,7 +5141,7 @@ USerializationLibrary::SaveStructToMemory(AtomicStruct,AtomicMemoryChanged,EInsi
 
 可见AtomicMemoryChanged的占用内存大小比AtomicMemoryChanged多，因为这两个结构的属性虽然都改变了，但是AtomicStruct总是会把所有的属性都序列化出来。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\USTRUCT\UHT\Atomic\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\USTRUCT\UHT\Atomic\Untitled.png)
 
 ## 原理：
 
@@ -5474,7 +5458,7 @@ struct INSIDER_API FMyStruct_NoBlueprintType
 
 ## 测试蓝图：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\USTRUCT\Blueprint\BlueprintType\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\USTRUCT\Blueprint\BlueprintType\Untitled.png)
 
 # BlueprintInternalUseOnly
 
@@ -5532,7 +5516,7 @@ public:
 
 NewVar是UMyClass_BlueprintInternalUseOnlyTest 类型的，依然可以访问内部的MyInternalStruct变量。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\USTRUCT\Blueprint\BlueprintInternalUseOnly\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\USTRUCT\Blueprint\BlueprintInternalUseOnly\Untitled.png)
 
 源码里可以找到：
 
@@ -5680,7 +5664,7 @@ bool UEdGraphSchema_K2::IsAllowableBlueprintVariableType(const UScriptStruct* In
 //
 //};
 
-Struct[67] WithFlags:STRUCT_Immutable 
+Struct[67] WithFlags:STRUCT_Immutable
 Struct:	ScriptStruct /Script/CoreUObject.Guid
 Struct:	ScriptStruct /Script/CoreUObject.DateTime
 Struct:	ScriptStruct /Script/CoreUObject.Box
@@ -5780,9 +5764,9 @@ enum class EMyEnum_Normal:uint8
 /*
 [EMyEnum_Flags	Enum->Field->Object	/Script/Insider.EMyEnum_Flags]
 (BlueprintType = true, First.Name = EMyEnum_Flags::First, ModuleRelativePath = Enum/MyEnum_Flags.h, Second.Name = EMyEnum_Flags::Second, Third.Name = EMyEnum_Flags::Third)
-	ObjectFlags:	RF_Public | RF_Transient 
+	ObjectFlags:	RF_Public | RF_Transient
 	Outer:	Package /Script/Insider
-	EnumFlags:	EEnumFlags::Flags 
+	EnumFlags:	EEnumFlags::Flags
 	EnumDisplayNameFn:	0
 	CppType:	EMyEnum_Flags
 	CppForm:	EnumClass
@@ -5816,13 +5800,13 @@ void UMyActor_EnumBitFlags_Test::TestFlags()
 
 蓝图中的表示，依然只能选择单项。
 
-![Flags](D:\github\UnrealSpecifiers\Doc\Specifier\UENUM\Flags\Flags.gif)
+![Flags](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UENUM\Flags\Flags.gif)
 
 而测试代码里打印出来的字符串：
 
 可见outStr_Flags 的打印是字符串拼接的。
 
-![image](D:\github\UnrealSpecifiers\Doc\Specifier\UENUM\Flags\image.png)
+![image](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UENUM\Flags\image.png)
 
 ## 原理：
 
@@ -5899,7 +5883,7 @@ public:
 
 ## 蓝图中的展示：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UFUNCTION\Category\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UFUNCTION\Category\Untitled.png)
 
 # CallInEditor
 
@@ -5932,7 +5916,7 @@ public:
 
 ## 蓝图展示：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UFUNCTION\Blueprint\CallInEditor\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UFUNCTION\Blueprint\CallInEditor\Untitled.png)
 
 # BlueprintCallable
 
@@ -5952,7 +5936,7 @@ void MyFunc_BlueprintCallable() {}
 
 ## 效果展示：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UFUNCTION\Blueprint\BlueprintCallable\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UFUNCTION\Blueprint\BlueprintCallable\Untitled.png)
 
 # BlueprintPure
 
@@ -5979,7 +5963,7 @@ private:
 
 ## 效果展示：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UFUNCTION\Blueprint\BlueprintPure\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UFUNCTION\Blueprint\BlueprintPure\Untitled.png)
 
 # BlueprintImplementableEvent
 
@@ -5999,7 +5983,7 @@ BlueprintImplementableEvent也要配合BlueprintCallable使用，如果没加Blu
 ## 测试代码：
 
 ```cpp
-//FunctionFlags:	FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent 
+//FunctionFlags:	FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent
 UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 void MyFunc_ImplementableEvent();
 ```
@@ -6008,7 +5992,7 @@ void MyFunc_ImplementableEvent();
 
 右键可添加自定义实现
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UFUNCTION\Blueprint\BlueprintImplementableEvent\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UFUNCTION\Blueprint\BlueprintImplementableEvent\Untitled.png)
 
 ## 原理：
 
@@ -6038,7 +6022,7 @@ BlueprintNativeEvent，没加BlueprintCallable的话就只能在CPP里调用，�
 ## 测试代码：
 
 ```cpp
-//FunctionFlags:	FUNC_Native | FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent 
+//FunctionFlags:	FUNC_Native | FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent
 UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 void MyFunc_NativeEvent();
 
@@ -6050,7 +6034,7 @@ void AMyFunction_Default::MyFunc_NativeEvent_Implementation()
 
 ## 效果展示：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UFUNCTION\Blueprint\BlueprintNativeEvent\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UFUNCTION\Blueprint\BlueprintNativeEvent\Untitled.png)
 
 ## 原理：
 
@@ -6128,7 +6112,7 @@ class INSIDER_API AMyFunction_Exec :public APawn
 public:
 	GENERATED_BODY()
 public:
-	//FunctionFlags:	FUNC_Final | FUNC_Exec | FUNC_Native | FUNC_Public 
+	//FunctionFlags:	FUNC_Final | FUNC_Exec | FUNC_Native | FUNC_Public
 	UFUNCTION(exec)
 	void MyExec();
 };
@@ -6140,7 +6124,7 @@ void AMyFunction_Exec::MyExec()
 
 在PIE的时候~打开控制台运行结果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UFUNCTION\Exec\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UFUNCTION\Exec\Untitled.png)
 
 ## 原理：
 
@@ -6271,7 +6255,7 @@ bool UObject::CallFunctionByNameWithArguments(const TCHAR* Str, FOutputDevice& A
 
 在源码里搜索：发现都是用在网络的函数上
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UFUNCTION\Blueprint\SealedEvent\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UFUNCTION\Blueprint\SealedEvent\Untitled.png)
 
 ## UHT中的处理：
 
@@ -6312,7 +6296,7 @@ if (FunctionExportFlags.HasAnyFlags(UhtFunctionExportFlags.SealedEvent) && Funct
 ```cpp
 //Error: "SealedEvent may only be used on events"
 UFUNCTION(SealedEvent)
-void MyFunc_SealedEvent() {} 
+void MyFunc_SealedEvent() {}
 
 //Error: "SealedEvent cannot be used on Blueprint events"
 UFUNCTION(BlueprintCallable,BlueprintImplementableEvent,SealedEvent)
@@ -6356,7 +6340,7 @@ private static UhtParseResult ParseUFunction(UhtParsingScope parentScope, UhtTok
 
 在自己的C++代码中测试，发现在C++中怎么继承都不会触发编译错误。因此如果想拒绝被继承，还是用C++标准是final关键字。在函数末尾加final。
 
-E:\P4V\Engine\Source\Editor\KismetCompiler\Private\KismetCompiler.cpp 
+E:\P4V\Engine\Source\Editor\KismetCompiler\Private\KismetCompiler.cpp
 
 ```cpp
 const uint32 OverrideFlagsToCheck = (FUNC_FuncOverrideMatch & ~FUNC_AccessSpecifiers);
@@ -6391,11 +6375,11 @@ class INSIDER_API AMyFunction_Network :public AActor
 public:
 	GENERATED_BODY()
 public:
-	//FunctionFlags:	FUNC_Final | FUNC_Native | FUNC_Public | FUNC_BlueprintCallable 
+	//FunctionFlags:	FUNC_Final | FUNC_Native | FUNC_Public | FUNC_BlueprintCallable
 	UFUNCTION(BlueprintCallable)
 	void MyFunc_Default();
 
-	//FunctionFlags:	FUNC_Final | FUNC_BlueprintAuthorityOnly | FUNC_Native | FUNC_Public | FUNC_BlueprintCallable 
+	//FunctionFlags:	FUNC_Final | FUNC_BlueprintAuthorityOnly | FUNC_Native | FUNC_Public | FUNC_BlueprintCallable
 	UFUNCTION(BlueprintCallable, BlueprintAuthorityOnly)
 	void MyFunc_BlueprintAuthorityOnly();
 
@@ -6433,7 +6417,7 @@ void AMyFunction_Network::PrintFuncStatus(AActor* actor, FString funcName)
 
 ## 蓝图代码：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UFUNCTION\Network\BlueprintAuthorityOnly\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UFUNCTION\Network\BlueprintAuthorityOnly\Untitled.png)
 
 对于不Replicated的Actor：
 
@@ -6492,7 +6476,7 @@ void MyFunc_BlueprintCosmetic();
 
 节点上的电脑标记就是意味着只在客户端上运行。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UFUNCTION\Network\BlueprintCosmetic\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UFUNCTION\Network\BlueprintCosmetic\Untitled.png)
 
 结果输出
 
@@ -6530,7 +6514,7 @@ if (NetMode == NM_DedicatedServer && Function->HasAllFunctionFlags(FUNC_Blueprin
 
 所谓Client-owned，参考文档：[https://docs.unrealengine.com/4.27/zh-CN/InteractiveExperiences/Networking/Actors/RPCs/](https://docs.unrealengine.com/4.27/zh-CN/InteractiveExperiences/Networking/Actors/RPCs/)
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UFUNCTION\Network\Client\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UFUNCTION\Network\Client\Untitled.png)
 
 ## 测试代码：
 
@@ -6552,7 +6536,7 @@ void AMyFunction_PlayerController::MyFunc_RunOnClient_Implementation()
 
 测试蓝图：PIE模式，一个ListenServer+2Client
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UFUNCTION\Network\Client\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UFUNCTION\Network\Client\Untitled%201.png)
 
 ## 测试输出结果：
 
@@ -6580,7 +6564,7 @@ OtherClientFunc BP_NetworkPC_C_0    NM_Client   Local:ROLE_AutonomousProxy  Remo
 
 所谓Client-owned，参考文档：[https://docs.unrealengine.com/4.27/zh-CN/InteractiveExperiences/Networking/Actors/RPCs/](https://docs.unrealengine.com/4.27/zh-CN/InteractiveExperiences/Networking/Actors/RPCs/)
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UFUNCTION\Network\Server\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UFUNCTION\Network\Server\Untitled.png)
 
 ## 测试代码：
 
@@ -6602,7 +6586,7 @@ void AMyFunction_PlayerController::MyFunc_RunOnServer_Implementation()
 
 测试蓝图：PIE模式，一个ListenServer+2Client
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UFUNCTION\Network\Server\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UFUNCTION\Network\Server\Untitled.png)
 
 ## 测试输出结果：
 
@@ -6631,7 +6615,7 @@ LogInsider: Display: 4bcbd800    OtherServerFunc BP_NetworkPC_C_2    NM_ListenSe
 
 RPC执行的规则，参考文档：[https://docs.unrealengine.com/4.27/zh-CN/InteractiveExperiences/Networking/Actors/RPCs/](https://docs.unrealengine.com/4.27/zh-CN/InteractiveExperiences/Networking/Actors/RPCs/)
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UFUNCTION\Network\NetMulticast\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UFUNCTION\Network\NetMulticast\Untitled.png)
 
 ## 测试代码：
 
@@ -6655,7 +6639,7 @@ void AMyFunction_Network::MyFunc_NetMulticast_Implementation()
 
 测试蓝图：PIE模式，一个ListenServer+2Client
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UFUNCTION\Network\NetMulticast\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UFUNCTION\Network\NetMulticast\Untitled.png)
 
 ## 测试输出结果：
 
@@ -6892,11 +6876,11 @@ public:
 	GENERATED_BODY()
 public:
 	//(BlueprintInternalUseOnly = true, BlueprintType = true, ModuleRelativePath = Function/MyFunction_Internal.h)
-	//FunctionFlags:	FUNC_Final | FUNC_Native | FUNC_Public | FUNC_BlueprintCallable 
+	//FunctionFlags:	FUNC_Final | FUNC_Native | FUNC_Public | FUNC_BlueprintCallable
 	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly)
 	void MyFunc_InternalOnly() {}
 
-	//FunctionFlags:	FUNC_Final | FUNC_Native | FUNC_Public | FUNC_BlueprintCallable 
+	//FunctionFlags:	FUNC_Final | FUNC_Native | FUNC_Public | FUNC_BlueprintCallable
 	UFUNCTION(BlueprintCallable)
 	void MyFunc_Default() {}
 };
@@ -6904,7 +6888,7 @@ public:
 
 在蓝图中只有MyFunc_Default是可以调用的。因此可以理解为这个函数依然暴露到蓝图，但是却又被隐藏起来了。不能让用户自己直接调用，但是可以在代码里通过查找函数名之类的间接可以调用到。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UFUNCTION\UHT\BlueprintInternalUseOnly\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UFUNCTION\UHT\BlueprintInternalUseOnly\Untitled.png)
 
 在源码里找到一个示例，因此这个GetLevelScriptActor函数，可以不在蓝图中被调用，但是有可以通过名字查找到。方便生成一个UFunction以被注入到别的地方作为callback
 
@@ -6960,7 +6944,7 @@ private:
 
 假如注释掉上述源码的BlueprintInternalUseOnly ，会发现在蓝图里可以有两个DelayLoop。上面的一个是按UBlueprintAsyncActionBase规则生成的，第二个是按普通的蓝图函数规则生成的。明显这种情况下我们并不想同时出现两个来给用户造成困惑。因此要加上BlueprintInternalUseOnly 来阻止生成默认的蓝图节点。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UFUNCTION\UHT\BlueprintInternalUseOnly\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UFUNCTION\UHT\BlueprintInternalUseOnly\Untitled%201.png)
 
 ## 原理：
 
@@ -7019,7 +7003,7 @@ DEFINE_FUNCTION(UMyFunction_Custom::execMyFunc_CustomDivide)
 
 ## 蓝图效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UFUNCTION\UHT\CustomThunk\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UFUNCTION\UHT\CustomThunk\Untitled.png)
 
 可以看到，即使是用除以0，可以自定义报错信息。
 
@@ -7046,7 +7030,7 @@ UFUNCTION(BlueprintCallable, CustomThunk, Category = "Python|Execution", meta=(V
 
 蓝图的效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UFUNCTION\UHT\Variadic\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UFUNCTION\UHT\Variadic\Untitled.png)
 
 ## 示例代码：
 
@@ -7104,7 +7088,7 @@ DEFINE_FUNCTION(UMyFunction_Variadic::execPrintVariadicFields)
 
 ## 示例效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UFUNCTION\UHT\Variadic\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UFUNCTION\UHT\Variadic\Untitled%201.png)
 
 打印：
 
@@ -7123,15 +7107,15 @@ BlueprintInternalUseOnly也要加上，否则会自动生成普通的蓝图函�
 
 以下是不加BlueprintInternalUseOnly自动生成的版本:
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UFUNCTION\UHT\Variadic\Untitled%202.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UFUNCTION\UHT\Variadic\Untitled%202.png)
 
 实际应该是：然后再手动添加参数。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UFUNCTION\UHT\Variadic\Untitled%203.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UFUNCTION\UHT\Variadic\Untitled%203.png)
 
 和Ｗildcard的区别是，Ｗildcard的参数是任意类型的，但个数是固定好的．
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UFUNCTION\UHT\Variadic\Untitled%204.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UFUNCTION\UHT\Variadic\Untitled%204.png)
 
 官方添加的和**Python**交互的功能 [Added a Blueprint node for calling Python with args](https://link.zhihu.com/?target=https%3A//github.com/EpicGames/UnrealEngine/commit/61d0f65e1cded45ed94f0422eb931f446888e972)
 
@@ -7239,7 +7223,7 @@ public:
 
 进度条可以绑定到GetHPPercent。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UFUNCTION\UHT\FieldNotify\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UFUNCTION\UHT\FieldNotify\Untitled.png)
 
 # DisplayName
 
@@ -7262,7 +7246,7 @@ public:
 
 ## 蓝图节点：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPARAM\Blueprint\DisplayName\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPARAM\Blueprint\DisplayName\Untitled.png)
 
 # ref
 
@@ -7280,11 +7264,11 @@ public:
 ## 测试代码：
 
 ```cpp
-//PropertyFlags:	CPF_Parm | CPF_OutParm | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+//PropertyFlags:	CPF_Parm | CPF_OutParm | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UFUNCTION(BlueprintCallable)
 	FString MyFuncTestParam_Default(int& refValue);
 
-	//PropertyFlags:	CPF_Parm | CPF_OutParm | CPF_ZeroConstructor | CPF_ReferenceParm | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_Parm | CPF_OutParm | CPF_ZeroConstructor | CPF_ReferenceParm | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UFUNCTION(BlueprintCallable)
 	FString MyFuncTestParam_Ref(UPARAM(ref) int& refValue);
 
@@ -7294,7 +7278,7 @@ public:
 
 ## 蓝图的代码：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPARAM\Blueprint\ref\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPARAM\Blueprint\ref\Untitled.png)
 
 ## 原理：
 
@@ -7327,29 +7311,29 @@ ref参数在UHT生成时会用P_GET_PROPERTY_REF来获得
 ## 测试代码：
 
 ```cpp
-//PropertyFlags:	CPF_ConstParm | CPF_Parm | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+//PropertyFlags:	CPF_ConstParm | CPF_Parm | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UFUNCTION(BlueprintCallable)
 	FString MyFuncTestParam_ConstInt(UPARAM(const) int value);
 
-	//PropertyFlags:	CPF_ConstParm | CPF_Parm | CPF_OutParm | CPF_ZeroConstructor | CPF_ReferenceParm | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_ConstParm | CPF_Parm | CPF_OutParm | CPF_ZeroConstructor | CPF_ReferenceParm | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UFUNCTION(BlueprintCallable)
 	FString MyFuncTestParam_ConstIntOut(UPARAM(const) int& value);
 
 	//(NativeConst = )
-	//PropertyFlags:	CPF_ConstParm | CPF_Parm | CPF_OutParm | CPF_ZeroConstructor | CPF_ReferenceParm | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_ConstParm | CPF_Parm | CPF_OutParm | CPF_ZeroConstructor | CPF_ReferenceParm | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UFUNCTION(BlueprintCallable)
 	FString MyFuncTestParam_ConstIntRef(UPARAM(const) const int& value);
 
-	//PropertyFlags:	CPF_Parm | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_Parm | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UFUNCTION(BlueprintCallable)
 	FString MyFuncTestParam_NoConstInt(int value);
 
-	//PropertyFlags:	CPF_Parm | CPF_OutParm | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_Parm | CPF_OutParm | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UFUNCTION(BlueprintCallable)
 	FString MyFuncTestParam_NoConstIntOut(int& value);
 
 	//(NativeConst = )
-	//PropertyFlags:	CPF_ConstParm | CPF_Parm | CPF_OutParm | CPF_ZeroConstructor | CPF_ReferenceParm | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_ConstParm | CPF_Parm | CPF_OutParm | CPF_ZeroConstructor | CPF_ReferenceParm | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UFUNCTION(BlueprintCallable)
 	FString MyFuncTestParam_NoConstIntRef(const int& value);
 ```
@@ -7358,7 +7342,7 @@ ref参数在UHT生成时会用P_GET_PROPERTY_REF来获得
 
 MyFuncTestParam_ConstIntOut的输出Value变成了输入的Value，因为不能改变。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPARAM\Blueprint\Const\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPARAM\Blueprint\Const\Untitled.png)
 
 ## 原理代码：
 
@@ -7394,19 +7378,19 @@ if (propertySettings.PropertyCategory != UhtPropertyCategory.Member && !isTempla
 ## 测试代码：
 
 ```cpp
-//PropertyFlags:	CPF_Parm | CPF_ZeroConstructor | CPF_RequiredParm | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+//PropertyFlags:	CPF_Parm | CPF_ZeroConstructor | CPF_RequiredParm | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UFUNCTION(BlueprintCallable)
 	FString MyFuncTestParam_RequiredObject(UPARAM(Required) UObject* objValue);
 
 	//(CPP_Default_intValue = 123, ModuleRelativePath = Function/Param/MyFunction_TestParam.h)
-	//PropertyFlags:	CPF_Parm | CPF_ZeroConstructor | CPF_RequiredParm | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_Parm | CPF_ZeroConstructor | CPF_RequiredParm | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UFUNCTION(BlueprintCallable)
 	FString MyFuncTestParam_RequiredInt(UPARAM(Required) int intValue=123);
 ```
 
 ## 蓝图节点：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPARAM\Blueprint\Required\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPARAM\Blueprint\Required\Untitled.png)
 
 如果不连一个节点，编译时会报错：
 
@@ -7489,7 +7473,7 @@ public:
 	GENERATED_BODY()
 		UMyProperty_Export(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 public:
-	//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ExportObject | CPF_ZeroConstructor | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ExportObject | CPF_ZeroConstructor | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Export, Category = Behavior)
 		UMyProperty_ExportObject* ObjectExport;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Behavior)
@@ -7499,11 +7483,11 @@ public:
 
 配置的对象值：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Serialization\Export\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Serialization\Export\Untitled.png)
 
 主要是用在Export 操作的时候，用来决定如何导出Object*属性的内容。NoExport的话是只输出对象引用的路径，而Export的话会输出这个对象其再内部的的属性值。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Serialization\Export\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Serialization\Export\Untitled%201.png)
 
 导出的文本：
 
@@ -7552,7 +7536,7 @@ struct FMySaveGameArchive : public FObjectAndNameAsStringProxyArchive
 {
     FMySaveGameArchive (FArchive& InInnerArchive)
         :   FObjectAndNameAsStringProxyArchive(InInnerArchive)
-    { 
+    {
         ArIsSaveGame = true;
     }
 };
@@ -7576,7 +7560,7 @@ public:
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int32 MyInt_Default = 123;
-	//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_SaveGame | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_SaveGame | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		int32 MyInt_SaveGame = 123;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite,SaveGame)
@@ -7625,11 +7609,11 @@ void UMyProperty_SaveGame_Test::RunTest()
 
 测试结果，只有SaveGame标记的属性这个值才序列化进去。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Serialization\SaveGame\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Serialization\SaveGame\Untitled.png)
 
 等价于在蓝图的细节面板里表示：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Serialization\SaveGame\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Serialization\SaveGame\Untitled%201.png)
 
 ## 原理：
 
@@ -7727,7 +7711,7 @@ public:
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int32 MyInt_Default= 123;
-		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic | CPF_SkipSerialization 
+		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic | CPF_SkipSerialization
 	UPROPERTY(EditAnywhere, BlueprintReadWrite,SkipSerialization)
 		int32 MyInt_SkipSerialization = 123;
 };
@@ -7757,7 +7741,7 @@ void UMyProperty_SerializationText_Test::RunTest()
 
 此时可见测试结果，该属性并没有被序列化进去。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Serialization\SkipSerialization\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Serialization\SkipSerialization\Untitled.png)
 
 如果采用ExportText导出：T3D或COPY格式都行
 
@@ -7782,7 +7766,7 @@ Begin Object Class=/Script/Insider.MyProperty_SerializationText Name="MyProperty
 
 另外如果在编辑器里右击复制
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Serialization\SkipSerialization\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Serialization\SkipSerialization\Untitled%201.png)
 
 也可以产生文本的导出：
 
@@ -7829,10 +7813,10 @@ public:
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int32 MyInt_Default= 123;
-		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic | CPF_SkipSerialization 
+		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic | CPF_SkipSerialization
 	UPROPERTY(EditAnywhere, BlueprintReadWrite,SkipSerialization)
 		int32 MyInt_SkipSerialization = 123;
-		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_TextExportTransient | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_TextExportTransient | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditAnywhere, BlueprintReadWrite,TextExportTransient)
 		int32 MyInt_TextExportTransient= 123;
 
@@ -7985,13 +7969,13 @@ public:
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int32 MyInt_Default = 123;
-		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_Transient | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_Transient | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Transient)
 		int32 MyInt_Transient = 123;
-		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_DuplicateTransient | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_DuplicateTransient | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, DuplicateTransient)
 		int32 MyInt_DuplicateTransient = 123;
-		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_NonPIEDuplicateTransient | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_NonPIEDuplicateTransient | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, NonPIEDuplicateTransient)
 		int32 MyInt_NonPIEDuplicateTransient = 123;
 };
@@ -8043,7 +8027,7 @@ End Object
 
 可见obj2的MyInt_Transient 属性并没有从序列化中获得新值456.
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Serialization\Transient\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Serialization\Transient\Untitled.png)
 
 ## 原理代码：
 
@@ -8171,7 +8155,7 @@ bool FProperty::ShouldPort( uint32 PortFlags/*=0*/ ) const
 
 因为不序列Transient属性，因此该属性修改值也并不会被保存起来。打开Asset的时候依然会是默认值，也并不会被复制。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Serialization\Transient\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Serialization\Transient\Untitled%201.png)
 
 # DuplicateTransient
 
@@ -8195,13 +8179,13 @@ public:
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int32 MyInt_Default = 123;
-		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_Transient | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_Transient | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Transient)
 		int32 MyInt_Transient = 123;
-		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_DuplicateTransient | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_DuplicateTransient | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, DuplicateTransient)
 		int32 MyInt_DuplicateTransient = 123;
-		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_NonPIEDuplicateTransient | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_NonPIEDuplicateTransient | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, NonPIEDuplicateTransient)
 		int32 MyInt_NonPIEDuplicateTransient = 123;
 };
@@ -8225,11 +8209,11 @@ void UMyProperty_Serialization_Test::RunTest()
 
 复制蓝图，可以看到DuplicateTransient并不会被复制
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Serialization\DuplicateTransient\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Serialization\DuplicateTransient\Untitled.png)
 
 在采用C++复制的时候：也看到MyInt_DuplicateTransient 并不会产生复制，还是123而不是456。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Serialization\DuplicateTransient\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Serialization\DuplicateTransient\Untitled.png)
 
 ## 原理：
 
@@ -8290,13 +8274,13 @@ public:
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int32 MyInt_Default = 123;
-		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_Transient | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_Transient | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Transient)
 		int32 MyInt_Transient = 123;
-		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_DuplicateTransient | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_DuplicateTransient | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, DuplicateTransient)
 		int32 MyInt_DuplicateTransient = 123;
-		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_NonPIEDuplicateTransient | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_NonPIEDuplicateTransient | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, NonPIEDuplicateTransient)
 		int32 MyInt_NonPIEDuplicateTransient = 123;
 };
@@ -8309,10 +8293,10 @@ public:
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int32 MyInt_Default = 123;
-		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_Transient | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_Transient | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Transient)
 		int32 MyInt_Transient = 123;
-		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_DuplicateTransient | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+		//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_DuplicateTransient | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, DuplicateTransient)
 		int32 MyInt_DuplicateTransient = 123;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, NonPIEDuplicateTransient)
@@ -8326,11 +8310,11 @@ protected:
 
 可以看到NonPIEDuplicateTransient并不会被复制。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Serialization\NonPIEDuplicateTransient\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Serialization\NonPIEDuplicateTransient\Untitled.png)
 
 在点击PIE的时候，可以看到NonPIEDuplicateTransient这个时候却是会复制值过去了。这是因为这个时候PortFlags=PPF_DuplicateForPIE&PPF_Duplicate
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Serialization\NonPIEDuplicateTransient\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Serialization\NonPIEDuplicateTransient\Untitled%201.png)
 
 结论是用于一些Cache数据，在复制的时候并不需要序列化复制，这样可以阻止两个不同的Actor采用同一份计算后的临时数据。但是又可以在PIE的时候，让Actor各自采用自己的一份数据，因为PIE的时候，本质就是把当前的编辑World里Actor复制一份到PIE的世界里，会触发Actor的复制。
 
@@ -8393,11 +8377,11 @@ public:
 
 影响的是属性上的该标志
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\DetaisPanel\Interp\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\DetaisPanel\Interp\Untitled.png)
 
 从而可以在Sequencer里对该属性添加Track
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\DetaisPanel\Interp\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\DetaisPanel\Interp\Untitled%201.png)
 
 # Replicated
 
@@ -8424,7 +8408,7 @@ public:
 
 		UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated)
 		int32 MyInt_Replicated = 123;
-		
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated)
 		FMyReplicatedStruct MyStruct_Replicated;
 };
@@ -8473,7 +8457,7 @@ void AMyProperty_Network::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
 
 在蓝图中等价于RepNotify的作用。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Network\ReplicatedUsing\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Network\ReplicatedUsing\Untitled.png)
 
 # NotReplicated
 
@@ -8605,7 +8589,7 @@ public:
 
 这些控件的属性就可以和ViewModel里的属性绑定起来。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\UHT\FieldNotify\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\UHT\FieldNotify\Untitled.png)
 
 # Instanced
 
@@ -8646,7 +8630,7 @@ public:
 	GENERATED_BODY()
 		UMyProperty_Instanced(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 public:
-	//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ExportObject | CPF_ZeroConstructor | CPF_InstancedReference | CPF_NoDestructor | CPF_PersistentInstance | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ExportObject | CPF_ZeroConstructor | CPF_InstancedReference | CPF_NoDestructor | CPF_PersistentInstance | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Instanced, Category = Behavior)
 		UMyProperty_InstancedObject* ObjectInstanced;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Behavior)
@@ -8658,7 +8642,7 @@ public:
 
 可见ObjectInstanced和Object弹出的编辑框是不同的。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Instance\Instanced\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Instance\Instanced\Untitled.png)
 
 # NonTransactional
 
@@ -8691,7 +8675,7 @@ public:
 
 在MyInt_Transactional 上可以撤销之前的输入，而MyInt_NonTransactional上的输入无法用Ctrl+Z撤销。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\DetaisPanel\NonTransactional\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\DetaisPanel\NonTransactional\Untitled.png)
 
 # Category
 
@@ -8709,31 +8693,31 @@ public:
 UCLASS(Blueprintable, BlueprintType)
 class INSIDER_API UMyProperty_Test :public UObject
 {
-	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_SimpleDisplay | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_SimpleDisplay | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditAnywhere, SimpleDisplay, Category = Display)
 		int32 MyInt_SimpleDisplay = 123;
 
-	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_AdvancedDisplay | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_AdvancedDisplay | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditAnywhere, AdvancedDisplay, Category = Display)
 		int32 MyInt_AdvancedDisplay = 123;
 public:
-	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditAnywhere, Category = Edit)
 		int32 MyInt_EditAnywhere = 123;
 
-	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_DisableEditOnInstance | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_DisableEditOnInstance | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditDefaultsOnly, Category = Edit)
 		int32 MyInt_EditDefaultsOnly = 123;
 
-	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_DisableEditOnTemplate | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_DisableEditOnTemplate | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditInstanceOnly, Category = Edit)
 		int32 MyInt_EditInstanceOnly = 123;
 
-	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_EditConst | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_EditConst | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(VisibleAnywhere, Category = Edit)
 		int32 MyInt_VisibleAnywhere = 123;
 
-	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_DisableEditOnInstance | CPF_EditConst | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_DisableEditOnInstance | CPF_EditConst | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(VisibleDefaultsOnly, Category = Edit)
 		int32 MyInt_VisibleDefaultsOnly = 123;
 }
@@ -8741,7 +8725,7 @@ public:
 
 ## 示例效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\DetaisPanel\Category\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\DetaisPanel\Category\Untitled.png)
 
 ## 原理：
 
@@ -8765,11 +8749,11 @@ public:
 UCLASS(Blueprintable, BlueprintType)
 class INSIDER_API UMyProperty_Test :public UObject
 {
-	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_SimpleDisplay | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_SimpleDisplay | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditAnywhere, SimpleDisplay, Category = Display)
 		int32 MyInt_SimpleDisplay = 123;
 
-	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_AdvancedDisplay | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_AdvancedDisplay | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditAnywhere, AdvancedDisplay, Category = Display)
 		int32 MyInt_AdvancedDisplay = 123;
 }
@@ -8777,7 +8761,7 @@ class INSIDER_API UMyProperty_Test :public UObject
 
 ## 示例效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\DetaisPanel\SimpleDisplay\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\DetaisPanel\SimpleDisplay\Untitled.png)
 
 ## 原理：
 
@@ -8809,11 +8793,11 @@ void FPropertyNode::InitNode(const FPropertyNodeInitParams& InitParams)
 UCLASS(Blueprintable, BlueprintType)
 class INSIDER_API UMyProperty_Test :public UObject
 {
-	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_SimpleDisplay | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_SimpleDisplay | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditAnywhere, SimpleDisplay, Category = Display)
 		int32 MyInt_SimpleDisplay = 123;
 
-	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_AdvancedDisplay | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_AdvancedDisplay | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditAnywhere, AdvancedDisplay, Category = Display)
 		int32 MyInt_AdvancedDisplay = 123;
 }
@@ -8821,7 +8805,7 @@ class INSIDER_API UMyProperty_Test :public UObject
 
 ## 示例效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\DetaisPanel\AdvancedDisplay\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\DetaisPanel\AdvancedDisplay\Untitled.png)
 
 ## 原理：
 
@@ -8854,27 +8838,27 @@ UCLASS(Blueprintable, BlueprintType)
 class INSIDER_API UMyProperty_Test :public UObject
 {
 	public:
-	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditAnywhere, Category = Edit)
 		int32 MyInt_EditAnywhere = 123;
 
-	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_DisableEditOnInstance | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_DisableEditOnInstance | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditDefaultsOnly, Category = Edit)
 		int32 MyInt_EditDefaultsOnly = 123;
 
-	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_DisableEditOnTemplate | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_DisableEditOnTemplate | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditInstanceOnly, Category = Edit)
 		int32 MyInt_EditInstanceOnly = 123;
 
-	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_EditConst | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_EditConst | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(VisibleAnywhere, Category = Edit)
 		int32 MyInt_VisibleAnywhere = 123;
 
-	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_DisableEditOnInstance | CPF_EditConst | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_DisableEditOnInstance | CPF_EditConst | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(VisibleDefaultsOnly, Category = Edit)
 		int32 MyInt_VisibleDefaultsOnly = 123;
 
-	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_DisableEditOnTemplate | CPF_EditConst | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_DisableEditOnTemplate | CPF_EditConst | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(VisibleInstanceOnly, Category = Edit)
 		int32 MyInt_VisibleInstanceOnly = 123;
 }
@@ -8882,7 +8866,7 @@ class INSIDER_API UMyProperty_Test :public UObject
 
 ## 示例效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\DetaisPanel\EditAnywhere\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\DetaisPanel\EditAnywhere\Untitled.png)
 
 ## 原理：
 
@@ -8972,7 +8956,7 @@ UPROPERTY(EditAnywhere, Category = Array)
 
 蓝图中的表现，前者可以动态再添加元素。后者不可。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\DetaisPanel\EditFixedSize\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\DetaisPanel\EditFixedSize\Untitled.png)
 
 ## 原理：
 
@@ -9012,7 +8996,7 @@ void PropertyEditorHelpers::GetRequiredPropertyButtons( TSharedRef<FPropertyNode
 ```cpp
 UPROPERTY(EditAnywhere, Category = Object)
 class UMyClass_Default* MyObject_Normal;
-//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_NoClear | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+//PropertyFlags:	CPF_Edit | CPF_ZeroConstructor | CPF_NoClear | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 UPROPERTY(EditAnywhere, NoClear, Category = Object)
 class UMyClass_Default* MyObject_NoClear;
 
@@ -9023,7 +9007,7 @@ MyObject_NoClear = CreateDefaultSubobject<UMyClass_Default>("MyObject_NoClear");
 
 ## 示例效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\DetaisPanel\NoClear\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\DetaisPanel\NoClear\Untitled.png)
 
 ## 原理：
 
@@ -9151,7 +9135,7 @@ MyPropertyWithGlobalConfig=999
 
 可见testObjectChild 的值并没有使用ini里MyProperty_Config_Child下的999的值，而是同样的888.
 
-![image](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Config\GlobalConfig\image.png)
+![image](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Config\GlobalConfig\image.png)
 
 ## 原理：
 
@@ -9162,17 +9146,17 @@ void UObject::LoadConfig( UClass* ConfigClass/*=NULL*/, const TCHAR* InFilename/
 {
 		const bool bGlobalConfig = (Property->PropertyFlags&CPF_GlobalConfig) != 0;
 		UClass* OwnerClass = Property->GetOwnerClass();
-		
+
 		UClass* BaseClass = bGlobalConfig ? OwnerClass : ConfigClass;
 		if ( !bPerObject )
 		{
 			ClassSection = BaseClass->GetPathName();
 			LongCommitName = BaseClass->GetOutermost()->GetFName();
-		
+
 			// allow the class to override the expected section name
 			OverrideConfigSection(ClassSection);
 		}
-		
+
 		// globalconfig properties should always use the owning class's config file
 		// specifying a value for InFilename will override this behavior (as it does with normal properties)
 		const FString& PropFileName = (bGlobalConfig && InFilename == NULL) ? OwnerClass->GetConfigName() : Filename;
@@ -9201,7 +9185,7 @@ UPROPERTY(EditAnywhere, BlueprintReadWrite, BlueprintAssignable, BlueprintCallab
 
 ## 蓝图中表现：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Blueprint\BlueprintAuthorityOnly\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Blueprint\BlueprintAuthorityOnly\Untitled.png)
 
 # BlueprintReadWrite
 
@@ -9220,10 +9204,10 @@ UPROPERTY(EditAnywhere, BlueprintReadWrite, BlueprintAssignable, BlueprintCallab
 
 ```cpp
 public:
-	//PropertyFlags:	CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(BlueprintReadWrite, Category = Blueprint)
 		int32 MyInt_ReadWrite = 123;
-	//PropertyFlags:	CPF_BlueprintVisible | CPF_BlueprintReadOnly | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_BlueprintVisible | CPF_BlueprintReadOnly | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(BlueprintReadOnly, Category = Blueprint)
 		int32 MyInt_ReadOnly = 123;
 ```
@@ -9232,7 +9216,7 @@ public:
 
 蓝图中可读写：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Blueprint\BlueprintReadWrite\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Blueprint\BlueprintReadWrite\Untitled.png)
 
 ## 原理：
 
@@ -9265,10 +9249,10 @@ EPropertyAccessResultFlags PropertyAccessUtil::CanGetPropertyValue(const FProper
 
 ```cpp
 public:
-	//PropertyFlags:	CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(BlueprintReadWrite, Category = Blueprint)
 		int32 MyInt_ReadWrite = 123;
-	//PropertyFlags:	CPF_BlueprintVisible | CPF_BlueprintReadOnly | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//PropertyFlags:	CPF_BlueprintVisible | CPF_BlueprintReadOnly | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(BlueprintReadOnly, Category = Blueprint)
 		int32 MyInt_ReadOnly = 123;
 ```
@@ -9277,7 +9261,7 @@ public:
 
 指定蓝图中只读：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Blueprint\BlueprintReadOnly\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Blueprint\BlueprintReadOnly\Untitled.png)
 
 ## 原理：
 
@@ -9346,12 +9330,12 @@ public:
 		void MyInt_Setter(int NewValue) { MyInt_WithSetter = NewValue / 4; }
 private:
 	//(BlueprintGetter = MyInt_Getter, Category = Blueprint, ModuleRelativePath = Property/MyProperty_Test.h)
-	//PropertyFlags:	CPF_BlueprintVisible | CPF_BlueprintReadOnly | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPrivate 
+	//PropertyFlags:	CPF_BlueprintVisible | CPF_BlueprintReadOnly | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPrivate
 	UPROPERTY(BlueprintGetter = MyInt_Getter, Category = Blueprint)
 		int32 MyInt_WithGetter = 123;
 
 	//(BlueprintSetter = MyInt_Setter, Category = Blueprint, ModuleRelativePath = Property/MyProperty_Test.h)
-	//PropertyFlags:	CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPrivate 
+	//PropertyFlags:	CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPrivate
 	UPROPERTY(BlueprintSetter = MyInt_Setter, Category = Blueprint)
 		int32 MyInt_WithSetter = 123;
 ```
@@ -9362,7 +9346,7 @@ private:
 
 而MyInt_WithSetter 是可读写的。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Blueprint\BlueprintGetter\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Blueprint\BlueprintGetter\Untitled.png)
 
 # Getter
 
@@ -9395,7 +9379,7 @@ public:
 	float GetMyFloat()const { return MyFloat + 100.f; }
 
 	float GetMyCustomFloat()const { return MyFloat2 + 100.f; }
-	
+
 void UMyProperty_Get::RunTest()
 {
 	float Value1=MyFloat;
@@ -9413,7 +9397,7 @@ void UMyProperty_Get::RunTest()
 
 在蓝图里直接Get MyFloat 是依然是1.
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Blueprint\Setter\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Blueprint\Setter\Untitled.png)
 
 ## 原理：
 
@@ -9525,9 +9509,9 @@ void UMyProperty_Set::RunTest()
 
 在测试的时候，可见如果是用SetValue_InContainer这种反射的方式来获取值，就会自动的调用到SetMyFloat，从而实际上设置到不同的值。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Blueprint\Setter\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Blueprint\Setter\Untitled.png)
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Blueprint\Setter\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Blueprint\Setter\Untitled%201.png)
 
 ## 原理：
 
@@ -9615,19 +9599,19 @@ public:
 		void MyInt_Setter(int NewValue) { MyInt_WithSetter = NewValue / 4; }
 private:
 	//(BlueprintGetter = MyInt_Getter, Category = Blueprint, ModuleRelativePath = Property/MyProperty_Test.h)
-	//PropertyFlags:	CPF_BlueprintVisible | CPF_BlueprintReadOnly | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPrivate 
+	//PropertyFlags:	CPF_BlueprintVisible | CPF_BlueprintReadOnly | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPrivate
 	UPROPERTY(BlueprintGetter = MyInt_Getter, Category = Blueprint)
 		int32 MyInt_WithGetter = 123;
 
 	//(BlueprintSetter = MyInt_Setter, Category = Blueprint, ModuleRelativePath = Property/MyProperty_Test.h)
-	//PropertyFlags:	CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPrivate 
+	//PropertyFlags:	CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPrivate
 	UPROPERTY(BlueprintSetter = MyInt_Setter, Category = Blueprint)
 		int32 MyInt_WithSetter = 123;
 ```
 
 ## 蓝图表现：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Blueprint\BlueprintGetter\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Blueprint\BlueprintGetter\Untitled.png)
 
 ## 原理：
 
@@ -9680,7 +9664,7 @@ UPROPERTY(EditAnywhere, BlueprintReadWrite)
 
 ## 示例效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Blueprint\BlueprintCallable\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Blueprint\BlueprintCallable\Untitled.png)
 
 注意BlueprintAssignable和BlueprintCallable只能用于多播委托：
 
@@ -9727,11 +9711,11 @@ UPROPERTY(EditAnywhere, BlueprintReadWrite)
 
 ## 蓝图中的表现：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Blueprint\BlueprintAssignable\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Blueprint\BlueprintAssignable\Untitled.png)
 
 因此一般建议二者标记都加上：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Blueprint\BlueprintAssignable\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Blueprint\BlueprintAssignable\Untitled%201.png)
 
 # Localized
 
@@ -9790,7 +9774,7 @@ public:
 
 在EditorUtilityWidget中测试，可见ListAssetByTagValue都可以搜索找到该Asset。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Specifier\UPROPERTY\Asset\AssetRegistrySearchable\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Specifier\UPROPERTY\Asset\AssetRegistrySearchable\Untitled.png)
 
 测试的蓝图代码，也可用IAssetRegistry::Get()->GetAssetsByTagValues(tagValues,outAssets);来进行搜索，不过要注意搜索的时机要在AssetRegistry加载之后，AssetRegistry如果是Runtime要记得序列化到磁盘
 
@@ -9858,13 +9842,13 @@ public:
 
 也注意到这个判断跟蓝图中是否开启Tick并没有关系。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Actor\ChildCanTick\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Actor\ChildCanTick\Untitled.png)
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Actor\ChildCanTick\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Actor\ChildCanTick\Untitled%201.png)
 
 而AMyActor_ChildCanTick类里虽然已经手动关闭了PrimaryActorTick.bCanEverTick，但是在子类里依然可以正常的Tick（在编译的时候内部可以正常的再重新开启bCanEverTick）。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Actor\ChildCanTick\Untitled%202.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Actor\ChildCanTick\Untitled%202.png)
 
 ## 源码里判断的逻辑：
 
@@ -9944,7 +9928,6 @@ if (!TickFunction->bCanEverTick)
 }
 ```
 
-
 ﻿# ChildCannotTick
 
 - **功能描述：** 用于Actor或ActorComponent子类，标记允许其蓝图子类不可以接受响应Tick事件，哪怕父类可以Tick
@@ -9953,7 +9936,6 @@ if (!TickFunction->bCanEverTick)
 - **限制类型：** Actor类
 - **关联项：** ChildCanTick
 - **常用程度：** ★★★
-
 
 ﻿# AnimNotifyBoneName
 
@@ -10022,7 +10004,7 @@ public:
 
 我们自己定义的MyBoneName的动画通知，也可以达成同样的效果。MyName_Bone因为加了AnimNotifyBoneName，就和普通的MyName不一样了。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\AnimationGraph\AnimNotifyBoneName\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\AnimationGraph\AnimNotifyBoneName\Untitled.png)
 
 ## 原理：
 
@@ -10036,7 +10018,7 @@ bool FAnimNotifyDetails::CustomizeProperty(IDetailCategoryBuilder& CategoryBuild
 		// Convert this property to a bone name property
 		AddBoneNameProperty(CategoryBuilder, Notify, InPropertyHandle);
 	}
-	
+
 	 if (bIsBoneName)
 		{
 			AddBoneNameProperty(CategoryBuilder, Notify, Property);
@@ -10044,7 +10026,6 @@ bool FAnimNotifyDetails::CustomizeProperty(IDetailCategoryBuilder& CategoryBuild
 		}
 }
 ```
-
 
 ﻿# AnimBlueprintFunction
 
@@ -10055,7 +10036,6 @@ bool FAnimNotifyDetails::CustomizeProperty(IDetailCategoryBuilder& CategoryBuild
 - **限制类型：** Anim BP
 
 只是在内部使用，在动画蓝图编译的时候设置。但是没有在代码里显式的编写。
-
 
 ﻿# CustomizeProperty
 
@@ -10120,7 +10100,7 @@ class INSIDEREDITOR_API UAnimGraphNode_MyCustomProperty : public UAnimGraphNode_
 void FMyAnimNode_MyCustomPropertyCustomization::CustomizeDetails(class IDetailLayoutBuilder& DetailBuilder)
 {
 	TSharedPtr<IPropertyHandle> PropertyHandle = DetailBuilder.GetProperty(TEXT("Node.MyString_CustomProperty"));
-	
+
 	//Just for test
 	ComboListItems.Empty();
 	ComboListItems.Add(MakeShareable(new FString(TEXT("First"))));
@@ -10157,7 +10137,7 @@ SlotName的效果如右侧所示。
 
 作为对比，MyString_CustomizeProperty_Other我们标上了CustomizeProperty但是没有为它创建UI，则没有显示出来，说明引擎默认的机制因此就把它的UI默认创建流程给跳过了。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\AnimationGraph\CustomizeProperty\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\AnimationGraph\CustomizeProperty\Untitled.png)
 
 ## 原理：
 
@@ -10201,7 +10181,6 @@ void FAnimGraphNodeDetails::CustomizeDetails(class IDetailLayoutBuilder& DetailB
 		TSharedRef<SWidget> InternalCustomWidget = CreatePropertyWidget(TargetProperty, TargetPropertyHandle.ToSharedRef(), AnimGraphNode->GetClass());
 }
 ```
-
 
 ﻿# AnimNotifyExpand
 
@@ -10277,7 +10256,6 @@ bool FAnimNotifyDetails::CustomizeProperty(IDetailCategoryBuilder& CategoryBuild
 
 ```
 
-
 ﻿# OnEvaluate
 
 - **使用位置：** UPROPERTY
@@ -10297,7 +10275,6 @@ bool FAnimNotifyDetails::CustomizeProperty(IDetailCategoryBuilder& CategoryBuild
 		InCompilationContext.GetMessageLog().Warning(*LOCTEXT("OnEvaluateDeprecated", "OnEvaluate meta data is deprecated, found on @@").ToString(), SourcePinProperty);
 	}
 ```
-
 
 ﻿# FoldProperty
 
@@ -10328,7 +10305,7 @@ public:
 
 ## 测试结果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\AnimationGraph\FoldProperty\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\AnimationGraph\FoldProperty\Untitled.png)
 
 ## 原理：
 
@@ -10369,7 +10346,6 @@ void FAnimBlueprintCompilerContext::AddFoldedPropertyRecord(UAnimGraphNode_Base*
 	}
 }
 ```
-
 
 ﻿# BlueprintCompilerGeneratedDefaults
 
@@ -10439,7 +10415,7 @@ void UK2Node_PropertyAccess::CreateClassVariablesFromBlueprint(IAnimBlueprintVar
 	GeneratedPropertyName = NAME_None;
 
 	const bool bRequiresCachedVariable = !bWasResolvedThreadSafe || UAnimBlueprintExtension_PropertyAccess::ContextRequiresCachedVariable(ContextId);
-	
+
 	if(ResolvedPinType != FEdGraphPinType() && ResolvedPinType.PinCategory != UEdGraphSchema_K2::PC_Wildcard && bRequiresCachedVariable)
 	{
 		// Create internal generated destination property (only if we were not identified as thread safe)
@@ -10459,10 +10435,9 @@ struct FCPFUOWriter : public FObjectWriter, public FCPFUOArchive
 	{
 		return (bSkipCompilerGeneratedDefaults && InProperty->HasMetaData(BlueprintCompilerGeneratedDefaultsName));
 	}
-#endif 
+#endif
 }
 ```
-
 
 ﻿# CustomWidget
 
@@ -10483,7 +10458,6 @@ void SetParameterInScope(UPARAM(meta = (CustomWidget = "ParamName", AllowedParam
 
 只在AnimNext和RigVM里用到。
 
-
 ﻿# AllowedParamType
 
 - **使用位置：** UFUNCTION
@@ -10501,7 +10475,6 @@ void SetParameterInScope(UPARAM(meta = (CustomWidget = "ParamName", AllowedParam
 ```
 
 查了一下，只在AnimNext中用到。
-
 
 ﻿# PinShownByDefault
 
@@ -10556,7 +10529,7 @@ class INSIDEREDITOR_API UAnimGraphNode_MyTestPinShown : public UAnimGraphNode_Ba
 
 可见，同样的两个属性，MyInt_NotShown 默认情况不显示成节点，只能在细节面板里编辑。而MyInt_PinShownByDefault默认情况下成为引脚。当PinShownByDefault还可以改变去掉Pin的功能。
 
-![PinShown](D:\github\UnrealSpecifiers\Doc\Meta\AnimationGraph\PinShownByDefault\PinShown.gif)
+![PinShown](D:\github\UnrealSpecifiers\Doc\zh\Meta\AnimationGraph\PinShownByDefault\PinShown.gif)
 
 ## 原理：
 
@@ -10585,7 +10558,6 @@ void FAnimBlueprintNodeOptionalPinManager::GetRecordDefaults(FProperty* TestProp
 	Record.bPropertyIsCustomized = bPropertyIsCustomized;
 }
 ```
-
 
 ﻿# AnimGetter
 
@@ -10644,7 +10616,7 @@ public:
 - 可见在不管什么作用域，普通蓝图函数都可以调用（毕竟没有做Context的检查）。另外AssetPlayerIndex等参数都没有被自动填充，这几乎是没法用的，因为用户其实并不太懂如何去手填这些Index，最好是交给编译器来填充。
 - 图里高亮的是可以调用的AnimGetter函数。细看的话，可以分析发现规则是只有能正确填充AssetPlayerIndex等参数的才能调用。因此在Transition里能调用的最多，因为这个时候最叶子节点，有动画，又有状态机和Transition节点。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\AnimationGraph\AnimGetter\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\AnimationGraph\AnimGetter\Untitled.png)
 
 ## 原理：
 
@@ -10665,7 +10637,6 @@ void UK2Node_AnimGetter::GetMenuActions(FBlueprintActionDatabaseRegistrar& Actio
 			}
 }
 ```
-
 
 ﻿# GetterContext
 
@@ -10712,7 +10683,7 @@ float MyGetTransitionTimeElapsed_AnimGetter_OnlyCustomBlend(int32 MachineIndex, 
 
 二是在CustomBlend里。操作步骤是在Rule上右侧细节面板改为Custom然后进入CustomBlend的蓝图。在该蓝图下，MyGetStateWeight可以调用，因为并没有填写GetterContext。而MyGetTransitionTimeElapsed_AnimGetter_OnlyCustomBlend可以开始调用了。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\AnimationGraph\GetterContext\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\AnimationGraph\GetterContext\Untitled.png)
 
 ## 原理：
 
@@ -10726,7 +10697,7 @@ bool UK2Node_AnimGetter::IsContextValidForSchema(const UEdGraphSchema* Schema) c
 		// Valid in all graphs
 		return true;
 	}
-	
+
 	for(const FString& Context : Contexts)
 	{
 		UClass* ClassToCheck = nullptr;
@@ -10751,7 +10722,6 @@ bool UK2Node_AnimGetter::IsContextValidForSchema(const UEdGraphSchema* Schema) c
 	return false;
 }
 ```
-
 
 ﻿# RequiredAssetDataTags
 
@@ -10827,14 +10797,14 @@ public:
 - MyAsset_DisallowedAssetDataTags，把DA_MyPropertySearch_Disallowed过滤掉了，因为我配置的MyOtherId=MyOtherId789，因此只剩下729个。
 - 关于DataTable也是同理。MyDataTable_Default可以获取所有的DataTable（有3个），而MyDataTable_RequiredAssetDataTags限制了RowStructure只能是FMyTableRow_Required （因此只能筛选出一个）。MyDataTable_DisallowedAssetDataTags排除掉一个RowStructure为FMyTableRow_Disallowed 的，因此就剩下2个。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Asset\RequiredAssetDataTags\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Asset\RequiredAssetDataTags\Untitled.png)
 
 ## 源码中例子：
 
 ```cpp
 	UPROPERTY(Category="StateTree", EditAnywhere, meta=(RequiredAssetDataTags="Schema=/Script/MassAIBehavior.MassStateTreeSchema"))
 	TObjectPtr<UStateTree> StateTree;
-	
+
 	UPROPERTY(EditAnywhere, Category=Appearance, meta = (RequiredAssetDataTags = "RowStructure=/Script/UMG.RichImageRow"))
 	TObjectPtr<class UDataTable> ImageSet;
 
@@ -10851,7 +10821,7 @@ public:
 关于DataTable为何可以通过RowStructure过滤，通过查看DataTable里的GetAssetRegistryTags方法就可以知道它主动提供了RowStructure的Tags注册。
 
 ```cpp
-FAssetDataTagMapBase=TSortedMap<FName, FString, FDefaultAllocator, FNameFastLess>; 
+FAssetDataTagMapBase=TSortedMap<FName, FString, FDefaultAllocator, FNameFastLess>;
 
 SPropertyEditorAsset::
 	/** Tags (and eventually values) that can NOT be used with this property */
@@ -10859,7 +10829,7 @@ SPropertyEditorAsset::
 
 	**/** Tags and values that must be present for an asset to be used with this property */
 	TSharedPtr<FAssetDataTagMap> RequiredAssetDataTags;
-	
+
 void SPropertyEditorAsset::InitializeAssetDataTags(const FProperty* Property)
 {
 	if (Property == nullptr)
@@ -10962,7 +10932,6 @@ void UDataTable::GetAssetRegistryTags(FAssetRegistryTagsContext Context) const
 
 ```
 
-
 ﻿# DisallowedAssetDataTags
 
 - **功能描述：** 在UObject*属性上指定Tags来进行过滤，必须没有拥有该Tags才可以被选择。
@@ -10972,7 +10941,6 @@ void UDataTable::GetAssetRegistryTags(FAssetRegistryTagsContext Context) const
 - **限制类型：** UObject*
 - **关联项：** RequiredAssetDataTags, AssetRegistrySearchable
 - **常用程度：** ★★
-
 
 ﻿# ForceShowEngineContent
 
@@ -11014,7 +10982,7 @@ MyAsset_ForceShowEngineContent的作用其实就是在选项卡里勾选ShowEngi
 
 MyAsset_ForceShowPluginContent的作用同样是在选项卡里勾选ShowPluginContent，可以选择别的插件里的资源。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Asset\ForceShowEngineContent\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Asset\ForceShowEngineContent\Untitled.png)
 
 ## 原理：
 
@@ -11025,7 +10993,7 @@ void SPropertyMenuAssetPicker::Construct( const FArguments& InArgs )
 {
 		const bool bForceShowEngineContent = PropertyHandle ? PropertyHandle->HasMetaData(TEXT("ForceShowEngineContent")) : false;
 		const bool bForceShowPluginContent = PropertyHandle ? PropertyHandle->HasMetaData(TEXT("ForceShowPluginContent")) : false;
-		
+
 		FAssetPickerConfig AssetPickerConfig;
 		// Force show engine content if meta data says so
 		AssetPickerConfig.bForceShowEngineContent = bForceShowEngineContent;
@@ -11033,7 +11001,6 @@ void SPropertyMenuAssetPicker::Construct( const FArguments& InArgs )
 		AssetPickerConfig.bForceShowPluginContent = bForceShowPluginContent;
 }
 ```
-
 
 ﻿# ForceShowPluginContent
 
@@ -11043,7 +11010,6 @@ void SPropertyMenuAssetPicker::Construct( const FArguments& InArgs )
 - **元数据类型：** bool
 - **限制类型：** UObject*
 - **关联项：** ForceShowEngineContent
-
 
 ﻿# GetAssetFilter
 
@@ -11086,7 +11052,7 @@ public:
 
 可以见到，MyAsset_GetAssetFilter进行过滤后只允许DataAsset类型的资产。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Asset\GetAssetFilter\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Asset\GetAssetFilter\Untitled.png)
 
 ## 原理：
 
@@ -11123,7 +11089,6 @@ void SPropertyEditorAsset::Construct(const FArguments& InArgs, const TSharedPtr<
 }
 ```
 
-
 ﻿# IgnoreTypePromotion
 
 - **功能描述：** 标记该函数不收录进类型提升函数库
@@ -11141,7 +11106,7 @@ void SPropertyEditorAsset::Construct(const FArguments& InArgs, const TSharedPtr<
 
 二是什么是类型提升函数库？源码中有FTypePromotion的类，里面的OperatorTable记录了从OP名字到函数列表的一个Map映射，比如支持Add(+)的有多个Add_Vector，Add_Float等。当我们在蓝图中右键输入+或Add节点的时候，出现的首先是一个泛型的+节点。然后再连接到具体的变量类型，蓝图系统根据Pin类型会在FTypePromotion::OperatorTable里找到最匹配的Func来最终调用，或者自动的在内部做类型提升。比如下图的+最终调用的就是UKismetMathLibrary::Add_VectorFloat。这种泛型的运算符调用，使得各种基本类型之间的基本运算在蓝图节点创建上更加的便利和统一，也方便直接Add Pin和在Pin上直接Convert到可兼容的其他Pin类型。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\IgnoreTypePromotion\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\IgnoreTypePromotion\Untitled.png)
 
 三是为什么有些函数不想被收录进FTypePromotion里？在源码中搜索，在KismetMathLibrary中发现只有FDateTime加上了IgnoreTypePromotion标记。虽然FDateTime也定义了一系列的各种运算符函数，比如Add，Subtract和其他各种比较运算符，但是FDateTime在意义上和其他的基本类型可互相运算不同，FDateTime+float或FDateTime+vector并无什么意义。FDateTime只允许+FDateTime或+FTimeSpan。因此类似FDateTime这种并不想参与到其他类型的类型提升转换关系中，只想安静的自成一派在自己小范围内运算，就可以加上IgnoreTypePromotion，不参与进FTypePromotion这个体系。
 
@@ -11211,7 +11176,7 @@ public:
 	UFUNCTION(BlueprintPure, meta = (IgnoreTypePromotion, DisplayName = "GameProp <= GameProp", CompactNodeTitle = "<=", Keywords = "<= less"), Category = "Math|GameProp")
 	static bool LessEqual_GameProp(FGameProp A, FGameProp B) { return true; }
 	};
-	
+
 
 ```
 
@@ -11219,17 +11184,17 @@ public:
 
 加了IgnoreTypePromotion的FGameProp，Add的时候就是直接最原始的Add_GameProp节点。而不加IgnoreTypePromotion的FGameProp2，Add的时候产生的节点是泛型的+，可以继续AddPin，甚至在Pin上右键还会尝试寻找向其他类型的转换（虽然这里结果找不到，是因为我们没有定义FGameProp2和其他类型的运算函数）。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\IgnoreTypePromotion\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\IgnoreTypePromotion\Untitled%201.png)
 
 另外一点是，如果是在一个空的泛型Add节点上右键，会发现出现转换到FGameProp2的选项（但是FGameProp并没有）。这也是标明FGameProp2存在于TypePromotion这个体系里。但是实际上我们并不希望FGameProp2出现这里，还是那句话，这种玩法的战斗属性，有自己的运算规则，并不想掺和进基本类型的数学运算里。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\IgnoreTypePromotion\Untitled%202.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\IgnoreTypePromotion\Untitled%202.png)
 
 ## 原理：
 
 在编辑器设置中，有个选项EnableTypePromotion打开后， 就会使得FTypePromotion开始收集引擎内定义的所有函数，并判断其是否是个类型提升函数。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\IgnoreTypePromotion\Untitled%203.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\IgnoreTypePromotion\Untitled%203.png)
 
 一个函数名如果前面包含运算符前缀（OperatorNames里定义的这些），例如Add_XXX，则会被提取操作符。被注册加入到这个FTypePromotion::OperatorTable映射表里的函数，这样在蓝图里右键一些操作符的时候（比如+），就会在这个映射表里找到最匹配的函数。
 
@@ -11242,7 +11207,7 @@ namespace OperatorNames
 	static const FName Multiply		= TEXT("Multiply");
 	static const FName Subtract		= TEXT("Subtract");
 	static const FName Divide		= TEXT("Divide");
-	
+
 	static const FName Greater		= TEXT("Greater");
 	static const FName GreaterEq	= TEXT("GreaterEqual");
 	static const FName Less			= TEXT("Less");
@@ -11261,13 +11226,13 @@ bool FTypePromotion::IsPromotableFunction(const UFunction* Function)
 {
 	TRACE_CPUPROFILER_EVENT_SCOPE(FTypePromotion::IsPromotableFunction);
 
-	// Ensure that we don't have an invalid OpName as well for extra safety when this function 
+	// Ensure that we don't have an invalid OpName as well for extra safety when this function
 	// is called outside of this class, not during the OpTable creation process
 	FName OpName = GetOpNameFromFunction(Function);
 	return Function &&
 		Function->HasAnyFunctionFlags(FUNC_BlueprintPure) &&
 		Function->GetReturnProperty() &&
-		OpName != OperatorNames::NoOp && 
+		OpName != OperatorNames::NoOp &&
 		!IsPinTypeDeniedForTypePromotion(Function) &&
 		// Users can deny specific functions from being considered for type promotion
 		!Function->HasMetaData(FBlueprintMetadata::MD_IgnoreTypePromotion);
@@ -11276,12 +11241,11 @@ bool FTypePromotion::IsPromotableFunction(const UFunction* Function)
 
 FTypePromotion收集的OperatorTable里面内容：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\IgnoreTypePromotion\Untitled%204.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\IgnoreTypePromotion\Untitled%204.png)
 
 一个函数如果IsPromotableFunction，在调用的时候就会用UK2Node_PromotableOperator来作为蓝图节点（默认是UK2Node_CallFunction），UK2Node_PromotableOperator是典型的用于Wildcard泛型的二元运算符。如下图的Add(+)。在这种Add 的引脚上右键可以弹出Pin的类型转换从Wildcard到特定的类型，因为该结构有定义Add_XXX的函数，并且没有IgnoreTypePromotion，因此就被包含进了TypePromotion的映射表里。
 
 上面的这个Pin转换菜单就是在UK2Node_PromotableOperator::CreateConversionMenu里收集的。
-
 
 ﻿# Variadic
 
@@ -11293,12 +11257,11 @@ FTypePromotion收集的OperatorTable里面内容：
 
 - **元数据类型：** bool
 
-- **关联项：** 
+- **关联项：**
 
   UFUNCTION：Variadic
 
 - **常用程度：** ★★★
-
 
 ﻿# ForceAsFunction
 
@@ -11326,41 +11289,41 @@ class INSIDER_API AMyFunction_ForceAsFunction :public AActor
 public:
 	GENERATED_BODY()
 public:
-//FUNC_Native | FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent 
+//FUNC_Native | FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	void MyNativeEvent_Default(const FString& name);
 
-	//FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent 
+	//FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void MyImplementableEvent_Default(const FString& name);
 
 public:
 	//(ForceAsFunction = , ModuleRelativePath = Function/MyFunction_ForceAsFunction.h)
-	//FUNC_Native | FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent 
+	//FUNC_Native | FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, meta = (ForceAsFunction))
 	void MyNativeEvent_ForceAsFunction(const FString& name);
 
 	////(ForceAsFunction = , ModuleRelativePath = Function/MyFunction_ForceAsFunction.h)
-	//FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent 
+	//FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, meta = (ForceAsFunction))
 	void MyImplementableEvent_ForceAsFunction(const FString& name);
 
 public:
-	//FUNC_Native | FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent 
+	//FUNC_Native | FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	bool MyNativeEvent_Output(const FString& name, int32& OutValue);
 
-	//FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent 
+	//FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	bool MyImplementableEvent_Output(const FString& name, int32& OutValue);
 
 	//(ForceAsFunction = , ModuleRelativePath = Function/MyFunction_ForceAsFunction.h)
-	//FUNC_Native | FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent 
+	//FUNC_Native | FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, meta = (ForceAsFunction))
 	bool MyNativeEvent_Output_ForceAsFunction(const FString& name, int32& OutValue);
 
 	//(ForceAsFunction = , ModuleRelativePath = Function/MyFunction_ForceAsFunction.h)
-	//FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent 
+	//FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, meta = (ForceAsFunction))
 	bool MyImplementableEvent_Output_ForceAsFunction(const FString& name, int32& OutValue);
 };
@@ -11376,7 +11339,7 @@ public:
 
 但无论是覆写为事件还是函数，被调用的时候用法并无区别。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\ForceAsFunction\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\ForceAsFunction\Untitled.png)
 
 ## 原理：
 
@@ -11404,7 +11367,6 @@ bool UEdGraphSchema_K2::FunctionCanBePlacedAsEvent(const UFunction* InFunction)
 }
 ```
 
-
 ﻿# CannotImplementInterfaceInBlueprint
 
 - **功能描述：** 指定该接口不能在蓝图中实现
@@ -11413,14 +11375,13 @@ bool UEdGraphSchema_K2::FunctionCanBePlacedAsEvent(const UFunction* InFunction)
 
 - **元数据类型：** bool
 
-- **关联项：** 
+- **关联项：**
 
   UINTERFACE：NotBlueprintable
 
 - **常用程度：** ★★★
 
 和UINTERFACE(NotBlueprintable)的效果一样，指定不能在蓝图中继承
-
 
 ﻿# CallInEditor
 
@@ -11432,12 +11393,11 @@ bool UEdGraphSchema_K2::FunctionCanBePlacedAsEvent(const UFunction* InFunction)
 
 - **元数据类型：** bool
 
-- **关联项：** 
+- **关联项：**
 
   UFUNCTION：CallInEditor
 
 - **常用程度：** ★★★★★
-
 
 ﻿# BlueprintProtected
 
@@ -11466,24 +11426,24 @@ public:
 	GENERATED_BODY()
 public:
 	//(BlueprintProtected = true, ModuleRelativePath = Function/MyFunction_Access.h)
-	//FUNC_Final | FUNC_Native | FUNC_Public | FUNC_BlueprintCallable 
+	//FUNC_Final | FUNC_Native | FUNC_Public | FUNC_BlueprintCallable
 	UFUNCTION(BlueprintCallable, meta = (BlueprintProtected = "true"))
 	void MyNative_HasProtected() {}
 
 	//(BlueprintPrivate = true, ModuleRelativePath = Function/MyFunction_Access.h)
-	//FUNC_Final | FUNC_Native | FUNC_Public | FUNC_BlueprintCallable 
+	//FUNC_Final | FUNC_Native | FUNC_Public | FUNC_BlueprintCallable
 	UFUNCTION(BlueprintCallable, meta = (BlueprintPrivate = "true"))
 	void MyNative_HasPrivate() {}
 public:
-	//FUNC_Final | FUNC_Native | FUNC_Public | FUNC_BlueprintCallable 
+	//FUNC_Final | FUNC_Native | FUNC_Public | FUNC_BlueprintCallable
 	UFUNCTION(BlueprintCallable)
 	void MyNative_NativePublic() {}
 protected:
-	//FUNC_Final | FUNC_Native | FUNC_Protected | FUNC_BlueprintCallable 
+	//FUNC_Final | FUNC_Native | FUNC_Protected | FUNC_BlueprintCallable
 	UFUNCTION(BlueprintCallable)
 	void MyNative_NativeProtected() {}
 private:
-	//FUNC_Final | FUNC_Native | FUNC_Private | FUNC_BlueprintCallable 
+	//FUNC_Final | FUNC_Native | FUNC_Private | FUNC_BlueprintCallable
 	UFUNCTION(BlueprintCallable)
 	void MyNative_NativePrivate() {}
 };
@@ -11498,17 +11458,17 @@ private:
 
 而在BPA_Access_Base中直接定义的MyBPProtected和MyBPPrivate通过在函数细节面板上直接设置AccessSpecifier，可以在本类都可以调用，但是MyBPPrivate在更加的蓝图子类无法被调用。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\BlueprintProtected\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\BlueprintProtected\Untitled.png)
 
 蓝图中的子类（BPA_Access_Child继承自BPA_Access_Base）效果：
 
 可见MyNative函数的访问一样。而MyBPPrivate则不能被调用了，这和我们预想的规则一样。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\BlueprintProtected\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\BlueprintProtected\Untitled%201.png)
 
 而在外部类中(BPA_Access_Other，继承自Actor)，通过BPA_Access_Base或BPA_Access_Child对象实例访问函数的时候，发现带有BlueprintProtected和BlueprintPrivate都不能被调用。BP的函数也只有AccessSpecifier为默认Public的可以调用。这个规则也很符合预期。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\BlueprintProtected\Untitled%202.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\BlueprintProtected\Untitled%202.png)
 
 ## 原理：
 
@@ -11542,7 +11502,7 @@ static bool BlueprintActionFilterImpl::IsFieldInaccessible(FBlueprintActionFilte
 				{
 					continue;
 				}
-			
+
 				// private functions are only accessible from the class they belong to
 				if (bIsPrivate && !IsClassOfType(BpClass, ActionOwner, /*bNeedsExactMatch =*/true))
 				{
@@ -11665,25 +11625,25 @@ public:
 	GENERATED_BODY()
 public:
 	//(BlueprintProtected = true, Category = MyFunction_Access, ModuleRelativePath = Function/MyFunction_Access.h)
-	//CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(BlueprintReadWrite,meta = (BlueprintProtected = "true"))
 	int32 MyNativeInt_HasProtected;
 
 	//(BlueprintPrivate = true, Category = MyFunction_Access, ModuleRelativePath = Function/MyFunction_Access.h)
-	//CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(BlueprintReadWrite,meta = (BlueprintPrivate = "true"))
 	int32 MyNativeInt_HasPrivate;
 
 public:
-//CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+//CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(BlueprintReadWrite)
 	int32 MyNativeInt_NativePublic;
 protected:
-	//CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_Protected | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierProtected 
+	//CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_Protected | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierProtected
 	UPROPERTY(BlueprintReadOnly)
 	int32 MyNativeInt_NativeProtected;
 private:
-	//CPF_Edit | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPrivate 
+	//CPF_Edit | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPrivate
 	//error : BlueprintReadWrite should not be used on private members
 	UPROPERTY(EditAnywhere)
 	int32 MyNativeInt_NativePrivate;
@@ -11696,19 +11656,19 @@ private:
 
 而在本蓝图类定义的MyBPIntPrivate因为勾上了Private，会导致该属性增加了BlueprintPrivate = true的meta，但因为是本类里定义的，所以在本类里也依然可以读写访问。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\BlueprintProtected\Untitled%203.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\BlueprintProtected\Untitled%203.png)
 
 继续在蓝图中的子类（BPA_Access_Child继承自BPA_Access_Base）效果：
 
 Protected的属性依然都可以访问，但是MyBPIntPrivate属性因为是Private的，因此都不能读写，如果强制粘贴节点，会在编译的时候报错。Private的含义是只在本类中才可以访问。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\BlueprintProtected\Untitled%204.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\BlueprintProtected\Untitled%204.png)
 
 而在外部类中(BPA_Access_Other，继承自Actor)，通过BPA_Access_Base或BPA_Access_Child对象实例访问属性的时候：带有BlueprintProtected和BlueprintPrivate都不能访问。而C++中的protected修饰并无影响。
 
 而MyBPIntPrivate因为是Private所以不能访问。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\BlueprintProtected\Untitled%205.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\BlueprintProtected\Untitled%205.png)
 
 ## 原理：
 
@@ -11723,7 +11683,7 @@ Protected的属性依然都可以访问，但是MyBPIntPrivate属性因为是Pri
 ```cpp
 bool FBlueprintEditorUtils::IsPropertyPrivate(const FProperty* Property)
 {
-	return Property->HasAnyPropertyFlags(CPF_NativeAccessSpecifierPrivate) || Property->GetBoolMetaData(FBlueprintMetadata::MD_Private); 
+	return Property->HasAnyPropertyFlags(CPF_NativeAccessSpecifierPrivate) || Property->GetBoolMetaData(FBlueprintMetadata::MD_Private);
 }
 
 FBlueprintEditorUtils::EPropertyWritableState FBlueprintEditorUtils::IsPropertyWritableInBlueprint(const UBlueprint* Blueprint, const FProperty* Property)
@@ -11771,7 +11731,6 @@ FBlueprintEditorUtils::EPropertyReadableState FBlueprintEditorUtils::IsPropertyR
 }
 ```
 
-
 ﻿# AllowPrivateAccess
 
 - **功能描述：** 允许一个在C++中private的属性，可以在蓝图中访问。
@@ -11788,17 +11747,17 @@ AllowPrivateAccess的意义是允许这个属性在C++是private的，不允许C
 
 ```cpp
 public:
-	//CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(BlueprintReadWrite)
 	int32 MyNativeInt_NativePublic;
 private:
-	//CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPrivate 
+	//CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPrivate
 	//error : BlueprintReadWrite should not be used on private members
 	UPROPERTY()
 	int32 MyNativeInt_NativePrivate;
 
 	//(AllowPrivateAccess = TRUE, Category = MyFunction_Access, ModuleRelativePath = Function/MyFunction_Access.h)
-	//CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPrivate 
+	//CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPrivate
 	UPROPERTY(BlueprintReadWrite, meta = (AllowPrivateAccess = true))
 	int32 MyNativeInt_NativePrivate_AllowPrivateAccess;
 ```
@@ -11811,7 +11770,7 @@ private:
 
 如果读者想要修改改属性在蓝图中的访问权限，则可以配合加上BlueprintProtected和BlueprintPrivate。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\AllowPrivateAccess\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\AllowPrivateAccess\Untitled.png)
 
 ## 原理：
 
@@ -11828,7 +11787,7 @@ UHT在识别属性的BlueprintReadWrite或BlueprintReadOnly标识符的时候，
 				context.MessageSite.LogError("BlueprintReadWrite should not be used on private members");
 			}
 	}
-	
+
 	private static void BlueprintReadOnlySpecifier(UhtSpecifierContext specifierContext)
 	{
 			bool allowPrivateAccess = context.MetaData.TryGetValue(UhtNames.AllowPrivateAccess, out string? privateAccessMD) && !privateAccessMD.Equals("false", StringComparison.OrdinalIgnoreCase);
@@ -11840,7 +11799,6 @@ UHT在识别属性的BlueprintReadWrite或BlueprintReadOnly标识符的时候，
 
 ```
 
-
 ﻿# BlueprintPrivate
 
 - **功能描述：** 指定该函数或属性只能在本类中被调用或读写，类似C++中的private的作用域限制。不可在别的蓝图类里访问。
@@ -11851,16 +11809,15 @@ UHT在识别属性的BlueprintReadWrite或BlueprintReadOnly标识符的时候，
 
 在函数细节面板上可以设置函数的访问权限：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\BlueprintPrivate\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\BlueprintPrivate\Untitled.png)
 
 造成的结果就是在函数上增加BlueprintPrivate=“true”
 
 在细节面板上可以设置属性的
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\BlueprintPrivate\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\BlueprintPrivate\Untitled%201.png)
 
 结果也是在属性上增加BlueprintPrivate=“true”
-
 
 ﻿# CommutativeAssociativeBinaryOperator
 
@@ -11885,7 +11842,7 @@ CommutativeAssociativeBinaryOperator的限制是函数必须是BlueprintPure并�
 
 	UFUNCTION(BlueprintPure, meta = ())
 	static float My_Add_NoBinaryOperator(float A, float B) { return A + B; }
-	
+
 	// error : Commutative associative binary operators must have exactly 2 parameters of the same type and a return value.
 	//UFUNCTION(BlueprintPure, meta = (CommutativeAssociativeBinaryOperator))
 //	static float My_PureAdd3_WithBinaryOperator(float A, float B,float C) { return A + B+C; }
@@ -11893,7 +11850,7 @@ CommutativeAssociativeBinaryOperator的限制是函数必须是BlueprintPure并�
 
 ## 蓝图效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\CommutativeAssociativeBinaryOperator\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\CommutativeAssociativeBinaryOperator\Untitled.png)
 
 ## 原理：
 
@@ -11962,7 +11919,6 @@ void UK2Node_CommutativeAssociativeBinaryOperator::ExpandNode(FKismetCompilerCon
 
 ```
 
-
 ﻿# CompactNodeTitle
 
 - **功能描述：** 使得函数的展示形式变成精简压缩模式，同时指定一个新的精简的名字
@@ -11993,7 +11949,7 @@ void UK2Node_CommutativeAssociativeBinaryOperator::ExpandNode(FKismetCompilerCon
 
 显示效果明显发生了变化。同时我们在蓝图里定义的函数也可以通过这个细节面板上的设置变成压缩模式展示。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\CompactNodeTitle\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\CompactNodeTitle\Untitled.png)
 
 ## 原理：
 
@@ -12034,11 +11990,10 @@ FString UK2Node_CallFunction::GetCompactNodeTitle(const UFunction* Function)
 			return OperatorTitle;
 		}
 	}
-	
+
 	return Function->GetName();
 }
 ```
-
 
 ﻿# CustomStructureParam
 
@@ -12096,7 +12051,7 @@ FString UMyFunction_Custom::Generic_PrintStructFields(const UScriptStruct* Scrip
 
 ## 蓝图中的效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\Param\CustomStructureParam\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\Param\CustomStructureParam\Untitled.png)
 
 可以看到定义了一个接受通用结构参数的节点，然后打印出内部所有的属性。其中CustomStructureParam 指定函数的参数是自定义的类型。
 
@@ -12163,7 +12118,6 @@ static void FCustomStructureParamHelper::HandleSinglePin(UEdGraphPin* Pin)
 }
 ```
 
-
 ﻿# DefaultToSelf
 
 - **功能描述：** 用在函数上，指定一个参数的默认值为Self值
@@ -12196,11 +12150,11 @@ public:
 
 蓝图里的节点，可以看出蓝图编译器会自动的把DefaultToSelf指定的函数参数，自动的赋值到Self，当然这个和手动的连到self本质是一样的。额外一点，可以通过HidePin再隐藏掉这个函数参数，这样就默认把该蓝图节点所在的蓝图对象（Self）当作第一个函数参数，显得更加简洁一些。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\DefaultToSelf\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\DefaultToSelf\Untitled.png)
 
 如果是BlueprintPure也是可以的：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\DefaultToSelf\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\DefaultToSelf\Untitled%201.png)
 
 ## 原理：
 
@@ -12227,7 +12181,7 @@ UEdGraphPin* FBlueprintNodeStatics::CreateSelfPin(UK2Node* Node, const UFunction
 	UClass* FunctionClass = CastChecked<UClass>(FirstDeclaredFunction->GetOuter());
 	// we don't want blueprint-function target pins to be formed from the
 	// skeleton class (otherwise, they could be incompatible with other pins
-	// that represent the same type)... this here could lead to a compiler 
+	// that represent the same type)... this here could lead to a compiler
 	// warning (the GeneratedClass could not have the function yet), but in
 	// that, the user would be reminded to compile the other blueprint
 	if (FunctionClass->ClassGeneratedBy)
@@ -12255,7 +12209,6 @@ UEdGraphPin* FBlueprintNodeStatics::CreateSelfPin(UK2Node* Node, const UFunction
 	return SelfPin;
 }
 ```
-
 
 ﻿# ExpandEnumAsExecs
 
@@ -12334,7 +12287,7 @@ public:
 
 可以对照上述上述的函数原型和蓝图节点，可以发现ExpandEnumAsExecs执行3种参数类型。同时也验证了在同时拥有多个输出Enum参数的时候(代码里是OutAnimal|OutPins|ReturnValue)，会按顺序执行3次输出，就像用Sequence节点连接在了一起一样。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\Exec\ExpandEnumAsExecs\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\Exec\ExpandEnumAsExecs\Untitled.png)
 
 ## 原理：
 
@@ -12344,7 +12297,6 @@ public:
 
 函数原始的参数Pin会被隐藏起来，从而只暴露生成后的Exec Pin。
 
-
 ﻿# ExpandBoolAsExecs
 
 - **功能描述：** 是ExpandEnumAsExecs的别名，完全等价其功能。
@@ -12352,7 +12304,6 @@ public:
 - **元数据类型：** string="abc"
 - **关联项：** ExpandEnumAsExecs
 - **常用程度：** ★★★★★
-
 
 ﻿# ArrayParm
 
@@ -12397,10 +12348,9 @@ public:
 
 ## 蓝图效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\Param\ArrayParm\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\Param\ArrayParm\Untitled.png)
 
 可以看到，在没有连接具体数组类型的时候，Array是灰色的通配符类型。而连接上不同的数组类型，Array参数引脚就会自动变成相应的类型，这些逻辑是在UK2Node_CallArrayFunction中实现的，有兴趣的去自行翻阅。
-
 
 ﻿# ArrayTypeDependentParams
 
@@ -12431,7 +12381,7 @@ public:
 
 如果没有ArrayTypeDependentParams，在连接ArrayA后，ArrayB的类型依然没有确定，即使连接上了也是如此，这应该是引擎的实现所限制。编译会造成编译错误。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\Param\ArrayTypeDependentParams\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\Param\ArrayTypeDependentParams\Untitled.png)
 
 因此ArrayTypeDependentParams可以指定另外的数组参数，其类型会由别的（第一个）数组实际参数所决定，即typeof(ArrayB)=typeof(ArrayA)。在示例代码里所示加上ArrayB作为ArrayTypeDependentParams 之后，MyArrayB无论是先连接到ArrayA还是ArrayB都可以触发二者改变为一致的数组类型。这是因为ArrayA作为第一个参数，天生在引擎内已经实现了第一个参数的动态类型实时变化。因此我们只要再加上ArrayB就好了。
 
@@ -12472,7 +12422,6 @@ void UK2Node_CallArrayFunction::AllocateDefaultPins()
 
 关于ArrayDependentParam的作用机制，可以参照UK2Node_CallArrayFunction里的NotifyPinConnectionListChanged和PropagateArrayTypeInfo这两个函数的实现，可以看到其他的数组参数Pin类型被动态的修改为SourcePin的类型。
 
-
 ﻿# AdvancedDisplay
 
 - **功能描述：** 把函数的一些参数折叠起来不显示，需要手动点开下拉箭头来展开编辑。
@@ -12499,7 +12448,7 @@ AdvancedDisplay同时支持两种格式，一是用"Parameter1, Parameter2, ..�
 
 ## 蓝图效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\AdvancedDisplay\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\AdvancedDisplay\Untitled.png)
 
 源码中典型的例子是PrintString，在第2个参数后的其他参数就都折叠了起来。
 
@@ -12546,7 +12495,6 @@ if (_metaData.TryGetValue(UhtNames.AdvancedDisplay, out string? foundString))
 
 ```
 
-
 ﻿# SetParam
 
 - **功能描述：** 指定一个函数为使用Set<TItem>的函数，元素类型为通配符的泛型。
@@ -12571,7 +12519,7 @@ SetParam支持多个Set和元素参数，以‘,’分隔开，然后Pin的引�
 
 ## 蓝图里效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\SetParam\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\SetParam\Untitled.png)
 
 ## 原理：
 
@@ -12582,13 +12530,13 @@ void UK2Node_CallFunction::ConformContainerPins()
 {
 		// find any pins marked as SetParam
 		const FString& SetPinMetaData = TargetFunction->GetMetaData(FBlueprintMetadata::MD_SetParam);
-		
+
 		// useless copies/allocates in this code, could be an optimization target...
 		TArray<FString> SetParamPinGroups;
 		{
 			SetPinMetaData.ParseIntoArray(SetParamPinGroups, TEXT(","), true);
 		}
-		
+
 		for (FString& Entry : SetParamPinGroups)
 		{
 			// split the group:
@@ -12603,7 +12551,7 @@ void UK2Node_CallFunction::ConformContainerPins()
 					ResolvedPins.Add(Pin);
 				}
 			}
-		
+
 			// if nothing is connected (or non-default), reset to wildcard
 			// else, find the first type and propagate to everyone else::
 			bool bReadyToPropagatSetType = false;
@@ -12616,7 +12564,7 @@ void UK2Node_CallFunction::ConformContainerPins()
 					break;
 				}
 			}
-		
+
 			for (UEdGraphPin* Pin : ResolvedPins)
 			{
 				TryPropagateType( Pin, TypeToPropagate, bReadyToPropagatSetType );
@@ -12624,7 +12572,6 @@ void UK2Node_CallFunction::ConformContainerPins()
 		}
 	}
 ```
-
 
 ﻿# MapParam
 
@@ -12653,7 +12600,7 @@ void UK2Node_CallFunction::ConformContainerPins()
 
 ## 蓝图中效果1：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\Param\MapParam\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\Param\MapParam\Untitled.png)
 
 因为只支持一个MapParam，因此如果你书写这种代码 。
 
@@ -12668,7 +12615,7 @@ void UK2Node_CallFunction::ConformContainerPins()
 
 会导致MapParam搜索不到Pin，从而失去通配符的功能。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\Param\MapParam\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\Param\MapParam\Untitled%201.png)
 
 而如果要实现类似Add的功能，达到Key和Value的Pin类型也可以动态的根据Map的类型而自动的改变。则需要加上MapKeyParam 和MapValueParam 分别的指定另外的函数参数以便能找到正确的Pin，从而实现动态的根据Map类型而更改KeyValue Pin类型。MapKeyParam 和MapValueParam 指定的参数也可以为数组等容器，可以参照UBlueprintMapLibrary中的Keys和Values参数。
 
@@ -12681,7 +12628,7 @@ void UK2Node_CallFunction::ConformContainerPins()
 
 ## 蓝图中的效果2：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\Param\MapParam\Untitled%202.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\Param\MapParam\Untitled%202.png)
 
 ## 原理代码:
 
@@ -12692,7 +12639,7 @@ void UK2Node_CallFunction::ConformContainerPins()
 		const FString& MapPinMetaData = TargetFunction->GetMetaData(FBlueprintMetadata::MD_MapParam);
 		const FString& MapKeyPinMetaData = TargetFunction->GetMetaData(FBlueprintMetadata::MD_MapKeyParam);
 		const FString& MapValuePinMetaData = TargetFunction->GetMetaData(FBlueprintMetadata::MD_MapValueParam);
-		
+
 		if(!MapPinMetaData.IsEmpty() || !MapKeyPinMetaData.IsEmpty() || !MapValuePinMetaData.IsEmpty() )
 		{
 			// if the map pin has a connection infer from that, otherwise use the information on the key param and value param:
@@ -12700,25 +12647,24 @@ void UK2Node_CallFunction::ConformContainerPins()
 			FEdGraphTerminalType KeyTypeToPropagate;
 			bool bReadyToPropagateValueType = false;
 			FEdGraphTerminalType ValueTypeToPropagate;
-		
+
 			UEdGraphPin* MapPin = MapPinMetaData.IsEmpty() ? nullptr : FindPin(MapPinMetaData);
 			UEdGraphPin* MapKeyPin = MapKeyPinMetaData.IsEmpty() ? nullptr : FindPin(MapKeyPinMetaData);
 			UEdGraphPin* MapValuePin = MapValuePinMetaData.IsEmpty() ? nullptr : FindPin(MapValuePinMetaData);
-		
+
 			TryReadTypeToPropagate(MapPin, bReadyToPropagateKeyType, KeyTypeToPropagate);//读取MapPin的Key连接类型
 			TryReadValueTypeToPropagate(MapPin, bReadyToPropagateValueType, ValueTypeToPropagate);//读取MapPin上连接的Map Value类型
 			TryReadTypeToPropagate(MapKeyPin, bReadyToPropagateKeyType, KeyTypeToPropagate);//读取KeyPin上的连接类型
 			TryReadTypeToPropagate(MapValuePin, bReadyToPropagateValueType, ValueTypeToPropagate);//读取ValuePin上的连接类型
-		
+
 			TryPropagateType(MapPin, KeyTypeToPropagate, bReadyToPropagateKeyType);//改变MapPin的Key当前类型
 			TryPropagateType(MapKeyPin, KeyTypeToPropagate, bReadyToPropagateKeyType);//改变KeyPin的当前类型
-		
+
 			TryPropagateValueType(MapPin, ValueTypeToPropagate, bReadyToPropagateValueType);//改变MapPin的Value当前类型
 			TryPropagateType(MapValuePin, ValueTypeToPropagate, bReadyToPropagateValueType);//改变ValuePin的当前类型
 		}
 }
 ```
-
 
 ﻿# MapKeyParam
 
@@ -12729,7 +12675,6 @@ void UK2Node_CallFunction::ConformContainerPins()
 - **关联项：** MapParam
 - **常用程度：** ★★★
 
-
 ﻿# MapValueParam
 
 - **功能描述：** 指定一个函数参数为Map的Value，其根据MapParam指定的实际Map参数的Value类型而相应改变。
@@ -12738,7 +12683,6 @@ void UK2Node_CallFunction::ConformContainerPins()
 - **限制类型：** TMap
 - **关联项：** MapParam
 - **常用程度：** ★★★
-
 
 ﻿# Keywords
 
@@ -12766,7 +12710,7 @@ public:
 
 ## 蓝图效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\Keywords\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\Keywords\Untitled.png)
 
 ## 原理：
 
@@ -12780,7 +12724,6 @@ FText UEdGraphNode::GetKeywords() const
 	return GetClass()->GetMetaDataText(TEXT("Keywords"), TEXT("UObjectKeywords"), GetClass()->GetFullGroupName(false));
 }
 ```
-
 
 ﻿# Latent
 
@@ -12847,7 +12790,7 @@ public:
 
 ## 蓝图效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\Latent\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\Latent\Untitled.png)
 
 MySleep可以像Delay一样正常工作。但是MySleep2因为没有标明LatentInfo，因此LatentInfo函数参数没有被蓝图系统赋值，导致无法工作。
 
@@ -12856,7 +12799,7 @@ MySleep可以像Delay一样正常工作。但是MySleep2因为没有标明Latent
 ```cpp
 UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject", Latent = "", LatentInfo = "LatentInfo", DisplayName = "Load Stream Level (by Name)"), Category="Game")
 static ENGINE_API void LoadStreamLevel(const UObject* WorldContextObject, FName LevelName, bool bMakeVisibleAfterLoad, bool bShouldBlockOnLoad, FLatentActionInfo LatentInfo);
-	
+
 UFUNCTION(BlueprintCallable, meta = (Latent, LatentInfo = "LatentInfo", WorldContext = "WorldContextObject", BlueprintInternalUseOnly = "true"), Category = "Utilities")
 static ENGINE_API void LoadAsset(const UObject* WorldContextObject, TSoftObjectPtr<UObject> Asset, FOnAssetLoaded OnLoaded, FLatentActionInfo LatentInfo);
 
@@ -12865,7 +12808,6 @@ static ENGINE_API void	Delay(const UObject* WorldContextObject, float Duration, 
 ```
 
 关于使用Latent还是继承自UBlueprintAsyncActionBase来创建蓝图异步节点的差异，可以在网上别的文章查看。
-
 
 ﻿# NeedsLatentFixup
 
@@ -12954,7 +12896,6 @@ void EmitLatentInfoTerm(FBPTerminal* Term, FProperty* LatentInfoProperty, FBluep
 }
 ```
 
-
 ﻿# LatentInfo
 
 - **功能描述：** 和Latent配合，指明哪个函数参数是LatentInfo参数。
@@ -13037,7 +12978,6 @@ void EmitLatentInfoTerm(FBPTerminal* Term, FProperty* LatentInfoProperty, FBluep
 
 LatentInfo信息的收集是在FKCHandler_CallFunction::CreateFunctionCallStatement里
 
-
 ﻿# LatentCallbackTarget
 
 - **功能描述：** 用在FLatentActionInfo::CallbackTarget属性上，告诉蓝图VM在哪个对象上调用函数。
@@ -13054,7 +12994,7 @@ struct FLatentActionInfo
 {
 	GENERATED_USTRUCT_BODY()
 
-	/** Object to execute the function on. */ 
+	/** Object to execute the function on. */
 	UPROPERTY(meta=(LatentCallbackTarget = true))
 	TObjectPtr<UObject> CallbackTarget;
 
@@ -13123,7 +13063,6 @@ void EmitLatentInfoTerm(FBPTerminal* Term, FProperty* LatentInfoProperty, FBluep
 }
 ```
 
-
 ﻿# NativeMakeFunc
 
 - **功能描述：** 指定一个函数采用MakeStruct的图标
@@ -13169,7 +13108,7 @@ public:
 
 	UFUNCTION(BlueprintPure, meta = (NativeBreakFunc))
 	static void BreakMyStructNative(const FMyStruct_ForNative& InValue, int32& X, int32& Y, int32& Z);
-	
+
 	UFUNCTION(BlueprintCallable, meta = (NativeMakeFunc))
 	static void MakeMyStructNative_Wrong(FString ValueString);
 };
@@ -13179,7 +13118,7 @@ public:
 
 可以看到如果是NoMeta，则函数的图标就是标准是f图标，否则则是另外的图标。同时也注意到Struct可以有多个Make和Break函数，都可以同时正常使用。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\NativeMakeFunc\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\NativeMakeFunc\Untitled.png)
 
 ## 原理：
 
@@ -13220,7 +13159,6 @@ FSlateIcon UK2Node_CallFunction::GetPaletteIconForFunction(UFunction const* Func
 
 ```
 
-
 ﻿# NativeBreakFunc
 
 - **功能描述：** 指定一个函数采用BreakStruct的图标。
@@ -13230,7 +13168,6 @@ FSlateIcon UK2Node_CallFunction::GetPaletteIconForFunction(UFunction const* Func
 - **常用程度：** ★
 
 其功能在NativeMakeFunc里已经说明
-
 
 ﻿# UnsafeDuringActorConstruction
 
@@ -13262,7 +13199,7 @@ public:
 
 可以发现MyUnsafeFunction函数不能在Actor构造函数里被调用出来，而蓝图里自定义的函数加上UnsafeDuringActorConstruction 标志后也会生成相应的警告和编译错误信息。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\UnsafeDuringActorConstruction\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\UnsafeDuringActorConstruction\Untitled.png)
 
 ## 原理：
 
@@ -13271,7 +13208,7 @@ public:
 ```cpp
 bool UEdGraphSchema_K2::CanFunctionBeUsedInGraph(const UClass* InClass, const UFunction* InFunction, const UEdGraph* InDestGraph, uint32 InAllowedFunctionTypes, bool bInCalledForEach, FText* OutReason) const
 {
-const bool bIsUnsafeForConstruction = InFunction->GetBoolMetaData(FBlueprintMetadata::MD_UnsafeForConstructionScripts);	
+const bool bIsUnsafeForConstruction = InFunction->GetBoolMetaData(FBlueprintMetadata::MD_UnsafeForConstructionScripts);
 if (bIsUnsafeForConstruction && bIsConstructionScript)
 {
 	if(OutReason != nullptr)
@@ -13283,7 +13220,6 @@ if (bIsUnsafeForConstruction && bIsConstructionScript)
 }
 }
 ```
-
 
 ﻿# BlueprintAutocast
 
@@ -13350,7 +13286,7 @@ static UMG_API FInputEvent GetInputEventFromKeyEvent(const FKeyEvent& Event);
 
 支持自动转换的FAutoCastTo就在拖拉连线的时候就会自动生成节点，而没有自动转换函数的FNoAutoCastTo就会产生报错。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\BlueprintAutocast\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\BlueprintAutocast\Untitled.png)
 
 ## 原理代码：
 
@@ -13367,7 +13303,6 @@ static bool IsAutocastFunction(const UFunction* Function)
 		&& GetFirstInputProperty(Function);
 }
 ```
-
 
 ﻿# DeterminesOutputType
 
@@ -13466,23 +13401,23 @@ public:
 
 用返回值当作输出参数的例子，注意到返回值类型实际变成了TArray<AMyCatActor*>。
 
-![pic_a](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\Param\DeterminesOutputType\pic_a.png)
+![pic_a](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\Param\DeterminesOutputType\pic_a.png)
 
 也可以加上DynamicOutputParam来指定输出参数作为动态类型参数：
 
-![pic_b](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\Param\DeterminesOutputType\pic_b.png)
+![pic_b](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\Param\DeterminesOutputType\pic_b.png)
 
 DynamicOutputParam可以指定多个参数
 
-![pic_c](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\Param\DeterminesOutputType\pic_c.png)
+![pic_c](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\Param\DeterminesOutputType\pic_c.png)
 
 DeterminesOutputType 的参数类型也可以是Object或者Object的容器：
 
-![pic_d](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\Param\DeterminesOutputType\pic_d.png)
+![pic_d](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\Param\DeterminesOutputType\pic_d.png)
 
 DeterminesOutputType 的参数甚至可以是结构里的某个属性，但是只有SplitStruct的时候才生效，因为这个时候结构的属性变量才变成函数的Pin，才可以进行DeterminesOutputType的名称比对。这个时候要书写成“A_B”，而不是“A.B”。
 
-![pic_e](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\Param\DeterminesOutputType\pic_e.png)
+![pic_e](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\Param\DeterminesOutputType\pic_e.png)
 
 ## 原理：
 
@@ -13501,7 +13436,7 @@ void FDynamicOutputHelper::ConformOutputType() const
 		// See if there is any dynamic output pins
 		TArray<UEdGraphPin*> DynamicPins;
 		GetDynamicOutPins(FuncNode, DynamicPins);
-		
+
 		// Set the pins class
 		for (UEdGraphPin* Pin : DynamicPins)
 		{
@@ -13514,7 +13449,6 @@ void FDynamicOutputHelper::ConformOutputType() const
 }
 ```
 
-
 ﻿# DynamicOutputParam
 
 - **功能描述：** 配合DeterminesOutputType，指定多个支持动态类型的输出参数。
@@ -13524,7 +13458,6 @@ void FDynamicOutputHelper::ConformOutputType() const
 - **关联项：** DeterminesOutputType
 
 常常和DeterminesOutputType一起配合。动态参数的数量可以为多个。
-
 
 ﻿# ReturnDisplayName
 
@@ -13550,11 +13483,11 @@ void FDynamicOutputHelper::ConformOutputType() const
 
 对比返回值的名字可以验证效果。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\ReturnDisplayName\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\ReturnDisplayName\Untitled.png)
 
 ## 原理：
 
-原理也很简单，在Pin上判断Meta并设置PinFriendlyName 
+原理也很简单，在Pin上判断Meta并设置PinFriendlyName
 
 ```cpp
 if (Function->GetReturnProperty() == Param && Function->HasMetaData(FBlueprintMetadata::MD_ReturnDisplayName))
@@ -13562,7 +13495,6 @@ if (Function->GetReturnProperty() == Param && Function->HasMetaData(FBlueprintMe
 	Pin->PinFriendlyName = Function->GetMetaDataText(FBlueprintMetadata::MD_ReturnDisplayName);
 }
 ```
-
 
 ﻿# WorldContext
 
@@ -13668,15 +13600,15 @@ FString UMyFunctionLibrary_WorldContextTest::MyPure_HasWorldContextMeta(const UO
 
 在Actor中调用，可以发现没指定WorldContext 的函数，会暴露出这个Object参数，让你必须手动指定。而带上WorldContext 的函数，则默认隐藏了起来WorldContextObject参数，因为WorldContextObject对象在Actor中可以自动被赋值（其值就是当前Actor)。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\WorldContext\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\WorldContext\Untitled.png)
 
 在UMyObject_NoGetWorld的子类里，因为并没有实现GetWorld，因此无法获得World，从而没办法自动赋值WorldContextObject，所以并不能调用出MyFunc_HasWorldContextMeta。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\WorldContext\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\WorldContext\Untitled%201.png)
 
 而在UMyObject_HasGetWorld的子类中调用，因为UMyObject_HasGetWorld实现了GetWorld，因此就可以允许调用MyFunc_HasWorldContextMeta，其WorldContextObject的值为UMyObject_HasGetWorld子类对象，在其身上会调用GetWorld()，从而获得之前注册进去的WorldPrivate对象。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\WorldContext\Untitled%202.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\WorldContext\Untitled%202.png)
 
 ## 原理：
 
@@ -13771,7 +13703,6 @@ else if (UEdGraphPin* BetterSelfPin = EntryPoints[0]->GetAutoWorldContextPin())
 }
 ```
 
-
 ﻿# ShowWorldContextPin
 
 - **功能描述：** 放在UCLASS上，指定本类里的函数调用都必须显示WorldContext引脚，无论其本来是否默认隐藏
@@ -13822,7 +13753,7 @@ public:
 
 可以见到虽然UMyObject_ShowWorldContextPin类实现了GetWorld()方法，但是即使是MyFunc_HasWorldContextMeta，WorldContextObject本来应该被自动赋值且隐藏的，但是在本类里也显式显示了出来。同时注意到PrintString也显示出了WorldContextObject。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\ShowWorldContextPin\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\ShowWorldContextPin\Untitled.png)
 
 ## 原理：
 
@@ -13839,7 +13770,7 @@ bool UK2Node_CallFunction::CreatePinsForFunctionCall(const UFunction* Function)
 		const FString& DefaultToSelfMetaValue = Function->GetMetaData(FBlueprintMetadata::MD_DefaultToSelf);
 		const FString& WorldContextMetaValue  = Function->GetMetaData(FBlueprintMetadata::MD_WorldContext);
 		bool bIsSelfPin = ((PinNameStr == DefaultToSelfMetaValue) || (PinNameStr == WorldContextMetaValue));
-	
+
 		if (!bShowWorldContextPin || !bIsSelfPin)
 		{
 			Pin->bHidden = true;
@@ -13849,7 +13780,6 @@ bool UK2Node_CallFunction::CreatePinsForFunctionCall(const UFunction* Function)
 
 }
 ```
-
 
 ﻿# CallableWithoutWorldContext
 
@@ -13882,7 +13812,7 @@ class INSIDER_API UMyObject_NoGetWorld :public UObject
 
 在UMyObject_NoGetWorld 的子类内，MyFunc_HasWorldContextMeta不能调用，因为其外部类必须提供WorldContextObject。而MyFunc_CallableWithoutWorldContext可以调用，可以接受不提供WorldContextObject。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\CallableWithoutWorldContext\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\CallableWithoutWorldContext\Untitled.png)
 
 ## 源码里典型的应用是：
 
@@ -13890,7 +13820,6 @@ class INSIDER_API UMyObject_NoGetWorld :public UObject
 UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject", CallableWithoutWorldContext, Keywords = "log print", AdvancedDisplay = "2", DevelopmentOnly), Category="Development")
 static ENGINE_API void PrintString(const UObject* WorldContextObject, const FString& InString = FString(TEXT("Hello")), bool bPrintToScreen = true, bool bPrintToLog = true, FLinearColor TextColor = FLinearColor(0.0f, 0.66f, 1.0f), float Duration = 2.f, const FName Key = NAME_None);
 ```
-
 
 ﻿# AutoCreateRefTerm
 
@@ -13923,7 +13852,7 @@ static ENGINE_API void PrintString(const UObject* WorldContextObject, const FStr
 
 可以见到MyFunc_NoAutoCreateRefTerm的函数会产生编译的报错，因为是引用参数但是却没有连接，导致引用缺少实参。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\Param\AutoCreateRefTerm\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\Param\AutoCreateRefTerm\Untitled.png)
 
 ## 原理代码：
 
@@ -13955,8 +13884,8 @@ void UEdGraphSchema_K2::GetAutoEmitTermParameters(const UFunction* Function, TAr
 	// Allow any params that are blueprint defined to be autocreated:
 	if (!FBlueprintEditorUtils::IsNativeSignature(Function))
 	{
-		for (	TFieldIterator<FProperty> ParamIter(Function, EFieldIterationFlags::Default); 
-				ParamIter && (ParamIter->PropertyFlags & CPF_Parm); 
+		for (	TFieldIterator<FProperty> ParamIter(Function, EFieldIterationFlags::Default);
+				ParamIter && (ParamIter->PropertyFlags & CPF_Parm);
 				++ParamIter)
 		{
 			FProperty* Param = *ParamIter;
@@ -13986,7 +13915,7 @@ if ( Function )
 		}
 
 		const bool bHasConnections = Pin->LinkedTo.Num() > 0;
-		const bool bCreateDefaultValRefTerm = bHasAutoCreateRefTerms && 
+		const bool bCreateDefaultValRefTerm = bHasAutoCreateRefTerms &&
 			!bHasConnections && AutoCreateRefTermPinNames.Contains(Pin->PinName.ToString());
 
 		if (bCreateDefaultValRefTerm)
@@ -14016,7 +13945,7 @@ if ( Function )
 			}
 		}
 		// since EX_Self does not produce an addressable (referenceable) FProperty, we need to shim
-		// in a "auto-ref" term in its place (this emulates how UHT generates a local value for 
+		// in a "auto-ref" term in its place (this emulates how UHT generates a local value for
 		// native functions; hence the IsNative() check)
 		else if (bHasConnections && Pin->LinkedTo[0]->PinType.PinSubCategory == UEdGraphSchema_K2::PSC_Self && Pin->PinType.bIsConst && !Function->IsNative())
 		{
@@ -14026,7 +13955,6 @@ if ( Function )
 }
 }
 ```
-
 
 ﻿# ProhibitedInterfaces
 
@@ -14079,7 +14007,7 @@ public:
 
 发现UMyInterface_Second被阻止实现了，但是UMyInterface_First依然可以被实现
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\ProhibitedInterfaces\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\ProhibitedInterfaces\Untitled.png)
 
 ## 原理代码：
 
@@ -14089,7 +14017,7 @@ public:
 TSharedRef<SWidget> FBlueprintEditorUtils::ConstructBlueprintInterfaceClassPicker( const TArray< UBlueprint* >& Blueprints, const FOnClassPicked& OnPicked)
 {
 	//...
-		
+
 		UClass const* const ParentClass = Blueprint->ParentClass;
 		// see if the parent class has any prohibited interfaces
 		if ((ParentClass != nullptr) && ParentClass->HasMetaData(FBlueprintMetadata::MD_ProhibitedInterfaces))
@@ -14144,7 +14072,6 @@ TSharedRef<SWidget> FBlueprintEditorUtils::ConstructBlueprintInterfaceClassPicke
 }
 ```
 
-
 ﻿# HiddenNode
 
 - **功能描述：** 把指定的UBTNode隐藏不在右键菜单中显示。
@@ -14184,7 +14111,7 @@ class UMyBT_HiddenNode : public UBTDecorator
 
 可见只有UMyBT_NotHiddenNode 显示了出来，而UMyBT_HiddenNode 被隐藏了。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\HiddenNode\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\HiddenNode\Untitled.png)
 
 ## 原理：
 
@@ -14195,8 +14122,8 @@ bool FGraphNodeClassHelper::IsHidingClass(UClass* Class)
 {
 	static FName MetaHideInEditor = TEXT("HiddenNode");
 
-	return 
-		Class && 
+	return
+		Class &&
 		((Class->HasAnyClassFlags(CLASS_Native) && Class->HasMetaData(MetaHideInEditor))
 		|| ForcedHiddenClasses.Contains(Class));
 }
@@ -14209,22 +14136,21 @@ void FGraphNodeClassHelper::BuildClassGraph()
 			UClass* TestClass = *It;
 			if (TestClass->HasAnyClassFlags(CLASS_Native) && TestClass->IsChildOf(RootNodeClass))
 			{
-				
+
 				NewData.bIsHidden = IsHidingClass(TestClass);
-		
+
 				NewNode->Data = NewData;
-		
+
 				if (TestClass == RootNodeClass)
 				{
 					RootNode = NewNode;
 				}
-		
+
 				NodeList.Add(NewNode);
 			}
 		}
 }
 ```
-
 
 ﻿# HideFunctions
 
@@ -14236,12 +14162,11 @@ void FGraphNodeClassHelper::BuildClassGraph()
 
 - **元数据类型：** strings="a，b，c"
 
-- **关联项：** 
+- **关联项：**
 
   UCLASS：HideFunctions, ShowFunctions
 
 - **常用程度：** ★★★
-
 
 ﻿# ExposedAsyncProxy
 
@@ -14302,7 +14227,7 @@ private:
 
 如果UMyFunction_Async 直接继承自UBlueprintAsyncActionBase，并且没有设置ExposedAsyncProxy，则生成的蓝图异步节点为为下图。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\ExposedAsyncProxy\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\ExposedAsyncProxy\Untitled.png)
 
 而如果继承自UCancellableAsyncAction (提供了Cancel方法)，并且设置ExposedAsyncProxy 为自己想要的AsyncObject引脚名称。
 
@@ -14316,13 +14241,13 @@ class UCancellableAsyncAction : public UBlueprintAsyncActionBase
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FDelayOutputPin);
 UCLASS(Blueprintable, BlueprintType,meta = (ExposedAsyncProxy = MyAsyncObject))
-class INSIDER_API UMyFunction_Async :public UCancellableAsyncAction 
+class INSIDER_API UMyFunction_Async :public UCancellableAsyncAction
 {}
 ```
 
 ## 修改后的效果如下图：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\ExposedAsyncProxy\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\ExposedAsyncProxy\Untitled%201.png)
 
 ## 该Meta在源码中发生的位置：
 
@@ -14353,7 +14278,6 @@ void UK2Node_BaseAsyncTask::AllocateDefaultPins()
 
 }
 ```
-
 
 ﻿# HasDedicatedAsyncNode
 
@@ -14456,7 +14380,7 @@ bool UK2Node_MyFunctionAsyncAction::HandleDelegates(const TArray<FBaseAsyncTaskH
 
 左侧是引擎自带的UK2Node_AsyncAction生成节点，右边是自定义的UK2Node_MyFunctionAsyncAction生成的蓝图节点，虽然功能一致，但是右边额外加了个注释以便区分。有了这个基础，你也可以在其中继续重载方法进一步自定义。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\HasDedicatedAsyncNode\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\HasDedicatedAsyncNode\Untitled.png)
 
 ## 当前在源码里有两处地方使用：
 
@@ -14498,7 +14422,7 @@ class UMovieSceneAsyncAction_SequencePrediction : public UBlueprintAsyncActionBa
 
 UAsyncAction_RegisterGameplayMessageReceiver由自定义的UK2Node_GameplayMessageAsyncAction来创建蓝图节点，从而提供了一个泛型的Payload输出引脚。而UMovieSceneAsyncAction_SequencePrediction 里的工厂方法PredictWorldTransformAtTime，由于隐藏了自动生成的版本，又没有加上BlueprintInternalUseOnly来抑制UHT生成的版本，因此最终呈现的是普通版本的静态函数蓝图节点。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\HasDedicatedAsyncNode\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\HasDedicatedAsyncNode\Untitled%201.png)
 
 ## 源码里的作用机制：
 
@@ -14515,19 +14439,18 @@ void UK2Node_AsyncAction::GetMenuActions(FBlueprintActionDatabaseRegistrar& Acti
 			// Wants to use a more specific blueprint node to handle the async action
 			return nullptr;
 		}
-	
+
 		UBlueprintNodeSpawner* NodeSpawner = UBlueprintFunctionNodeSpawner::Create(FactoryFunc);
 		check(NodeSpawner != nullptr);
 		NodeSpawner->NodeClass = NodeClass;
-	
+
 		TWeakObjectPtr<UFunction> FunctionPtr = MakeWeakObjectPtr(const_cast<UFunction*>(FactoryFunc));
 		NodeSpawner->CustomizeNodeDelegate = UBlueprintNodeSpawner::FCustomizeNodeDelegate::CreateStatic(GetMenuActions_Utils::SetNodeFunc, FunctionPtr);
-	
+
 		return NodeSpawner;
 	}) );
 }
 ```
-
 
 ﻿# HideThen
 
@@ -14553,7 +14476,7 @@ class INSIDER_API UMyFunction_Async :public UCancellableAsyncAction
 
 ## 使用HideThen前后对比：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\HideThen\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\HideThen\Untitled.png)
 
 ## 源码位置：
 
@@ -14581,7 +14504,6 @@ void UK2Node_BaseAsyncTask::AllocateDefaultPins()
 }
 ```
 
-
 ﻿# HideSpawnParms
 
 - **功能描述：** 在UGamelayTask子类生成的蓝图异步节点上隐藏UGamelayTask子类继承链中某些属性。
@@ -14600,7 +14522,7 @@ HideSpawnParms 只在UK2Node_LatentGameplayTaskCall中判断，因此只作用�
 
 保留和去掉HideSpawnParms 的蓝图的节点都为：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\Param\HideSpawnParms\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\Param\HideSpawnParms\Untitled.png)
 
 ## 源码里发生的位置：
 
@@ -14613,9 +14535,9 @@ void UK2Node_LatentGameplayTaskCall::CreatePinsForClass(UClass* InClass)
 	TArray<FString> IgnorePropertyList;
 	{
 		UFunction* ProxyFunction = ProxyFactoryClass->FindFunctionByName(ProxyFactoryFunctionName);
-	
+
 		const FString& IgnorePropertyListStr = ProxyFunction->GetMetaData(FName(TEXT("HideSpawnParms")));
-	
+
 		if (!IgnorePropertyListStr.IsEmpty())
 		{
 			IgnorePropertyListStr.ParseIntoArray(IgnorePropertyList, TEXT(","), true);
@@ -14623,7 +14545,6 @@ void UK2Node_LatentGameplayTaskCall::CreatePinsForClass(UClass* InClass)
 	}
 }
 ```
-
 
 ﻿# NotInputConfigurable
 
@@ -14675,7 +14596,7 @@ public:
 
 可见只有UMyInputTrigger_Configurable 可以编辑默认值。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\NotInputConfigurable\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\NotInputConfigurable\Untitled.png)
 
 ## 原理：
 
@@ -14685,8 +14606,8 @@ UEnhancedInputDeveloperSettings的UI定制化会收集UInputModifier和UInputTri
 
 	GatherNativeClassDetailsCDOs(UInputModifier::StaticClass(), ModifierCDOs);
 	GatherNativeClassDetailsCDOs(UInputTrigger::StaticClass(), TriggerCDOs);
-	
-	
+
+
 void FEnhancedInputDeveloperSettingsCustomization::GatherNativeClassDetailsCDOs(UClass* Class, TArray<UObject*>& CDOs)
 {
 			// Strip objects with no config stored properties
@@ -14705,7 +14626,7 @@ void FEnhancedInputDeveloperSettingsCustomization::GatherNativeClassDetailsCDOs(
 						return false;
 					}
 				}
-		
+
 				// Stop searching at the base type. We don't care about configurable properties lower than that.
 				ObjectClass = ObjectClass != Class ? ObjectClass->GetSuperClass() : nullptr;
 			}
@@ -14713,7 +14634,6 @@ void FEnhancedInputDeveloperSettingsCustomization::GatherNativeClassDetailsCDOs(
 		});
 }
 ```
-
 
 ﻿# BlueprintThreadSafe
 
@@ -14728,7 +14648,7 @@ void FEnhancedInputDeveloperSettingsCustomization::GatherNativeClassDetailsCDOs(
 
 动画蓝图的AimGraph默认是开启线程安全Update的。设置在ClassSettings里（默认是打开的）
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\BlueprintThreadSafe\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\BlueprintThreadSafe\Untitled.png)
 
 可参考官方文档的**CPU Thread Usage and Performance这一节**
 
@@ -14738,17 +14658,17 @@ void FEnhancedInputDeveloperSettingsCustomization::GatherNativeClassDetailsCDOs(
 
 在蓝图里，如果在蓝图函数面板中勾上ThreadSafe，这个函数的对象会设置bThreadSafe=True，从而在编译生成的BlueprintGeneratedClass上面设置(BlueprintThreadSafe = true)
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\BlueprintThreadSafe\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\BlueprintThreadSafe\Untitled%201.png)
 
 ## 测试蓝图函数库：
 
 同样的函数，一个打开ThreadSafe，一个没有。没有的那个函数在动画蓝图的AnimGraph里使用的时候，在编译的时候就会触发警告。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\BlueprintThreadSafe\Untitled%202.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\BlueprintThreadSafe\Untitled%202.png)
 
 测试结果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\BlueprintThreadSafe\Untitled%203.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\BlueprintThreadSafe\Untitled%203.png)
 
 ## 在C++里，C++的测试代码：
 
@@ -14793,7 +14713,7 @@ public:
 
 ## 动画蓝图的测试效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\BlueprintThreadSafe\Untitled%204.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\BlueprintThreadSafe\Untitled%204.png)
 
 ## 解析原理：
 
@@ -14811,10 +14731,10 @@ bool FBlueprintEditorUtils::HasFunctionBlueprintThreadSafeMetaData(const UFuncti
 
 		// Script functions get their flag propagated from their entry point, and dont pay heed to class metadata
 		const bool bThreadSafeScript = !InFunction->HasAnyFunctionFlags(FUNC_Native) && bHasThreadSafeMetaData;
-		
+
 		return bThreadSafeNative || bThreadSafeScript;
 	}
-	
+
 	return false;
 }
 ```
@@ -14823,7 +14743,6 @@ bool FBlueprintEditorUtils::HasFunctionBlueprintThreadSafeMetaData(const UFuncti
 
 注意UCLASS(meta=(NotBlueprintThreadSafe))这种是没有被识别判断的，因此并没有什么意义。
 
-
 ﻿# NotBlueprintThreadSafe
 
 - **功能描述：** 用在函数上，标记这个函数是不线程安全的
@@ -14831,7 +14750,6 @@ bool FBlueprintEditorUtils::HasFunctionBlueprintThreadSafeMetaData(const UFuncti
 - **元数据类型：** bool
 - **关联项：** BlueprintThreadSafe
 - **常用程度：** ★
-
 
 ﻿# RestrictedToClasses
 
@@ -14868,13 +14786,13 @@ public:
 
 在UMyClass_RestrictedToClasses 的子类蓝图中测试效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\RestrictedToClasses\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\RestrictedToClasses\Untitled.png)
 
 在别的地方，比如关卡蓝图中测试效果：
 
 因此右键创建不出来，但是直接粘贴节点其实还是可以调用的。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\RestrictedToClasses\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\RestrictedToClasses\Untitled%201.png)
 
 ## 源码中的例子：
 
@@ -14897,13 +14815,13 @@ static bool BlueprintActionFilterImpl::IsRestrictedClassMember(FBlueprintActionF
 {
 	bool bIsFilteredOut = false;
 	FBlueprintActionContext const& FilterContext = Filter.Context;
-	
+
 	if (UClass const* ActionClass = BlueprintAction.GetOwnerClass())
 	{
 		if (ActionClass->HasMetaData(FBlueprintMetadata::MD_RestrictedToClasses))
 		{
 			FString const& ClassRestrictions = ActionClass->GetMetaData(FBlueprintMetadata::MD_RestrictedToClasses);
-			
+
 			// Parse the the metadata into an array that is delimited by ',' and trim whitespace
 			TArray<FString> ParsedClassRestrictions;
 			ClassRestrictions.ParseIntoArray(ParsedClassRestrictions, TEXT(","));
@@ -14922,7 +14840,7 @@ static bool BlueprintActionFilterImpl::IsRestrictedClassMember(FBlueprintActionF
 				}
 
 				bool bIsClassListed = false;
-				
+
 				UClass const* QueryClass = TargetClass;
 				// walk the class inheritance chain to see if this class is one
 				// of the allowed
@@ -14938,10 +14856,10 @@ static bool BlueprintActionFilterImpl::IsRestrictedClassMember(FBlueprintActionF
 							break;
 						}
 					}
-					
+
 					QueryClass = QueryClass->GetSuperClass();
 				}
-				
+
 				// if the blueprint class wasn't listed as one of the few
 				// classes that this can be accessed from, then filter it out
 				if (!bIsClassListed)
@@ -14952,11 +14870,10 @@ static bool BlueprintActionFilterImpl::IsRestrictedClassMember(FBlueprintActionF
 			}
 		}
 	}
-	
+
 	return bIsFilteredOut;
 }
 ```
-
 
 ﻿# DontUseGenericSpawnObject
 
@@ -14992,7 +14909,7 @@ public:
 
 ## 测试效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\DontUseGenericSpawnObject\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\DontUseGenericSpawnObject\Untitled.png)
 
 ## 原理：
 
@@ -15056,7 +14973,6 @@ struct FK2Node_GenericCreateObject_Utils
 };
 ```
 
-
 ﻿# ObjectSetType
 
 - **功能描述：** 指定统计页面的对象集合类型。
@@ -15092,7 +15008,7 @@ class UPrimitiveStats : public UObject
 
 在统计页面，可见右上角的类型。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\ObjectSetType\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\ObjectSetType\Untitled.png)
 
 ## 原理：
 
@@ -15114,7 +15030,6 @@ public:
 };
 ```
 
-
 ﻿# SparseClassDataTypes
 
 - **使用位置：** UCLASS
@@ -15128,7 +15043,6 @@ public:
   UCLASS：SparseClassDataType
 
 - **常用程度：** ★★★
-
 
 ﻿# KismetHideOverrides
 
@@ -15149,7 +15063,7 @@ class ALevelScriptActor : public AActor
 
 但是实际在LevelScriptActor的子类中依然可以覆盖该事件。有一些被隐藏的Event是其实通过HideCategories来做到的。因此该Meta其实并没有实现，如果要达到该效果，还是要通过HideFunctions或HideCategories来达成。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\KismetHideOverrides\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\KismetHideOverrides\Untitled.png)
 
 ## 原理：
 
@@ -15173,9 +15087,9 @@ for ( TFieldIterator<UFunction> FunctionIt(ParentClass, EFieldIteratorFlags::Inc
 		OuterClass = GeneratedOuterClass->GetAuthoritativeClass();
 	}
 
-	if (    UEdGraphSchema_K2::CanKismetOverrideFunction(Function) 
-		 && !OverridableFunctionNames.Contains(FunctionName) 
-		 && !ImplementedFunctionCache.Contains(FunctionName) 
+	if (    UEdGraphSchema_K2::CanKismetOverrideFunction(Function)
+		 && !OverridableFunctionNames.Contains(FunctionName)
+		 && !ImplementedFunctionCache.Contains(FunctionName)
 		 && !FObjectEditorUtils::IsFunctionHiddenFromClass(Function, ParentClass)
 		 && !FBlueprintEditorUtils::FindOverrideForFunction(BlueprintObj, OuterClass, Function->GetFName())
 		 && Blueprint->AllowFunctionOverride(Function)
@@ -15205,7 +15119,6 @@ for ( TFieldIterator<UFunction> FunctionIt(ParentClass, EFieldIteratorFlags::Inc
 }
 ```
 
-
 ﻿# BlueprintType
 
 - **功能描述：** 表明可以作为一个蓝图变量
@@ -15216,7 +15129,7 @@ for ( TFieldIterator<UFunction> FunctionIt(ParentClass, EFieldIteratorFlags::Inc
 
 - **元数据类型：** bool
 
-- **关联项：** 
+- **关联项：**
 
   UCLASS：Blueprintable, NotBlueprintable, BlueprintType, NotBlueprintType
 
@@ -15232,7 +15145,6 @@ for ( TFieldIterator<UFunction> FunctionIt(ParentClass, EFieldIteratorFlags::Inc
 
 - **常用程度：** ★★★★★
 
-
 ﻿# IsConversionRoot
 
 - **功能描述：** 允许Actor在自身以及子类之间做转换
@@ -15243,14 +15155,13 @@ for ( TFieldIterator<UFunction> FunctionIt(ParentClass, EFieldIteratorFlags::Inc
 
 - **元数据类型：** bool
 
-- **关联项：** 
+- **关联项：**
 
   UCLASS：ConversionRoot
 
   UINTERFACE：ConversionRoot
 
 - **常用程度：** ★★★
-
 
 ﻿# BlueprintInternalUseOnlyHierarchical
 
@@ -15262,7 +15173,7 @@ for ( TFieldIterator<UFunction> FunctionIt(ParentClass, EFieldIteratorFlags::Inc
 
 - **元数据类型：** bool
 
-- **关联项：** 
+- **关联项：**
 
   Meta：BlueprintInternalUseOnly, BlueprintType
 
@@ -15271,7 +15182,6 @@ for ( TFieldIterator<UFunction> FunctionIt(ParentClass, EFieldIteratorFlags::Inc
 - **常用程度：** ★
 
 指明一个不向最终用户公开的BlueprintType类型的结构以及其派生的结构。
-
 
 ﻿# BlueprintSetter
 
@@ -15284,14 +15194,13 @@ for ( TFieldIterator<UFunction> FunctionIt(ParentClass, EFieldIteratorFlags::Inc
 
 - **元数据类型：** string="abc"
 
-- **关联项：** 
+- **关联项：**
 
   UFUNCTION：BlueprintSetter
 
   UPROPERTY：BlueprintSetter
 
 - **常用程度：** ★★★
-
 
 ﻿# DisplayName
 
@@ -15303,12 +15212,11 @@ for ( TFieldIterator<UFunction> FunctionIt(ParentClass, EFieldIteratorFlags::Inc
 
 - **元数据类型：** string="abc"
 
-- **关联项：** 
+- **关联项：**
 
   UPARAM：DisplayName
 
 - **常用程度：** ★★★★★
-
 
 ﻿# ExposeOnSpawn
 
@@ -15334,13 +15242,13 @@ class INSIDER_API UMyProperty_ExposeOnSpawn :public UObject
 	GENERATED_BODY()
 public:
 	//	(Category = MyProperty_ExposeOnSpawn, ModuleRelativePath = Property/Blueprint/MyProperty_ExposeOnSpawn.h)
-	//	PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//	PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString MyString = TEXT("First");
 
 	//	(Category = MyProperty_ExposeOnSpawn, ExposeOnSpawn = , ModuleRelativePath = Property/Blueprint/MyProperty_ExposeOnSpawn.h)
-	//	PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_ExposeOnSpawn | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//	PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_ExposeOnSpawn | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (ExposeOnSpawn))
 	FString MyString_ExposeOnSpawn = TEXT("Second");
 };
@@ -15350,7 +15258,7 @@ public:
 
 可见MyString_ExposeOnSpawn 暴露了出来，而MyString 没有。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Blueprint\ExposeOnSpawn\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Blueprint\ExposeOnSpawn\Untitled.png)
 
 ## 原理：
 
@@ -15397,7 +15305,7 @@ void UK2Node_ConstructObjectFromClass::CreatePinsForClass(UClass* InClass, TArra
 	const bool bIsSettableExternally = !Property->HasAnyPropertyFlags(CPF_DisableEditOnInstance);
 
 	if(	bIsExposedToSpawn &&
-		!Property->HasAnyPropertyFlags(CPF_Parm) && 
+		!Property->HasAnyPropertyFlags(CPF_Parm) &&
 		bIsSettableExternally &&
 		Property->HasAllPropertyFlags(CPF_BlueprintVisible) &&
 		!bIsDelegate &&
@@ -15409,7 +15317,6 @@ void UK2Node_ConstructObjectFromClass::CreatePinsForClass(UClass* InClass, TArra
 }
 ```
 
-
 ﻿# NativeConst
 
 - **功能描述：** 指定有C++里的const标志
@@ -15420,12 +15327,11 @@ void UK2Node_ConstructObjectFromClass::CreatePinsForClass(UClass* InClass, TArra
 
 - **元数据类型：** bool
 
-- **关联项：** 
+- **关联项：**
 
   UPARAM：Const
 
 - **常用程度：** ★
-
 
 ﻿# CPP_Default_XXX
 
@@ -15471,7 +15377,6 @@ bool UK2Node_CallFunction::CreatePinsForFunctionCall(const UFunction* Function)
 }
 ```
 
-
 ﻿# BlueprintGetter
 
 - **功能描述：** 采用一个自定义的get函数来读取。
@@ -15483,14 +15388,13 @@ bool UK2Node_CallFunction::CreatePinsForFunctionCall(const UFunction* Function)
 
 - **元数据类型：** string="abc"
 
-- **关联项：** 
+- **关联项：**
 
   UFUNCTION：BlueprintGetter
 
   UPROPERTY：BlueprintGetter
 
 - **常用程度：** ★★★
-
 
 ﻿# IsBlueprintBase
 
@@ -15502,14 +15406,13 @@ bool UK2Node_CallFunction::CreatePinsForFunctionCall(const UFunction* Function)
 
 - **元数据类型：** bool
 
-- **关联项：** 
+- **关联项：**
 
   UCLASS：Blueprintable, NotBlueprintable
 
   UINTERFACE：Blueprintable, NotBlueprintable
 
 - **常用程度：** ★★★★★
-
 
 ﻿# BlueprintInternalUseOnly
 
@@ -15521,7 +15424,7 @@ bool UK2Node_CallFunction::CreatePinsForFunctionCall(const UFunction* Function)
 
 - **元数据类型：** bool
 
-- **关联项：** 
+- **关联项：**
 
   Meta：BlueprintType, BlueprintInternalUseOnlyHierarchical
 
@@ -15534,7 +15437,6 @@ bool UK2Node_CallFunction::CreatePinsForFunctionCall(const UFunction* Function)
 也可以用在USTRUCT上，标明该结构不可用来定义新BP变量，但可作为别的类的成员变量暴露和变量传递。
 
 用在UFUNCTION上时：此函数是一个内部实现细节，用于实现另一个函数或节点。其从未直接在蓝图图表中公开。
-
 
 ﻿# UseComponentPicker
 
@@ -15572,7 +15474,7 @@ bool UK2Node_CallFunction::CreatePinsForFunctionCall(const UFunction* Function)
 - 第二个加上UseComponentPicker后，列出了当前Actor下的所有组件，但是不能选择到其他Actor的组件。
 - 第三个继续加上AllowAnyActor后，列出了所有Actor的所有组件。
 
-![UseComponentPicker](D:\github\UnrealSpecifiers\Doc\Meta\Component\UseComponentPicker\UseComponentPicker.jpg)
+![UseComponentPicker](D:\github\UnrealSpecifiers\Doc\zh\Meta\Component\UseComponentPicker\UseComponentPicker.jpg)
 
 ## 原理:
 
@@ -15649,7 +15551,6 @@ void FComponentReferenceCustomization::CustomizeHeader(TSharedRef<IPropertyHandl
 	}
 }
 ```
-
 
 ﻿# AllowAnyActor
 
@@ -15749,7 +15650,6 @@ bool FComponentReferenceCustomization::IsFilteredActor(const AActor* const Actor
 
 ```
 
-
 ﻿# BlueprintSpawnableComponent
 
 - **功能描述：** 允许该组件出现在Actor蓝图里Add组件的面板里。
@@ -15789,9 +15689,9 @@ public:
 
 可以看到，在Actor的左边Add的按钮下，UMyActorComponent_Spawnable 可以被添加进去，但是UMyActorComponent_NotSpawnable 被阻止了。但同时也要注意到如果在蓝图中AddComponent节点则是都可以的。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Component\BlueprintSpawnableComponent\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Component\BlueprintSpawnableComponent\Untitled.png)
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Component\BlueprintSpawnableComponent\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Component\BlueprintSpawnableComponent\Untitled%201.png)
 
 ## 原理：
 
@@ -15806,7 +15706,6 @@ bool FKismetEditorUtilities::IsClassABlueprintSpawnableComponent(const UClass* C
 			(Class->HasMetaData(FBlueprintMetadata::MD_BlueprintSpawnableComponent) || Class->GetPackage()->bIsCookedForEditor));
 }
 ```
-
 
 ﻿# ConsoleVariable
 
@@ -15862,11 +15761,11 @@ void UMyProperty_InsiderSettings::PostInitProperties()
 #if WITH_EDITOR
 void UMyProperty_InsiderSettings::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
 {
-	Super::PostEditChangeProperty(PropertyChangedEvent);	
+	Super::PostEditChangeProperty(PropertyChangedEvent);
 
 	if (PropertyChangedEvent.Property)
 	{
-		ExportValuesToConsoleVariables(PropertyChangedEvent.Property);		
+		ExportValuesToConsoleVariables(PropertyChangedEvent.Property);
 	}
 }
 #endif // #if WITH_EDITOR
@@ -15878,7 +15777,7 @@ void UMyProperty_InsiderSettings::PostEditChangeProperty(FPropertyChangedEvent& 
 
 如果在Console中改变后再尝试在ProjectSettings中更改值，就会报错。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Config\ConsoleVariable\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Config\ConsoleVariable\Untitled.png)
 
 ## 原理：
 
@@ -15892,7 +15791,6 @@ void UDeveloperSettings::ExportValuesToConsoleVariables(FProperty* PropertyThatC
 {}
 ```
 
-
 ﻿# EditorConfig
 
 - **功能描述：** 保存编辑器的配置
@@ -15903,12 +15801,11 @@ void UDeveloperSettings::ExportValuesToConsoleVariables(FProperty* PropertyThatC
 
 - **元数据类型：** string="abc"
 
-- **关联项：** 
+- **关联项：**
 
   UCLASS：EditorConfig
 
 - **常用程度：** ★★★
-
 
 ﻿# ConfigHierarchyEditable
 
@@ -15943,7 +15840,7 @@ public:
 
 可以见到MyString_ConfigHierarchyEditable输入框的右边出现了个层级按钮，可打开一个专门的ConfigEditor，方便你分别在不同的平台和不同的层级配置不同的值。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Config\ConfigHierarchyEditable\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Config\ConfigHierarchyEditable\Untitled.png)
 
 ## 源码例子：
 
@@ -15968,7 +15865,7 @@ void FDetailPropertyRow::MakeValueWidget( FDetailWidgetRow& Row, const TSharedPt
 	// Don't add config hierarchy to container children, can't edit child properties at the hiearchy's per file level
 	TSharedPtr<IPropertyHandle> ParentHandle = PropertyHandle->GetParentHandle();
 	bool bIsChildProperty = ParentHandle && (ParentHandle->AsArray() || ParentHandle->AsMap() || ParentHandle->AsSet());
-		
+
 	if (!bIsChildProperty && PropertyHandle->HasMetaData(TEXT("ConfigHierarchyEditable")))
 	{
 		ValueWidget->AddSlot()
@@ -15982,7 +15879,6 @@ void FDetailPropertyRow::MakeValueWidget( FDetailWidgetRow& Row, const TSharedPt
 	}
 }
 ```
-
 
 ﻿# ConfigRestartRequired
 
@@ -16006,7 +15902,7 @@ public:
 
 ## 测试效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Config\ConfigRestartRequired\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Config\ConfigRestartRequired\Untitled.png)
 
 ## 原理：
 
@@ -16022,7 +15918,6 @@ void SSettingsEditor::NotifyPostChange( const FPropertyChangedEvent& PropertyCha
 		}
 }
 ```
-
 
 ﻿# ReadOnlyKeys
 
@@ -16051,7 +15946,7 @@ void SSettingsEditor::NotifyPostChange( const FPropertyChangedEvent& PropertyCha
 
 可见MyIntMap_ReadOnlyKeys的Key是灰色的，不可编辑。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Container\ReadOnlyKeys\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Container\ReadOnlyKeys\Untitled.png)
 
 ## 源码里搜到：
 
@@ -16064,7 +15959,6 @@ void FDetailPropertyRow::MakeNameOrKeyWidget( FDetailWidgetRow& Row, const TShar
 	}
 }
 ```
-
 
 ﻿# ArraySizeEnum
 
@@ -16121,7 +16015,7 @@ int32 MyIntArray_Hidden_HasArraySizeEnum[(int)EMyArrayEnumHidden::Max];
 - MyIntArray_Normal_HasArraySizeEnum，正统的使用枚举项来当数组下标的例子。可以发现下标名字不是012，而是枚举项名称了。
 - MyIntArray_Hidden_HasArraySizeEnum采用的枚举项里有隐藏的一项Cat，但它的下标是2（因为定义的顺序），因此数组的第3个被隐藏了起来。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Container\ArraySizeEnum\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Container\ArraySizeEnum\Untitled.png)
 
 ## 原理：
 
@@ -16135,12 +16029,12 @@ void FItemPropertyNode::InitChildNodes()
 			// Do not add array children which are defined by an enum but the enum at the array index is hidden
 			// This only applies to static arrays
 			static const FName NAME_ArraySizeEnum("ArraySizeEnum");
-			UEnum* ArraySizeEnum = NULL; 
+			UEnum* ArraySizeEnum = NULL;
 			if (MyProperty->HasMetaData(NAME_ArraySizeEnum))
 			{
 				ArraySizeEnum	= FindObject<UEnum>(NULL, *MyProperty->GetMetaData(NAME_ArraySizeEnum));
 			}
-		
+
 			// Expand array.
 			for( int32 Index = 0 ; Index < MyProperty->ArrayDim ; Index++ )
 			{
@@ -16150,7 +16044,7 @@ void FItemPropertyNode::InitChildNodes()
 					// The enum at this array index is hidden
 					bShouldBeHidden = ArraySizeEnum->HasMetaData(TEXT("Hidden"), Index );
 				}
-		
+
 				if( !bShouldBeHidden )
 				{
 					TSharedPtr<FItemPropertyNode> NewItemNode( new FItemPropertyNode);
@@ -16162,7 +16056,7 @@ void FItemPropertyNode::InitChildNodes()
 					InitParams.bAllowChildren = true;
 					InitParams.bForceHiddenPropertyVisibility = bShouldShowHiddenProperties;
 					InitParams.bCreateDisableEditOnInstanceNodes = bShouldShowDisableEditOnInstance;
-		
+
 					NewItemNode->InitNode( InitParams );
 					AddChildNode(NewItemNode);
 				}
@@ -16170,7 +16064,6 @@ void FItemPropertyNode::InitChildNodes()
 		}
 }
 ```
-
 
 ﻿# TitleProperty
 
@@ -16220,7 +16113,7 @@ TArray<FMyArrayTitleStruct> MyStructArray_HasTitleProperty;
 
 可以发现，下面的数组元素的标题变为了“Hello[x]”，而不是默认的“3 members”。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Container\TitleProperty\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Container\TitleProperty\Untitled.png)
 
 ## 原理：
 
@@ -16241,7 +16134,7 @@ void SPropertyEditorTitle::Construct( const FArguments& InArgs, const TSharedRef
 			SNew(STextBlock)
 			.Text(InPropertyEditor, &FPropertyEditor::GetDisplayName)
 			.Font(NameFont);
-	}		
+	}
 	else
 	{
 		NameTextBlock =
@@ -16300,7 +16193,7 @@ FText FItemPropertyNode::GetDisplayName() const
 		}
 }
 
-//生成一个TitlePropertyFormatter 
+//生成一个TitlePropertyFormatter
 void SPropertyEditorArrayItem::Construct( const FArguments& InArgs, const TSharedRef< class FPropertyEditor>& InPropertyEditor )
 {
 		static const FName TitlePropertyFName = FName(TEXT("TitleProperty"));
@@ -16335,7 +16228,6 @@ void SPropertyEditorArrayItem::Construct( const FArguments& InArgs, const TShare
 	UPROPERTY(EditAnywhere, Category=ArraysOfProperties, meta=(TitleProperty="{ErrorProperty}"))
 	TArray<FPropertyEditorTestBasicStruct> StructPropertyArrayWithFormattedTitleError;
 ```
-
 
 ﻿# EditFixedOrder
 
@@ -16374,7 +16266,7 @@ void SPropertyEditorArrayItem::Construct( const FArguments& InArgs, const TShare
 - 加上EditFixedOrder的TArray就无法改变顺序了。
 - 其他TSet，TMap是不支持该meta的，因为其内部本身顺序也无关。
 
-![EditFixedOrder](D:\github\UnrealSpecifiers\Doc\Meta\Container\EditFixedOrder\EditFixedOrder.gif)
+![EditFixedOrder](D:\github\UnrealSpecifiers\Doc\zh\Meta\Container\EditFixedOrder\EditFixedOrder.gif)
 
 ## 原理：
 
@@ -16393,14 +16285,13 @@ bool FPropertyNode::IsReorderable()
 
 	static const FName Name_DisableReordering("EditFixedOrder");
 	static const FName NAME_ArraySizeEnum("ArraySizeEnum");
-	return OuterArrayProp != nullptr 
+	return OuterArrayProp != nullptr
 		&& !OuterArrayProp->HasMetaData(Name_DisableReordering)
 		&& !IsEditConst()
 		&& !OuterArrayProp->HasMetaData(NAME_ArraySizeEnum)
 		&& !FApp::IsGame();
 }
 ```
-
 
 ﻿# NoElementDuplicate
 
@@ -16430,7 +16321,7 @@ public:
 
 可以看到带有NoElementDuplicate的数组，在值的右侧下拉箭头的菜单项里只有两项。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Container\NoElementDuplicate\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Container\NoElementDuplicate\Untitled.png)
 
 ## 原理：
 
@@ -16440,7 +16331,7 @@ public:
 void GetRequiredPropertyButtons( TSharedRef<FPropertyNode> PropertyNode, TArray<EPropertyButton::Type>& OutRequiredButtons, bool bUsingAssetPicker )
 {
 		const FArrayProperty* OuterArrayProp = NodeProperty->GetOwner<FArrayProperty>();
-		
+
 		if( OuterArrayProp )
 		{
 			if( PropertyNode->HasNodeFlags(EPropertyNodeFlags::SingleSelectOnly) && !(OuterArrayProp->PropertyFlags & CPF_EditFixedSize) )
@@ -16457,7 +16348,6 @@ void GetRequiredPropertyButtons( TSharedRef<FPropertyNode> PropertyNode, TArray<
 		}
 }
 ```
-
 
 ﻿# DebugTreeLeaf
 
@@ -16495,8 +16385,7 @@ public:
 
 UMyClass_DebugTreeLeaf对象作为一个类的成员变量（或者其他），在蓝图中调试查看变量，开启BlueprintDebugger查看变量属性时。如果没有加上DebugTreeLeaf，则会默认的展开所有内部属性。而如果加上DebugTreeLeaf标志，则会停止递归，阻止属性变量的展开。
 
-![Snipaste_2024-02-29_21-17-51](D:\github\UnrealSpecifiers\Doc\Meta\Debug\DebugTreeLeaf\Snipaste_2024-02-29_21-17-51.png)
-
+![Snipaste_2024-02-29_21-17-51](D:\github\UnrealSpecifiers\Doc\zh\Meta\Debug\DebugTreeLeaf\Snipaste_2024-02-29_21-17-51.png)
 
 ﻿# HideInDetailPanel
 
@@ -16536,7 +16425,7 @@ public:
 
 不过MyEvent_HideInDetailPanel依然是可以在蓝图里进行绑定，只不过默认没显示在UI上而已。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\DetailsPanel\HideInDetailPanel\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\DetailsPanel\HideInDetailPanel\Untitled.png)
 
 ## 原理：
 
@@ -16547,13 +16436,13 @@ void FActorDetails::AddEventsCategory(IDetailLayoutBuilder& DetailBuilder)
 {
 		IDetailCategoryBuilder& EventsCategory = DetailBuilder.EditCategory("Events", FText::GetEmpty(), ECategoryPriority::Uncommon);
 		static const FName HideInDetailPanelName("HideInDetailPanel");
-	
+
 		// Find all the Multicast delegate properties and give a binding button for them
 		for (TFieldIterator<FMulticastDelegateProperty> PropertyIt(Actor->GetClass(), EFieldIteratorFlags::IncludeSuper); PropertyIt; ++PropertyIt)
 		{
 			FMulticastDelegateProperty* Property = *PropertyIt;
-			
-			// Only show BP assiangable, non-hidden delegates		
+
+			// Only show BP assiangable, non-hidden delegates
 			if (!Property->HasAnyPropertyFlags(CPF_Parm) && Property->HasAllPropertyFlags(CPF_BlueprintAssignable) && !Property->HasMetaData(HideInDetailPanelName))
 			{}
 		}
@@ -16567,7 +16456,6 @@ if ( !Property->HasAnyPropertyFlags(CPF_Parm) && Property->HasAllPropertyFlags(C
 				!Property->HasMetaData(HideInDetailPanelName) )
 }
 ```
-
 
 ﻿# DisplayAfter
 
@@ -16611,7 +16499,7 @@ public:
 
 而MyInt_After2 因为在不同的Category下，因此就保留原样。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\DetailsPanel\DisplayAfter\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\DetailsPanel\DisplayAfter\Untitled.png)
 
 ## 原理：
 
@@ -16632,7 +16520,6 @@ public:
 		}
 	}
 ```
-
 
 ﻿# EditCondition
 
@@ -16687,7 +16574,7 @@ public:
 - 可以通过bool单个属性来控制其他属性是否可以编辑
 - 也可以通过一个表达式引入更复杂的计算机制来决定是否来编辑。
 
-![EditCondition](D:\github\UnrealSpecifiers\Doc\Meta\DetailsPanel\EditCondition\EditCondition.gif)
+![EditCondition](D:\github\UnrealSpecifiers\Doc\zh\Meta\DetailsPanel\EditCondition\EditCondition.gif)
 
 ## 原理：
 
@@ -16708,10 +16595,9 @@ void FPropertyNode::InitNode(const FPropertyNodeInitParams& InitParams)
 			EditConditionContext = MakeShareable(new FEditConditionContext(*this));
 		}
 	}
-		
+
 }
 ```
-
 
 ﻿# EditConditionHides
 
@@ -16753,7 +16639,7 @@ public:
 
 下面的图中可以明显见到两个属性随着条件的满足显示了出来。
 
-![EditConditionHides](D:\github\UnrealSpecifiers\Doc\Meta\DetailsPanel\EditConditionHides\EditConditionHides.gif)
+![EditConditionHides](D:\github\UnrealSpecifiers\Doc\zh\Meta\DetailsPanel\EditConditionHides\EditConditionHides.gif)
 
 ## 原理：
 
@@ -16771,7 +16657,6 @@ bool FPropertyNode::IsOnlyVisibleWhenEditConditionMet() const
 	return false;
 }
 ```
-
 
 ﻿# InlineEditConditionToggle
 
@@ -16807,7 +16692,7 @@ public:
 
 可见MyBool_Inline变成了单选框。而MyThirdInt_Inline就没有被隐藏掉。
 
-![InlineEditConditionToggle](D:\github\UnrealSpecifiers\Doc\Meta\DetailsPanel\InlineEditConditionToggle\InlineEditConditionToggle.gif)
+![InlineEditConditionToggle](D:\github\UnrealSpecifiers\Doc\zh\Meta\DetailsPanel\InlineEditConditionToggle\InlineEditConditionToggle.gif)
 
 ## 原理：
 
@@ -16831,7 +16716,7 @@ bool FPropertyNode::SupportsEditConditionToggle() const
 		if (ConditionalProperty != nullptr)
 		{
 			// There are 2 valid states for inline edit conditions:
-			// 1. The property is marked as editable and has InlineEditConditionToggle set. 
+			// 1. The property is marked as editable and has InlineEditConditionToggle set.
 			// 2. The property is not marked as editable and does not have InlineEditConditionToggle set.
 			// In both cases, the original property will be hidden and only show up as a toggle.
 
@@ -16861,7 +16746,6 @@ bool FPropertyNode::SupportsEditConditionToggle() const
 	return false;
 }
 ```
-
 
 ﻿# HideEditConditionToggle
 
@@ -16893,7 +16777,7 @@ public:
 
 ## 测试效果：
 
-![HideEditConditionToggle](D:\github\UnrealSpecifiers\Doc\Meta\DetailsPanel\HideEditConditionToggle\HideEditConditionToggle.gif)
+![HideEditConditionToggle](D:\github\UnrealSpecifiers\Doc\zh\Meta\DetailsPanel\HideEditConditionToggle\HideEditConditionToggle.gif)
 
 ## 原理：
 
@@ -16917,7 +16801,7 @@ bool FPropertyNode::SupportsEditConditionToggle() const
 		if (ConditionalProperty != nullptr)
 		{
 			// There are 2 valid states for inline edit conditions:
-			// 1. The property is marked as editable and has InlineEditConditionToggle set. 
+			// 1. The property is marked as editable and has InlineEditConditionToggle set.
 			// 2. The property is not marked as editable and does not have InlineEditConditionToggle set.
 			// In both cases, the original property will be hidden and only show up as a toggle.
 
@@ -16947,7 +16831,6 @@ bool FPropertyNode::SupportsEditConditionToggle() const
 	return false;
 }
 ```
-
 
 ﻿# DisplayPriority
 
@@ -16981,7 +16864,7 @@ public:
 
 P4即使优先级比较低，但因为DisplayAfter也仍然排在了P1之后。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\DetailsPanel\DisplayPriority\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\DetailsPanel\DisplayPriority\Untitled.png)
 
 ## 原理：
 
@@ -16991,7 +16874,6 @@ P4即使优先级比较低，但因为DisplayAfter也仍然排在了P1之后。
 void PropertyEditorHelpers::OrderPropertiesFromMetadata(TArray<FProperty*>& Properties)
 {}
 ```
-
 
 ﻿# AdvancedClassDisplay
 
@@ -17003,12 +16885,11 @@ void PropertyEditorHelpers::OrderPropertiesFromMetadata(TArray<FProperty*>& Prop
 
 - **元数据类型：** bool
 
-- **关联项：** 
+- **关联项：**
 
   UCLASS：AdvancedClassDisplay
 
 - **常用程度：** ★★★
-
 
 ﻿# bShowOnlyWhenTrue
 
@@ -17054,7 +16935,7 @@ public:
 
 可见MyString_WithShowOnly就没有显示出来，因为我们在DefaultEditorPerProjectUserSettings中配置了ShowMyString=false。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\DetailsPanel\bShowOnlyWhenTrue\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\DetailsPanel\bShowOnlyWhenTrue\Untitled.png)
 
 ## 原理：
 
@@ -17071,7 +16952,7 @@ void FObjectPropertyNode::GetCategoryProperties(const TSet<UClass*>& ClassesToCo
 		//ensure that the metadata visibility string is actually set to true in order to show this property
 		GConfig->GetBool(TEXT("UnrealEd.PropertyFilters"), *ShowOnlyWhenTrueString, bMetaDataAllowVisible, GEditorPerProjectIni);
 	}
-	
+
 	if (bMetaDataAllowVisible)
 	{
 		if (PropertyEditorHelpers::ShouldBeVisible(*this, CurrentProperty) && !HiddenCategories.Contains(CategoryName))
@@ -17104,7 +16985,6 @@ void FCategoryPropertyNode::InitChildNodes()
 }
 ```
 
-
 ﻿# PrioritizeCategories
 
 - **功能描述：** 把指定的属性目录优先显示在前面
@@ -17115,12 +16995,11 @@ void FCategoryPropertyNode::InitChildNodes()
 
 - **元数据类型：** strings="a，b，c"
 
-- **关联项：** 
+- **关联项：**
 
   UCLASS：PrioritizeCategories
 
 - **常用程度：** ★★★
-
 
 ﻿# AutoExpandCategories
 
@@ -17132,12 +17011,11 @@ void FCategoryPropertyNode::InitChildNodes()
 
 - **元数据类型：** strings="a，b，c"
 
-- **关联项：** 
+- **关联项：**
 
   UCLASS：AutoExpandCategories, AutoCollapseCategories
 
 - **常用程度：** ★★★
-
 
 ﻿# AutoCollapseCategories
 
@@ -17149,12 +17027,11 @@ void FCategoryPropertyNode::InitChildNodes()
 
 - **元数据类型：** strings="a，b，c"
 
-- **关联项：** 
+- **关联项：**
 
   UCLASS：AutoCollapseCategories, DontAutoCollapseCategories, AutoExpandCategories
 
 - **常用程度：** ★★★
-
 
 ﻿# ClassGroupNames
 
@@ -17168,12 +17045,11 @@ void FCategoryPropertyNode::InitChildNodes()
 
 - **限制类型：** TArray<FString>
 
-- **关联项：** 
+- **关联项：**
 
   UCLASS：ClassGroup
 
 - **常用程度：** ★★★
-
 
 ﻿# MaxPropertyDepth
 
@@ -17248,7 +17124,7 @@ public:
 
 ## 测试效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\DetailsPanel\MaxPropertyDepth\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\DetailsPanel\MaxPropertyDepth\Untitled.png)
 
 ## 原理：
 
@@ -17264,7 +17140,7 @@ int32 MaxChildDepthAllowed;
 
 void FPropertyNode::InitNode(const FPropertyNodeInitParams& InitParams)
 {
-	
+
 		//Get the property max child depth
 		static const FName Name_MaxPropertyDepth("MaxPropertyDepth");
 		if (Property->HasMetaData(Name_MaxPropertyDepth))
@@ -17306,7 +17182,6 @@ void FPropertyNode::RebuildChildren()
 }
 ```
 
-
 ﻿# DeprecatedNode
 
 - **功能描述：** 用于BehaviorTreeNode或EnvQueryNode，说明该类已废弃，在编辑器中红色错误展示并有错误ToolTip提示
@@ -17346,7 +17221,7 @@ class UBTTask_MyDeprecatedNode : public UBTTaskNode
 
 行为树里的结果，如果加上DeprecatedNode，就会红色显示，并提示错误信息。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\DetailsPanel\DeprecatedNode\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\DetailsPanel\DeprecatedNode\Untitled.png)
 
 ## 源码里测试的代码：
 
@@ -17369,7 +17244,6 @@ FString FGraphNodeClassHelper::GetDeprecationMessage(const UClass* Class)
 }
 ```
 
-
 ﻿# UsesHierarchy
 
 - **功能描述：** 说明类使用层级数据。用于实例化“细节”面板中的层级编辑功能。
@@ -17377,7 +17251,6 @@ FString FGraphNodeClassHelper::GetDeprecationMessage(const UClass* Class)
 - **引擎模块：** DetailsPanel
 - **元数据类型：** bool
 - **常用程度：** 0
-
 
 ﻿# IgnoreCategoryKeywordsInSubclasses
 
@@ -17389,7 +17262,6 @@ Related To UCLASS: ComponentWrapperClass (../../Specifier/UCLASS/ComponentWrappe
 - **常用程度：** ★
 
 和ComponentWrapperClass相互关联
-
 
 ﻿# NoResetToDefault
 
@@ -17416,7 +17288,7 @@ public:
 
 可以发现默认的属性在改变值后，右侧会出现一个重置按钮，以便让属性重置回默认值。NoResetToDefault的作用就是去除这个功能。
 
-![ResetToDefaultTest](D:\github\UnrealSpecifiers\Doc\Meta\DetailsPanel\NoResetToDefault\ResetToDefaultTest.gif)
+![ResetToDefaultTest](D:\github\UnrealSpecifiers\Doc\zh\Meta\DetailsPanel\NoResetToDefault\ResetToDefaultTest.gif)
 
 ## 原理：
 
@@ -17438,7 +17310,6 @@ bool SSingleProperty::GeneratePropertyCustomization()
 }
 ```
 
-
 ﻿# ReapplyCondition
 
 - **功能描述：** // Properties that have a ReapplyCondition should be disabled behind the specified property when in reapply mode
@@ -17456,7 +17327,6 @@ bool SSingleProperty::GeneratePropertyCustomization()
 
 也只在Foliage中用到。
 
-
 ﻿# HideBehind
 
 - **功能描述：** 只在指定的属性为true或不为空的时候本属性才显示
@@ -17473,7 +17343,6 @@ bool SSingleProperty::GeneratePropertyCustomization()
 
 只在Foliage里用到，其实用EditCondition就可以达到同样的效果了。
 
-
 ﻿# Category
 
 - **功能描述：** 指定属性在细节面板中的分类
@@ -17484,13 +17353,12 @@ bool SSingleProperty::GeneratePropertyCustomization()
 
 - **元数据类型：** string="A | B | C"
 
-- **关联项：** 
+- **关联项：**
 
   UFUNCTION：Category
   UPROPERTY：Category
 
 - **常用程度：** ★★★★★
-
 
 ﻿# HideCategories
 
@@ -17501,7 +17369,6 @@ bool SSingleProperty::GeneratePropertyCustomization()
 Related To UCLASS: ShowCategories (../../Specifier/UCLASS/ShowCategories.md)
 - **关联项：** ShowCategories (ShowCategories.md)
 - **常用程度：** ★★★
-
 
 ﻿# ShowCategories
 
@@ -17527,7 +17394,6 @@ public:
 		int Property_Group222;
 };
 ```
-
 
 ﻿# EditInline
 
@@ -17575,7 +17441,7 @@ public:
 
 ## 蓝图效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\DetailsPanel\EditInline\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\DetailsPanel\EditInline\Untitled.png)
 
 ## 原理：
 
@@ -17585,10 +17451,10 @@ public:
 void FPropertyNode::InitNode(const FPropertyNodeInitParams& InitParams)
 {
 		// we are EditInlineNew if this property has the flag, or if inside a container that has the flag.
-		bIsEditInlineNew = GotReadAddresses && bIsObjectOrInterface && !MyProperty->HasMetaData(Name_NoEditInline) && 
+		bIsEditInlineNew = GotReadAddresses && bIsObjectOrInterface && !MyProperty->HasMetaData(Name_NoEditInline) &&
 			(MyProperty->HasMetaData(Name_EditInline) || (bIsInsideContainer && OwnerProperty->HasMetaData(Name_EditInline)));
 		bShowInnerObjectProperties = bIsObjectOrInterface && MyProperty->HasMetaData(Name_ShowInnerProperties);
-		
+
 		if (bIsEditInlineNew)
 		{
 			SetNodeFlags(EPropertyNodeFlags::EditInlineNew, true);
@@ -17630,7 +17496,6 @@ void FItemPropertyNode::InitExpansionFlags(void)
 }
 ```
 
-
 ﻿# NoEditInline
 
 - **功能描述：** Object properties pointing to an UObject instance whos class is marked editinline will not show their properties inline in property windows. Useful for getting actor components to appear in the component tree but not inline in the root actor details panel.
@@ -17649,7 +17514,6 @@ void FItemPropertyNode::InitExpansionFlags(void)
 	UPROPERTY(VisibleAnywhere, Category = "Connection Point", meta = (NoEditInline))
 	FLinearColor Color = FLinearColor::Black;
 ```
-
 
 ﻿# AllowEditInlineCustomization
 
@@ -17692,7 +17556,7 @@ public:
 
 ## 效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\DetailsPanel\AllowEditInlineCustomization\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\DetailsPanel\AllowEditInlineCustomization\Untitled.png)
 
 要做到自定义EditInline的效果，采用自定义的IPropertyTypeCustomization和RegisterCustomPropertyTypeLayout也能做到。区别是，正如上面代码里的UMyCustomAsset里面有两个同类型的UMyCommonObject*对象，假如用IPropertyTypeCustomization的方式，就会导致两个变量都变成自定义的UI模式。而用AllowEditInlineCustomization就可以使得其中你想要的那个变成自定义方式，而其他的不做改变。
 
@@ -17735,7 +17599,7 @@ FDetailPropertyRow::FDetailPropertyRow(TSharedPtr<FPropertyNode> InPropertyNode,
 				}
 			}
 		}
-		
+
 }
 ```
 
@@ -17800,7 +17664,7 @@ prop->RemoveMetaData(TEXT("AllowEditInlineCustomization"));
 
 效果就会从左变到右边：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\DetailsPanel\AllowEditInlineCustomization\AllowEditInlineCustomization\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\DetailsPanel\AllowEditInlineCustomization\AllowEditInlineCustomization\Untitled%201.png)
 
 注册的方式也不同：
 
@@ -17819,13 +17683,12 @@ void ULevelSequenceEditorSubsystem::AddBindingDetailCustomizations(TSharedRef<ID
 				{
 					return MakeShared<FMovieSceneBindingPropertyInfoDetailCustomization>(InSequencer, InMovieScene, InBindingGuid, LevelSequenceEditorSubsystem);
 				}, ActiveSequencer.ToWeakPtr(), MovieScene, BindingGuid, this));
-			
+
 			DetailsView->RegisterInstancedCustomPropertyLayout(UMovieSceneSpawnableActorBinding::StaticClass(), FOnGetDetailCustomizationInstance::CreateStatic(&FMovieSceneSpawnableActorBindingBaseCustomization::MakeInstance, ActiveSequencer.ToWeakPtr(), MovieScene, BindingGuid));
 		}
 	}
 }
 ```
-
 
 ﻿# ForceInlineRow
 
@@ -17857,8 +17720,8 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (ForceInlineRow))
 	TMap<int32, FMyCommonStruct> MyStructMap_ForceInlineRow2;
-	
-	
+
+
 
 void FMyCommonStructCustomization::CustomizeHeader(TSharedRef<IPropertyHandle> PropertyHandle, FDetailWidgetRow& HeaderRow, IPropertyTypeCustomizationUtils& CustomizationUtils)
 {
@@ -17901,15 +17764,15 @@ void FMyCommonStructCustomization::CustomizeHeader(TSharedRef<IPropertyHandle> P
 
 在下面也特别观察到如果把FStruct作为Value，则是没有这个区别的。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\DetailsPanel\ForceInlineRow\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\DetailsPanel\ForceInlineRow\Untitled.png)
 
 假如不注册FMyCommonStruct相应的IPropertyTypeCustomization的话，则结构的属性UI采用默认方式显示，则都是分为两行。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\DetailsPanel\ForceInlineRow\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\DetailsPanel\ForceInlineRow\Untitled%201.png)
 
 而假如FMyCommonStruct的IPropertyTypeCustomization的ShouldInlineKey返回true，则会导致即使没有ForceInlineRow也会把该拥有该结构作为Key的属性给都合并为一行显示，这个时候就失去ForceInlineRow的作用和区别了。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\DetailsPanel\ForceInlineRow\Untitled%202.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\DetailsPanel\ForceInlineRow\Untitled%202.png)
 
 ## 原理：
 
@@ -17923,19 +17786,19 @@ void FMyCommonStructCustomization::CustomizeHeader(TSharedRef<IPropertyHandle> P
 FDetailPropertyRow::FDetailPropertyRow(TSharedPtr<FPropertyNode> InPropertyNode, TSharedRef<FDetailCategoryImpl> InParentCategory, TSharedPtr<FComplexPropertyNode> InExternalRootNode)
 {
 	if (PropertyNode->GetPropertyKeyNode().IsValid())
-	{							
+	{
 		TSharedPtr<IPropertyTypeCustomization> FoundPropertyCustomisation = GetPropertyCustomization(PropertyNode->GetPropertyKeyNode().ToSharedRef(), ParentCategory.Pin().ToSharedRef());
-	
+
 		bool bInlineRow = FoundPropertyCustomisation != nullptr ? FoundPropertyCustomisation->ShouldInlineKey() : false;
-	
+
 		static FName InlineKeyMeta("ForceInlineRow");
 		bInlineRow |= InPropertyNode->GetParentNode()->GetProperty()->HasMetaData(InlineKeyMeta);
-	
+
 		// Only create the property editor if it's not a struct or if it requires to be inlined (and has customization)
 		if (!NeedsKeyNode(PropertyNodeRef, InParentCategory) || (bInlineRow && FoundPropertyCustomisation != nullptr))
 		{
 			CachedKeyCustomTypeInterface = FoundPropertyCustomisation;
-			
+
 			MakePropertyEditor(PropertyNode->GetPropertyKeyNode().ToSharedRef(), Utilities, PropertyKeyEditor);
 		}
 	}
@@ -17982,7 +17845,6 @@ struct FRuntimePartitionDesc
 };
 ```
 
-
 ﻿# DeprecatedProperty
 
 - **功能描述：** 标记弃用，引用到该属性的蓝图会触发一个警告
@@ -17993,7 +17855,7 @@ struct FRuntimePartitionDesc
 
 - **元数据类型：** bool
 
-- **关联项：** 
+- **关联项：**
 
   UCLASS：Deprecated
 
@@ -18013,10 +17875,9 @@ UPROPERTY(BlueprintReadWrite, meta=(DisplayName="PlantName", DeprecatedProperty,
 FString DEPRECATED_PlantName;
 ```
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Development\DeprecatedProperty\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Development\DeprecatedProperty\Untitled.png)
 
-![Untitled%201](D:\github\UnrealSpecifiers\Doc\Meta\Development\DeprecatedProperty\Untitled%201.png)
-
+![Untitled%201](D:\github\UnrealSpecifiers\Doc\zh\Meta\Development\DeprecatedProperty\Untitled%201.png)
 
 ﻿# Deprecated
 
@@ -18031,7 +17892,6 @@ FString DEPRECATED_PlantName;
 这个值只是单纯的在C++代码中记录一下信息，并不会真正的使得一个元素变成废弃。这个值也没有在别的地方UI使用和显示出来。
 
 要废弃一个元素，还是要用别的标记，如**DeprecatedProperty，DeprecatedFunction等。**
-
 
 ﻿# DevelopmentOnly
 
@@ -18057,7 +17917,7 @@ FString DEPRECATED_PlantName;
 
 ## 蓝图效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Development\DevelopmentOnly\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Development\DevelopmentOnly\Untitled.png)
 
 ## 原理：
 
@@ -18082,7 +17942,6 @@ void UK2Node_CallFunction::Serialize(FArchive& Ar)
 }
 ```
 
-
 ﻿# DeprecationMessage
 
 - **功能描述：** 定义弃用的消息
@@ -18093,7 +17952,7 @@ void UK2Node_CallFunction::Serialize(FArchive& Ar)
 
 - **元数据类型：** string="abc"
 
-- **关联项：** 
+- **关联项：**
 
   UCLASS：Deprecated
 
@@ -18109,7 +17968,6 @@ UPROPERTY(BlueprintReadWrite, meta=(DeprecatedProperty, DeprecationMessage="This
 FString PlantName;
 ```
 
-
 ﻿# DeprecatedFunction
 
 - **功能描述：** 标明一个函数已经被弃用
@@ -18119,7 +17977,6 @@ FString PlantName;
 - **常用程度：** ★
 
 *Any Blueprint references to this function will cause compilation warnings telling the user that the function is deprecated. You can add to the deprecation warning message (for example, to provide instructions on replacing the deprecated function) using the DeprecationMessage metadata specifier.*
-
 
 ﻿# Comment
 
@@ -18145,13 +18002,13 @@ class INSIDER_API UMyProperty_Development :public UObject
 	GENERATED_BODY()
 public:
 	//(Comment = //This is a comment on function, ModuleRelativePath = Property/Development/MyProperty_Development.h, ToolTip = This is a comment on function)
-	
+
 	//This is a comment on function
 	UFUNCTION(BlueprintCallable)
 	int32 MyFunc(FString str){return 0;}
 
 	//	(Category = MyProperty_Development, Comment = //This is a comment on property, ModuleRelativePath = Property/Development/MyProperty_Development.h, ToolTip = This is a comment on property)
-	 
+
 	//This is a comment on property
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 MyProperty = 123;
@@ -18168,8 +18025,7 @@ public:
 
 MyProperty_WithComment是单独只加的Comment，就没有了鼠标悬停效果。
 
-![Comment](D:\github\UnrealSpecifiers\Doc\Meta\Development\Comment\Comment.gif)
-
+![Comment](D:\github\UnrealSpecifiers\Doc\zh\Meta\Development\Comment\Comment.gif)
 
 ﻿# FriendlyName
 
@@ -18177,7 +18033,6 @@ MyProperty_WithComment是单独只加的Comment，就没有了鼠标悬停效果
 - **使用位置：** Any
 - **引擎模块：** Development
 - **元数据类型：** string="abc"
-
 
 ﻿# DevelopmentStatus
 
@@ -18189,7 +18044,7 @@ MyProperty_WithComment是单独只加的Comment，就没有了鼠标悬停效果
 
 - **元数据类型：** string="abc"
 
-- **关联项：** 
+- **关联项：**
 
   UCLASS：Experimental, EarlyAccessPreview
 
@@ -18197,7 +18052,6 @@ MyProperty_WithComment是单独只加的Comment，就没有了鼠标悬停效果
 
 DevelopmentStatus=Experimental
 DevelopmentStatus=EarlyAccess
-
 
 ﻿# ToolTip
 
@@ -18262,7 +18116,7 @@ class INSIDER_API UMyClass_ToolTip_TypeA :public UObject
 /**
 *	This is a ToolTip out of Class.
 *	There're so so so so so so so many words I want to say, but here's too narrow.
-*	Please read this tooltip before you use this class. 
+*	Please read this tooltip before you use this class.
 */
 UCLASS(BlueprintType, Blueprintable)
 class INSIDER_API UMyClass_ToolTip_TypeB :public UObject
@@ -18277,7 +18131,7 @@ class INSIDER_API UMyClass_ToolTip_TypeB :public UObject
 
 可以发现，如果提供了ToolTip，就会覆盖掉代码注释里的注释。同时也可以发现在下图中，提示的文本过长超过了选项框。这时如果提供了ShortToolTip，则会在父类选取器中显示ShortToolTip中的文本，从而简洁一点显示。在很多别的地方也同样应用这个规则，比如（该类型）变量上的提示，或者在选择变量类型的时候。
 
-![1234](D:\github\UnrealSpecifiers\Doc\Meta\Development\ToolTip\1234.png)
+![1234](D:\github\UnrealSpecifiers\Doc\zh\Meta\Development\ToolTip\1234.png)
 
 ## 原理代码：
 
@@ -18335,7 +18189,7 @@ FText UField::GetToolTipText(bool bShortTooltip) const
 	static const FName NAME_ShortTooltip(TEXT("ShortTooltip"));
 	FText LocalizedToolTip;
 	FString NativeToolTip;
-	
+
 	if (bShortTooltip)
 	{
 		NativeToolTip = GetMetaData(NAME_ShortTooltip);
@@ -18389,9 +18243,9 @@ FText FClassPickerDefaults::GetDescription() const
 
 变量和函数：
 
-![55](D:\github\UnrealSpecifiers\Doc\Meta\Development\ToolTip\55.png)
+![55](D:\github\UnrealSpecifiers\Doc\zh\Meta\Development\ToolTip\55.png)
 
-![77](D:\github\UnrealSpecifiers\Doc\Meta\Development\ToolTip\77.png)
+![77](D:\github\UnrealSpecifiers\Doc\zh\Meta\Development\ToolTip\77.png)
 
 其他需要注意的是，代码里注释的文本也会当作ToolTip。支持//和/**/这两种格式。如果在ToolTip中想换行，可以直接加/n就可以。
 
@@ -18412,7 +18266,7 @@ class INSIDER_API UMyClass_ToolTip_TypeA :public UObject
 //(BlueprintType = true, Comment = /**
 //*	This is a ToolTip out of Class.
 //*	There're so so so so so so so many words I want to say, but here's too narrow.
-//*	Please read this tooltip before you use this class. 
+//*	Please read this tooltip before you use this class.
 //*/, IncludePath = Any/ToolTip_Test.h, IsBlueprintBase = true, ModuleRelativePath = Any/ToolTip_Test.h, ToolTip = This is a ToolTip out of Class.
 //There're so so so so so so so many words I want to say, but here's too narrow.
 //Please read this tooltip before you use this class.)
@@ -18420,7 +18274,7 @@ class INSIDER_API UMyClass_ToolTip_TypeA :public UObject
 /**
 *	This is a ToolTip out of Class.
 *	There're so so so so so so so many words I want to say, but here's too narrow.
-*	Please read this tooltip before you use this class. 
+*	Please read this tooltip before you use this class.
 */
 UCLASS(BlueprintType, Blueprintable)
 class INSIDER_API UMyClass_ToolTip_TypeB :public UObject
@@ -18431,14 +18285,12 @@ class INSIDER_API UMyClass_ToolTip_TypeB :public UObject
 UCLASS(BlueprintType, Blueprintable, meta = (ToolTip = "This is a ToolTip within Class. There're so so so so so so so many words I want to say, but here's too narrow.\nThis is a new line.", ShortToolTip = "This is a ShortToolTip within Class."))
 ```
 
-
 ﻿# ShortTooltip
 
 - **功能描述：** 提供一个更简洁版本的提示文本，例如在类型选择器的时候显示
 - **使用位置：** Any
 - **元数据类型：** string="abc"
 - **关联项：** ToolTip
-
 
 ﻿# EnumDisplayNameFn
 
@@ -18455,7 +18307,7 @@ UCLASS(BlueprintType, Blueprintable, meta = (ToolTip = "This is a ToolTip within
 ```cpp
 //[EMyEnum_CustomDisplay	Enum->Field->Object	/Script/Insider.EMyEnum_CustomDisplay]
 //(BlueprintType = true, EnumDisplayNameFn = GetMyEnumCustomDisplayName, First.Name = EMyEnum_CustomDisplay::First, IsBlueprintBase = true, ModuleRelativePath = Enum/MyEnum_Test.h, Second.Name = EMyEnum_CustomDisplay::Second, Third.Name = EMyEnum_CustomDisplay::Third)
-//	ObjectFlags:	RF_Public | RF_Transient 
+//	ObjectFlags:	RF_Public | RF_Transient
 //	Outer:	Package /Script/Insider
 //	EnumFlags:	EEnumFlags::None
 //	EnumDisplayNameFn:	6adb4804
@@ -18497,7 +18349,7 @@ FText GetMyEnumCustomDisplayName(int32 val)
 
 ## 测试蓝图：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Enum\EnumDisplayNameFn\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Enum\EnumDisplayNameFn\Untitled.png)
 
 EnumDisplayNameFn 的函数设置是在gen.cpp中完成的，因此并不需要成为UFUNCTION。
 
@@ -18565,7 +18417,6 @@ const UECodeGen_Private::FEnumParams Z_Construct_UEnum_Insider_EMyEnum_CustomDis
 }
 ```
 
-
 ﻿# Bitflags
 
 - **功能描述：** 设定一个枚举支持采用位标记赋值，从而在蓝图中可以识别出来是BitMask
@@ -18611,12 +18462,11 @@ int32 ColorFlags;
 
 如下图所示：EMyEnum_Flags就不会被列在选项里。而EMyEnum_BitFlags就可以被列进来。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Enum\Bitflags\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Enum\Bitflags\Untitled.png)
 
 如果没有UPROPERTY(bitmask)的配合使用，则蓝图里还是只能单项选择
 
-![Untitled1](D:\github\UnrealSpecifiers\Doc\Meta\Enum\Bitflags\Untitled1.png)
-
+![Untitled1](D:\github\UnrealSpecifiers\Doc\zh\Meta\Enum\Bitflags\Untitled1.png)
 
 ﻿# UseEnumValuesAsMaskValuesInEditor
 
@@ -18675,14 +18525,13 @@ enum class EMyEnum_BitFlagsInEditor:uint8
 
 ## 测试的蓝图1：
 
-![Untitled_a](D:\github\UnrealSpecifiers\Doc\Meta\Enum\UseEnumValuesAsMaskValuesInEditor\Untitled_a.png)
+![Untitled_a](D:\github\UnrealSpecifiers\Doc\zh\Meta\Enum\UseEnumValuesAsMaskValuesInEditor\Untitled_a.png)
 
 ## 测试的蓝图2：
 
-![Untitled_b](D:\github\UnrealSpecifiers\Doc\Meta\Enum\UseEnumValuesAsMaskValuesInEditor\Untitled_b.png)
+![Untitled_b](D:\github\UnrealSpecifiers\Doc\zh\Meta\Enum\UseEnumValuesAsMaskValuesInEditor\Untitled_b.png)
 
 因此可以看出前者是1<<2+1<<2，而后者是1|2，因此后者是直接把枚举值作为已经位移后的值
-
 
 ﻿# Spacer
 
@@ -18697,10 +18546,9 @@ Spacer和Hidden的功能大体是一致的。唯一区别是Spacer在蓝图里==
 
 因此还是建议如果要隐藏枚举值，还是要尽量都用Hidden。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Enum\UMETA\Hidden\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Enum\UMETA\Hidden\Untitled.png)
 
 其他示例代码见Hidden
-
 
 ﻿# ValidEnumValues
 
@@ -18758,7 +18606,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (enum = "EMyPropertyTestEnum"))
 	FString MyStringWithEnum;	//Type 3
-	
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (InvalidEnumValues = "First,Second,Third"))
 	EMyPropertyTestEnum MyEnumWithInvalid = EMyPropertyTestEnum::Forth;
 
@@ -18775,7 +18623,7 @@ public:
 
 可见默认情况下枚举属性会显示全部5个枚举值，但其他3个枚举属性值的可选列表被限制到了3个。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Enum\ValidEnumValues\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Enum\ValidEnumValues\Untitled.png)
 
 ## 原理：
 
@@ -18785,14 +18633,14 @@ public:
 bool FPropertyHandleBase::GeneratePossibleValues(TArray< TSharedPtr<FString> >& OutOptionStrings, TArray< FText >& OutToolTips, TArray<bool>& OutRestrictedItems)
 {
 	TArray<UObject*> OuterObjects;
-	GetOuterObjects(OuterObjects);		
-	
+	GetOuterObjects(OuterObjects);
+
 	const TArray<FName> ValidEnumValues = PropertyEditorHelpers::GetValidEnumsFromPropertyOverride(Property, Enum);
 	const TArray<FName> InvalidEnumValues = PropertyEditorHelpers::GetInvalidEnumsFromPropertyOverride(Property, Enum);
 	const TArray<FName> RestrictedEnumValues = PropertyEditorHelpers::GetRestrictedEnumsFromPropertyOverride(OuterObjects, Property, Enum);
-	
+
 	const TMap<FName, FText> EnumValueDisplayNameOverrides = PropertyEditorHelpers::GetEnumValueDisplayNamesFromPropertyOverride(Property, Enum);
-	
+
 	//NumEnums() - 1, because the last item in an enum is the _MAX item
 	for( int32 EnumIndex = 0; EnumIndex < Enum->NumEnums() - 1; ++EnumIndex )
 	{
@@ -18810,12 +18658,12 @@ bool FPropertyHandleBase::GeneratePossibleValues(TArray< TSharedPtr<FString> >& 
 				bShouldBeHidden = InvalidEnumValues.Contains(Enum->GetNameByIndex(EnumIndex));
 			}
 		}
-	
+
 		if (!bShouldBeHidden)
 		{
 			bShouldBeHidden = IsHidden(Enum->GetNameStringByIndex(EnumIndex));
 		}
-	
+
 		if( !bShouldBeHidden )
 		{
 			// See if we specified an alternate name for this value using metadata
@@ -18825,11 +18673,11 @@ bool FPropertyHandleBase::GeneratePossibleValues(TArray< TSharedPtr<FString> >& 
 			{
 				EnumDisplayName = Enum->GetDisplayNameTextByIndex(EnumIndex).ToString();
 			}
-	
+
 			FText RestrictionTooltip;
 			const bool bIsRestricted = GenerateRestrictionToolTip(EnumName, RestrictionTooltip) || RestrictedEnumValues.Contains(Enum->GetNameByIndex(EnumIndex));
 			OutRestrictedItems.Add(bIsRestricted);
-	
+
 			if (EnumDisplayName.Len() == 0)
 			{
 				EnumDisplayName = MoveTemp(EnumName);
@@ -18838,10 +18686,10 @@ bool FPropertyHandleBase::GeneratePossibleValues(TArray< TSharedPtr<FString> >& 
 			{
 				bUsesAlternateDisplayValues = true;
 			}
-	
+
 			TSharedPtr< FString > EnumStr(new FString(EnumDisplayName));
 			OutOptionStrings.Add(EnumStr);
-	
+
 			FText EnumValueToolTip = bIsRestricted ? RestrictionTooltip : Enum->GetToolTipTextByIndex(EnumIndex);
 			OutToolTips.Add(MoveTemp(EnumValueToolTip));
 		}
@@ -18852,7 +18700,6 @@ bool FPropertyHandleBase::GeneratePossibleValues(TArray< TSharedPtr<FString> >& 
 	}
 }
 ```
-
 
 ﻿# InvalidEnumValues
 
@@ -18865,7 +18712,6 @@ bool FPropertyHandleBase::GeneratePossibleValues(TArray< TSharedPtr<FString> >& 
 - **常用程度：** ★★★
 
 如果同时指定了InvalidEnumValues和ValidEnumValues，且里面的值有重叠，则还是以InvalidEnumValues的为准：这项枚举值就是非法的。
-
 
 ﻿# GetRestrictedEnumValues
 
@@ -18884,7 +18730,6 @@ Invalid会隐藏掉该选项值
 Restricted依然会显示该选项值，只是会灰调不可选。
 
 指定的函数名字必须是一个UFUNCTION函数，这样才能通过名字找到该函数。
-
 
 ﻿# EnumValueDisplayNameOverrides
 
@@ -18918,10 +18763,9 @@ EMyPropertyTestEnum MyEnumWithDisplayNameOverrides;
 
 可见实际上改变了First、Second的显示名字。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Enum\EnumValueDisplayNameOverrides\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Enum\EnumValueDisplayNameOverrides\Untitled.png)
 
 原理代码见ValidEnumValues上的代码
-
 
 ﻿# Enum
 
@@ -18932,7 +18776,6 @@ EMyPropertyTestEnum MyEnumWithDisplayNameOverrides;
 - **限制类型：** FString
 - **关联项：** ValidEnumValues
 - **常用程度：** ★★★
-
 
 ﻿# DisplayName
 
@@ -18950,7 +18793,7 @@ EMyPropertyTestEnum MyEnumWithDisplayNameOverrides;
 /*
 [enum 602d0d4e680 EMyEnum_HasDisplayName	Enum->Field->Object	/Script/Insider.EMyEnum_HasDisplayName]
 (BlueprintType = true, First.DisplayName = Dog, First.Name = EMyEnum_HasDisplayName::First, IsBlueprintBase = true, ModuleRelativePath = Enum/MyEnum_Test.h, Second.DisplayName = Cat, Second.Name = EMyEnum_HasDisplayName::Second, Third.DisplayName = Pig, Third.Name = EMyEnum_HasDisplayName::Third)
-	ObjectFlags:	RF_Public | RF_Transient 
+	ObjectFlags:	RF_Public | RF_Transient
 	Outer:	Package /Script/Insider
 	EnumFlags:	None
 	EnumDisplayNameFn:	0
@@ -18985,8 +18828,7 @@ public:
 
 可见改变了名称。
 
-![image](D:\github\UnrealSpecifiers\Doc\Meta\Enum\UMETA\DisplayName\image.png)
-
+![image](D:\github\UnrealSpecifiers\Doc\zh\Meta\Enum\UMETA\DisplayName\image.png)
 
 ﻿# Hidden
 
@@ -19023,11 +18865,11 @@ public:
 
 ## 测试效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Enum\UMETA\Hidden\5b4de771-be09-4342-8955-dc0f824ef97d.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Enum\UMETA\Hidden\5b4de771-be09-4342-8955-dc0f824ef97d.png)
 
 但是蓝图里访问：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Enum\UMETA\Hidden\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Enum\UMETA\Hidden\Untitled.png)
 
 ## 原理：
 
@@ -19073,7 +18915,6 @@ void SGraphPinEnum::GenerateComboBoxIndexes( TArray< TSharedPtr<int32> >& OutCom
 }
 ```
 
-
 ﻿# DisplayValue
 
 - **功能描述：** Enum /Script/Engine.AnimPhysCollisionType
@@ -19093,7 +18934,6 @@ enum class AnimPhysCollisionType : uint8
 	OuterSphere UMETA(ToolTip="Use the smallest sphere that wholely contains the body extents to collide with planes.")
 };
 ```
-
 
 ﻿# Grouping
 
@@ -19178,7 +19018,6 @@ TArray<SEasingFunctionGridWidget::FGroup> SEasingFunctionGridWidget::ConstructGr
 }
 ```
 
-
 ﻿# TraceQuery
 
 - **功能描述：** Enum /Script/Engine.ECollisionChannel
@@ -19210,7 +19049,7 @@ enum ECollisionChannel : int
 
 	ECC_EngineTraceChannel2 UMETA(Hidden),
 	ECC_EngineTraceChannel3 UMETA(Hidden),
-	ECC_EngineTraceChannel4 UMETA(Hidden), 
+	ECC_EngineTraceChannel4 UMETA(Hidden),
 	ECC_EngineTraceChannel5 UMETA(Hidden),
 	ECC_EngineTraceChannel6 UMETA(Hidden),
 
@@ -19232,7 +19071,7 @@ enum ECollisionChannel : int
 	ECC_GameTraceChannel16 UMETA(Hidden),
 	ECC_GameTraceChannel17 UMETA(Hidden),
 	ECC_GameTraceChannel18 UMETA(Hidden),
-	
+
 	/** Add new serializeable channels above here (i.e. entries that exist in FCollisionResponseContainer) */
 	/** Add only nonserialized/transient flags below */
 
@@ -19251,7 +19090,6 @@ void UCollisionProfile::LoadProfileConfig(bool bForceInit)
 		static const FString TraceType = TEXT("TraceQuery");
 }
 ```
-
 
 ﻿# Bitmask
 
@@ -19308,10 +19146,9 @@ public:
 
 都是可以在蓝图中用标记来定义
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Enum\Bitmask\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Enum\Bitmask\Untitled.png)
 
 可以用BitmaskEnum进一步提供枚举值
-
 
 ﻿# BitmaskEnum
 
@@ -19337,8 +19174,7 @@ public:
 
 如果没有标上BitmaskEnum，则无法提供标记的的名称值
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Enum\BitmaskEnum\Untitled.png)
-
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Enum\BitmaskEnum\Untitled.png)
 
 ﻿# FieldNotifyInterfaceParam
 
@@ -19366,7 +19202,7 @@ public:
 
 在UserWidget里测试，可见没有连接到参数的Target默认为当前的UserWidget，则FieldId是3个值。而连接到我们自定义的ViewModel后，则改变为我们下面定义的值。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\UHT\FieldNotifyInterfaceParam\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\UHT\FieldNotifyInterfaceParam\Untitled.png)
 
 ## 原理：
 
@@ -19394,7 +19230,6 @@ TSharedRef<SWidget> SFieldNotificationGraphPin::GetDefaultValueWidget()
 }
 ```
 
-
 ﻿# HideInDetailsView
 
 - **功能描述：** 把该UAttributeSet子类里的属性隐藏在FGameplayAttribute的选项列表里。
@@ -19421,7 +19256,7 @@ class UMyAttributeSet : public UAttributeSet
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Core")
 	float HP = 100.f;
-	
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Core", meta = (HideInDetailsView))
 	float HP_HideInDetailsView = 100.f;
 };
@@ -19449,7 +19284,7 @@ public:
 
 可见只能选到UMyAttributeSet.HP属性，无法选择到UMyAttributeSet_Hide里的选项。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\GAS\HideInDetailsView\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\GAS\HideInDetailsView\Untitled.png)
 
 ## 原理：
 
@@ -19470,8 +19305,8 @@ void FGameplayAttribute::GetAllAttributeProperties(TArray<FProperty*>& OutProper
 			}
 			#endif
 		}
-		
-		
+
+
 			for (TFieldIterator<FProperty> PropertyIt(Class, EFieldIteratorFlags::ExcludeSuper); PropertyIt; ++PropertyIt)
 			{
 				FProperty* Property = *PropertyIt;
@@ -19485,13 +19320,12 @@ void FGameplayAttribute::GetAllAttributeProperties(TArray<FProperty*>& OutProper
 					}
 					#endif
 				}
-				
+
 				OutProperties.Add(Property);
 			}
 	}
 }
 ```
-
 
 ﻿# SystemGameplayAttribute
 
@@ -19551,7 +19385,7 @@ public:
 
 可见MyFloat_System可以暴露到选项列表里去。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\GAS\SystemGameplayAttribute\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\GAS\SystemGameplayAttribute\Untitled.png)
 
 ## 原理：
 
@@ -19566,8 +19400,8 @@ void FGameplayAttribute::GetAllAttributeProperties(TArray<FProperty*>& OutProper
 		for (TFieldIterator<FProperty> PropertyIt(Class, EFieldIteratorFlags::ExcludeSuper); PropertyIt; ++PropertyIt)
 		{
 			FProperty* Property = *PropertyIt;
-	
-	
+
+
 			// SystemAttributes have to be explicitly tagged
 			if (Property->HasMetaData(TEXT("SystemGameplayAttribute")) == false)
 			{
@@ -19578,7 +19412,6 @@ void FGameplayAttribute::GetAllAttributeProperties(TArray<FProperty*>& OutProper
 	}
 }
 ```
-
 
 ﻿# HideFromModifiers
 
@@ -19625,7 +19458,7 @@ public:
 
 发现HP_HideFromModifiers 可以出现在正常的FGameplayAttribute 选项卡中，但不能出现在Modifiers下的Attribute选项卡里。这就是这里的作用。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\GAS\HideFromModifiers\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\GAS\HideFromModifiers\Untitled.png)
 
 ## 原理：
 
@@ -19636,7 +19469,7 @@ USTRUCT(BlueprintType)
 struct GAMEPLAYABILITIES_API FGameplayModifierInfo
 {
 	GENERATED_USTRUCT_BODY()
-	
+
 	/** The Attribute we modify or the GE we modify modifies. */
 	UPROPERTY(EditDefaultsOnly, Category=GameplayModifier, meta=(FilterMetaTag="HideFromModifiers"))
 	FGameplayAttribute Attribute;
@@ -19653,7 +19486,6 @@ void FAttributePropertyDetails::CustomizeHeader( TSharedRef<IPropertyHandle> Str
 void FGameplayAttribute::GetAllAttributeProperties(TArray<FProperty*>& OutProperties, FString FilterMetaStr, bool UseEditorOnlyData)
 {}
 ```
-
 
 ﻿# MaterialParameterCollectionFunction
 
@@ -19688,7 +19520,7 @@ public:
 
 引擎自带的UKismetMaterialLibrary::SetScalarParameterValue和我们自己手动编写的MySetScalarParameterValue，会触发材质参数集合的蓝图节点验证检测。如果没有指定ParameterName，则会产生编译错误。而没有MaterialParameterCollectionFunction标记的MySetScalarParameterValue_NoError函数版本则只是当作一个普通的函数一样，一是不会自动提取MPC中的Parameters集合来选择，二是没有ParameterName为空的错误验证。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Material\MaterialParameterCollectionFunction\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Material\MaterialParameterCollectionFunction\Untitled.png)
 
 ## 原理：
 
@@ -19729,7 +19561,6 @@ MaterialParameterCollectionFunction这个标记的，会采用UK2Node_CallMateri
 
 引擎源码内采用MaterialParameterCollectionFunction标记的函数只有UKismetMaterialLibrary里的函数。
 
-
 ﻿# MaterialNewHLSLGenerator
 
 - **功能描述：** 标识该UMaterialExpression为采用新HLSL生成器的节点，当前在材质蓝图右键菜单中隐藏。
@@ -19759,7 +19590,7 @@ class UMaterialExpressionLess : public UMaterialExpressionBinaryOp
 
 材质蓝图里无法调用Less。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Material\MaterialNewHLSLGenerator\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Material\MaterialNewHLSLGenerator\Untitled.png)
 
 ## 原理：
 
@@ -19780,7 +19611,7 @@ void MaterialExpressionClasses::InitMaterialExpressionClasses()
 		static const auto CVarMaterialEnableNewHLSLGenerator = IConsoleManager::Get().FindTConsoleVariableDataInt(TEXT("r.MaterialEnableNewHLSLGenerator"));
 		const bool bEnableControlFlow = AllowMaterialControlFlow();
 		const bool bEnableNewHLSLGenerator = CVarMaterialEnableNewHLSLGenerator->GetValueOnAnyThread() != 0;
-	
+
 		for( TObjectIterator<UClass> It ; It ; ++It )
 		{
 			if( Class->IsChildOf(UMaterialExpression::StaticClass()) )
@@ -19790,12 +19621,12 @@ void MaterialExpressionClasses::InitMaterialExpressionClasses()
 					{
 									continue;
 					}
-					
+
 					if (!bEnableNewHLSLGenerator && Class->HasMetaData("MaterialNewHLSLGenerator"))
 					{
 									continue;
 					}
-					
+
 					// Hide node types that are tagged private
 					if(Class->HasMetaData(TEXT("Private")))
 					{
@@ -19806,7 +19637,6 @@ void MaterialExpressionClasses::InitMaterialExpressionClasses()
 		}
 }
 ```
-
 
 ﻿# ShowAsInputPin
 
@@ -19846,7 +19676,7 @@ MyFloat_Primary显示在节点上。
 
 MyFloat_Advanced需要展开箭头后才显示出来。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Material\ShowAsInputPin\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Material\ShowAsInputPin\Untitled.png)
 
 ## 原理：
 
@@ -19911,7 +19741,6 @@ TArray<FProperty*> UMaterialExpression::GetPropertyInputs() const
 }
 ```
 
-
 ﻿# MaterialControlFlow
 
 - **功能描述：** 标识该UMaterialExpression为一个控制流节点，当前在材质蓝图右键菜单中隐藏。
@@ -19941,7 +19770,7 @@ class UMaterialExpressionIfThenElse : public UMaterialExpression
 
 可以找到If节点，但是无法调用IfThenElse节点。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Material\MaterialControlFlow\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Material\MaterialControlFlow\Untitled.png)
 
 ## 原理：
 
@@ -19961,7 +19790,7 @@ void MaterialExpressionClasses::InitMaterialExpressionClasses()
 		static const auto CVarMaterialEnableNewHLSLGenerator = IConsoleManager::Get().FindTConsoleVariableDataInt(TEXT("r.MaterialEnableNewHLSLGenerator"));
 		const bool bEnableControlFlow = AllowMaterialControlFlow();
 		const bool bEnableNewHLSLGenerator = CVarMaterialEnableNewHLSLGenerator->GetValueOnAnyThread() != 0;
-	
+
 		for( TObjectIterator<UClass> It ; It ; ++It )
 		{
 			if( Class->IsChildOf(UMaterialExpression::StaticClass()) )
@@ -19971,12 +19800,12 @@ void MaterialExpressionClasses::InitMaterialExpressionClasses()
 					{
 									continue;
 					}
-					
+
 					if (!bEnableNewHLSLGenerator && Class->HasMetaData("MaterialNewHLSLGenerator"))
 					{
 									continue;
 					}
-					
+
 					// Hide node types that are tagged private
 					if(Class->HasMetaData(TEXT("Private")))
 					{
@@ -19987,7 +19816,6 @@ void MaterialExpressionClasses::InitMaterialExpressionClasses()
 		}
 }
 ```
-
 
 ﻿# OverridingInputProperty
 
@@ -20064,7 +19892,7 @@ public:
 
 右侧的材质最终输出表达式上的各个引脚更是有各种情况来让大家参考。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Material\OverridingInputProperty\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Material\OverridingInputProperty\Untitled.png)
 
 ## 原理：
 
@@ -20136,7 +19964,6 @@ bool UMaterialExpression::CanEditChange(const FProperty* InProperty) const
 }
 
 ```
-
 
 ﻿# RequiredInput
 
@@ -20222,7 +20049,6 @@ bool UMaterialExpression::CanEditChange(const FProperty* InProperty) const
 
 ```
 
-
 ﻿# Private
 
 - **功能描述：** 标识该UMaterialExpression为私有节点，当前在材质蓝图右键菜单中隐藏。
@@ -20252,7 +20078,7 @@ class UMyMaterialExpression_Private : public UMaterialExpression
 
 材质蓝图里只能调用UMyMaterialExpression_NotPrivate 。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Material\Private\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Material\Private\Untitled.png)
 
 ## 原理：
 
@@ -20273,7 +20099,7 @@ void MaterialExpressionClasses::InitMaterialExpressionClasses()
 		static const auto CVarMaterialEnableNewHLSLGenerator = IConsoleManager::Get().FindTConsoleVariableDataInt(TEXT("r.MaterialEnableNewHLSLGenerator"));
 		const bool bEnableControlFlow = AllowMaterialControlFlow();
 		const bool bEnableNewHLSLGenerator = CVarMaterialEnableNewHLSLGenerator->GetValueOnAnyThread() != 0;
-	
+
 		for( TObjectIterator<UClass> It ; It ; ++It )
 		{
 			if( Class->IsChildOf(UMaterialExpression::StaticClass()) )
@@ -20283,12 +20109,12 @@ void MaterialExpressionClasses::InitMaterialExpressionClasses()
 					{
 									continue;
 					}
-					
+
 					if (!bEnableNewHLSLGenerator && Class->HasMetaData("MaterialNewHLSLGenerator"))
 					{
 									continue;
 					}
-					
+
 					// Hide node types that are tagged private
 					if(Class->HasMetaData(TEXT("Private")))
 					{
@@ -20299,7 +20125,6 @@ void MaterialExpressionClasses::InitMaterialExpressionClasses()
 		}
 }
 ```
-
 
 ﻿# NiagaraClearEachFrame
 
@@ -20333,7 +20158,6 @@ if (DataSetIndex == 0 && Var.GetType().GetScriptStruct() != nullptr && Var.GetTy
 	Fmt = VariableName + TEXT("{0} = {4};\n");
 }
 ```
-
 
 ﻿# NiagaraInternalType
 
@@ -20422,7 +20246,6 @@ bool FNiagaraTypeDefinition::IsInternalType() const
 #endif
 ```
 
-
 ﻿# CtrlMultiplier
 
 - **功能描述：** 指定数字输入框在Ctrl按下时鼠标轮滚动和鼠标拖动改变值的倍率。
@@ -20464,7 +20287,7 @@ bool FNiagaraTypeDefinition::IsInternalType() const
 - MyVector_HasShiftMultiplier，发现按下Shift，一下子改变幅度是100
 - 当然用鼠标拖动也是一样的效果，只是那样改变太过剧烈，演示效果不明显
 
-![Multipiler](D:\github\UnrealSpecifiers\Doc\Meta\Numeric\CtrlMultiplier\Multipiler.gif)
+![Multipiler](D:\github\UnrealSpecifiers\Doc\zh\Meta\Numeric\CtrlMultiplier\Multipiler.gif)
 
 ## 原理：
 
@@ -20478,7 +20301,7 @@ void FMathStructCustomization::MakeHeaderRow(TSharedRef<class IPropertyHandle>& 
 	for (int32 ChildIndex = 0; ChildIndex < SortedChildHandles.Num(); ++ChildIndex)
 	{
 		TSharedRef<IPropertyHandle> ChildHandle = SortedChildHandles[ChildIndex];
-	
+
 		// Propagate metadata to child properties so that it's reflected in the nested, individual spin boxes
 		ChildHandle->SetInstanceMetaData(TEXT("UIMin"), StructPropertyHandle->GetMetaData(TEXT("UIMin")));
 		ChildHandle->SetInstanceMetaData(TEXT("UIMax"), StructPropertyHandle->GetMetaData(TEXT("UIMax")));
@@ -20495,7 +20318,6 @@ void FMathStructCustomization::MakeHeaderRow(TSharedRef<class IPropertyHandle>& 
 }
 ```
 
-
 ﻿# ShiftMultiplier
 
 - **功能描述：** 指定数字输入框在Shift按下时鼠标轮滚动和鼠标拖动改变值的倍率。
@@ -20509,7 +20331,6 @@ void FMathStructCustomization::MakeHeaderRow(TSharedRef<class IPropertyHandle>& 
 默认值是10.f
 
 Shift的模式可以认为是一种快调模式，可以快速的改变值。
-
 
 ﻿# SliderExponent
 
@@ -20540,7 +20361,7 @@ public:
 
 可见SliderExponent=5的效果导致100的文本值落在UI 1000的范围内一开始就处于快0.3的位置，且变动的范围在500前比较精细，500后比较迅速。跟前者形成对比。
 
-![SliderExponent](D:\github\UnrealSpecifiers\Doc\Meta\Numeric\SliderExponent\SliderExponent.gif)
+![SliderExponent](D:\github\UnrealSpecifiers\Doc\zh\Meta\Numeric\SliderExponent\SliderExponent.gif)
 
 ## 原理：
 
@@ -20562,7 +20383,6 @@ if (!FMath::IsNearlyEqual(CachedSliderExponent, 1.f))
 	}
 }
 ```
-
 
 ﻿# Multiple
 
@@ -20590,7 +20410,7 @@ public:
 
 可以看到，拥有Multiple 的只能按照5的倍数来增长。
 
-![Multiple](D:\github\UnrealSpecifiers\Doc\Meta\Numeric\Multiple\Multiple.gif)
+![Multiple](D:\github\UnrealSpecifiers\Doc\zh\Meta\Numeric\Multiple\Multiple.gif)
 
 ## 原理：
 
@@ -20617,7 +20437,6 @@ static Type ClampIntegerValueFromMetaData(Type InValue, FPropertyHandleBase& InP
 }
 ```
 
-
 ﻿# Units
 
 - **功能描述：** 设定属性值的单位，支持实时根据数值不同动态改变显示的单位。
@@ -20636,7 +20455,7 @@ Units的作用不光是设定单位，而且隐含着这个显示的单位字符
 
 要实现自动的调整显示单位的功能，首先需要在项目设置里设置单位系列。比如下图就在距离上设置了厘米，米，千米，毫米的单位（顺序不重要）。然后之后数字框显示距离的单位时就可以在这4者之间转换。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Numeric\Units\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Numeric\Units\Untitled.png)
 
 ## 测试代码：
 
@@ -20657,7 +20476,7 @@ float MyFloat_HasForceUnits_Distance = 100.f;
 - 发现采用Units的属性，会自动的根据值的不同调整单位。而且也接受数字+单位的输入。
 - 发现采用ForceUnits的属性，也可以接受数字+单位的输入，但是在显示上却始终显示为cm，不会调整到别的单位。
 
-![Unit](D:\github\UnrealSpecifiers\Doc\Meta\Numeric\Units\Unit.gif)
+![Unit](D:\github\UnrealSpecifiers\Doc\zh\Meta\Numeric\Units\Unit.gif)
 
 ## 原理：
 
@@ -20694,7 +20513,7 @@ void SPropertyEditorNumeric<NumericType>::Construct( const FArguments& InArgs, c
 					PropertyUnits = FUnitConversion::UnitFromString(*MetaDataGetter.Execute("Units"));
 				}
 			}
-		
+
 			if (!PropertyUnits.IsSet())
 			{
 				PropertyUnits = EUnit::Unspecified;
@@ -20733,7 +20552,7 @@ FString TNumericUnitTypeInterface<NumericType>::ToString(const NumericType& Valu
 				return ToUnitString(Converted.GetValue());
 			}
 		}
-		
+
 		if (FixedDisplayUnits.IsSet())
 		{
 			auto Converted = FinalValue.ConvertTo(FixedDisplayUnits.GetValue());
@@ -20743,10 +20562,9 @@ FString TNumericUnitTypeInterface<NumericType>::ToString(const NumericType& Valu
 			}
 		}
 }
-	
+
 
 ```
-
 
 ﻿# ForceUnits
 
@@ -20757,7 +20575,6 @@ FString TNumericUnitTypeInterface<NumericType>::ToString(const NumericType& Valu
 - **限制类型：** float,int32
 - **关联项：** Units
 - **常用程度：** ★★★
-
 
 ﻿# Delta
 
@@ -20800,7 +20617,7 @@ FString TNumericUnitTypeInterface<NumericType>::ToString(const NumericType& Valu
 - MyFloat_Delta10_LinearDeltaSensitivity50 ，在没有UIMinMax的情况下，且同时设置了LinearDeltaSensitivity，会导致鼠标往右拖动的整个过程中变化值始终是线性。LinearDeltaSensitivity越大越不敏感。因此一次一次缓慢的改变10
 - MyFloat_Delta10_LinearDeltaSensitivity50_UIMinMax ，如果上面一个再加上UIMinMax，则发现又失去了LinearDeltaSensitivity的效果。因为LinearDeltaSensitivity不能在有滚动条的情况下生效。
 
-![Delta](D:\github\UnrealSpecifiers\Doc\Meta\Numeric\Delta\Delta.gif)
+![Delta](D:\github\UnrealSpecifiers\Doc\zh\Meta\Numeric\Delta\Delta.gif)
 
 ## 原理：
 
@@ -20818,7 +20635,7 @@ virtual FReply SSpinBox<NumericType>::OnMouseMove(const FGeometry& MyGeometry, c
 		{
 				// If this control has a specified delta and sensitivity then we use that instead of the current value for determining how much to change.
 				const double Sign = (MouseEvent.GetCursorDelta().X > 0) ? 1.0 : -1.0;
-				
+
 				if (LinearDeltaSensitivity.IsSet() && LinearDeltaSensitivity.Get() != 0 && Delta.IsSet() && Delta.Get() > 0)
 				{
 								const double MouseDelta = FMath::Abs(MouseEvent.GetCursorDelta().X / (float)LinearDeltaSensitivity.Get());
@@ -20871,7 +20688,6 @@ void SSpinBox<NumericType>::CommitValue(NumericType NewValue, double NewSpinValu
 
 ```
 
-
 ﻿# LinearDeltaSensitivity
 
 - **功能描述：** 在设定Delta后，进一步设定数字输入框变成线性改变以及改变的敏感度（值越大越不敏感）
@@ -20903,7 +20719,7 @@ void SSpinBox<NumericType>::CommitValue(NumericType NewValue, double NewSpinValu
 
 效果解析请参见：Delta的解析
 
-![Delta](D:\github\UnrealSpecifiers\Doc\Meta\Numeric\Delta\Delta.gif)
+![Delta](D:\github\UnrealSpecifiers\Doc\zh\Meta\Numeric\Delta\Delta.gif)
 
 ## 原理：
 
@@ -20917,7 +20733,7 @@ virtual FReply SSpinBox<NumericType>::OnMouseMove(const FGeometry& MyGeometry, c
 		{
 				// If this control has a specified delta and sensitivity then we use that instead of the current value for determining how much to change.
 				const double Sign = (MouseEvent.GetCursorDelta().X > 0) ? 1.0 : -1.0;
-				
+
 				if (LinearDeltaSensitivity.IsSet() && LinearDeltaSensitivity.Get() != 0 && Delta.IsSet() && Delta.Get() > 0)
 				{
 								const double MouseDelta = FMath::Abs(MouseEvent.GetCursorDelta().X / (float)LinearDeltaSensitivity.Get());
@@ -20933,7 +20749,6 @@ virtual FReply SSpinBox<NumericType>::OnMouseMove(const FGeometry& MyGeometry, c
 }
 
 ```
-
 
 ﻿# UIMin
 
@@ -20970,7 +20785,7 @@ UIMin-UIMax和ClampMin-ClampMax的区别是，UI系列阻止用户在拖动鼠�
 - 从MyFloat_HasMinMax_Clamp 发现，ClampMin，ClampMax 会同时限制UI和手动输入的范围。
 - 从MyFloat_HasMinMax_ClampAndUI和MyFloat_HasMinMax_ClampAndUI2发现，UI的滚动条会取UI的限制和Clamp限制的更窄范围，而实际输入值也是会被限制在更窄的范围内。
 
-![MinMax2](D:\github\UnrealSpecifiers\Doc\Meta\Numeric\UIMin\MinMax2.gif)
+![MinMax2](D:\github\UnrealSpecifiers\Doc\zh\Meta\Numeric\UIMin\MinMax2.gif)
 
 ## 原理：
 
@@ -20994,7 +20809,7 @@ struct TNumericPropertyParams
 		ForcedUnits = MetaDataGetter.Execute("ForceUnits");
 		WheelStepString = MetaDataGetter.Execute("WheelStep");
 	}
-	
+
 	TOptional<NumericType> MinValue;
 	TOptional<NumericType> MaxValue;
 	TOptional<NumericType> MinSliderValue;
@@ -21035,8 +20850,8 @@ SAssignNew(SpinBox, SSpinBox<NumericType>)
 	.MinDesiredWidth(InArgs._MinDesiredValueWidth)
 	.TypeInterface(Interface)
 	.ToolTipText(this, &SNumericEntryBox<NumericType>::GetValueAsText);
-	
-	
+
+
 //最后
 void SSpinBox<NumericType>::CommitValue(NumericType NewValue, double NewSpinValue, ECommitMethod CommitMethod, ETextCommit::Type OriginalCommitInfo)
 {
@@ -21047,17 +20862,17 @@ void SSpinBox<NumericType>::CommitValue(NumericType NewValue, double NewSpinValu
 		NewValue = FMath::Clamp<NumericType>(NewValue, LocalMinSliderValue, LocalMaxSliderValue);
 		NewSpinValue = FMath::Clamp<double>(NewSpinValue, (double)LocalMinSliderValue, (double)LocalMaxSliderValue);
 	}
-	
+
 	{
 		const NumericType LocalMinValue = GetMinValue();
 		const NumericType LocalMaxValue = GetMaxValue();
 		NewValue = FMath::Clamp<NumericType>(NewValue, LocalMinValue, LocalMaxValue);
 		NewSpinValue = FMath::Clamp<double>(NewSpinValue, (double)LocalMinValue, (double)LocalMaxValue);
 	}
-	
+
 	// Update the internal value, this needs to be done before rounding.
 	InternalValue = NewSpinValue;
-	
+
 	const bool bAlwaysUsesDeltaSnap = GetAlwaysUsesDeltaSnap();
 	// If needed, round this value to the delta. Internally the value is not held to the Delta but externally it appears to be.
 	if (CommitMethod == CommittedViaSpin || CommitMethod == CommittedViaArrowKey || bAlwaysUsesDeltaSnap)
@@ -21068,7 +20883,7 @@ void SSpinBox<NumericType>::CommitValue(NumericType NewValue, double NewSpinValu
 			NewValue = FMath::GridSnap<NumericType>(NewValue, CurrentDelta); // snap numeric point value to nearest Delta
 		}
 	}
-	
+
 	// Update the max slider value based on the current value if we're in dynamic mode
 	if (SupportDynamicSliderMaxValue.Get() && ValueAttribute.Get() > GetMaxSliderValue())
 	{
@@ -21082,7 +20897,6 @@ void SSpinBox<NumericType>::CommitValue(NumericType NewValue, double NewSpinValu
 
 ```
 
-
 ﻿# UIMax
 
 - **功能描述：** 指定数字输入框上滚动条拖动的最大范围值
@@ -21092,7 +20906,6 @@ void SSpinBox<NumericType>::CommitValue(NumericType NewValue, double NewSpinValu
 - **限制类型：** float,int32
 - **关联项：** UIMin
 - **常用程度：** ★★★★★
-
 
 ﻿# ClampMin
 
@@ -21104,7 +20917,6 @@ void SSpinBox<NumericType>::CommitValue(NumericType NewValue, double NewSpinValu
 - **关联项：** UIMin
 - **常用程度：** ★★★★★
 
-
 ﻿# ClampMax
 
 - **功能描述：** 指定数字输入框实际接受的最大值
@@ -21114,7 +20926,6 @@ void SSpinBox<NumericType>::CommitValue(NumericType NewValue, double NewSpinValu
 - **限制类型：** float,int32
 - **关联项：** UIMin
 - **常用程度：** ★★★★★
-
 
 ﻿# SupportDynamicSliderMinValue
 
@@ -21148,7 +20959,7 @@ void SSpinBox<NumericType>::CommitValue(NumericType NewValue, double NewSpinValu
 
 可以看见MyVector4_NoDynamicSlider并无法更改0-1的滚动条范围。而MyVector4_SupportDynamicSlider在按下Alt同时拖动鼠标后可以改变最小和最大的UI范围。
 
-![DynamicSlider](D:\github\UnrealSpecifiers\Doc\Meta\Numeric\SupportDynamicSliderMinValue\DynamicSlider.gif)
+![DynamicSlider](D:\github\UnrealSpecifiers\Doc\zh\Meta\Numeric\SupportDynamicSliderMinValue\DynamicSlider.gif)
 
 ## 原理：
 
@@ -21184,13 +20995,13 @@ void SPropertyEditorNumeric<NumericType>::Construct( const FArguments& InArgs, c
 		.TypeInterface(TypeInterface)
 	];
 	}
-	
+
 	virtual FReply OnMouseMove(const FGeometry& MyGeometry, const FPointerEvent& MouseEvent) override
 	{
 			if (MouseEvent.IsAltDown())
 			{
 							float DeltaToAdd = (float)MouseEvent.GetCursorDelta().X / SliderWidthInSlateUnits;
-			
+
 							if (SupportDynamicSliderMaxValue.Get() && (NumericType)InternalValue == GetMaxSliderValue())
 							{
 								ApplySliderMaxValueChanged(DeltaToAdd, false);
@@ -21203,7 +21014,6 @@ void SPropertyEditorNumeric<NumericType>::Construct( const FArguments& InArgs, c
 	}
 ```
 
-
 ﻿# SupportDynamicSliderMaxValue
 
 - **功能描述：** 支持数字输入框上滚动条的最大范围值在Alt按下时被动态改变
@@ -21213,7 +21023,6 @@ void SPropertyEditorNumeric<NumericType>::Construct( const FArguments& InArgs, c
 - **限制类型：** FVector4
 - **关联项：** SupportDynamicSliderMinValue
 - **常用程度：** ★
-
 
 ﻿# ArrayClamp
 
@@ -21244,7 +21053,7 @@ public:
 
 可见拥有ArrayClamp的整数值被限制在数组的下标中。
 
-![ArrayClamp](D:\github\UnrealSpecifiers\Doc\Meta\Numeric\ArrayClamp\ArrayClamp.gif)
+![ArrayClamp](D:\github\UnrealSpecifiers\Doc\zh\Meta\Numeric\ArrayClamp\ArrayClamp.gif)
 
 ## 原理：
 
@@ -21276,14 +21085,13 @@ static Type ClampIntegerValueFromMetaData(Type InValue, FPropertyHandleBase& InP
 }
 ```
 
-
 ﻿# HideAlphaChannel
 
 - **功能描述：** 使FColor或FLinearColor属性在编辑的时候隐藏Alpha通道。
 - **使用位置：** UPROPERTY
 - **引擎模块：** Numeric Property
 - **元数据类型：** bool
-- **限制类型：** FColor , FLinearColor 
+- **限制类型：** FColor , FLinearColor
 - **常用程度：** ★★★
 
 使FColor或FLinearColor属性在编辑的时候隐藏Alpha通道。
@@ -21309,7 +21117,7 @@ public:
 
 可见带有HideAlphaChannel的属性就没有了Alpha通道。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Numeric\HideAlphaChannel\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Numeric\HideAlphaChannel\Untitled.png)
 
 ## 原理：
 
@@ -21322,7 +21130,6 @@ void FColorStructCustomization::CustomizeHeader(TSharedRef<class IPropertyHandle
 .AlphaDisplayMode(bIgnoreAlpha ? EColorBlockAlphaDisplayMode::Ignore : EColorBlockAlphaDisplayMode::Separate)
 
 ```
-
 
 ﻿# AllowPreserveRatio
 
@@ -21353,7 +21160,7 @@ public:
 
 可见MyVector_AllowPreserveRatio的值在锁上之后可以形成固定的比率。
 
-![AllowPreserveRatio](D:\github\UnrealSpecifiers\Doc\Meta\Numeric\AllowPreserveRatio\AllowPreserveRatio.gif)
+![AllowPreserveRatio](D:\github\UnrealSpecifiers\Doc\zh\Meta\Numeric\AllowPreserveRatio\AllowPreserveRatio.gif)
 
 ## 原理：
 
@@ -21368,7 +21175,7 @@ void FMathStructCustomization::MakeHeaderRow(TSharedRef<class IPropertyHandle>& 
 			{
 				bPreserveScaleRatio = true;
 			}
-		
+
 			HorizontalBox->AddSlot()
 			.AutoWidth()
 			.MaxWidth(18.0f)
@@ -21390,7 +21197,6 @@ void FMathStructCustomization::MakeHeaderRow(TSharedRef<class IPropertyHandle>& 
 
 }
 ```
-
 
 ﻿# NoSpinbox
 
@@ -21424,7 +21230,7 @@ public:
 
 发现带有NoSpinbox 的属性不能用鼠标左右拖动改变数值，也不能用鼠标滚轮改变数值。
 
-![SpinBoxTest](D:\github\UnrealSpecifiers\Doc\Meta\Numeric\NoSpinbox\SpinBoxTest.gif)
+![SpinBoxTest](D:\github\UnrealSpecifiers\Doc\zh\Meta\Numeric\NoSpinbox\SpinBoxTest.gif)
 
 ## 原理：
 
@@ -21439,12 +21245,12 @@ virtual TSharedRef<SWidget>	GetDefaultValueWidget() override
 		});
 
 	TNumericPropertyParams<NumericType> NumericPropertyParams(PinProperty, PinProperty ? MetaDataGetter : nullptr);
-	
+
 	const bool bAllowSpin = !(PinProperty && PinProperty->GetBoolMetaData("NoSpinbox"));
 
 	// Save last committed value to compare when value changes
 	LastSliderCommittedValue = GetNumericValue().GetValue();
-	
+
 	return SNew(SBox)
 		.MinDesiredWidth(MinDesiredBoxWidth)
 		.MaxDesiredWidth(400)
@@ -21473,14 +21279,13 @@ virtual TSharedRef<SWidget>	GetDefaultValueWidget() override
 }
 ```
 
-
 ﻿# sRGB
 
 - **功能描述：** 使FColor或FLinearColor属性在编辑的时候采用sRGB方式。
 - **使用位置：** UPROPERTY
 - **引擎模块：** Numeric Property
 - **元数据类型：** bool
-- **限制类型：** FColor , FLinearColor 
+- **限制类型：** FColor , FLinearColor
 
 使FColor或FLinearColor属性在编辑的时候采用sRGB方式。
 
@@ -21500,7 +21305,6 @@ void FColorStructCustomization::CustomizeHeader(TSharedRef<class IPropertyHandle
 }
 
 ```
-
 
 ﻿# WheelStep
 
@@ -21537,7 +21341,7 @@ MyFloat_SmallWheelStep的UI范围只有10，则默认改变幅度0.1
 
 指定WheelStep =10，则一下子变化10
 
-![WheelStep2](D:\github\UnrealSpecifiers\Doc\Meta\Numeric\WheelStep\WheelStep2.gif)
+![WheelStep2](D:\github\UnrealSpecifiers\Doc\zh\Meta\Numeric\WheelStep\WheelStep2.gif)
 
 ## 原理：
 
@@ -21579,14 +21383,13 @@ MyFloat_SmallWheelStep的UI范围只有10，则默认改变幅度0.1
 	}
 ```
 
-
 ﻿# InlineColorPicker
 
 - **功能描述：** 使FColor或FLinearColor属性在编辑的时候直接内联一个颜色选择器。
 - **使用位置：** UPROPERTY
 - **引擎模块：** Numeric Property
 - **元数据类型：** bool
-- **限制类型：** FColor , FLinearColor 
+- **限制类型：** FColor , FLinearColor
 - **常用程度：** ★★
 
 使FColor或FLinearColor属性在编辑的时候直接内联一个颜色选择器。
@@ -21603,7 +21406,7 @@ public:
 
 ## 测试结果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Numeric\InlineColorPicker\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Numeric\InlineColorPicker\Untitled.png)
 
 ## 原理：
 
@@ -21624,7 +21427,6 @@ void FColorStructCustomization::MakeHeaderRow(TSharedRef<class IPropertyHandle>&
 	}
 }
 ```
-
 
 ﻿# ShowNormalize
 
@@ -21654,7 +21456,7 @@ void FColorStructCustomization::MakeHeaderRow(TSharedRef<class IPropertyHandle>&
 
 MyVector_ShowNormalize右侧的按钮可以把值正规化。
 
-![AllowPreserveRatio](D:\github\UnrealSpecifiers\Doc\Meta\Numeric\ShowNormalize\AllowPreserveRatio.gif)
+![AllowPreserveRatio](D:\github\UnrealSpecifiers\Doc\zh\Meta\Numeric\ShowNormalize\AllowPreserveRatio.gif)
 
 ## 原理：
 
@@ -21676,12 +21478,11 @@ if (StructPropertyHandle->HasMetaData("ShowNormalize") && MathStructCustomizatio
 				[
 					SNew(SImage)
 						.ColorAndOpacity(FSlateColor::UseForeground())
-						.Image(FAppStyle::GetBrush(TEXT("Icons.Normalize")))	
+						.Image(FAppStyle::GetBrush(TEXT("Icons.Normalize")))
 				]
 		];
 }
 ```
-
 
 ﻿# ColorGradingMode
 
@@ -21718,7 +21519,7 @@ if (StructPropertyHandle->HasMetaData("ShowNormalize") && MathStructCustomizatio
 
 可以发现没有ColorGradingMode 的依然是普通的FVector4，否则就会用颜色转盘来显示编辑。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Numeric\ColorGradingMode\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Numeric\ColorGradingMode\Untitled.png)
 
 ## 原理：
 
@@ -21738,7 +21539,7 @@ void FVector4StructCustomization::CustomizeChildren(TSharedRef<IPropertyHandle> 
 
 			//Customize the childrens
 			ColorGradingVectorCustomization->CustomizeChildren(StructBuilder, StructCustomizationUtils);
-			
+
 			// We handle the customize Children so just return here
 			return;
 		}
@@ -21787,7 +21588,6 @@ EColorGradingModes FColorGradingVectorCustomizationBase::GetColorGradingMode() c
 }
 ```
 
-
 ﻿# DisplayThumbnail
 
 - **功能描述：** 指定是否在该属性左侧显示一个缩略图。
@@ -21829,7 +21629,7 @@ public:
 
 MyActor_DisplayThumbnail出现了缩略图的图标，但是发现并没有显示出正确的说了图。AActor在默认情况下是不显示缩略图的。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Object\DisplayThumbnail\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Object\DisplayThumbnail\Untitled.png)
 
 ## 原理：
 
@@ -21869,7 +21669,6 @@ bool SPropertyEditorAsset::ShouldDisplayThumbnail(const FArguments& InArgs, cons
 }
 ```
 
-
 ﻿# ThumbnailSize
 
 - **功能描述：** 改变缩略图的大小。
@@ -21906,14 +21705,13 @@ if ( ThumbnailSizeString.Len() > 0 )
 }
 ```
 
-
 ﻿# LoadBehavior
 
 - **功能描述：** 用在UCLASS上标记这个类的加载行为，使得相应的TObjectPtr属性支持延迟加载。可选的加载行为默认为Eager，可改为LazyOnDemand。
 - **使用位置：** UCLASS
 - **引擎模块：** Object Property
 - **元数据类型：** string="abc"
-- **限制类型：** TObjectPtr 
+- **限制类型：** TObjectPtr
 - **常用程度：** ★
 
 用在UCLASS上标记这个类的加载行为，使得相应的TObjectPtr属性支持延迟加载。可选的加载行为默认为Eager，可改为LazyOnDemand。
@@ -22001,7 +21799,7 @@ LazyLoadImports=True
 - 其中MyLazyOnDemand_AssetPtr和MyLazyOnDemand_AssetPtr_EagerOnProperty的ObjectPtr的值是还没有Resolved的，其他的都可以查看到直接对象的值。
 - 可以得出的结论有，只有在UCLASS上标记LazyOnDemand才可以使得延迟加载生效。在属性上标记LoadBehavior 并不会起作用。直接UObject*的属性统统都会直接加载。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Object\LoadBehavior\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Object\LoadBehavior\Untitled.png)
 
 ## 原理：
 
@@ -22063,7 +21861,6 @@ EImportBehavior FindLoadBehavior(const UClass& Class)
 #endif
 	}
 ```
-
 
 ﻿# ShowInnerProperties
 
@@ -22133,22 +21930,22 @@ public:
 	FMyPropertyInner InnerStruct;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (ShowInnerProperties))
 	FMyPropertyInner InnerStruct_ShowInnerProperties;
-	
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UMyProperty_InnerSub* InnerObject;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (ShowInnerProperties))
 	UMyProperty_InnerSub* InnerObject_ShowInnerProperties;
-	
+
 	//(Category = MyProperty_Inner, EditInline = , ModuleRelativePath = Property/MyProperty_Inner.h)
-	//CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (EditInline))
 	UMyProperty_InnerSub* InnerObject_EditInline;
-	
+
 	//(Category = MyProperty_Inner, EditInline = true, ModuleRelativePath = Property/MyProperty_Inner.h)
-	//CPF_Edit | CPF_BlueprintVisible | CPF_ExportObject | CPF_ZeroConstructor | CPF_InstancedReference | CPF_NoDestructor | CPF_PersistentInstance | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
+	//CPF_Edit | CPF_BlueprintVisible | CPF_ExportObject | CPF_ZeroConstructor | CPF_InstancedReference | CPF_NoDestructor | CPF_PersistentInstance | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Instanced)
 	UMyProperty_InnerSub* InnerObject_Instanced;
-	
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UMyProperty_InnerSub_EditInlineNew* InnerObject_EditInlineNewClass;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (EditInline))
@@ -22200,7 +21997,7 @@ void UMyProperty_Inner::InitInnerObject()
 
 ## 蓝图效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Object\ShowInnerProperties\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Object\ShowInnerProperties\Untitled.png)
 
 可以观察到：
 
@@ -22239,7 +22036,7 @@ void UMyProperty_Inner::AddActorMeta()
 
 ## 对比效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Object\ShowInnerProperties\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Object\ShowInnerProperties\Untitled%201.png)
 
 可以发现，去除ShowInnerProperties后，ChildActorTemplate属性退化成一个普通的对象引用，我们无法在上面直接编辑对象的内部属性。
 
@@ -22262,10 +22059,10 @@ void FPropertyNode::InitNode(const FPropertyNodeInitParams& InitParams)
 {
 		const bool bIsObjectOrInterface = CastField<FObjectPropertyBase>(MyProperty) || CastField<FInterfaceProperty>(MyProperty);
 		// we are EditInlineNew if this property has the flag, or if inside a container that has the flag.
-		bIsEditInlineNew = GotReadAddresses && bIsObjectOrInterface && !MyProperty->HasMetaData(Name_NoEditInline) && 
+		bIsEditInlineNew = GotReadAddresses && bIsObjectOrInterface && !MyProperty->HasMetaData(Name_NoEditInline) &&
 			(MyProperty->HasMetaData(Name_EditInline) || (bIsInsideContainer && OwnerProperty->HasMetaData(Name_EditInline)));
 		bShowInnerObjectProperties = bIsObjectOrInterface && MyProperty->HasMetaData(Name_ShowInnerProperties);
-		
+
 		if (bIsEditInlineNew)
 		{
 			SetNodeFlags(EPropertyNodeFlags::EditInlineNew, true);
@@ -22312,7 +22109,6 @@ void FPropertyNode::RebuildChildren()
 
 特别注意，这里的bShowInnerObjectProperties的判断条件是bIsObjectOrInterface 且有meta，因此该特性只作用于对象引用上。然后如果判断有EPropertyNodeFlags::ShowInnerObjectProperties，则继续设置EPropertyNodeFlags::CanBeExpanded，最后导致展开对象的属性。
 
-
 ﻿# ShowOnlyInnerProperties
 
 - **功能描述：** 把结构属性的内部属性直接上提一个层级直接展示
@@ -22336,7 +22132,7 @@ FMyPropertyInner InnerStruct_ShowOnlyInnerProperties;
 
 ## 效果对比：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Object\ShowOnlyInnerProperties\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Object\ShowOnlyInnerProperties\Untitled.png)
 
 可以发现InnerStruct_ShowOnlyInnerProperties的内部属性直接就显示在对象的当前层级上，而InnerStruct的属性有一个结构名称作为Category来展开。
 
@@ -22349,12 +22145,12 @@ void DetailLayoutHelpers::UpdateSinglePropertyMapRecursive(FPropertyNode& InNode
 {
 		static FName ShowOnlyInners("ShowOnlyInnerProperties");
 		// Whether or not to push out struct properties to their own categories or show them inside an expandable struct
-		// This recursively applies for any nested structs that have the ShowOnlyInners metadata 
+		// This recursively applies for any nested structs that have the ShowOnlyInners metadata
 		const bool bPushOutStructProps = bIsStruct && !bIsCustomizedStruct && Property->HasMetaData(ShowOnlyInners);
-		
+
 		if (bRecurseIntoChildren || LocalUpdateFavoriteSystemOnly)
 		{
-						// Built in struct properties or children of arras 
+						// Built in struct properties or children of arras
 						UpdateSinglePropertyMapRecursive(ChildNode, CurCategory, CurObjectNode, ChildArgs);
 		}
 
@@ -22374,10 +22170,9 @@ void FObjectPropertyNode::GetCategoryProperties(const TSet<UClass*>& ClassesToCo
 					}
 				}
 			}
-			
+
 }
 ```
-
 
 ﻿# FullyExpand
 
@@ -22398,7 +22193,6 @@ void FObjectPropertyNode::GetCategoryProperties(const TSet<UClass*>& ClassesToCo
 	UPROPERTY(EditAnywhere, Instanced, Category = "Options", meta=(ShowInnerProperties, FullyExpand="true"))
 	TObjectPtr<UMovieGraphValueContainer> SelectedOption;
 ```
-
 
 ﻿# CollapsableChildProperties
 
@@ -22430,14 +22224,13 @@ bool STG_GraphPinOutputSettings::CollapsibleChildProperties() const
 	FTG_OutputSettings OutputSettings;
 ```
 
-
 ﻿# Untracked
 
 - **功能描述：** 使得TSoftObjectPtr和FSoftObjectPath的软对象引用类型的属性，不跟踪记录资产的 。
 - **使用位置：** UPROPERTY
 - **引擎模块：** Object Property
 - **元数据类型：** bool
-- **限制类型：** TSoftObjectPtr，FSoftObjectPath 
+- **限制类型：** TSoftObjectPtr，FSoftObjectPath
 - **常用程度：** ★
 
 使得TSoftObjectPtr和FSoftObjectPath的软对象引用类型的属性，不跟踪记录资产的 。
@@ -22476,7 +22269,7 @@ public:
 
 在蓝图中建立一个UMyProperty_Soft DataAsset资产，然后设置其属性值。然后查看其引用的资源，会发现Untracked的属性，其设置的资产并没有出现在引用关系中。当然Transient的属性也不在引用关系中。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Object\Untracked\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Object\Untracked\Untitled.png)
 
 ## 原理：
 
@@ -22518,7 +22311,6 @@ FArchive& FImportExportCollector::operator<<(FSoftObjectPath& Value)
 }
 ```
 
-
 ﻿# HideAssetPicker
 
 - **功能描述：** 隐藏Object类型引脚上的AssetPicker的选择列表
@@ -22546,7 +22338,7 @@ FArchive& FImportExportCollector::operator<<(FSoftObjectPath& Value)
 
 默认的情况MyFunc_NoHideAssetPicker是可以弹出选择列表的。而MyFunc_HideAssetPicker则就隐藏了起来。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Object\HideAssetPicker\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Object\HideAssetPicker\Untitled.png)
 
 ## 原理：
 
@@ -22604,7 +22396,7 @@ bool UEdGraphSchema_K2::ShouldShowAssetPickerForPin(UEdGraphPin* Pin) const
 						}
 					}
 				}
-				else if (Cast<UK2Node_CreateDelegate>( Pin->GetOwningNode())) 
+				else if (Cast<UK2Node_CreateDelegate>( Pin->GetOwningNode()))
 				{
 					bShow = false;
 				}
@@ -22616,14 +22408,13 @@ bool UEdGraphSchema_K2::ShouldShowAssetPickerForPin(UEdGraphPin* Pin) const
 
 ```
 
-
 ﻿# AssetBundles
 
 - **功能描述：** 标明该属性其引用的资产属于哪一些AssetBundles。
 - **使用位置：** UPROPERTY
 - **引擎模块：** Object Property
 - **元数据类型：** strings="a，b，c"
-- **限制类型：** UPrimaryDataAsset内部的FSoftObjectPtr，FSoftObjectPath 
+- **限制类型：** UPrimaryDataAsset内部的FSoftObjectPtr，FSoftObjectPath
 - **关联项：** IncludeAssetBundles
 - **常用程度：** ★★★
 
@@ -22663,7 +22454,7 @@ public:
 - 当指定Bundle为Game的时候，可以看见Icon和Mesh都加载了进来。
 - 要注意在编辑器下测试时候，如果之前已经加载了Mesh，因为还常驻在编辑器内存里。因此即使是使用名字UI，也仍然会发现Mesh可以被引用到。
 
-![AssetBundles](D:\github\UnrealSpecifiers\Doc\Meta\Object\AssetBundles\AssetBundles.jpg)
+![AssetBundles](D:\github\UnrealSpecifiers\Doc\zh\Meta\Object\AssetBundles\AssetBundles.jpg)
 
 ## 原理：
 
@@ -22674,12 +22465,12 @@ void UAssetManager::InitializeAssetBundlesFromMetadata_Recursive(const UStruct* 
 {
 	static FName AssetBundlesName = TEXT("AssetBundles");
 	static FName IncludeAssetBundlesName = TEXT("IncludeAssetBundles");
-	
+
 	//根据当前对象的值，搜索拥有AssetBundles的属性的值，最后AddBundleAsset，BundleName就是设置的值，而FoundRef是引用的对象的资产路径
 	TSet<FName> BundleSet;
 	TArray<const FProperty*> PropertyChain;
 	It.GetPropertyChain(PropertyChain);
-	
+
 	for (const FProperty* PropertyToSearch : PropertyChain)
 	{
 					if (PropertyToSearch->HasMetaData(AssetBundlesName))
@@ -22688,12 +22479,12 @@ void UAssetManager::InitializeAssetBundlesFromMetadata_Recursive(const UStruct* 
 						TArray<FString> BundleList;
 						const FString& BundleString = PropertyToSearch->GetMetaData(AssetBundlesName);
 						BundleString.ParseIntoArrayWS(BundleList, TEXT(","));
-	
+
 						for (const FString& BundleNameString : BundleList)
 						{
 							LocalBundleSet.Add(FName(*BundleNameString));
 						}
-	
+
 						// If Set is empty, initialize. Otherwise intersect
 						if (BundleSet.Num() == 0)
 						{
@@ -22743,7 +22534,7 @@ void UPrimaryDataAsset::PostLoad()
 
 #if WITH_EDITORONLY_DATA
 	FAssetBundleData OldData = AssetBundleData;
-	
+
 	UpdateAssetBundleData();
 
 	if (UAssetManager::IsInitialized() && OldData != AssetBundleData)
@@ -22762,11 +22553,11 @@ TSharedPtr<FStreamableHandle> UAssetManager::ChangeBundleStateForPrimaryAssets(c
 			// Dynamic types can have no base asset path
 			PathsToLoad.Add(AssetPath);
 		}
-		
+
 		for (const FName& BundleName : NewBundleState)
 		{
 			FAssetBundleEntry Entry = GetAssetBundleEntry(PrimaryAssetId, BundleName);
-		
+
 			if (Entry.IsValid())
 			{
 				for (const FTopLevelAssetPath & Path : Entry.AssetPaths)
@@ -22783,7 +22574,6 @@ TSharedPtr<FStreamableHandle> UAssetManager::ChangeBundleStateForPrimaryAssets(c
 ```
 
 参考文档：[https://dev.epicgames.com/documentation/en-us/unreal-engine/asset-management-in-unreal-engine?application_version=5.4](https://dev.epicgames.com/documentation/en-us/unreal-engine/asset-management-in-unreal-engine?application_version=5.4)
-
 
 ﻿# IncludeAssetBundles
 
@@ -22842,7 +22632,7 @@ public:
 
 配置的数据图的下部分，分别配置了两张图片。但在LoadPrimaryAsset后，只有MyChildObject_IncludeAssetBundles内部的ChildIcon才被加载进来。
 
-![IncludeAssetBundles](D:\github\UnrealSpecifiers\Doc\Meta\Object\IncludeAssetBundles\IncludeAssetBundles.jpg)
+![IncludeAssetBundles](D:\github\UnrealSpecifiers\Doc\zh\Meta\Object\IncludeAssetBundles\IncludeAssetBundles.jpg)
 
 如果分析UMyProperty_Asset_Item 的AssetBunbleData数据，会发现其Client只包含第二张Stone图片的路径。这是因为只有第二张图片才被分析到并包含进来。
 
@@ -22879,7 +22669,7 @@ void UAssetManager::InitializeAssetBundlesFromMetadata_Recursive(const UStruct* 
 {
 	static FName AssetBundlesName = TEXT("AssetBundles");
 	static FName IncludeAssetBundlesName = TEXT("IncludeAssetBundles");
-	
+
 	//根据当前对象的值，搜索拥有AssetBundles的属性的值，最后AddBundleAsset，BundleName就是设置的值，而FoundRef是引用的对象的资产路径
 	else if (const FObjectProperty* ObjectProperty = CastField<FObjectProperty>(Property))
 	{
@@ -22894,7 +22684,6 @@ void UAssetManager::InitializeAssetBundlesFromMetadata_Recursive(const UStruct* 
 	}
 }
 ```
-
 
 ﻿# MustBeLevelActor
 
@@ -22916,7 +22705,6 @@ if (FObjectPropertyBase* ObjectProperty = CastField<FObjectPropertyBase>(Propert
 	RequiredInterface = ObjectProperty->GetOwnerProperty()->GetClassMetaData(TEXT("MustImplement"));
 }
 ```
-
 
 ﻿# ExposeFunctionCategories
 
@@ -22978,7 +22766,7 @@ public:
 
 而如果在MyObject_Expose这种内部对象上直接拖拉右键，则可以见到所有内部定义的函数。注意这里虽然有两个条目的MyExposeFunc1，但其实调用出来的是同一个函数，实际并没有影响。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Object\ExposeFunctionCategories\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Object\ExposeFunctionCategories\Untitled.png)
 
 ## 原理：
 
@@ -23014,7 +22802,6 @@ static bool BlueprintActionMenuUtilsImpl::IsUnexposedMemberAction(FBlueprintActi
 	return bIsFilteredOut;
 }
 ```
-
 
 ﻿# ContentDir
 
@@ -23063,7 +22850,7 @@ public:
 - MyDirectory_ContentDir和MyDirectory_LongPackageName，会如图所示弹出UE风格的对话框来选择目录。
 - MyDirectory_RelativeToGameContentDir和MyDirectory_RelativePath都会弹出系统对话框，不同的是MyDirectory_RelativeToGameContentDir最终的目录会限制在Content目录下（如果选择别的目录，会弹出错误警告），结果是个相对路径。MyDirectory_RelativePath的结果也是个相对路径，但是可以选择任意目录。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Path\ContentDir\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Path\ContentDir\Untitled.png)
 
 ## 原理：
 
@@ -23093,7 +22880,7 @@ struct FDirectoryPath
 
 RegisterCustomPropertyTypeLayout("DirectoryPath", FOnGetPropertyTypeCustomizationInstance::CreateStatic(&FDirectoryPathStructCustomization::MakeInstance));
 RegisterCustomPropertyTypeLayout("FilePath", FOnGetPropertyTypeCustomizationInstance::CreateStatic(&FFilePathStructCustomization::MakeInstance));
-	
+
 void FDirectoryPathStructCustomization::CustomizeHeader( TSharedRef<IPropertyHandle> StructPropertyHandle, class FDetailWidgetRow& HeaderRow, IPropertyTypeCustomizationUtils& StructCustomizationUtils )
 {
 	TSharedPtr<IPropertyHandle> PathProperty = StructPropertyHandle->GetChildHandle("Path");
@@ -23101,9 +22888,9 @@ void FDirectoryPathStructCustomization::CustomizeHeader( TSharedRef<IPropertyHan
 	const bool bRelativeToGameContentDir = StructPropertyHandle->HasMetaData( TEXT("RelativeToGameContentDir") );
 	const bool bUseRelativePath = StructPropertyHandle->HasMetaData( TEXT("RelativePath") );
 	const bool bContentDir = StructPropertyHandle->HasMetaData( TEXT("ContentDir") ) || StructPropertyHandle->HasMetaData(TEXT("LongPackageName"));
-	
+
 	AbsoluteGameContentDir = FPaths::ConvertRelativePathToFull(FPaths::ProjectContentDir());
-	
+
 	if(bContentDir)
 	{
 		PickerWidget = SAssignNew(PickerButton, SButton)
@@ -23119,7 +22906,7 @@ void FDirectoryPathStructCustomization::CustomizeHeader( TSharedRef<IPropertyHan
 			.Image(FAppStyle::GetBrush("PropertyWindow.Button_Ellipsis"))
 			.ColorAndOpacity(FSlateColor::UseForeground())
 		];
-	
+
 	}
 	else
 	{
@@ -23139,7 +22926,7 @@ void FDirectoryPathStructCustomization::CustomizeHeader( TSharedRef<IPropertyHan
 	}
 }
 
-FReply FDirectoryPathStructCustomization::OnPickContent(TSharedRef<IPropertyHandle> PropertyHandle) 
+FReply FDirectoryPathStructCustomization::OnPickContent(TSharedRef<IPropertyHandle> PropertyHandle)
 {
 	FContentBrowserModule& ContentBrowserModule = FModuleManager::LoadModuleChecked<FContentBrowserModule>("ContentBrowser");
 	FPathPickerConfig PathPickerConfig;
@@ -23218,14 +23005,13 @@ FReply FDirectoryPathStructCustomization::OnPickDirectory(TSharedRef<IPropertyHa
 
 ```
 
-
 ﻿# RelativePath
 
 - **功能描述：** 使得系统目录选择对话框的结果为当前运行exe的相对路径。
 - **使用位置：** UPROPERTY
 - **引擎模块：** Path Property
 - **元数据类型：** bool
-- **限制类型：** FDirectoryPath 
+- **限制类型：** FDirectoryPath
 - **关联项：** ContentDir
 
 当前目录为：D:\github\GitWorkspace\Hello\Binaries\Win64，就是exe所在的工作目录。选择的目录会被转换为相对路径。
@@ -23234,14 +23020,13 @@ FReply FDirectoryPathStructCustomization::OnPickDirectory(TSharedRef<IPropertyHa
 Directory = IFileManager::Get().ConvertToRelativePath(*Directory);
 ```
 
-
 ﻿# RelativeToGameContentDir
 
 - **功能描述：** 使得系统目录选择对话框的结果为相对Content的相对路径。
 - **使用位置：** UPROPERTY
 - **引擎模块：** Path Property
 - **元数据类型：** bool
-- **限制类型：** FDirectoryPath 
+- **限制类型：** FDirectoryPath
 - **关联项：** ContentDir
 
 限制目录选择的结果必须是Conent目录或其子目录，否则会弹出报错信息。转换的逻辑为把左侧的Content路径裁切掉。
@@ -23250,14 +23035,13 @@ Directory = IFileManager::Get().ConvertToRelativePath(*Directory);
 Directory.RightChopInline(AbsoluteGameContentDir.Len(), EAllowShrinking::No);
 ```
 
-
 ﻿# RelativeToGameDir
 
 - **功能描述：** 如果系统目录选择框的结果为Project的子目录，则转换为相对路径，否则返回绝对路径。
 - **使用位置：** UPROPERTY
 - **引擎模块：** Path Property
 - **元数据类型：** bool
-- **限制类型：** FFilePath 
+- **限制类型：** FFilePath
 - **常用程度：** ★★★
 
 如果系统目录选择框的结果为Project的子目录，则转换为相对路径，否则返回绝对路径。
@@ -23291,7 +23075,7 @@ public:
 - MyFilePath_FilePathFilter，可以选择任何目录下的指定后缀名的文件。代码里示例为umap，则只能选择关卡文件。
 - MyFilePath_FilePathFilter_INI，演示了只能选取ini文件。FilePathFilter 支持我们采用“描述 | *.后缀名”的格式自己书写过滤方式，规则同windows系统选取规则一样，也可以同时写多个后缀名。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Path\RelativeToGameDir\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Path\RelativeToGameDir\Untitled.png)
 
 ## 原理：
 
@@ -23319,7 +23103,7 @@ void FFilePathStructCustomization::CustomizeHeader( TSharedRef<IPropertyHandle> 
 	const FString& MetaData = StructPropertyHandle->GetMetaData(TEXT("FilePathFilter"));
 	bLongPackageName = StructPropertyHandle->HasMetaData(TEXT("LongPackageName"));
 	bRelativeToGameDir = StructPropertyHandle->HasMetaData(TEXT("RelativeToGameDir"));
-	
+
 	if (MetaData.IsEmpty())
 	{
 		FileTypeFilter = TEXT("All files (*.*)|*.*");
@@ -23388,7 +23172,6 @@ void FFilePathStructCustomization::HandleFilePathPickerPathPicked( const FString
 }
 ```
 
-
 ﻿# LongPackageName
 
 - **功能描述：** 使用UE的风格来选择Content以及子目录，或者把文件路径转换为长包名。
@@ -23404,7 +23187,6 @@ LongPackageName可以同时用在FDirectoryPath和FFilePath，都限制选取范
 
 用在FFilePath的时候，限制选择范围为Content里的资产，最终把选取的文件路径转换为“/Game/ObjectPath”这种对象的路径名。
 
-
 ﻿# FilePathFilter
 
 - **功能描述：** 设定文件选择器的扩展名，规则符合系统对话框的格式规范，可以填写多个扩展名。
@@ -23415,7 +23197,6 @@ LongPackageName可以同时用在FDirectoryPath和FFilePath，都限制选取范
 - **常用程度：** ★★★
 
 一般常见的用法是”.umap”，“.uasset”之类的。但也可以支持采用“描述 | *.后缀名”的格式自己书写过滤方式，规则同windows系统选取规则一样，也可以同时写多个后缀名。
-
 
 ﻿# HidePin
 
@@ -23481,7 +23262,7 @@ public:
 
 ## 蓝图测试结果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Pin\HidePin\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Pin\HidePin\Untitled.png)
 
 可以看出BlueprintCallable和BlueprintPure其实都可以。另外ReturnValue是默认的返回值的名字，也可以通过这个来隐藏掉。
 
@@ -23504,7 +23285,7 @@ public:
 void FBlueprintEditorUtils::GetHiddenPinsForFunction(UEdGraph const* Graph, UFunction const* Function, TSet<FName>& HiddenPins, TSet<FName>* OutInternalPins)
 {
 	check(Function != nullptr);
-	TMap<FName, FString>* MetaData = UMetaData::GetMapForObject(Function);	
+	TMap<FName, FString>* MetaData = UMetaData::GetMapForObject(Function);
 	if (MetaData != nullptr)
 	{
 		for (TMap<FName, FString>::TConstIterator It(*MetaData); It; ++It)
@@ -23530,7 +23311,7 @@ void FBlueprintEditorUtils::GetHiddenPinsForFunction(UEdGraph const* Graph, UFun
 			{
 				TArray<FName> EnumPinNames;
 				UK2Node_CallFunction::GetExpandEnumPinNames(Function, EnumPinNames);
-				
+
 				for (const FName& EnumName : EnumPinNames)
 				{
 					HiddenPins.Add(EnumName);
@@ -23575,7 +23356,7 @@ void FBlueprintEditorUtils::GetHiddenPinsForFunction(UEdGraph const* Graph, UFun
 						}
 					}
 
-					// if the blueprint has world context that we can lookup with "self", 
+					// if the blueprint has world context that we can lookup with "self",
 					// then we can hide this pin (and default it to self)
 					if (bHasIntrinsicWorldContext)
 					{
@@ -23587,7 +23368,6 @@ void FBlueprintEditorUtils::GetHiddenPinsForFunction(UEdGraph const* Graph, UFun
 	}
 }
 ```
-
 
 ﻿# InternalUseParam
 
@@ -23649,7 +23429,7 @@ public:
 
 ## 蓝图测试结果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Pin\InternalUseParam\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Pin\InternalUseParam\Untitled.png)
 
 可以看出BlueprintCallable和BlueprintPure其实都可以。另外ReturnValue是默认的返回值的名字，也可以通过这个来隐藏掉。
 
@@ -23662,7 +23442,7 @@ public:
 void FBlueprintEditorUtils::GetHiddenPinsForFunction(UEdGraph const* Graph, UFunction const* Function, TSet<FName>& HiddenPins, TSet<FName>* OutInternalPins)
 {
 	check(Function != nullptr);
-	TMap<FName, FString>* MetaData = UMetaData::GetMapForObject(Function);	
+	TMap<FName, FString>* MetaData = UMetaData::GetMapForObject(Function);
 	if (MetaData != nullptr)
 	{
 		for (TMap<FName, FString>::TConstIterator It(*MetaData); It; ++It)
@@ -23688,7 +23468,7 @@ void FBlueprintEditorUtils::GetHiddenPinsForFunction(UEdGraph const* Graph, UFun
 			{
 				TArray<FName> EnumPinNames;
 				UK2Node_CallFunction::GetExpandEnumPinNames(Function, EnumPinNames);
-				
+
 				for (const FName& EnumName : EnumPinNames)
 				{
 					HiddenPins.Add(EnumName);
@@ -23733,7 +23513,7 @@ void FBlueprintEditorUtils::GetHiddenPinsForFunction(UEdGraph const* Graph, UFun
 						}
 					}
 
-					// if the blueprint has world context that we can lookup with "self", 
+					// if the blueprint has world context that we can lookup with "self",
 					// then we can hide this pin (and default it to self)
 					if (bHasIntrinsicWorldContext)
 					{
@@ -23745,7 +23525,6 @@ void FBlueprintEditorUtils::GetHiddenPinsForFunction(UEdGraph const* Graph, UFun
 	}
 }
 ```
-
 
 ﻿# HideSelfPin
 
@@ -23782,7 +23561,7 @@ bool UK2Node_CallFunction::CreatePinsForFunctionCall(const UFunction* Function)
 				UClass* AuthoritativeClass = FunctionOwnerClass->GetAuthoritativeClass();
 				SelfPin->DefaultObject = AuthoritativeClass->GetDefaultObject();
 			}
-		
+
 			// Purity doesn't matter with a static function, we can always hide the self pin since we know how to call the method
 			SelfPin->bHidden = true;
 		}
@@ -23838,15 +23617,14 @@ public:
 
 从第一个图可以看到，HideSelfPin用在Static函数并无效果。而InternalUseParam可以隐藏引脚。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Pin\HideSelfPin\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Pin\HideSelfPin\Untitled.png)
 
 而对于类成员函数的测试结果可以看出：
 
 - 在类内部调用的时候，self可以被隐藏起来，但都可以调用。二者的区别是，MyFunc_Default这个默认的版本，也可以接受同类型的AMyFunction_HideSelfTest 不同对象实例来调用。而MyFunc_HideSelfPin只能被当前的对象来调用。
 - 而在左侧关卡蓝图中，通过一个AMyFunction_HideSelfTest 对象尝试调用这两个函数，可以发现MyFunc_Default可以调用，而MyFunc_HideSelfPin这个函数节点就无法被创建出来。就算用复制粘贴的方法硬创造出来，也因为失去了Self这个Target Pin而无法连接，从而无法调用。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Pin\HideSelfPin\Untitled%201.png)
-
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Pin\HideSelfPin\Untitled%201.png)
 
 ﻿# DataTablePin
 
@@ -23877,7 +23655,7 @@ static ENGINE_API void EvaluateCurveTableRow(UCurveTable* CurveTable, FName RowN
 ```cpp
 	UFUNCTION(BlueprintCallable, meta = (DataTablePin="CurveTable"))
 	static void GetMyCurveTableRow(UCurveTable* CurveTable, FName MyRowName, float InXY, float& OutXY,const FString& ContextString){}
-	
+
 	UFUNCTION(BlueprintCallable, meta = (DataTablePin="TargetTable"))
 	static bool HasMyDataTableRow(UDataTable* TargetTable, FName MyRowName,FName OtherRowName){return false;}
 ```
@@ -23886,7 +23664,7 @@ static ENGINE_API void EvaluateCurveTableRow(UCurveTable* CurveTable, FName RowN
 
 左侧为自己定义的函数节点，可以看见左侧的蓝图节点上的Name都变成了CurveTable和DataTable里的RowNameList，即使这些FName参数并没有什么特殊指定，但是蓝图系统里自动识别到FName类型并改变了实际的Pin Widget.
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Pin\DataTablePin\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Pin\DataTablePin\Untitled.png)
 
 ## 原理：
 
@@ -23953,7 +23731,6 @@ TSharedPtr<class SGraphPin> FBlueprintGraphPanelPinFactory::CreatePin(class UEdG
 
 ```
 
-
 ﻿# DisableSplitPin
 
 - **功能描述：** 禁用Struct的split功能
@@ -23992,12 +23769,11 @@ struct INSIDER_API FMyStruct_WithSplitPin
 };
 ```
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Pin\DisableSplitPin\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Pin\DisableSplitPin\Untitled.png)
 
 允许的对比
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Pin\DisableSplitPin\Untitled%201.png)
-
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Pin\DisableSplitPin\Untitled%201.png)
 
 ﻿# HiddenByDefault
 
@@ -24036,12 +23812,11 @@ struct INSIDER_API FMyStruct_NotHidden
 
 ## 蓝图结果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Pin\HiddenByDefault\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Pin\HiddenByDefault\Untitled.png)
 
 所谓隐藏，指的是在节点的细节面板里需要手动选择某些属性。而不是像默认的一样一开始就全部自动打开。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Pin\HiddenByDefault\Untitled%201.png)
-
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Pin\HiddenByDefault\Untitled%201.png)
 
 ﻿# AlwaysAsPin
 
@@ -24079,7 +23854,7 @@ struct INSIDEREDITOR_API FAnimNode_MyTestPinShown : public FAnimNode_Base
 
 ## 测试效果：
 
-![PinShown](D:\github\UnrealSpecifiers\Doc\Meta\AnimationGraph\AlwaysAsPin\PinShown.gif)
+![PinShown](D:\github\UnrealSpecifiers\Doc\zh\Meta\AnimationGraph\AlwaysAsPin\PinShown.gif)
 
 ## 原理：
 
@@ -24108,7 +23883,6 @@ void FAnimBlueprintNodeOptionalPinManager::GetRecordDefaults(FProperty* TestProp
 	Record.bPropertyIsCustomized = bPropertyIsCustomized;
 }
 ```
-
 
 ﻿# NeverAsPin
 
@@ -24148,7 +23922,7 @@ struct INSIDEREDITOR_API FAnimNode_MyTestPinShown : public FAnimNode_Base
 
 MyInt_NeverAsPin只能和右边和默认的属性一样，不能显示为引脚。
 
-![PinShown](D:\github\UnrealSpecifiers\Doc\Meta\AnimationGraph\NeverAsPin\PinShown.gif)
+![PinShown](D:\github\UnrealSpecifiers\Doc\zh\Meta\AnimationGraph\NeverAsPin\PinShown.gif)
 
 ## 原理：
 
@@ -24177,7 +23951,6 @@ void FAnimBlueprintNodeOptionalPinManager::GetRecordDefaults(FProperty* TestProp
 	Record.bPropertyIsCustomized = bPropertyIsCustomized;
 }
 ```
-
 
 ﻿# PinHiddenByDefault
 
@@ -24219,7 +23992,7 @@ public:
 
 同样的，当该结构当作函数输入和输出参数的时候，当用SplitStuctPin展开结构节点，会发现MyInt_PinHiddenByDefault 也被隐藏了起来。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Pin\PinHiddenByDefault\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Pin\PinHiddenByDefault\Untitled.png)
 
 ## 原理：
 
@@ -24256,7 +24029,6 @@ struct FBreakStructPinManager : public FStructOperationOptionalPinManager
 {}
 
 ```
-
 
 ﻿# Input
 
@@ -24315,7 +24087,7 @@ public:
 - MyFloat_Visible，可以作为输入引脚显示，右侧细节面板会显示。但是无法连接变量，意思是只能作为常量使用。
 - MyFloat_Hidden，如同MyFloat_Normal一样，在蓝图节点和细节面板都隐藏起来，只是作为自己的内部值使用。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\RigVM\Input\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\RigVM\Input\Untitled.png)
 
 ## 原理：
 
@@ -24343,12 +24115,12 @@ ERigVMPinDirection FRigVMStruct::GetPinDirectionFromProperty(FProperty* InProper
 	{
 		return ERigVMPinDirection::Visible;
 	}
-	
+
 	if (bIsInput)
 	{
 		return bIsOutput ? ERigVMPinDirection::IO : ERigVMPinDirection::Input;
-	} 
-	
+	}
+
 	if(bIsOutput)
 	{
 		return ERigVMPinDirection::Output;
@@ -24357,7 +24129,6 @@ ERigVMPinDirection FRigVMStruct::GetPinDirectionFromProperty(FProperty* InProper
 	return ERigVMPinDirection::Hidden;
 }
 ```
-
 
 ﻿# Constant
 
@@ -24379,7 +24150,6 @@ struct RIGVM_API FRigVMFunction_MathQuaternionRotationOrder : public FRigVMFunct
 }
 ```
 
-
 ﻿# Output
 
 - **功能描述：** 指定FRigUnit下的该属性作为输出引脚。
@@ -24391,7 +24161,6 @@ struct RIGVM_API FRigVMFunction_MathQuaternionRotationOrder : public FRigVMFunct
 - **常用程度：** ★★★★★
 
 指定FRigUnit下的该属性作为输出引脚。
-
 
 ﻿# Visible
 
@@ -24446,7 +24215,7 @@ public:
 
 Visible和Input+Constant的效果是一致的，也是成为一个常量。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\RigVM\Visible\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\RigVM\Visible\Untitled.png)
 
 ## 原理：
 
@@ -24481,7 +24250,6 @@ bool URigVMPin::CanBeBoundToVariable(const FRigVMExternalVariable& InExternalVar
 }
 ```
 
-
 ﻿# Hidden
 
 - **功能描述：** 指定FRigUnit下的该属性隐藏
@@ -24491,7 +24259,6 @@ bool URigVMPin::CanBeBoundToVariable(const FRigVMExternalVariable& InExternalVar
 - **限制类型：** FRigUnit中属性
 - **关联项：** Input
 - **常用程度：** ★★★
-
 
 ﻿# DetailsOnly
 
@@ -24514,7 +24281,7 @@ bool URigVMPin::CanBeBoundToVariable(const FRigVMExternalVariable& InExternalVar
 
 ## 测试效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\RigVM\DetailsOnly\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\RigVM\DetailsOnly\Untitled.png)
 
 ## 原理：
 
@@ -24551,7 +24318,6 @@ bool URigVMPin::ShowInDetailsPanelOnly() const
 	return false;
 }
 ```
-
 
 ﻿# TemplateName
 
@@ -24606,7 +24372,7 @@ public:
 
 可见一开始的节点是SetMyTemplate，然后根据引脚类型的不同，再实际Resolve成FRigUnit_MyTemplate_Float 或者是FRigUnit_MyTemplate_Int 。因为我没有实现SetMyString，所以FString类型的是不能连接到引脚的。
 
-![RigVM_Template](D:\github\UnrealSpecifiers\Doc\Meta\RigVM\TemplateName\RigVM_Template.gif)
+![RigVM_Template](D:\github\UnrealSpecifiers\Doc\zh\Meta\RigVM\TemplateName\RigVM_Template.gif)
 
 ## 原理：
 
@@ -24621,7 +24387,6 @@ void FRigVMRegistry::Register(const TCHAR* InName, FRigVMFunctionPtr InFunctionP
 	}
 }
 ```
-
 
 ﻿# CustomWidget
 
@@ -24664,7 +24429,7 @@ public:
 
 可见MyString_Custom的Pin类型变成可选BoneName的列表。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\RigVM\CustomWidget\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\RigVM\CustomWidget\Untitled.png)
 
 ## 原理：
 
@@ -24683,7 +24448,6 @@ TSharedPtr<SGraphPin> FControlRigGraphPanelPinFactory::CreatePin_Internal(UEdGra
 //等等其他
 }
 ```
-
 
 ﻿# ExpandByDefault
 
@@ -24706,7 +24470,7 @@ struct INSIDER_API FRigUnit_MyRig : public FRigUnit
 
 	UPROPERTY(meta = (Input, ExpandByDefault))
 	FMyCommonStruct MyStruct_ExpandByDefault;
-	
+
 		UPROPERTY(meta = (Output))
 	float MyFloat_Output = 123.f;
 ｝
@@ -24716,7 +24480,7 @@ struct INSIDER_API FRigUnit_MyRig : public FRigUnit
 
 可见MyStruct_ExpandByDefault默认状态下就把该结构展开。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\RigVM\ExpandByDefault\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\RigVM\ExpandByDefault\Untitled.png)
 
 ## 原理：
 
@@ -24731,7 +24495,6 @@ FRigVMPinInfo::FRigVMPinInfo(FProperty* InProperty, ERigVMPinDirection InDirecti
 	}
 }
 ```
-
 
 ﻿# Aggregate
 
@@ -24772,7 +24535,7 @@ public:
 
 可见加了Aggregate之后，在蓝图节点上就可以继续动态AddPin。在左侧的Graph上也会创建中间MyRigAggregate节点。点开后，可以看见，其实就是继续组装原始的二元运算来达成继续AddPin的效果。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\RigVM\Aggregate\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\RigVM\Aggregate\Untitled.png)
 
 ## 原理：
 
@@ -24795,7 +24558,7 @@ TArray<URigVMPin*> URigVMUnitNode::GetAggregateInputs() const
 					{
 						AggregateInputs.Add(Pin);
 					}
-				}			
+				}
 			}
 		}
 	}
@@ -24808,7 +24571,6 @@ TArray<URigVMPin*> URigVMUnitNode::GetAggregateInputs() const
 }
 ```
 
-
 ﻿# Varying
 
 - **功能描述：** ScriptStruct /Script/RigVM.RigVMFunction_GetDeltaTime
@@ -24818,7 +24580,6 @@ TArray<URigVMPin*> URigVMUnitNode::GetAggregateInputs() const
 - **常用程度：** 0
 
 放在USTRUCT上的时候，发现用在IsDefinedAsVarying这种函数上，但是F5没有发现调用的地方。
-
 
 ﻿# MenuDescSuffix
 
@@ -24854,7 +24615,7 @@ public:
 
 可见出现了"(MyVector)"的后缀。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\RigVM\MenuDescSuffix\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\RigVM\MenuDescSuffix\Untitled.png)
 
 ## 原理：
 
@@ -24877,7 +24638,6 @@ if (!MenuDescSuffixMetadata.IsEmpty())
 
 FText MenuDesc = FText::FromString(DisplayNameMetadata + MenuDescSuffixMetadata);
 ```
-
 
 ﻿# NodeColor
 
@@ -24913,7 +24673,7 @@ public:
 
 加上NodeColor之后，颜色从左变成右。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\RigVM\NodeColor\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\RigVM\NodeColor\Untitled.png)
 
 ## 原理：
 
@@ -24934,7 +24694,6 @@ FLinearColor FRigVMDispatchFactory::GetNodeColor() const
 }
 
 ```
-
 
 ﻿# Icon
 
@@ -24972,7 +24731,7 @@ public:
 
 可见加了Icon之后，左上角图标变成了其他，不是默认的f函数目标。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\RigVM\Icon\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\RigVM\Icon\Untitled.png)
 
 ## 原理：
 
@@ -24984,22 +24743,21 @@ FSlateIcon URigVMEdGraphNode::GetIconAndTint(FLinearColor& OutColor) const
 		{
 			FString IconPath;
 			const int32 NumOfIconPathNames = 4;
-			
+
 			FName IconPathNames[NumOfIconPathNames] = {
 				NAME_None, // StyleSetName
 				NAME_None, // StyleName
 				NAME_None, // SmallStyleName
 				NAME_None  // StatusOverlayStyleName
 			};
-		
+
 			// icon path format: StyleSetName|StyleName|SmallStyleName|StatusOverlayStyleName
 			// the last two names are optional, see FSlateIcon() for reference
 			MetadataScriptStruct->GetStringMetaDataHierarchical(FRigVMStruct::IconMetaName, &IconPath);
 			return FSlateIcon(IconPathNames[0], IconPathNames[1], IconPathNames[2], IconPathNames[3]);
-		}	
+		}
 }
 ```
-
 
 ﻿# Deprecated
 
@@ -25040,7 +24798,7 @@ public:
 
 ## 测试效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\RigVM\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\RigVM\Untitled.png)
 
 ## 原理：
 
@@ -25060,7 +24818,6 @@ void FRigVMEditorModule::GetTypeActions(URigVMBlueprint* RigVMBlueprint, FBluepr
 	}
 }
 ```
-
 
 ﻿# Abstract
 
@@ -25093,7 +24850,7 @@ public:
 
 ## 测试效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\RigVM\Abstract\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\RigVM\Abstract\Untitled.png)
 
 ## 原理：
 
@@ -25118,7 +24875,6 @@ void FRigVMBlueprintUtils::ForAllRigVMStructs(TFunction<void(UScriptStruct*)> In
 	}
 }
 ```
-
 
 ﻿# RigVMTypeAllowed
 
@@ -25170,7 +24926,7 @@ public:
 
 可见在选项列表中只有ERigMyEnumAllowed，没有ERigMyEnum。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\RigVM\RigVMTypeAllowed\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\RigVM\RigVMTypeAllowed\Untitled.png)
 
 ## 原理：
 
@@ -25204,7 +24960,6 @@ void SRigVMEnumPicker::PopulateEnumOptions()
 	}
 }
 ```
-
 
 ﻿# Keywords
 
@@ -25243,7 +24998,7 @@ public:
 
 在输入Keywords中的字符的时候，也可以找到该节点。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\RigVM\Keywords\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\RigVM\Keywords\Untitled.png)
 
 ## 原理：
 
@@ -25267,7 +25022,6 @@ URigVMEdGraphUnitNodeSpawner* URigVMEdGraphUnitNodeSpawner::CreateFromStruct(USc
 
 }
 ```
-
 
 ﻿# MakeEditWidget
 
@@ -25304,7 +25058,7 @@ public:
 
 在蓝图里继承的AMyActor_EditWidget 子类里加上另外一个FTransform变量，可以看见“Show 3D Widget”的选项，这个和MyVector_MakeEditWidget都在场景里出现了可移动的控件。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Scene\MakeEditWidget\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Scene\MakeEditWidget\Untitled.png)
 
 ## 原理：
 
@@ -25327,7 +25081,6 @@ bool FLegacyEdModeWidgetHelper::ShouldCreateWidgetForProperty(FProperty* InProp)
 }
 
 ```
-
 
 ﻿# ValidateWidgetUsing
 
@@ -25365,7 +25118,7 @@ ValidateWidgetUsing提供一个函数来验证当前属性值是否合法。
 
 可见MyVector_MakeEditWidget_Validate长度超过100之后，控件颜色变成红色，并且显示出错误的信息在控件上。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Scene\ValidateWidgetUsing\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Scene\ValidateWidgetUsing\Untitled.png)
 
 ## 原理：
 
@@ -25377,10 +25130,10 @@ ValidateWidgetUsing提供一个函数来验证当前属性值是否合法。
 		check(CurrentProp);
 		FEdMode::FPropertyWidgetInfo WidgetInfo;
 		WidgetInfo.PropertyValidationName = FName(*CurrentProp->GetMetaData(FEdMode::MD_ValidateWidgetUsing));
-		
+
 		return WidgetInfo;
 	}
-	
+
 void FLegacyEdModeWidgetHelper::FPropertyWidgetInfo::GetTransformAndColor(UObject* BestSelectedItem, bool bIsSelected, FTransform& OutLocalTransform, FString& OutValidationMessage, FColor& OutDrawColor) const
 {
 	// Determine the desired color
@@ -25402,11 +25155,10 @@ void FLegacyEdModeWidgetHelper::DrawHUD(FEditorViewportClient* ViewportClient, F
 	FString ValidationMessage;
 	FColor WidgetColor;
 	WidgetInfo.GetTransformAndColor(BestSelectedItem, bSelected, /*out*/ LocalWidgetTransform, /*out*/ ValidationMessage, /*out*/ WidgetColor);
-	
+
 	Canvas->DrawItem(TextItem);
 }
 ```
-
 
 ﻿# AllowedLocators
 
@@ -25466,7 +25218,6 @@ for (TPair<FName, TSharedPtr<ILocatorEditor>> Pair : Module.LocatorEditors)
 	}
 }
 ```
-
 
 ﻿# ScriptName
 
@@ -25530,24 +25281,24 @@ public:
 class MyPythonTestLibary2(BlueprintFunctionLibrary):
     r"""
     My Python Test Libary 2
-    
+
     **C++ Source:**
-    
+
     - **Module**: Insider
     - **File**: MyPythonTest.h
-    
+
     """
     ...
-    
+
 class MyPythonLib(BlueprintFunctionLibrary):
     r"""
     My Python Test Libary
-    
+
     **C++ Source:**
-    
+
     - **Module**: Insider
     - **File**: MyPython_Test.h
-    
+
     """
     @classmethod
     def my_script_func_default(cls) -> None:
@@ -25613,11 +25364,10 @@ FString GetFieldPythonNameImpl(const FFieldVariant& InField, const FName InMetaD
 	{
 		return FieldName;
 	}
-	
-	//。。。	
+
+	//。。。
 }
 ```
-
 
 ﻿# ScriptNoExport
 
@@ -25659,12 +25409,12 @@ public:
 class MyPythonLib(BlueprintFunctionLibrary):
     r"""
     My Python Test Libary
-    
+
     **C++ Source:**
-    
+
     - **Module**: Insider
     - **File**: MyPythonTest.h
-    
+
     """
      @property
     def my_float(self) -> float:
@@ -25691,7 +25441,7 @@ class MyPythonLib(BlueprintFunctionLibrary):
 ```cpp
 bool IsScriptExposedProperty(const FProperty* InProp)
 {
-	return !InProp->HasMetaData(ScriptNoExportMetaDataKey) 
+	return !InProp->HasMetaData(ScriptNoExportMetaDataKey)
 		&& InProp->HasAnyPropertyFlags(CPF_BlueprintVisible | CPF_BlueprintAssignable);
 }
 
@@ -25707,7 +25457,6 @@ bool IsScriptExposedFunction(const UFunction* InFunc)
 		&& !InFunc->HasMetaData(NativeMakeFuncMetaDataKey);
 }
 ```
-
 
 ﻿# ScriptConstant
 
@@ -25772,27 +25521,27 @@ public:
 class MyPython_Constant_Test(Object):
     r"""
     My Python Constant Test
-    
+
     **C++ Source:**
-    
+
     - **Module**: Insider
     - **File**: MyPython_ScriptConstant.h
-    
+
     """
     MY_OTHER_STRUCT_CONST: MyPythonConstantStruct #: (MyPythonConstantStruct): My Struct Const 2
     MY_STRUCT_CONST: MyPythonConstantStruct #: (MyPythonConstantStruct): My Struct Const
     MY_OTHER_INT_CONST: int #: (int32): My Int Const 2
     MY_INT_CONST: int #: (int32): My Int Const
-    
+
 class MyPython_ConstantOwner(Object):
     r"""
     **My Python Constant Owner
-    
+
     **C++ Source:**
-    
+
     - **Module**: Insider
     - **File**: MyPython_ScriptConstant.h
-    
+
     """
     FIRST_STRING: str #: (str): My String Const
 ```
@@ -25823,7 +25572,6 @@ auto GenerateWrappedConstant = [this, &GeneratedWrappedType, &OutGeneratedWrappe
 {}
 ```
 
-
 ﻿# ScriptConstantHost
 
 - **功能描述：** 在ScriptConstant的基础上，指定常量生成的所在类型。
@@ -25841,7 +25589,6 @@ auto GenerateWrappedConstant = [this, &GeneratedWrappedType, &OutGeneratedWrappe
 	UFUNCTION(BlueprintPure, meta = (ScriptConstant="FirstString", ScriptConstantHost = "/Script/Insider.MyPython_ConstantOwner"))
 	static FString MyStringConst() { return TEXT("First"); }
 ```
-
 
 ﻿# ScriptMethod
 
@@ -25902,12 +25649,12 @@ public:
 class MyPythonStruct_ScriptMethod(StructBase):
     r"""
     My Python Struct Script Method
-    
+
     **C++ Source:**
-    
+
     - **Module**: Insider
     - **File**: MyPython_ScriptMethod.h
-    
+
     """
     def __init__(self) -> None:
         ...
@@ -25915,7 +25662,7 @@ class MyPythonStruct_ScriptMethod(StructBase):
         r"""
         x.my_func_on_struct(val) -> None
         My Func on Struct
-        
+
         Args:
             val (str):
         """
@@ -25924,18 +25671,18 @@ class MyPythonStruct_ScriptMethod(StructBase):
 class MyPython_ScriptMethod(Object):
     r"""
     My Python Script Method
-    
+
     **C++ Source:**
-    
+
     - **Module**: Insider
     - **File**: MyPython_ScriptMethod.h
-    
+
     """
     def my_super_func_on_object(self, val: str) -> None:
         r"""
         x.my_super_func_on_object(val) -> None
         My Func on Object 2
-        
+
         Args:
             val (str):
         """
@@ -25949,7 +25696,7 @@ class MyPython_ScriptMethod(Object):
         r"""
         x.my_func_on_object(val) -> None
         My Func on Object
-        
+
         Args:
             val (str):
         """
@@ -25957,21 +25704,21 @@ class MyPython_ScriptMethod(Object):
 class MyPython_ScriptMethod_Test(Object):
     r"""
     My Python Script Method Test
-    
+
     **C++ Source:**
-    
+
     - **Module**: Insider
     - **File**: MyPython_ScriptMethod.h
-    
+
     """
     @classmethod
     def my_func_on_struct(cls, my_struct: MyPythonStruct_ScriptMethod, val: str) -> None:
         r"""
         X.my_func_on_struct(my_struct, val) -> None
         My Func on Struct
-        
+
         Args:
-            my_struct (MyPythonStruct_ScriptMethod): 
+            my_struct (MyPythonStruct_ScriptMethod):
             val (str):
         """
         ...
@@ -25980,9 +25727,9 @@ class MyPython_ScriptMethod_Test(Object):
         r"""
         X.my_func_on_object2(obj, val) -> None
         My Func on Object 2
-        
+
         Args:
-            obj (MyPython_ScriptMethod): 
+            obj (MyPython_ScriptMethod):
             val (str):
         """
         ...
@@ -25991,9 +25738,9 @@ class MyPython_ScriptMethod_Test(Object):
         r"""
         X.my_func_on_object(obj, val) -> None
         My Func on Object
-        
+
         Args:
-            obj (MyPython_ScriptMethod): 
+            obj (MyPython_ScriptMethod):
             val (str):
         """
         ...
@@ -26013,7 +25760,6 @@ PyTypeObject* FPyWrapperTypeRegistry::GenerateWrappedClassType(const UClass* InC
 	}
 }
 ```
-
 
 ﻿# ScriptMethodMutable
 
@@ -26068,12 +25814,12 @@ public:
 class MyPythonStruct_ScriptMethod(StructBase):
     r"""
     My Python Struct Script Method
-    
+
     **C++ Source:**
-    
+
     - **Module**: Insider
     - **File**: MyPython_ScriptMethod.h
-    
+
     """
     def __init__(self) -> None:
         ...
@@ -26081,7 +25827,7 @@ class MyPythonStruct_ScriptMethod(StructBase):
         r"""
         x.my_func_on_struct_via_ref(val) -> None
         My Func on Struct Via Ref
-        
+
         Args:
             val (str):
         """
@@ -26090,7 +25836,7 @@ class MyPythonStruct_ScriptMethod(StructBase):
         r"""
         x.my_func_on_struct_mutable(val) -> None
         My Func on Struct Mutable
-        
+
         Args:
             val (str):
         """
@@ -26099,36 +25845,36 @@ class MyPythonStruct_ScriptMethod(StructBase):
         r"""
         x.my_func_on_struct(val) -> None
         My Func on Struct
-        
+
         Args:
             val (str):
         """
         ...
 
-        
+
 class MyPython_ScriptMethod_Test(Object):
     r"""
     My Python Script Method Test
-    
+
     **C++ Source:**
-    
+
     - **Module**: Insider
     - **File**: MyPython_ScriptMethod.h
-    
+
     """
     @classmethod
     def my_func_on_struct_via_ref(cls, my_struct: MyPythonStruct_ScriptMethod, val: str) -> MyPythonStruct_ScriptMethod:
         r"""
         X.my_func_on_struct_via_ref(my_struct, val) -> MyPythonStruct_ScriptMethod
         My Func on Struct Via Ref
-        
+
         Args:
-            my_struct (MyPythonStruct_ScriptMethod): 
-            val (str): 
-        
+            my_struct (MyPythonStruct_ScriptMethod):
+            val (str):
+
         Returns:
-            MyPythonStruct_ScriptMethod: 
-        
+            MyPythonStruct_ScriptMethod:
+
             my_struct (MyPythonStruct_ScriptMethod):
         """
         ...
@@ -26137,9 +25883,9 @@ class MyPython_ScriptMethod_Test(Object):
         r"""
         X.my_func_on_struct_mutable(my_struct, val) -> None
         My Func on Struct Mutable
-        
+
         Args:
-            my_struct (MyPythonStruct_ScriptMethod): 
+            my_struct (MyPythonStruct_ScriptMethod):
             val (str):
         """
         ...
@@ -26148,9 +25894,9 @@ class MyPython_ScriptMethod_Test(Object):
         r"""
         X.my_func_on_struct(my_struct, val) -> None
         My Func on Struct
-        
+
         Args:
-            my_struct (MyPythonStruct_ScriptMethod): 
+            my_struct (MyPythonStruct_ScriptMethod):
             val (str):
         """
         ...
@@ -26197,7 +25943,6 @@ if (!GeneratedWrappedDynamicMethod.SelfReturn.ParamProp && InFunc->HasMetaData(P
 }
 ```
 
-
 ﻿# ScriptMethodSelfReturn
 
 - **功能描述：** 在ScriptMethod的情况下，指定把这个函数的返回值要去覆盖该函数的第一个参数。
@@ -26214,7 +25959,7 @@ if (!GeneratedWrappedDynamicMethod.SelfReturn.ParamProp && InFunc->HasMetaData(P
 ```cpp
 C Func(A,B) -> void A::Func2(B)
 调用的时候：
-从 C=A.Func(B) -> 
+从 C=A.Func(B) ->
 void A::Func2(B)
 {
 	A=A.Func(B)
@@ -26248,7 +25993,7 @@ public:
 		myStruct.MyString += val;
 		return myStruct;
 	}
-	
+
 //LogPython: Error: Function 'MyPython_ScriptMethod_Test.AppendStringOnStructViaRefReturn' is marked as 'ScriptMethodSelfReturn' but the 'self' argument is also marked as UPARAM(ref). This is not allowed.
 //UFUNCTION(BlueprintCallable, meta = (ScriptMethod, ScriptMethodMutable,ScriptMethodSelfReturn))
 //static FMyPythonStruct_ScriptMethod AppendStringOnStructViaRefReturn(UPARAM(ref) FMyPythonStruct_ScriptMethod& myStruct, FString val);
@@ -26264,10 +26009,10 @@ class MyPythonStruct_ScriptMethod(StructBase):
         r"""
         x.append_string_on_struct_return(val) -> None
         Append String on Struct Return
-        
+
         Args:
-            val (str): 
-        
+            val (str):
+
         Returns:
             MyPythonStruct_ScriptMethod:
         """
@@ -26276,10 +26021,10 @@ class MyPythonStruct_ScriptMethod(StructBase):
         r"""
         x.append_string_on_struct(val) -> MyPythonStruct_ScriptMethod
         Append String on Struct
-        
+
         Args:
-            val (str): 
-        
+            val (str):
+
         Returns:
             MyPythonStruct_ScriptMethod:
         """
@@ -26288,10 +26033,10 @@ class MyPythonStruct_ScriptMethod(StructBase):
         r"""
         x.append_string_on_struct_via_ref(val) -> MyPythonStruct_ScriptMethod
         Append String on Struct Via Ref
-        
+
         Args:
-            val (str): 
-        
+            val (str):
+
         Returns:
             MyPythonStruct_ScriptMethod:
         """
@@ -26368,7 +26113,6 @@ if (InFunc->HasMetaData(PyGenUtil::ScriptMethodSelfReturnMetaDataKey))
 
 ```
 
-
 ﻿# ScriptOperator
 
 - **功能描述：** 把第一个参数为结构的静态函数包装成结构的运算符。
@@ -26396,7 +26140,7 @@ if (InFunc->HasMetaData(PyGenUtil::ScriptMethodSelfReturnMetaDataKey))
 
 可见，如果想一个函数同时支持普通数学运算符和赋值运算符，函数签名可以是：
 
-FMyStruct FuncName(const FMyStruct&, OtherType);  //这里OtherType可以是任何类型，也可以是FMyStruct 
+FMyStruct FuncName(const FMyStruct&, OtherType);  //这里OtherType可以是任何类型，也可以是FMyStruct
 
 这个也常常一起配合ScriptMethod使用，这样就可以在结构中一起提供一个运算成员函数，这个函数的名字还可以通过ScriptMethod来自定义。
 
@@ -26442,14 +26186,14 @@ public:
 class MyPythonMathStruct(StructBase):
     r"""
     My Python Math Struct
-    
+
     **C++ Source:**
-    
+
     - **Module**: Insider
     - **File**: MyPython_ScriptOperator.h
-    
+
     **Editor Properties:** (see get_editor_property/set_editor_property)
-    
+
     - ``value`` (int32):  [Read-Write]
     """
     def __init__(self, value: int = 0) -> None:
@@ -26467,7 +26211,7 @@ class MyPythonMathStruct(StructBase):
         r"""
         x.has_value() -> bool
         Is Valid
-        
+
         Returns:
             bool:
         """
@@ -26480,21 +26224,21 @@ class MyPythonMathStruct(StructBase):
     def __eq__(self, other: object) -> bool:
         r"""
         **Overloads:**
-        
+
         - ``MyPythonMathStruct`` Is Equal
         """
         ...
     def __add__(self, other: MyPythonMathStruct) -> None:
         r"""
         **Overloads:**
-        
+
         - ``int32`` Add Int
         """
         ...
     def __iadd__(self, other: MyPythonMathStruct) -> None:
         r"""
         **Overloads:**
-        
+
         - ``int32`` Add Int
         """
         ...
@@ -26576,7 +26320,6 @@ auto GenerateWrappedOperator = [this, &OutGeneratedWrappedTypeReferences, &OutDi
 };
 ```
 
-
 ﻿# ScriptDefaultMake
 
 - **功能描述：** 禁用结构上的HasNativeMake，在脚本里构造的时候不调用C++里的NativeMake函数，而采用脚本内建的默认初始化方式。
@@ -26628,14 +26371,14 @@ public:
 class MyPythonMBStructNative(StructBase):
     r"""
     My Python MBStruct Native
-    
+
     **C++ Source:**
-    
+
     - **Module**: Insider
     - **File**: MyPython_ScriptMakeBreak.h
-    
+
     **Editor Properties:** (see get_editor_property/set_editor_property)
-    
+
     - ``my_int`` (int32):  [Read-Write]
     - ``my_string`` (str):  [Read-Write]
     """
@@ -26746,11 +26489,10 @@ GeneratedWrappedType->PyType.tp_init = (initproc)&FFuncs::Init;
 	{
 			return FPyWrapperStruct::BreakStruct(InSelf);
 	}
-	
+
 	....
 	{ "to_tuple", PyCFunctionCast(&FMethods::ToTuple), METH_NOARGS, "to_tuple(self) -> Tuple[object, ...] -- break this Unreal struct into a tuple of its properties" },
 ```
-
 
 ﻿# ScriptDefaultBreak
 
@@ -26761,7 +26503,6 @@ GeneratedWrappedType->PyType.tp_init = (initproc)&FFuncs::Init;
 - **常用程度：** ★
 
 见ScriptDefaultMake的原理和测试代码。
-
 
 ﻿# TakeRecorderDisplayName
 
@@ -26788,7 +26529,7 @@ class UTakeRecorderPlayerSource : public UTakeRecorderSource
 
 在引擎源码中可见有多个UTakeRecorderSource，其上都标了名字。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Sequencer\TakeRecorderDisplayName\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Sequencer\TakeRecorderDisplayName\Untitled.png)
 
 ## 原理：
 
@@ -26800,7 +26541,7 @@ TSharedRef<SWidget> SLevelSequenceTakeEditor::OnGenerateSourcesMenu()
 		for (UClass* Class : SourceClasses)
 		{
 			TSubclassOf<UTakeRecorderSource> SubclassOf = Class;
-		
+
 			MenuBuilder.AddMenuEntry(
 				FText::FromString(Class->GetMetaData(TEXT("TakeRecorderDisplayName"))),
 				Class->GetToolTipText(true),
@@ -26813,7 +26554,6 @@ TSharedRef<SWidget> SLevelSequenceTakeEditor::OnGenerateSourcesMenu()
 		}
 }
 ```
-
 
 ﻿# SequencerBindingResolverLibrary
 
@@ -26867,7 +26607,7 @@ public:
 
 因此我们也可以定义自己的动态绑定函数，来解析一个FString为一个Actor，如代码里ResolveToMyActor所示。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Sequencer\SequencerBindingResolverLibrary\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Sequencer\SequencerBindingResolverLibrary\Untitled.png)
 
 ## 原理：
 
@@ -26893,7 +26633,6 @@ for (TObjectIterator<UClass> ClassIt; ClassIt; ++ClassIt)
 }
 ```
 
-
 ﻿# CommandLineID
 
 - **功能描述：** 标记UMovieSceneCaptureProtocolBase的子类的协议类型。
@@ -26909,7 +26648,7 @@ for (TObjectIterator<UClass> ClassIt; ClassIt; ++ClassIt)
 
 ## 测试效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Sequencer\CommandLineID\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Sequencer\CommandLineID\Untitled.png)
 
 ## 原理：
 
@@ -26932,16 +26671,15 @@ void UMovieSceneCapture::Initialize(TSharedPtr<FSceneViewport> InSceneViewport, 
 						OverrideClass = Class;
 					}
 				}
-				ImageCaptureProtocolType = OverrideClass;		
+				ImageCaptureProtocolType = OverrideClass;
 			}
-			
+
 		if (FParse::Value( FCommandLine::Get(), TEXT( "-AudioCaptureProtocol=" ), AudioProtocolOverrideString ) )
 		{
 			static const TCHAR* const CommandLineIDString = TEXT("CommandLineID");
 		}
 	}
 ```
-
 
 ﻿# SkipUCSModifiedProperties
 
@@ -26991,7 +26729,7 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AMyProperty_SkipUCSModifiedProperties_BaseActor> ActorClass;
-	
+
 	UFUNCTION(CallInEditor)
 	void CreateActor();
 
@@ -27028,11 +26766,11 @@ void AMyProperty_SkipUCSModifiedProperties_TestActor::CleanupActor()
 
 ## 测试效果：
 
-![](D:\Sync\CommunityWork\CommunityAdmin\Image\image.png)
+![D:\github\UnrealSpecifiers\Doc\zh\Meta\Serialization\image.png](image.png)
 
 操作步骤：
 
-![](D:\Sync\CommunityWork\CommunityAdmin\Image\SkipUCSModifiedProperties.gif)
+![D:\github\UnrealSpecifiers\Doc\zh\Meta\Serialization\SkipUCSModifiedProperties.gif](SkipUCSModifiedProperties.gif)
 
 可见一开始在场景里动态创建的Actor下的组件里的两个属性都是被构造函数修改后的First和Second，但是在关卡Map保存之后，只有MyString_Default的值回归了默认值（没有被序列化下来），而MyString_Skip的值就有保存了下来。
 
@@ -27077,7 +26815,7 @@ public:
 	{
 		return PropertiesToSkip.Contains(InProperty);
 	}
-	
+
 };
 
 class FComponentPropertyReader : public FDataCachePropertyReader
@@ -27131,11 +26869,11 @@ void UActorComponent::DetermineUCSModifiedProperties()
 			: FArchive()
 		{
 			this->SetIsSaving(true);
-	
+
 			// Include properties that would normally skip tagged serialization (e.g. bulk serialization of array properties).
 			ArPortFlags |= PPF_ForceTaggedSerialization;
 		}
-	
+
 		virtual bool ShouldSkipProperty(const FProperty* InProperty) const override
 		{
 			static const FName MD_SkipUCSModifiedProperties(TEXT("SkipUCSModifiedProperties"));
@@ -27148,7 +26886,7 @@ void UActorComponent::DetermineUCSModifiedProperties()
 				);
 		}
 	} PropertySkipper;
-	
+
 	UClass* ComponentClass = GetClass();
 	UObject* ComponentArchetype = GetArchetype();
 
@@ -27208,7 +26946,7 @@ class UPrimitiveComponent : public USceneComponent, public INavRelevantInterface
 
 - **元数据类型：** bool
 
-- **关联项：** 
+- **关联项：**
 
   UCLASS：MatchedSerializers
 
@@ -27224,7 +26962,6 @@ ParsedClassFlags |= CLASS_MatchedSerializers;
 
 跟在Class中标记MatchedSerializers是等价的
 
-
 ﻿# NoGetter
 
 - **功能描述：** 阻止UHT为该属性生成一个C++的get函数，只对稀疏类的结构数据里的属性生效。
@@ -27235,7 +26972,7 @@ ParsedClassFlags |= CLASS_MatchedSerializers;
 
 - **元数据类型：** bool
 
-- **关联项：** 
+- **关联项：**
 
   UCLASS：SparseClassDataType 
 
@@ -27283,7 +27020,7 @@ const FString& GetMyString_EditDefault_ReadOnly() const { return GetMySparseClas
 
 而蓝图里是依然可以访问到的：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\SparseDataType\NoGetter\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\SparseDataType\NoGetter\Untitled.png)
 
 ## 原理：
 
@@ -27320,7 +27057,6 @@ if (UScriptStruct* SparseClassDataStruct = ResolvedBaseClass->GetSparseClassData
 
 ```
 
-
 ﻿# PasswordField
 
 - **功能描述：** 使得文本属性显示为密码框
@@ -27351,7 +27087,7 @@ public:
 
 ## 测试效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\String\PasswordField\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\String\PasswordField\Untitled.png)
 
 ## 原理：
 
@@ -27361,7 +27097,7 @@ public:
 void SPropertyEditorText::Construct( const FArguments& InArgs, const TSharedRef< class FPropertyEditor >& InPropertyEditor )
 {
 		const bool bIsPassword = PropertyHandle->GetBoolMetaData(NAME_PasswordField);
-		
+
 		if(bIsMultiLine)
 		{
 			ChildSlot
@@ -27384,7 +27120,7 @@ void SPropertyEditorText::Construct( const FArguments& InArgs, const TSharedRef<
 					//.IsPassword( bIsPassword )
 				]
 			];
-		
+
 			PrimaryWidget = MultiLineWidget;
 		}
 		else
@@ -27407,12 +27143,11 @@ void SPropertyEditorText::Construct( const FArguments& InArgs, const TSharedRef<
 					.IsPassword( bIsPassword )
 				]
 			];
-		
+
 			PrimaryWidget = SingleLineWidget;
 		}
 }
 ```
-
 
 ﻿# PropertyValidator
 
@@ -27448,7 +27183,7 @@ void SPropertyEditorText::Construct( const FArguments& InArgs, const TSharedRef<
 
 ## 测试效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\String\PropertyValidator\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\String\PropertyValidator\Untitled.png)
 
 ## 原理:
 
@@ -27460,7 +27195,7 @@ const UClass* OuterBaseClass = PropertyHandle->GetOuterBaseClass();
 if (!PropertyValidatorFunctionName.IsEmpty() && OuterBaseClass)
 {
 	static TSet<FString> LoggedWarnings;
-	
+
 	UObject* ValidatorObject = OuterBaseClass->GetDefaultObject<UObject>();
 	const UFunction* PropertyValidatorFunction = ValidatorObject->FindFunction(*PropertyValidatorFunctionName);
 	if (PropertyValidatorFunction)
@@ -27469,14 +27204,14 @@ if (!PropertyValidatorFunctionName.IsEmpty() && OuterBaseClass)
 		{
 			PropertyValidatorFunc = FPropertyValidatorFunc::CreateUFunction(ValidatorObject, PropertyValidatorFunction->GetFName());
 		}
-		
+
 bool SPropertyEditorText::OnVerifyTextChanged(const FText& Text, FText& OutError)
 {
 	const FString& TextString = Text.ToString();
 
 	if (PropertyValidatorFunc.IsBound())
 	{
-		FText Result = PropertyValidatorFunc.Execute(TextString); 
+		FText Result = PropertyValidatorFunc.Execute(TextString);
 		if (!Result.IsEmpty())
 		{
 			OutError = Result;
@@ -27487,7 +27222,6 @@ bool SPropertyEditorText::OnVerifyTextChanged(const FText& Text, FText& OutError
 	return true;
 }
 ```
-
 
 ﻿# MultiLine
 
@@ -27520,7 +27254,7 @@ bool SPropertyEditorText::OnVerifyTextChanged(const FText& Text, FText& OutError
 
 按住Shift+Enter回车换行。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\String\MultiLine\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\String\MultiLine\Untitled.png)
 
 ## 原理：
 
@@ -27530,7 +27264,7 @@ bool SPropertyEditorText::OnVerifyTextChanged(const FText& Text, FText& OutError
 void SPropertyEditorText::Construct( const FArguments& InArgs, const TSharedRef< class FPropertyEditor >& InPropertyEditor )
 {
 bIsMultiLine = PropertyHandle->GetBoolMetaData(NAME_MultiLine);
-		
+
 		if(bIsMultiLine)
 		{
 			ChildSlot
@@ -27553,13 +27287,12 @@ bIsMultiLine = PropertyHandle->GetBoolMetaData(NAME_MultiLine);
 					//.IsPassword( bIsPassword )
 				]
 			];
-		
+
 			PrimaryWidget = MultiLineWidget;
 		}
-	
+
 }
 ```
-
 
 ﻿# AllowedCharacters
 
@@ -27586,7 +27319,7 @@ public:
 
 可见第一个只能输入abcde，而fgh产生了报错。在测试中文的时候，如果粘贴进去对应的中文，则是OK的。否则也会产生报错，不允许输入进去。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\String\AllowedCharacters\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\String\AllowedCharacters\Untitled.png)
 
 ## 原理：
 
@@ -27629,7 +27362,7 @@ bool SPropertyEditorText::OnVerifyTextChanged(const FText& Text, FText& OutError
 
 	if (PropertyValidatorFunc.IsBound())
 	{
-		FText Result = PropertyValidatorFunc.Execute(TextString); 
+		FText Result = PropertyValidatorFunc.Execute(TextString);
 		if (!Result.IsEmpty())
 		{
 			OutError = Result;
@@ -27647,7 +27380,7 @@ bool SPropertyEditorText::OnVerifyTextChanged(const FText& Text, FText& OutError
 /** Initializes this instance with the character ranges represented by the passed definition string.
 *   A definition string contains characters and ranges of characters, one after another with no special separators between them.
 *   Characters - and \ must be escaped like this: \- and \\
-* 
+*
 *   Examples:
 *       "aT._" <-- Letters 'a' and 'T', dot and underscore.
 *       "a-zT._" <-- All letters from 'a' to 'z', letter 'T', dot and underscore.
@@ -27655,7 +27388,6 @@ bool SPropertyEditorText::OnVerifyTextChanged(const FText& Text, FText& OutError
 *       "a-zA-Z0-9\-\\._" <-- All lowercase and uppercase letters, all digits, minus sign, backslash, dot and underscore.
 */
 ```
-
 
 ﻿# GetOptions
 
@@ -27741,7 +27473,7 @@ public:
 
 而另外当使用TMap的时候，还可以用GetKeyOptions 和GetValueOptions来分别单独为Key和Value提供不一样的选项列表，见MyMap_GetKeyValueOptions。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\String\GetOptions\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\String\GetOptions\Untitled.png)
 
 ## 原理：
 
@@ -27812,7 +27544,7 @@ GetPropertyOptions调用指定的函数来获得选项列表，最后根据这�
 			Algo::Transform(OptionIntersection, InOutOptions, [](const FString& InString) { return MakeShared<FString>(InString); });
 		}
 	}
-	
+
 FName GetPropertyOptionsMetaDataKey(const FProperty* Property)
 {
 	// Only string and name properties can have options
@@ -27852,7 +27584,6 @@ TSharedPtr<SWidget> SGraphPinString::TryBuildComboBoxWidget()
 }
 ```
 
-
 ﻿# GetKeyOptions
 
 - **功能描述：** 为TMap里的FName/FString作为Key提供细节面板里选项框的选项值
@@ -27862,7 +27593,6 @@ TSharedPtr<SWidget> SGraphPinString::TryBuildComboBoxWidget()
 - **限制类型：** TMap里FName/FString作为Key
 - **关联项：** GetOptions
 
-
 ﻿# GetValueOptions
 
 - **功能描述：** 为TMap里的FName/FString作Value提供细节面板里选项框的选项值
@@ -27871,7 +27601,6 @@ TSharedPtr<SWidget> SGraphPinString::TryBuildComboBoxWidget()
 - **元数据类型：** string="abc"
 - **限制类型：** TMap里FName/FString作为Value
 - **关联项：** GetOptions
-
 
 ﻿# MaxLength
 
@@ -27893,7 +27622,7 @@ TSharedPtr<SWidget> SGraphPinString::TryBuildComboBoxWidget()
 
 ## 测试效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\String\MaxLength\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\String\MaxLength\Untitled.png)
 
 ## 原理：
 
@@ -27911,7 +27640,7 @@ if (InPropertyEditor->PropertyIsA(FNameProperty::StaticClass()))
 bool SPropertyEditorText::OnVerifyTextChanged(const FText& Text, FText& OutError)
 {
 		const FString& TextString = Text.ToString();
-	
+
 		if (MaxLength > 0 && TextString.Len() > MaxLength)
 		{
 			OutError = FText::Format(LOCTEXT("PropertyTextTooLongError", "This value is too long ({0}/{1} characters)"), TextString.Len(), MaxLength);
@@ -27919,7 +27648,6 @@ bool SPropertyEditorText::OnVerifyTextChanged(const FText& Text, FText& OutError
 		}
 	}
 ```
-
 
 ﻿# MakeStructureDefaultValue
 
@@ -27934,13 +27662,13 @@ bool SPropertyEditorText::OnVerifyTextChanged(const FText& Text, FText& OutError
 
 - 在C++中我们写的USTRUCT的结构里的属性默认值并不需要存储在元数据中，因为在创建该结构实例的时候，就自然会调用该结构的构造函数，从而正确初始化值。
 - 而在蓝图中的用户自定义结构，并没有构造函数之类的机制。因此我们需要一个专门的Tab来填写属性的默认值。这些默认值就会存储在属性的元数据中。
-- 
+-
 
 ## 测试代码：
 
 在蓝图中定义一个结构BP_StructDefaultTest，并填上默认值。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Struct\MakeStructureDefaultValue\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Struct\MakeStructureDefaultValue\Untitled.png)
 
 ## 测试结果：
 
@@ -27949,21 +27677,21 @@ bool SPropertyEditorText::OnVerifyTextChanged(const FText& Text, FText& OutError
 ```cpp
 [struct BP_StructDefaultTest	UserDefinedStruct->ScriptStruct->Struct->Field->Object	/Game/Struct/BP_StructDefaultTest.BP_StructDefaultTest]
 (BlueprintType = true, Tooltip = )
-	ObjectFlags:	RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted 
+	ObjectFlags:	RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted
 	Outer:	Package /Game/Struct/BP_StructDefaultTest
 StructFlags:	STRUCT_NoFlags
 Size:	24
 {
 	(DisplayName = MyInt, Tooltip = , MakeStructureDefaultValue = 789)
 	0-[4] int32 MyInt_3_CC664A574A072369083883B38EA2F129;
-		PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash 
-		ObjectFlags:	RF_Public | RF_LoadCompleted 
+		PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash
+		ObjectFlags:	RF_Public | RF_LoadCompleted
 		Outer:	UserDefinedStruct /Game/Struct/BP_StructDefaultTest.BP_StructDefaultTest
 		Path:	IntProperty /Game/Struct/BP_StructDefaultTest.BP_StructDefaultTest:MyInt_3_CC664A574A072369083883B38EA2F129
 	(DisplayName = MyString, Tooltip = , MakeStructureDefaultValue = Hello)
 	8-[16] FString MyString_6_D8FAF5D6454C781C2D5175ACF266C394;
-		PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_HasGetValueTypeHash 
-		ObjectFlags:	RF_Public | RF_LoadCompleted 
+		PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_HasGetValueTypeHash
+		ObjectFlags:	RF_Public | RF_LoadCompleted
 		Outer:	UserDefinedStruct /Game/Struct/BP_StructDefaultTest.BP_StructDefaultTest
 		Path:	StrProperty /Game/Struct/BP_StructDefaultTest.BP_StructDefaultTest:MyString_6_D8FAF5D6454C781C2D5175ACF266C394
 };
@@ -27992,7 +27720,6 @@ static void FUserDefinedStructureCompilerInner::CreateVariables(UUserDefinedStru
 	}
 }
 ```
-
 
 ﻿# IgnoreForMemberInitializationTest
 
@@ -28064,7 +27791,6 @@ FStructUtils::AttemptToFindUninitializedScriptStructMembers();
 CoreUObject.AttemptToFindUninitializedScriptStructMembers
 ```
 
-
 ﻿# HasNativeBreak
 
 - **功能描述：** 为该结构指定一个C++内的UFunction函数作为Break节点的实现
@@ -28135,7 +27861,7 @@ public:
 
 ## 蓝图节点：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Struct\HasNativeBreak\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Struct\HasNativeBreak\Untitled.png)
 
 ## 原理是：
 
@@ -28166,7 +27892,6 @@ else
 SplitPinNode = CallFunctionNode;
 ```
 
-
 ﻿# HasNativeMake
 
 - **功能描述：** 为该结构指定一个C++内的UFunction函数作为Mreak节点的实现
@@ -28174,7 +27899,6 @@ SplitPinNode = CallFunctionNode;
 - **元数据类型：** string="abc"
 - **关联项：** HasNativeBreak
 - **常用程度：** ★★★★★
-
 
 ﻿# DataflowFlesh
 
@@ -28185,7 +27909,6 @@ SplitPinNode = CallFunctionNode;
 - **常用程度：** 0
 
 没有在源码里找到应用的例子
-
 
 ﻿# AllowedTypes
 
@@ -28221,7 +27944,7 @@ public:
 
 可见MyPrimaryAsset_Allowed的选项只有一个了，说明受到了限制。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\TypePicker\AllowedTypes\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\TypePicker\AllowedTypes\Untitled.png)
 
 ## 原理：
 
@@ -28249,15 +27972,14 @@ void FPrimaryAssetIdCustomization::CustomizeHeader(TSharedRef<class IPropertyHan
 			AllowedTypes.Add(*TypeName);
 		}
 	}
-	
+
 	IAssetManagerEditorModule::MakePrimaryAssetIdSelector(
 	FOnGetPrimaryAssetDisplayText::CreateSP(this, &FPrimaryAssetIdCustomization::GetDisplayText),
 	FOnSetPrimaryAssetId::CreateSP(this, &FPrimaryAssetIdCustomization::OnIdSelected),
 	bAllowClear, AllowedTypes, AllowedClasses, DisallowedClasses)
-	
+
 	}
 ```
-
 
 ﻿# BaseClass
 
@@ -28280,7 +28002,7 @@ struct STATETREEEDITORMODULE_API FStateTreeTransition
 	/** Conditions that must pass so that the transition can be triggered. */
 	UPROPERTY(EditDefaultsOnly, Category = "Transition", meta = (BaseStruct = "/Script/StateTreeModule.StateTreeConditionBase", BaseClass = "/Script/StateTreeModule.StateTreeConditionBlueprintBase"))
 	TArray<FStateTreeEditorNode> Conditions;
-	
+
 	UPROPERTY(EditDefaultsOnly, Category = "Tasks", meta = (BaseStruct = "/Script/StateTreeModule.StateTreeTaskBase", BaseClass = "/Script/StateTreeModule.StateTreeTaskBlueprintBase"))
 	TArray<FStateTreeEditorNode> Tasks;
 }
@@ -28290,7 +28012,7 @@ struct STATETREEEDITORMODULE_API FStateTreeTransition
 
 可见，虽然Conditions和Tasks的类型都是FStateTreeEditorNode，但是选项列表里的内容是不同的。这是由于其上面的BaseStruct和BaseClass 不同，分别限定了结构的基类类型以及蓝图类的基类。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\TypePicker\BaseClass\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\TypePicker\BaseClass\Untitled.png)
 
 ## 原理：
 
@@ -28305,7 +28027,6 @@ void FStateTreeEditorNodeDetails::CustomizeHeader(TSharedRef<class IPropertyHand
 }
 
 ```
-
 
 ﻿# AllowedClasses
 
@@ -28346,7 +28067,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AllowedClassesTest|FSoftClassPath", meta = (AllowedClasses = "MyCommonObject"))
 	FSoftClassPath MySoftClass_AllowedClasses;
 
-	
+
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AllowedClassesTest|FSoftObjectPath")
 	UObject* MyObject_NoAllowedClasses;
@@ -28365,8 +28086,8 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AllowedClassesTest|FPrimaryAssetId", meta = (AllowedClasses = "MyPrimaryDataAsset"))
 	FPrimaryAssetId MyPrimaryAsset_AllowedClasses;
-	
-	
+
+
 UCLASS(Blueprintable,BlueprintType)
 class INSIDER_API AMyActor_Class :public AActor
 {
@@ -28390,13 +28111,13 @@ class INSIDER_API UMyPrimaryDataAsset :public UPrimaryDataAsset
 - 在对象选择器上，加上了AllowedClasses = "/Script/Engine.Texture2D"之后，就把类型限定到纹理上。
 - 在FPrimaryAssetId 属性的资产筛选上，加了AllowedClasses 之后，可以限定到MyPrimaryDataAsset类型，图上是BP_MyPrimaryAsset。注意一下UMyPrimaryDataAsset 需要在ProjectSettings里设置上。
 
-![AllowClasses](D:\github\UnrealSpecifiers\Doc\Meta\TypePicker\AllowedClasses\AllowClasses.jpg)
+![AllowClasses](D:\github\UnrealSpecifiers\Doc\zh\Meta\TypePicker\AllowedClasses\AllowClasses.jpg)
 
 测试FComponentReference的效果：
 
 结合上述代码，可见默认情况下，FComponentReference可选择的范围是当前Actor下所有Component。而加上AllowedClasses后，可以把选择的范围限定到代码里描述的MyActorComponent。
 
-![AllowClasses_ComponentReference](D:\github\UnrealSpecifiers\Doc\Meta\TypePicker\AllowedClasses\AllowClasses_ComponentReference.jpg)
+![AllowClasses_ComponentReference](D:\github\UnrealSpecifiers\Doc\zh\Meta\TypePicker\AllowedClasses\AllowClasses_ComponentReference.jpg)
 
 ## 原理：
 
@@ -28430,7 +28151,7 @@ void PropertyEditorUtils::GetAllowedAndDisallowedClasses(const TArray<UObject*>&
 		{
 			const FString GetAllowedClassesFunctionName = MetadataProperty.GetOwnerProperty()->GetMetaData("GetAllowedClasses");
 		}
-		
+
 		if (MetadataProperty.GetOwnerProperty()->HasMetaData("GetDisallowedClasses"))
 		{
 			const FString GetDisallowedClassesFunctionName = MetadataProperty.GetOwnerProperty()->GetMetaData("GetDisallowedClasses");
@@ -28452,7 +28173,6 @@ TSharedRef<SWidget> SPropertyEditorEditInline::GenerateClassPicker()
 		PropertyEditorUtils::GetAllowedAndDisallowedClasses(ObjectList, *Property, AllowedClassFilters, DisallowedClassFilters, false);
 }
 ```
-
 
 ﻿# ExactClass
 
@@ -28481,8 +28201,8 @@ TSharedRef<SWidget> SPropertyEditorEditInline::GenerateClassPicker()
 		classes.Add(UTextureCube::StaticClass());
 		return classes;
 	}
-	
-	
+
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ExactClassTest|UObject*", meta = (AllowedClasses = "/Script/Engine.Texture2D,/Script/Engine.TextureCube",GetAllowedClasses = "MyGetAllowedClassesFunc"))
 	UObject* MyObject_NoExactClass;
 
@@ -28501,7 +28221,7 @@ TSharedRef<SWidget> SPropertyEditorEditInline::GenerateClassPicker()
 - 可见没有ExactClass的时候，筛选类型是TextureCube和TextureLightProfile，总共有18项。
 - 而有ExactClass后，筛选类型是TextureCube，总共只有12项。
 
-![ExactClass](D:\github\UnrealSpecifiers\Doc\Meta\TypePicker\ExactClass\ExactClass.jpg)
+![ExactClass](D:\github\UnrealSpecifiers\Doc\zh\Meta\TypePicker\ExactClass\ExactClass.jpg)
 
 ## 原理：
 
@@ -28528,7 +28248,7 @@ void SPropertyEditorAsset::InitializeClassFilters(const FProperty* Property)
 	const FProperty* MetadataProperty = GetActualMetadataProperty(Property);
 
 	bExactClass = GetTagOrBoolMetadata(MetadataProperty, "ExactClass", false);
-	
+
 	TArray<UObject*> ObjectList;
 	if (PropertyEditor && PropertyEditor->GetPropertyHandle()->IsValidHandle())
 	{
@@ -28538,9 +28258,9 @@ void SPropertyEditorAsset::InitializeClassFilters(const FProperty* Property)
 	{
 		PropertyHandle->GetOuterObjects(ObjectList);
 	}
-	
+
 	PropertyEditorUtils::GetAllowedAndDisallowedClasses(ObjectList, *MetadataProperty, AllowedClassFilters, DisallowedClassFilters, bExactClass, ObjectClass);
-	
+
 	if (AllowedClassFilters.Num() == 0)
 	{
 		// always add the object class to the filters
@@ -28572,7 +28292,6 @@ void GetAllowedAndDisallowedClasses(const TArray<UObject*>& ObjectList, const FP
 }
 
 ```
-
 
 ﻿# DisallowedClasses
 
@@ -28628,7 +28347,7 @@ public://Not work
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "DisallowedClassesTest|FPrimaryAssetId", meta = (DisallowedClasses = "MyPrimaryDataAsset"))
 	FPrimaryAssetId MyPrimaryAsset_DisallowedClasses;
-	
+
 UCLASS(Blueprintable, BlueprintType)
 class INSIDER_API AMyActor_Class :public AActor
 {
@@ -28648,13 +28367,13 @@ public:
 - 在类选择器上，可见加了DisallowedClasses 之后，就排除掉了AbilityAsync类。
 - 而在对象选择器上，却没必要发生作用。二者的可选对象列表是一样的。原因是因为SAssetPicker并没有实际上应用DisallowedClasses 。
 
-![DisallowedClasses](D:\github\UnrealSpecifiers\Doc\Meta\TypePicker\DisallowedClasses\DisallowedClasses.jpg)
+![DisallowedClasses](D:\github\UnrealSpecifiers\Doc\zh\Meta\TypePicker\DisallowedClasses\DisallowedClasses.jpg)
 
 而在FComponentReference上的测试效果是：
 
 DisallowedClasses可以排除掉MyActorComponent。
 
-![DisallowedClasses_ComponentReference](D:\github\UnrealSpecifiers\Doc\Meta\TypePicker\DisallowedClasses\DisallowedClasses_ComponentReference.jpg)
+![DisallowedClasses_ComponentReference](D:\github\UnrealSpecifiers\Doc\zh\Meta\TypePicker\DisallowedClasses\DisallowedClasses_ComponentReference.jpg)
 
 ## 原理：
 
@@ -28671,8 +28390,8 @@ DisallowedClasses可以排除掉MyActorComponent。
 	ClassViewerOptions.ClassFilters.Add(PropEdClassFilter);
 
 	ClassFilter = FModuleManager::LoadModuleChecked<FClassViewerModule>("ClassViewer").CreateClassFilter(ClassViewerOptions);
-	
-	
+
+
 template <typename TClass>
 bool FPropertyEditorClassFilter::IsClassAllowedHelper(TClass InClass)
 {
@@ -28700,7 +28419,7 @@ bool FPropertyEditorClassFilter::IsClassAllowedHelper(TClass InClass)
 void SAssetPicker::Construct( const FArguments& InArgs )
 {
 	if (InArgs._AssetPickerConfig.bAddFilterUI)
-	{		
+	{
 		// We create available classes here. These are used to hide away the type filters in the filter list that don't match this list of classes
 		TArray<UClass*> FilterClassList;
 		for(auto Iter = CurrentBackendFilter.ClassPaths.CreateIterator(); Iter; ++Iter)
@@ -28711,10 +28430,9 @@ void SAssetPicker::Construct( const FArguments& InArgs )
 			{
 				FilterClassList.AddUnique(FilterClass);
 			}
-		}		
+		}
 }
 ```
-
 
 ﻿# GetAllowedClasses
 
@@ -28742,7 +28460,7 @@ public:
 			classes.Add(UMyCommonObject::StaticClass());
 			classes.Add(UTexture2D::StaticClass());
 			classes.Add(UMyPrimaryDataAsset::StaticClass());
-			
+
 			return classes;
 	}
 
@@ -28776,7 +28494,7 @@ public:
 
 可见Class选择器把可选范围限定到了设定的3个基类上。而对象选择器也把对象限定到了这3个基类。
 
-![GetAllowClasses](D:\github\UnrealSpecifiers\Doc\Meta\TypePicker\GetAllowedClasses\GetAllowClasses.jpg)
+![GetAllowClasses](D:\github\UnrealSpecifiers\Doc\zh\Meta\TypePicker\GetAllowedClasses\GetAllowClasses.jpg)
 
 ## 原理：
 
@@ -28802,7 +28520,7 @@ void PropertyEditorUtils::GetAllowedAndDisallowedClasses(const TArray<UObject*>&
 {
 	AllowedClasses = PropertyCustomizationHelpers::GetClassesFromMetadataString(MetadataProperty.GetOwnerProperty()->GetMetaData("AllowedClasses"));
 	DisallowedClasses = PropertyCustomizationHelpers::GetClassesFromMetadataString(MetadataProperty.GetOwnerProperty()->GetMetaData("DisallowedClasses"));
-	
+
 	bool bMergeAllowedClasses = !AllowedClasses.IsEmpty();
 
 	if (MetadataProperty.GetOwnerProperty()->HasMetaData("GetAllowedClasses"))
@@ -28828,7 +28546,6 @@ void PropertyEditorUtils::GetAllowedAndDisallowedClasses(const TArray<UObject*>&
 	}
 }
 ```
-
 
 ﻿# GetDisallowedClasses
 
@@ -28856,8 +28573,8 @@ TArray<UClass*> MyGetDisallowedClassesFunc()
 	classes.Add(UTexture2D::StaticClass());
 	return classes;
 }
-	
-	
+
+
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GetDisallowedClassesTest|TSubclassOf")
 TSubclassOf<UObject> MyClass_NoGetDisallowedClasses;
 
@@ -28875,7 +28592,7 @@ UClass* MyClassPtr_GetDisallowedClasses;
 
 可以发现加了GetDisallowedClasses之后，选择列表上少了一些类型。
 
-![GetDisallowedClasses](D:\github\UnrealSpecifiers\Doc\Meta\TypePicker\GetDisallowedClasses\GetDisallowedClasses.jpg)
+![GetDisallowedClasses](D:\github\UnrealSpecifiers\Doc\zh\Meta\TypePicker\GetDisallowedClasses\GetDisallowedClasses.jpg)
 
 ## 原理：
 
@@ -28901,7 +28618,7 @@ void PropertyEditorUtils::GetAllowedAndDisallowedClasses(const TArray<UObject*>&
 {
 	AllowedClasses = PropertyCustomizationHelpers::GetClassesFromMetadataString(MetadataProperty.GetOwnerProperty()->GetMetaData("AllowedClasses"));
 	DisallowedClasses = PropertyCustomizationHelpers::GetClassesFromMetadataString(MetadataProperty.GetOwnerProperty()->GetMetaData("DisallowedClasses"));
-	
+
 	bool bMergeAllowedClasses = !AllowedClasses.IsEmpty();
 
 	if (MetadataProperty.GetOwnerProperty()->HasMetaData("GetAllowedClasses"))
@@ -28927,7 +28644,6 @@ void PropertyEditorUtils::GetAllowedAndDisallowedClasses(const TArray<UObject*>&
 	}
 }
 ```
-
 
 ﻿# BaseStruct
 
@@ -28975,7 +28691,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "InstancedStruct", meta = (ExcludeBaseStruct, BaseStruct = "/Script/Insider.MyCommonStruct"))
 	FInstancedStruct MyStruct_ExcludeBaseStruct;
-	
+
 		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "InstancedStruct", meta = (StructTypeConst))
 		FInstancedStruct MyStruct_Const;
 };
@@ -28989,7 +28705,7 @@ public:
 
 加上StructTypeConst的MyStruct_Const就不能编辑了。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\TypePicker\BaseStruct\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\TypePicker\BaseStruct\Untitled.png)
 
 ## 原理：
 
@@ -29022,14 +28738,13 @@ TSharedRef<SWidget> FInstancedStructDetails::GenerateStructPicker()
 	const bool bAllowNone = !(StructProperty->GetMetaDataProperty()->PropertyFlags & CPF_NoClear);
 	const bool bHideViewOptions = StructProperty->HasMetaData(NAME_HideViewOptions);
 	const bool bShowTreeView = StructProperty->HasMetaData(NAME_ShowTreeView);
-	
+
 	StructFilter->BaseStruct = BaseScriptStruct;
 	StructFilter->bAllowBaseStruct = !bExcludeBaseStruct;
-	
+
 }
 
 ```
-
 
 ﻿# ExcludeBaseStruct
 
@@ -29042,7 +28757,6 @@ TSharedRef<SWidget> FInstancedStructDetails::GenerateStructPicker()
 - **常用程度：** ★★★
 
 在使用BaseStruct的FInstancedStruct属性上忽略BaseStruct指向的结构基类。
-
 
 ﻿# StructTypeConst
 
@@ -29067,13 +28781,12 @@ void FInstancedStructDetails::CustomizeHeader(TSharedRef<class IPropertyHandle> 
 {
 		static const FName NAME_StructTypeConst = "StructTypeConst";
 		const bool bEnableStructSelection = !StructProperty->HasMetaData(NAME_StructTypeConst);
-			
-			
+
+
 			.IsEnabled(bEnableStructSelection)
 
 }
 ```
-
 
 ﻿# MetaStruct
 
@@ -29100,7 +28813,7 @@ void FInstancedStructDetails::CustomizeHeader(TSharedRef<class IPropertyHandle> 
 
 拥有MetaStruct 的可以把类型列表筛选到MyCommonStruct的子类上。
 
-![MetaStruct](D:\github\UnrealSpecifiers\Doc\Meta\TypePicker\MetaStruct\MetaStruct.jpg)
+![MetaStruct](D:\github\UnrealSpecifiers\Doc\zh\Meta\TypePicker\MetaStruct\MetaStruct.jpg)
 
 ## 原理：
 
@@ -29132,7 +28845,6 @@ virtual bool FPropertyEditorStructFilter::IsStructAllowed(const FStructViewerIni
 	return !MetaStruct || InStruct->IsChildOf(MetaStruct);
 }
 ```
-
 
 ﻿# ShowDisplayNames
 
@@ -29194,7 +28906,7 @@ UScriptStruct* MyStructPtr_ShowDisplayNames;
 
 为了让效果更加直观，上面的测试代码里也加上了MetaClass，MetaStruct，AllowedClasses 用来限定选择范围。
 
-![ShowDisplayNames](D:\github\UnrealSpecifiers\Doc\Meta\TypePicker\ShowDisplayNames\ShowDisplayNames.jpg)
+![ShowDisplayNames](D:\github\UnrealSpecifiers\Doc\zh\Meta\TypePicker\ShowDisplayNames\ShowDisplayNames.jpg)
 
 ## 原理：
 
@@ -29232,7 +28944,7 @@ static FText GetClassDisplayName(const UObject* Object, bool bShowDisplayNames)
 		{
 			return Class->GetDisplayNameText();
 		}
-		
+
 		UBlueprint* BP = UBlueprint::GetBlueprintFromClass(Class);
 		if(BP != nullptr)
 		{
@@ -29245,7 +28957,7 @@ static FText GetClassDisplayName(const UObject* Object, bool bShowDisplayNames)
 FText SPropertyEditorStruct::GetDisplayValue() const
 {
 		static bool bIsReentrant = false;
-	
+
 		auto GetStructDisplayName = [this](const UObject* InObject) -> FText
 		{
 			if (const UScriptStruct* Struct = Cast<UScriptStruct>(InObject))
@@ -29258,7 +28970,6 @@ FText SPropertyEditorStruct::GetDisplayValue() const
 		};
 	}
 ```
-
 
 ﻿# DisallowedStructs
 
@@ -29276,7 +28987,6 @@ FText SPropertyEditorStruct::GetDisplayValue() const
 UPROPERTY(EditDefaultsOnly, Category = "SmartObject", meta=(DisallowedStructs="/Script/SmartObjectsModule.SmartObjectSlotAnnotation"))
 TArray<FSmartObjectDefinitionDataProxy> DefinitionData;
 ```
-
 
 ﻿# RowType
 
@@ -29322,7 +29032,7 @@ public:
 
 可以见到MyRowHandle_RowType的选项被限定到了DT_MyCommonRow，而且RowName也正确的显示了出来。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\TypePicker\RowType\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\TypePicker\RowType\Untitled.png)
 
 ## 原理：
 
@@ -29368,7 +29078,6 @@ bool FDataTableCustomizationLayout::ShouldFilterAsset(const struct FAssetData& A
 RegisterCustomPropertyTypeLayout("DataTableRowHandle", FOnGetPropertyTypeCustomizationInstance::CreateStatic(&FDataTableCustomizationLayout::MakeInstance));
 
 ```
-
 
 ﻿# MustImplement
 
@@ -29420,7 +29129,7 @@ UClass* MyClassStar_MustImplement;
 
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MustImplementTest|UClass*", meta = (MustImplement = "/Script/UMG.UserListEntry"))
 UClass* MyWidgetClassStar_MustImplement;
-	
+
 UFUNCTION(BlueprintCallable, meta=(Category="MustImplementTest|TSubclassOf"))
 static void SetMyClassMustImplement(UPARAM(meta=(MustImplement="MyCommonInterface")) TSubclassOf<UObject> MNyClass){}
 ```
@@ -29429,11 +29138,11 @@ static void SetMyClassMustImplement(UPARAM(meta=(MustImplement="MyCommonInterfac
 
 可以发现第一个没有筛选的结果，第二和第三个有了筛选后的结果。
 
-![MustImplement](D:\github\UnrealSpecifiers\Doc\Meta\TypePicker\MustImplement\MustImplement.png)
+![MustImplement](D:\github\UnrealSpecifiers\Doc\zh\Meta\TypePicker\MustImplement\MustImplement.png)
 
 也可以放在在函数里作为参数：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\TypePicker\MustImplement\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\TypePicker\MustImplement\Untitled.png)
 
 ## 原理：
 
@@ -29456,7 +29165,7 @@ void FSoftClassPathCustomization::CustomizeHeader(TSharedRef<IPropertyHandle> In
 	const bool bShowTreeView = PropertyHandle->HasMetaData("ShowTreeView");
 	const bool bHideViewOptions = PropertyHandle->HasMetaData("HideViewOptions");
 	const bool bShowDisplayNames = PropertyHandle->HasMetaData("ShowDisplayNames");
-	
+
 	const UClass* const MetaClass = !MetaClassName.IsEmpty()
 		? FEditorClassUtils::GetClassFromString(MetaClassName)
 		: UObject::StaticClass();
@@ -29480,9 +29189,9 @@ TSharedRef<SWidget> SGraphPinClass::GenerateAssetPicker()
 
 bool FPropertyHandleBase::GeneratePossibleValues(TArray<FString>& OutOptionStrings, TArray< FText >& OutToolTips, TArray<bool>& OutRestrictedItems, TArray<FText>* OutDisplayNames)
 {
-	 if( Property->IsA(FClassProperty::StaticClass()) || Property->IsA(FSoftClassProperty::StaticClass()) )		
+	 if( Property->IsA(FClassProperty::StaticClass()) || Property->IsA(FSoftClassProperty::StaticClass()) )
 	{
-		UClass* MetaClass = Property->IsA(FClassProperty::StaticClass()) 
+		UClass* MetaClass = Property->IsA(FClassProperty::StaticClass())
 			? CastFieldChecked<FClassProperty>(Property)->MetaClass
 			: CastFieldChecked<FSoftClassProperty>(Property)->MetaClass;
 
@@ -29520,14 +29229,13 @@ bool FPropertyHandleBase::GeneratePossibleValues(TArray<FString>& OutOptionStrin
 }
 ```
 
-
 ﻿# ShowTreeView
 
 - **功能描述：** 用于选择Class或Struct的属性上，使得在类选取器中显示为树形而不是列表。
 - **使用位置：** UPROPERTY
 - **引擎模块：** TypePicker
 - **元数据类型：** bool
-- **限制类型：** TSubClassOf，FSoftClassPath，UClass*，UScriptStruct*，FInstancedStruct 
+- **限制类型：** TSubClassOf，FSoftClassPath，UClass*，UScriptStruct*，FInstancedStruct
 - **常用程度：** ★★
 
 用于选择Class或Struct的属性上，使得在类选取器中显示为树形而不是列表。
@@ -29572,7 +29280,7 @@ bool FPropertyHandleBase::GeneratePossibleValues(TArray<FString>& OutOptionStrin
 
 可见带有ShowTreeView的属性，在弹出的选择框上显示的是树形而不是列表。
 
-![ShowTreeView](D:\github\UnrealSpecifiers\Doc\Meta\TypePicker\ShowTreeView\ShowTreeView.jpg)
+![ShowTreeView](D:\github\UnrealSpecifiers\Doc\zh\Meta\TypePicker\ShowTreeView\ShowTreeView.jpg)
 
 ## 原理：
 
@@ -29583,7 +29291,7 @@ void FSoftClassPathCustomization::CustomizeHeader(TSharedRef<IPropertyHandle> In
 {
 		const bool bShowTreeView = PropertyHandle->HasMetaData("ShowTreeView");
 		const bool bHideViewOptions = PropertyHandle->HasMetaData("HideViewOptions");
-		
+
 	SNew(SClassPropertyEntryBox)
 		.ShowTreeView(bShowTreeView)
 		.HideViewOptions(bHideViewOptions)
@@ -29610,7 +29318,6 @@ TSharedRef<SWidget> FInstancedStructDetails::GenerateStructPicker()
 		const bool bShowTreeView = StructProperty->HasMetaData(NAME_ShowTreeView);
 }
 ```
-
 
 ﻿# BlueprintBaseOnly
 
@@ -29657,7 +29364,7 @@ public:
 
 加了BlueprintBaseOnly的限定后，UMyCommonObjectChild_NotBlueprintable 这个类因为NotBlueprintable就不能被选择了。
 
-![BlueprintBaseOnly](D:\github\UnrealSpecifiers\Doc\Meta\TypePicker\BlueprintBaseOnly\BlueprintBaseOnly.jpg)
+![BlueprintBaseOnly](D:\github\UnrealSpecifiers\Doc\zh\Meta\TypePicker\BlueprintBaseOnly\BlueprintBaseOnly.jpg)
 
 ## 原理：
 
@@ -29670,9 +29377,9 @@ public:
 ```cpp
 bool FPropertyHandleBase::GeneratePossibleValues(TArray<FString>& OutOptionStrings, TArray< FText >& OutToolTips, TArray<bool>& OutRestrictedItems, TArray<FText>* OutDisplayNames)
 {
-	 if( Property->IsA(FClassProperty::StaticClass()) || Property->IsA(FSoftClassProperty::StaticClass()) )		
+	 if( Property->IsA(FClassProperty::StaticClass()) || Property->IsA(FSoftClassProperty::StaticClass()) )
 	{
-		UClass* MetaClass = Property->IsA(FClassProperty::StaticClass()) 
+		UClass* MetaClass = Property->IsA(FClassProperty::StaticClass())
 			? CastFieldChecked<FClassProperty>(Property)->MetaClass
 			: CastFieldChecked<FSoftClassProperty>(Property)->MetaClass;
 
@@ -29709,7 +29416,6 @@ bool FPropertyHandleBase::GeneratePossibleValues(TArray<FString>& OutOptionStrin
 	}
 }
 ```
-
 
 ﻿# MetaClass
 
@@ -29770,7 +29476,7 @@ UScriptStruct* MyStructPtr_MetaClass;
 
 测试效果，只有MySoftClass_MetaClass和MySoftObject_MetaClass的选择列表里进行了筛选。
 
-![MetaClass](D:\github\UnrealSpecifiers\Doc\Meta\TypePicker\MetaClass\MetaClass.jpg)
+![MetaClass](D:\github\UnrealSpecifiers\Doc\zh\Meta\TypePicker\MetaClass\MetaClass.jpg)
 
 ## 原理：
 
@@ -29796,12 +29502,12 @@ void FSoftClassPathCustomization::CustomizeHeader(TSharedRef<IPropertyHandle> In
 	const UClass* const MetaClass = !MetaClassName.IsEmpty()
 	? FEditorClassUtils::GetClassFromString(MetaClassName)
 	: UObject::StaticClass();
-	
+
 	SNew(SClassPropertyEntryBox)
 	.MetaClass(MetaClass)
-	
+
 	}
-	
+
 void FSoftObjectPathCustomization::CustomizeHeader( TSharedRef<IPropertyHandle> InStructPropertyHandle, FDetailWidgetRow& HeaderRow, IPropertyTypeCustomizationUtils& StructCustomizationUtils )
 {
 	const FString& MetaClassName = InStructPropertyHandle->GetMetaData("MetaClass");
@@ -29814,7 +29520,6 @@ void FSoftObjectPathCustomization::CustomizeHeader( TSharedRef<IPropertyHandle> 
 		.ThumbnailPool(StructCustomizationUtils.GetThumbnailPool());
 }
 ```
-
 
 ﻿# AllowAbstract
 
@@ -29859,7 +29564,7 @@ public:
 
 可见增加了AllowAbstract的属性的类选择器里增加了UMyCommonObjectChildAbstract 这个抽象类。
 
-![AllowAbstract](D:\github\UnrealSpecifiers\Doc\Meta\TypePicker\AllowAbstract\AllowAbstract.png)
+![AllowAbstract](D:\github\UnrealSpecifiers\Doc\zh\Meta\TypePicker\AllowAbstract\AllowAbstract.png)
 
 ## 原理：
 
@@ -29868,9 +29573,9 @@ public:
 ```cpp
 bool FPropertyHandleBase::GeneratePossibleValues(TArray<FString>& OutOptionStrings, TArray< FText >& OutToolTips, TArray<bool>& OutRestrictedItems, TArray<FText>* OutDisplayNames)
 {
-	 if( Property->IsA(FClassProperty::StaticClass()) || Property->IsA(FSoftClassProperty::StaticClass()) )		
+	 if( Property->IsA(FClassProperty::StaticClass()) || Property->IsA(FSoftClassProperty::StaticClass()) )
 	{
-		UClass* MetaClass = Property->IsA(FClassProperty::StaticClass()) 
+		UClass* MetaClass = Property->IsA(FClassProperty::StaticClass())
 			? CastFieldChecked<FClassProperty>(Property)->MetaClass
 			: CastFieldChecked<FSoftClassProperty>(Property)->MetaClass;
 
@@ -29907,13 +29612,12 @@ bool FPropertyHandleBase::GeneratePossibleValues(TArray<FString>& OutOptionStrin
 	}
 }
 
-bool IsEditInlineClassAllowed( UClass* CheckClass, bool bAllowAbstract ) 
+bool IsEditInlineClassAllowed( UClass* CheckClass, bool bAllowAbstract )
 {
 	return !CheckClass->HasAnyClassFlags(CLASS_Hidden|CLASS_HideDropDown|CLASS_Deprecated)
 		&&	(bAllowAbstract || !CheckClass->HasAnyClassFlags(CLASS_Abstract));
 }
 ```
-
 
 ﻿# HideViewOptions
 
@@ -29921,7 +29625,7 @@ bool IsEditInlineClassAllowed( UClass* CheckClass, bool bAllowAbstract )
 - **使用位置：** UPROPERTY
 - **引擎模块：** TypePicker
 - **元数据类型：** bool
-- **限制类型：** TSubClassOf，FSoftClassPath，UClass*，UScriptStruct*，FInstancedStruct 
+- **限制类型：** TSubClassOf，FSoftClassPath，UClass*，UScriptStruct*，FInstancedStruct
 - **常用程度：** ★
 
 用于选择Class或Struct的属性上，隐藏在类选取器中修改显示选项的功能。
@@ -29966,7 +29670,7 @@ bool IsEditInlineClassAllowed( UClass* CheckClass, bool bAllowAbstract )
 
 可见如果没有HideViewOptions，则在弹出框的角落有个齿轮或者眼睛用于修改显示选项。
 
-![HideViewOptions](D:\github\UnrealSpecifiers\Doc\Meta\TypePicker\HideViewOptions\HideViewOptions.jpg)
+![HideViewOptions](D:\github\UnrealSpecifiers\Doc\zh\Meta\TypePicker\HideViewOptions\HideViewOptions.jpg)
 
 ## 原理：
 
@@ -29977,7 +29681,7 @@ void FSoftClassPathCustomization::CustomizeHeader(TSharedRef<IPropertyHandle> In
 {
 		const bool bShowTreeView = PropertyHandle->HasMetaData("ShowTreeView");
 		const bool bHideViewOptions = PropertyHandle->HasMetaData("HideViewOptions");
-		
+
 	SNew(SClassPropertyEntryBox)
 		.ShowTreeView(bShowTreeView)
 		.HideViewOptions(bHideViewOptions)
@@ -30004,7 +29708,6 @@ TSharedRef<SWidget> FInstancedStructDetails::GenerateStructPicker()
 		const bool bShowTreeView = StructProperty->HasMetaData(NAME_ShowTreeView);
 }
 ```
-
 
 ﻿# OnlyPlaceable
 
@@ -30051,16 +29754,16 @@ public:
 
 可见AMyActorChild_NotPlaceable 类因为加了NotPlaceable标记，就不能被MyActor_OnlyPlaceable属性选择上。
 
-![OnlyPlaceable](D:\github\UnrealSpecifiers\Doc\Meta\TypePicker\OnlyPlaceable\OnlyPlaceable.jpg)
+![OnlyPlaceable](D:\github\UnrealSpecifiers\Doc\zh\Meta\TypePicker\OnlyPlaceable\OnlyPlaceable.jpg)
 
 ## 原理：
 
 ```cpp
 bool FPropertyHandleBase::GeneratePossibleValues(TArray<FString>& OutOptionStrings, TArray< FText >& OutToolTips, TArray<bool>& OutRestrictedItems, TArray<FText>* OutDisplayNames)
 {
-	 if( Property->IsA(FClassProperty::StaticClass()) || Property->IsA(FSoftClassProperty::StaticClass()) )		
+	 if( Property->IsA(FClassProperty::StaticClass()) || Property->IsA(FSoftClassProperty::StaticClass()) )
 	{
-		UClass* MetaClass = Property->IsA(FClassProperty::StaticClass()) 
+		UClass* MetaClass = Property->IsA(FClassProperty::StaticClass())
 			? CastFieldChecked<FClassProperty>(Property)->MetaClass
 			: CastFieldChecked<FSoftClassProperty>(Property)->MetaClass;
 
@@ -30097,7 +29800,6 @@ bool FPropertyHandleBase::GeneratePossibleValues(TArray<FString>& OutOptionStrin
 	}
 }
 ```
-
 
 ﻿# DocumentationPolicy
 
@@ -30161,7 +29863,7 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta = (UIMin = "0.0", UIMax = "100.0"))
 	float MyFloat_WithValidate;
 
-	
+
 	UFUNCTION(meta = (DocumentationPolicy=Strict))
 	void MyFunc(){}
 
@@ -30185,7 +29887,7 @@ public:
 };
 
 USTRUCT(BlueprintType, meta = (DocumentationPolicy=Strict))
-struct INSIDER_API FMyStruct_DocumentationPolicy 
+struct INSIDER_API FMyStruct_DocumentationPolicy
 {
 	GENERATED_BODY()
 public:
@@ -30249,7 +29951,6 @@ error : Enum entry 'EMyEnum_DocumentationPolicy::EMyEnum_DocumentationPolicy::Se
 error: Enum entry 'EMyEnum_DocumentationPolicy::EMyEnum_DocumentationPolicy::Third' does not provide a tooltip / comment(DocumentationPolicy)
 ```
 
-
 ﻿# GetByRef
 
 - **功能描述：** 指定UHT为该属性生成返回引用的C++代码
@@ -30272,12 +29973,12 @@ struct FMySparseClassData
 	GENERATED_BODY()
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	FString MyString_EditDefault = TEXT("MyName");	
+	FString MyString_EditDefault = TEXT("MyName");
 	//FString GetMyString_EditDefault() const { return GetMySparseClassData(EGetSparseClassDataMethod::ArchetypeIfNull)->MyString_EditDefault; } \
 
 	// "GetByRef" means that Blueprint graphs access a const ref instead of a copy.
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta = (GetByRef))
-	FString MyString_EditDefault_ReadOnly = TEXT("MyName");	
+	FString MyString_EditDefault_ReadOnly = TEXT("MyName");
 	//const FString& GetMyString_EditDefault_ReadOnly() const { return GetMySparseClassData(EGetSparseClassDataMethod::ArchetypeIfNull)->MyString_EditDefault_ReadOnly; }
 };
 
@@ -30316,7 +30017,6 @@ private StringBuilder AppendSparseDeclarations(StringBuilder builder, UhtClass c
 }
 ```
 
-
 ﻿# CustomThunk
 
 - **功能描述：** 指定UHT不为该函数生成蓝图调用的辅助函数，而需要用户自定义编写。
@@ -30327,12 +30027,11 @@ private StringBuilder AppendSparseDeclarations(StringBuilder builder, UhtClass c
 
 - **元数据类型：** bool
 
-- **关联项：** 
+- **关联项：**
 
   UFUNCTION：ServiceRequest, CustomThunk
 
 - **常用程度：** ★★★★★
-
 
 ﻿# NativeConstTemplateArg
 
@@ -30347,7 +30046,6 @@ private StringBuilder AppendSparseDeclarations(StringBuilder builder, UhtClass c
 在源码里并没有找到使用的地方。只有在UHT中用到。
 
 在UHT中查看主要是UhtArrayProperty和UhtObjectPropertyBase，UhtOptionalProperty。
-
 
 ﻿# CppFromBpEvent
 
@@ -30374,7 +30072,6 @@ public static class UhtFunctionParser
 	}
 }
 ```
-
 
 ﻿# IncludePath
 
@@ -30411,25 +30108,25 @@ public:
 ```cpp
 [class MyProperty_Template	Class->Struct->Field->Object	/Script/Insider.MyProperty_Template]
 (BlueprintType = true, IncludePath = Property/MyProperty_Template.h, ModuleRelativePath = Property/MyProperty_Template.h)
-	ObjectFlags:	RF_Public | RF_Standalone | RF_Transient 
+	ObjectFlags:	RF_Public | RF_Standalone | RF_Transient
 	Outer:	Package /Script/Insider
 	ClassHierarchy:	MyProperty_Template:Object
-	ClassFlags:	CLASS_MatchedSerializers | CLASS_Native | CLASS_RequiredAPI | CLASS_TokenStreamAssembled | CLASS_Intrinsic | CLASS_Constructed 
+	ClassFlags:	CLASS_MatchedSerializers | CLASS_Native | CLASS_RequiredAPI | CLASS_TokenStreamAssembled | CLASS_Intrinsic | CLASS_Constructed
 	Size:	56
 	Within:	Object
 	ClassConfigName:	Engine
 {
 	(Category = MyProperty_Template, ModuleRelativePath = Property/MyProperty_Template.h)
 	48-[4] int32 MyProperty;
-		PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
-		ObjectFlags:	RF_Public | RF_MarkAsNative | RF_Transient 
+		PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
+		ObjectFlags:	RF_Public | RF_MarkAsNative | RF_Transient
 		Outer:	Class /Script/Insider.MyProperty_Template
 		Path:	IntProperty /Script/Insider.MyProperty_Template:MyProperty
 	[func MyFunc	Function->Struct->Field->Object	/Script/Insider.MyProperty_Template:MyFunc]
 	(ModuleRelativePath = Property/MyProperty_Template.h)
-		ObjectFlags:	RF_Public | RF_Transient 
+		ObjectFlags:	RF_Public | RF_Transient
 		Outer:	Class /Script/Insider.MyProperty_Template
-		FunctionFlags:	FUNC_Final | FUNC_Native | FUNC_Public | FUNC_BlueprintCallable 
+		FunctionFlags:	FUNC_Final | FUNC_Native | FUNC_Public | FUNC_BlueprintCallable
 		NumParms:	2
 		ParmsSize:	20
 		ReturnValueOffset:	16
@@ -30438,13 +30135,13 @@ public:
 		public int32 MyFunc(FString str)final;
 	{
 		0-[16] FString str;
-			PropertyFlags:	CPF_Parm | CPF_ZeroConstructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
-			ObjectFlags:	RF_Public | RF_MarkAsNative | RF_Transient 
+			PropertyFlags:	CPF_Parm | CPF_ZeroConstructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
+			ObjectFlags:	RF_Public | RF_MarkAsNative | RF_Transient
 			Outer:	Function /Script/Insider.MyProperty_Template:MyFunc
 			Path:	StrProperty /Script/Insider.MyProperty_Template:MyFunc:str
 		16-[4] int32 ReturnValue;
-			PropertyFlags:	CPF_Parm | CPF_OutParm | CPF_ZeroConstructor | CPF_ReturnParm | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
-			ObjectFlags:	RF_Public | RF_MarkAsNative | RF_Transient 
+			PropertyFlags:	CPF_Parm | CPF_OutParm | CPF_ZeroConstructor | CPF_ReturnParm | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
+			ObjectFlags:	RF_Public | RF_MarkAsNative | RF_Transient
 			Outer:	Function /Script/Insider.MyProperty_Template:MyFunc
 			Path:	IntProperty /Script/Insider.MyProperty_Template:MyFunc:ReturnValue
 	};
@@ -30468,7 +30165,6 @@ protected override void UhtClass::ResolveSuper(UhtResolvePhase resolvePhase)
 }
 
 ```
-
 
 ﻿# ModuleRelativePath
 
@@ -30508,25 +30204,25 @@ public:
 ```cpp
 [class MyProperty_Template	Class->Struct->Field->Object	/Script/Insider.MyProperty_Template]
 (BlueprintType = true, IncludePath = Property/MyProperty_Template.h, ModuleRelativePath = Property/MyProperty_Template.h)
-	ObjectFlags:	RF_Public | RF_Standalone | RF_Transient 
+	ObjectFlags:	RF_Public | RF_Standalone | RF_Transient
 	Outer:	Package /Script/Insider
 	ClassHierarchy:	MyProperty_Template:Object
-	ClassFlags:	CLASS_MatchedSerializers | CLASS_Native | CLASS_RequiredAPI | CLASS_TokenStreamAssembled | CLASS_Intrinsic | CLASS_Constructed 
+	ClassFlags:	CLASS_MatchedSerializers | CLASS_Native | CLASS_RequiredAPI | CLASS_TokenStreamAssembled | CLASS_Intrinsic | CLASS_Constructed
 	Size:	56
 	Within:	Object
 	ClassConfigName:	Engine
 {
 	(Category = MyProperty_Template, ModuleRelativePath = Property/MyProperty_Template.h)
 	48-[4] int32 MyProperty;
-		PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
-		ObjectFlags:	RF_Public | RF_MarkAsNative | RF_Transient 
+		PropertyFlags:	CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
+		ObjectFlags:	RF_Public | RF_MarkAsNative | RF_Transient
 		Outer:	Class /Script/Insider.MyProperty_Template
 		Path:	IntProperty /Script/Insider.MyProperty_Template:MyProperty
 	[func MyFunc	Function->Struct->Field->Object	/Script/Insider.MyProperty_Template:MyFunc]
 	(ModuleRelativePath = Property/MyProperty_Template.h)
-		ObjectFlags:	RF_Public | RF_Transient 
+		ObjectFlags:	RF_Public | RF_Transient
 		Outer:	Class /Script/Insider.MyProperty_Template
-		FunctionFlags:	FUNC_Final | FUNC_Native | FUNC_Public | FUNC_BlueprintCallable 
+		FunctionFlags:	FUNC_Final | FUNC_Native | FUNC_Public | FUNC_BlueprintCallable
 		NumParms:	2
 		ParmsSize:	20
 		ReturnValueOffset:	16
@@ -30535,13 +30231,13 @@ public:
 		public int32 MyFunc(FString str)final;
 	{
 		0-[16] FString str;
-			PropertyFlags:	CPF_Parm | CPF_ZeroConstructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
-			ObjectFlags:	RF_Public | RF_MarkAsNative | RF_Transient 
+			PropertyFlags:	CPF_Parm | CPF_ZeroConstructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
+			ObjectFlags:	RF_Public | RF_MarkAsNative | RF_Transient
 			Outer:	Function /Script/Insider.MyProperty_Template:MyFunc
 			Path:	StrProperty /Script/Insider.MyProperty_Template:MyFunc:str
 		16-[4] int32 ReturnValue;
-			PropertyFlags:	CPF_Parm | CPF_OutParm | CPF_ZeroConstructor | CPF_ReturnParm | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic 
-			ObjectFlags:	RF_Public | RF_MarkAsNative | RF_Transient 
+			PropertyFlags:	CPF_Parm | CPF_OutParm | CPF_ZeroConstructor | CPF_ReturnParm | CPF_IsPlainOldData | CPF_NoDestructor | CPF_HasGetValueTypeHash | CPF_NativeAccessSpecifierPublic
+			ObjectFlags:	RF_Public | RF_MarkAsNative | RF_Transient
 			Outer:	Function /Script/Insider.MyProperty_Template:MyFunc
 			Path:	IntProperty /Script/Insider.MyProperty_Template:MyFunc:ReturnValue
 	};
@@ -30590,17 +30286,16 @@ public static void AddModuleRelativePathToMetaData(UhtMetaData metaData, UhtHead
 private void StepPrepareHeaders(UhtPackage package, IEnumerable<string> headerFiles, UhtHeaderFileType headerFileType)
 {
 	string typeDirectory = headerFileType.ToString() + '/';
-	
+
 	headerFile.ModuleRelativeFilePath = normalizedFullFilePath[stripLength..];
 	if (normalizedFullFilePath[stripLength..].StartsWith(typeDirectory, true, null))
 	{
 					stripLength += typeDirectory.Length;
 	}
 	headerFile.IncludeFilePath = normalizedFullFilePath[stripLength..];
-}	
+}
 
 ```
-
 
 ﻿# DisableNativeTick
 
@@ -30651,7 +30346,7 @@ public:
 
 可见只有WithNativeTick调用。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Widget\DisableNativeTick\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Widget\DisableNativeTick\Untitled.png)
 
 ## 原理：
 
@@ -30673,7 +30368,7 @@ void FWidgetBlueprintCompilerContext::CopyTermDefaultsToDefaultObject(UObject* D
 		WidgetClass->SetClassRequiresNativeTick(bClassRequiresNativeTick);
 }
 
-void UUserWidget::UpdateCanTick() 
+void UUserWidget::UpdateCanTick()
 {
 		UWidgetBlueprintGeneratedClass* WidgetBPClass = Cast<UWidgetBlueprintGeneratedClass>(GetClass());
 		bCanTick |= !WidgetBPClass || WidgetBPClass->ClassRequiresNativeTick();
@@ -30684,7 +30379,6 @@ void UUserWidget::UpdateCanTick()
 		SafeGCWidget->SetCanTick(bCanTick);
 }
 ```
-
 
 ﻿# ViewmodelBlueprintWidgetExtension
 
@@ -30712,7 +30406,6 @@ void UMVVMViewBlueprintListViewBaseExtension::Precompile(UE::MVVM::Compiler::IMV
 {
 }
 ```
-
 
 ﻿# DesignerRebuild
 
@@ -30760,7 +30453,7 @@ class UListViewBase : public UWidget
 
 可以发现在改变bSimpleTextMode的时候，左侧预览界面会一下下的在跳动刷新。而在点击改变别的按钮的时候就没有该效果。
 
-![DesignerRebuild1](D:\github\UnrealSpecifiers\Doc\Meta\Widget\DesignerRebuild\DesignerRebuild1.gif)
+![DesignerRebuild1](D:\github\UnrealSpecifiers\Doc\zh\Meta\Widget\DesignerRebuild\DesignerRebuild1.gif)
 
 ## 测试代码：
 
@@ -30781,7 +30474,7 @@ public:
 
 可见在改变普通的属性MyInt 的时候，界面并不会刷新。而在改变MyInt_DesignerRebuild 的时候，界面左上角的数字在跳动（虽然整个界面其实并没有什么实质变化）。
 
-![DesignerRebuild2](D:\github\UnrealSpecifiers\Doc\Meta\Widget\DesignerRebuild\DesignerRebuild2.gif)
+![DesignerRebuild2](D:\github\UnrealSpecifiers\Doc\zh\Meta\Widget\DesignerRebuild\DesignerRebuild2.gif)
 
 ## 原理：
 
@@ -30803,7 +30496,6 @@ void SWidgetDetailsView::NotifyPostChange(const FPropertyChangedEvent& PropertyC
 	}
 }
 ```
-
 
 ﻿# DefaultGraphNode
 
@@ -30844,7 +30536,6 @@ static bool BlueprintEditorImpl::GraphHasUserPlacedNodes(UEdGraph const* InGraph
 	return bHasUserPlacedNodes;
 }
 ```
-
 
 ﻿# BindWidget
 
@@ -30901,7 +30592,7 @@ void UMyProperty_BindWidget::RunTest()
 - MyTextBlock_NotFound并没有值，这很符合逻辑，因为我们也没有在UMG中定义该控件。但是值得注意的是假如我们尝试在UMG中定义该名字的控件，会报错提示名字已经被占用。也很正常，因为这就像C++类的子类里定义成员变量，肯定不能出现成员变量冲突。但假如我们定义MyTextBlock_Bind就不会报这个“名字占用”的错，因为引擎知道C++里有一个同名属性是要用来引用该控件。因此这才是BindWidget的精确作用含义，只是作为提示。这个时候可能有人会问那我的UMG里的MyTextBlock_SameName是怎么创建上去的？不是会报错吗？答案是先在UMG里定义好，然后再在C++里定义，这样就不会报错了。
 - 假如最后MyTextBlock_Bind没有在UMG中定义，那么UMG在编译的时候会报想要绑定的控件找不到，提醒你自己说想要BindWidget结果你又不创建。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Widget\BindWidget\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Widget\BindWidget\Untitled.png)
 
 ## 原理：
 
@@ -30923,7 +30614,7 @@ void UWidgetBlueprintGeneratedClass::InitializeWidgetStatic()
 		UObject* Value = Prop->GetObjectPropertyValue_InContainer(UserWidget);
 		check(Value == Widget);
 	}
-	
+
 }
 
 void FWidgetBlueprintCompilerContext::FinishCompilingClass(UClass* Class)
@@ -30932,11 +30623,11 @@ void FWidgetBlueprintCompilerContext::FinishCompilingClass(UClass* Class)
 	for (TFObjectPropertyBase<UWidget*>* WidgetProperty : TFieldRange<TFObjectPropertyBase<UWidget*>>(ParentClass))
 	{
 		bool bIsOptional = false;
-	
+
 		if (FWidgetBlueprintEditorUtils::IsBindWidgetProperty(WidgetProperty, bIsOptional))
 		{}
 	}
-	
+
 }
 
 bool FWidgetBlueprintEditorUtils::IsBindWidgetProperty(const FProperty* InProperty, bool& bIsOptional)
@@ -30953,7 +30644,6 @@ bool FWidgetBlueprintEditorUtils::IsBindWidgetProperty(const FProperty* InProper
 }
 ```
 
-
 ﻿# BindWidgetOptional
 
 - **功能描述：** 指定在C++类中该Widget属性可以绑定到UMG的某个同名控件，也可以不绑定。
@@ -30969,7 +30659,7 @@ bool FWidgetBlueprintEditorUtils::IsBindWidgetProperty(const FProperty* InProper
 大致作用和BindWidget一样，区别是：
 
 - BindWidgetOptional顾名思义是可选的，意思是UMG里即使不定义该控件在编译的时候也不会报错。编译会通过，但是会提示警告缺少控件。
-- 
+-
 - 和不加BindWidgetOptional的控件同名属性的区别是，前者在UMG里定义同名控件的时候不会报错，但后者是会提示同名冲突报错。
 
 BindWidgetOptional的写法有两种：
@@ -30980,7 +30670,7 @@ UCLASS(BlueprintType)
 class INSIDER_API UMyProperty_BindWidget :public UUserWidget
 {
 	GENERATED_BODY()
-	
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UTextBlock* MyTextBlock_SameName;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidgetOptional))
@@ -30992,7 +30682,7 @@ class INSIDER_API UMyProperty_BindWidget :public UUserWidget
 
 ## 测试效果：
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Widget\BindWidgetOptional\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Widget\BindWidgetOptional\Untitled.png)
 
 ## 原理：
 
@@ -31012,7 +30702,6 @@ bool FWidgetBlueprintEditorUtils::IsBindWidgetProperty(const FProperty* InProper
 }
 ```
 
-
 ﻿# OptionalWidget
 
 - **功能描述：** 指定在C++类中该Widget属性可以绑定到UMG的某个同名控件，也可以不绑定。
@@ -31026,7 +30715,6 @@ bool FWidgetBlueprintEditorUtils::IsBindWidgetProperty(const FProperty* InProper
 必须配合BindWidget使用。
 
 BindWidget+OptionalWidget=BindWidgetOptional
-
 
 ﻿# IsBindableEvent
 
@@ -31101,7 +30789,7 @@ public:
 - 没有加IsBindableEvent 的MyClickedEvent因为名字以Event结尾也出现了可绑定的按钮，这只能说是当前的一个潜规则。源码注释也说以后会去除。
 - 另外这些委托我虽然都加上了EditAnywhere，但其实你也知道这并没法办法编辑。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Widget\IsBindableEvent\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Widget\IsBindableEvent\Untitled.png)
 
 ## 原理：
 
@@ -31142,7 +30830,6 @@ void FBlueprintWidgetCustomization::PerformBindingCustomization(IDetailLayoutBui
 	}
 }
 ```
-
 
 ﻿# EntryInterface
 
@@ -31263,11 +30950,11 @@ public:
 
 如果MyListView上没有指定EntryClass或EntryInterface，则在ListView的EntryWidgetClass属性上可以选择蓝图创建的UMG_MyEntry(继承自C++的UMyEntryWidget)。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Widget\EntryInterface\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Widget\EntryInterface\Untitled.png)
 
 如果如上面代码中所示，我们新创建一个接口为MyCustomListEntry，并且也新建一个新的MyCustomEntryWidget，然后在MyListView属性上指定EntryClass或EntryInterface（可以一起也可以单个），则ListView的EntryWidgetClass属性可选的类就被限制住了。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Widget\EntryInterface\Untitled%201.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Widget\EntryInterface\Untitled%201.png)
 
 还有一种用法是当你想自定义一个ListView，可以选择继承自ListViewBase，然后在这个子类上直接限定EntryClass或EntryInterface，效果和上图是一样的。
 
@@ -31277,7 +30964,6 @@ class UMyListView : public UListViewBase, public ITypedUMGListView<UObject*>
 {}
 ```
 
-
 ﻿# EntryClass
 
 - **功能描述：** 限定EntryWidgetClass属性上可选类必须继承自的基类，用在DynamicEntryBox和ListView这两个Widget上。
@@ -31286,7 +30972,6 @@ class UMyListView : public UListViewBase, public ITypedUMGListView<UObject*>
 - **限制类型：** UWidget子类
 - **关联项：** EntryInterface
 - **常用程度：** ★★★
-
 
 ﻿# BindWidgetAnim
 
@@ -31334,11 +31019,11 @@ public:
 - 没有加BindWidgetAnim的MyAnimation_SameName必须注释掉，否则会和UMG里的MyAnimation_SameName名字冲突。
 - 再提一下，不能像Widget里一样先UMG里定义动画，然后再C++定义同名属性，因为WidgetAnimation是一定会创建BP变量的，这是关键不同。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Widget\BindWidgetAnim\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Widget\BindWidgetAnim\Untitled.png)
 
 ## 原理：
 
-大致逻辑和BindWidget类似，都是判断属性是否BindWidgetAnim。然后相应的在编译和改名的时候判断。 
+大致逻辑和BindWidget类似，都是判断属性是否BindWidgetAnim。然后相应的在编译和改名的时候判断。
 
 关于动画变量设置PropertyFlags的逻辑在CreateClassVariablesFromBlueprint里，可以看见加上了4个属性，明确了不要序列化该属性。
 
@@ -31364,19 +31049,19 @@ void FWidgetBlueprintCompilerContext::CreateClassVariablesFromBlueprint()
 	{
 		FEdGraphPinType WidgetPinType(UEdGraphSchema_K2::PC_Object, NAME_None, Animation->GetClass(), EPinContainerType::None, true, FEdGraphTerminalType());
 		FProperty* AnimationProperty = CreateVariable(Animation->GetFName(), WidgetPinType);
-	
+
 		if ( AnimationProperty != nullptr )
 		{
 			const FString DisplayName = Animation->GetDisplayName().ToString();
 			AnimationProperty->SetMetaData(TEXT("DisplayName"), *DisplayName);
-	
+
 			AnimationProperty->SetMetaData(TEXT("Category"), TEXT("Animations"));
-	
+
 			AnimationProperty->SetPropertyFlags(CPF_Transient);
 			AnimationProperty->SetPropertyFlags(CPF_BlueprintVisible);
 			AnimationProperty->SetPropertyFlags(CPF_BlueprintReadOnly);
 			AnimationProperty->SetPropertyFlags(CPF_RepSkip);
-	
+
 			WidgetAnimToMemberVariableMap.Add(Animation, AnimationProperty);
 		}
 	}
@@ -31411,7 +31096,6 @@ void UWidgetBlueprintGeneratedClass::BindAnimationsStatic(UUserWidget* Instance,
 }
 ```
 
-
 ﻿# BindWidgetAnimOptional
 
 - **功能描述：** 指定在C++类中该UWidgetAnimation属性可以要绑定到UMG下的某个动画，也可以不绑定。
@@ -31424,9 +31108,8 @@ void UWidgetBlueprintGeneratedClass::BindAnimationsStatic(UUserWidget* Instance,
 
 同BindWidgetOptional作用也类似，在不绑定的时候在编译结果里会有一个提示，而不是像BindWidget一样强制的错误。
 
-![Untitled](D:\github\UnrealSpecifiers\Doc\Meta\Widget\BindWidgetAnimOptional\Untitled.png)
+![Untitled](D:\github\UnrealSpecifiers\Doc\zh\Meta\Widget\BindWidgetAnimOptional\Untitled.png)
 
 自然的也说过不能像Widget一样，不加BindWidget就自动默认绑定。
 
 因此用法上要嘛加BindWidgetAnim，要嘛加BindWidgetAnimOptional。
-
