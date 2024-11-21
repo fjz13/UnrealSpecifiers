@@ -209,7 +209,7 @@ DEFINE_FUNCTION(UMyFunction_Param::execMyMap_FindOrAdd)
 
 	// Since Key and Value aren't really an int, step the stack manually
 	const FProperty* CurrKeyProp = MapProperty->KeyProp;
-	const int32 KeyPropertySize = CurrKeyProp->ElementSize * CurrKeyProp->ArrayDim;
+	const int32 KeyPropertySize = CurrKeyProp->GetElementSize() * CurrKeyProp->ArrayDim;
 	void* KeyStorageSpace = FMemory_Alloca(KeyPropertySize);
 	CurrKeyProp->InitializeValue(KeyStorageSpace);
 
@@ -218,7 +218,7 @@ DEFINE_FUNCTION(UMyFunction_Param::execMyMap_FindOrAdd)
 	Stack.StepCompiledIn<FProperty>(KeyStorageSpace);
 
 	const FProperty* CurrValueProp = MapProperty->ValueProp;
-	const int32 ValuePropertySize = CurrValueProp->ElementSize * CurrValueProp->ArrayDim;
+	const int32 ValuePropertySize = CurrValueProp->GetElementSize() * CurrValueProp->ArrayDim;
 	void* ValueStorageSpace = FMemory_Alloca(ValuePropertySize);
 	CurrValueProp->InitializeValue(ValueStorageSpace);
 

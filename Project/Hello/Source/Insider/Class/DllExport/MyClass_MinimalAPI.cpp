@@ -24,3 +24,8 @@ INSIDER_API void UMyClass_MinimalAPI_BlueprintFunctionLibary::MyFuncInMinimalAPI
 {
 
 }
+
+void UMyClass_MinimalAPI_Child_InSameModule::MyFunc2()
+{
+
+}

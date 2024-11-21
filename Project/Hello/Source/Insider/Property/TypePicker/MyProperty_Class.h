@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "Common/CommonTypes.h"
 #include "UObject/SoftObjectPtr.h"
-#include "InstancedStruct.h"
+#include "StructUtils/InstancedStruct.h"
 #include "MyProperty_Class.generated.h"
 
 UCLASS(BlueprintType)

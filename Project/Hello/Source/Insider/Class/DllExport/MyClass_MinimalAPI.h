@@ -66,6 +66,17 @@ public:
 };
 
 
+UCLASS(BlueprintType,Blueprintable)
+class INSIDER_API UMyClass_MinimalAPI_Child_InSameModule :public UMyClass_MinimalAPI
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 MyProperty2;
+	UFUNCTION(BlueprintCallable)
+	void MyFunc2();
+};
+
 /*
 class UClass * __ptr64 __cdecl StaticClass<class UMyClass_MinimalAPI>(void)
 class UClass * __ptr64 __cdecl StaticClass<class UMyClass_MinimalAPI_BlueprintFunctionLibary>(void)

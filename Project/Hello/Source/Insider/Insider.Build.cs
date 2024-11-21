@@ -21,7 +21,7 @@ public class Insider : ModuleRules
 
 
         PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore","ApplicationCore","UMG", 
-			"StructUtils", "GameplayAbilities","EnhancedInput","GameplayTasks","MovieScene","ControlRig","RigVM","ModelViewViewModel"
+			"StructUtils", "GameplayAbilities","EnhancedInput","GameplayTasks","MovieScene","ControlRig","RigVM","ModelViewViewModel","GameplayTags"
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] { "AssetRegistry" });

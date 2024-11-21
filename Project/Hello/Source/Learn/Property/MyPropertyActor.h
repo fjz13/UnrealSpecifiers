@@ -6,8 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "Enum/MyFlags.h"
 #include "Enum/MyEnum.h"
-#include "InstancedStruct.h"
-
+#include "StructUtils/InstancedStruct.h"
 #include "MyPropertyActor.generated.h"
 
 
