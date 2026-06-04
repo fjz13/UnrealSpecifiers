@@ -40,7 +40,6 @@ UE5.8 UHT 通过 `UhtInterfaceClassParser` 识别 `UINTERFACE`，创建 interfac
 - 证据：
   - UE5.8 `UhtInterfaceClassParser.cs` routes `UINTERFACE` to interface specifier table
   - UE5.8 `UhtTables.cs` creates the `Interface` keyword/specifier table
-- 批次记录：`references/audits/ue5.8-p1-macro-param-struct-enum-pass.md`。
 
 ## 常见误用
 

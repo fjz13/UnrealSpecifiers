@@ -131,7 +131,6 @@ UE5.8 class/function metadata；BlueprintGraph `BlueprintThreadSafe`，启用 th
 - 证据：
   - UE5.8 `ObjectMacros.h` metadata declaration/comment
   - UE5.8 `BlueprintGraph` metadata constants or node usage
-- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
 
 ## 常见误用
 

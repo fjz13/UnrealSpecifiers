@@ -35,7 +35,6 @@ UE5.8 UHT 的默认 `BlueprintType` specifier 写入 `BlueprintType=true` metada
   - UE5.8 `UhtDefaultSpecifiers.cs` `BlueprintTypeSpecifier` writes `BlueprintType` metadata
   - UE5.8 `UhtEnumParser.cs` routes `UENUM` to enum specifier table
   - 本地样例辅助对照：`D:/github/GitWorkspace/Hello/Source/Insider/Enum/MyEnum_Flags.h`。
-- 批次记录：`references/audits/ue5.8-p1-macro-param-struct-enum-pass.md`。
 
 ## 常见误用
 

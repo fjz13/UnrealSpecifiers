@@ -134,7 +134,6 @@ UE5.8 UHT 的 enum specifier 分支写入 `EEnumFlags.Flags`。它影响 `UEnum`
 - 证据：
   - UE5.8 `UhtEnumSpecifiers.cs` `FlagsSpecifier` writes `EEnumFlags.Flags`
   - 本地样例辅助对照：`D:/github/GitWorkspace/Hello/Source/Insider/Enum/MyEnum_Flags.h`。
-- 批次记录：`references/audits/ue5.8-p1-macro-param-struct-enum-pass.md`。
 
 ## 常见误用
 

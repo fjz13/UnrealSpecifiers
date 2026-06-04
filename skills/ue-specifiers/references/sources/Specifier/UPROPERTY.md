@@ -130,7 +130,6 @@ UE5.8 UHT 在 property parser 中解析 `UPROPERTY`，成员属性使用 `UhtTab
 - 证据：
   - UE5.8 UHT parser keyword table for the macro
   - UE5.8 `UhtTables.cs` specifier table registration
-- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
 
 ## 常见误用
 

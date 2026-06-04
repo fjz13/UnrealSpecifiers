@@ -90,7 +90,6 @@ UE5.8 UHT 在 `BlueprintReadWrite`/`BlueprintReadOnly` 检查 private member 时
 - 结论：已按 UE5.8 源码验证。
 - 证据：
   - UE5.8 `UhtPropertyMemberSpecifiers.cs` private Blueprint exposure 检查
-- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
 
 ## 常见误用
 

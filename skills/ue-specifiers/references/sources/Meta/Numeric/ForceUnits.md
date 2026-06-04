@@ -33,7 +33,6 @@ UE5.8 numeric metadata；ObjectMacros 标注为固定单位显示，区别于 `U
 - 证据：
   - UE5.8 `ObjectMacros.h` numeric property metadata declaration/comment
   - UE5.8 Details numeric/color customization metadata usage
-- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
 
 ## 常见误用
 

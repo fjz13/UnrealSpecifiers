@@ -52,7 +52,6 @@ UE5.8 UHT 通过 `UhtScriptStructParser` 识别 `USTRUCT`，创建 script struct
 - 证据：
   - UE5.8 `UhtScriptStructParser.cs` routes `USTRUCT` to script-struct specifier table
   - UE5.8 `UhtTables.cs` creates the `ScriptStruct` keyword/specifier table
-- 批次记录：`references/audits/ue5.8-p1-macro-param-struct-enum-pass.md`。
 
 ## 常见误用
 

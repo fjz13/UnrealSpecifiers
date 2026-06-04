@@ -58,7 +58,6 @@ public:
 - 结论：已按 UE5.8 源码验证。
 - 证据：
   - UE5.8 `UhtPropertyMemberSpecifiers.cs` 对应 specifier 分支
-- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
 
 ## 常见误用
 

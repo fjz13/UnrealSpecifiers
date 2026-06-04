@@ -76,7 +76,6 @@ UE5.8 UHT 把指定组名写入 `ClassGroupNames`，用于组件/类浏览器分
 - 证据：
   - UE5.8 `UhtClassSpecifiers.cs` class specifier branch
   - UE5.8 `UhtClass.cs` class flag/metadata resolution and validation
-- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
 
 ## 常见误用
 

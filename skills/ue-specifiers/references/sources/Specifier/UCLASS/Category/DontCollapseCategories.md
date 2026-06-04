@@ -35,7 +35,6 @@ UE5.8 UHT 移除 `CLASS_CollapseCategories`，用于恢复分类显示。
 - 证据：
   - UE5.8 `UhtClassSpecifiers.cs` class specifier branch
   - UE5.8 `UhtClass.cs` class flag/metadata resolution and validation
-- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
 
 ## 常见误用
 

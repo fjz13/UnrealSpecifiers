@@ -61,7 +61,6 @@ UE5.8 UHT 的默认 `BlueprintType` specifier 写入 `BlueprintType=true` metada
   - UE5.8 `UhtDefaultSpecifiers.cs` `BlueprintTypeSpecifier` writes `BlueprintType` metadata
   - UE5.8 `UhtScriptStruct.cs` checks BlueprintType for Blueprint-exposed struct members
   - 本地样例辅助对照：`D:/github/GitWorkspace/Hello/Source/Insider/Common/InsiderCommonTypes.h`。
-- 批次记录：`references/audits/ue5.8-p1-macro-param-struct-enum-pass.md`。
 
 ## 常见误用
 

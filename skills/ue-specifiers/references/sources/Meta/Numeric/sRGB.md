@@ -50,7 +50,6 @@ UE5.8 color metadata；颜色 property customization 使用 sRGB 语义。
 - 证据：
   - UE5.8 `ObjectMacros.h` numeric property metadata declaration/comment
   - UE5.8 Details numeric/color customization metadata usage
-- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
 
 ## 常见误用
 

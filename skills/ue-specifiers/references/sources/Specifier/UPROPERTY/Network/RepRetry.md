@@ -30,7 +30,6 @@ UE5.8 UHT 中 `RepRetry` specifier 直接记录 deprecated 错误，不再作为
 - 证据：
   - UE5.8 `UhtPropertyMemberSpecifiers.cs` 对应 specifier 分支
   - 本地样例辅助对照：`D:/github/GitWorkspace/Hello/Source/Insider/Property/Network/MyProperty_Network.h 中保留 deprecated 注释样例`。
-- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
 
 ## 常见误用
 

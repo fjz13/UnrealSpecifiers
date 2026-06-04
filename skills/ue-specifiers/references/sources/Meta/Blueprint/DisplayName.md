@@ -39,7 +39,6 @@ UE5.8 UHT 默认 specifier 会把 `DisplayName` 写入 metadata；`GetDisplayNam
 - 证据：
   - UE5.8 `UhtDefaultSpecifiers.cs` `DisplayName` metadata writer
   - UE5.8 `UhtType.cs` display name lookup
-- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
 
 ## 常见误用
 

@@ -170,7 +170,6 @@ UE5.8 UHT 对 `UIMin` 执行 numeric validator，并在文档策略中检查 `UI
 - 证据：
   - UE5.8 UHT metadata validator/parser
   - UE5.8 BlueprintGraph 或 PropertyEditor metadata 读取路径
-- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
 
 ## 常见误用
 

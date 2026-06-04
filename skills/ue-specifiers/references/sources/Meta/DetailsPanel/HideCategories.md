@@ -33,7 +33,6 @@ UE5.8 class metadata/list；由 UCLASS `HideCategories` 写入，用于隐藏 De
 - 证据：
   - UE5.8 `ObjectMacros.h` property/class metadata declaration/comment
   - UE5.8 `PropertyEditor` Details metadata usage
-- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
 
 ## 常见误用
 

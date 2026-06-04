@@ -121,7 +121,6 @@ UE5.8 UHT 默认 specifier 写入 `IsBlueprintBase=true` 和 `BlueprintType=true
 - 证据：
   - UE5.8 `UhtClassSpecifiers.cs` class specifier branch
   - UE5.8 `UhtClass.cs` class flag/metadata resolution and validation
-- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
 
 ## 常见误用
 

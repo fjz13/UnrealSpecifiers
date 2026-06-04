@@ -198,7 +198,6 @@ UE5.8 property metadata；PropertyEditor DetailPropertyRow 读取它，为 insta
 - 证据：
   - UE5.8 `ObjectMacros.h` property/class metadata declaration/comment
   - UE5.8 `PropertyEditor` Details metadata usage
-- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
 
 ## 常见误用
 

@@ -80,7 +80,6 @@ UE5.8 UHT 的 property member specifier 分支写入 `CPF_AssetRegistrySearchabl
 - 证据：
   - UE5.8 `UhtPropertyMemberSpecifiers.cs` `AssetRegistrySearchableSpecifier` writes `CPF_AssetRegistrySearchable`
   - 本地样例辅助对照：`D:/github/GitWorkspace/Hello/Source/Insider/Property/Asset/MyProperty_AssetRegistrySearchable.h`。
-- 批次记录：`references/audits/ue5.8-p1-macro-param-struct-enum-pass.md`。
 
 ## 常见误用
 

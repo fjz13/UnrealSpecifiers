@@ -92,7 +92,6 @@ UE5.8 UHT 的 property argument specifier 分支为 `Const` 写入 `CPF_ConstPar
 - 证据：
   - UE5.8 `UhtPropertyArgumentSpecifiers.cs` `ConstSpecifier` writes `CPF_ConstParm`
   - 本地样例辅助对照：`D:/github/GitWorkspace/Hello/Source/Insider/Function/Param/MyFunction_TestParam.h`。
-- 批次记录：`references/audits/ue5.8-p1-macro-param-struct-enum-pass.md`。
 
 ## 常见误用
 

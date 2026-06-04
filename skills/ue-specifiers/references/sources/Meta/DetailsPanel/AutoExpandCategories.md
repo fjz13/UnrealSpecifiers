@@ -39,7 +39,6 @@ UE5.8 class metadata/list；与 UCLASS `AutoExpandCategories` 对应，指定默
 - 证据：
   - UE5.8 `ObjectMacros.h` property/class metadata declaration/comment
   - UE5.8 `PropertyEditor` Details metadata usage
-- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
 
 ## 常见误用
 

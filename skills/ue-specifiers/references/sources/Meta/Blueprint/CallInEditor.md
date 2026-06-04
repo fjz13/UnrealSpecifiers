@@ -39,7 +39,6 @@ UE5.8 function metadata；UHT 默认 specifier 写入 `CallInEditor`，Details/B
 - 证据：
   - UE5.8 `ObjectMacros.h` metadata declaration/comment
   - UE5.8 `BlueprintGraph` metadata constants or node usage
-- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
 
 ## 常见误用
 

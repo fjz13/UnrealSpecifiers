@@ -65,7 +65,6 @@ UE5.8 function metadata；async task node 用于跳过指定 spawn 参数 pin。
 - 证据：
   - UE5.8 `ObjectMacros.h` metadata declaration/comment
   - UE5.8 `BlueprintGraph` metadata constants or node usage
-- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
 
 ## 常见误用
 

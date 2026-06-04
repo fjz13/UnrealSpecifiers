@@ -80,7 +80,6 @@ UE5.8 UHT 的默认 `Blueprintable` specifier 写入 `IsBlueprintBase=true` 和 
 - 证据：
   - UE5.8 `UhtDefaultSpecifiers.cs` `BlueprintableSpecifier` writes `IsBlueprintBase` and `BlueprintType` metadata
   - 本地样例辅助对照：`D:/github/GitWorkspace/Hello/Source/Insider/Interface/MyInterface_Test.h`。
-- 批次记录：`references/audits/ue5.8-p1-macro-param-struct-enum-pass.md`。
 
 ## 常见误用
 

@@ -111,7 +111,6 @@ UE5.8 PropertyEditor 在解析 `EditCondition` 后检查条件 bool 属性的 `I
 - 结论：已按 UE5.8 源码验证。
 - 证据：
   - UE5.8 `PropertyNode.cpp` `SupportsEditConditionToggle`
-- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
 
 ## 常见误用
 

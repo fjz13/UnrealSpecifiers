@@ -93,7 +93,6 @@ UE5.8 function metadata；与 `ArrayParm` 配合，让其他参数类型依赖 a
 - 证据：
   - UE5.8 `ObjectMacros.h` metadata declaration/comment
   - UE5.8 `BlueprintGraph` metadata constants or node usage
-- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
 
 ## 常见误用
 

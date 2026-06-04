@@ -78,7 +78,6 @@ LogInsider: Display: 29d68700    OtherMulticastFunc  BP_Network_C_1  NM_Client  
   - UE5.8 `UhtFunctionSpecifiers.cs` 对应 specifier 分支
   - UE5.8 `UhtFunction.cs` replicated/event 校验
   - 本地样例辅助对照：`D:/github/GitWorkspace/Hello/Source/Insider/Function/MyFunction_Network.h`。
-- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
 
 ## 常见误用
 

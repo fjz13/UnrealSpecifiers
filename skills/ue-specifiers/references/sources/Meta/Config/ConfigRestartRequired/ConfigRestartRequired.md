@@ -62,7 +62,6 @@ UE5.8 property metadata；SettingsEditor/DeveloperSettings 读取它，提示修
 - 证据：
   - UE5.8 `ObjectMacros.h` config property metadata declaration/comment
   - UE5.8 `SettingsEditor`/`DeveloperSettings` metadata usage
-- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
 
 ## 常见误用
 

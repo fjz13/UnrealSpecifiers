@@ -41,7 +41,6 @@ UE5.8 UHT 在解析 property argument 时遇到 `UPARAM` 会切换到 property a
 - 证据：
   - UE5.8 `UhtPropertyParser.cs` detects `UPARAM` and uses `UhtTableNames.PropertyArgument`
   - UE5.8 `UhtTables.cs` creates the property argument specifier table
-- 批次记录：`references/audits/ue5.8-p1-macro-param-struct-enum-pass.md`。
 
 ## 常见误用
 

@@ -54,7 +54,6 @@ UE5.8 UHT 的 property argument `NotReplicated` 只允许 service request replic
 - 结论：已按 UE5.8 源码验证。
 - 证据：
   - UE5.8 `UhtPropertyArgumentSpecifiers.cs` `NotReplicatedSpecifier` handles only replicated service parameters
-- 批次记录：`references/audits/ue5.8-p1-macro-param-struct-enum-pass.md`。
 
 ## 常见误用
 

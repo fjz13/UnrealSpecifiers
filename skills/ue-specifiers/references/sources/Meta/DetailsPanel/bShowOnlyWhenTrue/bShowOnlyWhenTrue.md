@@ -117,7 +117,6 @@ UE5.8 legacy details metadata；旧 details 路径按 bool 条件显示，现代
 - 证据：
   - UE5.8 `ObjectMacros.h` property/class metadata declaration/comment
   - UE5.8 `PropertyEditor` Details metadata usage
-- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
 
 ## 常见误用
 

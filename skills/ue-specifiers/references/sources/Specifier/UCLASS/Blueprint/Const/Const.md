@@ -85,7 +85,6 @@ UE5.8 UHT 写入 `CLASS_Const`，影响对象/接口属性和函数 const 相关
 - 证据：
   - UE5.8 `UhtClassSpecifiers.cs` class specifier branch
   - UE5.8 `UhtClass.cs` class flag/metadata resolution and validation
-- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
 
 ## 常见误用
 

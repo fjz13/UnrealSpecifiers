@@ -34,7 +34,6 @@ UE5.8 class metadata；组件 wrapper 等路径会用它阻止分类关键字继
 - 证据：
   - UE5.8 `ObjectMacros.h` property/class metadata declaration/comment
   - UE5.8 `PropertyEditor` Details metadata usage
-- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
 
 ## 常见误用
 

@@ -33,7 +33,6 @@ UE5.8 function metadata；BlueprintGraph/K2Node_CallFunction 读取 `NativeBreak
 - 证据：
   - UE5.8 `ObjectMacros.h` metadata declaration/comment
   - UE5.8 `BlueprintGraph` metadata constants or node usage
-- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
 
 ## 常见误用
 

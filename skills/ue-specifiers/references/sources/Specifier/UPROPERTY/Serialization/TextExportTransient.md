@@ -179,7 +179,6 @@ bool FProperty::ShouldPort( uint32 PortFlags/*=0*/ ) const
 - 证据：
   - UE5.8 `UhtPropertyMemberSpecifiers.cs` 对应 specifier 分支
   - 本地样例辅助对照：`D:/github/GitWorkspace/Hello/Source/Insider/Property/Serialization/MyProperty_SerializationText.h`。
-- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
 
 ## 常见误用
 

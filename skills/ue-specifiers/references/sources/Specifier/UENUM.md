@@ -38,7 +38,6 @@ UE5.8 UHT 通过 `UhtEnumParser` 识别 `UENUM`，创建 enum 类型并使用 `U
 - 证据：
   - UE5.8 `UhtEnumParser.cs` `UENUMKeyword`
   - UE5.8 `UhtTables.cs` creates the `Enum` keyword/specifier table
-- 批次记录：`references/audits/ue5.8-p1-macro-param-struct-enum-pass.md`。
 
 ## 常见误用
 

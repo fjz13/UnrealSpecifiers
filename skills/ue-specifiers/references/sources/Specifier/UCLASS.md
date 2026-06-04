@@ -133,7 +133,6 @@ UE5.8 UHT 通过 `UhtClassParser` 识别 `UCLASS`，创建 class 类型并使用
 - 证据：
   - UE5.8 UHT parser keyword table for the macro
   - UE5.8 `UhtTables.cs` specifier table registration
-- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
 
 ## 常见误用
 

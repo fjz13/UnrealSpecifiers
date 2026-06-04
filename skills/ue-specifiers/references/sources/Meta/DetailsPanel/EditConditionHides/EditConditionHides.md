@@ -81,7 +81,6 @@ UE5.8 PropertyEditor 在属性带 `EditConditionHides` 时，只有存在有效 
 - 结论：已按 UE5.8 源码验证。
 - 证据：
   - UE5.8 `PropertyNode.cpp` `IsOnlyVisibleWhenEditConditionMet`
-- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
 
 ## 常见误用
 

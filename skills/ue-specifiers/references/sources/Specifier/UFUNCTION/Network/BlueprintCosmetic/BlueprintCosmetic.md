@@ -72,7 +72,6 @@ if (NetMode == NM_DedicatedServer && Function->HasAllFunctionFlags(FUNC_Blueprin
 - 证据：
   - UE5.8 `UhtFunctionSpecifiers.cs` 对应 specifier 分支
   - UE5.8 `UhtFunction.cs` replicated/event 校验
-- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
 
 ## 常见误用
 

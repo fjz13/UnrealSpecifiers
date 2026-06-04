@@ -255,7 +255,6 @@ UE5.8 UHT 从 metadata/comment 中维护 `ToolTip`，`GetToolTipText` 在没有 
 - 证据：
   - UE5.8 `UhtType.cs` `GetToolTipText`
   - UE5.8 `UhtParsingScope.cs` comment-to-tooltip path
-- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
 
 ## 常见误用
 

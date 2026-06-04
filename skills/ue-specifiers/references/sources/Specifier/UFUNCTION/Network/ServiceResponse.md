@@ -35,7 +35,6 @@ usage: "UFUNCTION / Network"
   - UE5.8 `UhtFunctionSpecifiers.cs` 对应 specifier 分支
   - UE5.8 `UhtFunction.cs` replicated/event 校验
   - 本地样例辅助对照：`D:/github/GitWorkspace/Hello/Source/Insider/Function/MyFunction_PlayerController.h`。
-- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
 
 ## 常见误用
 
