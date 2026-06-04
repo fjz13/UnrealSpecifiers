@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "CommonTypes.generated.h"
+#include "InsiderCommonTypes.generated.h"
 
 //These types are all used for testing
 

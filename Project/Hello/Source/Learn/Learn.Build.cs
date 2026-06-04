@@ -10,7 +10,6 @@ public class Learn : ModuleRules
 
         PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "UMG", "AssetRegistry" });
         PublicDependencyModuleNames.AddRange(new string[] { "Insider" });
-        PublicDependencyModuleNames.AddRange(new string[] { "StructUtils" });
 
 
         PublicIncludePaths.AddRange(

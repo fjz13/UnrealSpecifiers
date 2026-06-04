@@ -113,5 +113,5 @@ public://cycle
 private:
 	UMyTokenStreamClass2* NonGCObjectValue;
 	FMyTokenStreamStructGC GCStructValue;
-	TArray<FMyTokenStreamStructGC> GCStructArrayValue;
+	//TArray<FMyTokenStreamStructGC> GCStructArrayValue;
 };

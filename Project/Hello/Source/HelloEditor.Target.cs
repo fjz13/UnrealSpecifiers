@@ -8,9 +8,8 @@ public class HelloEditorTarget : TargetRules
 	public HelloEditorTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Editor;
-		DefaultBuildSettings = BuildSettingsVersion.V5;
-		ExtraModuleNames.AddRange( new string[] { "Hello" } );
+		DefaultBuildSettings = BuildSettingsVersion.V7;
+        bOverrideBuildEnvironment = true;
         IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
-		BuildEnvironment = TargetBuildEnvironment.Unique;
     }
 }

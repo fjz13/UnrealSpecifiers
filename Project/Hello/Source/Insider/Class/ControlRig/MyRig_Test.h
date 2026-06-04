@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Units/RigUnit.h"
-#include "Common/CommonTypes.h"
+#include "Common/InsiderCommonTypes.h"
 #include "MyRig_Test.generated.h"
 
 

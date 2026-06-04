@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "MyCommonStructCustomization.h"
-#include "Common/CommonTypes.h"
+#include "Common/InsiderCommonTypes.h"
 #include "DetailWidgetRow.h"
 #include "IDetailChildrenBuilder.h"
 #include "DetailLayoutBuilder.h"

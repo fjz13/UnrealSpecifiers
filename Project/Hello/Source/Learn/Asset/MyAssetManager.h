@@ -7,10 +7,12 @@
 #include "Misc/AssetRegistryInterface.h"
 #include "MyAssetManager.generated.h"
 
+/*
 inline uint32 GetTypeHash(const FAssetDependency& dep)
 {
 	return GetTypeHash(dep.AssetId)^(uint32)dep.Category^(uint32)dep.Properties;
 }
+*/
 
 DECLARE_DYNAMIC_DELEGATE(FOnPackageLoaded);
 

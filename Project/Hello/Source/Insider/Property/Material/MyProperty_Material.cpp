@@ -24,9 +24,11 @@ void UMyProperty_MyMaterialExpression::GetCaption(TArray<FString>& OutCaptions) 
 	OutCaptions.Add(TEXT("Insider Material Expression Test"));
 }
 
+/*
 bool UMyProperty_MyMaterialExpression::GenerateHLSLExpression(FMaterialHLSLGenerator& Generator, UE::HLSLTree::FScope& Scope, int32 OutputIndex, UE::HLSLTree::FExpression const*& OutExpression) const
 {
 	return true;
 }
+*/
 
 #endif // WITH_EDITOR

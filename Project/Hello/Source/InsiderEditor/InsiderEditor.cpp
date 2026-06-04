@@ -7,7 +7,7 @@
 #include "Customization/MyAnimNode_MyCustomizePropertyCustomization.h"
 
 
-#include "Common/CommonTypes.h"
+#include "Common/InsiderCommonTypes.h"
 
 void FInsiderEditorModule::StartupModule()
 {

@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "5.4",
+	"EngineAssociation": "5.8",
 	"Category": "",
 	"Description": "",
 	"Modules": [
@@ -26,14 +26,6 @@
 		}
 	],
 	"Plugins": [
-		{
-			"Name": "StructUtils",
-			"Enabled": true
-		},
-		{
-			"Name": "MassEntity",
-			"Enabled": true
-		},
 		{
 			"Name": "MyPlugin",
 			"Enabled": true

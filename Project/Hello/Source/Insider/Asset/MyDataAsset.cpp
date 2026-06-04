@@ -64,7 +64,7 @@ void UMyDataAsset::CreateNewAsset(FString assetName, bool isTextFormat /*= false
 
 	UPackage *Package = CreatePackage(*PackagePath);
 	saveArgs.SaveFlags = SAVE_None;
-	saveArgs.SaveFlags |= SAVE_KeepGUID;	//����Guid,���ò�����
+	//saveArgs.SaveFlags |= SAVE_KeepGUID;	//����Guid,���ò�����
 
 	UMyDataAsset* TestAsset = NewObject<UMyDataAsset>(Package, UMyDataAsset::StaticClass(), *assetName, EObjectFlags::RF_Public | EObjectFlags::RF_Standalone);
 

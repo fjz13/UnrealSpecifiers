@@ -4,6 +4,7 @@
 #include "PrivateAccess.h"
 #include "InsiderTypes.h"
 #include "UObject/TextProperty.h"
+#include "Misc/StringOutputDevice.h"
 
 INSIDER_STEAL_PRIVATE_MEMBER(FField, FFieldClass*, ClassPrivate);
 
@@ -25,7 +26,7 @@ namespace Serialization_Private
 		{\
 			const TCHAR* structName=TEXT(#TStruct);\
 			++structName;\
-			structClass = Cast<UScriptStruct>(StaticFindObjectFast(UScriptStruct::StaticClass(), nullptr, structName, true));\
+			structClass = Cast<UScriptStruct>(StaticFindObjectFast(UScriptStruct::StaticClass(), nullptr, structName, EFindObjectFlags::ExactClass));\
 		}\
 		return structClass;\
 	}
@@ -87,7 +88,7 @@ namespace Serialization_Private
 	template<>\
 	FORCEINLINE FProperty* ConstructProperty(T value, const FProperty* owner)\
 	{\
-		static TProperty itemProperty(owner, "", RF_Public);\
+		static TProperty itemProperty(owner, "");\
 		INSIDER_REF_PRIVATE_MEMBER(&itemProperty, FField, ClassPrivate) = TProperty::StaticClass();\
 		return &itemProperty;\
 	}

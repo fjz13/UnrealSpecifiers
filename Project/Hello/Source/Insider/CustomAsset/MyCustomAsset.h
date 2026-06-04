@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Common/CommonTypes.h"
+#include "Common/InsiderCommonTypes.h"
 #include "MyCustomAsset.generated.h"
 
 //this object is used to check AllowEditInlineCustomization

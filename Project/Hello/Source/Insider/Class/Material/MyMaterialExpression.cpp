@@ -21,11 +21,12 @@ void UMyMaterialExpression_NotPrivate::GetCaption(TArray<FString>& OutCaptions) 
 {
 	OutCaptions.Add(TEXT("Insider Material Expression Test"));
 }
-
+/*
 bool UMyMaterialExpression_NotPrivate::GenerateHLSLExpression(FMaterialHLSLGenerator& Generator, UE::HLSLTree::FScope& Scope, int32 OutputIndex, UE::HLSLTree::FExpression const*& OutExpression) const
 {
 	return true;
 }
+*/
 
 #endif // WITH_EDITOR
 
@@ -51,9 +52,10 @@ void UMyMaterialExpression_Private::GetCaption(TArray<FString>& OutCaptions) con
 	OutCaptions.Add(TEXT("Insider Material Expression Test"));
 }
 
+/*
 bool UMyMaterialExpression_Private::GenerateHLSLExpression(FMaterialHLSLGenerator& Generator, UE::HLSLTree::FScope& Scope, int32 OutputIndex, UE::HLSLTree::FExpression const*& OutExpression) const
 {
 	return true;
 }
-
+*/
 #endif // WITH_EDITOR

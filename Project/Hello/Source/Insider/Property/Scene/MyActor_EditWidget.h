@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Common/CommonTypes.h"
+#include "Common/InsiderCommonTypes.h"
 #include "MyActor_EditWidget.generated.h"
 
 UCLASS(BlueprintType)

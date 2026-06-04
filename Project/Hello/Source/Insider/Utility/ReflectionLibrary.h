@@ -65,7 +65,7 @@ public://1 return and args
 	template<typename TFirstReturn, typename... TArgs>
 	static TFirstReturn InvokeFunctionByName(FName functionName, TArgs&&... args)
 	{
-		UFunction* func = (UFunction*)StaticFindObjectFast(UFunction::StaticClass(), nullptr, functionName, false, true, RF_Transient);	//exclude SKEL_XXX_C:Func
+		UFunction* func = (UFunction*)StaticFindObjectFast(UFunction::StaticClass(), nullptr, functionName, EFindObjectFlags::None, EObjectFlags::RF_Transient, EInternalObjectFlags::None);	//exclude SKEL_XXX_C:Func
 		return InvokeFunction_Internal<TFirstReturn>(func->GetOuterUClass(), nullptr, func, Forward<TArgs>(args)...).Get<0>();
 	}
 
@@ -107,7 +107,7 @@ public://returns and args
 	template<typename TFirstReturn, typename TSecondReturn, typename... TReturns, typename... TArgs>
 	static TTuple<TFirstReturn, TSecondReturn, TReturns...> InvokeFunctionByName(FName functionName, TArgs&&... args)
 	{
-		UFunction* func = (UFunction*)StaticFindObjectFast(UFunction::StaticClass(), nullptr, functionName, false, true, RF_Transient);	//exclude SKEL_XXX_C:Func
+		UFunction* func = (UFunction*)StaticFindObjectFast(UFunction::StaticClass(), nullptr, functionName, EFindObjectFlags::None, EObjectFlags::RF_Transient, EInternalObjectFlags::None);	//exclude SKEL_XXX_C:Func
 		return InvokeFunction_Internal<TFirstReturn, TSecondReturn, TReturns...>(func->GetOuterUClass(), nullptr, func, Forward<TArgs>(args)...);
 	}
 public: //void return
@@ -147,7 +147,7 @@ public: //void return
 	template< typename... TArgs>
 	static void InvokeFunctionByName(FName functionName, TArgs&&... args)
 	{
-		UFunction* func = (UFunction*)StaticFindObjectFast(UFunction::StaticClass(), nullptr, functionName, false, true, RF_Transient);	//exclude SKEL_XXX_C:Func
+		UFunction* func = (UFunction*)StaticFindObjectFast(UFunction::StaticClass(), nullptr, functionName, EFindObjectFlags::None, EObjectFlags::RF_Transient, EInternalObjectFlags::None);	//exclude SKEL_XXX_C:Func
 		return InvokeFunction_Internal(func->GetOuterUClass(), nullptr, func, Forward<TArgs>(args)...);
 	}
 private:

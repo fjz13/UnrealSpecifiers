@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Common/CommonTypes.h"
+#include "Common/InsiderCommonTypes.h"
 #include "UObject/SoftObjectPtr.h"
 #include "StructUtils/InstancedStruct.h"
 #include "MyProperty_Class.generated.h"

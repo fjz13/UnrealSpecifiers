@@ -168,7 +168,7 @@ protected:
 	FString PrintMetaDataMapInline(FString objName, const TMap<FName, FString>* keyValues, FString prefix = "", FString suffix = "\n");
 	FString PrintMetaDataMapKeyValues(FString objName, const TMap<FName, FString>& keyValues, FString prefix = "");
 
-	FString PrintMetaDataObjectCustomized(const UClass* classObj, const UObject* object, TSet<const UObject*>& allObjects, EInsiderPrintFlags flags = EInsiderPrintFlags::ClassDefault, FString prefix = "");
+	//FString PrintMetaDataObjectCustomized(const UClass* classObj, const UObject* object, TSet<const UObject*>& allObjects, EInsiderPrintFlags flags = EInsiderPrintFlags::ClassDefault, FString prefix = "");
 	FString PrintGuidCustomized(const UScriptStruct* structClass, const void* object, TSet<const UObject*>& allObjects, EInsiderPrintFlags flags = EInsiderPrintFlags::ClassDefault, FString prefix = "");
 	FString PrintCoreStructsCustomized(const UScriptStruct* structClass, const void* object, TSet<const UObject*>& allObjects, EInsiderPrintFlags flags = EInsiderPrintFlags::ClassDefault, FString prefix = "");
 

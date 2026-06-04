@@ -51,7 +51,7 @@ FString Insider::ObjectFlagsToString(EObjectFlags ObjectFlags)
 	// The group of flags tracks the stages of the lifetime of a uobject
 	TEST_FLAG(Result, ObjectFlags, RF_NeedInitialization); ///< This object has not completed its initialization process. Cleared when ~FObjectInitializer completes
 	TEST_FLAG(Result, ObjectFlags, RF_NeedLoad); ///< During load, indicates object needs loading.
-	TEST_FLAG(Result, ObjectFlags, RF_KeepForCooker); ///< Keep this object during garbage collection because it's still being used by the cooker
+	//TEST_FLAG(Result, ObjectFlags, RF_KeepForCooker); ///< Keep this object during garbage collection because it's still being used by the cooker
 	TEST_FLAG(Result, ObjectFlags, RF_NeedPostLoad); ///< Object needs to be postloaded.
 	TEST_FLAG(Result, ObjectFlags, RF_NeedPostLoadSubobjects); ///< During load, indicates that the object still needs to instance subobjects and fixup serialized component references
 	TEST_FLAG(Result, ObjectFlags, RF_NewerVersionExists); ///< Object has been consigned to oblivion due to its owner package being reloaded, and a newer version currently exists
@@ -72,7 +72,7 @@ FString Insider::ObjectFlagsToString(EObjectFlags ObjectFlags)
 	TEST_FLAG(Result, ObjectFlags, RF_HasExternalPackage); ///< This object has an external package assigned and should look it up when getting the outermost package
 	//TEST_FLAG(Result, ObjectFlags, RF_PendingKill); ///< Objects that are pending destruction (invalid for gameplay but valid objects). This flag is mirrored in EInternalObjectFlags as PendingKill for performance
 	//TEST_FLAG(Result, ObjectFlags, RF_Garbage); ///< Garbage from logical point of view and should not be referenced. This flag is mirrored in EInternalObjectFlags as Garbage for performance
-	TEST_FLAG(Result, ObjectFlags, RF_AllocatedInSharedPage); ///< Allocated from a ref-counted page shared with other UObjects
+	//TEST_FLAG(Result, ObjectFlags, RF_AllocatedInSharedPage); ///< Allocated from a ref-counted page shared with other UObjects
 
 
 	//TEST_FLAG(Result, ObjectFlags, RF_Dynamic); //< Field Only. Dynamic field - doesn't get constructed during static initialization, can be constructed multiple times
@@ -397,7 +397,7 @@ FString Insider::PackageFlagsToString(EPackageFlags flags)
 	TEST_ENUM_FLAG(Result, flags, PKG_ContainsScript);
 	TEST_ENUM_FLAG(Result, flags, PKG_DisallowExport);
 	TEST_ENUM_FLAG(Result, flags, PKG_CookGenerated);
-	TEST_ENUM_FLAG(Result, flags, PKG_DynamicImports);
+	//TEST_ENUM_FLAG(Result, flags, PKG_DynamicImports);
 	TEST_ENUM_FLAG(Result, flags, PKG_RuntimeGenerated);
 	TEST_ENUM_FLAG(Result, flags, PKG_ReloadingForCooker);
 	TEST_ENUM_FLAG(Result, flags, PKG_FilterEditorOnly);

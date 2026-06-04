@@ -8,9 +8,7 @@ public class HelloTarget : TargetRules
 	public HelloTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Game;
-		DefaultBuildSettings = BuildSettingsVersion.V5;
-		ExtraModuleNames.AddRange( new string[] { "Hello" } );
+		DefaultBuildSettings = BuildSettingsVersion.V7;
         IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
-		BuildEnvironment = TargetBuildEnvironment.Unique;
     }
 }

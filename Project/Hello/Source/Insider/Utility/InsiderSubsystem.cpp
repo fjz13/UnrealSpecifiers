@@ -1,3 +1,4 @@
+// ReSharper disable All
 #include "InsiderSubsystem.h"
 #include "UObject/Class.h"
 #include "UObject/UnrealType.h"
@@ -13,8 +14,10 @@
 
 #include <Kismet/KismetSystemLibrary.h>
 #include <UnrealExporter.h>
-#include <AssetRegistry/PackageReader.h>
+//#include <AssetRegistry/PackageReader.h>
 #include <Misc/AssetRegistryInterface.h>
+
+#include "Runtime/AssetRegistry/Internal/AssetRegistry/PackageReader.h"
 
 INSIDER_STEAL_PRIVATE_MEMBER(UEnum, EEnumFlags, EnumFlags);
 
@@ -30,7 +33,7 @@ UInsiderSubsystem& UInsiderSubsystem::Get()
 
 void UInsiderSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 {
-	PrintObjectCustomizedMap.Add(UMetaData::StaticClass()).BindUObject(this, &UInsiderSubsystem::PrintMetaDataObjectCustomized);
+	//PrintObjectCustomizedMap.Add(UMetaData::StaticClass()).BindUObject(this, &UInsiderSubsystem::PrintMetaDataObjectCustomized);
 
 	if (UScriptStruct* guidStruct = FindStructWithName(TEXT("Guid")))
 	{
@@ -104,9 +107,9 @@ struct FPropertyOffsetAscending
 FString UInsiderSubsystem::SetMetaData(const UObject* obj, FName key, FString value)
 {
 #if WITH_METADATA
-	UMetaData* metaData = obj->GetOutermost()->GetMetaData();
-	metaData->RemoveValue(obj, key);
-	metaData->SetValue(obj, key, *value);
+	FMetaData& metaData = obj->GetOutermost()->GetMetaData();
+	metaData.RemoveValue(obj, key);
+	metaData.SetValue(obj, key, *value);
 
 	FString result;
 	result += FString::Printf(TEXT("SetMetaData %s = %s : \n"), *key.ToString(), *value);
@@ -122,11 +125,11 @@ FString UInsiderSubsystem::RemoveMetaData(const UObject* obj, FName key)
 #if WITH_METADATA
 	FString result;
 
-	UMetaData* metaData = obj->GetOutermost()->GetMetaData();
-	if (metaData->HasValue(obj, key))
+	FMetaData& metaData = obj->GetOutermost()->GetMetaData();
+	if (metaData.HasValue(obj, key))
 	{
-		FString value = metaData->GetValue(obj, key);
-		metaData->RemoveValue(obj, key);
+		FString value = metaData.GetValue(obj, key);
+		metaData.RemoveValue(obj, key);
 		result += FString::Printf(TEXT("RemoveMetaData %s = %s : \n"), *key.ToString(), *value);
 	}
 	else
@@ -145,8 +148,8 @@ FString UInsiderSubsystem::RemoveMetaData(const UObject* obj, FName key)
 bool UInsiderSubsystem::HasMetaData(const UObject* obj)
 {
 #if WITH_METADATA
-	UMetaData* metaData = obj->GetOutermost()->GetMetaData();
-	const TMap<FName, FString>* keyValues = metaData->GetMapForObject(obj);
+	FMetaData& metaData= obj->GetOutermost()->GetMetaData();
+	const TMap<FName, FString>* keyValues = metaData.GetMapForObject(obj);
 	return keyValues != nullptr && keyValues->Num() > 0;
 #else
 	return false;
@@ -1862,7 +1865,7 @@ FString UInsiderSubsystem::PrintAllObjectsWithRawObjectIterator()
 	for (FRawObjectIterator It(false); It; ++It)
 	{
 		FUObjectItem* ObjectItem = *It;
-		UObject* obj = (UObject*)ObjectItem->Object;
+		UObject* obj = (UObject*)ObjectItem->GetObject();
 		if (obj->IsA<UClass>())
 		{
 			allObjects.Add(obj);
@@ -1953,25 +1956,25 @@ FString UInsiderSubsystem::PrintAllMetaDataKeys()
 			return false;
 		};
 
-	for (TObjectIterator<UMetaData> It; It; ++It)
+	for (TObjectIterator<UPackage> It; It; ++It)
 	{
-		UMetaData* MetaData = *It;
+		FMetaData& MetaData = It->GetMetaData();
 
-		for (TMap< FWeakObjectPtr, TMap<FName, FString> >::TIterator j(MetaData->ObjectMetaDataMap); j; ++j)
+		for (TMap< FSoftObjectPath, TMap<FName, FString> >::TIterator j(MetaData.ObjectMetaDataMap); j; ++j)
 		{
 			TMap<FName, FString>& MetaDataValues = j.Value();
 
 			for (TMap<FName, FString>::TIterator MetaDataIt(MetaDataValues); MetaDataIt; ++MetaDataIt)
 			{
 				FName Key = MetaDataIt.Key();
-				AddKey(Key, j.Key().Get());
+				AddKey(Key, j.Key().ResolveObject());
 			}
 		}
 
-		for (TMap<FName, FString>::TIterator MetaDataIt(MetaData->RootMetaDataMap); MetaDataIt; ++MetaDataIt)
+		for (TMap<FName, FString>::TIterator MetaDataIt(MetaData.RootMetaDataMap); MetaDataIt; ++MetaDataIt)
 		{
 			FName Key = MetaDataIt.Key();
-			AddKey(Key, MetaData->GetOuter());
+			AddKey(Key, *It);
 		}
 	}
 
@@ -2363,20 +2366,20 @@ void UInsiderSubsystem::PrintFuncStatus(AActor* actor, FString funcName)
 FString UInsiderSubsystem::PrintMetaData(const UObject* obj, FString prefix, FString suffix)
 {
 #if WITH_METADATA
-	UMetaData* metaData = obj->GetOutermost()->GetMetaData();
+	FMetaData& metaData = obj->GetOutermost()->GetMetaData();
 	const TMap<FName, FString>* keyValues = nullptr;
 	if (const UPackage* package = Cast<const UPackage>(obj))
 	{
-		keyValues = &metaData->RootMetaDataMap;
+		keyValues = &metaData.RootMetaDataMap;
 
 		FString result;
 		result += PrintMetaDataMapInline(TEXT("ROOT"), keyValues, prefix, suffix);
-		if (!metaData->ObjectMetaDataMap.IsEmpty())
+		if (!metaData.ObjectMetaDataMap.IsEmpty())
 		{
 			result += "\n";
-			for (const auto& kv : metaData->ObjectMetaDataMap)
+			for (const auto& kv : metaData.ObjectMetaDataMap)
 			{
-				UObject* innerObj = kv.Key.Get();
+				UObject* innerObj = kv.Key.ResolveObject();
 				FString innerObjName = innerObj != nullptr ? innerObj->GetName() : TEXT("nullptr");
 				keyValues = &kv.Value;
 				result += PrintMetaDataMapInline(innerObjName, keyValues, prefix, suffix);
@@ -2388,7 +2391,7 @@ FString UInsiderSubsystem::PrintMetaData(const UObject* obj, FString prefix, FSt
 	}
 	else
 	{
-		keyValues = metaData->GetMapForObject(obj);
+		keyValues = metaData.GetMapForObject(obj);
 		return PrintMetaDataMapInline(TEXT(""), keyValues, prefix, suffix);
 	}
 
@@ -2453,33 +2456,34 @@ FString UInsiderSubsystem::PrintMetaDataMapKeyValues(FString objName, const TMap
 	return result;
 }
 
-FString UInsiderSubsystem::PrintMetaDataObjectCustomized(const UClass* classObj, const UObject* object, TSet<const UObject*>& allObjects, EInsiderPrintFlags flags /*= EInsiderPrintFlags::ClassDefault*/, FString prefix /*= ""*/)
-{
-	FString result;
-#if WITH_METADATA
-	const UMetaData* metaData = Cast<UMetaData>(object);
-
-	const TMap<FName, FString>* keyValues = &metaData->RootMetaDataMap;
-
-	result += PrintMetaDataMapKeyValues(TEXT("ROOT"), metaData->RootMetaDataMap, prefix + "\t");
-	if (!metaData->ObjectMetaDataMap.IsEmpty())
-	{
-		//result += "\n";
-		for (const auto& kv : metaData->ObjectMetaDataMap)
-		{
-			UObject* innerObj = kv.Key.Get();
-			FString innerObjName = innerObj != nullptr ? innerObj->GetName() : TEXT("nullptr");
-			keyValues = &kv.Value;
-			result += PrintMetaDataMapKeyValues(innerObjName, kv.Value, prefix + "\t");
-			//result += "\n";
-		}
-		result.RemoveAt(result.Len() - 1);	//remove last \n
-	}
-	return result;
-#else
-	return "";
-#endif
-}
+//
+// FString UInsiderSubsystem::PrintMetaDataObjectCustomized(const UClass* classObj, const UObject* object, TSet<const UObject*>& allObjects, EInsiderPrintFlags flags /*= EInsiderPrintFlags::ClassDefault*/, FString prefix /*= ""*/)
+// {
+// 	FString result;
+// #if WITH_METADATA
+// 	const UMetaData* metaData = Cast<UMetaData>(object);
+//
+// 	const TMap<FName, FString>* keyValues = &metaData->RootMetaDataMap;
+//
+// 	result += PrintMetaDataMapKeyValues(TEXT("ROOT"), metaData->RootMetaDataMap, prefix + "\t");
+// 	if (!metaData->ObjectMetaDataMap.IsEmpty())
+// 	{
+// 		//result += "\n";
+// 		for (const auto& kv : metaData->ObjectMetaDataMap)
+// 		{
+// 			UObject* innerObj = kv.Key.Get();
+// 			FString innerObjName = innerObj != nullptr ? innerObj->GetName() : TEXT("nullptr");
+// 			keyValues = &kv.Value;
+// 			result += PrintMetaDataMapKeyValues(innerObjName, kv.Value, prefix + "\t");
+// 			//result += "\n";
+// 		}
+// 		result.RemoveAt(result.Len() - 1);	//remove last \n
+// 	}
+// 	return result;
+// #else
+// 	return "";
+// #endif
+// }
 
 FString UInsiderSubsystem::PrintGuidCustomized(const UScriptStruct* structClass, const void* object, TSet<const UObject*>& allObjects, EInsiderPrintFlags flags /*= EInsiderPrintFlags::ClassDefault*/, FString prefix /*= ""*/)
 {
