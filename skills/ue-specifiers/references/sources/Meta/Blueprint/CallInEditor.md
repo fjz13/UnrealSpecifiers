@@ -24,7 +24,7 @@ usage: "UFUNCTION"
 
 - **关联项：**
 
-  UFUNCTION：[CallInEditor](../../Specifier/UFUNCTION/Blueprint/CallInEditor/CallInEditor.md)
+  UFUNCTION：[CallInEditor](../../Specifier/UFUNCTION/Blueprint/CallInEditor.md)
 
 - **常用程度：** ★★★★★
 

@@ -19,7 +19,7 @@ usage: "UCLASS / Blueprint"
 - **引擎模块：** Blueprint
 - **元数据类型：** bool
 - **作用机制：** 在Meta去除[IsBlueprintBase](../../../Meta/Blueprint/IsBlueprintBase.md)和[BlueprintType](../../../Meta/Blueprint/BlueprintType.md)
-- **关联项：** [Blueprintable](Blueprintable/Blueprintable.md)
+- **关联项：** [Blueprintable](Blueprintable.md)
 - **常用程度：★★★★**
 
 ## 行为

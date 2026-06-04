@@ -24,7 +24,7 @@ usage: "UCLASS"
 
 - **关联项：**
 
-  UCLASS：[HideFunctions](../../Specifier/UCLASS/Blueprint/HideFunctions/HideFunctions.md), [ShowFunctions](../../Specifier/UCLASS/Blueprint/ShowFunctions.md)
+  UCLASS：[HideFunctions](../../Specifier/UCLASS/Blueprint/HideFunctions.md), [ShowFunctions](../../Specifier/UCLASS/Blueprint/ShowFunctions.md)
 
 - **常用程度：** ★★★
 

@@ -24,7 +24,7 @@ usage: "UCLASS"
 
 - **关联项：**
 
-  UCLASS：[MatchedSerializers](../../Specifier/UCLASS/Serialization/MatchedSerializers/MatchedSerializers.md)
+  UCLASS：[MatchedSerializers](../../Specifier/UCLASS/Serialization/MatchedSerializers.md)
 
 - **常用程度：** 0
 

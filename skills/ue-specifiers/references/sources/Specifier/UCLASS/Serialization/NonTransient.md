@@ -19,7 +19,7 @@ usage: "UCLASS / Serialization"
 - **引擎模块：** Serialization
 - **元数据类型：** bool
 - **作用机制：** 在ClassFlags中移除CLASS_Transient
-- **关联项：** [Transient](Transient/Transient.md)
+- **关联项：** [Transient](Transient.md)
 - **常用程度：** ★★★
 
 ## 行为

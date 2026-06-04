@@ -24,7 +24,7 @@ usage: "UFUNCTION"
 
 - **关联项：**
 
-  UFUNCTION：[Variadic](../../Specifier/UFUNCTION/UHT/Variadic/Variadic.md)
+  UFUNCTION：[Variadic](../../Specifier/UFUNCTION/UHT/Variadic.md)
 
 - **常用程度：** ★★★
 

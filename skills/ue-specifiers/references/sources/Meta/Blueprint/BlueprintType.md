@@ -24,17 +24,17 @@ usage: "UCLASS, UENUM, UINTERFACE, USTRUCT"
 
 - **关联项：**
 
-  UCLASS：[Blueprintable](../../Specifier/UCLASS/Blueprint/Blueprintable/Blueprintable.md), [NotBlueprintable](../../Specifier/UCLASS/Blueprint/NotBlueprintable.md), [BlueprintType](../../Specifier/UCLASS/Blueprint/BlueprintType/BlueprintType.md), [NotBlueprintType](../../Specifier/UCLASS/Blueprint/NotBlueprintType.md)
+  UCLASS：[Blueprintable](../../Specifier/UCLASS/Blueprint/Blueprintable.md), [NotBlueprintable](../../Specifier/UCLASS/Blueprint/NotBlueprintable.md), [BlueprintType](../../Specifier/UCLASS/Blueprint/BlueprintType.md), [NotBlueprintType](../../Specifier/UCLASS/Blueprint/NotBlueprintType.md)
 
   Meta：[BlueprintInternalUseOnly](BlueprintInternalUseOnly.md), [BlueprintInternalUseOnlyHierarchical](BlueprintInternalUseOnlyHierarchical.md)
 
   UENUM：[BlueprintType](../../Specifier/UENUM/BlueprintType.md)
 
-  UFUNCTION：[BlueprintInternalUseOnly](../../Specifier/UFUNCTION/UHT/BlueprintInternalUseOnly/BlueprintInternalUseOnly.md)
+  UFUNCTION：[BlueprintInternalUseOnly](../../Specifier/UFUNCTION/UHT/BlueprintInternalUseOnly.md)
 
-  UINTERFACE：[Blueprintable](../../Specifier/UINTERFACE/Blueprint/Blueprintable/Blueprintable.md), [NotBlueprintable](../../Specifier/UINTERFACE/Blueprint/NotBlueprintable/NotBlueprintable.md)
+  UINTERFACE：[Blueprintable](../../Specifier/UINTERFACE/Blueprint/Blueprintable.md), [NotBlueprintable](../../Specifier/UINTERFACE/Blueprint/NotBlueprintable.md)
 
-  USTRUCT：[BlueprintInternalUseOnly](../../Specifier/USTRUCT/Blueprint/BlueprintInternalUseOnly/BlueprintInternalUseOnly.md), [BlueprintType](../../Specifier/USTRUCT/Blueprint/BlueprintType/BlueprintType.md)
+  USTRUCT：[BlueprintInternalUseOnly](../../Specifier/USTRUCT/Blueprint/BlueprintInternalUseOnly.md), [BlueprintType](../../Specifier/USTRUCT/Blueprint/BlueprintType.md)
 
 - **常用程度：** ★★★★★
 

@@ -19,7 +19,7 @@ usage: "UPROPERTY"
 - **引擎模块：** Material
 - **元数据类型：** bool
 - **限制类型：** UMaterialExpression::FExpressionInput
-- **关联项：** [OverridingInputProperty](OverridingInputProperty/OverridingInputProperty.md)
+- **关联项：** [OverridingInputProperty](OverridingInputProperty.md)
 
 在UMaterialExpression中指定FExpressionInput属性是否要求输入，引脚显示白色或灰色。
 

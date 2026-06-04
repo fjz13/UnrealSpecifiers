@@ -18,7 +18,7 @@ usage: "UCLASS, UPROPERTY"
 - **使用位置：** UCLASS, UPROPERTY
 - **元数据类型：** string="abc"
 - **限制类型：** UWidget子类
-- **关联项：** [EntryInterface](EntryInterface/EntryInterface.md)
+- **关联项：** [EntryInterface](EntryInterface.md)
 - **常用程度：** ★★★
 ## UE5.8 审计结论
 

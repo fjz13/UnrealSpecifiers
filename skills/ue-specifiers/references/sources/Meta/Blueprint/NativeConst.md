@@ -24,7 +24,7 @@ usage: "UPARAM"
 
 - **关联项：**
 
-  UPARAM：[Const](../../Specifier/UPARAM/Blueprint/Const/Const.md)
+  UPARAM：[Const](../../Specifier/UPARAM/Blueprint/Const.md)
 
 - **常用程度：** ★
 

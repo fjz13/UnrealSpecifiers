@@ -24,7 +24,7 @@ usage: "UCLASS, UENUM::UMETA, UFUNCTION, UPARAM, UPROPERTY"
 
 - **关联项：**
 
-  UPARAM：[DisplayName](../../Specifier/UPARAM/Blueprint/DisplayName/DisplayName.md)
+  UPARAM：[DisplayName](../../Specifier/UPARAM/Blueprint/DisplayName.md)
 
 - **常用程度：** ★★★★★
 

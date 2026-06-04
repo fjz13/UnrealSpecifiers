@@ -19,7 +19,7 @@ usage: "UPROPERTY"
 - **引擎模块：** Path Property
 - **元数据类型：** bool
 - **限制类型：** FDirectoryPath
-- **关联项：** [ContentDir](ContentDir/ContentDir.md)
+- **关联项：** [ContentDir](ContentDir.md)
 
 限制目录选择的结果必须是Conent目录或其子目录，否则会弹出报错信息。转换的逻辑为把左侧的Content路径裁切掉。
 

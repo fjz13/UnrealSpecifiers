@@ -26,7 +26,7 @@ usage: "UCLASS"
 
 - **关联项：**
 
-  UCLASS：[ClassGroup](../../Specifier/UCLASS/Category/ClassGroup/ClassGroup.md)
+  UCLASS：[ClassGroup](../../Specifier/UCLASS/Category/ClassGroup.md)
 
 - **常用程度：** ★★★
 

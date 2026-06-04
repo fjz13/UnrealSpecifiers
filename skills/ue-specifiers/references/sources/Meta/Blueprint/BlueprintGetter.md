@@ -27,7 +27,7 @@ usage: "UFUNCTION, UPROPERTY"
 
   UFUNCTION：[BlueprintGetter](../../Specifier/UFUNCTION/Blueprint/BlueprintGetter.md)
 
-  UPROPERTY：[BlueprintGetter](../../Specifier/UPROPERTY/Blueprint/BlueprintGetter/BlueprintGetter.md)
+  UPROPERTY：[BlueprintGetter](../../Specifier/UPROPERTY/Blueprint/BlueprintGetter.md)
 
 - **常用程度：** ★★★
 

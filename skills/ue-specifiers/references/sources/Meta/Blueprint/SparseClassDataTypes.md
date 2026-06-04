@@ -22,7 +22,7 @@ usage: "UCLASS"
 
 - **关联项：** [GetByRef](GetByRef.md)
 
-  UCLASS：[SparseClassDataType](../../Specifier/UCLASS/Blueprint/SparseClassDataType/SparseClassDataType.md)
+  UCLASS：[SparseClassDataType](../../Specifier/UCLASS/Blueprint/SparseClassDataType.md)
 
 - **常用程度：** ★★★
 

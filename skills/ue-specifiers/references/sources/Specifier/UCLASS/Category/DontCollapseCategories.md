@@ -19,7 +19,7 @@ usage: "UCLASS / Category"
 - **引擎模块：** Category
 - **元数据类型：** bool
 - **作用机制：** 在ClassFlags中去除CLASS_CollapseCategories
-- **关联项：** [CollapseCategories](CollapseCategories/CollapseCategories.md)
+- **关联项：** [CollapseCategories](CollapseCategories.md)
 - **常用程度：★★**
 
 理论上是去除类标志上的CLASS_CollapseCategories标志。可以重新打开所有的属性显示。

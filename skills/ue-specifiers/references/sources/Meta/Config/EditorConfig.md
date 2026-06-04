@@ -24,7 +24,7 @@ usage: "UCLASS"
 
 - **关联项：**
 
-  UCLASS：[EditorConfig](../../Specifier/UCLASS/Config/EditorConfig/EditorConfig.md)
+  UCLASS：[EditorConfig](../../Specifier/UCLASS/Config/EditorConfig.md)
 
 - **常用程度：** ★★★
 

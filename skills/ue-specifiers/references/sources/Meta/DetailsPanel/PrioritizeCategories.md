@@ -24,7 +24,7 @@ usage: "UCLASS"
 
 - **关联项：**
 
-  UCLASS：[PrioritizeCategories](../../Specifier/UCLASS/Category/PrioritizeCategories/PrioritizeCategories.md)
+  UCLASS：[PrioritizeCategories](../../Specifier/UCLASS/Category/PrioritizeCategories.md)
 
 - **常用程度：** ★★★
 

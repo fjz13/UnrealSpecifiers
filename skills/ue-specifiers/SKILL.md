@@ -29,14 +29,12 @@ When recommending specifiers or metadata:
 
 1. Identify the UE macro involved: `UCLASS`, `USTRUCT`, `UENUM`, `UINTERFACE`, `UPROPERTY`, `UFUNCTION`, `UPARAM`, `UMETA`, or `meta=(...)`.
 2. Identify the user intent: Details Panel, Blueprint exposure, serialization, config, SaveGame, replication, editor-only behavior, instanced subobject, or UHT behavior.
-3. Search `references/recipes/` first for scenario guidance.
-4. Search `references/indexes/sources.index.md` for authoritative source routing; each row includes a short summary, usage hint, status, and `source_doc`.
-5. Optionally search the focused indexes under `references/indexes/` for quick curated summaries, but resolve status conflicts in favor of `sources.index.md` and the source document frontmatter.
-6. Open the `source_doc` under `references/sources/` when detailed behavior, examples, or original notes are needed.
-7. Check `references/conflicts/` for incompatible or misleading combinations.
-8. Check `references/pitfalls/` for common AI mistakes.
-9. Mention version uncertainty when the item is not verified for the target UE version.
-10. Provide: 推荐写法, 原因, 替代方案, 常见误用, and related local knowledge paths.
+3. Open `references/indexes/routing.index.md` first and choose the smallest next file from its scenario table.
+4. Search `references/indexes/common.index.md` first for `★★★★` and `★★★★★` high-frequency items.
+5. If `common.index.md` contains the target, use its `Summary`, `Usage`, and `Doc` directly. Otherwise use `references/indexes/sources.index.md` only as a category directory, then do targeted search in the relevant category index for exact IDs, obscure items, or `Doc` lookup.
+6. Open only the selected source document for behavior details, examples, caveats, and common misuse notes. In `common.index.md`, `Doc` is relative to `references/sources/`; in category indexes, combine the nearest `Doc root` with the row `Doc`, and treat `Doc root` as relative to `references/sources/`.
+7. Mention version uncertainty when the item is not verified for the target UE version.
+8. Provide: 推荐写法, 原因, 替代方案, 常见误用, and related local knowledge paths.
 
 ## Status Gates
 

@@ -22,7 +22,7 @@ usage: "Blueprint"
 
 - **关联项：**
 
-  UINTERFACE：[NotBlueprintable](../../Specifier/UINTERFACE/Blueprint/NotBlueprintable/NotBlueprintable.md)
+  UINTERFACE：[NotBlueprintable](../../Specifier/UINTERFACE/Blueprint/NotBlueprintable.md)
 
 - **常用程度：** ★★★
 

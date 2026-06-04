@@ -18,7 +18,7 @@ usage: "UFUNCTION"
 - **使用位置：** UFUNCTION
 - **元数据类型：** string="abc"
 - **限制类型：** TMap
-- **关联项：** [MapParam](../MapParam/MapParam.md)
+- **关联项：** [MapParam](MapParam.md)
 - **常用程度：** ★★★
 
 ## 行为

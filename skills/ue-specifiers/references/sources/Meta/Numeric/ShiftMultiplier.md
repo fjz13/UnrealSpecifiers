@@ -19,7 +19,7 @@ usage: "UPROPERTY"
 - **引擎模块：** Numeric Property
 - **元数据类型：** float/int
 - **限制类型：** 数据结构：FVector，FRotator，FColor
-- **关联项：** [CtrlMultiplier](CtrlMultiplier/CtrlMultiplier.md)
+- **关联项：** [CtrlMultiplier](CtrlMultiplier.md)
 - **常用程度：** ★★
 
 默认值是10.f

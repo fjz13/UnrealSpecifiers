@@ -19,7 +19,7 @@ usage: "UPROPERTY"
 - **引擎模块：** Widget Property
 - **元数据类型：** bool
 - **限制类型：** UWidget子类里属性
-- **关联项：** [BindWidget](BindWidget/BindWidget.md)
+- **关联项：** [BindWidget](BindWidget.md)
 - **常用程度：** ★★★
 
 必须配合BindWidget使用。

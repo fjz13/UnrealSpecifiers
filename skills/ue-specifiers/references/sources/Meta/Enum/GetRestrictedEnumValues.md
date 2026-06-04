@@ -20,7 +20,7 @@ usage: "UPROPERTY"
 - **引擎模块：** Enum Property
 - **元数据类型：** string="abc"
 - **限制类型：** TArray<FString> FuncName() const;
-- **关联项：** [ValidEnumValues](ValidEnumValues/ValidEnumValues.md)
+- **关联项：** [ValidEnumValues](ValidEnumValues.md)
 - **常用程度：** ★★★
 
 Restricted和Invalid的区别是：

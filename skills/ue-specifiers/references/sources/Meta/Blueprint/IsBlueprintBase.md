@@ -24,9 +24,9 @@ usage: "UCLASS, UINTERFACE"
 
 - **关联项：**
 
-  UCLASS：[Blueprintable](../../Specifier/UCLASS/Blueprint/Blueprintable/Blueprintable.md), [NotBlueprintable](../../Specifier/UCLASS/Blueprint/NotBlueprintable.md)
+  UCLASS：[Blueprintable](../../Specifier/UCLASS/Blueprint/Blueprintable.md), [NotBlueprintable](../../Specifier/UCLASS/Blueprint/NotBlueprintable.md)
 
-  UINTERFACE：[Blueprintable](../../Specifier/UINTERFACE/Blueprint/Blueprintable/Blueprintable.md), [NotBlueprintable](../../Specifier/UINTERFACE/Blueprint/NotBlueprintable/NotBlueprintable.md)
+  UINTERFACE：[Blueprintable](../../Specifier/UINTERFACE/Blueprint/Blueprintable.md), [NotBlueprintable](../../Specifier/UINTERFACE/Blueprint/NotBlueprintable.md)
 
 - **常用程度：** ★★★★★
 

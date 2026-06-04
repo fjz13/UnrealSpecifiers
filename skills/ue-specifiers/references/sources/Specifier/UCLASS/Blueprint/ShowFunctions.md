@@ -19,7 +19,7 @@ usage: "UCLASS / Blueprint"
 - **引擎模块：** Blueprint
 - **元数据类型：** strings=(abc，"d|e"，"x|y|z")
 - **作用机制：** 在Meta中去除[HideFunctions](../../../Meta/Blueprint/HideFunctions.md)
-- **关联项：** [HideFunctions](HideFunctions/HideFunctions.md)
+- **关联项：** [HideFunctions](HideFunctions.md)
 - **常用程度：★★**
 
 在子类的函数覆盖列表里重新打开某些函数。

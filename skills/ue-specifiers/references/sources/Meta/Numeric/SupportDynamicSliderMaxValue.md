@@ -19,7 +19,7 @@ usage: "UPROPERTY"
 - **引擎模块：** Numeric Property
 - **元数据类型：** bool
 - **限制类型：** FVector4
-- **关联项：** [SupportDynamicSliderMinValue](SupportDynamicSliderMinValue/SupportDynamicSliderMinValue.md)
+- **关联项：** [SupportDynamicSliderMinValue](SupportDynamicSliderMinValue.md)
 - **常用程度：** ★
 
 ## 行为

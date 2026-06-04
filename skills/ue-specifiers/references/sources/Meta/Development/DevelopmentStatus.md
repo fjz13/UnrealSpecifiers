@@ -24,7 +24,7 @@ usage: "UCLASS"
 
 - **关联项：**
 
-  UCLASS：[Experimental](../../Specifier/UCLASS/Development/Experimental/Experimental.md), [EarlyAccessPreview](../../Specifier/UCLASS/Development/EarlyAccessPreview/EarlyAccessPreview.md)
+  UCLASS：[Experimental](../../Specifier/UCLASS/Development/Experimental.md), [EarlyAccessPreview](../../Specifier/UCLASS/Development/EarlyAccessPreview.md)
 
 - **常用程度：** ★
 

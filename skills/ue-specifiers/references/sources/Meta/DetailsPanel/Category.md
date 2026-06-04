@@ -24,8 +24,8 @@ usage: "UFUNCTION, UPROPERTY"
 
 - **关联项：**
 
-  UFUNCTION：[Category](../../Specifier/UFUNCTION/Category/Category.md)
-  UPROPERTY：[Category](../../Specifier/UPROPERTY/DetaisPanel/Category/Category.md)
+  UFUNCTION：[Category](../../Specifier/UFUNCTION/Category.md)
+  UPROPERTY：[Category](../../Specifier/UPROPERTY/DetaisPanel/Category.md)
 
 - **常用程度：** ★★★★★
 

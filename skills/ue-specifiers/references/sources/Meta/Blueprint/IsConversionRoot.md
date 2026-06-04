@@ -24,7 +24,7 @@ usage: "UCLASS, UINTERFACE"
 
 - **关联项：**
 
-  UCLASS：[ConversionRoot](../../Specifier/UCLASS/Scene/ConversionRoot/ConversionRoot.md)
+  UCLASS：[ConversionRoot](../../Specifier/UCLASS/Scene/ConversionRoot.md)
 
   UINTERFACE：[ConversionRoot](../../Specifier/UINTERFACE/UHT/ConversionRoot.md)
 

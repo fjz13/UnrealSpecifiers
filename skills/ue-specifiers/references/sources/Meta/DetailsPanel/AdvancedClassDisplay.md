@@ -24,7 +24,7 @@ usage: "UCLASS"
 
 - **关联项：**
 
-  UCLASS：[AdvancedClassDisplay](../../Specifier/UCLASS/Category/AdvancedClassDisplay/AdvancedClassDisplay.md)
+  UCLASS：[AdvancedClassDisplay](../../Specifier/UCLASS/Category/AdvancedClassDisplay.md)
 
 - **常用程度：** ★★★
 

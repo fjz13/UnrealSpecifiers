@@ -18,7 +18,7 @@ usage: "UCLASS, UPROPERTY"
 - **使用位置：** UCLASS, UPROPERTY
 - **引擎模块：** Object Property
 - **元数据类型：** bool
-- **关联项：** [DisplayThumbnail](DisplayThumbnail/DisplayThumbnail.md)
+- **关联项：** [DisplayThumbnail](DisplayThumbnail.md)
 
 改变缩略图的大小。但发现并不会起作用。
 ## UE5.8 审计结论

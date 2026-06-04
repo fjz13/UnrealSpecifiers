@@ -19,7 +19,7 @@ usage: "UPROPERTY"
 - **引擎模块：** Numeric Property
 - **元数据类型：** float/int
 - **限制类型：** float,int32
-- **关联项：** [Delta](Delta/Delta.md)
+- **关联项：** [Delta](Delta.md)
 - **常用程度：** ★★★
 
 生效的条件：

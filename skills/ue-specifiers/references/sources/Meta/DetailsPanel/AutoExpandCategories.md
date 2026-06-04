@@ -24,7 +24,7 @@ usage: "UCLASS"
 
 - **关联项：**
 
-  UCLASS：[AutoExpandCategories](../../Specifier/UCLASS/Category/AutoExpandCategories/AutoExpandCategories.md), [AutoCollapseCategories](../../Specifier/UCLASS/Category/AutoCollapseCategories/AutoCollapseCategories.md)
+  UCLASS：[AutoExpandCategories](../../Specifier/UCLASS/Category/AutoExpandCategories.md), [AutoCollapseCategories](../../Specifier/UCLASS/Category/AutoCollapseCategories.md)
 
 - **常用程度：** ★★★
 

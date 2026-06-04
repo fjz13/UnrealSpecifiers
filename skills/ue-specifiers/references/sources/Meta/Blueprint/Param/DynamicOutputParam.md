@@ -18,7 +18,7 @@ usage: "UFUNCTION"
 - **使用位置：** UFUNCTION
 - **元数据类型：** strings="a，b，c"
 - **限制类型：** Class或Object指针类型，或容器类型
-- **关联项：** [DeterminesOutputType](DeterminesOutputType/DeterminesOutputType.md)
+- **关联项：** [DeterminesOutputType](DeterminesOutputType.md)
 
 常常和DeterminesOutputType一起配合。动态参数的数量可以为多个。
 

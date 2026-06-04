@@ -1,4 +1,0 @@
-# Common Misuse
-
-Status: pending.
-

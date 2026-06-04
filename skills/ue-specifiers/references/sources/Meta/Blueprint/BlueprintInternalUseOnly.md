@@ -26,9 +26,9 @@ usage: "UFUNCTION, USTRUCT"
 
   Meta：[BlueprintType](BlueprintType.md), [BlueprintInternalUseOnlyHierarchical](BlueprintInternalUseOnlyHierarchical.md)
 
-  UFUNCTION：[BlueprintInternalUseOnly](../../Specifier/UFUNCTION/UHT/BlueprintInternalUseOnly/BlueprintInternalUseOnly.md)
+  UFUNCTION：[BlueprintInternalUseOnly](../../Specifier/UFUNCTION/UHT/BlueprintInternalUseOnly.md)
 
-  USTRUCT：[BlueprintInternalUseOnly](../../Specifier/USTRUCT/Blueprint/BlueprintInternalUseOnly/BlueprintInternalUseOnly.md)
+  USTRUCT：[BlueprintInternalUseOnly](../../Specifier/USTRUCT/Blueprint/BlueprintInternalUseOnly.md)
 
 - **常用程度：** ★★★
 

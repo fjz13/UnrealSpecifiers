@@ -18,7 +18,7 @@ usage: "UCLASS"
 - **使用位置：** UCLASS
 - **元数据类型：** bool
 - **限制类型：** Actor类
-- **关联项：** [ChildCanTick](ChildCanTick/ChildCanTick.md)
+- **关联项：** [ChildCanTick](ChildCanTick.md)
 - **常用程度：** ★★★
 ## UE5.8 审计结论
 

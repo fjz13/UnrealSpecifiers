@@ -24,7 +24,7 @@ usage: "UFUNCTION"
 
 - **关联项：**
 
-  UFUNCTION：[ServiceRequest](../../Specifier/UFUNCTION/Network/ServiceRequest.md), [CustomThunk](../../Specifier/UFUNCTION/UHT/CustomThunk/CustomThunk.md)
+  UFUNCTION：[ServiceRequest](../../Specifier/UFUNCTION/Network/ServiceRequest.md), [CustomThunk](../../Specifier/UFUNCTION/UHT/CustomThunk.md)
 
 - **常用程度：** ★★★★★
 ## UE5.8 审计结论

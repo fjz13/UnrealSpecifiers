@@ -19,7 +19,7 @@ usage: "UPROPERTY"
 - **引擎模块：** Component Property
 - **元数据类型：** bool
 - **限制类型：** FComponentReference，FSoftComponentReference
-- **关联项：** [UseComponentPicker](UseComponentPicker/UseComponentPicker.md)
+- **关联项：** [UseComponentPicker](UseComponentPicker.md)
 - **常用程度：** ★★
 
 用在ComponentReference属性上，在UseComponentPicker的情况下使得组件选取器扩大到场景里其他Actor下的其他组件。

@@ -24,7 +24,7 @@ usage: "UCLASS, UFUNCTION, UPROPERTY"
 
 - **关联项：**
 
-  UCLASS：[Deprecated](../../Specifier/UCLASS/Development/Deprecated/Deprecated.md)
+  UCLASS：[Deprecated](../../Specifier/UCLASS/Development/Deprecated.md)
 
 - **常用程度：** ★
 
