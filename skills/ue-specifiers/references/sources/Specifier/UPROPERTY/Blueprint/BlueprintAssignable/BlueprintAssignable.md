@@ -44,11 +44,9 @@ UPROPERTY(EditAnywhere, BlueprintReadWrite)
 
 ## 蓝图中的表现：
 
-![Untitled](Untitled.png)
 
 因此一般建议二者标记都加上：
 
-![Untitled](Untitled%201.png)
 
 ## 行为
 

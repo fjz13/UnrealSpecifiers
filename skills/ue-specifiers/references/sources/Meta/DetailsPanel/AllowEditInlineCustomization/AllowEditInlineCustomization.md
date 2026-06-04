@@ -53,7 +53,6 @@ public:
 
 ## 效果：
 
-![Untitled](Untitled.png)
 
 要做到自定义EditInline的效果，采用自定义的IPropertyTypeCustomization和RegisterCustomPropertyTypeLayout也能做到。区别是，正如上面代码里的UMyCustomAsset里面有两个同类型的UMyCommonObject*对象，假如用IPropertyTypeCustomization的方式，就会导致两个变量都变成自定义的UI模式。而用AllowEditInlineCustomization就可以使得其中你想要的那个变成自定义方式，而其他的不做改变。
 
@@ -161,7 +160,6 @@ prop->RemoveMetaData(TEXT("AllowEditInlineCustomization"));
 
 效果就会从左变到右边：
 
-![Untitled](AllowEditInlineCustomization/Untitled%201.png)
 
 注册的方式也不同：
 

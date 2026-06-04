@@ -56,7 +56,6 @@ public:
 
 可以见到，MyAsset_GetAssetFilter进行过滤后只允许DataAsset类型的资产。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

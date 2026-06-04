@@ -49,7 +49,6 @@ public:
 
 可见MyPrimaryAsset_Allowed的选项只有一个了，说明受到了限制。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

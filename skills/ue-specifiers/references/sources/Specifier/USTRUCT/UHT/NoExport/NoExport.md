@@ -127,9 +127,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 蓝图里的效果：依然可以当作变量。
 
-![Untitled](Untitled.png)
 
-![Untitled](Untitled%201.png)
 
 加上noexport的区别是不能用StaticStruct和没了TCppStructOps，不能做一些优化。其他还是可以正常使用，就像FVector一样。
 

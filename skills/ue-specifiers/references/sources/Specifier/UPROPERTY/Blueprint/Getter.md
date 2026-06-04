@@ -62,7 +62,6 @@ void UMyProperty_Get::RunTest()
 
 在蓝图里直接Get MyFloat 是依然是1.
 
-![Untitled](Setter/Untitled.png)
 
 ## 原理：
 

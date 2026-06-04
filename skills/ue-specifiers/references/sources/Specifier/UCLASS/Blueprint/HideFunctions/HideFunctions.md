@@ -89,15 +89,12 @@ public:
 
 发现Callable的函数是依然可以调用的。
 
-![Untitled](Untitled.png)
 
 在HideFunction子类里，函数重载会发现少两个
 
-![Untitled](Untitled%201.png)
 
 在ShowFunction的子类里可以重新打开Event2和EventCategory2
 
-![Untitled](Untitled%202.png)
 
 ## 原理：
 

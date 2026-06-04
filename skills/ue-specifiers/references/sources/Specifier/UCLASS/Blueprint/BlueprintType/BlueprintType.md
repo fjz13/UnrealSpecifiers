@@ -81,7 +81,6 @@ class INSIDER_API UMyClass_BlueprintType_To_NotBlueprintType:public UMyClass_Blu
 
 带有BlueprintType =true的才可以当作变量
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

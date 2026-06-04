@@ -55,7 +55,6 @@ MyPropertyWithConfig=888
 
 ## 示例结果：
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

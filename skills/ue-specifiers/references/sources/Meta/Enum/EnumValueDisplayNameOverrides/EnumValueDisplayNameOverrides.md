@@ -48,6 +48,5 @@ EMyPropertyTestEnum MyEnumWithDisplayNameOverrides;
 
 可见实际上改变了First、Second的显示名字。
 
-![Untitled](Untitled.png)
 
 原理代码见ValidEnumValues上的代码

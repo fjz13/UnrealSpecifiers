@@ -22,13 +22,11 @@ usage: "UFUNCTION, UPROPERTY"
 
 在函数细节面板上可以设置函数的访问权限：
 
-![Untitled](Untitled.png)
 
 造成的结果就是在函数上增加BlueprintPrivate=“true”
 
 在细节面板上可以设置属性的
 
-![Untitled](Untitled%201.png)
 
 结果也是在属性上增加BlueprintPrivate=“true”
 

@@ -89,7 +89,6 @@ public:
 - MyAsset_DisallowedAssetDataTags，把DA_MyPropertySearch_Disallowed过滤掉了，因为我配置的MyOtherId=MyOtherId789，因此只剩下729个。
 - 关于DataTable也是同理。MyDataTable_Default可以获取所有的DataTable（有3个），而MyDataTable_RequiredAssetDataTags限制了RowStructure只能是FMyTableRow_Required （因此只能筛选出一个）。MyDataTable_DisallowedAssetDataTags排除掉一个RowStructure为FMyTableRow_Disallowed 的，因此就剩下2个。
 
-![Untitled](Untitled.png)
 
 ## 源码中例子：
 

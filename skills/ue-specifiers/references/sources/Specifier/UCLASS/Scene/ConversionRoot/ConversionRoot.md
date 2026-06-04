@@ -45,15 +45,12 @@ class INSIDER_API AMyActor_ConversionRoot :public AActor
 
 在蓝图中创建其子类BP_ConversionRoot_Child1和BP_ConversionRoot_Child2。然后把BP_ConversionRoot_Child1拖放进场景里创建个Actor，也创建个普通的蓝图Actor作为对比。
 
-![Untitled](Untitled.png)
 
 在关卡中选择Child1，会允许ConvertActor，在ConverstionRoot的自身以及所有子类之间做转换。
 
-![Untitled](Untitled%201.png)
 
 如果是普通的Actor，因为没有定义ConversionRoot，则不能做转换。
 
-![Untitled](Untitled%202.png)
 
 ## 原理：
 

@@ -52,7 +52,6 @@ public:
 
 在输入Keywords中的字符的时候，也可以找到该节点。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

@@ -36,7 +36,6 @@ usage: "UFUNCTION"
 
 对比返回值的名字可以验证效果。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

@@ -77,7 +77,6 @@ public:
 
 ## 示例效果：
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

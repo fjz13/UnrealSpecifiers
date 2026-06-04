@@ -41,7 +41,6 @@ public:
 
 如果没有ArrayTypeDependentParams，在连接ArrayA后，ArrayB的类型依然没有确定，即使连接上了也是如此，这应该是引擎的实现所限制。编译会造成编译错误。
 
-![Untitled](Untitled.png)
 
 因此ArrayTypeDependentParams可以指定另外的数组参数，其类型会由别的（第一个）数组实际参数所决定，即typeof(ArrayB)=typeof(ArrayA)。在示例代码里所示加上ArrayB作为ArrayTypeDependentParams 之后，MyArrayB无论是先连接到ArrayA还是ArrayB都可以触发二者改变为一致的数组类型。这是因为ArrayA作为第一个参数，天生在引擎内已经实现了第一个参数的动态类型实时变化。因此我们只要再加上ArrayB就好了。
 

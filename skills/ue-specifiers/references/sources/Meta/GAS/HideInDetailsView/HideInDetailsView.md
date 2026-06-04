@@ -69,7 +69,6 @@ public:
 
 可见只能选到UMyAttributeSet.HP属性，无法选择到UMyAttributeSet_Hide里的选项。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

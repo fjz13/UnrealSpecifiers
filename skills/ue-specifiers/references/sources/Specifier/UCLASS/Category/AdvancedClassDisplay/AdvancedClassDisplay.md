@@ -55,7 +55,6 @@ public:
 
 MyProperty_Simple即使在AdvancedClassDisplay的类中也依然是简单的显示。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

@@ -69,7 +69,6 @@ public:
 
 NewVar是UMyClass_BlueprintInternalUseOnlyTest 类型的，依然可以访问内部的MyInternalStruct变量。
 
-![Untitled](Untitled.png)
 
 源码里可以找到：
 

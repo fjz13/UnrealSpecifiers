@@ -43,7 +43,6 @@ usage: "UPARAM / Blueprint"
 
 ## 蓝图的代码：
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

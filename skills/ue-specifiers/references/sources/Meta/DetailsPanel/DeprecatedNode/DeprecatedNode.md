@@ -54,7 +54,6 @@ class UBTTask_MyDeprecatedNode : public UBTTaskNode
 
 行为树里的结果，如果加上DeprecatedNode，就会红色显示，并提示错误信息。
 
-![Untitled](Untitled.png)
 
 ## 源码里测试的代码：
 

@@ -91,7 +91,6 @@ class ENGINE_API UDataLayerInstance : public UObject
 
 通过对比可以看出Expand确实可以自动展开子目录方便立马编辑。要求是AutoExpandCategories 里填的目录要和属性上的Category匹配
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

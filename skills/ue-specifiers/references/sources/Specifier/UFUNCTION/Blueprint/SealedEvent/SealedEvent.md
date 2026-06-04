@@ -23,7 +23,6 @@ usage: "UFUNCTION / Blueprint"
 
 在源码里搜索：发现都是用在网络的函数上
 
-![Untitled](Untitled.png)
 
 ## UHT中的处理：
 

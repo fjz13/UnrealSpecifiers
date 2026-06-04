@@ -45,7 +45,6 @@ public:
 
 ## 示例效果：
 
-![Untitled](Untitled.png)
 ## UE5.8 审计结论
 
 UE5.8 UHT 或宏路径仍保留该条目；本轮按 UE5.8 标记为已验证。P3 中不少条目属于引擎内部、NoExportTypes 或插件专用用法，不建议普通项目代码直接套用。

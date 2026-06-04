@@ -68,7 +68,6 @@ public:
 
 注意这里，单独的MyGroup2和MyGroup3也都没有显示。所以判断的标准只要目录符合某个目录名字匹配就行。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

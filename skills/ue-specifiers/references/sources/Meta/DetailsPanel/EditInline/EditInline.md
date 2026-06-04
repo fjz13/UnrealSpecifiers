@@ -58,7 +58,6 @@ usage: "UPROPERTY"
 
 ## 蓝图效果：
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

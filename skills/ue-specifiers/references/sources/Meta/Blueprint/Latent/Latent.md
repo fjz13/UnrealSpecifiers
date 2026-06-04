@@ -77,7 +77,6 @@ public:
 
 ## 蓝图效果：
 
-![Untitled](Untitled.png)
 
 MySleep可以像Delay一样正常工作。但是MySleep2因为没有标明LatentInfo，因此LatentInfo函数参数没有被蓝图系统赋值，导致无法工作。
 

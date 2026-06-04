@@ -134,7 +134,6 @@ void UMyClass_Optional_Test::LoadPackageAndTest()
 
 正常的SavePackage发现是没有作用的，依然会序列化保存。特殊的保存方式在Cook阶段，本例就没有专门测试了。
 
-![Untitled](Untitled.png)
 
 在源码里搜索Optional，可以看到一般是EditorOnlyData和CookedMetaData类在使用。
 

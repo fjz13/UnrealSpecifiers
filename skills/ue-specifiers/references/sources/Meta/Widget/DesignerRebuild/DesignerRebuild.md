@@ -58,7 +58,6 @@ class UListViewBase : public UWidget
 
 可以发现在改变bSimpleTextMode的时候，左侧预览界面会一下下的在跳动刷新。而在点击改变别的按钮的时候就没有该效果。
 
-![DesignerRebuild1](DesignerRebuild1.gif)
 ## UE5.8 审计结论
 
 UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。
@@ -82,7 +81,6 @@ public:
 
 可见在改变普通的属性MyInt 的时候，界面并不会刷新。而在改变MyInt_DesignerRebuild 的时候，界面左上角的数字在跳动（虽然整个界面其实并没有什么实质变化）。
 
-![DesignerRebuild2](DesignerRebuild2.gif)
 
 ## 原理：
 

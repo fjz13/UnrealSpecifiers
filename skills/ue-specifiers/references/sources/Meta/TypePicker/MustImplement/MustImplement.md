@@ -74,11 +74,9 @@ static void SetMyClassMustImplement(UPARAM(meta=(MustImplement="MyCommonInterfac
 
 可以发现第一个没有筛选的结果，第二和第三个有了筛选后的结果。
 
-![MustImplement](MustImplement.png)
 
 也可以放在在函数里作为参数：
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

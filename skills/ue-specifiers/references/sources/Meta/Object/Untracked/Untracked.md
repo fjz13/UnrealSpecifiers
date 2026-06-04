@@ -60,7 +60,6 @@ public:
 
 在蓝图中建立一个UMyProperty_Soft DataAsset资产，然后设置其属性值。然后查看其引用的资源，会发现Untracked的属性，其设置的资产并没有出现在引用关系中。当然Transient的属性也不在引用关系中。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

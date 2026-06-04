@@ -55,7 +55,6 @@ public:
 
 ## 蓝图效果：
 
-![Untitled](Untitled.png)
 
 可以看到，在没有连接具体数组类型的时候，Array是灰色的通配符类型。而连接上不同的数组类型，Array参数引脚就会自动变成相应的类型，这些逻辑是在UK2Node_CallArrayFunction中实现的，有兴趣的去自行翻阅。
 

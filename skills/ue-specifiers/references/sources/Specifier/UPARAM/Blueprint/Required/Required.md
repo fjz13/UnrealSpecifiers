@@ -41,7 +41,6 @@ usage: "UPARAM / Blueprint"
 
 ## 蓝图节点：
 
-![Untitled](Untitled.png)
 
 如果不连一个节点，编译时会报错：
 

@@ -78,7 +78,6 @@ void AMyFunction_Network::PrintFuncStatus(AActor* actor, FString funcName)
 
 ## 蓝图代码：
 
-![Untitled](Untitled.png)
 
 对于不Replicated的Actor：
 

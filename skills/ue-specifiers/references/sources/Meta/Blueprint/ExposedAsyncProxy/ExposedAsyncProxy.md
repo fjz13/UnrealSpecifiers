@@ -71,7 +71,6 @@ private:
 
 如果UMyFunction_Async 直接继承自UBlueprintAsyncActionBase，并且没有设置ExposedAsyncProxy，则生成的蓝图异步节点为为下图。
 
-![Untitled](Untitled.png)
 
 而如果继承自UCancellableAsyncAction (提供了Cancel方法)，并且设置ExposedAsyncProxy 为自己想要的AsyncObject引脚名称。
 
@@ -91,7 +90,6 @@ class INSIDER_API UMyFunction_Async :public UCancellableAsyncAction
 
 ## 修改后的效果如下图：
 
-![Untitled](Untitled%201.png)
 
 ## 该Meta在源码中发生的位置：
 

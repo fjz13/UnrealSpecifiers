@@ -88,7 +88,6 @@ public:
 
 但无论是覆写为事件还是函数，被调用的时候用法并无区别。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

@@ -61,7 +61,6 @@ public:
 
 第一个是UMyClass_CollapseCategories 的效果，第二个是UMyClass_DontCollapseCategories 的效果，可见一些属性被隐藏了起来。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

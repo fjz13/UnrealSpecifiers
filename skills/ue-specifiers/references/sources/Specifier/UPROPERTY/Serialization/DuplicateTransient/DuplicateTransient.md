@@ -91,11 +91,9 @@ void UMyProperty_Serialization_Test::RunTest()
 
 复制蓝图，可以看到DuplicateTransient并不会被复制
 
-![Untitled](Untitled.png)
 
 在采用C++复制的时候：也看到MyInt_DuplicateTransient 并不会产生复制，还是123而不是456。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

@@ -56,7 +56,6 @@ void AMyFunction_Exec::MyExec()
 
 在PIE的时候~打开控制台运行结果：
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

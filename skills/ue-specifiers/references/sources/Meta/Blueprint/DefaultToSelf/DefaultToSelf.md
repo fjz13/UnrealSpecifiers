@@ -44,11 +44,9 @@ public:
 
 蓝图里的节点，可以看出蓝图编译器会自动的把DefaultToSelf指定的函数参数，自动的赋值到Self，当然这个和手动的连到self本质是一样的。额外一点，可以通过HidePin再隐藏掉这个函数参数，这样就默认把该蓝图节点所在的蓝图对象（Self）当作第一个函数参数，显得更加简洁一些。
 
-![Untitled](Untitled.png)
 
 如果是BlueprintPure也是可以的：
 
-![Untitled](Untitled%201.png)
 
 ## 原理：
 

@@ -70,11 +70,9 @@ enum class EMyEnum_BitFlagsInEditor:uint8
 
 ## 测试的蓝图1：
 
-![Untitled_a](Untitled_a.png)
 
 ## 测试的蓝图2：
 
-![Untitled_b](Untitled_b.png)
 
 因此可以看出前者是1<<2+1<<2，而后者是1|2，因此后者是直接把枚举值作为已经位移后的值
 ## UE5.8 审计结论

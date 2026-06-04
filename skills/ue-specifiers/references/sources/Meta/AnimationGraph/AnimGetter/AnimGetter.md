@@ -72,7 +72,6 @@ public:
 - 可见在不管什么作用域，普通蓝图函数都可以调用（毕竟没有做Context的检查）。另外AssetPlayerIndex等参数都没有被自动填充，这几乎是没法用的，因为用户其实并不太懂如何去手填这些Index，最好是交给编译器来填充。
 - 图里高亮的是可以调用的AnimGetter函数。细看的话，可以分析发现规则是只有能正确填充AssetPlayerIndex等参数的才能调用。因此在Transition里能调用的最多，因为这个时候最叶子节点，有动画，又有状态机和Transition节点。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

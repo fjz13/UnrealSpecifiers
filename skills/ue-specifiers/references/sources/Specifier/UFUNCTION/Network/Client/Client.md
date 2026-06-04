@@ -27,7 +27,6 @@ usage: "UFUNCTION / Network"
 
 所谓Client-owned，参考文档：[https://docs.unrealengine.com/4.27/zh-CN/InteractiveExperiences/Networking/Actors/RPCs/](https://docs.unrealengine.com/4.27/zh-CN/InteractiveExperiences/Networking/Actors/RPCs/)
 
-![Untitled](Untitled.png)
 
 ## 测试代码：
 
@@ -49,7 +48,6 @@ void AMyFunction_PlayerController::MyFunc_RunOnClient_Implementation()
 
 测试蓝图：PIE模式，一个ListenServer+2Client
 
-![Untitled](Untitled%201.png)
 
 ## 测试输出结果：
 

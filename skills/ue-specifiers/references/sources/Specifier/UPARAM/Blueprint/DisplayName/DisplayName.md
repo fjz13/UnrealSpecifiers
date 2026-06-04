@@ -34,7 +34,6 @@ usage: "UPARAM / Blueprint"
 
 ## 蓝图节点：
 
-![Untitled](Untitled.png)
 
 ## 行为
 

@@ -67,7 +67,6 @@ public:
 
 因此我们也可以定义自己的动态绑定函数，来解析一个FString为一个Actor，如代码里ResolveToMyActor所示。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

@@ -42,11 +42,9 @@ public:
 
 影响的是属性上的该标志
 
-![Untitled](Untitled.png)
 
 从而可以在Sequencer里对该属性添加Track
 
-![Untitled](Untitled%201.png)
 
 ## 行为
 

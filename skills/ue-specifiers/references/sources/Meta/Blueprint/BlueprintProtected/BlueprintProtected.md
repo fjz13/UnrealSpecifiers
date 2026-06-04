@@ -71,17 +71,14 @@ private:
 
 而在BPA_Access_Base中直接定义的MyBPProtected和MyBPPrivate通过在函数细节面板上直接设置AccessSpecifier，可以在本类都可以调用，但是MyBPPrivate在更加的蓝图子类无法被调用。
 
-![Untitled](Untitled.png)
 
 蓝图中的子类（BPA_Access_Child继承自BPA_Access_Base）效果：
 
 可见MyNative函数的访问一样。而MyBPPrivate则不能被调用了，这和我们预想的规则一样。
 
-![Untitled](Untitled%201.png)
 
 而在外部类中(BPA_Access_Other，继承自Actor)，通过BPA_Access_Base或BPA_Access_Child对象实例访问函数的时候，发现带有BlueprintProtected和BlueprintPrivate都不能被调用。BP的函数也只有AccessSpecifier为默认Public的可以调用。这个规则也很符合预期。
 
-![Untitled](Untitled%202.png)
 
 ## 原理：
 
@@ -269,19 +266,16 @@ private:
 
 而在本蓝图类定义的MyBPIntPrivate因为勾上了Private，会导致该属性增加了BlueprintPrivate = true的meta，但因为是本类里定义的，所以在本类里也依然可以读写访问。
 
-![Untitled](Untitled%203.png)
 
 继续在蓝图中的子类（BPA_Access_Child继承自BPA_Access_Base）效果：
 
 Protected的属性依然都可以访问，但是MyBPIntPrivate属性因为是Private的，因此都不能读写，如果强制粘贴节点，会在编译的时候报错。Private的含义是只在本类中才可以访问。
 
-![Untitled](Untitled%204.png)
 
 而在外部类中(BPA_Access_Other，继承自Actor)，通过BPA_Access_Base或BPA_Access_Child对象实例访问属性的时候：带有BlueprintProtected和BlueprintPrivate都不能访问。而C++中的protected修饰并无影响。
 
 而MyBPIntPrivate因为是Private所以不能访问。
 
-![Untitled](Untitled%205.png)
 
 ## 原理：
 

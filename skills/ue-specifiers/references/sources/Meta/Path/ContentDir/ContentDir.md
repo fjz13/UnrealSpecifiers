@@ -62,7 +62,6 @@ public:
 - MyDirectory_ContentDir和MyDirectory_LongPackageName，会如图所示弹出UE风格的对话框来选择目录。
 - MyDirectory_RelativeToGameContentDir和MyDirectory_RelativePath都会弹出系统对话框，不同的是MyDirectory_RelativeToGameContentDir最终的目录会限制在Content目录下（如果选择别的目录，会弹出错误警告），结果是个相对路径。MyDirectory_RelativePath的结果也是个相对路径，但是可以选择任意目录。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

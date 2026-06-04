@@ -44,7 +44,6 @@ public:
 
 ## 测试结果：
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

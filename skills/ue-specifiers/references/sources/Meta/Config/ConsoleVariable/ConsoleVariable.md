@@ -82,7 +82,6 @@ void UMyProperty_InsiderSettings::PostEditChangeProperty(FPropertyChangedEvent& 
 
 如果在Console中改变后再尝试在ProjectSettings中更改值，就会报错。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

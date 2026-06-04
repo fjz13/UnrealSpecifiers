@@ -35,7 +35,6 @@ UPROPERTY(EditAnywhere, BlueprintReadWrite, BlueprintAssignable, BlueprintCallab
 
 ## 蓝图中表现：
 
-![Untitled](Untitled.png)
 
 ## 行为
 

@@ -54,7 +54,6 @@ public:
 
 在蓝图中只有MyFunc_Default是可以调用的。因此可以理解为这个函数依然暴露到蓝图，但是却又被隐藏起来了。不能让用户自己直接调用，但是可以在代码里通过查找函数名之类的间接可以调用到。
 
-![Untitled](Untitled.png)
 
 在源码里找到一个示例，因此这个GetLevelScriptActor函数，可以不在蓝图中被调用，但是有可以通过名字查找到。方便生成一个UFunction以被注入到别的地方作为callback
 
@@ -110,7 +109,6 @@ private:
 
 假如注释掉上述源码的BlueprintInternalUseOnly ，会发现在蓝图里可以有两个DelayLoop。上面的一个是按UBlueprintAsyncActionBase规则生成的，第二个是按普通的蓝图函数规则生成的。明显这种情况下我们并不想同时出现两个来给用户造成困惑。因此要加上BlueprintInternalUseOnly 来阻止生成默认的蓝图节点。
 
-![Untitled](Untitled%201.png)
 ## UE5.8 审计结论
 
 UE5.8 UHT 或宏路径仍保留该条目；本轮按 UE5.8 标记为已验证。P3 中不少条目属于引擎内部、NoExportTypes 或插件专用用法，不建议普通项目代码直接套用。

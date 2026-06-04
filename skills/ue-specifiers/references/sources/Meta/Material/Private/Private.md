@@ -44,7 +44,6 @@ class UMyMaterialExpression_Private : public UMaterialExpression
 
 材质蓝图里只能调用UMyMaterialExpression_NotPrivate 。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

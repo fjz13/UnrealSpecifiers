@@ -99,7 +99,6 @@ public:
 
 而另外当使用TMap的时候，还可以用GetKeyOptions 和GetValueOptions来分别单独为Key和Value提供不一样的选项列表，见MyMap_GetKeyValueOptions。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

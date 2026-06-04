@@ -45,7 +45,6 @@ UPROPERTY(EditAnywhere, BlueprintReadWrite)
 
 ## 示例效果：
 
-![Untitled](Untitled.png)
 
 注意BlueprintAssignable和BlueprintCallable只能用于多播委托：
 

@@ -47,7 +47,6 @@ class UPrimitiveStats : public UObject
 
 在统计页面，可见右上角的类型。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

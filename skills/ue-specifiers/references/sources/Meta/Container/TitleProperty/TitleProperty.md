@@ -63,7 +63,6 @@ TArray<FMyArrayTitleStruct> MyStructArray_HasTitleProperty;
 
 可以发现，下面的数组元素的标题变为了“Hello[x]”，而不是默认的“3 members”。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

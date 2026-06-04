@@ -52,4 +52,3 @@ private:
 
 ## 效果展示：
 
-![Untitled](Untitled.png)

@@ -55,7 +55,6 @@ public:
 
 在EditorUtilityWidget中测试，可见ListAssetByTagValue都可以搜索找到该Asset。
 
-![Untitled](Untitled.png)
 
 测试的蓝图代码，也可用IAssetRegistry::Get()->GetAssetsByTagValues(tagValues,outAssets);来进行搜索，不过要注意搜索的时机要在AssetRegistry加载之后，AssetRegistry如果是Runtime要记得序列化到磁盘
 

@@ -271,11 +271,9 @@ const FString& GetMyString_EditDefault_ReadOnly() const \
 
 在BP中依然可以访问：
 
-![Untitled](Untitled.png)
 
 在Class Defaults里也可以改变值：
 
-![Untitled](Untitled%201.png)
 
 ## 行为
 

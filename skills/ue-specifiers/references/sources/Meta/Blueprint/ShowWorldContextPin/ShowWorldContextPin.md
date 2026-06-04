@@ -62,7 +62,6 @@ public:
 
 可以见到虽然UMyObject_ShowWorldContextPin类实现了GetWorld()方法，但是即使是MyFunc_HasWorldContextMeta，WorldContextObject本来应该被自动赋值且隐藏的，但是在本类里也显式显示了出来。同时注意到PrintString也显示出了WorldContextObject。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

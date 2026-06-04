@@ -45,4 +45,3 @@ public:
 
 ## 蓝图中的展示：
 
-![Untitled](Untitled.png)

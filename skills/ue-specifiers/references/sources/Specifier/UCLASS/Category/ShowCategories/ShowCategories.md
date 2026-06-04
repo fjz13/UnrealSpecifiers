@@ -70,7 +70,6 @@ public:
 
 ## 示例效果：
 
-![Untitled](./Image/Untitled.png)
 
 ## 原理：
 

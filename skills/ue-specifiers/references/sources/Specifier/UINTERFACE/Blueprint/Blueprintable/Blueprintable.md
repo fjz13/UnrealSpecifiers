@@ -67,7 +67,6 @@ public:
 
 在蓝图中测试，发现UMyInterface_NotBlueprintable并不能找到。
 
-![Untitled](Untitled.png)
 
 ## 行为
 

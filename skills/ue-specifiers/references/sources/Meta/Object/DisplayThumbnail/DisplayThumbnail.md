@@ -56,7 +56,6 @@ public:
 
 MyActor_DisplayThumbnail出现了缩略图的图标，但是发现并没有显示出正确的说了图。AActor在默认情况下是不显示缩略图的。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

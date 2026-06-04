@@ -45,7 +45,6 @@ error : The 'placeable' specifier cannot override a 'nonplaceable' base class. C
 
 ## 示例效果：
 
-![Untitled](Untitled.png)
 
 ## 行为
 

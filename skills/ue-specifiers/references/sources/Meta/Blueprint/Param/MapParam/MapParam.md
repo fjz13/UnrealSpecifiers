@@ -39,7 +39,6 @@ usage: "UFUNCTION"
 
 ## 蓝图中效果1：
 
-![Untitled](Untitled.png)
 
 因为只支持一个MapParam，因此如果你书写这种代码 。
 
@@ -54,7 +53,6 @@ usage: "UFUNCTION"
 
 会导致MapParam搜索不到Pin，从而失去通配符的功能。
 
-![Untitled](Untitled%201.png)
 
 而如果要实现类似Add的功能，达到Key和Value的Pin类型也可以动态的根据Map的类型而自动的改变。则需要加上MapKeyParam 和MapValueParam 分别的指定另外的函数参数以便能找到正确的Pin，从而实现动态的根据Map类型而更改KeyValue Pin类型。MapKeyParam 和MapValueParam 指定的参数也可以为数组等容器，可以参照UBlueprintMapLibrary中的Keys和Values参数。
 
@@ -67,7 +65,6 @@ usage: "UFUNCTION"
 
 ## 蓝图中的效果2：
 
-![Untitled](Untitled%202.png)
 
 ## 原理代码:
 

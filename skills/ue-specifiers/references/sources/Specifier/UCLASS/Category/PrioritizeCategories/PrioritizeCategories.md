@@ -47,7 +47,6 @@ public:
 
 可见Property_Group333排到了最前面。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

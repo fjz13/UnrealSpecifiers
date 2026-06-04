@@ -42,7 +42,6 @@ public:
 
 可以发现MyUnsafeFunction函数不能在Actor构造函数里被调用出来，而蓝图里自定义的函数加上UnsafeDuringActorConstruction 标志后也会生成相应的警告和编译错误信息。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

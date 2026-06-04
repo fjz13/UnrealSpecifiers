@@ -43,7 +43,6 @@ public:
 
 可以看到带有NoElementDuplicate的数组，在值的右侧下拉箭头的菜单项里只有两项。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

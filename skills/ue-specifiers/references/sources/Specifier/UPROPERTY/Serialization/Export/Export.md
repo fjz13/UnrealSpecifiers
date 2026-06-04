@@ -59,11 +59,9 @@ public:
 
 配置的对象值：
 
-![Untitled](Untitled.png)
 
 主要是用在Export 操作的时候，用来决定如何导出Object*属性的内容。NoExport的话是只输出对象引用的路径，而Export的话会输出这个对象其再内部的的属性值。
 
-![Untitled](Untitled%201.png)
 
 导出的文本：
 

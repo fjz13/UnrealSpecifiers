@@ -64,7 +64,6 @@ public:
 
 可见改变了名称。
 
-![image](image.png)
 
 ## 行为
 

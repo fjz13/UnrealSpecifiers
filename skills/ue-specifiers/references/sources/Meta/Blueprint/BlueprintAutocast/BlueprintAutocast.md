@@ -77,7 +77,6 @@ static UMG_API FInputEvent GetInputEventFromKeyEvent(const FKeyEvent& Event);
 
 支持自动转换的FAutoCastTo就在拖拉连线的时候就会自动生成节点，而没有自动转换函数的FNoAutoCastTo就会产生报错。
 
-![Untitled](Untitled.png)
 
 ## 原理代码：
 

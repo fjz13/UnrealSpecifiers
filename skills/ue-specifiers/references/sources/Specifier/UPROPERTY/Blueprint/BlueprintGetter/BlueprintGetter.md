@@ -54,7 +54,6 @@ private:
 
 而MyInt_WithSetter 是可读写的。
 
-![Untitled](Untitled.png)
 
 ## 行为
 

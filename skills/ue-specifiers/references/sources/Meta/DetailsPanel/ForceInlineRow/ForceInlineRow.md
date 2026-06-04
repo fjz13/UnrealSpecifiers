@@ -86,15 +86,12 @@ void FMyCommonStructCustomization::CustomizeHeader(TSharedRef<IPropertyHandle> P
 
 在下面也特别观察到如果把FStruct作为Value，则是没有这个区别的。
 
-![Untitled](Untitled.png)
 
 假如不注册FMyCommonStruct相应的IPropertyTypeCustomization的话，则结构的属性UI采用默认方式显示，则都是分为两行。
 
-![Untitled](Untitled%201.png)
 
 而假如FMyCommonStruct的IPropertyTypeCustomization的ShouldInlineKey返回true，则会导致即使没有ForceInlineRow也会把该拥有该结构作为Key的属性给都合并为一行显示，这个时候就失去ForceInlineRow的作用和区别了。
 
-![Untitled](Untitled%202.png)
 
 ## 原理：
 

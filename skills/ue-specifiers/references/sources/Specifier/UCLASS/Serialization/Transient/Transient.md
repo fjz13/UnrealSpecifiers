@@ -160,7 +160,6 @@ UMyClass_Transient_Test* newTestObject=LoadObject<UMyClass_Transient_Test>(packa
 
 可以看到MyTransientObject 并没有被序列化到磁盘上，因此不会加载出来。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

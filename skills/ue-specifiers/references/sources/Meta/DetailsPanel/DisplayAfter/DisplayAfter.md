@@ -54,7 +54,6 @@ public:
 
 而MyInt_After2 因为在不同的Category下，因此就保留原样。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

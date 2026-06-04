@@ -59,7 +59,6 @@ public:
 
 可以见到MyRowHandle_RowType的选项被限定到了DT_MyCommonRow，而且RowName也正确的显示了出来。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

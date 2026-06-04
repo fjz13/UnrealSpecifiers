@@ -42,7 +42,6 @@ void AMyFunction_Default::MyFunc_NativeEvent_Implementation()
 
 ## 效果展示：
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

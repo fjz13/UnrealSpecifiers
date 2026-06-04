@@ -49,7 +49,6 @@ public:
 
 可见出现了"(MyVector)"的后缀。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

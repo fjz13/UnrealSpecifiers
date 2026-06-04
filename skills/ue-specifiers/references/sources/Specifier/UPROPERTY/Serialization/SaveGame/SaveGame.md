@@ -122,11 +122,9 @@ void UMyProperty_SaveGame_Test::RunTest()
 
 测试结果，只有SaveGame标记的属性这个值才序列化进去。
 
-![Untitled](Untitled.png)
 
 等价于在蓝图的细节面板里表示：
 
-![Untitled](Untitled%201.png)
 
 ## 原理：
 

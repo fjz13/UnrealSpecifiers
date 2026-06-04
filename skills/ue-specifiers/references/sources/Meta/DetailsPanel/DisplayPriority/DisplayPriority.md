@@ -44,7 +44,6 @@ public:
 
 P4即使优先级比较低，但因为DisplayAfter也仍然排在了P1之后。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

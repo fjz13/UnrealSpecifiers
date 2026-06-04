@@ -72,7 +72,6 @@ public:
 
 ## 蓝图测试结果：
 
-![Untitled](Untitled.png)
 
 可以看出BlueprintCallable和BlueprintPure其实都可以。另外ReturnValue是默认的返回值的名字，也可以通过这个来隐藏掉。
 ## UE5.8 审计结论

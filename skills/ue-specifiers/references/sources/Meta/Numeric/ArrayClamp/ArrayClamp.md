@@ -41,7 +41,6 @@ public:
 
 可见拥有ArrayClamp的整数值被限制在数组的下标中。
 
-![ArrayClamp](ArrayClamp.gif)
 
 ## 原理：
 

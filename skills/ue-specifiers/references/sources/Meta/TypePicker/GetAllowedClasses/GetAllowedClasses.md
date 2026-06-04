@@ -75,7 +75,6 @@ public:
 
 可见Class选择器把可选范围限定到了设定的3个基类上。而对象选择器也把对象限定到了这3个基类。
 
-![GetAllowClasses](GetAllowClasses.jpg)
 
 ## 原理：
 

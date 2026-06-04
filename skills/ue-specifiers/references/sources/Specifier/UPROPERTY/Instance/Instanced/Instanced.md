@@ -78,4 +78,3 @@ public:
 
 可见ObjectInstanced和Object弹出的编辑框是不同的。
 
-![Untitled](Untitled.png)

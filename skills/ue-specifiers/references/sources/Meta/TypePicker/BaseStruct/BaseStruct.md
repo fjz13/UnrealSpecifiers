@@ -75,7 +75,6 @@ public:
 
 加上StructTypeConst的MyStruct_Const就不能编辑了。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

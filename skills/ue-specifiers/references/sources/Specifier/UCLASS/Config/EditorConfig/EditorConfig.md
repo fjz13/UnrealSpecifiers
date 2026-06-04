@@ -27,7 +27,6 @@ usage: "UCLASS / Config"
 
 保存在：C:\Users\{user name}\AppData\Local\UnrealEngine\Editor。当前有：
 
-![Untitled](Untitled.png)
 
 在源码里搜索后，使用的时候必须继承于基类：
 

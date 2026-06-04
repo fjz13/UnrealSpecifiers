@@ -52,8 +52,6 @@ struct INSIDER_API FMyStruct_NotHidden
 
 ## 蓝图结果：
 
-![Untitled](Untitled.png)
 
 所谓隐藏，指的是在节点的细节面板里需要手动选择某些属性。而不是像默认的一样一开始就全部自动打开。
 
-![Untitled](Untitled%201.png)

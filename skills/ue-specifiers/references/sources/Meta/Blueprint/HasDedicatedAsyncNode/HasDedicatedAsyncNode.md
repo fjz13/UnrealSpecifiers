@@ -113,7 +113,6 @@ bool UK2Node_MyFunctionAsyncAction::HandleDelegates(const TArray<FBaseAsyncTaskH
 
 左侧是引擎自带的UK2Node_AsyncAction生成节点，右边是自定义的UK2Node_MyFunctionAsyncAction生成的蓝图节点，虽然功能一致，但是右边额外加了个注释以便区分。有了这个基础，你也可以在其中继续重载方法进一步自定义。
 
-![Untitled](Untitled.png)
 
 ## 当前在源码里有两处地方使用：
 
@@ -155,7 +154,6 @@ class UMovieSceneAsyncAction_SequencePrediction : public UBlueprintAsyncActionBa
 
 UAsyncAction_RegisterGameplayMessageReceiver由自定义的UK2Node_GameplayMessageAsyncAction来创建蓝图节点，从而提供了一个泛型的Payload输出引脚。而UMovieSceneAsyncAction_SequencePrediction 里的工厂方法PredictWorldTransformAtTime，由于隐藏了自动生成的版本，又没有加上BlueprintInternalUseOnly来抑制UHT生成的版本，因此最终呈现的是普通版本的静态函数蓝图节点。
 
-![Untitled](Untitled%201.png)
 
 ## 源码里的作用机制：
 

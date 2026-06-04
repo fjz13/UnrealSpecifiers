@@ -51,7 +51,6 @@ public:
 
 可见加了Icon之后，左上角图标变成了其他，不是默认的f函数目标。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

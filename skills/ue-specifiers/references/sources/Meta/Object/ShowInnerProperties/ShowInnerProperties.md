@@ -150,7 +150,6 @@ void UMyProperty_Inner::InitInnerObject()
 
 ## 蓝图效果：
 
-![Untitled](Untitled.png)
 
 可以观察到：
 
@@ -189,7 +188,6 @@ void UMyProperty_Inner::AddActorMeta()
 
 ## 对比效果：
 
-![Untitled](Untitled%201.png)
 
 可以发现，去除ShowInnerProperties后，ChildActorTemplate属性退化成一个普通的对象引用，我们无法在上面直接编辑对象的内部属性。
 

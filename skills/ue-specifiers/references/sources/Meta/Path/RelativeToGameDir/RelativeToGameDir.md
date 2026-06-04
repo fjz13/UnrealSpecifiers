@@ -55,7 +55,6 @@ public:
 - MyFilePath_FilePathFilter，可以选择任何目录下的指定后缀名的文件。代码里示例为umap，则只能选择关卡文件。
 - MyFilePath_FilePathFilter_INI，演示了只能选取ini文件。FilePathFilter 支持我们采用“描述 | *.后缀名”的格式自己书写过滤方式，规则同windows系统选取规则一样，也可以同时写多个后缀名。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

@@ -52,7 +52,6 @@ public:
 
 可见MyString_ExposeOnSpawn 暴露了出来，而MyString 没有。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

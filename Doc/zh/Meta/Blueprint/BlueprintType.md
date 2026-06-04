@@ -1,0 +1,55 @@
+---
+title: "BlueprintType"
+id: "meta.BlueprintType"
+kind: "meta"
+symbol: "BlueprintType"
+category: "Blueprint"
+source_status: "verified_UE5.8"
+target_ue_version: "UE5.8"
+normalization_status: "normalized"
+normalized_at: "2026-06-04"
+summary: "表明可以作为一个蓝图变量"
+usage: "UCLASS, UENUM, UINTERFACE, USTRUCT"
+---
+
+# BlueprintType
+
+- **功能描述：** 表明可以作为一个蓝图变量
+
+- **使用位置：** UCLASS, UENUM, UINTERFACE, USTRUCT
+
+- **引擎模块：** Blueprint
+
+- **元数据类型：** bool
+
+- **关联项：**
+
+  UCLASS：[Blueprintable](../../Specifier/UCLASS/Blueprint/Blueprintable/Blueprintable.md), [NotBlueprintable](../../Specifier/UCLASS/Blueprint/NotBlueprintable.md), [BlueprintType](../../Specifier/UCLASS/Blueprint/BlueprintType/BlueprintType.md), [NotBlueprintType](../../Specifier/UCLASS/Blueprint/NotBlueprintType.md)
+
+  Meta：[BlueprintInternalUseOnly](BlueprintInternalUseOnly.md), [BlueprintInternalUseOnlyHierarchical](BlueprintInternalUseOnlyHierarchical.md)
+
+  UENUM：[BlueprintType](../../Specifier/UENUM/BlueprintType.md)
+
+  UFUNCTION：[BlueprintInternalUseOnly](../../Specifier/UFUNCTION/UHT/BlueprintInternalUseOnly/BlueprintInternalUseOnly.md)
+
+  UINTERFACE：[Blueprintable](../../Specifier/UINTERFACE/Blueprint/Blueprintable/Blueprintable.md), [NotBlueprintable](../../Specifier/UINTERFACE/Blueprint/NotBlueprintable/NotBlueprintable.md)
+
+  USTRUCT：[BlueprintInternalUseOnly](../../Specifier/USTRUCT/Blueprint/BlueprintInternalUseOnly/BlueprintInternalUseOnly.md), [BlueprintType](../../Specifier/USTRUCT/Blueprint/BlueprintType/BlueprintType.md)
+
+- **常用程度：** ★★★★★
+
+## 行为
+
+UE5.8 class/struct/enum metadata；UHT 默认 `BlueprintType` specifier 写入，控制 Blueprint 类型暴露。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `ObjectMacros.h` metadata declaration/comment
+  - UE5.8 `BlueprintGraph` metadata constants or node usage
+
+## 常见误用
+
+参数名、属性名或目标宏写错导致 metadata 被保留但没有对应编辑器/Blueprint 行为。

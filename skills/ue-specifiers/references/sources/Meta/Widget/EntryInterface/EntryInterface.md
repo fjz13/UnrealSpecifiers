@@ -134,11 +134,9 @@ public:
 
 如果MyListView上没有指定EntryClass或EntryInterface，则在ListView的EntryWidgetClass属性上可以选择蓝图创建的UMG_MyEntry(继承自C++的UMyEntryWidget)。
 
-![Untitled](Untitled.png)
 
 如果如上面代码中所示，我们新创建一个接口为MyCustomListEntry，并且也新建一个新的MyCustomEntryWidget，然后在MyListView属性上指定EntryClass或EntryInterface（可以一起也可以单个），则ListView的EntryWidgetClass属性可选的类就被限制住了。
 
-![Untitled](Untitled%201.png)
 
 还有一种用法是当你想自定义一个ListView，可以选择继承自ListViewBase，然后在这个子类上直接限定EntryClass或EntryInterface，效果和上图是一样的。
 

@@ -25,7 +25,6 @@ usage: "UCLASS, UFUNCTION"
 
 动画蓝图的AimGraph默认是开启线程安全Update的。设置在ClassSettings里（默认是打开的）
 
-![Untitled](Untitled.png)
 
 可参考官方文档的**CPU Thread Usage and Performance这一节**
 
@@ -35,17 +34,14 @@ usage: "UCLASS, UFUNCTION"
 
 在蓝图里，如果在蓝图函数面板中勾上ThreadSafe，这个函数的对象会设置bThreadSafe=True，从而在编译生成的BlueprintGeneratedClass上面设置(BlueprintThreadSafe = true)
 
-![Untitled](Untitled%201.png)
 
 ## 测试蓝图函数库：
 
 同样的函数，一个打开ThreadSafe，一个没有。没有的那个函数在动画蓝图的AnimGraph里使用的时候，在编译的时候就会触发警告。
 
-![Untitled](Untitled%202.png)
 
 测试结果：
 
-![Untitled](Untitled%203.png)
 
 ## 在C++里，C++的测试代码：
 
@@ -90,7 +86,6 @@ public:
 
 ## 动画蓝图的测试效果：
 
-![Untitled](Untitled%204.png)
 
 ## 解析原理：
 

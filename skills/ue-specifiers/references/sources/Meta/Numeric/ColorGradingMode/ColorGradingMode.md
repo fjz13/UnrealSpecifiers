@@ -47,7 +47,6 @@ usage: "UPROPERTY"
 
 可以发现没有ColorGradingMode 的依然是普通的FVector4，否则就会用颜色转盘来显示编辑。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

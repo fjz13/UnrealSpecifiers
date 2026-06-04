@@ -56,7 +56,6 @@ public:
 
 可见MyString_WithShowOnly就没有显示出来，因为我们在DefaultEditorPerProjectUserSettings中配置了ShowMyString=false。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

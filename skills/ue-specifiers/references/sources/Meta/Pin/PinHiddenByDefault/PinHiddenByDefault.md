@@ -55,7 +55,6 @@ public:
 
 同样的，当该结构当作函数输入和输出参数的时候，当用SplitStuctPin展开结构节点，会发现MyInt_PinHiddenByDefault 也被隐藏了起来。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

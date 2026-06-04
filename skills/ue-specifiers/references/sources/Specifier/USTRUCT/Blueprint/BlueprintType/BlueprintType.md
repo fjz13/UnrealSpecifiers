@@ -47,7 +47,6 @@ struct INSIDER_API FMyStruct_NoBlueprintType
 
 ## 测试蓝图：
 
-![Untitled](Untitled.png)
 
 ## 行为
 

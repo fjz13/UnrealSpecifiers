@@ -63,7 +63,6 @@ DEFINE_FUNCTION(UMyFunction_Custom::execMyFunc_CustomDivide)
 
 ## 蓝图效果：
 
-![Untitled](Untitled.png)
 
 可以看到，即使是用除以0，可以自定义报错信息。
 

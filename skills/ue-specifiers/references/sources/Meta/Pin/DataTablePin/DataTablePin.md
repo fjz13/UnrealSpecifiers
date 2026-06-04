@@ -50,7 +50,6 @@ static ENGINE_API void EvaluateCurveTableRow(UCurveTable* CurveTable, FName RowN
 
 左侧为自己定义的函数节点，可以看见左侧的蓝图节点上的Name都变成了CurveTable和DataTable里的RowNameList，即使这些FName参数并没有什么特殊指定，但是蓝图系统里自动识别到FName类型并改变了实际的Pin Widget.
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

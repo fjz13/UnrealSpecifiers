@@ -46,7 +46,6 @@ struct INSIDER_API FRigUnit_MyRig : public FRigUnit
 
 可见MyStruct_ExpandByDefault默认状态下就把该结构展开。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

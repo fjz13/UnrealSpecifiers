@@ -46,7 +46,6 @@ public:
 
 ## 测试效果：
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

@@ -53,7 +53,6 @@ public:
 
 指定蓝图中只读：
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

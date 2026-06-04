@@ -53,7 +53,6 @@ MyFloat_Primary显示在节点上。
 
 MyFloat_Advanced需要展开箭头后才显示出来。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

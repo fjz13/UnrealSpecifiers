@@ -54,7 +54,6 @@ class UMyBT_HiddenNode : public UBTDecorator
 
 可见只有UMyBT_NotHiddenNode 显示了出来，而UMyBT_HiddenNode 被隐藏了。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

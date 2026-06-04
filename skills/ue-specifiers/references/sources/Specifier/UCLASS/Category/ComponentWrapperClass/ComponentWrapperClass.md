@@ -61,7 +61,6 @@ public:
 
 子类里的MyGroup3即使被隐藏了起来，也还是显示了出来。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

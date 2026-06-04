@@ -47,13 +47,11 @@ public:
 
 在UMyClass_RestrictedToClasses 的子类蓝图中测试效果：
 
-![Untitled](Untitled.png)
 
 在别的地方，比如关卡蓝图中测试效果：
 
 因此右键创建不出来，但是直接粘贴节点其实还是可以调用的。
 
-![Untitled](Untitled%201.png)
 
 ## 源码中的例子：
 

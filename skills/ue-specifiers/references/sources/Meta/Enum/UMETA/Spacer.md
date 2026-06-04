@@ -26,7 +26,6 @@ Spacer和Hidden的功能大体是一致的。唯一区别是Spacer在蓝图里==
 
 因此还是建议如果要隐藏枚举值，还是要尽量都用Hidden。
 
-![Untitled](Hidden/Untitled.png)
 
 其他示例代码见Hidden
 ## UE5.8 审计结论

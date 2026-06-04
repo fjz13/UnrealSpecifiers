@@ -103,4 +103,3 @@ public:
 
 进度条可以绑定到GetHPPercent。
 
-![Untitled](Untitled.png)

@@ -50,7 +50,6 @@ public:
 
 不过MyEvent_HideInDetailPanel依然是可以在蓝图里进行绑定，只不过默认没显示在UI上而已。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

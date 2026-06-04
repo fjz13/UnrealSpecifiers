@@ -37,7 +37,6 @@ void MyFunc_BlueprintCosmetic();
 
 节点上的电脑标记就是意味着只在客户端上运行。
 
-![Untitled](Untitled.png)
 
 结果输出
 

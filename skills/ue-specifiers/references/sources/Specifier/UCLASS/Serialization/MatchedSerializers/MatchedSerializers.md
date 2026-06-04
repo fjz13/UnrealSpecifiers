@@ -89,19 +89,15 @@ void UMyClass_MatchedSerializers_Test::RemoveClassFlag()
 
 在编辑器中创建测试数据Asset
 
-![Untitled](Untitled.png)
 
 然后在Editor选项里打开TextAssetFormatSupport(UEditorExperimentalSettings::bTextAssetFormatSupport)
 
-![Untitled](Untitled%201.png)
 
 然后在资产上就出现3个菜单支持把资产导出为文本。
 
-![Untitled](Untitled%202.png)
 
 ExportToTextFormat会在蓝图资产的同目录生成一个.utxt的文件，格式为json。通过动态的增删CLASS_MatchedSerializers这个标记来对比这个标记产生的差异：
 
-![Untitled](Untitled%203.png)
 
 可以发现，序列化出来的内容有明显的差异，不带有CLASS_MatchedSerializers标记的产生的右侧结果，把所有的字段值压进一个二进制buffer里（Data字段）。
 

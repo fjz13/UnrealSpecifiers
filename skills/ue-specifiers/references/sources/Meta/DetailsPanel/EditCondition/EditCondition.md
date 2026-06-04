@@ -79,7 +79,6 @@ public:
 - 可以通过bool单个属性来控制其他属性是否可以编辑
 - 也可以通过一个表达式引入更复杂的计算机制来决定是否来编辑。
 
-![EditCondition](EditCondition.gif)
 
 ## 原理：
 

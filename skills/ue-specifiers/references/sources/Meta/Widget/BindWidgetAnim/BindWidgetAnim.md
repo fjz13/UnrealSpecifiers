@@ -61,7 +61,6 @@ public:
 - 没有加BindWidgetAnim的MyAnimation_SameName必须注释掉，否则会和UMG里的MyAnimation_SameName名字冲突。
 - 再提一下，不能像Widget里一样先UMG里定义动画，然后再C++定义同名属性，因为WidgetAnimation是一定会创建BP变量的，这是关键不同。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

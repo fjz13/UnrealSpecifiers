@@ -47,7 +47,6 @@ MyFloat_SmallWheelStep的UI范围只有10，则默认改变幅度0.1
 
 指定WheelStep =10，则一下子变化10
 
-![WheelStep2](WheelStep2.gif)
 
 ## 原理：
 

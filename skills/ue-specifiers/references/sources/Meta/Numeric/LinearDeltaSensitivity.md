@@ -43,7 +43,6 @@ usage: "UPROPERTY"
 
 效果解析请参见：Delta的解析
 
-![Delta](Delta/Delta.gif)
 
 ## 原理：
 

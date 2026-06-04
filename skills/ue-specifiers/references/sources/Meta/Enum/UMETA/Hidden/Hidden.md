@@ -51,11 +51,9 @@ public:
 
 ## 测试效果：
 
-![Untitled](5b4de771-be09-4342-8955-dc0f824ef97d.png)
 
 但是蓝图里访问：
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

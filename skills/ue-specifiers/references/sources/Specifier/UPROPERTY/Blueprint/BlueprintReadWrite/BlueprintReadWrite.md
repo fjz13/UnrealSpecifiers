@@ -71,7 +71,6 @@ public:
 
 蓝图中可读写：
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

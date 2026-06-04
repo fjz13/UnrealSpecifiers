@@ -73,7 +73,6 @@ const FString& GetMyString_EditDefault_ReadOnly() const { return GetMySparseClas
 
 而蓝图里是依然可以访问到的：
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

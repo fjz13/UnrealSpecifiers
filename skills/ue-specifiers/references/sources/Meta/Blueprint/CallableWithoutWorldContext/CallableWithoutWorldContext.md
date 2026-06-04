@@ -43,7 +43,6 @@ class INSIDER_API UMyObject_NoGetWorld :public UObject
 
 在UMyObject_NoGetWorld 的子类内，MyFunc_HasWorldContextMeta不能调用，因为其外部类必须提供WorldContextObject。而MyFunc_CallableWithoutWorldContext可以调用，可以接受不提供WorldContextObject。
 
-![Untitled](Untitled.png)
 
 ## 源码里典型的应用是：
 

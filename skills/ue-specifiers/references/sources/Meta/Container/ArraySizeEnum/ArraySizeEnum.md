@@ -70,7 +70,6 @@ int32 MyIntArray_Hidden_HasArraySizeEnum[(int)EMyArrayEnumHidden::Max];
 - MyIntArray_Normal_HasArraySizeEnum，正统的使用枚举项来当数组下标的例子。可以发现下标名字不是012，而是枚举项名称了。
 - MyIntArray_Hidden_HasArraySizeEnum采用的枚举项里有隐藏的一项Cat，但它的下标是2（因为定义的顺序），因此数组的第3个被隐藏了起来。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

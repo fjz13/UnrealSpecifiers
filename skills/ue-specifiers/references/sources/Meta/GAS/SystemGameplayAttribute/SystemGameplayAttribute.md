@@ -73,7 +73,6 @@ public:
 
 可见MyFloat_System可以暴露到选项列表里去。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

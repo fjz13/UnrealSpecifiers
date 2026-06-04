@@ -67,7 +67,6 @@ public:
 
 可以看到如果是NoMeta，则函数的图标就是标准是f图标，否则则是另外的图标。同时也注意到Struct可以有多个Make和Break函数，都可以同时正常使用。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

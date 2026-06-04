@@ -45,7 +45,6 @@ class INSIDER_API UDEPRECATED_MyClass_Deprecated :public UObject
 
 依然可以NewObject。
 
-![Untitled](Untitled.png)
 
 ## 示例代码2：
 
@@ -111,7 +110,6 @@ UPROPERTY()	int MyInt2Property_DEPRECATED;
 
 属性和函数上加上Deprecated标记后，会在BP编译的时候生成警告。注意函数是先有一个正常的函数，在BP里连接完成之后再在C++里标记DeprecatedFunction才会生成警告，否则已经Deprecated的函数是无法再在BP里调用的。
 
-![Untitled](Untitled%201.png)
 ## UE5.8 审计结论
 
 UE5.8 UHT 或宏路径仍保留该条目；本轮按 UE5.8 标记为已验证。P3 中不少条目属于引擎内部、NoExportTypes 或插件专用用法，不建议普通项目代码直接套用。

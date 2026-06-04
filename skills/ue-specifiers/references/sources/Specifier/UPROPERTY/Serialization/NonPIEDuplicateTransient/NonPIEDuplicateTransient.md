@@ -76,11 +76,9 @@ protected:
 
 可以看到NonPIEDuplicateTransient并不会被复制。
 
-![Untitled](Untitled.png)
 
 在点击PIE的时候，可以看到NonPIEDuplicateTransient这个时候却是会复制值过去了。这是因为这个时候PortFlags=PPF_DuplicateForPIE&PPF_Duplicate
 
-![Untitled](Untitled%201.png)
 
 结论是用于一些Cache数据，在复制的时候并不需要序列化复制，这样可以阻止两个不同的Actor采用同一份计算后的临时数据。但是又可以在PIE的时候，让Actor各自采用自己的一份数据，因为PIE的时候，本质就是把当前的编辑World里Actor复制一份到PIE的世界里，会触发Actor的复制。
 

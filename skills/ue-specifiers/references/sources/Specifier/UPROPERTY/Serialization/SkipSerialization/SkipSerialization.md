@@ -65,7 +65,6 @@ void UMyProperty_SerializationText_Test::RunTest()
 
 此时可见测试结果，该属性并没有被序列化进去。
 
-![Untitled](Untitled.png)
 
 如果采用ExportText导出：T3D或COPY格式都行
 
@@ -90,7 +89,6 @@ Begin Object Class=/Script/Insider.MyProperty_SerializationText Name="MyProperty
 
 另外如果在编辑器里右击复制
 
-![Untitled](Untitled%201.png)
 
 也可以产生文本的导出：
 

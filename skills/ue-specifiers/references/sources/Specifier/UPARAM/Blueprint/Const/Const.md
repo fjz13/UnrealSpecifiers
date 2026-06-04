@@ -61,7 +61,6 @@ usage: "UPARAM / Blueprint"
 
 MyFuncTestParam_ConstIntOut的输出Value变成了输入的Value，因为不能改变。
 
-![Untitled](Untitled.png)
 
 ## 原理代码：
 

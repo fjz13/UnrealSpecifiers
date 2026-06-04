@@ -66,13 +66,10 @@ public:
 
 也注意到这个判断跟蓝图中是否开启Tick并没有关系。
 
-![Untitled](Untitled.png)
 
-![Untitled](Untitled%201.png)
 
 而AMyActor_ChildCanTick类里虽然已经手动关闭了PrimaryActorTick.bCanEverTick，但是在子类里依然可以正常的Tick（在编译的时候内部可以正常的再重新开启bCanEverTick）。
 
-![Untitled](Untitled%202.png)
 
 ## 源码里判断的逻辑：
 

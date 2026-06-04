@@ -51,7 +51,6 @@ private:
 
 ## 蓝图表现：
 
-![Untitled](BlueprintGetter/Untitled.png)
 
 ## 原理：
 

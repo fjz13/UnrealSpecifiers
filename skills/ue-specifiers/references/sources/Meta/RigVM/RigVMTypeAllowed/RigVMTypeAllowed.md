@@ -65,7 +65,6 @@ public:
 
 可见在选项列表中只有ERigMyEnumAllowed，没有ERigMyEnum。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

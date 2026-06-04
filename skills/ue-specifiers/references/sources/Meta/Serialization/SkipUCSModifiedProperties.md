@@ -100,11 +100,9 @@ void AMyProperty_SkipUCSModifiedProperties_TestActor::CleanupActor()
 
 ## 测试效果：
 
-![image.png](image.png)
 
 操作步骤：
 
-![SkipUCSModifiedProperties.gif](SkipUCSModifiedProperties.gif)
 
 可见一开始在场景里动态创建的Actor下的组件里的两个属性都是被构造函数修改后的First和Second，但是在关卡Map保存之后，只有MyString_Default的值回归了默认值（没有被序列化下来），而MyString_Skip的值就有保存了下来。
 

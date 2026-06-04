@@ -31,7 +31,6 @@ class ALevelScriptActor : public AActor
 
 但是实际在LevelScriptActor的子类中依然可以覆盖该事件。有一些被隐藏的Event是其实通过HideCategories来做到的。因此该Meta其实并没有实现，如果要达到该效果，还是要通过HideFunctions或HideCategories来达成。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

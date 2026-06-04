@@ -60,7 +60,6 @@ float MyGetTransitionTimeElapsed_AnimGetter_OnlyCustomBlend(int32 MachineIndex, 
 
 二是在CustomBlend里。操作步骤是在Rule上右侧细节面板改为Custom然后进入CustomBlend的蓝图。在该蓝图下，MyGetStateWeight可以调用，因为并没有填写GetterContext。而MyGetTransitionTimeElapsed_AnimGetter_OnlyCustomBlend可以开始调用了。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

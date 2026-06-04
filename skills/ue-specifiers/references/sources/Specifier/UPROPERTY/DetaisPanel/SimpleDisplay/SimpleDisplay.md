@@ -43,7 +43,6 @@ class INSIDER_API UMyProperty_Test :public UObject
 
 ## 示例效果：
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

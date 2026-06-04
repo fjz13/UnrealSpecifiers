@@ -62,7 +62,6 @@ public:
 
 可见只有UMyInputTrigger_Configurable 可以编辑默认值。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

@@ -43,11 +43,9 @@ public:
 
 在添加组件的时候：
 
-![Untitled](Untitled.png)
 
 在蓝图中右键AddComponent，该测试只对带有BlueprintSpawnableComponent的UActorComponent起作用，因为只有BlueprintSpawnableComponent才可在蓝图中动态添加组件。
 
-![Untitled](Untitled%201.png)
 
 ## 原理：
 

@@ -40,7 +40,6 @@ class UTakeRecorderPlayerSource : public UTakeRecorderSource
 
 在引擎源码中可见有多个UTakeRecorderSource，其上都标了名字。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

@@ -44,7 +44,6 @@ class UMaterialExpressionIfThenElse : public UMaterialExpression
 
 可以找到If节点，但是无法调用IfThenElse节点。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

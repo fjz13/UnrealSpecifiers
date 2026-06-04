@@ -43,7 +43,6 @@ usage: "UFUNCTION"
 
 可以见到MyFunc_NoAutoCreateRefTerm的函数会产生编译的报错，因为是引用参数但是却没有连接，导致引用缺少实参。
 
-![Untitled](Untitled.png)
 
 ## 原理代码：
 

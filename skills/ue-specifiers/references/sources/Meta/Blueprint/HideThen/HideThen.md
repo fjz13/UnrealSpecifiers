@@ -36,7 +36,6 @@ class INSIDER_API UMyFunction_Async :public UCancellableAsyncAction
 
 ## 使用HideThen前后对比：
 
-![Untitled](Untitled.png)
 
 ## 源码位置：
 

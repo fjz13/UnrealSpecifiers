@@ -55,7 +55,6 @@ MyPropertyWithGlobalConfig=999
 
 ## 示例效果：
 
-![Untitled](Untitled.png)
 
 ## 源码例子：
 

@@ -46,7 +46,6 @@ public:
 
 可见MyBool_Inline变成了单选框。而MyThirdInt_Inline就没有被隐藏掉。
 
-![InlineEditConditionToggle](InlineEditConditionToggle.gif)
 
 ## 原理：
 

@@ -68,7 +68,6 @@ public:
 
 都是可以在蓝图中用标记来定义
 
-![Untitled](Untitled.png)
 
 可以用BitmaskEnum进一步提供枚举值
 ## UE5.8 审计结论

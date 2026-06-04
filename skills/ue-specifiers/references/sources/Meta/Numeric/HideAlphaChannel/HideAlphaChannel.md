@@ -44,7 +44,6 @@ public:
 
 可见带有HideAlphaChannel的属性就没有了Alpha通道。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

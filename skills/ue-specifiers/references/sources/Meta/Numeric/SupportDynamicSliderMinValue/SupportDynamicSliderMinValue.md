@@ -44,7 +44,6 @@ usage: "UPROPERTY"
 
 可以看见MyVector4_NoDynamicSlider并无法更改0-1的滚动条范围。而MyVector4_SupportDynamicSlider在按下Alt同时拖动鼠标后可以改变最小和最大的UI范围。
 
-![DynamicSlider](DynamicSlider.gif)
 
 ## 原理：
 

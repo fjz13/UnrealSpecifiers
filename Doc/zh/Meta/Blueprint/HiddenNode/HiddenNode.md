@@ -1,0 +1,96 @@
+---
+title: "HiddenNode"
+id: "meta.HiddenNode"
+kind: "meta"
+symbol: "HiddenNode"
+category: "Blueprint"
+source_status: "verified_UE5.8"
+target_ue_version: "UE5.8"
+normalization_status: "normalized"
+normalized_at: "2026-06-04"
+summary: "把指定的UBTNode隐藏不在右键菜单中显示"
+usage: "UCLASS"
+---
+
+# HiddenNode
+
+- **功能描述：** 把指定的UBTNode隐藏不在右键菜单中显示。
+- **使用位置：** UCLASS
+- **引擎模块：** Blueprint
+- **元数据类型：** bool
+- **限制类型：** UBTNode
+- **常用程度：** ★
+
+把指定的UBTNode隐藏不在右键菜单中显示。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。该条目多属于插件、编辑器或内部工作流，使用前应先确认目标模块是否启用。
+
+## 测试代码：
+
+```cpp
+
+UCLASS(MinimalAPI,meta = ())
+class UMyBT_NotHiddenNode : public UBTDecorator
+{
+	GENERATED_UCLASS_BODY()
+
+	UPROPERTY(Category = Node, EditAnywhere)
+	float MyFloat;
+};
+
+UCLASS(MinimalAPI,meta = (HiddenNode))
+class UMyBT_HiddenNode : public UBTDecorator
+{
+	GENERATED_UCLASS_BODY()
+
+	UPROPERTY(Category = Node, EditAnywhere)
+	float MyFloat;
+};
+
+```
+
+## 测试结果：
+
+可见只有UMyBT_NotHiddenNode 显示了出来，而UMyBT_HiddenNode 被隐藏了。
+
+![Untitled](Untitled.png)
+
+## 原理：
+
+原理比较简单，就是坚持元数据标记，然后设置bIsHidden 。
+
+```cpp
+bool FGraphNodeClassHelper::IsHidingClass(UClass* Class)
+{
+	static FName MetaHideInEditor = TEXT("HiddenNode");
+
+	return
+		Class &&
+		((Class->HasAnyClassFlags(CLASS_Native) && Class->HasMetaData(MetaHideInEditor))
+		|| ForcedHiddenClasses.Contains(Class));
+}
+
+//D:\github\UnrealEngine\Engine\Source\Editor\AIGraph\Private\AIGraphTypes.cpp
+void FGraphNodeClassHelper::BuildClassGraph()
+{
+		for (TObjectIterator<UClass> It; It; ++It)
+		{
+			UClass* TestClass = *It;
+			if (TestClass->HasAnyClassFlags(CLASS_Native) && TestClass->IsChildOf(RootNodeClass))
+			{
+
+				NewData.bIsHidden = IsHidingClass(TestClass);
+
+				NewNode->Data = NewData;
+
+				if (TestClass == RootNodeClass)
+				{
+					RootNode = NewNode;
+				}
+
+				NodeList.Add(NewNode);
+			}
+		}
+}
+```

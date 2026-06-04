@@ -51,7 +51,6 @@ private:
 
 如果读者想要修改改属性在蓝图中的访问权限，则可以配合加上BlueprintProtected和BlueprintPrivate。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

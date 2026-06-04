@@ -54,7 +54,6 @@ public:
 
 可见加了Aggregate之后，在蓝图节点上就可以继续动态AddPin。在左侧的Graph上也会创建中间MyRigAggregate节点。点开后，可以看见，其实就是继续组装原始的二元运算来达成继续AddPin的效果。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

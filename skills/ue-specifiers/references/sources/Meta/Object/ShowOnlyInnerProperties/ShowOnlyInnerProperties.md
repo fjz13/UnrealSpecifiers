@@ -38,7 +38,6 @@ FMyPropertyInner InnerStruct_ShowOnlyInnerProperties;
 
 ## 效果对比：
 
-![Untitled](Untitled.png)
 
 可以发现InnerStruct_ShowOnlyInnerProperties的内部属性直接就显示在对象的当前层级上，而InnerStruct的属性有一个结构名称作为Category来展开。
 

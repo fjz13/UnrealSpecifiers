@@ -44,7 +44,6 @@ public:
 
 在MyInt_Transactional 上可以撤销之前的输入，而MyInt_NonTransactional上的输入无法用Ctrl+Z撤销。
 
-![Untitled](Untitled.png)
 
 ## 行为
 

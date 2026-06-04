@@ -86,7 +86,6 @@ public:
 
 ## 蓝图节点：
 
-![Untitled](Untitled.png)
 
 ## 原理是：
 

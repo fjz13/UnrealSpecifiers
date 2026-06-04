@@ -26,7 +26,6 @@ usage: "UFUNCTION / Network"
 
 RPC执行的规则，参考文档：[https://docs.unrealengine.com/4.27/zh-CN/InteractiveExperiences/Networking/Actors/RPCs/](https://docs.unrealengine.com/4.27/zh-CN/InteractiveExperiences/Networking/Actors/RPCs/)
 
-![Untitled](Untitled.png)
 
 ## 测试代码：
 
@@ -50,7 +49,6 @@ void AMyFunction_Network::MyFunc_NetMulticast_Implementation()
 
 测试蓝图：PIE模式，一个ListenServer+2Client
 
-![Untitled](Untitled.png)
 
 ## 测试输出结果：
 

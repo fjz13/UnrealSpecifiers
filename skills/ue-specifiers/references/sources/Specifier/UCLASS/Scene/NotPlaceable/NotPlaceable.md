@@ -42,7 +42,6 @@ class INSIDER_API AMyActor_NotPlaceable :public AActor
 
 拖动到场景里会发现不能创建Actor。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

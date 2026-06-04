@@ -51,7 +51,6 @@ struct INSIDEREDITOR_API FAnimNode_MyTestPinShown : public FAnimNode_Base
 
 ## 测试效果：
 
-![PinShown](PinShown.gif)
 
 ## 原理：
 

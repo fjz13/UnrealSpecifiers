@@ -64,9 +64,7 @@ void UMyProperty_Set::RunTest()
 
 在测试的时候，可见如果是用SetValue_InContainer这种反射的方式来获取值，就会自动的调用到SetMyFloat，从而实际上设置到不同的值。
 
-![Untitled](Untitled.png)
 
-![Untitled](Untitled%201.png)
 
 ## 原理：
 

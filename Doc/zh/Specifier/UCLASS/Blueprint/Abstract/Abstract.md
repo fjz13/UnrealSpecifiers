@@ -1,0 +1,110 @@
+---
+title: "Abstract"
+id: "UCLASS.Abstract"
+kind: "specifier"
+symbol: "Abstract"
+scope: "UCLASS"
+category: "Blueprint"
+source_status: "verified_UE5.8"
+target_ue_version: "UE5.8"
+normalization_status: "normalized"
+normalized_at: "2026-06-04"
+summary: "指定此类为抽象基类。可被继承，但不可生成对象"
+usage: "UCLASS / Blueprint"
+---
+
+# Abstract
+
+- **功能描述：** 指定此类为抽象基类。可被继承，但不可生成对象。
+- **引擎模块：** Blueprint
+- **元数据类型：** bool
+- **作用机制：** 在ClassFlags中添加CLASS_Abstract
+- **常用程度：** ★★★★★
+
+指定此类为抽象基类。可被继承，但不可生成对象。
+
+一般是用在XXXBase基类。
+
+## 示例代码：
+
+```cpp
+/*
+	ClassFlags:	CLASS_Abstract | CLASS_MatchedSerializers | CLASS_Native | CLASS_RequiredAPI | CLASS_TokenStreamAssembled | CLASS_Intrinsic | CLASS_Constructed
+*/
+UCLASS(Blueprintable, abstract)
+class INSIDER_API UMyClass_Abstract :public UObject
+{
+	GENERATED_BODY()
+};
+
+//测试语句：
+UMyClass_Abstract* obj=NewObject<UMyClass_Abstract>();
+```
+
+## 示例效果：
+
+在蓝图中的ConstructObject不会出现该类。同时在C++中NewObject也会报错。
+
+![image](image.png)
+
+## 原理：
+
+在NewObject的时候会进行Abstract的判断。
+
+```cpp
+bool StaticAllocateObjectErrorTests( const UClass* InClass, UObject* InOuter, FName InName, EObjectFlags InFlags)
+{
+	// Validation checks.
+	if( !InClass )
+	{
+		UE_LOG(LogUObjectGlobals, Fatal, TEXT("Empty class for object %s"), *InName.ToString() );
+		return true;
+	}
+
+	// for abstract classes that are being loaded NOT in the editor we want to error.  If they are in the editor we do not want to have an error
+	if (FScopedAllowAbstractClassAllocation::IsDisallowedAbstractClass(InClass, InFlags))
+	{
+		if ( GIsEditor )
+		{
+			const FString ErrorMsg = FString::Printf(TEXT("Class which was marked abstract was trying to be loaded in Outer %s.  It will be nulled out on save. %s %s"), *GetPathNameSafe(InOuter), *InName.ToString(), *InClass->GetName());
+			// if we are trying instantiate an abstract class in the editor we'll warn the user that it will be nulled out on save
+			UE_LOG(LogUObjectGlobals, Warning, TEXT("%s"), *ErrorMsg);
+			ensureMsgf(false, TEXT("%s"), *ErrorMsg);
+		}
+		else
+		{
+			UE_LOG(LogUObjectGlobals, Fatal, TEXT("%s"), *FString::Printf( TEXT("Can't create object %s in Outer %s: class %s is abstract"), *InName.ToString(), *GetPathNameSafe(InOuter), *InClass->GetName()));
+			return true;
+		}
+	}
+	}
+
+	bool FScopedAllowAbstractClassAllocation::IsDisallowedAbstractClass(const UClass* InClass, EObjectFlags InFlags)
+{
+	if (((InFlags& RF_ClassDefaultObject) == 0) && InClass->HasAnyClassFlags(CLASS_Abstract))
+	{
+		if (AllowAbstractCount == 0)
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+```
+
+## 行为
+
+UE5.8 UHT 写入 `CLASS_Abstract`，该类不能直接实例化，通常用于 C++/Blueprint 基类。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtClassSpecifiers.cs` class specifier branch
+  - UE5.8 `UhtClass.cs` class flag/metadata resolution and validation
+
+## 常见误用
+
+把 class specifier 的 metadata/flag 结果和 property/function specifier 混淆；或忽略继承/撤销类 specifier 的相互作用。

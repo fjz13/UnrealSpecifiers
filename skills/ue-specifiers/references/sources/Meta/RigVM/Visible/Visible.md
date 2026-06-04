@@ -68,7 +68,6 @@ public:
 
 Visible和Input+Constant的效果是一致的，也是成为一个常量。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

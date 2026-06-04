@@ -64,7 +64,6 @@ public:
 
 可见只有WithNativeTick调用。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

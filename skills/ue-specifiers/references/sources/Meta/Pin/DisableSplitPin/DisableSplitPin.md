@@ -50,11 +50,9 @@ struct INSIDER_API FMyStruct_WithSplitPin
 };
 ```
 
-![Untitled](Untitled.png)
 
 允许的对比
 
-![Untitled](Untitled%201.png)
 
 ## 行为
 

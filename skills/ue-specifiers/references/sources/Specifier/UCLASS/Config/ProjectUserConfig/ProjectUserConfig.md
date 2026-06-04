@@ -56,7 +56,6 @@ MyPropertyWithGlobalConfig=888
 
 ## 示例效果：
 
-![Untitled](Untitled.png)
 
 ## 在源码中搜索：
 

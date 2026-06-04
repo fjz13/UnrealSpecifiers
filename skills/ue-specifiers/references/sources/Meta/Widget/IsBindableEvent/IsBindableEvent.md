@@ -88,7 +88,6 @@ public:
 - 没有加IsBindableEvent 的MyClickedEvent因为名字以Event结尾也出现了可绑定的按钮，这只能说是当前的一个潜规则。源码注释也说以后会去除。
 - 另外这些委托我虽然都加上了EditAnywhere，但其实你也知道这并没法办法编辑。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

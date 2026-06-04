@@ -24,7 +24,6 @@ usage: "UINTERFACE / Blueprint"
 
 在Class Settings里的Interface里找不到不允许实现的接口。
 
-![Untitled](Untitled.png)
 
 什么情况下需要用到该标记？虽然不能在蓝图中实现，但是依然可以在C++里实现，也可以通过反射判断一个对象是否实现该接口。
 

@@ -85,7 +85,6 @@ public:
 
 可以正常在蓝图中调用函数和属性。蓝图函数库中的方法也可以调用，说明UHT对MinimalAPI还是依然生成反射的调用信息的，蓝图调用是只需要反射信息就可以的，因为是自己模块把函数和属性的指针注册到系统里，因此并不需要dll导出。只不过在dll导出工具里查看dll导出的函数列表并没有该函数。
 
-![Untitled](Untitled.png)
 
 查看dll导出函数列表：
 
@@ -120,7 +119,6 @@ public: void __cdecl UMyClass_MinimalAPI_BlueprintFunctionLibary::`default const
 public: void __cdecl UMyClass_MinimalAPI_BlueprintType::`default constructor closure'(void) __ptr64
 ```
 
-![Untitled](Untitled%201.png)
 
 在跨模块调用的时候，因为没有dll导出，因此会触发链接错误。
 

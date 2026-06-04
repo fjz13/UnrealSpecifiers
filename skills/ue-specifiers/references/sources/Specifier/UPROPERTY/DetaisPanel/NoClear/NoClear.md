@@ -43,7 +43,6 @@ MyObject_NoClear = CreateDefaultSubobject<UMyClass_Default>("MyObject_NoClear");
 
 ## 示例效果：
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

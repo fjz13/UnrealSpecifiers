@@ -49,7 +49,6 @@ public:
 
 加上NodeColor之后，颜色从左变成右。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

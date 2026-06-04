@@ -37,7 +37,6 @@ public:
 
 关闭了Group22的展开，但是444的展开依然继承了
 
-![Untitled](Untitled.png)
 
 ## 行为
 

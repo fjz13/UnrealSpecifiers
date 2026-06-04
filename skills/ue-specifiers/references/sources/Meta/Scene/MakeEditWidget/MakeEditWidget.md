@@ -50,7 +50,6 @@ public:
 
 在蓝图里继承的AMyActor_EditWidget 子类里加上另外一个FTransform变量，可以看见“Show 3D Widget”的选项，这个和MyVector_MakeEditWidget都在场景里出现了可移动的控件。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

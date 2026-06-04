@@ -109,7 +109,6 @@ LazyLoadImports=True
 - 其中MyLazyOnDemand_AssetPtr和MyLazyOnDemand_AssetPtr_EagerOnProperty的ObjectPtr的值是还没有Resolved的，其他的都可以查看到直接对象的值。
 - 可以得出的结论有，只有在UCLASS上标记LazyOnDemand才可以使得延迟加载生效。在属性上标记LoadBehavior 并不会起作用。直接UObject*的属性统统都会直接加载。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

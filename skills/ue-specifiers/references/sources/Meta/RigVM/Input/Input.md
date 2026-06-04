@@ -72,7 +72,6 @@ public:
 - MyFloat_Visible，可以作为输入引脚显示，右侧细节面板会显示。但是无法连接变量，意思是只能作为常量使用。
 - MyFloat_Hidden，如同MyFloat_Normal一样，在蓝图节点和细节面板都隐藏起来，只是作为自己的内部值使用。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

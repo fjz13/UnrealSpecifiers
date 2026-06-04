@@ -60,7 +60,6 @@ public:
 
 发现HP_HideFromModifiers 可以出现在正常的FGameplayAttribute 选项卡中，但不能出现在Modifiers下的Attribute选项卡里。这就是这里的作用。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

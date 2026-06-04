@@ -82,7 +82,6 @@ public:
 
 我们自己定义的MyBoneName的动画通知，也可以达成同样的效果。MyName_Bone因为加了AnimNotifyBoneName，就和普通的MyName不一样了。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

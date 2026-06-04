@@ -63,7 +63,6 @@ public:
 
 发现UMyInterface_Second被阻止实现了，但是UMyInterface_First依然可以被实现
 
-![Untitled](Untitled.png)
 
 ## 原理代码：
 

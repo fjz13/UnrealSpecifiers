@@ -45,7 +45,6 @@ public:
 
 可以见到MyString_ConfigHierarchyEditable输入框的右边出现了个层级按钮，可打开一个专门的ConfigEditor，方便你分别在不同的平台和不同的层级配置不同的值。
 
-![Untitled](Untitled.png)
 
 ## 源码例子：
 

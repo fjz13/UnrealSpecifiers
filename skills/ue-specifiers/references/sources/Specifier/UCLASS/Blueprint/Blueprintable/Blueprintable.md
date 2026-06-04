@@ -70,13 +70,11 @@ class INSIDER_API UMyClass_Blueprintable_To_NotBlueprintable :public UMyClass_Bl
 
 只有带有Blueprintable才可以被选做基类。
 
-![Untitled](Untitled.png)
 
 不过是否能够当做变量的规则，还是会依赖父类的Blueprint标记。因此以下这3个都是可以当做变量的。
 
 其中UMyClass_Blueprintable_To_NotBlueprintable可以当做变量是因为父类UMyClass_Blueprintable可以当做变量，因此就继承了下来。
 
-![Untitled](Untitled%201.png)
 
 ## 原理：
 

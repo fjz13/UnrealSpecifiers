@@ -122,7 +122,6 @@ End Object
 
 可见obj2的MyInt_Transient 属性并没有从序列化中获得新值456.
 
-![Untitled](Untitled.png)
 
 ## 原理代码：
 
@@ -250,4 +249,3 @@ bool FProperty::ShouldPort( uint32 PortFlags/*=0*/ ) const
 
 因为不序列Transient属性，因此该属性修改值也并不会被保存起来。打开Asset的时候依然会是默认值，也并不会被复制。
 
-![Untitled](Untitled%201.png)

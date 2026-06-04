@@ -47,13 +47,10 @@ public:
 
 在蓝图子类中尝试修改属性会报错。
 
-![image](image.png)
 
 跟蓝图Class Settings里打开这个开关设定的一样
 
-![image](image%201.png)
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

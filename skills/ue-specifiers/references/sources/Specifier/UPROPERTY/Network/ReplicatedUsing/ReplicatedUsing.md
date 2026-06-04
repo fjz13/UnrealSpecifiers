@@ -61,4 +61,3 @@ void AMyProperty_Network::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
 
 在蓝图中等价于RepNotify的作用。
 
-![Untitled](Untitled.png)

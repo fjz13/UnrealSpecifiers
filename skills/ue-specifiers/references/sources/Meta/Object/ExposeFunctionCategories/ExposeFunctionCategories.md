@@ -75,7 +75,6 @@ public:
 
 而如果在MyObject_Expose这种内部对象上直接拖拉右键，则可以见到所有内部定义的函数。注意这里虽然有两个条目的MyExposeFunc1，但其实调用出来的是同一个函数，实际并没有影响。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

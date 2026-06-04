@@ -89,7 +89,6 @@ public:
 
 可以对照上述上述的函数原型和蓝图节点，可以发现ExpandEnumAsExecs执行3种参数类型。同时也验证了在同时拥有多个输出Enum参数的时候(代码里是OutAnimal|OutPins|ReturnValue)，会按顺序执行3次输出，就像用Sequence节点连接在了一起一样。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

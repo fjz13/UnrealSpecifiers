@@ -40,7 +40,6 @@ void MyFunc_ImplementableEvent();
 
 右键可添加自定义实现
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

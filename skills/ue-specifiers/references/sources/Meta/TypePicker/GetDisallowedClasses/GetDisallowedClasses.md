@@ -60,7 +60,6 @@ UClass* MyClassPtr_GetDisallowedClasses;
 
 可以发现加了GetDisallowedClasses之后，选择列表上少了一些类型。
 
-![GetDisallowedClasses](GetDisallowedClasses.jpg)
 
 ## 原理：
 

@@ -68,7 +68,6 @@ FString UMyFunction_Custom::Generic_PrintStructFields(const UScriptStruct* Scrip
 
 ## 蓝图中的效果：
 
-![Untitled](Untitled.png)
 
 可以看到定义了一个接受通用结构参数的节点，然后打印出内部所有的属性。其中CustomStructureParam 指定函数的参数是自定义的类型。
 

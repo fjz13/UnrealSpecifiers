@@ -102,4 +102,3 @@ public:
 
 这些控件的属性就可以和ViewModel里的属性绑定起来。
 
-![Untitled](Untitled.png)

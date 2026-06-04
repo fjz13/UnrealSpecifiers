@@ -45,7 +45,6 @@ UPROPERTY(EditAnywhere, Category = Array)
 
 蓝图中的表现，前者可以动态再添加元素。后者不可。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 

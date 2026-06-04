@@ -54,9 +54,7 @@ public:
 
 可以看到，在Actor的左边Add的按钮下，UMyActorComponent_Spawnable 可以被添加进去，但是UMyActorComponent_NotSpawnable 被阻止了。但同时也要注意到如果在蓝图中AddComponent节点则是都可以的。
 
-![Untitled](Untitled.png)
 
-![Untitled](Untitled%201.png)
 
 ## 原理：
 

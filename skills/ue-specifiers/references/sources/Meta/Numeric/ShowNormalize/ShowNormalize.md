@@ -40,7 +40,6 @@ usage: "UPROPERTY"
 
 MyVector_ShowNormalize右侧的按钮可以把值正规化。
 
-![AllowPreserveRatio](AllowPreserveRatio.gif)
 
 ## 原理：
 

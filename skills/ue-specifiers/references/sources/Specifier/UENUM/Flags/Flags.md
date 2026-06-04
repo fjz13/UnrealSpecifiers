@@ -79,13 +79,11 @@ void UMyActor_EnumBitFlags_Test::TestFlags()
 
 蓝图中的表示，依然只能选择单项。
 
-![Flags](Flags.gif)
 
 而测试代码里打印出来的字符串：
 
 可见outStr_Flags 的打印是字符串拼接的。
 
-![image](image.png)
 
 ## 原理：
 

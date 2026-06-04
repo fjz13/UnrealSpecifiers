@@ -115,7 +115,6 @@ SlotName的效果如右侧所示。
 
 作为对比，MyString_CustomizeProperty_Other我们标上了CustomizeProperty但是没有为它创建UI，则没有显示出来，说明引擎默认的机制因此就把它的UI默认创建流程给跳过了。
 
-![Untitled](Untitled.png)
 
 ## 原理：
 
