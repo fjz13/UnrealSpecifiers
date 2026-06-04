@@ -1,3 +1,0 @@
-# STRUCT_NoFlags
-
-Value: 0x00000000

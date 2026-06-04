@@ -1,0 +1,23 @@
+---
+title: "CLASS_DefaultConfig"
+id: "EClassFlags.CLASS_DefaultConfig"
+kind: "flag"
+symbol: "CLASS_DefaultConfig"
+scope: "EClassFlags"
+category: "EClassFlags"
+source_status: "imported_from_unreal_specifiers"
+target_ue_version: "UE5.8"
+normalization_status: "normalized"
+normalized_at: "2026-06-04"
+summary: "保存对象配置到DefaultXXX.ini，而不是Local，必须和CLASS_Config连用"
+usage: "Config"
+---
+
+# CLASS_DefaultConfig
+
+Value: 0x00000002u
+Description: 保存对象配置到DefaultXXX.ini，而不是Local，必须和CLASS_Config连用
+Feature: Config
+Status: Not started
+Trait: Inherit
+UCLASS: DefaultConfig (../../Specifier/UCLASS/DefaultConfig.md)
