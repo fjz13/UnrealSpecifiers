@@ -4,7 +4,7 @@ id: "meta.AnimNotifyExpand"
 kind: "meta"
 symbol: "AnimNotifyExpand"
 category: "AnimationGraph"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -23,6 +23,9 @@ usage: "UPROPERTY"
 使得UAnimNotify或UAnimNotifyState下的属性直接展开到细节面板里。
 
 在源码里也没有找到应用的例子。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。
 
 ## 原理：
 

@@ -4,7 +4,7 @@ id: "meta.TemplateName"
 kind: "meta"
 symbol: "TemplateName"
 category: "RigVM"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -26,6 +26,9 @@ usage: "USTRUCT"
 不同的FRigUnit在设置到同一个TemplateName 之后，会分析其Input和Output的属性的整个函数签名，最后分析出哪些属性是泛型引脚（即同名不同类型的属性）。在调用的时候，输入的是TemplateNode，即TemplateName 形成的节点。然后再手动连接引脚来确定最后的函数类型，从而最后再完全确定应该实际应用到哪一个FRigUnit节点。
 
 这个功能在实现一些逻辑相同，但是参数类型稍微不同的时候，会比较便利。往往FRigUnit_MyTemplate_Float和FRigUnit_MyTemplate_Int会继承于一个基类（但不是强制），在里面实现公用的逻辑或属性。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。该条目多属于插件、编辑器或内部工作流，使用前应先确认目标模块是否启用。
 
 ## 测试代码：
 

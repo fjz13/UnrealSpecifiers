@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "DisplayName"
 scope: "UPARAM"
 category: "Blueprint"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -35,3 +35,20 @@ usage: "UPARAM / Blueprint"
 ## 蓝图节点：
 
 ![Untitled](Untitled.png)
+
+## 行为
+
+UE5.8 UHT 的默认 `DisplayName` specifier 写入 `DisplayName` metadata。用于 UPARAM 时改变 Blueprint 节点参数或返回值的显示名，不改变 C++ 参数名。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtDefaultSpecifiers.cs` `DisplayNameSpecifier` writes `DisplayName` metadata
+  - 本地样例辅助对照：`D:/github/GitWorkspace/Hello/Source/Insider/Function/Param/MyFunction_TestParam.h`。
+- 批次记录：`references/audits/ue5.8-p1-macro-param-struct-enum-pass.md`。
+
+## 常见误用
+
+用显示名做逻辑查找；或以为它会改变生成代码中的参数符号。

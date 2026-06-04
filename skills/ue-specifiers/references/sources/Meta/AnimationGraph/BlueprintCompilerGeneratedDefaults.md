@@ -4,7 +4,7 @@ id: "meta.BlueprintCompilerGeneratedDefaults"
 kind: "meta"
 symbol: "BlueprintCompilerGeneratedDefaults"
 category: "AnimationGraph"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -25,6 +25,9 @@ usage: "UPROPERTY"
 在源码里寻找例子，可以看到基本是在FAnimNode下的属性在使用。在动画蓝图编译后，会调用UEngine::CopyPropertiesForUnrelatedObjects来把之前编译的旧对象里的值复制到新对象，其中FCopyPropertiesForUnrelatedObjectsParams的bSkipCompilerGeneratedDefaults决定是否要赋值这个属性的值。如果有标上这个值，就说明不要复制。这个值会在别的地方由编译器来填充值。
 
 UAnimGraphNode_Base::OnProcessDuringCompilation函数就是编译后回调的函数。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。该条目多属于插件、编辑器或内部工作流，使用前应先确认目标模块是否启用。
 
 ## 测试代码：
 

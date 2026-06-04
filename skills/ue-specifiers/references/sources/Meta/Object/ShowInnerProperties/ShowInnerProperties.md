@@ -4,7 +4,7 @@ id: "meta.ShowInnerProperties"
 kind: "meta"
 symbol: "ShowInnerProperties"
 category: "Object"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -33,6 +33,9 @@ usage: "UPROPERTY"
 **和EditInineNew的区别是什么？**
 
 这种效果，和在UCLASS上设置EditInineNew配合其对象引用属性上设置Instanced，达成的效果很相似。区别是UCLASS上设置EditInineNew会使得一个类的对象属性引用可以在属性面板里创建对象， 而UPROPERTY上的Instanced，会使得这个属性自动的增加EditInline的meta，因此也会产生显示内部属性的同样效果。因此结论上来说，和ShowInnerProperties像的是本质是EditInline这个meta。但EditInline的效果多了一层是它支持对象容器，而ShowInnerProperties只支持单个对象引用属性。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。该条目多属于插件、编辑器或内部工作流，使用前应先确认目标模块是否启用。
 
 ## 测试代码：
 

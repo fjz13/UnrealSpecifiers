@@ -4,7 +4,7 @@ id: "meta.BindWidget"
 kind: "meta"
 symbol: "BindWidget"
 category: "Widget"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -31,6 +31,9 @@ usage: "UPROPERTY"
 - 必须要指出：BindWidget只是用作UMG编辑器的编辑和编译提示，让你记得要一一把名字关联上。在C++里定义的该属性，要记得在UMG里也创建同名控件。在UMG中创建或更改的控件名字时，知道在C++中有一个同名属性来关联接收，就不会报错，否则会提示和C++定义的名字冲突。
 - 总结BindWidget的作用有二：一是提醒UMG一定要相应的创建同名控件，否则编译抱错误。二是在定义同C++里属性同名的控件的时候，让UMG不会报错。
 - 用法建议是为所有你想要绑定的同名属性都显式的加上BindWidget，不要依赖含糊默认的自动同名绑定机制。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。
 
 ## 测试代码：
 

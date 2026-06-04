@@ -4,7 +4,7 @@ id: "meta.AllowAnyActor"
 kind: "meta"
 symbol: "AllowAnyActor"
 category: "Component"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -27,6 +27,9 @@ usage: "UPROPERTY"
 - 也要注意到，这个AllowAnyActor影响的只是UI上的组件选择。一个ComponentReference即使不加AllowAnyActor，也可以通过ReferencedActor引用到别的Actor，然后手填其属下的组件名字。然后可以正常的在C++里GetComponent里出来正确的组件对象。因此AllowAnyActor跟逻辑无关。
 
 测试代码和效果见UseComponentPicker。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。
 
 ## 原理：
 

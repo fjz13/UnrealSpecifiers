@@ -4,7 +4,7 @@ id: "meta.GetDisallowedClasses"
 kind: "meta"
 symbol: "GetDisallowedClasses"
 category: "TypePicker"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -26,6 +26,9 @@ Code: TArray<UClass*> FuncName() const;
 大体和GetAllowedClasses相同，只是相反的作用。
 
 但作用的属性类型和DisallowedClasses相似，只能作用在类选择器上。因此经过测试下来，只能作用在TSubClassOf，UClass*。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。
 
 ## 测试代码：
 

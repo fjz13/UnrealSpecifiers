@@ -19,7 +19,7 @@ usage: "UPROPERTY / Serialization"
 - **元数据类型：** bool
 - **引擎模块：** Serialization
 - **限制类型：** Object属性，或Object数组
-- **作用机制：** 在PropertyFlags中加入[CPF_ExportObject](../../../../Flags/EPropertyFlags/CPF_ExportObject.md)
+- **作用机制：** 在PropertyFlags中加入CPF_ExportObject
 - **常用程度：** ★
 
 在对Asset导出的时候，决定该类的对象应该导出内部的属性值，而是对象的路径。

@@ -4,7 +4,7 @@ id: "meta.OverridingInputProperty"
 kind: "meta"
 symbol: "OverridingInputProperty"
 category: "Material"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -28,6 +28,9 @@ usage: "UPROPERTY"
 - 而当用户连接的时候，这个引脚又要变成一个正常的输入，因此得有另一个FExpressionInput 属性，所以才需要用OverridingInputProperty 指定另一个属性。
 - 被OverridingInputProperty 指定的FExpressionInput 属性一般是RequiredInput = "false"，因为正常的逻辑是你都提供默认值了，那当然用户就不一定非得输入这个值了。当然也可以RequiredInput = "true"，提醒用户这个引脚最好要有个输入，但如果真没有，也可以用默认值。
 - 输出节点上的很多BaseColor之类的引脚就是又RequiredInput又提供默认值的。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。该条目多属于插件、编辑器或内部工作流，使用前应先确认目标模块是否启用。
 
 ## 测试代码：
 

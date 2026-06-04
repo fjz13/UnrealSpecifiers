@@ -4,7 +4,7 @@ id: "meta.BlueprintSpawnableComponent"
 kind: "meta"
 symbol: "BlueprintSpawnableComponent"
 category: "Component"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -24,6 +24,9 @@ usage: "UCLASS"
 允许该组件出现在Actor蓝图里Add组件的面板里。
 
 在蓝图节点上，不管有没有BlueprintSpawnableComponent则都是可以添加该组件的。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。
 
 ## 测试代码：
 

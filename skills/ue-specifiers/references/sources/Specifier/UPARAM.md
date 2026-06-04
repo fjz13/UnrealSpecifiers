@@ -4,11 +4,11 @@ id: "UPARAM.UPARAM(标识符)"
 kind: "specifier"
 symbol: "UPARAM(标识符)"
 scope: "UPARAM"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
-summary: "UPARAM(标识符)"
+summary: "UE5.8 UHT 在解析 property argument 时遇到 UPARAM 会切换到 property argument specifier table。该页是 UPARAM 条目索引，不是单个 specifier"
 usage: "UPARAM"
 ---
 
@@ -29,3 +29,20 @@ usage: "UPARAM"
 | Name                                                       | 功能描述                             | 引擎模块                      | 常用程度 |
 | ---------------------------------------------------------- | ------------------------------------ | ----------------------------- | -------- |
 | [NotReplicated](UPARAM/Network/NotReplicated.md)           |                                      | Blueprint, Network, Parameter | 💀        |
+
+## 行为
+
+UE5.8 UHT 在解析 property argument 时遇到 `UPARAM` 会切换到 property argument specifier table。该页是 UPARAM 条目索引，不是单个 specifier。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtPropertyParser.cs` detects `UPARAM` and uses `UhtTableNames.PropertyArgument`
+  - UE5.8 `UhtTables.cs` creates the property argument specifier table
+- 批次记录：`references/audits/ue5.8-p1-macro-param-struct-enum-pass.md`。
+
+## 常见误用
+
+把总览页当成可填写 specifier；具体参数行为应跳到 `ref`、`Const`、`DisplayName`、`Required`、`NotReplicated`。

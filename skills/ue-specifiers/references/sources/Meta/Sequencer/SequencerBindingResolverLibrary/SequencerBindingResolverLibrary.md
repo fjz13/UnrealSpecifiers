@@ -4,7 +4,7 @@ id: "meta.SequencerBindingResolverLibrary"
 kind: "meta"
 symbol: "SequencerBindingResolverLibrary"
 category: "Sequencer"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -24,6 +24,9 @@ usage: "UCLASS"
 把具有SequencerBindingResolverLibrary标记的UBlueprintFunctionLibrary作为动态绑定的类。只把它里面的函数添加到右键菜单里。
 
 动态绑定是Sequencer的一个新功能，简单来说就是允许设定好的轨迹变化动态应用到运行时的其他Actor上，用来做Gameplay和Sequence的过度切换会很有用。更细致用法可以参考官方文档：[https://dev.epicgames.com/documentation/zh-cn/unreal-engine/dynamic-binding-in-sequencer](https://dev.epicgames.com/documentation/zh-cn/unreal-engine/dynamic-binding-in-sequencer)
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。该条目多属于插件、编辑器或内部工作流，使用前应先确认目标模块是否启用。
 
 ## 测试代码：
 

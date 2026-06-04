@@ -5,20 +5,20 @@ kind: "specifier"
 symbol: "MatchedSerializers"
 scope: "UCLASS"
 category: "Serialization"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
-summary: "指定类支持文本结构序列化"
+summary: "UE5.8 中只允许 NoExportTypes.h 使用的内部 class specifier；普通项目 UCLASS 不应使用"
 usage: "UCLASS / Serialization"
 ---
 
 # MatchedSerializers
 
-- **功能描述：** 指定类支持文本结构序列化
+- **功能描述：** UE5.8 中只允许 NoExportTypes.h 使用的内部 class specifier；普通项目 UCLASS 不应使用。
 - **引擎模块：** Serialization
 - **元数据类型：** bool
-- **作用机制：** 在ClassFlags中增加[CLASS_MatchedSerializers](../../../../Flags/EClassFlags/CLASS_MatchedSerializers.md)，在Meta中添加[MatchedSerializers](../../../../Meta/Serialization/MatchedSerializers.md)
+- **作用机制：** 在ClassFlags中增加CLASS_MatchedSerializers，在Meta中添加[MatchedSerializers](../../../../Meta/Serialization/MatchedSerializers.md)
 - **常用程度：** 0
 
 该标识符只允许在NoExportTypes.h中使用，属于是引擎自用的内部标识符。
@@ -167,3 +167,20 @@ else
 可以从源码看到，如果类本身支持文本格式序列化，则在Ar是文本格式的时候，直接可以序列化，采用默认的SerializeTaggedProperties。否则得采用FArchiveUObjectFromStructuredArchive 来适配一下，把对象指针转换为object path+ int32 Index的组合。
 
 在引擎中打印出所有包含或不包含CLASS_MatchedSerializers的类，发现UStruct继承链下面的类开始包含（但是UClass却不包含），而上面UField的类则不包含，比如各种Property。类列表见Doc下txt文件。
+
+## 行为
+
+UE5.8 UHT 写入 `CLASS_MatchedSerializers`，但 UE5.8 UHT 只允许在 NoExportTypes.h 中使用。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtClassSpecifiers.cs` class specifier branch
+  - UE5.8 `UhtClass.cs` class flag/metadata resolution and validation
+- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
+
+## 常见误用
+
+在普通项目 UCLASS 上使用；UE5.8 UHT 只允许 NoExportTypes.h。

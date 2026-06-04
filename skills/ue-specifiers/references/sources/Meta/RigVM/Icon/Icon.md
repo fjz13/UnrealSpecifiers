@@ -4,7 +4,7 @@ id: "meta.Icon"
 kind: "meta"
 symbol: "Icon"
 category: "RigVM"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -24,6 +24,9 @@ usage: "USTRUCT"
 设定FRigUnit蓝图节点的图标。
 
 根据源码中的注释得知，Icon的格式是“StyleSetName|StyleName|SmallStyleName|StatusOverlayStyleName”，最后两项是可选的，可参考FSlateIcon的更多介绍。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。该条目多属于插件、编辑器或内部工作流，使用前应先确认目标模块是否启用。
 
 ## 测试代码：
 

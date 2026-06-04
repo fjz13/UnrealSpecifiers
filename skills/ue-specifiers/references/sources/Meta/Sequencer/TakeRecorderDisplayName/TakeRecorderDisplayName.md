@@ -4,7 +4,7 @@ id: "meta.TakeRecorderDisplayName"
 kind: "meta"
 symbol: "TakeRecorderDisplayName"
 category: "Sequencer"
-source_status: "imported_from_unreal_specifiers"
+source_status: "changed_in_version"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -24,6 +24,9 @@ usage: "UCLASS"
 指定UTakeRecorderSource的显示名字。
 
 这个一般是引擎内部自己用，除非想自己自定义UTakeRecorderSource才会派上用场。因为原理和展示过于简单，因此就不自己构建测试代码。
+## UE5.8 审计结论
+
+本机 UE5.8 Take Recorder 源码未检索到 `TakeRecorderDisplayName` metadata 读取路径；相关源类改为返回本地化显示文本。本轮按 `changed_in_version` 记录，不建议继续把它作为 UE5.8 可用 metadata 路由。
 
 ## 源码例子：
 

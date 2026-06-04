@@ -18,7 +18,7 @@ usage: "UPROPERTY / DetailsPanel"
 - **功能描述：** 在默认值和实例的细节面板上均可编辑
 - **元数据类型：** bool
 - **引擎模块：** DetailsPanel, Editor
-- **作用机制：** 在PropertyFlags中加入[CPF_Edit](../../../../Flags/EPropertyFlags/CPF_Edit.md)
+- **作用机制：** 在PropertyFlags中加入CPF_Edit
 - **常用程度：★★★★★**
 
 在默认值和实例的细节面板上均可编辑。

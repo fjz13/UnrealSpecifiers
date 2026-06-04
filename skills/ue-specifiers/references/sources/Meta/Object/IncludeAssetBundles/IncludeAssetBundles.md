@@ -4,7 +4,7 @@ id: "meta.IncludeAssetBundles"
 kind: "meta"
 symbol: "IncludeAssetBundles"
 category: "Object"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -29,6 +29,9 @@ usage: "UPROPERTY"
 - 默认情况下，InitializeAssetBundlesFromMetadata_Recursive只会分析到UPrimaryDataAsset的本身这一层级的属性，比如下面的Icon和Mesh属性。
 - 而如果再嵌套了一层，就是UPrimaryDataAsset下面拥有只对象，UMyProperty_Asset_ChildObject，而UMyProperty_Asset_ChildObject 里面又包含FSoftObjectPath ，希望它被属于AssetBundles 的一部分，在加载UPrimaryDataAsset的时候同时一并加载。这个时候就需要告诉引擎需要继续分析这个子对象。
 - 注意到UMyProperty_Asset_ChildObject我都是用TObjectPtr，是个硬引用，该对象在UMyProperty_Asset_Item 被加载的时候也会自然被加载进来。因此无论如何，UMyProperty_Asset_ChildObject 都会被加载进来。但是UMyProperty_Asset_ChildObject 内部的ChildIcon是用TSoftObjectPtr，是软引用，因此必须依赖AssetBundle的机制才会被加载。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。该条目多属于插件、编辑器或内部工作流，使用前应先确认目标模块是否启用。
 
 ## 测试代码：
 

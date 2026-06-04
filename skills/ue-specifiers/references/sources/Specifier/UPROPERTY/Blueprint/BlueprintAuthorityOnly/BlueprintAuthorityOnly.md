@@ -20,7 +20,7 @@ usage: "UPROPERTY / Blueprint"
 - **元数据类型：** bool
 - **引擎模块：** Blueprint, Network
 - **限制类型：** Multicast Delegates
-- **作用机制：** 在PropertyFlags中加入[CPF_BlueprintAuthorityOnly](../../../../Flags/EPropertyFlags/CPF_BlueprintAuthorityOnly.md)
+- **作用机制：** 在PropertyFlags中加入CPF_BlueprintAuthorityOnly
 - **常用程度：** ★★★
 
 ## 测试代码：

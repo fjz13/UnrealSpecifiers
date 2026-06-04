@@ -18,7 +18,7 @@ usage: "UPROPERTY / Serialization"
 - **功能描述：** 不序列化该属性，该属性初始化时候会被0填充。
 - **元数据类型：** bool
 - **引擎模块：** Serialization
-- **作用机制：** 在PropertyFlags中加入[CPF_Transient](../../../../Flags/EPropertyFlags/CPF_Transient.md)
+- **作用机制：** 在PropertyFlags中加入CPF_Transient
 - **常用程度：★★★★★**
 
 序列化的时候略过该属性，用0来填充默认值。

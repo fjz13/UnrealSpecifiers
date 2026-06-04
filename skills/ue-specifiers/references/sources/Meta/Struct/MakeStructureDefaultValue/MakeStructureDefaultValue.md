@@ -5,7 +5,7 @@ kind: "meta"
 symbol: "MakeStructureDefaultValue"
 scope: "MakeStructureDefaultValue"
 category: "Struct"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -27,6 +27,9 @@ usage: "UPROPERTY"
 - 在C++中我们写的USTRUCT的结构里的属性默认值并不需要存储在元数据中，因为在创建该结构实例的时候，就自然会调用该结构的构造函数，从而正确初始化值。
 - 而在蓝图中的用户自定义结构，并没有构造函数之类的机制。因此我们需要一个专门的Tab来填写属性的默认值。这些默认值就会存储在属性的元数据中。
 -
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。该条目多属于插件、编辑器或内部工作流，使用前应先确认目标模块是否启用。
 
 ## 测试代码：
 

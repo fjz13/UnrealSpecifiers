@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "Atomic"
 scope: "USTRUCT"
 category: "UHT"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -18,7 +18,7 @@ usage: "USTRUCT / UHT"
 - **功能描述:** 指定该结构在序列化的时候总是一整个输出全部属性，而不是只输出改变的属性。
 - **元数据类型:** bool
 - **引擎模块:** UHT
-- **作用机制：** 在StructFlags中加入[STRUCT_Atomic](../../../../Flags/EStructFlags/STRUCT_Atomic.md)
+- **作用机制：** 在StructFlags中加入STRUCT_Atomic
 - **常用程度:** ★
 
 指定该结构在序列化的时候总是一整个输出全部属性，而不是只输出改变的属性。
@@ -107,6 +107,9 @@ USerializationLibrary::SaveStructToMemory(AtomicStruct,AtomicMemoryChanged,EInsi
 可见AtomicMemoryChanged的占用内存大小比AtomicMemoryChanged多，因为这两个结构的属性虽然都改变了，但是AtomicStruct总是会把所有的属性都序列化出来。
 
 ![Untitled](Untitled.png)
+## UE5.8 审计结论
+
+UE5.8 UHT 或宏路径仍保留该条目；本轮按 UE5.8 标记为已验证。P3 中不少条目属于引擎内部、NoExportTypes 或插件专用用法，不建议普通项目代码直接套用。
 
 ## 原理：
 

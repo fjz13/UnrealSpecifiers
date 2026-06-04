@@ -5,7 +5,7 @@ kind: "meta"
 symbol: "IgnoreForMemberInitializationTest"
 scope: "IgnoreForMemberInitializationTest"
 category: "Struct"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -28,6 +28,9 @@ usage: "UPROPERTY"
 - 结构未初始验证指的是引擎提供的验证工具，可采用控制台命令“CoreUObject.AttemptToFindUninitializedScriptStructMembers”调用。然后会输出引擎内所有未初始化的变量信息。
 - UE里的USTRUCT只是一个纯C++结构，不像用UCLASS定义的类都是一个UObject，后者的UPROPERTY属性会自动的都初始化为0，而结构里的UPROPERTY并不会自动的初始化，因此就需要我们手动的初始化。
 - 从实践来说，如果开发者清楚知道某变量未初始化不会影响逻辑，那即使未初始化也并没有关系。但现实是往往大家绝大多数情况下只是单纯的犯懒或者遗忘给属性初始化。因此还是建议大家尽量给结构里的所有属性都初始化值。但一些特殊情况下，某些属性确实不适合初始化，比如源码例子里一些FGuid变量，只在真正用到的时候才手动赋值，在这之前初始化什么值其实都意义不大。在这种情况下，就可以用IgnoreForMemberInitializationTest来使该属性忽略这个验证，避免输出报错信息。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。该条目多属于插件、编辑器或内部工作流，使用前应先确认目标模块是否启用。
 
 ## 测试代码：
 

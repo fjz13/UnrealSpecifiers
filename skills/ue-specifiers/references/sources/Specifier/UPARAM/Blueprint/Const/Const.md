@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "Const"
 scope: "UPARAM"
 category: "Blueprint"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -18,7 +18,7 @@ usage: "UPARAM / Blueprint"
 - **功能描述：** 指定该函数参数不可更改
 - **元数据类型：** bool
 - **引擎模块：** Blueprint, Parameter
-- **作用机制：** 在PropertyFlags中加入[CPF_ConstParm](../../../../Flags/EPropertyFlags/CPF_ConstParm.md)，在Meta中加入[NativeConst](../../../../Meta/Blueprint/NativeConst.md)
+- **作用机制：** 在PropertyFlags中加入CPF_ConstParm，在Meta中加入[NativeConst](../../../../Meta/Blueprint/NativeConst.md)
 - **常用程度：** ★
 
 指定该函数参数不可更改。
@@ -80,3 +80,20 @@ if (propertySettings.PropertyCategory != UhtPropertyCategory.Member && !isTempla
 	}
 }
 ```
+
+## 行为
+
+UE5.8 UHT 的 property argument specifier 分支为 `Const` 写入 `CPF_ConstParm`。它作用在函数参数/返回参数的 UHT property 设置上。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtPropertyArgumentSpecifiers.cs` `ConstSpecifier` writes `CPF_ConstParm`
+  - 本地样例辅助对照：`D:/github/GitWorkspace/Hello/Source/Insider/Function/Param/MyFunction_TestParam.h`。
+- 批次记录：`references/audits/ue5.8-p1-macro-param-struct-enum-pass.md`。
+
+## 常见误用
+
+把它当作 C++ 类型系统的完整替代；实际 C++ 签名仍要正确表达 const/reference。

@@ -4,7 +4,7 @@ id: "meta.NativeMakeFunc"
 kind: "meta"
 symbol: "NativeMakeFunc"
 category: "Blueprint"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -107,3 +107,20 @@ FSlateIcon UK2Node_CallFunction::GetPaletteIconForFunction(UFunction const* Func
 }
 
 ```
+
+## 行为
+
+UE5.8 function metadata；BlueprintGraph/K2Node_CallFunction 读取 `NativeMakeFunc`，使函数表现为 native make struct。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `ObjectMacros.h` metadata declaration/comment
+  - UE5.8 `BlueprintGraph` metadata constants or node usage
+- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
+
+## 常见误用
+
+和 struct metadata `HasNativeMake/HasNativeBreak` 混淆；函数侧 NativeMakeFunc/NativeBreakFunc 是 K2 函数表现形式标记。

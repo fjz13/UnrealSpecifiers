@@ -4,7 +4,7 @@ id: "meta.NoGetter"
 kind: "meta"
 symbol: "NoGetter"
 category: "SparseDataType"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -31,6 +31,9 @@ usage: "UPROPERTY"
 阻止UHT为该属性生成一个C++的get函数，只对稀疏类的结构数据里的属性生效。
 
 这个要和SparseClassDataTypes的用法一起配合看，且NoGetter不影响蓝图里对该属性的访问。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。该条目多属于插件、编辑器或内部工作流，使用前应先确认目标模块是否启用。
 
 ## 测试代码：
 

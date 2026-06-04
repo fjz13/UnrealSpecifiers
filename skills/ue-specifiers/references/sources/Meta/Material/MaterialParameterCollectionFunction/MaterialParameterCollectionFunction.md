@@ -4,7 +4,7 @@ id: "meta.MaterialParameterCollectionFunction"
 kind: "meta"
 symbol: "MaterialParameterCollectionFunction"
 category: "Material"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -22,6 +22,9 @@ usage: "UFUNCTION"
 - **常用程度：** ★★★
 
 指定该函数是用于操作UMaterialParameterCollection，从而支持ParameterName的提取和验证。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。该条目多属于插件、编辑器或内部工作流，使用前应先确认目标模块是否启用。
 
 ## 测试代码：
 

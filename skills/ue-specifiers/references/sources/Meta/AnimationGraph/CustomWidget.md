@@ -4,7 +4,7 @@ id: "meta.AnimationGraph.CustomWidget"
 kind: "meta"
 symbol: "CustomWidget"
 category: "AnimationGraph"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -30,3 +30,6 @@ void SetParameterInScope(UPARAM(meta = (CustomWidget = "ParamName", AllowedParam
 ```
 
 只在AnimNext和RigVM里用到。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。

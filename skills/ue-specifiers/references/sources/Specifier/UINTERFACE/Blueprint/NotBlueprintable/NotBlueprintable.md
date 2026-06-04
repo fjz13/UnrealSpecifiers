@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "NotBlueprintable"
 scope: "UINTERFACE"
 category: "Blueprint"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -27,3 +27,20 @@ usage: "UINTERFACE / Blueprint"
 ![Untitled](Untitled.png)
 
 什么情况下需要用到该标记？虽然不能在蓝图中实现，但是依然可以在C++里实现，也可以通过反射判断一个对象是否实现该接口。
+
+## 行为
+
+UE5.8 UHT 的默认 `NotBlueprintable` specifier 写入 `IsBlueprintBase=false`，并移除当前 metadata index 上的 `BlueprintType`。用于 UINTERFACE 时阻止 Blueprint 实现接口。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtDefaultSpecifiers.cs` `NotBlueprintableSpecifier` writes `IsBlueprintBase=false` and removes `BlueprintType`
+  - 本地样例辅助对照：`D:/github/GitWorkspace/Hello/Source/Insider/Interface/MyInterface_Test.h`。
+- 批次记录：`references/audits/ue5.8-p1-macro-param-struct-enum-pass.md`。
+
+## 常见误用
+
+接口中仍声明 `BlueprintImplementableEvent`/`BlueprintNativeEvent` 并期待 Blueprint 实现；或和 `Blueprintable` 同时表达相反意图。

@@ -4,11 +4,11 @@ id: "UPROPERTY.UPROPERTY(标识符)"
 kind: "specifier"
 symbol: "UPROPERTY(标识符)"
 scope: "UPROPERTY"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
-summary: "UPROPERTY(标识符)"
+summary: "UE5.8 UHT 在 property parser 中解析 UPROPERTY，成员属性使用 UhtTableNames.PropertyMember 的 specifier table。该页是 UPROPERTY 条目索引，不是单个 "
 usage: "UPROPERTY"
 ---
 
@@ -118,3 +118,20 @@ usage: "UPROPERTY"
 | Name                                                                                                     | 引擎模块                 | 功能描述                                                                                                                 | 常用程度  |
 |----------------------------------------------------------------------------------------------------------|----------------------|----------------------------------------------------------------------------------------------------------------------|-------|
 | [AssetRegistrySearchable](UPROPERTY/Asset/AssetRegistrySearchable/AssetRegistrySearchable.md)            | Asset                | 标记该属性可以作为AssetRegistry的Tag和Value值来进行资产的过滤搜索                                                                          | ★★★   |
+
+## 行为
+
+UE5.8 UHT 在 property parser 中解析 `UPROPERTY`，成员属性使用 `UhtTableNames.PropertyMember` 的 specifier table。该页是 UPROPERTY 条目索引，不是单个 specifier。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 UHT parser keyword table for the macro
+  - UE5.8 `UhtTables.cs` specifier table registration
+- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
+
+## 常见误用
+
+把总览页当成可填写 specifier；具体行为应跳到 property specifier 或 metadata 条目。

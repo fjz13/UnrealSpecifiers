@@ -4,7 +4,7 @@ id: "meta.ModuleRelativePath"
 kind: "meta"
 symbol: "ModuleRelativePath"
 category: "UHT"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -25,6 +25,9 @@ usage: "Any"
 对于开发者来说一般不用管，但是引擎编辑器会用它来定位某个类型是在哪个.h里定义的，从而在你双击类型的时候，可以为你在VS里打开相应的头文件。具体的逻辑可以去FSourceCodeNavigation里查看。
 
 和IncludePath的区别是，ModuleRelativePath 在各种类型信息上都有，而IncludePath只用于UCLASS上。另外ModuleRelativePath 的值可以包含“Classes/Public/Internal/Private”这4个以开头，我们一般也确实会建议把.h.cpp划分到这4个文件夹里。而IncludeFilePath 的值就会去掉这个头。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。该条目多属于插件、编辑器或内部工作流，使用前应先确认目标模块是否启用。
 
 ## 测试代码：
 

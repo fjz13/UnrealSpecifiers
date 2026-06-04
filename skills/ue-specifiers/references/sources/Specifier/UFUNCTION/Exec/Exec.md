@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "Exec"
 scope: "UFUNCTION"
 category: "Exec"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -19,7 +19,7 @@ usage: "UFUNCTION / Exec"
 - **元数据类型：** bool
 - **引擎模块：** Behavior
 - **限制类型：** 特定的几个类
-- **作用机制：** 在FunctionFlags中加入[FUNC_Exec](../../../Flags/EFunctionFlags/FUNC_Exec.md)
+- **作用机制：** 在FunctionFlags中加入FUNC_Exec
 - **常用程度：** ★★★
 
 一般特定的几个类是：UPlayerInput，APlayerController，APawn，AHUD，AGameModeBase，ACheatManager，AGameStateBase，APlayerCameraManager的子类。
@@ -31,6 +31,9 @@ UGameViewportClient，UGameInstance，UPlayer是继承于FExec的，因此本身
 其中UEngine::Exec，内部会转发给各个模块来尝试。其中重要的是StaticExec，最后会FSelfRegisteringExec::StaticExec( InWorld, Cmd,Ar )来调用自注册的Exec。
 
 如果是在编辑器中~执行命令，FConsoleCommandExecutor::ExecInternal，最后也会到ULocalPlayer::Exec。
+## UE5.8 审计结论
+
+UE5.8 UHT 源码仍注册并处理该 UFUNCTION 条目；本轮按 UE5.8 标记为已验证。
 
 ## 测试代码：
 

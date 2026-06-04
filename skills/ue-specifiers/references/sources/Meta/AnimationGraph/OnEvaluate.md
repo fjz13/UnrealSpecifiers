@@ -4,11 +4,11 @@ id: "meta.OnEvaluate"
 kind: "meta"
 symbol: "OnEvaluate"
 category: "AnimationGraph"
-source_status: "imported_from_unreal_specifiers"
+source_status: "removed_or_deprecated"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
-summary: "在源码中发现，说明OnEvaluate已经放弃了"
+summary: "UE5.8 AnimBlueprintExtension_Base.cpp 仍读取 OnEvaluate metadata，但同一代码路径会输出 “OnEvaluate meta data is deprecated” 警告；因此该条目保留"
 usage: "UPROPERTY"
 ---
 
@@ -16,6 +16,9 @@ usage: "UPROPERTY"
 
 - **使用位置：** UPROPERTY
 - **引擎模块：** AnimationGraph
+## UE5.8 审计结论
+
+UE5.8 `AnimBlueprintExtension_Base.cpp` 仍读取 `OnEvaluate` metadata，但同一代码路径会输出 “OnEvaluate meta data is deprecated” 警告；因此该条目保留为兼容/历史说明，不建议新代码使用。
 
 ## 原理：
 

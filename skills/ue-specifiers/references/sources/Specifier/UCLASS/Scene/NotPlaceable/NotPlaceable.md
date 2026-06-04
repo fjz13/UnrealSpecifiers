@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "NotPlaceable"
 scope: "UCLASS"
 category: "Scene"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -18,7 +18,7 @@ usage: "UCLASS / Scene"
 - **功能描述：** 标明该Actor不可被放置在关卡里
 - **引擎模块：** Behavior
 - **元数据类型：** bool
-- **作用机制：** 在ClassFlags中添加[CLASS_NotPlaceable](../../../../Flags/EClassFlags/CLASS_NotPlaceable.md)
+- **作用机制：** 在ClassFlags中添加CLASS_NotPlaceable
 - **关联项：** Placeable (Placeable.md)
 - **常用程度：★★★**
 
@@ -78,3 +78,20 @@ TArray<AActor*> FLevelEditorViewportClient::TryPlacingActorFromObject( ULevel* I
 	}
 }
 ```
+
+## 行为
+
+UE5.8 UHT 写入 `CLASS_NotPlaceable`，类不能在关卡/编辑器放置路径中作为 placeable 类使用。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtClassSpecifiers.cs` class specifier branch
+  - UE5.8 `UhtClass.cs` class flag/metadata resolution and validation
+- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
+
+## 常见误用
+
+把 class specifier 的 metadata/flag 结果和 property/function specifier 混淆；或忽略继承/撤销类 specifier 的相互作用。

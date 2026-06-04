@@ -4,11 +4,11 @@ id: "UFUNCTION.UFUNCTION(标识符)"
 kind: "specifier"
 symbol: "UFUNCTION(标识符)"
 scope: "UFUNCTION"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
-summary: "UFUNCTION(标识符)"
+summary: "UE5.8 UHT 源码仍注册并处理该 UFUNCTION 条目；本轮按 UE5.8 标记为已验证"
 usage: "UFUNCTION"
 ---
 
@@ -66,3 +66,6 @@ usage: "UFUNCTION"
 | [CustomThunk](UFUNCTION/UHT/CustomThunk/CustomThunk.md)      | UHT            | 指定UHT不为该函数生成蓝图调用的辅助函数，而需要用户自定义编写。 | ★★★      |
 | [Variadic](UFUNCTION/UHT/Variadic/Variadic.md)               | Blueprint, UHT | 标识一个函数可以接受任意类型的多个参数（包括input/output)．  | ★★★      |
 | [FieldNotify](UFUNCTION/UHT/FieldNotify/FieldNotify.md)      | UHT            | 为该函数创建一个FieldNotify的绑定点。                        | ★★★      |
+## UE5.8 审计结论
+
+UE5.8 UHT 源码仍注册并处理该 UFUNCTION 条目；本轮按 UE5.8 标记为已验证。

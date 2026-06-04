@@ -1,6 +1,6 @@
 # Specifiers Index
 
-> 该文件是给 AI 快速检索用的摘要索引，不替代原始 `references/sources` 文档。状态为 `imported_from_unreal_specifiers` 的条目只表示已从本仓库文档导入，尚未按目标 UE 版本重新验证。
+> 该文件是给 AI 快速检索用的摘要索引，不替代原始 `references/sources` 文档。推荐前必须按状态门禁处理；`changed_in_version` 和 `removed_or_deprecated` 不能作为 UE5.8 常规方案推荐。
 > 完整 source 路由索引见 `references/indexes/sources.index.md`。
 
 ## UPROPERTY - Details Panel
@@ -36,7 +36,7 @@
 
 | ID | 摘要 | 使用场景 | 相关项 | 冲突项 | 状态 | source_doc |
 |---|---|---|---|---|---|---|
-| `UPROPERTY.Replicated` | 属性参与网络复制 | 服务端状态同步到客户端 | `GetLifetimeReplicatedProps`, `ReplicatedUsing` | `NotReplicated` | `imported_from_unreal_specifiers` | `references/sources/Specifier/UPROPERTY/Network/Replicated.md` |
+| `UPROPERTY.Replicated` | 属性参与网络复制 | 服务端状态同步到客户端 | `GetLifetimeReplicatedProps`, `ReplicatedUsing` | `NotReplicated` | `verified_UE5.8` | `references/sources/Specifier/UPROPERTY/Network/Replicated.md` |
 | `UPROPERTY.ReplicatedUsing` | 属性复制后调用通知函数 | 客户端收到复制值后需要响应 | `Replicated`, `OnRep_` 函数 | `NotReplicated` | `verified_UE5.8` | `references/sources/Specifier/UPROPERTY/Network/ReplicatedUsing/ReplicatedUsing.md` |
 | `UPROPERTY.Instanced` | 对象属性使用实例化子对象语义 | UObject 子对象需要内联实例和持久引用 | `EditInlineNew`, `DefaultToInstanced` | 普通资产引用场景不适合 | `verified_UE5.8` | `references/sources/Specifier/UPROPERTY/Instance/Instanced/Instanced.md` |
 
@@ -45,18 +45,18 @@
 | ID | 摘要 | 使用场景 | 相关项 | 冲突项 | 状态 | source_doc |
 |---|---|---|---|---|---|---|
 | `UFUNCTION.BlueprintCallable` | 生成可由 Blueprint 调用的函数节点 | 蓝图需要执行 C++ 函数 | `Category`, `BlueprintPure` | 无明确冲突，但语义需区分 Pure | `verified_UE5.8` | `references/sources/Specifier/UFUNCTION/Blueprint/BlueprintCallable/BlueprintCallable.md` |
-| `UFUNCTION.BlueprintPure` | 生成无执行引脚的纯函数节点 | 查询值且不应产生副作用 | `BlueprintCallable`, `Category` | 有副作用函数不适合 | `imported_from_unreal_specifiers` | `references/sources/Specifier/UFUNCTION/Blueprint/BlueprintPure/BlueprintPure.md` |
-| `UFUNCTION.BlueprintImplementableEvent` | C++ 声明事件，Blueprint 实现 | C++ 调用 Blueprint 扩展点 | `BlueprintNativeEvent` | 不提供 C++ 默认实现 | `imported_from_unreal_specifiers` | `references/sources/Specifier/UFUNCTION/Blueprint/BlueprintImplementableEvent/BlueprintImplementableEvent.md` |
-| `UFUNCTION.BlueprintNativeEvent` | C++ 声明事件，可由 C++ 默认实现并被 Blueprint 覆盖 | 需要 C++ fallback 的蓝图事件 | `BlueprintImplementableEvent` | 忘记 `_Implementation` | `imported_from_unreal_specifiers` | `references/sources/Specifier/UFUNCTION/Blueprint/BlueprintNativeEvent/BlueprintNativeEvent.md` |
-| `UFUNCTION.CallInEditor` | 函数可在编辑器 Details Panel 中点击调用 | 编辑器内工具按钮或调试操作 | `BlueprintCallable`, `Category` | 运行时-only 操作需谨慎 | `imported_from_unreal_specifiers` | `references/sources/Specifier/UFUNCTION/Blueprint/CallInEditor/CallInEditor.md` |
+| `UFUNCTION.BlueprintPure` | 生成无执行引脚的纯函数节点 | 查询值且不应产生副作用 | `BlueprintCallable`, `Category` | 有副作用函数不适合 | `verified_UE5.8` | `references/sources/Specifier/UFUNCTION/Blueprint/BlueprintPure/BlueprintPure.md` |
+| `UFUNCTION.BlueprintImplementableEvent` | C++ 声明事件，Blueprint 实现 | C++ 调用 Blueprint 扩展点 | `BlueprintNativeEvent` | 不提供 C++ 默认实现 | `verified_UE5.8` | `references/sources/Specifier/UFUNCTION/Blueprint/BlueprintImplementableEvent/BlueprintImplementableEvent.md` |
+| `UFUNCTION.BlueprintNativeEvent` | C++ 声明事件，可由 C++ 默认实现并被 Blueprint 覆盖 | 需要 C++ fallback 的蓝图事件 | `BlueprintImplementableEvent` | 忘记 `_Implementation` | `verified_UE5.8` | `references/sources/Specifier/UFUNCTION/Blueprint/BlueprintNativeEvent/BlueprintNativeEvent.md` |
+| `UFUNCTION.CallInEditor` | 函数可在编辑器 Details Panel 中点击调用 | 编辑器内工具按钮或调试操作 | `BlueprintCallable`, `Category` | 运行时-only 操作需谨慎 | `verified_UE5.8` | `references/sources/Specifier/UFUNCTION/Blueprint/CallInEditor/CallInEditor.md` |
 
 ## UFUNCTION - Network
 
 | ID | 摘要 | 使用场景 | 相关项 | 冲突项 | 状态 | source_doc |
 |---|---|---|---|---|---|---|
-| `UFUNCTION.Server` | RPC 在服务端执行 | 客户端请求服务端执行权威逻辑 | `Reliable`, `Unreliable`, `_Implementation` | 非网络对象或无所有权调用需谨慎 | `imported_from_unreal_specifiers` | `references/sources/Specifier/UFUNCTION/Network/Server/Server.md` |
-| `UFUNCTION.Client` | RPC 在 owning client 执行 | 服务端通知特定客户端 | `Reliable`, `Unreliable`, `_Implementation` | 非 owning client 语义需谨慎 | `imported_from_unreal_specifiers` | `references/sources/Specifier/UFUNCTION/Network/Client/Client.md` |
-| `UFUNCTION.NetMulticast` | RPC 在服务端和相关客户端执行 | 广播临时事件或表现 | `Reliable`, `Unreliable`, `_Implementation` | 持久状态不应只靠 multicast | `imported_from_unreal_specifiers` | `references/sources/Specifier/UFUNCTION/Network/NetMulticast/NetMulticast.md` |
+| `UFUNCTION.Server` | RPC 在服务端执行 | 客户端请求服务端执行权威逻辑 | `Reliable`, `Unreliable`, `_Implementation` | 非网络对象或无所有权调用需谨慎 | `verified_UE5.8` | `references/sources/Specifier/UFUNCTION/Network/Server/Server.md` |
+| `UFUNCTION.Client` | RPC 在 owning client 执行 | 服务端通知特定客户端 | `Reliable`, `Unreliable`, `_Implementation` | 非 owning client 语义需谨慎 | `verified_UE5.8` | `references/sources/Specifier/UFUNCTION/Network/Client/Client.md` |
+| `UFUNCTION.NetMulticast` | RPC 在服务端和相关客户端执行 | 广播临时事件或表现 | `Reliable`, `Unreliable`, `_Implementation` | 持久状态不应只靠 multicast | `verified_UE5.8` | `references/sources/Specifier/UFUNCTION/Network/NetMulticast/NetMulticast.md` |
 
 ## Missing Or Deferred P0 Items
 

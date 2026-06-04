@@ -4,7 +4,7 @@ id: "meta.BindWidgetAnimOptional"
 kind: "meta"
 symbol: "BindWidgetAnimOptional"
 category: "Widget"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -29,3 +29,6 @@ usage: "UPROPERTY"
 自然的也说过不能像Widget一样，不加BindWidget就自动默认绑定。
 
 因此用法上要嘛加BindWidgetAnim，要嘛加BindWidgetAnimOptional。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。

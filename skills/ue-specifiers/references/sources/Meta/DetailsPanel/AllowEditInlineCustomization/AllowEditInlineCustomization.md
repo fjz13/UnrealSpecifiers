@@ -4,7 +4,7 @@ id: "meta.AllowEditInlineCustomization"
 kind: "meta"
 symbol: "AllowEditInlineCustomization"
 category: "DetailsPanel"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -186,3 +186,20 @@ void ULevelSequenceEditorSubsystem::AddBindingDetailCustomizations(TSharedRef<ID
 	}
 }
 ```
+
+## 行为
+
+UE5.8 property metadata；PropertyEditor DetailPropertyRow 读取它，为 instanced UObject property 启用 detail class customization。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `ObjectMacros.h` property/class metadata declaration/comment
+  - UE5.8 `PropertyEditor` Details metadata usage
+- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
+
+## 常见误用
+
+参数名、属性名或目标宏写错导致 metadata 被保留但没有对应编辑器/Blueprint 行为。

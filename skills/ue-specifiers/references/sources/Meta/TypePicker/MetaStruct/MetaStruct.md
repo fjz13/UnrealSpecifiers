@@ -4,7 +4,7 @@ id: "meta.MetaStruct"
 kind: "meta"
 symbol: "MetaStruct"
 category: "TypePicker"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -22,6 +22,9 @@ usage: "UPROPERTY"
 - **常用程度：** ★★★
 
 设定到UScriptStruct*属性上，指定选择的类型的父结构。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。
 
 ## 测试代码：
 

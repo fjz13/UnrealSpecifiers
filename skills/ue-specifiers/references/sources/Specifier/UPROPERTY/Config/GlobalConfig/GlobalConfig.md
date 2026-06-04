@@ -18,7 +18,7 @@ usage: "UPROPERTY / Config"
 - **功能描述：** 和Config一样指定该属性可作为配置读取和写入ini中，但只会读取写入到配置文件里基类的值，而不会使用配置文件里子类里的值。
 - **元数据类型：** bool
 - **引擎模块：** Config
-- **作用机制：** 在PropertyFlags中加入[CPF_GlobalConfig](../../../../Flags/EPropertyFlags/CPF_GlobalConfig.md)
+- **作用机制：** 在PropertyFlags中加入CPF_GlobalConfig
 - **常用程度：** ★★★
 
 和Config一样指定该属性可作为配置读取和写入ini中，但只会读取写入到配置文件里基类的值，而不会使用配置文件里子类里的值。

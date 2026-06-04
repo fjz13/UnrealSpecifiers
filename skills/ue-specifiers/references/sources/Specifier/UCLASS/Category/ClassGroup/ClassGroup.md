@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "ClassGroup"
 scope: "UCLASS"
 category: "Category"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -64,3 +64,20 @@ if (FKismetEditorUtilities::IsClassABlueprintSpawnableComponent(Class))
 					TArray<FString> ClassGroupNames;
 					Class->GetClassGroupNames(ClassGroupNames);
 ```
+
+## 行为
+
+UE5.8 UHT 把指定组名写入 `ClassGroupNames`，用于组件/类浏览器分组。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtClassSpecifiers.cs` class specifier branch
+  - UE5.8 `UhtClass.cs` class flag/metadata resolution and validation
+- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
+
+## 常见误用
+
+把 class specifier 的 metadata/flag 结果和 property/function specifier 混淆；或忽略继承/撤销类 specifier 的相互作用。

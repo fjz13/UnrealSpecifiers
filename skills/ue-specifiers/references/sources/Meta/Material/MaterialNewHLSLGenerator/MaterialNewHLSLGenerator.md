@@ -4,7 +4,7 @@ id: "meta.MaterialNewHLSLGenerator"
 kind: "meta"
 symbol: "MaterialNewHLSLGenerator"
 category: "Material"
-source_status: "imported_from_unreal_specifiers"
+source_status: "changed_in_version"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -22,6 +22,9 @@ usage: "UCLASS"
 - **常用程度：** ★
 
 标识该UMaterialExpression为采用新HLSL生成器的节点，当前在材质蓝图右键菜单中隐藏。
+## UE5.8 审计结论
+
+本机 UE5.8 源码未检索到 `MaterialNewHLSLGenerator` metadata；材质新 HLSL 生成器相关路径改为 `bEnableNewHLSLGenerator` / `IsUsingNewHLSLGenerator` 等显式成员和函数。本轮按 `changed_in_version` 记录，不建议继续把它作为 UE5.8 可用 metadata 路由。
 
 ## 源码例子：
 

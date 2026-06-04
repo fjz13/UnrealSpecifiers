@@ -19,7 +19,7 @@ usage: "UPROPERTY / DetailsPanel"
 
 - **元数据类型：** bool
 - **引擎模块：** Sequencer
-- **作用机制：** 在PropertyFlags中加入[CPF_Edit](../../../../Flags/EPropertyFlags/CPF_Edit.md), [CPF_BlueprintVisible](../../../../Flags/EPropertyFlags/CPF_BlueprintVisible.md), [CPF_Interp](../../../../Flags/EPropertyFlags/CPF_Interp.md)
+- **作用机制：** 在PropertyFlags中加入CPF_Edit, CPF_BlueprintVisible, CPF_Interp
 - **常用程度：** ★★★
 
 该属性可以暴露到时间轴里，一般用来编辑动画。

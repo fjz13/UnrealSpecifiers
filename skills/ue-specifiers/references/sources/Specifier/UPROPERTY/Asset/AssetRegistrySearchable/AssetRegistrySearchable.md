@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "AssetRegistrySearchable"
 scope: "UPROPERTY"
 category: "Asset"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -18,7 +18,7 @@ usage: "UPROPERTY / Asset"
 - **功能描述：** 标记该属性可以作为AssetRegistry的Tag和Value值来进行资产的过滤搜索
 - **元数据类型：** bool
 - **引擎模块：** Asset
-- **作用机制：** 在PropertyFlags中加入[CPF_AssetRegistrySearchable](../../../../Flags/EPropertyFlags/CPF_AssetRegistrySearchable.md)，在Meta中加入[RequiredAssetDataTags](../../../../Meta/Asset/RequiredAssetDataTags/RequiredAssetDataTags.md)、[DisallowedAssetDataTags](../../../../Meta/Asset/DisallowedAssetDataTags.md)
+- **作用机制：** 在PropertyFlags中加入CPF_AssetRegistrySearchable，在Meta中加入[RequiredAssetDataTags](../../../../Meta/Asset/RequiredAssetDataTags/RequiredAssetDataTags.md)、[DisallowedAssetDataTags](../../../../Meta/Asset/DisallowedAssetDataTags.md)
 - **常用程度：** ★★★
 
 不能用在结构属性上。
@@ -68,3 +68,20 @@ bSerializeAssetRegistry=true
 ## 原理：
 
 可查看GetAssetRegistryTags的函数的实现和调用。在UObject::GetAssetRegistryTags中调用使用，把该属性的值作为AssetData的Tag供给AssetRegistry
+
+## 行为
+
+UE5.8 UHT 的 property member specifier 分支写入 `CPF_AssetRegistrySearchable`。它让属性参与 asset registry tag/search 相关路径。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtPropertyMemberSpecifiers.cs` `AssetRegistrySearchableSpecifier` writes `CPF_AssetRegistrySearchable`
+  - 本地样例辅助对照：`D:/github/GitWorkspace/Hello/Source/Insider/Property/Asset/MyProperty_AssetRegistrySearchable.h`。
+- 批次记录：`references/audits/ue5.8-p1-macro-param-struct-enum-pass.md`。
+
+## 常见误用
+
+用于非资产/不参与资产注册语义的数据并期待运行时查询自动变快；它不是复制、保存或 Blueprint 暴露标志。

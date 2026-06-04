@@ -4,11 +4,11 @@ id: "USTRUCT.USTRUCT(标识符)"
 kind: "specifier"
 symbol: "USTRUCT(标识符)"
 scope: "USTRUCT"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
-summary: "USTRUCT(标识符)"
+summary: "UE5.8 UHT 通过 UhtScriptStructParser 识别 USTRUCT，创建 script struct 并使用 UhtTableNames.ScriptStruct 的 keyword/specifier table "
 usage: "USTRUCT"
 ---
 
@@ -40,3 +40,20 @@ usage: "USTRUCT"
 | Name                                                         | 引擎模块      | 功能描述                                                     | 常用程度 |
 | ------------------------------------------------------------ | ------------- | ------------------------------------------------------------ | -------- |
 | [immutable](USTRUCT/Serialization/immutable.md)              | Serialization | Immutable is only legal in Object.h and is being phased out, do not use on new structs! | 💀        |
+
+## 行为
+
+UE5.8 UHT 通过 `UhtScriptStructParser` 识别 `USTRUCT`，创建 script struct 并使用 `UhtTableNames.ScriptStruct` 的 keyword/specifier table 解析 specifier。该页是 USTRUCT 条目索引，不是单个 specifier。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtScriptStructParser.cs` routes `USTRUCT` to script-struct specifier table
+  - UE5.8 `UhtTables.cs` creates the `ScriptStruct` keyword/specifier table
+- 批次记录：`references/audits/ue5.8-p1-macro-param-struct-enum-pass.md`。
+
+## 常见误用
+
+把总览页当成 specifier；具体行为应跳转到 `BlueprintType`、serialization specifier 或 struct metadata。

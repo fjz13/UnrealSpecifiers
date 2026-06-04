@@ -19,7 +19,7 @@ usage: "UPROPERTY / Serialization"
 
 - **元数据类型：** bool
 - **引擎模块：** Serialization
-- **作用机制：** 在PropertyFlags中加入[CPF_TextExportTransient](../../../Flags/EPropertyFlags/CPF_TextExportTransient.md)
+- **作用机制：** 在PropertyFlags中加入CPF_TextExportTransient
 - **常用程度：** ★
 
 在ExportText导出为.COPY格式的时候，忽略该属性。

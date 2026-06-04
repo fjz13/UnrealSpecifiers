@@ -20,7 +20,7 @@ usage: "UPROPERTY / Network"
 - **元数据类型：** bool
 - **引擎模块：** Network
 - **限制类型：** Struct members
-- **作用机制：** 在PropertyFlags中加入[CPF_RepSkip](../../../Flags/EPropertyFlags/CPF_RepSkip.md)
+- **作用机制：** 在PropertyFlags中加入CPF_RepSkip
 - **常用程度：** ★★★
 
 只用在结构成员中，指定struct中的某个属性不复制，否则默认就都会复制。这个用于排除掉结构中的某属性。

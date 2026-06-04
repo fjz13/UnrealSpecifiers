@@ -4,7 +4,7 @@ id: "meta.GetOptions"
 kind: "meta"
 symbol: "GetOptions"
 category: "String"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -29,6 +29,9 @@ usage: "UPARAM, UPROPERTY"
 - 也可用在内部结构的变量上。这里的关键点是在寻找函数的时候，是通过找到OuterObject::Function来的，因此即使是内部结构的变量，也可以找到外部class里的函数。但如果是另外一个不相关的类，就必须用“Module.Class.Function”这种方式才能找到，否则只能返回空。
 - 函数的原型是TArray<FString> FuncName() ，返回一个字符串类型，即使类型是FName，因为引擎内部会自己做转换。
 - 函数可以是成员函数，有可以是静态函数。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。该条目多属于插件、编辑器或内部工作流，使用前应先确认目标模块是否启用。
 
 ## 测试代码：
 

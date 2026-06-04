@@ -5,20 +5,20 @@ kind: "specifier"
 symbol: "immutable"
 scope: "USTRUCT"
 category: "Serialization"
-source_status: "imported_from_unreal_specifiers"
+source_status: "removed_or_deprecated"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
-summary: "Immutable is only legal in Object.h and is being phased out, do not use on new structs!"
+summary: "UE5.8 中正在淘汰。Immutable 只允许 NoExportTypes.h 中的 mirror structs，项目自定义 USTRUCT 不应使用"
 usage: "USTRUCT / Serialization"
 ---
 
 # immutable
 
-- **功能描述：** Immutable is only legal in Object.h and is being phased out, do not use on new structs!
+- **功能描述：** UE5.8 中正在淘汰。`Immutable` 只允许 NoExportTypes.h 中的 mirror structs，项目自定义 USTRUCT 不应使用。
 - **元数据类型：** bool
 - **引擎模块：** Serialization
-- **作用机制：** 在StructFlags中加入[STRUCT_Immutable](../../../Flags/EStructFlags/STRUCT_Immutable.md)
+- **作用机制：** 在StructFlags中加入STRUCT_Immutable
 
 当前只在noexporttypes.h里找到一堆Struct
 
@@ -104,3 +104,21 @@ Struct:	ScriptStruct /Script/CoreUObject.Vector4
 Struct:	ScriptStruct /Script/CoreUObject.Vector4d
 Struct:	ScriptStruct /Script/CoreUObject.Vector4f
 ```
+
+## 行为
+
+UE5.8 UHT 仍解析 `Immutable` 并写入 `Atomic | Immutable` struct flags，但后续校验报错：该 specifier 正在被淘汰，且仅 NoExportTypes.h mirror structs 合法。
+
+## UE5.8 审计结论
+
+- 状态：`removed_or_deprecated`。
+- 结论：UE5.8 下已标记为废弃/不可推荐。
+- 证据：
+  - UE5.8 `UhtScriptStructSpecifiers.cs` `ImmutableSpecifier` writes `Atomic | Immutable`
+  - UE5.8 `UhtScriptStruct.cs` validates it as phased out and only legal in NoExportTypes.h
+  - 本地样例辅助对照：source note contains local commented repro; UE5.8 source is canonical evidence。
+- 批次记录：`references/audits/ue5.8-p1-macro-param-struct-enum-pass.md`。
+
+## 常见误用
+
+在项目自定义 USTRUCT 上使用；UE5.8 下会被 UHT 拒绝，应避免推荐。

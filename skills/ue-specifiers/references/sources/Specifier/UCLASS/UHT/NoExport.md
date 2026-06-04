@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "NoExport"
 scope: "UCLASS"
 category: "UHT"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -19,7 +19,7 @@ usage: "UCLASS / UHT"
 
 - **引擎模块：** UHT
 - **元数据类型：** bool
-- **作用机制：** 在ClassFlags中增加EClassFlags: [CLASS_NoExport](../../../Flags/EClassFlags/CLASS_NoExport.md)
+- **作用机制：** 在ClassFlags中增加EClassFlags: CLASS_NoExport
 - **常用程度：** 0
 
 指定UHT不要用来自动生成注册的代码，而只是进行词法分析提取元数据。
@@ -27,6 +27,9 @@ usage: "UCLASS / UHT"
 引擎的NoExportTypes.h里大量都是这种类型，专门提供给UHT来提取信息的。一般会用#if !CPP //noexport class来包裹，来避免编译。同时在另一个地方会定义这个类。因为StaticRegisterNatives##TClass没有生成，所以GetPrivateStaticClass不能调用成功，所以不能NewObject。一般noexport和Intrinsic都是配合使用的。因为DECLARE_CLASS_INTRINSIC内部会声明static void StaticRegisterNatives##TClass() {} 来允许成功调用。
 
 引擎里的结构倒是经常用noexport来阻止生成UHT注册。因为结构其实不需要调用GetPrivateStaticClass来创建元数据。只要有Z_Construct_UScriptStruct_XXX来生成构造相应的UScriptStruct对象就行。
+## UE5.8 审计结论
+
+UE5.8 UHT 或宏路径仍保留该条目；本轮按 UE5.8 标记为已验证。P3 中不少条目属于引擎内部、NoExportTypes 或插件专用用法，不建议普通项目代码直接套用。
 
 ## 测试代码:
 

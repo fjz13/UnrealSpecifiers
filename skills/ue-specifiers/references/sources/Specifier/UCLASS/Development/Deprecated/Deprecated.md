@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "Deprecated"
 scope: "UCLASS"
 category: "Development"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -18,7 +18,7 @@ usage: "UCLASS / Development"
 - **功能描述：**  标明该类已经弃用。
 - **引擎模块：** Development
 - **元数据类型：** bool
-- **作用机制：** 在ClassFlags添加[CLASS_Deprecated](../../../../Flags/EClassFlags/CLASS_Deprecated.md)、[CLASS_NotPlaceable](../../../../Flags/EClassFlags/CLASS_NotPlaceable.md)，在Meta添加[DeprecationMessage](../../../../Meta/Development/DeprecationMessage.md)、[DeprecatedProperty](../../../../Meta/Development/DeprecatedProperty/DeprecatedProperty.md)
+- **作用机制：** 在ClassFlags添加CLASS_Deprecated、CLASS_NotPlaceable，在Meta添加[DeprecationMessage](../../../../Meta/Development/DeprecationMessage.md)、[DeprecatedProperty](../../../../Meta/Development/DeprecatedProperty/DeprecatedProperty.md)
 - **常用程度：★★★**
 
 标明该类已经弃用。
@@ -112,6 +112,9 @@ UPROPERTY()	int MyInt2Property_DEPRECATED;
 属性和函数上加上Deprecated标记后，会在BP编译的时候生成警告。注意函数是先有一个正常的函数，在BP里连接完成之后再在C++里标记DeprecatedFunction才会生成警告，否则已经Deprecated的函数是无法再在BP里调用的。
 
 ![Untitled](Untitled%201.png)
+## UE5.8 审计结论
+
+UE5.8 UHT 或宏路径仍保留该条目；本轮按 UE5.8 标记为已验证。P3 中不少条目属于引擎内部、NoExportTypes 或插件专用用法，不建议普通项目代码直接套用。
 
 ## 原理：
 

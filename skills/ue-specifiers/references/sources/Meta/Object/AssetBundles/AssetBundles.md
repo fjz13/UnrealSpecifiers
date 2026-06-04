@@ -4,7 +4,7 @@ id: "meta.AssetBundles"
 kind: "meta"
 symbol: "AssetBundles"
 category: "Object"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -30,6 +30,9 @@ usage: "UPROPERTY"
 - SecondaryAsset指的是其他的那些Assets了，例如贴图和声音等。这一类型的assets是根据PrimaryAsset来自动进行载入的。我们一般来说不太需要对次要资产进行管理，其会被主要资产根据引用关系来自动的加载。
 - AssetBundle可以叫做资产包，其实就是一个Asset的列表，我们对每个资产包起个名字来区分，比如UI，Game，这样其实也是对一些资产进行标签分类。这里的Asset我们不区分是PrimaryAsset还是SecondaryAsset，因为这是从用途上进行区分的，而不是加载方式。AssetBundle的作用是当我们加载PrimaryAsset的时候，这个PrimaryAsset本身可能引用着另外一些SecondaryAsset资产，各自有不同的用途。我们就可以把这些SecondaryAsset资产划分到不同的AssetBundle里，这样我们在加载PrimaryAsset的时候，可以通过额外提供AssetBundleName来更加精细化的控制SecondaryAsset资产的加载。
 - PrimaryAsset里的指定AssetBundle的Asset属性必须是软引用，否则是硬引用的话无论如何也会被加载进来。软引用的Asset在默认时候需要我们手动的进行加载，通过附加AssetBundle，就可以在加载PrimaryAsset的时候，附带的加载该软引用资产。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。该条目多属于插件、编辑器或内部工作流，使用前应先确认目标模块是否启用。
 
 ## 测试代码：
 

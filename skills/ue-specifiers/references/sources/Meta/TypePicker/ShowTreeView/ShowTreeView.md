@@ -4,7 +4,7 @@ id: "meta.ShowTreeView"
 kind: "meta"
 symbol: "ShowTreeView"
 category: "TypePicker"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -24,6 +24,9 @@ usage: "UPROPERTY"
 用于选择Class或Struct的属性上，使得在类选取器中显示为树形而不是列表。
 
 应用的属性类型有TSubClassOf，FSoftClassPath，UClass*，UScriptStruct*，FInstancedStruct 这种用于选择类型的属性。如果是TSoftObjectPtr或者FSoftObjectPath这种用于选择对象的则不起作用。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。
 
 ## 测试代码：
 

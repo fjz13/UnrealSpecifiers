@@ -4,7 +4,7 @@ id: "meta.MustImplement"
 kind: "meta"
 symbol: "MustImplement"
 category: "TypePicker"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -26,6 +26,9 @@ usage: "UPROPERTY"
 - TSubClassOf，FSoftClassPath，还有原始的UClass*属性都可以用来找到一个UClass*，区别是UClass*是硬引用到一个具体的类对象，而FSoftClassPath是软引用到类对象的路径，不过这二者都是泛泛的UClass*，并没有对子类型进行约束。而TSubClassOf<T>虽然也是硬引用类对象，但是进一步把类型的选择范围限制到了T的子类上，在很多时候会更加的便利，特别是你已经知道你的子类范围。比如TSubClassOf<AActor>或TSubClassOf<UUserWidget>。
 - 在这种用于选择Class的属性上，如果不进行限制则会把引擎里的所有类都找出来让你选择，不是那么便利。
 - 因此引擎里增加了一些进一步筛选的机制。MustImplement就是用于筛选指定class属性必须实现某个接口。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。
 
 ## 测试代码：
 

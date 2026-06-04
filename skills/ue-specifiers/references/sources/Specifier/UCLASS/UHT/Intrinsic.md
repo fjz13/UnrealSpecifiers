@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "Intrinsic"
 scope: "UCLASS"
 category: "UHT"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -19,7 +19,7 @@ usage: "UCLASS / UHT"
 
 - **引擎模块：** UHT
 - **元数据类型：** bool
-- **作用机制：** 在ClassFlags中增加[CLASS_Intrinsic](../../../Flags/EClassFlags/CLASS_Intrinsic.md)
+- **作用机制：** 在ClassFlags中增加CLASS_Intrinsic
 - **常用程度：** 0
 
 指定UHT完全不为此类生成代码，需要自己手写。
@@ -49,3 +49,6 @@ class COREUOBJECT_API UInterface : public UObject
 	DECLARE_CLASS_INTRINSIC(UInterface, UObject, CLASS_Interface | CLASS_Abstract, TEXT("/Script/CoreUObject"))
 };
 ```
+## UE5.8 审计结论
+
+UE5.8 UHT 或宏路径仍保留该条目；本轮按 UE5.8 标记为已验证。P3 中不少条目属于引擎内部、NoExportTypes 或插件专用用法，不建议普通项目代码直接套用。

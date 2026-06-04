@@ -4,17 +4,17 @@ id: "meta.bShowOnlyWhenTrue"
 kind: "meta"
 symbol: "bShowOnlyWhenTrue"
 category: "DetailsPanel"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
-summary: "根据编辑器config配置文件里字段值来决定当前属性是否显示"
+summary: "旧 Details 条件显示 metadata。UE5.8 新代码通常应优先使用 EditCondition/EditConditionHides"
 usage: "UPROPERTY"
 ---
 
 # bShowOnlyWhenTrue
 
-- **功能描述：** 根据编辑器config配置文件里字段值来决定当前属性是否显示。
+- **功能描述：** 旧 Details 条件显示 metadata。UE5.8 新代码通常应优先使用 `EditCondition`/`EditConditionHides`。
 - **使用位置：** UPROPERTY
 - **引擎模块：** DetailsPanel
 - **元数据类型：** string="abc"
@@ -105,3 +105,20 @@ void FCategoryPropertyNode::InitChildNodes()
 
 }
 ```
+
+## 行为
+
+UE5.8 legacy details metadata；旧 details 路径按 bool 条件显示，现代通常优先 `EditCondition`/`EditConditionHides`。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `ObjectMacros.h` property/class metadata declaration/comment
+  - UE5.8 `PropertyEditor` Details metadata usage
+- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
+
+## 常见误用
+
+继续把 legacy metadata 当成新代码首选；现代 Details 条件显示优先使用 `EditCondition`/`EditConditionHides`。

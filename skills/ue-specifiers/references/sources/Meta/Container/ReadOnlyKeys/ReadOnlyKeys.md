@@ -4,7 +4,7 @@ id: "meta.ReadOnlyKeys"
 kind: "meta"
 symbol: "ReadOnlyKeys"
 category: "Container"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -24,6 +24,9 @@ usage: "UPROPERTY"
 使TMap属性的Key不能编辑。
 
 意味着这个TMap里的元素是在这之前（构造函数里初始化等）就设置好的，但我们只希望用户更改值的内容，而不改Key的名字。这在某些情况下比较有用，比如以Platform作为Key，这样Platform的列表是固定的就不希望用户更改了。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。
 
 ## 测试代码：
 

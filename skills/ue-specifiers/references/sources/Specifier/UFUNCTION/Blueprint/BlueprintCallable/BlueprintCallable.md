@@ -19,7 +19,7 @@ usage: "UFUNCTION / Blueprint"
 
 - **元数据类型：** bool
 - **引擎模块：** Blueprint
-- **作用机制：** 在FunctionFlags增加[FUNC_BlueprintCallable](../../../../Flags/EFunctionFlags/FUNC_BlueprintCallable.md)
+- **作用机制：** 在FunctionFlags增加FUNC_BlueprintCallable
 - **常用程度：** ★★★★★
 
 ## 行为

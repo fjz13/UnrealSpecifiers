@@ -4,7 +4,7 @@ id: "meta.DevelopmentOnly"
 kind: "meta"
 symbol: "DevelopmentOnly"
 category: "Development"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -23,6 +23,9 @@ usage: "UFUNCTION"
 使得一个函数变为DevelopmentOnly，意味着只会在Development模式中运行。适用于调试输出之类的功能，但在最终发布版中会跳过。
 
 源码中最典型的例子就是PrintString。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。
 
 ## 测试代码：
 

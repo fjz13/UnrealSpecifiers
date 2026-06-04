@@ -4,7 +4,7 @@ id: "meta.LongPackageName"
 kind: "meta"
 symbol: "LongPackageName"
 category: "Path"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -26,3 +26,6 @@ LongPackageName可以同时用在FDirectoryPath和FFilePath，都限制选取范
 用在FDirectoryPath上的时候，限制目录为Content或其子目录。
 
 用在FFilePath的时候，限制选择范围为Content里的资产，最终把选取的文件路径转换为“/Game/ObjectPath”这种对象的路径名。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。该条目多属于插件、编辑器或内部工作流，使用前应先确认目标模块是否启用。

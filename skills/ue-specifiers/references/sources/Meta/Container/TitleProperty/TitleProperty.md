@@ -4,7 +4,7 @@ id: "meta.TitleProperty"
 kind: "meta"
 symbol: "TitleProperty"
 category: "Container"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -30,6 +30,9 @@ usage: "UPROPERTY"
 - 然后下一步是TitleProperty的格式要怎么写。根据引擎源码，TitleProperty最后是用FTitleMetadataFormatter来解析计算内容。通过查看其内部代码，可知其TitleProperty格式可以为：
     - 如果TitleProperty里包含“{”，则会把里面的字符串当作一个FTextFormat（以“{ArgName}…”组织的格式字符串）。最终格式是以“{PropertyName}…”组织的字符串去找多个对应的属性。
     - 否则就会把TitleProperty的全部当作PropertyName，直接去找对应的属性名称。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。
 
 ## 测试代码：
 

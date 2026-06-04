@@ -18,7 +18,7 @@ usage: "UCLASS / Instance"
 - **功能描述：**  指定该类的对象可以在属性细节面板里直接内联创建，要和属性的Instanced配合。
 - **引擎模块：** Instance
 - **元数据类型：** bool
-- **作用机制：** 在ClassFlags中添加[CLASS_EditInlineNew](../../../../Flags/EClassFlags/CLASS_EditInlineNew.md)
+- **作用机制：** 在ClassFlags中添加CLASS_EditInlineNew
 - **关联项：** NotEditInlineNew (NotEditInlineNew.md)
 - **常用程度：★★★★★**
 

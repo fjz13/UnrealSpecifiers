@@ -80,15 +80,17 @@ def status_record(record) -> dict:
     }
 
 
-def write_status(records, dry_run: bool) -> Path:
+def write_status(records, dry_run: bool) -> tuple[Path, bool]:
     target = AUDIT_ROOT / "source-normalization-status.jsonl"
     lines = [json.dumps(status_record(record), ensure_ascii=False) for record in records]
-    if not dry_run:
-        target.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
-    return target
+    text = "\n".join(lines) + "\n"
+    changed = not target.exists() or target.read_text(encoding="utf-8") != text
+    if changed and not dry_run:
+        target.write_text(text, encoding="utf-8", newline="\n")
+    return target, changed
 
 
-def write_summary(records, dry_run: bool) -> Path:
+def write_summary(records, dry_run: bool) -> tuple[Path, bool]:
     target = AUDIT_ROOT / "source-normalization-2026-06-04.md"
     by_kind: dict[str, int] = {}
     with_code = with_test = with_principle = with_media = 0
@@ -115,7 +117,7 @@ def write_summary(records, dry_run: bool) -> Path:
         "",
         "- `normalization_status=normalized` means the document has the standard source metadata block.",
         "- `source_status=verified_UE5.8` only applies to items already backed by semantic audit evidence.",
-        "- Other items remain `imported_from_unreal_specifiers` until semantic UE5.8 evidence is added.",
+        "- Future imported items should remain `imported_from_unreal_specifiers` until semantic UE5.8 evidence is added.",
         "",
         "Counts:",
         "",
@@ -129,17 +131,19 @@ def write_summary(records, dry_run: bool) -> Path:
             f"- with principle sections: {with_principle}",
             f"- with media references: {with_media}",
             "",
-            "Next audit pass:",
+            "Next maintenance pass:",
             "",
-            "- Continue semantic UE5.8 verification from `references/audits/audit-manifest.jsonl` P0 items.",
+            "- Re-run `references/audits/audit-manifest.jsonl` sync when source documents are added or removed.",
             "- Promote verified findings into source documents only when the finding changes or clarifies the canonical explanation.",
             "- Keep full explanations in `references/sources/`; keep indexes concise.",
             "",
         ]
     )
-    if not dry_run:
-        target.write_text("\n".join(lines), encoding="utf-8", newline="\n")
-    return target
+    text = "\n".join(lines)
+    changed = not target.exists() or target.read_text(encoding="utf-8") != text
+    if changed and not dry_run:
+        target.write_text(text, encoding="utf-8", newline="\n")
+    return target, changed
 
 
 def main() -> int:
@@ -156,15 +160,16 @@ def main() -> int:
             if not args.dry_run:
                 record.path.write_text(new_text, encoding="utf-8", newline="\n")
 
-    status_path = write_status(records, args.dry_run)
-    summary_path = write_summary(records, args.dry_run)
-    index_path = write_sources_index(records, args.dry_run)
+    status_path, status_changed = write_status(records, args.dry_run)
+    summary_path, summary_changed = write_summary(records, args.dry_run)
+    index_path, index_changed = write_sources_index(records, args.dry_run)
 
-    prefix = "would update" if args.dry_run else "updated"
-    print(f"{prefix} source markdown files: {changed}")
-    print(f"{prefix}: {posix_rel(status_path)}")
-    print(f"{prefix}: {posix_rel(summary_path)}")
-    print(f"{prefix}: {posix_rel(index_path)}")
+    pending_prefix = "would update" if args.dry_run else "updated"
+    clean_prefix = "up to date" if args.dry_run else "unchanged"
+    print(f"{pending_prefix if changed else clean_prefix} source markdown files: {changed}")
+    print(f"{pending_prefix if status_changed else clean_prefix}: {posix_rel(status_path)}")
+    print(f"{pending_prefix if summary_changed else clean_prefix}: {posix_rel(summary_path)}")
+    print(f"{pending_prefix if index_changed else clean_prefix}: {posix_rel(index_path)}")
     print(f"source markdown files scanned: {len(records)}")
     print(f"run_date: {date.today().isoformat()}")
     return 0

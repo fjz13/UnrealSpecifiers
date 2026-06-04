@@ -19,7 +19,7 @@ usage: "UPROPERTY / Serialization"
 
 - **元数据类型：** bool
 - **引擎模块：** Serialization
-- **作用机制：** 在PropertyFlags中加入[CPF_SkipSerialization](../../../../Flags/EPropertyFlags/CPF_SkipSerialization.md)
+- **作用机制：** 在PropertyFlags中加入CPF_SkipSerialization
 - **常用程度：** ★★★
 
 在进行普通的二进制序列化的时候，这个标记会阻止序列化。作用和Transient一样。但如果是ExportText，则依然可以把该属性导出。其内部用的ExportProperties。

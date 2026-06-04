@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "Flags"
 scope: "UENUM"
 category: "Flags"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -18,7 +18,7 @@ usage: "UENUM / Flags"
 - **功能描述：**  把该枚举的值作为一个标志来拼接字符串输出。
 - **元数据类型：** bool
 - **引擎模块：** Trait
-- **作用机制：** 在EnumFlags中添加[Flags](../../../Flags/EEnumFlags/Flags.md)
+- **作用机制：** 在EnumFlags中添加Flags
 - **常用程度：★★★★★**
 
 把该枚举的值作为一个标志来拼接字符串输出。
@@ -122,3 +122,20 @@ FString UEnum::GetValueOrBitfieldAsString(int64 InValue) const
 	}
 }
 ```
+
+## 行为
+
+UE5.8 UHT 的 enum specifier 分支写入 `EEnumFlags.Flags`。它影响 `UEnum` 把值作为 bitfield 字符串输出的路径，不会自动把枚举值改成 1、2、4 这种 mask 值。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtEnumSpecifiers.cs` `FlagsSpecifier` writes `EEnumFlags.Flags`
+  - 本地样例辅助对照：`D:/github/GitWorkspace/Hello/Source/Insider/Enum/MyEnum_Flags.h`。
+- 批次记录：`references/audits/ue5.8-p1-macro-param-struct-enum-pass.md`。
+
+## 常见误用
+
+把 `Flags` 当成 `meta=(Bitflags)` 或 `UseEnumValuesAsMaskValuesInEditor`；或忘记手动定义适合 bitmask 的枚举值。

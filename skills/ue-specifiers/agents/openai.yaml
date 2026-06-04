@@ -1,0 +1,5 @@
+interface:
+  display_name: "UE Specifiers"
+  short_description: "UE C++ specifier and metadata reference"
+  default_prompt: "Use $ue-specifiers to verify this Unreal Engine C++ specifier or metadata for UE5.8."
+

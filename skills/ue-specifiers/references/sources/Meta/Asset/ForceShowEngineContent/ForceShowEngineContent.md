@@ -4,7 +4,7 @@ id: "meta.ForceShowEngineContent"
 kind: "meta"
 symbol: "ForceShowEngineContent"
 category: "Asset"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -23,6 +23,9 @@ usage: "UPROPERTY"
 - **常用程度：** ★★
 
 指定UObject*属性的资源可选列表里强制可选引擎的内建资源。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。
 
 ## 测试代码：
 

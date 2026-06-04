@@ -4,7 +4,7 @@ id: "meta.AnimBlueprintFunction"
 kind: "meta"
 symbol: "AnimBlueprintFunction"
 category: "AnimationGraph"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -21,3 +21,6 @@ usage: "UFUNCTION"
 - **限制类型：** Anim BP
 
 只是在内部使用，在动画蓝图编译的时候设置。但是没有在代码里显式的编写。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。

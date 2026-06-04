@@ -4,7 +4,7 @@ id: "meta.ScriptName"
 kind: "meta"
 symbol: "ScriptName"
 category: "Script"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -28,6 +28,9 @@ usage: "Any"
 在测试Python的时候，记得打开python插件。
 
 可在\UnrealEngine\Engine\Plugins\Experimental\PythonScriptPlugin\Source\PythonScriptPlugin\Private\PyTest.h里见到大量写好的测试用例。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。该条目多属于插件、编辑器或内部工作流，使用前应先确认目标模块是否启用。
 
 ## 测试代码：
 

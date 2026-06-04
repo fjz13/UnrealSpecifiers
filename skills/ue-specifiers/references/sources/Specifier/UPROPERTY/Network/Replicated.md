@@ -19,7 +19,7 @@ usage: "UPROPERTY / Network"
 
 - **元数据类型：** bool
 - **引擎模块：** Network
-- **作用机制：** 在PropertyFlags中加入[CPF_Net](../../../Flags/EPropertyFlags/CPF_Net.md)
+- **作用机制：** 在PropertyFlags中加入CPF_Net
 - **常用程度：** ★★★★★
 
 ## 行为

@@ -4,7 +4,7 @@ id: "meta.BaseClass"
 kind: "meta"
 symbol: "BaseClass"
 category: "TypePicker"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -44,6 +44,9 @@ struct STATETREEEDITORMODULE_API FStateTreeTransition
 可见，虽然Conditions和Tasks的类型都是FStateTreeEditorNode，但是选项列表里的内容是不同的。这是由于其上面的BaseStruct和BaseClass 不同，分别限定了结构的基类类型以及蓝图类的基类。
 
 ![Untitled](Untitled.png)
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。
 
 ## 原理：
 

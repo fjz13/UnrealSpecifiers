@@ -4,7 +4,7 @@ id: "meta.DisallowedClasses"
 kind: "meta"
 symbol: "DisallowedClasses"
 category: "TypePicker"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -26,6 +26,9 @@ usage: "UPROPERTY"
 
 - 类选择器的应用属性是：TSubClassOf，UClass*，FSoftClassPath。不能应用的属性是：UScriptStruct*
 - 对象选择器的应用属性是：FComponentReference。会发现相比AllowedClasses少了“UObject*， FSoftObjectPath，FPrimaryAssetId”，这是因为这3个对应的UI是SAssetPicker，而这个里面并没有应用FARFilter.RecursiveClassPathsExclusionSet来进行排除。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。
 
 ## 测试代码：
 

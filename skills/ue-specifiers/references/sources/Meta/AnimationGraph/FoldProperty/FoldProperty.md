@@ -4,7 +4,7 @@ id: "meta.FoldProperty"
 kind: "meta"
 symbol: "FoldProperty"
 category: "AnimationGraph"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -30,6 +30,9 @@ usage: "UPROPERTY"
 在FAnimNodeData* FAnimNode_Base::NodeData里存储着该动画节点的所有实例所用到的“Constant/Fold”属性信息。该动画蓝图在游戏里可能有多个实例，在这些实例之间都只存一份动画节点的常量信息，也只存一份FoldProperty的信息。因此用FoldProperty标记的属性的真实数据是存在TArray<FAnimNodeData> UAnimBlueprintGeneratedClass::AnimNodeData中的。存在Class中，其实就是类似CDO的意思了。这么做的显然好处之一是节省内存。
 
 自然的，不同的存储方式，自然要采用不同的访问方式。因此这些FoldProperty都是采用GET_ANIM_NODE_DATA来访问该数据。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。
 
 ## 测试代码：
 

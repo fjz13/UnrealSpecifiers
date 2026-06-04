@@ -4,7 +4,7 @@ id: "meta.GetAllowedClasses"
 kind: "meta"
 symbol: "GetAllowedClasses"
 category: "TypePicker"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -26,6 +26,9 @@ Code: TArray<UClass*> FuncName() const;
 AllowedClass是用直接指定类名字字符串的方式来限定基类。而GetAllowedClasses就更近一步，允许通过一个函数来返回筛选的基类。动态和自定义的灵活性就更高了。
 
 当然GetAllowedClasses不如AllowedClass支持那么多属性类型，只支持：TSubClassOf，UClass*，UObject*，FSoftObjectPath
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。
 
 ## 测试代码：
 

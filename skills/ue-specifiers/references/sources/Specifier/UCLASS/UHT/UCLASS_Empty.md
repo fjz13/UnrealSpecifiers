@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "UCLASS()"
 scope: "UCLASS"
 category: "UHT"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -19,7 +19,7 @@ usage: "UCLASS / UHT"
 
 - **引擎模块：** UHT
 - **元数据类型：** bool
-- **作用机制：** 在ClassFlags中增加[CLASS_MatchedSerializers](../../../Flags/EClassFlags/CLASS_MatchedSerializers.md), [CLASS_Native](../../../Flags/EClassFlags/CLASS_Native.md), [CLASS_RequiredAPI](../../../Flags/EClassFlags/CLASS_RequiredAPI.md), [CLASS_TokenStreamAssembled](../../../Flags/EClassFlags/CLASS_TokenStreamAssembled.md), [CLASS_Intrinsic](../../../Flags/EClassFlags/CLASS_Intrinsic.md), [CLASS_Constructed](../../../Flags/EClassFlags/CLASS_Constructed.md)
+- **作用机制：** 在ClassFlags中增加CLASS_MatchedSerializers, CLASS_Native, CLASS_RequiredAPI, CLASS_TokenStreamAssembled, CLASS_Intrinsic, CLASS_Constructed
 - **关联项：** [Without_UCLASS](Without_UCLASS.md)
 - **常用程度：★★★★★**
 
@@ -50,3 +50,6 @@ public:
 ```
 
 默认的拥有这些标志：CLASS_MatchedSerializers | CLASS_Native | CLASS_RequiredAPI | CLASS_TokenStreamAssembled | CLASS_Intrinsic | CLASS_Constructed
+## UE5.8 审计结论
+
+UE5.8 UHT 或宏路径仍保留该条目；本轮按 UE5.8 标记为已验证。P3 中不少条目属于引擎内部、NoExportTypes 或插件专用用法，不建议普通项目代码直接套用。

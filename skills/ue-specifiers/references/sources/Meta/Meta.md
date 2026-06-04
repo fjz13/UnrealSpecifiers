@@ -3,11 +3,11 @@ title: "Meta = (元数据)"
 id: "meta.Meta = (元数据)"
 kind: "meta"
 symbol: "Meta = (元数据)"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
-summary: "Meta = (元数据)"
+summary: "UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。该条目多属于插件、编辑器或内部工作流，使用前应先确认目标模块是否启用"
 usage: "meta=(...)"
 ---
 
@@ -494,3 +494,6 @@ usage: "meta=(...)"
 | [EntryClass](Widget/EntryClass.md)                           | Widget | 限定EntryWidgetClass属性上可选类必须继承自的基类，用在DynamicEntryBox和ListView这两个Widget上。 | ★★★      |
 | [BindWidgetAnim](Widget/BindWidgetAnim/BindWidgetAnim.md)    | Widget   | 指定在C++类中该UWidgetAnimation属性一定要绑定到UMG下的某个动画 | ★★★★★    |
 | [BindWidgetAnimOptional](Widget/BindWidgetAnimOptional/BindWidgetAnimOptional.md) | Widget   | 指定在C++类中该UWidgetAnimation属性可以要绑定到UMG下的某个动画，也可以不绑定。 | ★★★      |
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。该条目多属于插件、编辑器或内部工作流，使用前应先确认目标模块是否启用。

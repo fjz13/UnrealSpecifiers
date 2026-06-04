@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "CustomThunk"
 scope: "UFUNCTION"
 category: "UHT"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -26,6 +26,9 @@ usage: "UFUNCTION / UHT"
 这里Thunk的意思就是类似execFoo的函数，需要用户自己定义。
 
 CustomThunk一般是用于配合函数参数不定的情况，如各种通配符，或者需要自己更细致的自定义的逻辑处理。
+## UE5.8 审计结论
+
+UE5.8 UHT 或宏路径仍保留该条目；本轮按 UE5.8 标记为已验证。P3 中不少条目属于引擎内部、NoExportTypes 或插件专用用法，不建议普通项目代码直接套用。
 
 ## 测试代码；
 

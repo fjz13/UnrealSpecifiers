@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "ConfigDoNotCheckDefaults"
 scope: "UCLASS"
 category: "Config"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -18,7 +18,7 @@ usage: "UCLASS / Config"
 - **功能描述：**  指定在保存配置值的时候忽略上一级的配置值的一致性检查。
 - **引擎模块：** Config
 - **元数据类型：** bool
-- **作用机制：** 在ClassFlags中增加[CLASS_ConfigDoNotCheckDefaults](../../../Flags/EClassFlags/CLASS_ConfigDoNotCheckDefaults.md)
+- **作用机制：** 在ClassFlags中增加CLASS_ConfigDoNotCheckDefaults
 - **关联项：** [Config](Config.md)
 - **常用程度：★**
 
@@ -106,3 +106,20 @@ else
 	Config->RemoveKey( *Section, *Key, PropFileName );
 }
 ```
+
+## 行为
+
+UE5.8 UHT 写入 `CLASS_ConfigDoNotCheckDefaults`，用于 config 默认值检查例外。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtClassSpecifiers.cs` class specifier branch
+  - UE5.8 `UhtClass.cs` class flag/metadata resolution and validation
+- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
+
+## 常见误用
+
+把 class specifier 的 metadata/flag 结果和 property/function specifier 混淆；或忽略继承/撤销类 specifier 的相互作用。

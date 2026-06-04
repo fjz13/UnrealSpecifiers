@@ -4,7 +4,7 @@ id: "meta.LoadBehavior"
 kind: "meta"
 symbol: "LoadBehavior"
 category: "Object"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -31,6 +31,9 @@ usage: "UCLASS"
 - LoadBehavior一般标记在资产类型的类上。源码里标记的类有：DataAsset,DataTable,CurveTable,SoundCue,SoundWave,DialogueWave,AnimMontage。因此假如你自己自定义了资产类，也包含了许多数据，就可以用LazyOnDemand来优化在编辑器下的加载速度。
 - 要测试LoadBehavior，要打开引擎的的LazyLoadImports功能，默认情况下是关闭的。打开的方式可在DefaultEngine.ini下增加Core.System.Experimental节下LazyLoadImports=True的设置。源码可参考IsImportLazyLoadEnabled这个方法。
 - 在测试的时候，要小心如果是双击打开DataAsset资产，因为在属性细节面板里要展示属性的值，在属性上会调用GetObjectPropertyValue_InContainer，因此会触发ObjectHandleResolve，导致TObjectPtr的Resolve。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。该条目多属于插件、编辑器或内部工作流，使用前应先确认目标模块是否启用。
 
 ## 测试代码：
 

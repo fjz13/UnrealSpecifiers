@@ -4,7 +4,7 @@ id: "meta.Comment"
 kind: "meta"
 symbol: "Comment"
 category: "Development"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -23,6 +23,9 @@ usage: "Any"
 Comment跟ToolTip不同，后者是用户鼠标悬停上的提示，前者只是简单的代码中的注释的记录。但是一般我们在代码里写上的注释，会自动也加到ToolTip 上，因此我们往往也会看到UI界面上的提示。
 
 但如果不想要ToolTip，想只有Comment，则也可以自己手动在meta里添加。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。
 
 ## 测试代码：
 

@@ -4,7 +4,7 @@ id: "meta.ContentDir"
 kind: "meta"
 symbol: "ContentDir"
 category: "Path"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -27,6 +27,9 @@ usage: "UPROPERTY"
 默认情况下，选择一个目录，会弹出windows默认的选择目录对话框，因为FDirectoryPath 你确实可以用来选择到windows系统里任意的目录（可能你的项目就是这么需求的）。但如果你确实就是想要选择一个UE Content下目录，这个时候你指定ContentDir，UE就可以为你弹出一个专门的UE选择目录对话框，更加的便利也避免出错。
 
 在使用FDirectoryPath的时候，ContentDir和LongPackageName是等价的。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。该条目多属于插件、编辑器或内部工作流，使用前应先确认目标模块是否启用。
 
 ## 测试代码：
 

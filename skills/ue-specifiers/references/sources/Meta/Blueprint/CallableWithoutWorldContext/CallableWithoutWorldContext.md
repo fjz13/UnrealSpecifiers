@@ -4,7 +4,7 @@ id: "meta.CallableWithoutWorldContext"
 kind: "meta"
 symbol: "CallableWithoutWorldContext"
 category: "Blueprint"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -51,3 +51,20 @@ class INSIDER_API UMyObject_NoGetWorld :public UObject
 UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject", CallableWithoutWorldContext, Keywords = "log print", AdvancedDisplay = "2", DevelopmentOnly), Category="Development")
 static ENGINE_API void PrintString(const UObject* WorldContextObject, const FString& InString = FString(TEXT("Hello")), bool bPrintToScreen = true, bool bPrintToLog = true, FLinearColor TextColor = FLinearColor(0.0f, 0.66f, 1.0f), float Duration = 2.f, const FName Key = NAME_None);
 ```
+
+## 行为
+
+UE5.8 function metadata；有 world context 但允许无 GetWorld 上下文调用的例外。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `ObjectMacros.h` metadata declaration/comment
+  - UE5.8 `BlueprintGraph` metadata constants or node usage
+- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
+
+## 常见误用
+
+参数名、属性名或目标宏写错导致 metadata 被保留但没有对应编辑器/Blueprint 行为。

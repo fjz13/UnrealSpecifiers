@@ -4,7 +4,7 @@ id: "meta.OptionalWidget"
 kind: "meta"
 symbol: "OptionalWidget"
 category: "Widget"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -25,3 +25,6 @@ usage: "UPROPERTY"
 必须配合BindWidget使用。
 
 BindWidget+OptionalWidget=BindWidgetOptional
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。

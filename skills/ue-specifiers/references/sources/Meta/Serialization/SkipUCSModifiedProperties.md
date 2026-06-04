@@ -4,7 +4,7 @@ id: "meta.SkipUCSModifiedProperties"
 kind: "meta"
 symbol: "SkipUCSModifiedProperties"
 category: "Serialization"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -26,6 +26,9 @@ usage: "UPROPERTY"
 允许ActorComponent里的属性在Actor构造函数里被修改后依然保存下来。
 
 默认情况下，这些属性是不会被序列化保存下来的。猜测可能是官方认为这些属性反正会在Actor的构造函数里再次被赋值，所以就没必要序列化保存了。但是在一些情况下，比如这个构造函数只运行一次，或者这个Actor是被动态创建出来的带有一组件内的属性（如PCG），这个时候我们希望该Component下属性可以被序列化保存起来。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。该条目多属于插件、编辑器或内部工作流，使用前应先确认目标模块是否启用。
 
 ## 测试代码：
 

@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "BlueprintInternalUseOnly"
 scope: "UFUNCTION"
 category: "UHT"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -111,6 +111,9 @@ private:
 假如注释掉上述源码的BlueprintInternalUseOnly ，会发现在蓝图里可以有两个DelayLoop。上面的一个是按UBlueprintAsyncActionBase规则生成的，第二个是按普通的蓝图函数规则生成的。明显这种情况下我们并不想同时出现两个来给用户造成困惑。因此要加上BlueprintInternalUseOnly 来阻止生成默认的蓝图节点。
 
 ![Untitled](Untitled%201.png)
+## UE5.8 审计结论
+
+UE5.8 UHT 或宏路径仍保留该条目；本轮按 UE5.8 标记为已验证。P3 中不少条目属于引擎内部、NoExportTypes 或插件专用用法，不建议普通项目代码直接套用。
 
 ## 原理：
 

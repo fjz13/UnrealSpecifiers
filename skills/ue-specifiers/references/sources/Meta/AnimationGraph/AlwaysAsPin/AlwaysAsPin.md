@@ -4,7 +4,7 @@ id: "meta.AlwaysAsPin"
 kind: "meta"
 symbol: "AlwaysAsPin"
 category: "AnimationGraph"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -23,6 +23,9 @@ usage: "UPROPERTY"
 - **常用程度：** ★★★
 
 和PinShownByDefault的区别是前者会导致只能一直显示为引脚。而PinShownByDefault默认显示为引脚，当也之后也可以改变。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。
 
 ## 测试代码：
 

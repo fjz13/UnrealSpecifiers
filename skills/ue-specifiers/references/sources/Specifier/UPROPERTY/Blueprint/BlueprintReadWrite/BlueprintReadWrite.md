@@ -19,7 +19,7 @@ usage: "UPROPERTY / Blueprint"
 
 - **元数据类型：** bool
 - **引擎模块：** Blueprint
-- **作用机制：** 在PropertyFlags中加入[CPF_BlueprintVisible](../../../../Flags/EPropertyFlags/CPF_BlueprintVisible.md)
+- **作用机制：** 在PropertyFlags中加入CPF_BlueprintVisible
 - **常用程度：** ★★★★★
 
 可从蓝图读取或写入此属性。

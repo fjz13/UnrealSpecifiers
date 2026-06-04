@@ -4,7 +4,7 @@ id: "meta.ValidateWidgetUsing"
 kind: "meta"
 symbol: "ValidateWidgetUsing"
 category: "Scene"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -26,6 +26,9 @@ ValidateWidgetUsing提供一个函数来验证当前属性值是否合法。
 
 - 当前属性要有MakeEditWidget的标记
 - 函数的原型是FString MyFunc()，返回非空表示错误信息。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。该条目多属于插件、编辑器或内部工作流，使用前应先确认目标模块是否启用。
 
 ## 测试代码：
 

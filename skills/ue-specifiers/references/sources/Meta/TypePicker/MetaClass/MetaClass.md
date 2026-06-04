@@ -4,7 +4,7 @@ id: "meta.MetaClass"
 kind: "meta"
 symbol: "MetaClass"
 category: "TypePicker"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -26,6 +26,9 @@ usage: "UPROPERTY"
 软引用属性指的是FSoftClassPath和FSoftObjectPath，这类属性本身并没有像TSubClassOf一样本身的类型限制，因此可以额外的加MetaClass来限制要选择的对象的所属于的基类。
 
 MetaClass里的值也可以是"/Script/Engine.Actor”这种ObjectPath。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。
 
 ## 测试代码：
 

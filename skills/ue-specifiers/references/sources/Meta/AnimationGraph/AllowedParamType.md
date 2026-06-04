@@ -4,7 +4,7 @@ id: "meta.AllowedParamType"
 kind: "meta"
 symbol: "AllowedParamType"
 category: "AnimationGraph"
-source_status: "imported_from_unreal_specifiers"
+source_status: "changed_in_version"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -29,3 +29,6 @@ void SetParameterInScope(UPARAM(meta = (CustomWidget = "ParamName", AllowedParam
 ```
 
 查了一下，只在AnimNext中用到。
+## UE5.8 审计结论
+
+在本机 UE5.8 安装源码中未检索到 `AllowedParamType`，当前原始条目只引用 AnimNext 示例。本轮按 `changed_in_version` 记录，不把它路由为已确认可用的 UE5.8 metadata。

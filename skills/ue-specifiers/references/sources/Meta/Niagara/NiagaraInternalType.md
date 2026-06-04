@@ -4,7 +4,7 @@ id: "meta.NiagaraInternalType"
 kind: "meta"
 symbol: "NiagaraInternalType"
 category: "Niagara"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -23,6 +23,9 @@ usage: "USTRUCT"
 指定该结构的类型为Niagara的内部类型。
 
 用来和用户自定义的类型区分。用户不需要自己使用该元数据。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。该条目多属于插件、编辑器或内部工作流，使用前应先确认目标模块是否启用。
 
 ## 源码例子：
 

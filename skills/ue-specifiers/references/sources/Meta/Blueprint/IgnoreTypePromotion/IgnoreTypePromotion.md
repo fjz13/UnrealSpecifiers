@@ -4,7 +4,7 @@ id: "meta.IgnoreTypePromotion"
 kind: "meta"
 symbol: "IgnoreTypePromotion"
 category: "Blueprint"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -169,3 +169,20 @@ FTypePromotion收集的OperatorTable里面内容：
 一个函数如果IsPromotableFunction，在调用的时候就会用UK2Node_PromotableOperator来作为蓝图节点（默认是UK2Node_CallFunction），UK2Node_PromotableOperator是典型的用于Wildcard泛型的二元运算符。如下图的Add(+)。在这种Add 的引脚上右键可以弹出Pin的类型转换从Wildcard到特定的类型，因为该结构有定义Add_XXX的函数，并且没有IgnoreTypePromotion，因此就被包含进了TypePromotion的映射表里。
 
 上面的这个Pin转换菜单就是在UK2Node_PromotableOperator::CreateConversionMenu里收集的。
+
+## 行为
+
+UE5.8 function metadata；BlueprintGraph 忽略该函数的 type promotion。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `ObjectMacros.h` metadata declaration/comment
+  - UE5.8 `BlueprintGraph` metadata constants or node usage
+- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
+
+## 常见误用
+
+参数名、属性名或目标宏写错导致 metadata 被保留但没有对应编辑器/Blueprint 行为。

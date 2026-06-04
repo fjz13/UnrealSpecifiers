@@ -4,7 +4,7 @@ id: "meta.AllowedClasses"
 kind: "meta"
 symbol: "AllowedClasses"
 category: "TypePicker"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -28,6 +28,9 @@ usage: "UPROPERTY"
 - 对象选择器的应用属性是：UObject*， FSoftObjectPath，FPrimaryAssetId，FComponentReference
 - 这些选择器往往会显示出一大串对象资源来供选择，因此就可以用AllowedClasses来限定其必须属于的类型。
 - AllowedClasses里可以用逗号隔开多个类型，因此可以同时支持多个类型筛选。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。
 
 ## 测试代码：
 

@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "Blueprintable"
 scope: "UINTERFACE"
 category: "Blueprint"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -68,3 +68,20 @@ public:
 在蓝图中测试，发现UMyInterface_NotBlueprintable并不能找到。
 
 ![Untitled](Untitled.png)
+
+## 行为
+
+UE5.8 UHT 的默认 `Blueprintable` specifier 写入 `IsBlueprintBase=true` 和 `BlueprintType=true` metadata。用于 UINTERFACE 时表示接口可被 Blueprint 实现。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtDefaultSpecifiers.cs` `BlueprintableSpecifier` writes `IsBlueprintBase` and `BlueprintType` metadata
+  - 本地样例辅助对照：`D:/github/GitWorkspace/Hello/Source/Insider/Interface/MyInterface_Test.h`。
+- 批次记录：`references/audits/ue5.8-p1-macro-param-struct-enum-pass.md`。
+
+## 常见误用
+
+以为只写在 `IInterface` C++ 类上会生效；应写在 `UINTERFACE(...)` 宏所在的 U 类上。

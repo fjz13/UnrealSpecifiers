@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "ref"
 scope: "UPARAM"
 category: "Blueprint"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -19,7 +19,7 @@ usage: "UPARAM / Blueprint"
 
 - **元数据类型：** bool
 - **引擎模块：** Blueprint, Parameter
-- **作用机制：** 在PropertyFlags中加入[CPF_ReferenceParm](../../../../Flags/EPropertyFlags/CPF_ReferenceParm.md)
+- **作用机制：** 在PropertyFlags中加入CPF_ReferenceParm
 - **常用程度：★★★★★**
 
 普通参数和引用参数的区别是，在获取参数的时候，Ref类型会直接获得实参的引用，而不是拷贝。这样就可以避免拷贝，保存修改。
@@ -58,3 +58,20 @@ ref参数在UHT生成时会用P_GET_PROPERTY_REF来获得
 	PropertyType::TCppType ParamName##Temp = PropertyType::GetDefaultPropertyValue();			\
 	PropertyType::TCppType& ParamName = Stack.StepCompiledInRef<PropertyType, PropertyType::TCppType>(&ParamName##Temp);
 ```
+
+## 行为
+
+UE5.8 UHT 的 property argument specifier 分支为 `ref` 写入 `CPF_OutParm | CPF_ReferenceParm`。它用于把 Blueprint 参数按引用 pin 处理。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtPropertyArgumentSpecifiers.cs` `RefSpecifier` writes `CPF_OutParm | CPF_ReferenceParm`
+  - 本地样例辅助对照：`D:/github/GitWorkspace/Hello/Source/Insider/Function/Param/MyFunction_TestParam.h`。
+- 批次记录：`references/audits/ue5.8-p1-macro-param-struct-enum-pass.md`。
+
+## 常见误用
+
+只写 C++ `&` 却期待 Blueprint 输入引用语义；或把 `ref` 当成 const input reference。

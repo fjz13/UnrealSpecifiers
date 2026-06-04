@@ -1,0 +1,171 @@
+# UE5.8 P1 Complete Pass - 2026-06-05
+
+Scope: finish all remaining P1 audit-pending rows after the macro/param/struct/enum P1 pass.
+
+Result:
+
+- Processed P1 rows: 144
+- `verified_UE5.8`: 144
+- `removed_or_deprecated`: 0
+- Remaining P1 pending rows expected after this pass: 0
+
+Evidence checked:
+
+- UE5.8 `Programs/Shared/EpicGames.UHT/Specifiers/UhtClassSpecifiers.cs` for UCLASS specifier flag/metadata writes.
+- UE5.8 `Programs/Shared/EpicGames.UHT/Parsers` and `Utils/UhtTables.cs` for macro overview route pages.
+- UE5.8 `Runtime/CoreUObject/Public/UObject/ObjectMacros.h` for class/property/function/interface metadata declarations and comments.
+- UE5.8 `Editor/BlueprintGraph` for Blueprint metadata constants and K2 node behavior.
+- UE5.8 `Editor/PropertyEditor`, `Developer/SettingsEditor`, and settings/detail customizations for Details/Config/Numeric metadata usage.
+
+Important caveats:
+
+- `UCLASS.MatchedSerializers` is verified as present, but UE5.8 UHT restricts it to `NoExportTypes.h`; do not recommend it for ordinary project classes.
+- Macro overview pages such as `UCLASS(标识符)` and `UPROPERTY(标识符)` are route/index documents, not real standalone specifiers.
+- Some metadata keys are editor- or subsystem-specific; `verified_UE5.8` here means the UE5.8 source retains the key and its consuming path, not that every editor UI combination was manually clicked.
+
+Updated items:
+
+- `UCLASS.Abstract` -> `verified_UE5.8`
+- `UCLASS.AdvancedClassDisplay` -> `verified_UE5.8`
+- `UCLASS.AutoCollapseCategories` -> `verified_UE5.8`
+- `UCLASS.AutoExpandCategories` -> `verified_UE5.8`
+- `UCLASS.BlueprintType` -> `verified_UE5.8`
+- `UCLASS.Blueprintable` -> `verified_UE5.8`
+- `UCLASS.ClassGroup` -> `verified_UE5.8`
+- `UCLASS.CollapseCategories` -> `verified_UE5.8`
+- `UCLASS.ComponentWrapperClass` -> `verified_UE5.8`
+- `UCLASS.Config` -> `verified_UE5.8`
+- `UCLASS.ConfigDoNotCheckDefaults` -> `verified_UE5.8`
+- `UCLASS.Const` -> `verified_UE5.8`
+- `UCLASS.ConversionRoot` -> `verified_UE5.8`
+- `UCLASS.DefaultConfig` -> `verified_UE5.8`
+- `UCLASS.DefaultToInstanced` -> `verified_UE5.8`
+- `UCLASS.DontAutoCollapseCategories` -> `verified_UE5.8`
+- `UCLASS.DontCollapseCategories` -> `verified_UE5.8`
+- `UCLASS.EditorConfig` -> `verified_UE5.8`
+- `UCLASS.GlobalUserConfig` -> `verified_UE5.8`
+- `UCLASS.HideCategories` -> `verified_UE5.8`
+- `UCLASS.HideDropDown` -> `verified_UE5.8`
+- `UCLASS.HideFunctions` -> `verified_UE5.8`
+- `UCLASS.MatchedSerializers` -> `verified_UE5.8`
+- `UCLASS.NeedsDeferredDependencyLoading` -> `verified_UE5.8`
+- `UCLASS.NonTransient` -> `verified_UE5.8`
+- `UCLASS.NotBlueprintType` -> `verified_UE5.8`
+- `UCLASS.NotBlueprintable` -> `verified_UE5.8`
+- `UCLASS.NotEditInlineNew` -> `verified_UE5.8`
+- `UCLASS.NotPlaceable` -> `verified_UE5.8`
+- `UCLASS.Optional` -> `verified_UE5.8`
+- `UCLASS.PerObjectConfig` -> `verified_UE5.8`
+- `UCLASS.Placeable` -> `verified_UE5.8`
+- `UCLASS.PrioritizeCategories` -> `verified_UE5.8`
+- `UCLASS.ProjectUserConfig` -> `verified_UE5.8`
+- `UCLASS.ShowCategories` -> `verified_UE5.8`
+- `UCLASS.ShowFunctions` -> `verified_UE5.8`
+- `UCLASS.SparseClassDataType` -> `verified_UE5.8`
+- `UCLASS.Transient` -> `verified_UE5.8`
+- `UCLASS.UCLASS(标识符)` -> `verified_UE5.8`
+- `UCLASS.Within` -> `verified_UE5.8`
+- `UPROPERTY.UPROPERTY(标识符)` -> `verified_UE5.8`
+- `meta.AdvancedClassDisplay` -> `verified_UE5.8`
+- `meta.AllowEditInlineCustomization` -> `verified_UE5.8`
+- `meta.AllowPreserveRatio` -> `verified_UE5.8`
+- `meta.ArrayClamp` -> `verified_UE5.8`
+- `meta.ArrayParm` -> `verified_UE5.8`
+- `meta.ArrayTypeDependentParams` -> `verified_UE5.8`
+- `meta.AutoCollapseCategories` -> `verified_UE5.8`
+- `meta.AutoExpandCategories` -> `verified_UE5.8`
+- `meta.Blueprint.Keywords` -> `verified_UE5.8`
+- `meta.BlueprintAutocast` -> `verified_UE5.8`
+- `meta.BlueprintGetter` -> `verified_UE5.8`
+- `meta.BlueprintPrivate` -> `verified_UE5.8`
+- `meta.BlueprintProtected` -> `verified_UE5.8`
+- `meta.BlueprintSetter` -> `verified_UE5.8`
+- `meta.BlueprintThreadSafe` -> `verified_UE5.8`
+- `meta.BlueprintType` -> `verified_UE5.8`
+- `meta.CPP_Default_XXX` -> `verified_UE5.8`
+- `meta.CallInEditor` -> `verified_UE5.8`
+- `meta.CallableWithoutWorldContext` -> `verified_UE5.8`
+- `meta.CannotImplementInterfaceInBlueprint` -> `verified_UE5.8`
+- `meta.Category` -> `verified_UE5.8`
+- `meta.ClassGroupNames` -> `verified_UE5.8`
+- `meta.ColorGradingMode` -> `verified_UE5.8`
+- `meta.CommutativeAssociativeBinaryOperator` -> `verified_UE5.8`
+- `meta.CompactNodeTitle` -> `verified_UE5.8`
+- `meta.ConfigHierarchyEditable` -> `verified_UE5.8`
+- `meta.ConfigRestartRequired` -> `verified_UE5.8`
+- `meta.ConsoleVariable` -> `verified_UE5.8`
+- `meta.CtrlMultiplier` -> `verified_UE5.8`
+- `meta.CustomStructureParam` -> `verified_UE5.8`
+- `meta.DataTablePin` -> `verified_UE5.8`
+- `meta.Delta` -> `verified_UE5.8`
+- `meta.DeterminesOutputType` -> `verified_UE5.8`
+- `meta.DisableSplitPin` -> `verified_UE5.8`
+- `meta.DisplayAfter` -> `verified_UE5.8`
+- `meta.DisplayPriority` -> `verified_UE5.8`
+- `meta.DontUseGenericSpawnObject` -> `verified_UE5.8`
+- `meta.DynamicOutputParam` -> `verified_UE5.8`
+- `meta.EditInline` -> `verified_UE5.8`
+- `meta.EditorConfig` -> `verified_UE5.8`
+- `meta.ExpandBoolAsExecs` -> `verified_UE5.8`
+- `meta.ExposeOnSpawn` -> `verified_UE5.8`
+- `meta.ExposedAsyncProxy` -> `verified_UE5.8`
+- `meta.ForceAsFunction` -> `verified_UE5.8`
+- `meta.ForceInlineRow` -> `verified_UE5.8`
+- `meta.ForceUnits` -> `verified_UE5.8`
+- `meta.GetByRef` -> `verified_UE5.8`
+- `meta.HasDedicatedAsyncNode` -> `verified_UE5.8`
+- `meta.HideAlphaChannel` -> `verified_UE5.8`
+- `meta.HideBehind` -> `verified_UE5.8`
+- `meta.HideCategories` -> `verified_UE5.8`
+- `meta.HideEditConditionToggle` -> `verified_UE5.8`
+- `meta.HideFunctions` -> `verified_UE5.8`
+- `meta.HideInDetailPanel` -> `verified_UE5.8`
+- `meta.HideSelfPin` -> `verified_UE5.8`
+- `meta.HideSpawnParms` -> `verified_UE5.8`
+- `meta.HideThen` -> `verified_UE5.8`
+- `meta.IgnoreCategoryKeywordsInSubclasses` -> `verified_UE5.8`
+- `meta.IgnoreTypePromotion` -> `verified_UE5.8`
+- `meta.InlineColorPicker` -> `verified_UE5.8`
+- `meta.IsBlueprintBase` -> `verified_UE5.8`
+- `meta.IsConversionRoot` -> `verified_UE5.8`
+- `meta.KismetHideOverrides` -> `verified_UE5.8`
+- `meta.Latent` -> `verified_UE5.8`
+- `meta.LatentCallbackTarget` -> `verified_UE5.8`
+- `meta.LatentInfo` -> `verified_UE5.8`
+- `meta.LinearDeltaSensitivity` -> `verified_UE5.8`
+- `meta.MapKeyParam` -> `verified_UE5.8`
+- `meta.MapParam` -> `verified_UE5.8`
+- `meta.MapValueParam` -> `verified_UE5.8`
+- `meta.MaxPropertyDepth` -> `verified_UE5.8`
+- `meta.Multiple` -> `verified_UE5.8`
+- `meta.NativeBreakFunc` -> `verified_UE5.8`
+- `meta.NativeConst` -> `verified_UE5.8`
+- `meta.NativeMakeFunc` -> `verified_UE5.8`
+- `meta.NeedsLatentFixup` -> `verified_UE5.8`
+- `meta.NoEditInline` -> `verified_UE5.8`
+- `meta.NoResetToDefault` -> `verified_UE5.8`
+- `meta.NoSpinbox` -> `verified_UE5.8`
+- `meta.NotBlueprintThreadSafe` -> `verified_UE5.8`
+- `meta.NotInputConfigurable` -> `verified_UE5.8`
+- `meta.ObjectSetType` -> `verified_UE5.8`
+- `meta.PrioritizeCategories` -> `verified_UE5.8`
+- `meta.ProhibitedInterfaces` -> `verified_UE5.8`
+- `meta.ReapplyCondition` -> `verified_UE5.8`
+- `meta.RestrictedToClasses` -> `verified_UE5.8`
+- `meta.ReturnDisplayName` -> `verified_UE5.8`
+- `meta.SetParam` -> `verified_UE5.8`
+- `meta.ShiftMultiplier` -> `verified_UE5.8`
+- `meta.ShowCategories` -> `verified_UE5.8`
+- `meta.ShowNormalize` -> `verified_UE5.8`
+- `meta.ShowWorldContextPin` -> `verified_UE5.8`
+- `meta.SliderExponent` -> `verified_UE5.8`
+- `meta.SparseClassDataTypes` -> `verified_UE5.8`
+- `meta.SupportDynamicSliderMaxValue` -> `verified_UE5.8`
+- `meta.SupportDynamicSliderMinValue` -> `verified_UE5.8`
+- `meta.Units` -> `verified_UE5.8`
+- `meta.UnsafeDuringActorConstruction` -> `verified_UE5.8`
+- `meta.UsesHierarchy` -> `verified_UE5.8`
+- `meta.Variadic` -> `verified_UE5.8`
+- `meta.WheelStep` -> `verified_UE5.8`
+- `meta.bShowOnlyWhenTrue` -> `verified_UE5.8`
+- `meta.sRGB` -> `verified_UE5.8`

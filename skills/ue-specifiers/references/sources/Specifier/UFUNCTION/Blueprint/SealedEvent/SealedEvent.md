@@ -19,7 +19,7 @@ usage: "UFUNCTION / Blueprint"
 
 - **元数据类型：** bool
 - **引擎模块：** Behavior
-- **作用机制：** 在FunctionFlags中添加[FUNC_Final](../../../../Flags/EFunctionFlags/FUNC_Final.md)
+- **作用机制：** 在FunctionFlags中添加FUNC_Final
 
 在源码里搜索：发现都是用在网络的函数上
 

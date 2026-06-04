@@ -4,11 +4,11 @@ id: "UCLASS.UCLASS(标识符)"
 kind: "specifier"
 symbol: "UCLASS(标识符)"
 scope: "UCLASS"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
-summary: "UCLASS(标识符)"
+summary: "UE5.8 UHT 通过 UhtClassParser 识别 UCLASS，创建 class 类型并使用 UhtTableNames.Class 的 keyword/specifier table 解析 specifier。该页是 UCLA"
 usage: "UCLASS"
 ---
 
@@ -121,3 +121,20 @@ usage: "UCLASS"
 | [NonTransient](UCLASS/Serialization/NonTransient.md)         | Serialization | 使继承自基类的Transient说明符无效。                          | ★★★      |
 | [Optional](UCLASS/Serialization/Optional/Optional.md)        | Serialization | 标记该类的对象是可选的，在Cooking的时候可以选择是否要忽略保存它们。 | ★        |
 | [MatchedSerializers](UCLASS/Serialization/MatchedSerializers/MatchedSerializers.md) | Serialization | 指定类支持文本结构序列化                                     | 💀        |
+
+## 行为
+
+UE5.8 UHT 通过 `UhtClassParser` 识别 `UCLASS`，创建 class 类型并使用 `UhtTableNames.Class` 的 keyword/specifier table 解析 specifier。该页是 UCLASS 条目索引，不是单个 specifier。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 UHT parser keyword table for the macro
+  - UE5.8 `UhtTables.cs` specifier table registration
+- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
+
+## 常见误用
+
+把总览页当成可填写 specifier；具体行为应跳到 class specifier 或 metadata 条目。

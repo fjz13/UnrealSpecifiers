@@ -4,7 +4,7 @@ id: "meta.ArraySizeEnum"
 kind: "meta"
 symbol: "ArraySizeEnum"
 category: "Container"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -26,6 +26,9 @@ usage: "UPROPERTY"
 - 所谓固定数组，是区别于TArray这种可以动态改变大小的数组，而是平凡的用[size]直接定义的数组。这种固定数组（static array）因为不会增删，因此才有时适合用枚举里的所有值用作下标，达成更高的便利性。
 - 枚举里一般会把最后一个枚举项（一般叫做Max或者Size，count之类）作为数据大小值。
 - 枚举里不想显示的枚举值可以用Hidden隐藏起来，但因为数组下标对应的是枚举项的下标（就是第几个枚举值）而不是枚举项的值，因此会发现数组的实际显示项目比定义的Size要小。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。
 
 ## 测试代码：
 

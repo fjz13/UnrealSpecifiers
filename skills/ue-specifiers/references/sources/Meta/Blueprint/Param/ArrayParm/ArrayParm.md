@@ -4,7 +4,7 @@ id: "meta.ArrayParm"
 kind: "meta"
 symbol: "ArrayParm"
 category: "Blueprint"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -58,3 +58,20 @@ public:
 ![Untitled](Untitled.png)
 
 可以看到，在没有连接具体数组类型的时候，Array是灰色的通配符类型。而连接上不同的数组类型，Array参数引脚就会自动变成相应的类型，这些逻辑是在UK2Node_CallArrayFunction中实现的，有兴趣的去自行翻阅。
+
+## 行为
+
+UE5.8 function metadata；BlueprintGraph 定义为 wildcard array 参数列表，用 Call Array Function 节点处理。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `ObjectMacros.h` metadata declaration/comment
+  - UE5.8 `BlueprintGraph` metadata constants or node usage
+- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
+
+## 常见误用
+
+参数名、属性名或目标宏写错导致 metadata 被保留但没有对应编辑器/Blueprint 行为。

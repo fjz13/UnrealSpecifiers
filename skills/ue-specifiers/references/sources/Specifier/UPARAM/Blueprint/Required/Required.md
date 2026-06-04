@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "Required"
 scope: "UPARAM"
 category: "Blueprint"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -19,7 +19,7 @@ usage: "UPARAM / Blueprint"
 
 - **元数据类型：** bool
 - **引擎模块：** Blueprint, Parameter
-- **作用机制：** 在PropertyFlags中加入[CPF_RequiredParm](../../../../Flags/EPropertyFlags/CPF_RequiredParm.md)
+- **作用机制：** 在PropertyFlags中加入CPF_RequiredParm
 - **常用程度：** ★★
 
 指定函数的参数节点必须连接个变量来提供一个值。
@@ -57,3 +57,20 @@ const bool bIsRequiredParam = Param->HasAnyPropertyFlags(CPF_RequiredParm);
 	// Don't let the user edit the default value if the parameter is required to be explicit.
 	Pin->bDefaultValueIsIgnored |= bIsRequiredParam;
 ```
+
+## 行为
+
+UE5.8 UHT 的 property argument specifier 分支为 `Required` 写入 `CPF_RequiredParm`，用于表达 Blueprint pin 必须提供输入。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtPropertyArgumentSpecifiers.cs` `RequiredSpecifier` writes `CPF_RequiredParm`
+  - 本地样例辅助对照：`D:/github/GitWorkspace/Hello/Source/Insider/Function/Param/MyFunction_TestParam.h`。
+- 批次记录：`references/audits/ue5.8-p1-macro-param-struct-enum-pass.md`。
+
+## 常见误用
+
+以为它会给 C++ 运行时自动做 null/有效性校验；它主要是反射/Blueprint 参数要求。

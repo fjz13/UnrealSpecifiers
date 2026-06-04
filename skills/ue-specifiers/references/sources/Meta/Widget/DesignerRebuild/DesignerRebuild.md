@@ -4,7 +4,7 @@ id: "meta.DesignerRebuild"
 kind: "meta"
 symbol: "DesignerRebuild"
 category: "Widget"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -59,6 +59,9 @@ class UListViewBase : public UWidget
 可以发现在改变bSimpleTextMode的时候，左侧预览界面会一下下的在跳动刷新。而在点击改变别的按钮的时候就没有该效果。
 
 ![DesignerRebuild1](DesignerRebuild1.gif)
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。
 
 ## 测试代码：
 

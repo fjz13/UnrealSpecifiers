@@ -9,8 +9,8 @@
 | `recipes/blueprint-function-node.md` | C++ 函数暴露为 Blueprint 节点 | `BlueprintCallable`, `BlueprintPure`, `Category`, `DisplayName` | `verified_UE5.8` |
 | `recipes/replicated-property.md` | 属性需要网络复制或复制通知 | `Replicated`, `ReplicatedUsing`, `OnRep_` | `verified_UE5.8` |
 | `recipes/savegame-property.md` | 属性需要进入 SaveGame 持久化 | `SaveGame`, `Transient` | `verified_UE5.8` |
-| `recipes/config-property.md` | 属性需要从 ini config 读取 | `Config`, `GlobalConfig`, `UCLASS(Config=...)` | `imported_from_unreal_specifiers` |
+| `recipes/config-property.md` | 属性需要从 ini config 读取 | `Config`, `GlobalConfig`, `UCLASS(Config=...)` | `verified_UE5.8` |
 | `recipes/instanced-subobject.md` | UObject 子对象需要内联实例化编辑 | `Instanced`, `EditInlineNew`, `DefaultToInstanced` | `verified_UE5.8` |
 | `recipes/edit-condition.md` | Details Panel 属性受条件控制 | `EditCondition`, `EditConditionHides`, `InlineEditConditionToggle` | `verified_UE5.8` |
-| `recipes/call-in-editor.md` | 在编辑器 Details Panel 调用函数 | `CallInEditor`, `BlueprintCallable` | `imported_from_unreal_specifiers` |
+| `recipes/call-in-editor.md` | 在编辑器 Details Panel 调用函数 | `CallInEditor`, `BlueprintCallable` | `verified_UE5.8` |
 | `recipes/world-context.md` | Blueprint 函数库需要 World 上下文 | `WorldContext`, `DefaultToSelf`, `HidePin` | `verified_UE5.8` |

@@ -4,7 +4,7 @@ id: "meta.BindWidgetAnim"
 kind: "meta"
 symbol: "BindWidgetAnim"
 category: "Widget"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -28,6 +28,9 @@ usage: "UPROPERTY"
 
 - UWidgetAnimation和Widget不同，Widget的属性和控件只要同名就可以自动绑定起来，而UWidgetAnimation就不允许不加BindWidgetAnim而同名，否则会名字冲突报错。这是由于UMG里创建的Widget默认是不创建BP变量的，子控件只是WidgetTree下的一个对象，但是动画是默认会创建BP变量的。因此即使是UMG里先定义动画，然后C++里再定义同名属性，也是会过不了编译的。
 - UWidgetAnimation属性必须得是Transient，否则也会报错。我想这是因为UWidgetAnimation自然会在BP里作为子对象序列化，而不需要在C++序列的时候访问到该属性，因此强制Transient以免不小心序列化它。另外UWidgetAnimation只是用作表现，因此其实也会自动的加上CPF_RepSkip，跳过网络复制。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。
 
 ## 测试代码：
 

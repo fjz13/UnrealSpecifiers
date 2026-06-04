@@ -19,7 +19,7 @@ usage: "UPROPERTY / Blueprint"
 
 - **元数据类型：** string="abc"
 - **引擎模块：** Blueprint
-- **作用机制：** 在PropertyFlags中加入[CPF_BlueprintReadOnly](../../../../Flags/EPropertyFlags/CPF_BlueprintReadOnly.md)、[CPF_BlueprintVisible](../../../../Flags/EPropertyFlags/CPF_BlueprintVisible.md)，在Meta中加入[BlueprintGetter](../../../../Meta/Blueprint/BlueprintGetter.md)
+- **作用机制：** 在PropertyFlags中加入CPF_BlueprintReadOnly、CPF_BlueprintVisible，在Meta中加入[BlueprintGetter](../../../../Meta/Blueprint/BlueprintGetter.md)
 - **常用程度：** ★★★
 
 为属性定义一个自定义的Get函数来读取。

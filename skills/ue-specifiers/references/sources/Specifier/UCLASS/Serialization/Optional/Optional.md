@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "Optional"
 scope: "UCLASS"
 category: "Serialization"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -18,7 +18,7 @@ usage: "UCLASS / Serialization"
 - **功能描述：** 标记该类的对象是可选的，在Cooking的时候可以选择是否要忽略保存它们。
 
 - **引擎模块：** Serialization
-- **作用机制：** 在ClassFlags中添加[CLASS_Optional](../../../../Flags/EClassFlags/CLASS_Optional.md)
+- **作用机制：** 在ClassFlags中添加CLASS_Optional
 - **常用程度：** ★
 
 标记该类的对象是可选的，在Cooking的时候可以选择是否要忽略保存它们。
@@ -288,3 +288,20 @@ ESavePackageResult HarvestPackage(FSaveContext& SaveContext)
 	}
 }
 ```
+
+## 行为
+
+UE5.8 UHT 写入 `CLASS_Optional`，标记 optional class。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtClassSpecifiers.cs` class specifier branch
+  - UE5.8 `UhtClass.cs` class flag/metadata resolution and validation
+- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
+
+## 常见误用
+
+把低层/引擎内部 class flag 当成常规 gameplay class 设计工具。

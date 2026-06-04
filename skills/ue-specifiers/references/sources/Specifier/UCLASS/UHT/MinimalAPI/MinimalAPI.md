@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "MinimalAPI"
 scope: "UCLASS"
 category: "UHT"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -19,7 +19,7 @@ usage: "UCLASS / UHT"
 
 - **引擎模块：** DllExport
 - **元数据类型：** bool
-- **作用机制：** 在ClassFlags增加[CLASS_MinimalAPI](../../../../Flags/EClassFlags/CLASS_MinimalAPI.md)
+- **作用机制：** 在ClassFlags增加CLASS_MinimalAPI
 - **常用程度：** ★★★
 
 不dll导出该类的函数，只导出类型信息当作变量。
@@ -145,3 +145,6 @@ UMyClass_MinimalAPI_BlueprintFunctionLibary::MyFuncInMinimalAPI();
 
 UMyClass_MinimalAPI_BlueprintFunctionLibary::MyFuncInMinimalAPIWithAPI();
 ```
+## UE5.8 审计结论
+
+UE5.8 UHT 或宏路径仍保留该条目；本轮按 UE5.8 标记为已验证。P3 中不少条目属于引擎内部、NoExportTypes 或插件专用用法，不建议普通项目代码直接套用。

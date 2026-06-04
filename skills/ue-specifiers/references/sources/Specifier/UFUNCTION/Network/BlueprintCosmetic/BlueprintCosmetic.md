@@ -19,7 +19,7 @@ usage: "UFUNCTION / Network"
 
 - **元数据类型：** bool
 - **引擎模块：** Network
-- **作用机制：** 在FunctionFlags中加入[FUNC_BlueprintCosmetic](../../../../Flags/EFunctionFlags/FUNC_BlueprintCosmetic.md)
+- **作用机制：** 在FunctionFlags中加入FUNC_BlueprintCosmetic
 - **常用程度：** ★★★
 
 这个函数是修饰性的，所谓修饰性是指这个函数的内容是为了展现一些与逻辑无关的内容，比如动画音效特效等。因为DS并没有实际的画面输出，因此这些修饰性的函数是对DS无意义的。因此这些修饰性函数会被无视掉。

@@ -4,7 +4,7 @@ id: "meta.UseComponentPicker"
 kind: "meta"
 symbol: "UseComponentPicker"
 category: "Component"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -28,6 +28,9 @@ usage: "UPROPERTY"
 - 因此加上UseComponentPicker后，就可以显示出组件列表来选择。但是又默认限制是当前Actor属下的所有组件，不包括场景里其他Actor里的组件。
 - 如果想要进一步把场景里所有Actor下的所有组件都列出来，则需要进一步加上AllowAnyActor，以扩大筛选范围。
 - ComponentReference的属性类型有两种，FComponentReference和FSoftComponentReference，二者都对应了FComponentReferenceCustomization。测试代码为简洁就没有列出FSoftComponentReference。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。
 
 ## 测试代码：
 

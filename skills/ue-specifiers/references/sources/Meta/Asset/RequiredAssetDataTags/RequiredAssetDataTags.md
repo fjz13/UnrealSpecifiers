@@ -4,7 +4,7 @@ id: "meta.RequiredAssetDataTags"
 kind: "meta"
 symbol: "RequiredAssetDataTags"
 category: "Asset"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -25,6 +25,9 @@ usage: "UPROPERTY"
 在UObject*属性上指定Tags来进行过滤，必须拥有该Tags才可以被选择。
 
 相关联的可参考AssetRegistrySearchable标识符和GetAssetRegistryTags 方法。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。
 
 ## 测试代码：
 

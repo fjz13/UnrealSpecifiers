@@ -4,7 +4,7 @@ id: "meta.CommandLineID"
 kind: "meta"
 symbol: "CommandLineID"
 category: "Sequencer"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -24,6 +24,9 @@ usage: "UCLASS"
 标记UMovieSceneCaptureProtocolBase的子类的协议类型。
 
 用来在Sequcencer渲染导出的时候选择到正确的处理类。一般也就引擎内部使用，除非想自己自定义渲染输出的格式协议类。
+## UE5.8 审计结论
+
+UE5.8 源码中仍能找到该 metadata 的声明、示例或消费路径；本轮按 UE5.8 标记为已验证。该条目多属于插件、编辑器或内部工作流，使用前应先确认目标模块是否启用。
 
 ## 测试效果：
 

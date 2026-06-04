@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "Without_UCLASS"
 scope: "UCLASS"
 category: "UHT"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -34,3 +34,6 @@ class INSIDER_API UMyClass_NoUCLASS :public UObject
 ```
 
 UObject的Class默认的标记是：CLASS_Abstract | CLASS_MatchedSerializers | CLASS_Native | CLASS_TokenStreamAssembled | CLASS_Intrinsic | CLASS_Constructed。因此不能被NewObject生成对象。在手动去掉CLASS_Abstract后可以正常new，但是对象的名称依然是Object，显然这是因为使用的就是Object的Class。
+## UE5.8 审计结论
+
+`Without_UCLASS` 不是 UE 的真实 specifier，而是“未写 `UCLASS()`”的负例说明。UE5.8 仍通过 `UCLASS(...)`/UHT 生成反射类型；未参与 UHT 的普通 C++ 类不会获得自己的反射元数据。本轮按参考页标记为已审计。

@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "CustomFieldNotify"
 scope: "UCLASS"
 category: "UHT"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -19,7 +19,7 @@ usage: "UCLASS / UHT"
 
 - **引擎模块：** UHT
 - **元数据类型：** bool
-- **作用机制：** 在ClassFlags中增加[HasCustomFieldNotify](../../../Flags/EClassFlags/HasCustomFieldNotify.md)
+- **作用机制：** 在ClassFlags中增加HasCustomFieldNotify
 - **常用程度：** 0
 
 阻止UHT为该类生成FieldNotify的相关代码。
@@ -27,6 +27,9 @@ usage: "UCLASS / UHT"
 在源码里只在UWidget上使用，例如该类里面的bIsEnabled是FieldNotify，正常来说UHT要为其生成代码。但如果该类想自己手动书写这些UHT代码，则可以加上CustomFieldNotify来阻止UHT生成。UWidget的cpp里因为要用别的方式UE_FIELD_NOTIFICATION_IMPLEMENT_CLASS_DESCRIPTOR，因此要拒绝UHT生成。
 
 如果自己的类也要自己UE_FIELD_NOTIFICATION_IMPLEMENT_CLASS_DESCRIPTOR，则可以用上CustomFieldNotify。
+## UE5.8 审计结论
+
+UE5.8 UHT 或宏路径仍保留该条目；本轮按 UE5.8 标记为已验证。P3 中不少条目属于引擎内部、NoExportTypes 或插件专用用法，不建议普通项目代码直接套用。
 
 ## 源码例子：
 

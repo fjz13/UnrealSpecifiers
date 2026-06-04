@@ -19,7 +19,7 @@ usage: "UFUNCTION / Blueprint"
 
 - **元数据类型：** bool
 - **引擎模块：** Blueprint
-- **作用机制：** 在FunctionFlags中增加[FUNC_Event](../../../../Flags/EFunctionFlags/FUNC_Event.md)、[FUNC_Native](../../../../Flags/EFunctionFlags/FUNC_Native.md)、[FUNC_BlueprintEvent](../../../../Flags/EFunctionFlags/FUNC_BlueprintEvent.md)
+- **作用机制：** 在FunctionFlags中增加FUNC_Event、FUNC_Native、FUNC_BlueprintEvent
 - **常用程度：** ★★★★★
 
 指定一个函数调用点，可以在蓝图中重载实现。是一种方便的用来实现C++来调用蓝图函数的方式。

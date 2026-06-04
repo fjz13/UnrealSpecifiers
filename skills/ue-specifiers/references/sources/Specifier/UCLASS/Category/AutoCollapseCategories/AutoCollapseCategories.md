@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "AutoCollapseCategories"
 scope: "UCLASS"
 category: "Category"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -38,3 +38,20 @@ public:
 关闭了Group22的展开，但是444的展开依然继承了
 
 ![Untitled](Untitled.png)
+
+## 行为
+
+UE5.8 UHT 把指定分类加入 `AutoCollapseCategories`，并从 `AutoExpandCategories` 移除同名分类。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtClassSpecifiers.cs` class specifier branch
+  - UE5.8 `UhtClass.cs` class flag/metadata resolution and validation
+- 批次记录：`references/audits/ue5.8-p1-complete-pass.md`。
+
+## 常见误用
+
+把 class specifier 的 metadata/flag 结果和 property/function specifier 混淆；或忽略继承/撤销类 specifier 的相互作用。

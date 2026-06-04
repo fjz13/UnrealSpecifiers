@@ -297,12 +297,13 @@ def render_sources_index(records: list[SourceRecord]) -> str:
     return "\n".join(lines).rstrip() + "\n"
 
 
-def write_sources_index(records: list[SourceRecord], dry_run: bool) -> Path:
+def write_sources_index(records: list[SourceRecord], dry_run: bool) -> tuple[Path, bool]:
     target = INDEX_ROOT / "sources.index.md"
     text = render_sources_index(records)
-    if not dry_run:
+    changed = not target.exists() or target.read_text(encoding="utf-8") != text
+    if changed and not dry_run:
         target.write_text(text, encoding="utf-8", newline="\n")
-    return target
+    return target, changed
 
 
 def main() -> int:
@@ -311,8 +312,11 @@ def main() -> int:
     args = parser.parse_args()
 
     records = discover_records()
-    target = write_sources_index(records, args.dry_run)
-    prefix = "would write" if args.dry_run else "wrote"
+    target, changed = write_sources_index(records, args.dry_run)
+    if args.dry_run:
+        prefix = "would write" if changed else "up to date"
+    else:
+        prefix = "wrote" if changed else "unchanged"
     print(f"{prefix}: {posix_rel(target)}")
     print(f"source markdown files: {len(records)}")
     print(f"generated_at: {date.today().isoformat()}")
