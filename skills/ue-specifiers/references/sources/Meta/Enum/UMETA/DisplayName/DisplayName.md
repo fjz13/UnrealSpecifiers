@@ -5,7 +5,7 @@ kind: "meta"
 symbol: "DisplayName"
 scope: "UMETA"
 category: "Enum"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -65,3 +65,20 @@ public:
 可见改变了名称。
 
 ![image](image.png)
+
+## 行为
+
+UE5.8 UHT 同样用 `DisplayName` metadata 支持 enum/UMETA 显示名；生成代码和显示文本查询会读取 metadata。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtDefaultSpecifiers.cs` `DisplayName` metadata writer
+  - UE5.8 enum metadata/codegen display-name path
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+以为它改变枚举值标识符；或依赖显示名做序列化/逻辑比较。

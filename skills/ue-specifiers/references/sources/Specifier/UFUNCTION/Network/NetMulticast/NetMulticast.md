@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "NetMulticast"
 scope: "UFUNCTION"
 category: "Network"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -65,3 +65,21 @@ LogInsider: Display: 29d68700    OtherMulticastFunc  BP_Network_C_1  NM_Client  
 ```
 
 在一个Server Owned的Actor上，发出Multicast RPC事件调用，可以见到在3个端都得到了调用。
+
+## 行为
+
+在 UE5.8 UHT 中写入 `FUNC_Net | FUNC_NetMulticast`。UHT 拒绝与 Blueprint event 组合。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtFunctionSpecifiers.cs` 对应 specifier 分支
+  - UE5.8 `UhtFunction.cs` replicated/event 校验
+  - 本地样例辅助对照：`D:/github/GitWorkspace/Hello/Source/Insider/Function/MyFunction_Network.h`。
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+以为客户端调用 multicast 会广播给所有端；或漏写 `Reliable`/`Unreliable`。

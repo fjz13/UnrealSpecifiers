@@ -4,7 +4,7 @@ id: "meta.AdvancedDisplay"
 kind: "meta"
 symbol: "AdvancedDisplay"
 category: "Blueprint"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -84,3 +84,20 @@ if (_metaData.TryGetValue(UhtNames.AdvancedDisplay, out string? foundString))
 		}
 
 ```
+
+## 行为
+
+UE5.8 UHT 的 function parser 支持两种 `AdvancedDisplay` metadata：数字表示前 N 个参数不折叠，或用逗号列出要折叠的参数名；匹配参数会被标记 `CPF_AdvancedDisplay`。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 UHT metadata validator/parser
+  - UE5.8 BlueprintGraph 或 PropertyEditor metadata 读取路径
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+和 UPROPERTY `AdvancedDisplay` specifier 混为一谈；或参数名拼错导致不生效。

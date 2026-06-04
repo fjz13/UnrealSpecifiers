@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "BlueprintAssignable"
 scope: "UPROPERTY"
 category: "Blueprint"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -49,3 +49,19 @@ UPROPERTY(EditAnywhere, BlueprintReadWrite)
 因此一般建议二者标记都加上：
 
 ![Untitled](Untitled%201.png)
+
+## 行为
+
+在 UE5.8 UHT 中写入 `CPF_BlueprintAssignable`，主要用于让 Blueprint 绑定 multicast delegate 属性。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtPropertyMemberSpecifiers.cs` 对应 specifier 分支
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+用于普通数值属性；或以为它会自动提供调用权限。

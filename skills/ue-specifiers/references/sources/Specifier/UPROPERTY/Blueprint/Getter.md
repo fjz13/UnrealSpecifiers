@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "Getter"
 scope: "UPROPERTY"
 category: "Blueprint"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -122,3 +122,20 @@ void FProperty::GetSingleValue_InContainer(const void* InContainer, void* OutVal
 }
 
 ```
+
+## 行为
+
+在 UE5.8 UHT 中写入 getter export flag，并支持 `None`、`Auto` 或自定义函数名。UHT 要求用于 class member。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtPropertyMemberSpecifiers.cs` 对应 specifier 分支
+  - 本地样例辅助对照：`D:/github/GitWorkspace/Hello/Source/Insider/Property/Blueprint/MyProperty_Get.h`。
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+和 `BlueprintGetter` 混淆；或在 struct member 上使用。

@@ -4,7 +4,7 @@ id: "meta.EditConditionHides"
 kind: "meta"
 symbol: "EditConditionHides"
 category: "DetailsPanel"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -70,3 +70,19 @@ bool FPropertyNode::IsOnlyVisibleWhenEditConditionMet() const
 	return false;
 }
 ```
+
+## 行为
+
+UE5.8 PropertyEditor 在属性带 `EditConditionHides` 时，只有存在有效 `EditCondition` 才把条件失败的 row 隐藏，而不是仅禁用。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `PropertyNode.cpp` `IsOnlyVisibleWhenEditConditionMet`
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+不写 `EditCondition` 只写 `EditConditionHides`；或期待它隐藏整个自定义分类。

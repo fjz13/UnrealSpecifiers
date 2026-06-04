@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "TextExportTransient"
 scope: "UPROPERTY"
 category: "Serialization"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -167,3 +167,20 @@ bool FProperty::ShouldPort( uint32 PortFlags/*=0*/ ) const
 	return true;
 }
 ```
+
+## 行为
+
+在 UE5.8 UHT 中写入 `CPF_TextExportTransient`，用于文本导出/复制文本路径中跳过属性。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtPropertyMemberSpecifiers.cs` 对应 specifier 分支
+  - 本地样例辅助对照：`D:/github/GitWorkspace/Hello/Source/Insider/Property/Serialization/MyProperty_SerializationText.h`。
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+以为它会跳过二进制序列化；二进制路径应看 `Transient`/`SkipSerialization` 等标志。

@@ -4,7 +4,7 @@ id: "meta.HidePin"
 kind: "meta"
 symbol: "HidePin"
 category: "Pin"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -182,3 +182,20 @@ void FBlueprintEditorUtils::GetHiddenPinsForFunction(UEdGraph const* Graph, UFun
 	}
 }
 ```
+
+## 行为
+
+UE5.8 BlueprintGraph 定义并读取 `HidePin` metadata，用于隐藏指定函数 pin。它常和默认值、自填参数或 world-context 设计配合。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 UHT metadata validator/parser
+  - UE5.8 BlueprintGraph 或 PropertyEditor metadata 读取路径
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+隐藏必须由用户手动连接的输入；或参数名拼错后以为节点系统故障。

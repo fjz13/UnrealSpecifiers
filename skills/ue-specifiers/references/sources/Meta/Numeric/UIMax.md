@@ -4,7 +4,7 @@ id: "meta.UIMax"
 kind: "meta"
 symbol: "UIMax"
 category: "Numeric"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -21,3 +21,20 @@ usage: "UPROPERTY"
 - **限制类型：** float,int32
 - **关联项：** [UIMin](UIMin/UIMin.md)
 - **常用程度：** ★★★★★
+
+## 行为
+
+UE5.8 UHT 对 `UIMax` 执行 numeric validator，并在文档策略中检查 `UIMin/UIMax` 范围。它主要是 UI 范围，不等同于 hard clamp。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 UHT metadata validator/parser
+  - UE5.8 BlueprintGraph 或 PropertyEditor metadata 读取路径
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+用 `UIMax` 当作强制最大值；或填非数字字符串。

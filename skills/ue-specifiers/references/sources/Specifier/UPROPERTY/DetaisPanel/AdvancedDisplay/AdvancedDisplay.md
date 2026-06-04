@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "AdvancedDisplay"
 scope: "UPROPERTY"
 category: "DetailsPanel"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -56,3 +56,19 @@ void FPropertyNode::InitNode(const FPropertyNodeInitParams& InitParams)
 
 }
 ```
+
+## 行为
+
+在 UE5.8 UHT 中写入 `CPF_AdvancedDisplay`。属性侧 specifier 是 Details/Blueprint 展示折叠标志，不同于 UFUNCTION 的 `meta=(AdvancedDisplay=...)` 参数规则。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtPropertyMemberSpecifiers.cs` 对应 specifier 分支
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+把 UPROPERTY `AdvancedDisplay` 写成函数参数列表；或以为它改变序列化/访问权限。

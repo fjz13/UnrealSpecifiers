@@ -4,7 +4,7 @@ id: "meta.AllowPrivateAccess"
 kind: "meta"
 symbol: "AllowPrivateAccess"
 category: "Blueprint"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -79,3 +79,19 @@ UHT在识别属性的BlueprintReadWrite或BlueprintReadOnly标识符的时候，
 	}
 
 ```
+
+## 行为
+
+UE5.8 UHT 在 `BlueprintReadWrite`/`BlueprintReadOnly` 检查 private member 时读取 `AllowPrivateAccess`，且值不是 `false` 时允许通过。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtPropertyMemberSpecifiers.cs` private Blueprint exposure 检查
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+把 private 暴露当成默认推荐；或写 `AllowPrivateAccess=false` 后还期待绕过 private 检查。

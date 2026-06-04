@@ -4,7 +4,7 @@ id: "meta.Blueprint.DisplayName"
 kind: "meta"
 symbol: "DisplayName"
 category: "Blueprint"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -27,3 +27,20 @@ usage: "UCLASS, UENUM::UMETA, UFUNCTION, UPARAM, UPROPERTY"
   UPARAM：[DisplayName](../../Specifier/UPARAM/Blueprint/DisplayName/DisplayName.md)
 
 - **常用程度：** ★★★★★
+
+## 行为
+
+UE5.8 UHT 默认 specifier 会把 `DisplayName` 写入 metadata；`GetDisplayNameText` 优先返回该值，否则回退 source name。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtDefaultSpecifiers.cs` `DisplayName` metadata writer
+  - UE5.8 `UhtType.cs` display name lookup
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+以为它改 C++ 符号名；或在需要稳定 API 名称的地方只看显示名。

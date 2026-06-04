@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "NoClear"
 scope: "UPROPERTY"
 category: "DetailsPanel"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -53,3 +53,19 @@ CPF_NoClear在引擎里有挺多使用。
 	const bool bAllowClear = !StructPropertyHandle->GetMetaDataProperty()->HasAnyPropertyFlags(CPF_NoClear);
 
 ```
+
+## 行为
+
+在 UE5.8 UHT 中写入 `CPF_NoClear`，用于 Details Panel 中对象/引用类属性的清空按钮行为。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtPropertyMemberSpecifiers.cs` 对应 specifier 分支
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+以为它阻止 C++ 赋空；或把它当成 GC/ownership 规则。

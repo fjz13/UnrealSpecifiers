@@ -1,16 +1,6 @@
 # Scripts
 
-All scripts use Python standard library only and are read-only by default.
-
-## Query
-
-```powershell
-python skills/ue-specifiers/scripts/query_specifier.py EditAnywhere
-python skills/ue-specifiers/scripts/query_specifier.py --macro UPROPERTY --name EditAnywhere
-python skills/ue-specifiers/scripts/query_specifier.py "蓝图 只读"
-```
-
-Searches `references/indexes`, `references/recipes`, `references/pitfalls`, and `references/conflicts`.
+These scripts maintain the local `ue-specifiers` reference corpus. They use Python standard library only.
 
 ## Audit Manifest
 
@@ -22,36 +12,14 @@ python skills/ue-specifiers/scripts/audit_manifest.py next --priority P0 --limit
 
 Reads `references/audits/audit-manifest.jsonl` and reports status/finding coverage.
 
-## Header Lint
+## Sync Audit Manifest
 
 ```powershell
-python skills/ue-specifiers/scripts/lint_unreal_header.py Source/MyPlugin/Public/MyClass.h
+python skills/ue-specifiers/scripts/sync_audit_manifest.py --dry-run
+python skills/ue-specifiers/scripts/sync_audit_manifest.py
 ```
 
-Checks obvious reflection macro mistakes:
-
-- `Edit*` mixed with `Visible*`
-- `BlueprintReadOnly` mixed with `BlueprintReadWrite`
-- Blueprint-exposed properties missing `Category`
-- `ReplicatedUsing` without matching `OnRep_` declaration
-- suspicious or unindexed `meta` keys
-
-## Learn From Patch
-
-```powershell
-git diff > recent.diff
-python skills/ue-specifiers/scripts/learn_from_patch.py --diff-file recent.diff --project LiveData
-```
-
-Prints a candidate learning note to stdout. It does not write to canonical references.
-
-## Promote Learning
-
-```powershell
-python skills/ue-specifiers/scripts/promote_learning.py references/learning/reviewed/example.md
-```
-
-Prints a read-only promotion preview. It does not edit indexes, recipes, pitfalls, or conflicts.
+Synchronizes `references/audits/audit-manifest.jsonl` from normalized `specifier` and `meta` source documents. Existing verified rows keep their status and evidence path; new rows are added as `audit_pending` with deterministic P0-P3 priorities.
 
 ## Build Index
 
@@ -70,3 +38,7 @@ python skills/ue-specifiers/scripts/normalize_sources.py
 ```
 
 Adds or refreshes source frontmatter, writes `references/audits/source-normalization-status.jsonl`, writes the batch summary, and regenerates `references/indexes/sources.index.md`.
+
+## Removed Legacy Helpers
+
+The old query, header lint, patch-learning, and learning-promotion helpers were removed because they were not wired into the current audit workflow and had stale assumptions about the reference structure. Use `references/indexes/sources.index.md` plus focused source documents for lookup, and record audit progress through `audit-manifest.jsonl`.

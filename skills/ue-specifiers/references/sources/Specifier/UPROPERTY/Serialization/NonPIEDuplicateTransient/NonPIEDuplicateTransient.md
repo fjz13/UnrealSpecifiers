@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "NonPIEDuplicateTransient"
 scope: "UPROPERTY"
 category: "Serialization"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -113,3 +113,20 @@ bool FProperty::ShouldSerializeValue(FArchive& Ar) const
 	}
 }
 ```
+
+## 行为
+
+在 UE5.8 UHT 中写入 `CPF_NonPIEDuplicateTransient`。它用于区分非 PIE duplicate 场景的 transient 行为。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtPropertyMemberSpecifiers.cs` 对应 specifier 分支
+  - 本地样例辅助对照：`D:/github/GitWorkspace/Hello/Source/Insider/Property/Serialization/MyProperty_Serialization.h`。
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+和 `DuplicateTransient` 完全等同；或以为它影响 SaveGame 持久化。

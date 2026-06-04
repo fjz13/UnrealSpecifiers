@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "NonTransactional"
 scope: "UPROPERTY"
 category: "DetailsPanel"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -45,3 +45,19 @@ public:
 在MyInt_Transactional 上可以撤销之前的输入，而MyInt_NonTransactional上的输入无法用Ctrl+Z撤销。
 
 ![Untitled](Untitled.png)
+
+## 行为
+
+在 UE5.8 UHT 中写入 `CPF_NonTransactional`，用于让属性变更不进入编辑器事务/undo 路径。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtPropertyMemberSpecifiers.cs` 对应 specifier 分支
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+把它当成序列化开关；或用于需要撤销记录的编辑器数据。

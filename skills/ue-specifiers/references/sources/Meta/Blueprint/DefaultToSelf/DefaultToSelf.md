@@ -4,7 +4,7 @@ id: "meta.DefaultToSelf"
 kind: "meta"
 symbol: "DefaultToSelf"
 category: "Blueprint"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -103,3 +103,20 @@ UEdGraphPin* FBlueprintNodeStatics::CreateSelfPin(UK2Node* Node, const UFunction
 	return SelfPin;
 }
 ```
+
+## 行为
+
+UE5.8 BlueprintGraph/Compiler 读取 `DefaultToSelf`，把指定输入 pin 在未连接时按 self/world context 路径处理。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 UHT metadata validator/parser
+  - UE5.8 BlueprintGraph 或 PropertyEditor metadata 读取路径
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+参数名写错；或在 self 类型不兼容的静态函数里期待自动连接成功。

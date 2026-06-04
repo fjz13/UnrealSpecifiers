@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "BlueprintSetter"
 scope: "UPROPERTY"
 category: "Blueprint"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -71,3 +71,20 @@ void UK2Node_VariableSet::ExpandNode(class FKismetCompilerContext& CompilerConte
 		}
 }
 ```
+
+## 行为
+
+在 UE5.8 UHT 中写入 `BlueprintSetter` metadata，并把属性标为 `BlueprintVisible`。UHT 拒绝 struct member 使用，并拒绝和 `BlueprintReadOnly` 冲突。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtPropertyMemberSpecifiers.cs` 对应 specifier 分支
+  - 本地样例辅助对照：`D:/github/GitWorkspace/Hello/Source/Insider/Property/Blueprint/MyProperty_Set.h`。
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+setter 名称和函数不匹配；或和 `BlueprintReadOnly` 同时使用。

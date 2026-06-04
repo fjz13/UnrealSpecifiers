@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "BlueprintAuthorityOnly"
 scope: "UPROPERTY"
 category: "Blueprint"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -36,3 +36,19 @@ UPROPERTY(EditAnywhere, BlueprintReadWrite, BlueprintAssignable, BlueprintCallab
 ## 蓝图中表现：
 
 ![Untitled](Untitled.png)
+
+## 行为
+
+在 UE5.8 UHT 中写入 `CPF_BlueprintAuthorityOnly`，用于 Blueprint 暴露属性的 authority-only 语义，常见于 delegate 属性。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtPropertyMemberSpecifiers.cs` 对应 specifier 分支
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+把它当成 property replication 或 RPC；或忽略运行时 authority 设计。

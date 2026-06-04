@@ -250,12 +250,12 @@ Total source markdown files: 606; flag=158, meta=303, source=1, specifier=144
 
 | ID | Summary | Usage | Status | Signals | source_doc |
 |---|---|---|---|---|---|
-| `meta.AdvancedDisplay` | 把函数的一些参数折叠起来不显示，需要手动点开下拉箭头来展开编辑 | UFUNCTION | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Blueprint/AdvancedDisplay/AdvancedDisplay.md` |
-| `meta.AllowPrivateAccess` | 允许一个在C++中private的属性，可以在蓝图中访问 | UPROPERTY | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Blueprint/AllowPrivateAccess/AllowPrivateAccess.md` |
+| `meta.AdvancedDisplay` | 把函数的一些参数折叠起来不显示，需要手动点开下拉箭头来展开编辑 | UFUNCTION | `verified_UE5.8` | code, test, principle, media | `references/sources/Meta/Blueprint/AdvancedDisplay/AdvancedDisplay.md` |
+| `meta.AllowPrivateAccess` | 允许一个在C++中private的属性，可以在蓝图中访问 | UPROPERTY | `verified_UE5.8` | code, test, principle, media | `references/sources/Meta/Blueprint/AllowPrivateAccess/AllowPrivateAccess.md` |
 | `meta.ArrayParm` | 指定一个函数为使用Array<*>的函数，数组元素类型为通配符的泛型 | UFUNCTION | `imported_from_unreal_specifiers` | code, test, media | `references/sources/Meta/Blueprint/Param/ArrayParm/ArrayParm.md` |
 | `meta.ArrayTypeDependentParams` | 当ArryParam指定的函数拥有两个或以上Array参数的时候，指定哪些数组参数的类型也应该相应的被更新改变 | UFUNCTION | `imported_from_unreal_specifiers` | code, principle, media | `references/sources/Meta/Blueprint/Param/ArrayTypeDependentParams/ArrayTypeDependentParams.md` |
-| `meta.AutoCreateRefTerm` | 指定函数的多个输入引用参数在没有连接的时候自动为其创建默认值 | UFUNCTION | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Blueprint/Param/AutoCreateRefTerm/AutoCreateRefTerm.md` |
-| `meta.Blueprint.DisplayName` | 此节点在蓝图中的命名将被此处提供的值所取代，而非代码生成的命名 | UCLASS, UENUM::UMETA, UFUNCTION, UPARAM, UPROPERTY | `imported_from_unreal_specifiers` | text | `references/sources/Meta/Blueprint/DisplayName.md` |
+| `meta.AutoCreateRefTerm` | 指定函数的多个输入引用参数在没有连接的时候自动为其创建默认值 | UFUNCTION | `verified_UE5.8` | code, test, principle, media | `references/sources/Meta/Blueprint/Param/AutoCreateRefTerm/AutoCreateRefTerm.md` |
+| `meta.Blueprint.DisplayName` | 此节点在蓝图中的命名将被此处提供的值所取代，而非代码生成的命名 | UCLASS, UENUM::UMETA, UFUNCTION, UPARAM, UPROPERTY | `verified_UE5.8` | text | `references/sources/Meta/Blueprint/DisplayName.md` |
 | `meta.Blueprint.Keywords` | 指定一系列关键字用于在蓝图内右键找到该函数 | UFUNCTION | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Blueprint/Keywords/Keywords.md` |
 | `meta.BlueprintAutocast` | 告诉蓝图系统这个函数是用来支持从A类型到B类型的自动转换 | UFUNCTION | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Blueprint/BlueprintAutocast/BlueprintAutocast.md` |
 | `meta.BlueprintGetter` | 采用一个自定义的get函数来读取 | UFUNCTION, UPROPERTY | `imported_from_unreal_specifiers` | text | `references/sources/Meta/Blueprint/BlueprintGetter.md` |
@@ -273,12 +273,12 @@ Total source markdown files: 606; flag=158, meta=303, source=1, specifier=144
 | `meta.CommutativeAssociativeBinaryOperator` | 标记一个二元运算函数的运算支持交换律和结合律，在蓝图节点上增加一个“+”引脚，允许动态的直接添加多个输入值 | UFUNCTION | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Blueprint/CommutativeAssociativeBinaryOperator/CommutativeAssociativeBinaryOperator.md` |
 | `meta.CompactNodeTitle` | 使得函数的展示形式变成精简压缩模式，同时指定一个新的精简的名字 | UFUNCTION | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Blueprint/CompactNodeTitle/CompactNodeTitle.md` |
 | `meta.CustomStructureParam` | 被CustomStructureParam标记的函数参数会变成Wildcard的通配符参数，其引脚的类型会等于连接的变量类型 | UFUNCTION | `imported_from_unreal_specifiers` | code, principle, media | `references/sources/Meta/Blueprint/Param/CustomStructureParam/CustomStructureParam.md` |
-| `meta.DefaultToSelf` | 用在函数上，指定一个参数的默认值为Self值 | UFUNCTION | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Blueprint/DefaultToSelf/DefaultToSelf.md` |
+| `meta.DefaultToSelf` | 用在函数上，指定一个参数的默认值为Self值 | UFUNCTION | `verified_UE5.8` | code, test, principle, media | `references/sources/Meta/Blueprint/DefaultToSelf/DefaultToSelf.md` |
 | `meta.DeterminesOutputType` | 指定一个参数的类型作为函数动态调整输出参数类型的参考类型 | UFUNCTION | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Blueprint/Param/DeterminesOutputType/DeterminesOutputType.md` |
 | `meta.DontUseGenericSpawnObject` | 阻止使用蓝图中的Generic Create Object节点来生成本类的对象 | UCLASS | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Blueprint/DontUseGenericSpawnObject/DontUseGenericSpawnObject.md` |
 | `meta.DynamicOutputParam` | 配合DeterminesOutputType，指定多个支持动态类型的输出参数 | UFUNCTION | `imported_from_unreal_specifiers` | text | `references/sources/Meta/Blueprint/Param/DynamicOutputParam.md` |
 | `meta.ExpandBoolAsExecs` | 是ExpandEnumAsExecs的别名，完全等价其功能 | UFUNCTION | `imported_from_unreal_specifiers` | text | `references/sources/Meta/Blueprint/Exec/ExpandBoolAsExecs.md` |
-| `meta.ExpandEnumAsExecs` | 指定多个enum或bool类型的函数参数，自动根据条目生成相应的多个输入或输出执行引脚，并根据实参值不同来相应改变控制流 | UFUNCTION | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Blueprint/Exec/ExpandEnumAsExecs/ExpandEnumAsExecs.md` |
+| `meta.ExpandEnumAsExecs` | 指定多个enum或bool类型的函数参数，自动根据条目生成相应的多个输入或输出执行引脚，并根据实参值不同来相应改变控制流 | UFUNCTION | `verified_UE5.8` | code, test, principle, media | `references/sources/Meta/Blueprint/Exec/ExpandEnumAsExecs/ExpandEnumAsExecs.md` |
 | `meta.ExposeOnSpawn` | 使该属性在ContructObject或SpawnActor等创建对象的时候暴露出来 | UPROPERTY | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Blueprint/ExposeOnSpawn/ExposeOnSpawn.md` |
 | `meta.ExposedAsyncProxy` | 在 Async Task 节点中公开此类的一个代理对象 | UCLASS | `imported_from_unreal_specifiers` | code, test, media | `references/sources/Meta/Blueprint/ExposedAsyncProxy/ExposedAsyncProxy.md` |
 | `meta.ForceAsFunction` | 把C++里用BlueprintImplementableEvent或NativeEvent定义的事件强制改为函数在子类中覆写 | UFUNCTION | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Blueprint/ForceAsFunction/ForceAsFunction.md` |
@@ -368,7 +368,7 @@ Total source markdown files: 606; flag=158, meta=303, source=1, specifier=144
 | `meta.DisplayAfter` | 使本属性在指定的属性之后显示 | UPROPERTY | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/DetailsPanel/DisplayAfter/DisplayAfter.md` |
 | `meta.DisplayPriority` | 指定本属性在细节面板的显示顺序优先级，越小的优先级越高 | UPROPERTY | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/DetailsPanel/DisplayPriority/DisplayPriority.md` |
 | `meta.EditCondition` | 给一个属性指定另外一个属性或者表达式来作为是否可编辑的条件 | UPROPERTY | `verified_UE5.8` | code, test, principle, media | `references/sources/Meta/DetailsPanel/EditCondition/EditCondition.md` |
-| `meta.EditConditionHides` | 在已经有EditCondition的情况下，指定该属性在EditCondition不满足的情况下隐藏起来 | UPROPERTY | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/DetailsPanel/EditConditionHides/EditConditionHides.md` |
+| `meta.EditConditionHides` | 在已经有EditCondition的情况下，指定该属性在EditCondition不满足的情况下隐藏起来 | UPROPERTY | `verified_UE5.8` | code, test, principle, media | `references/sources/Meta/DetailsPanel/EditConditionHides/EditConditionHides.md` |
 | `meta.EditInline` | 为对象属性创建一个实例，并作为子对象 | UPROPERTY | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/DetailsPanel/EditInline/EditInline.md` |
 | `meta.ForceInlineRow` | 强制TMap属性里的结构key和其他Value合并到同一行来显示 | UPROPERTY | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/DetailsPanel/ForceInlineRow/ForceInlineRow.md` |
 | `meta.HideBehind` | 只在指定的属性为true或不为空的时候本属性才显示 | UPROPERTY | `imported_from_unreal_specifiers` | code | `references/sources/Meta/DetailsPanel/HideBehind.md` |
@@ -376,7 +376,7 @@ Total source markdown files: 606; flag=158, meta=303, source=1, specifier=144
 | `meta.HideEditConditionToggle` | 用在使用EditCondition的属性上，表示该属性不想要其EditCondition用到的属性被隐藏起来 | UPROPERTY | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/DetailsPanel/HideEditConditionToggle/HideEditConditionToggle.md` |
 | `meta.HideInDetailPanel` | 在Actor的事件面板里隐藏该动态多播委托属性 | UPROPERTY | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/DetailsPanel/HideInDetailPanel/HideInDetailPanel.md` |
 | `meta.IgnoreCategoryKeywordsInSubclasses` | 用于让一个类的首个子类忽略所有继承的 ShowCategories 和 HideCategories 说明符 | UCLASS | `imported_from_unreal_specifiers` | text | `references/sources/Meta/DetailsPanel/IgnoreCategoryKeywordsInSubclasses.md` |
-| `meta.InlineEditConditionToggle` | 使这个bool属性在被用作EditCondition的时候内联到对方的属性行里成为一个单选框，而不是自己成为一个编辑行 | UPROPERTY | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/DetailsPanel/InlineEditConditionToggle/InlineEditConditionToggle.md` |
+| `meta.InlineEditConditionToggle` | 使这个bool属性在被用作EditCondition的时候内联到对方的属性行里成为一个单选框，而不是自己成为一个编辑行 | UPROPERTY | `verified_UE5.8` | code, test, principle, media | `references/sources/Meta/DetailsPanel/InlineEditConditionToggle/InlineEditConditionToggle.md` |
 | `meta.MaxPropertyDepth` | 指定对象或结构在细节面板里展开的层数 | UPROPERTY | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/DetailsPanel/MaxPropertyDepth/MaxPropertyDepth.md` |
 | `meta.NoEditInline` | Object properties pointing to an UObject instance whos class is marked editinline will not show their properties inli... | UPROPERTY | `imported_from_unreal_specifiers` | code | `references/sources/Meta/DetailsPanel/NoEditInline.md` |
 | `meta.NoResetToDefault` | 禁用和隐藏属性在细节面板上的“重置”功能 | UPROPERTY | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/DetailsPanel/NoResetToDefault/NoResetToDefault.md` |
@@ -398,8 +398,8 @@ Total source markdown files: 606; flag=158, meta=303, source=1, specifier=144
 | `meta.DevelopmentOnly` | 使得一个函数变为DevelopmentOnly，意味着只会在Development模式中运行。适用于调试输出之类的功能，但在最终发布版中会跳过 | UFUNCTION | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Development/DevelopmentOnly/DevelopmentOnly.md` |
 | `meta.DevelopmentStatus` | 标明开发状态 | UCLASS | `imported_from_unreal_specifiers` | text | `references/sources/Meta/Development/DevelopmentStatus.md` |
 | `meta.FriendlyName` | 和DisplayName一样？ | Any | `imported_from_unreal_specifiers` | text | `references/sources/Meta/Development/FriendlyName.md` |
-| `meta.ShortTooltip` | 提供一个更简洁版本的提示文本，例如在类型选择器的时候显示 | Any | `imported_from_unreal_specifiers` | text | `references/sources/Meta/Development/ShortTooltip.md` |
-| `meta.ToolTip` | 在Meta里提供一个提示文本，覆盖代码注释里的文本 | Any | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Development/ToolTip/ToolTip.md` |
+| `meta.ShortTooltip` | 提供一个更简洁版本的提示文本，例如在类型选择器的时候显示 | Any | `verified_UE5.8` | text | `references/sources/Meta/Development/ShortTooltip.md` |
+| `meta.ToolTip` | 在Meta里提供一个提示文本，覆盖代码注释里的文本 | Any | `verified_UE5.8` | code, test, principle, media | `references/sources/Meta/Development/ToolTip/ToolTip.md` |
 
 ## Meta - Enum
 
@@ -494,8 +494,8 @@ Total source markdown files: 606; flag=158, meta=303, source=1, specifier=144
 |---|---|---|---|---|---|
 | `meta.AllowPreserveRatio` | 在细节面板上为FVector属性添加一个比率锁 | UPROPERTY | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Numeric/AllowPreserveRatio/AllowPreserveRatio.md` |
 | `meta.ArrayClamp` | 限定整数属性的值必须在指定数组的合法下标范围内，[0,ArrayClamp.Size()-1] | UPROPERTY | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Numeric/ArrayClamp/ArrayClamp.md` |
-| `meta.ClampMax` | 指定数字输入框实际接受的最大值 | UPROPERTY | `imported_from_unreal_specifiers` | text | `references/sources/Meta/Numeric/ClampMax.md` |
-| `meta.ClampMin` | 指定数字输入框实际接受的最小值 | UPROPERTY | `imported_from_unreal_specifiers` | text | `references/sources/Meta/Numeric/ClampMin.md` |
+| `meta.ClampMax` | 指定数字输入框实际接受的最大值 | UPROPERTY | `verified_UE5.8` | text | `references/sources/Meta/Numeric/ClampMax.md` |
+| `meta.ClampMin` | 指定数字输入框实际接受的最小值 | UPROPERTY | `verified_UE5.8` | text | `references/sources/Meta/Numeric/ClampMin.md` |
 | `meta.ColorGradingMode` | 使得一个FVector4属性成为颜色显示 | UPROPERTY | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Numeric/ColorGradingMode/ColorGradingMode.md` |
 | `meta.CtrlMultiplier` | 指定数字输入框在Ctrl按下时鼠标轮滚动和鼠标拖动改变值的倍率 | UPROPERTY | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Numeric/CtrlMultiplier/CtrlMultiplier.md` |
 | `meta.Delta` | 设定数字输入框值改变的幅度为Delta的倍数 | UPROPERTY | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Numeric/Delta/Delta.md` |
@@ -510,8 +510,8 @@ Total source markdown files: 606; flag=158, meta=303, source=1, specifier=144
 | `meta.SliderExponent` | 指定数字输入框上滚动条拖动的变化指数分布 | UPROPERTY | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Numeric/SliderExponent/SliderExponent.md` |
 | `meta.SupportDynamicSliderMaxValue` | 支持数字输入框上滚动条的最大范围值在Alt按下时被动态改变 | UPROPERTY | `imported_from_unreal_specifiers` | text | `references/sources/Meta/Numeric/SupportDynamicSliderMaxValue.md` |
 | `meta.SupportDynamicSliderMinValue` | 支持数字输入框上滚动条的最小范围值在Alt按下时被动态改变 | UPROPERTY | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Numeric/SupportDynamicSliderMinValue/SupportDynamicSliderMinValue.md` |
-| `meta.UIMax` | 指定数字输入框上滚动条拖动的最大范围值 | UPROPERTY | `imported_from_unreal_specifiers` | text | `references/sources/Meta/Numeric/UIMax.md` |
-| `meta.UIMin` | 指定数字输入框上滚动条拖动的最小范围值 | UPROPERTY | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Numeric/UIMin/UIMin.md` |
+| `meta.UIMax` | 指定数字输入框上滚动条拖动的最大范围值 | UPROPERTY | `verified_UE5.8` | text | `references/sources/Meta/Numeric/UIMax.md` |
+| `meta.UIMin` | 指定数字输入框上滚动条拖动的最小范围值 | UPROPERTY | `verified_UE5.8` | code, test, principle, media | `references/sources/Meta/Numeric/UIMin/UIMin.md` |
 | `meta.Units` | 设定属性值的单位，支持实时根据数值不同动态改变显示的单位 | UPROPERTY | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Numeric/Units/Units.md` |
 | `meta.WheelStep` | 指定数字输入框上鼠标轮上下滚动产生的变化值 | UPROPERTY | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Numeric/WheelStep/WheelStep.md` |
 | `meta.sRGB` | 使FColor或FLinearColor属性在编辑的时候采用sRGB方式 | UPROPERTY | `imported_from_unreal_specifiers` | code, principle | `references/sources/Meta/Numeric/sRGB.md` |
@@ -552,7 +552,7 @@ Total source markdown files: 606; flag=158, meta=303, source=1, specifier=144
 | `meta.DataTablePin` | 指定一个函数参数为DataTable或CurveTable类型，以便为FName的其他参数提供RowNameList的选择 | UFUNCTION | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Pin/DataTablePin/DataTablePin.md` |
 | `meta.DisableSplitPin` | 禁用Struct的split功能 | USTRUCT | `imported_from_unreal_specifiers` | code, test, media | `references/sources/Meta/Pin/DisableSplitPin/DisableSplitPin.md` |
 | `meta.HiddenByDefault` | Struct的Make Struct和Break Struct节点中的引脚默认为隐藏状态 | USTRUCT | `imported_from_unreal_specifiers` | code, test, media | `references/sources/Meta/Pin/HiddenByDefault/HiddenByDefault.md` |
-| `meta.HidePin` | 用在函数调用上，指定要隐藏的参数名称，也可以隐藏返回值。可以隐藏多个参数 | UFUNCTION | `imported_from_unreal_specifiers` | code, principle, media | `references/sources/Meta/Pin/HidePin/HidePin.md` |
+| `meta.HidePin` | 用在函数调用上，指定要隐藏的参数名称，也可以隐藏返回值。可以隐藏多个参数 | UFUNCTION | `verified_UE5.8` | code, principle, media | `references/sources/Meta/Pin/HidePin/HidePin.md` |
 | `meta.HideSelfPin` | 用在函数调用上，隐藏默认的SelfPin，也就是Target，导致该函数只能在OwnerClass内调用 | UFUNCTION | `imported_from_unreal_specifiers` | code, media | `references/sources/Meta/Pin/HideSelfPin/HideSelfPin.md` |
 | `meta.InternalUseParam` | 用在函数调用上，指定要隐藏的参数名称，也可以隐藏返回值。可以隐藏多个参数 | UFUNCTION | `imported_from_unreal_specifiers` | code, principle, media | `references/sources/Meta/Pin/InternalUseParam/InternalUseParam.md` |
 | `meta.PinHiddenByDefault` | 使得这个结构里的属性在蓝图里作为引脚时默认是隐藏的 | UPROPERTY | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Pin/PinHiddenByDefault/PinHiddenByDefault.md` |
@@ -680,7 +680,7 @@ Total source markdown files: 606; flag=158, meta=303, source=1, specifier=144
 | ID | Summary | Usage | Status | Signals | source_doc |
 |---|---|---|---|---|---|
 | `meta.DisplayValue` | Enum /Script/Engine.AnimPhysCollisionType | UENUM::UMETA | `imported_from_unreal_specifiers` | code | `references/sources/Meta/Enum/UMETA/DisplayValue.md` |
-| `meta.Enum.UMETA.DisplayName` | 改变枚举值的显示名称 | UENUM::UMETA | `imported_from_unreal_specifiers` | code, test, media | `references/sources/Meta/Enum/UMETA/DisplayName/DisplayName.md` |
+| `meta.Enum.UMETA.DisplayName` | 改变枚举值的显示名称 | UENUM::UMETA | `verified_UE5.8` | code, test, media | `references/sources/Meta/Enum/UMETA/DisplayName/DisplayName.md` |
 | `meta.Enum.UMETA.Hidden` | 隐藏UENUM的某个值 | UENUM::UMETA | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Meta/Enum/UMETA/Hidden/Hidden.md` |
 | `meta.Grouping` | Enum /Script/Engine.EAlphaBlendOption | UENUM::UMETA | `imported_from_unreal_specifiers` | code, principle | `references/sources/Meta/Enum/UMETA/Grouping.md` |
 | `meta.Spacer` | 隐藏UENUM的某个值 | UENUM::UMETA | `imported_from_unreal_specifiers` | media | `references/sources/Meta/Enum/UMETA/Spacer.md` |
@@ -747,7 +747,7 @@ Total source markdown files: 606; flag=158, meta=303, source=1, specifier=144
 | `UCLASS.DontAutoCollapseCategories` | 使列出的类别的继承自父类的AutoCollapseCategories说明符无效 | UCLASS / Category | `imported_from_unreal_specifiers` | code | `references/sources/Specifier/UCLASS/Category/DontAutoCollapseCategories.md` |
 | `UCLASS.DontCollapseCategories` | 使继承自基类的CollapseCatogories说明符无效 | UCLASS / Category | `imported_from_unreal_specifiers` | text | `references/sources/Specifier/UCLASS/Category/DontCollapseCategories.md` |
 | `UCLASS.EarlyAccessPreview` | 标明该类是早期预览版，比试验版要更完善一些，但还是没到产品级 | UCLASS / Development | `imported_from_unreal_specifiers` | code, test, media | `references/sources/Specifier/UCLASS/Development/EarlyAccessPreview/EarlyAccessPreview.md` |
-| `UCLASS.EditInlineNew` | 指定该类的对象可以在属性细节面板里直接内联创建，要和属性的Instanced配合 | UCLASS / Instance | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Specifier/UCLASS/Instance/EditInlineNew/EditInlineNew.md` |
+| `UCLASS.EditInlineNew` | 指定该类的对象可以在属性细节面板里直接内联创建，要和属性的Instanced配合 | UCLASS / Instance | `verified_UE5.8` | code, test, principle, media | `references/sources/Specifier/UCLASS/Instance/EditInlineNew/EditInlineNew.md` |
 | `UCLASS.EditorConfig` | 用来在编辑器状态下保存信息 | UCLASS / Config | `imported_from_unreal_specifiers` | code, test, media | `references/sources/Specifier/UCLASS/Config/EditorConfig/EditorConfig.md` |
 | `UCLASS.Experimental` | 标明该类是试验性版本，当前没有文档描述，之后有可能废弃掉 | UCLASS / Development | `imported_from_unreal_specifiers` | code, test, media | `references/sources/Specifier/UCLASS/Development/Experimental/Experimental.md` |
 | `UCLASS.GlobalUserConfig` | 指定保存到的配置文件层级是全局用户设置 Engine/Config/UserXXX.ini | UCLASS / Config | `imported_from_unreal_specifiers` | code, test, media | `references/sources/Specifier/UCLASS/Config/GlobalUserConfig/GlobalUserConfig.md` |
@@ -791,31 +791,31 @@ Total source markdown files: 606; flag=158, meta=303, source=1, specifier=144
 
 | ID | Summary | Usage | Status | Signals | source_doc |
 |---|---|---|---|---|---|
-| `UFUNCTION.BlueprintAuthorityOnly` | 这个函数只能在拥有网络权限的端上运行 | UFUNCTION / Network | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Specifier/UFUNCTION/Network/BlueprintAuthorityOnly/BlueprintAuthorityOnly.md` |
+| `UFUNCTION.BlueprintAuthorityOnly` | 这个函数只能在拥有网络权限的端上运行 | UFUNCTION / Network | `verified_UE5.8` | code, test, principle, media | `references/sources/Specifier/UFUNCTION/Network/BlueprintAuthorityOnly/BlueprintAuthorityOnly.md` |
 | `UFUNCTION.BlueprintCallable` | 暴露到蓝图中可被调用 | UFUNCTION / Blueprint | `verified_UE5.8` | code, test, media | `references/sources/Specifier/UFUNCTION/Blueprint/BlueprintCallable/BlueprintCallable.md` |
-| `UFUNCTION.BlueprintCosmetic` | 此函数为修饰性的，无法在DS上运行 | UFUNCTION / Network | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Specifier/UFUNCTION/Network/BlueprintCosmetic/BlueprintCosmetic.md` |
-| `UFUNCTION.BlueprintGetter` | 指定该函数作为属性的自定义Get函数 | UFUNCTION / Blueprint | `imported_from_unreal_specifiers` | text | `references/sources/Specifier/UFUNCTION/Blueprint/BlueprintGetter.md` |
-| `UFUNCTION.BlueprintImplementableEvent` | 指定一个函数调用点，可以在蓝图中重载实现 | UFUNCTION / Blueprint | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Specifier/UFUNCTION/Blueprint/BlueprintImplementableEvent/BlueprintImplementableEvent.md` |
+| `UFUNCTION.BlueprintCosmetic` | 此函数为修饰性的，无法在DS上运行 | UFUNCTION / Network | `verified_UE5.8` | code, test, principle, media | `references/sources/Specifier/UFUNCTION/Network/BlueprintCosmetic/BlueprintCosmetic.md` |
+| `UFUNCTION.BlueprintGetter` | 指定该函数作为属性的自定义Get函数 | UFUNCTION / Blueprint | `verified_UE5.8` | text | `references/sources/Specifier/UFUNCTION/Blueprint/BlueprintGetter.md` |
+| `UFUNCTION.BlueprintImplementableEvent` | 指定一个函数调用点，可以在蓝图中重载实现 | UFUNCTION / Blueprint | `verified_UE5.8` | code, test, principle, media | `references/sources/Specifier/UFUNCTION/Blueprint/BlueprintImplementableEvent/BlueprintImplementableEvent.md` |
 | `UFUNCTION.BlueprintInternalUseOnly` | 指示不应向最终用户公开此函数。蓝图内部调用，不暴露给用户 | UFUNCTION / UHT | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Specifier/UFUNCTION/UHT/BlueprintInternalUseOnly/BlueprintInternalUseOnly.md` |
-| `UFUNCTION.BlueprintNativeEvent` | 可以在蓝图总覆盖实现，但是也在C++中提供一个默认实现 | UFUNCTION / Blueprint | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Specifier/UFUNCTION/Blueprint/BlueprintNativeEvent/BlueprintNativeEvent.md` |
-| `UFUNCTION.BlueprintPure` | 指定作为一个纯函数，一般用于Get函数用来返回值 | UFUNCTION / Blueprint | `imported_from_unreal_specifiers` | code, test, media | `references/sources/Specifier/UFUNCTION/Blueprint/BlueprintPure/BlueprintPure.md` |
-| `UFUNCTION.BlueprintSetter` | 指定该函数作为属性的自定义Set函数 | UFUNCTION / Blueprint | `imported_from_unreal_specifiers` | text | `references/sources/Specifier/UFUNCTION/Blueprint/BlueprintSetter.md` |
-| `UFUNCTION.CallInEditor` | 可以在属性细节面板上作为一个按钮来调用该函数 | UFUNCTION / Blueprint | `imported_from_unreal_specifiers` | code, test, media | `references/sources/Specifier/UFUNCTION/Blueprint/CallInEditor/CallInEditor.md` |
+| `UFUNCTION.BlueprintNativeEvent` | 可以在蓝图总覆盖实现，但是也在C++中提供一个默认实现 | UFUNCTION / Blueprint | `verified_UE5.8` | code, test, principle, media | `references/sources/Specifier/UFUNCTION/Blueprint/BlueprintNativeEvent/BlueprintNativeEvent.md` |
+| `UFUNCTION.BlueprintPure` | 指定作为一个纯函数，一般用于Get函数用来返回值 | UFUNCTION / Blueprint | `verified_UE5.8` | code, test, media | `references/sources/Specifier/UFUNCTION/Blueprint/BlueprintPure/BlueprintPure.md` |
+| `UFUNCTION.BlueprintSetter` | 指定该函数作为属性的自定义Set函数 | UFUNCTION / Blueprint | `verified_UE5.8` | text | `references/sources/Specifier/UFUNCTION/Blueprint/BlueprintSetter.md` |
+| `UFUNCTION.CallInEditor` | 可以在属性细节面板上作为一个按钮来调用该函数 | UFUNCTION / Blueprint | `verified_UE5.8` | code, test, media | `references/sources/Specifier/UFUNCTION/Blueprint/CallInEditor/CallInEditor.md` |
 | `UFUNCTION.Category` | 在蓝图的右键菜单中为该函数指定类别分组，可以嵌套多级 | UFUNCTION / Category | `imported_from_unreal_specifiers` | code, test, media | `references/sources/Specifier/UFUNCTION/Category/Category.md` |
-| `UFUNCTION.Client` | 在Client-owned的Actor上（PlayerController或Pawn）执行一个RPC函数，只运行在客户端上。对应的实现函数会添加_Implementation后缀 | UFUNCTION / Network | `imported_from_unreal_specifiers` | code, test, media | `references/sources/Specifier/UFUNCTION/Network/Client/Client.md` |
+| `UFUNCTION.Client` | 在Client-owned的Actor上（PlayerController或Pawn）执行一个RPC函数，只运行在客户端上。对应的实现函数会添加_Implementation后缀 | UFUNCTION / Network | `verified_UE5.8` | code, test, media | `references/sources/Specifier/UFUNCTION/Network/Client/Client.md` |
 | `UFUNCTION.CustomThunk` | 指定UHT不为该函数生成蓝图调用的辅助函数，而需要用户自定义编写 | UFUNCTION / UHT | `imported_from_unreal_specifiers` | code, test, media | `references/sources/Specifier/UFUNCTION/UHT/CustomThunk/CustomThunk.md` |
 | `UFUNCTION.Exec` | 在特定类里注册一个函数为作为控制台命令，允许接受参数 | UFUNCTION / Exec | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Specifier/UFUNCTION/Exec/Exec.md` |
 | `UFUNCTION.FieldNotify` | 为该函数创建一个FieldNotify的绑定点 | UFUNCTION / UHT | `imported_from_unreal_specifiers` | code, test, media | `references/sources/Specifier/UFUNCTION/UHT/FieldNotify/FieldNotify.md` |
-| `UFUNCTION.NetMulticast` | 定义一个多播RPC函数在服务器和客户端上都执行。对应的实现函数会添加_Implementation后缀 | UFUNCTION / Network | `imported_from_unreal_specifiers` | code, test, media | `references/sources/Specifier/UFUNCTION/Network/NetMulticast/NetMulticast.md` |
-| `UFUNCTION.Reliable` | 指定一个RPC函数为“可靠的”，当遇见网络错误时会重发以保证到达。一般用在逻辑关键的函数上 | UFUNCTION / Network | `imported_from_unreal_specifiers` | text | `references/sources/Specifier/UFUNCTION/Network/Reliable.md` |
-| `UFUNCTION.SealedEvent` | 无法在子类中覆盖此函数。SealedEvent关键词只能用于事件。对于非事件函数，请将它们声明为static或final，以密封它们 | UFUNCTION / Blueprint | `imported_from_unreal_specifiers` | code, test, media | `references/sources/Specifier/UFUNCTION/Blueprint/SealedEvent/SealedEvent.md` |
-| `UFUNCTION.Server` | 在Client-owned的Actor上（PlayerController或Pawn）执行一个RPC函数，只运行在服务器上。对应的实现函数会添加_Implementation后缀 | UFUNCTION / Network | `imported_from_unreal_specifiers` | code, test, media | `references/sources/Specifier/UFUNCTION/Network/Server/Server.md` |
-| `UFUNCTION.ServiceRequest` | 此函数为RPC（远程过程调用）服务请求。rpc服务请求 | UFUNCTION / Network | `imported_from_unreal_specifiers` | code | `references/sources/Specifier/UFUNCTION/Network/ServiceRequest.md` |
-| `UFUNCTION.ServiceResponse` | 此函数为RPC服务响应。rpc服务回复 | UFUNCTION / Network | `imported_from_unreal_specifiers` | text | `references/sources/Specifier/UFUNCTION/Network/ServiceResponse.md` |
+| `UFUNCTION.NetMulticast` | 定义一个多播RPC函数在服务器和客户端上都执行。对应的实现函数会添加_Implementation后缀 | UFUNCTION / Network | `verified_UE5.8` | code, test, media | `references/sources/Specifier/UFUNCTION/Network/NetMulticast/NetMulticast.md` |
+| `UFUNCTION.Reliable` | 指定一个RPC函数为“可靠的”，当遇见网络错误时会重发以保证到达。一般用在逻辑关键的函数上 | UFUNCTION / Network | `verified_UE5.8` | text | `references/sources/Specifier/UFUNCTION/Network/Reliable.md` |
+| `UFUNCTION.SealedEvent` | 无法在子类中覆盖此函数。SealedEvent关键词只能用于事件。对于非事件函数，请将它们声明为static或final，以密封它们 | UFUNCTION / Blueprint | `verified_UE5.8` | code, test, media | `references/sources/Specifier/UFUNCTION/Blueprint/SealedEvent/SealedEvent.md` |
+| `UFUNCTION.Server` | 在Client-owned的Actor上（PlayerController或Pawn）执行一个RPC函数，只运行在服务器上。对应的实现函数会添加_Implementation后缀 | UFUNCTION / Network | `verified_UE5.8` | code, test, media | `references/sources/Specifier/UFUNCTION/Network/Server/Server.md` |
+| `UFUNCTION.ServiceRequest` | 此函数为RPC（远程过程调用）服务请求。rpc服务请求 | UFUNCTION / Network | `verified_UE5.8` | code | `references/sources/Specifier/UFUNCTION/Network/ServiceRequest.md` |
+| `UFUNCTION.ServiceResponse` | 此函数为RPC服务响应。rpc服务回复 | UFUNCTION / Network | `verified_UE5.8` | text | `references/sources/Specifier/UFUNCTION/Network/ServiceResponse.md` |
 | `UFUNCTION.UFUNCTION(标识符)` | UFUNCTION(标识符) | UFUNCTION | `imported_from_unreal_specifiers` | text | `references/sources/Specifier/UFUNCTION.md` |
-| `UFUNCTION.Unreliable` | 指定一个RPC函数为“不可靠的”，当遇见网络错误时就会被丢弃。一般用在传播效果表现的函数上，就算漏掉也没有关系 | UFUNCTION / Network | `imported_from_unreal_specifiers` | text | `references/sources/Specifier/UFUNCTION/Network/Unreliable.md` |
+| `UFUNCTION.Unreliable` | 指定一个RPC函数为“不可靠的”，当遇见网络错误时就会被丢弃。一般用在传播效果表现的函数上，就算漏掉也没有关系 | UFUNCTION / Network | `verified_UE5.8` | text | `references/sources/Specifier/UFUNCTION/Network/Unreliable.md` |
 | `UFUNCTION.Variadic` | 标识一个函数可以接受任意类型的多个参数（包括input/output)． | UFUNCTION / UHT | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Specifier/UFUNCTION/UHT/Variadic/Variadic.md` |
-| `UFUNCTION.WithValidation` | 指定一个RPC函数在执行前需要验证，只有验证通过才可以执行 | UFUNCTION / Network | `imported_from_unreal_specifiers` | code, test, principle | `references/sources/Specifier/UFUNCTION/Network/WithValidation.md` |
+| `UFUNCTION.WithValidation` | 指定一个RPC函数在执行前需要验证，只有验证通过才可以执行 | UFUNCTION / Network | `verified_UE5.8` | code, test, principle | `references/sources/Specifier/UFUNCTION/Network/WithValidation.md` |
 
 ## Specifier - UINTERFACE
 
@@ -842,42 +842,42 @@ Total source markdown files: 606; flag=158, meta=303, source=1, specifier=144
 
 | ID | Summary | Usage | Status | Signals | source_doc |
 |---|---|---|---|---|---|
-| `UPROPERTY.AdvancedDisplay` | 被折叠到高级栏下，要手动打开。一般用在不太常用的属性上面 | UPROPERTY / DetailsPanel | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/DetaisPanel/AdvancedDisplay/AdvancedDisplay.md` |
+| `UPROPERTY.AdvancedDisplay` | 被折叠到高级栏下，要手动打开。一般用在不太常用的属性上面 | UPROPERTY / DetailsPanel | `verified_UE5.8` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/DetaisPanel/AdvancedDisplay/AdvancedDisplay.md` |
 | `UPROPERTY.AssetRegistrySearchable` | 标记该属性可以作为AssetRegistry的Tag和Value值来进行资产的过滤搜索 | UPROPERTY / Asset | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/Asset/AssetRegistrySearchable/AssetRegistrySearchable.md` |
-| `UPROPERTY.BlueprintAssignable` | 在蓝图中可以为这个多播委托绑定事件 | UPROPERTY / Blueprint | `imported_from_unreal_specifiers` | code, media | `references/sources/Specifier/UPROPERTY/Blueprint/BlueprintAssignable/BlueprintAssignable.md` |
-| `UPROPERTY.BlueprintAuthorityOnly` | 只能绑定为BlueprintAuthorityOnly的事件，让该多播委托只接受在服务端运行的事件 | UPROPERTY / Blueprint | `imported_from_unreal_specifiers` | code, test, media | `references/sources/Specifier/UPROPERTY/Blueprint/BlueprintAuthorityOnly/BlueprintAuthorityOnly.md` |
-| `UPROPERTY.BlueprintCallable` | 在蓝图中可以调用这个多播委托 | UPROPERTY / Blueprint | `imported_from_unreal_specifiers` | code, test, media | `references/sources/Specifier/UPROPERTY/Blueprint/BlueprintCallable/BlueprintCallable.md` |
-| `UPROPERTY.BlueprintGetter` | 为属性定义一个自定义的Get函数来读取 | UPROPERTY / Blueprint | `imported_from_unreal_specifiers` | code, test, media | `references/sources/Specifier/UPROPERTY/Blueprint/BlueprintGetter/BlueprintGetter.md` |
+| `UPROPERTY.BlueprintAssignable` | 在蓝图中可以为这个多播委托绑定事件 | UPROPERTY / Blueprint | `verified_UE5.8` | code, media | `references/sources/Specifier/UPROPERTY/Blueprint/BlueprintAssignable/BlueprintAssignable.md` |
+| `UPROPERTY.BlueprintAuthorityOnly` | 只能绑定为BlueprintAuthorityOnly的事件，让该多播委托只接受在服务端运行的事件 | UPROPERTY / Blueprint | `verified_UE5.8` | code, test, media | `references/sources/Specifier/UPROPERTY/Blueprint/BlueprintAuthorityOnly/BlueprintAuthorityOnly.md` |
+| `UPROPERTY.BlueprintCallable` | 在蓝图中可以调用这个多播委托 | UPROPERTY / Blueprint | `verified_UE5.8` | code, test, media | `references/sources/Specifier/UPROPERTY/Blueprint/BlueprintCallable/BlueprintCallable.md` |
+| `UPROPERTY.BlueprintGetter` | 为属性定义一个自定义的Get函数来读取 | UPROPERTY / Blueprint | `verified_UE5.8` | code, test, media | `references/sources/Specifier/UPROPERTY/Blueprint/BlueprintGetter/BlueprintGetter.md` |
 | `UPROPERTY.BlueprintReadOnly` | 此属性可由蓝图读取，但不能被修改 | UPROPERTY / Blueprint | `verified_UE5.8` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/Blueprint/BlueprintReadOnly/BlueprintReadOnly.md` |
 | `UPROPERTY.BlueprintReadWrite` | 可从蓝图读取或写入此属性 | UPROPERTY / Blueprint | `verified_UE5.8` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/Blueprint/BlueprintReadWrite/BlueprintReadWrite.md` |
-| `UPROPERTY.BlueprintSetter` | 采用一个自定义的set函数来读取 | UPROPERTY / Blueprint | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/Blueprint/BlueprintSetter.md` |
+| `UPROPERTY.BlueprintSetter` | 采用一个自定义的set函数来读取 | UPROPERTY / Blueprint | `verified_UE5.8` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/Blueprint/BlueprintSetter.md` |
 | `UPROPERTY.Category` | 指定属性的类别，使用 \| 运算符定义嵌套类目 | UPROPERTY / DetailsPanel | `verified_UE5.8` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/DetaisPanel/Category/Category.md` |
 | `UPROPERTY.Config` | 指定该属性是一个配置属性，该属性可以被序列化读写到ini文件（路径由uclass的config标签指定）中 | UPROPERTY / Config | `verified_UE5.8` | text | `references/sources/Specifier/UPROPERTY/Config/Config.md` |
 | `UPROPERTY.DuplicateTransient` | 在对象复制或COPY格式导出的时候，忽略该属性 | UPROPERTY / Serialization | `verified_UE5.8` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/Serialization/DuplicateTransient/DuplicateTransient.md` |
 | `UPROPERTY.EditAnywhere` | 在默认值和实例的细节面板上均可编辑 | UPROPERTY / DetailsPanel | `verified_UE5.8` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/DetaisPanel/EditAnywhere/EditAnywhere.md` |
 | `UPROPERTY.EditDefaultsOnly` | 只能在默认值面板里编辑 | UPROPERTY / DetailsPanel | `verified_UE5.8` | code | `references/sources/Specifier/UPROPERTY/DetaisPanel/EditDefaultsOnly.md` |
-| `UPROPERTY.EditFixedSize` | 在细节面板上不允许改变该容器的元素个数 | UPROPERTY / DetailsPanel | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/DetaisPanel/EditFixedSize/EditFixedSize.md` |
+| `UPROPERTY.EditFixedSize` | 在细节面板上不允许改变该容器的元素个数 | UPROPERTY / DetailsPanel | `verified_UE5.8` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/DetaisPanel/EditFixedSize/EditFixedSize.md` |
 | `UPROPERTY.EditInstanceOnly` | 只能在实例的细节面板上编辑该属性 | UPROPERTY / DetailsPanel | `verified_UE5.8` | code | `references/sources/Specifier/UPROPERTY/DetaisPanel/EditInstanceOnly.md` |
-| `UPROPERTY.Export` | 在对Asset导出的时候，决定该类的对象应该导出内部的属性值，而是对象的路径 | UPROPERTY / Serialization | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/Serialization/Export/Export.md` |
+| `UPROPERTY.Export` | 在对Asset导出的时候，决定该类的对象应该导出内部的属性值，而是对象的路径 | UPROPERTY / Serialization | `verified_UE5.8` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/Serialization/Export/Export.md` |
 | `UPROPERTY.FieldNotify` | 在打开MVVM插件后，使得该属性变成支持FieldNotify的属性 | UPROPERTY / UHT | `imported_from_unreal_specifiers` | code, test, media | `references/sources/Specifier/UPROPERTY/UHT/FieldNotify/FieldNotify.md` |
-| `UPROPERTY.Getter` | 为属性增加一个C++的Get函数，只在C++层面应用 | UPROPERTY / Blueprint | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/Blueprint/Getter.md` |
+| `UPROPERTY.Getter` | 为属性增加一个C++的Get函数，只在C++层面应用 | UPROPERTY / Blueprint | `verified_UE5.8` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/Blueprint/Getter.md` |
 | `UPROPERTY.GlobalConfig` | 和Config一样指定该属性可作为配置读取和写入ini中，但只会读取写入到配置文件里基类的值，而不会使用配置文件里子类里的值 | UPROPERTY / Config | `verified_UE5.8` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/Config/GlobalConfig/GlobalConfig.md` |
 | `UPROPERTY.Instanced` | 指定对该对象属性的编辑赋值应该新创建一个实例并作为子对象，而不是寻找一个对象引用 | UPROPERTY / Instance | `verified_UE5.8` | code, test, media | `references/sources/Specifier/UPROPERTY/Instance/Instanced/Instanced.md` |
-| `UPROPERTY.Interp` | 指定该属性值可暴露到时间轴里编辑，在平常的Timeline或UMG的动画里使用 | UPROPERTY / DetailsPanel | `imported_from_unreal_specifiers` | code, test, media | `references/sources/Specifier/UPROPERTY/DetaisPanel/Interp/Interp.md` |
+| `UPROPERTY.Interp` | 指定该属性值可暴露到时间轴里编辑，在平常的Timeline或UMG的动画里使用 | UPROPERTY / DetailsPanel | `verified_UE5.8` | code, test, media | `references/sources/Specifier/UPROPERTY/DetaisPanel/Interp/Interp.md` |
 | `UPROPERTY.Localized` | 此属性的值将拥有一个定义的本地化值。多用于字符串。暗示为 ReadOnly。该值有一个本地化值。最常标记在string上 | UPROPERTY / Asset | `imported_from_unreal_specifiers` | text | `references/sources/Specifier/UPROPERTY/Asset/Localized.md` |
 | `UPROPERTY.Native` | 属性为本地：C++代码负责对其进行序列化并公开到垃圾回收 | UPROPERTY / UHT | `imported_from_unreal_specifiers` | text | `references/sources/Specifier/UPROPERTY/UHT/Native.md` |
-| `UPROPERTY.NoClear` | 指定该属性的编辑选项中不出现Clear按钮，不允许置null | UPROPERTY / DetailsPanel | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/DetaisPanel/NoClear/NoClear.md` |
-| `UPROPERTY.NonPIEDuplicateTransient` | 在对象复制的时候，且在不是PIE的场合，忽略该属性 | UPROPERTY / Serialization | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/Serialization/NonPIEDuplicateTransient/NonPIEDuplicateTransient.md` |
-| `UPROPERTY.NonTransactional` | 对该属性的改变操作，不会被包含进编辑器的Undo/Redo命令中 | UPROPERTY / DetailsPanel | `imported_from_unreal_specifiers` | code, test, media | `references/sources/Specifier/UPROPERTY/DetaisPanel/NonTransactional/NonTransactional.md` |
-| `UPROPERTY.NotReplicated` | 跳过复制。这只会应用到服务请求函数中的结构体成员和参数 | UPROPERTY / Network | `imported_from_unreal_specifiers` | code, test | `references/sources/Specifier/UPROPERTY/Network/NotReplicated.md` |
-| `UPROPERTY.RepRetry` | 只适用于结构体属性。如果此属性未能完全发送（举例而言：Object引用尚无法通过网络进行序列化），则重新尝试对其的复制。对简单引用而言，这是默认选择；但对结构体而言，这会产生带宽开销，并非优选项。因此在指定此标签之前其均为禁用状态 | UPROPERTY / Network | `imported_from_unreal_specifiers` | text | `references/sources/Specifier/UPROPERTY/Network/RepRetry.md` |
-| `UPROPERTY.Replicated` | 指定该属性应随网络进行复制 | UPROPERTY / Network | `imported_from_unreal_specifiers` | code, test | `references/sources/Specifier/UPROPERTY/Network/Replicated.md` |
+| `UPROPERTY.NoClear` | 指定该属性的编辑选项中不出现Clear按钮，不允许置null | UPROPERTY / DetailsPanel | `verified_UE5.8` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/DetaisPanel/NoClear/NoClear.md` |
+| `UPROPERTY.NonPIEDuplicateTransient` | 在对象复制的时候，且在不是PIE的场合，忽略该属性 | UPROPERTY / Serialization | `verified_UE5.8` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/Serialization/NonPIEDuplicateTransient/NonPIEDuplicateTransient.md` |
+| `UPROPERTY.NonTransactional` | 对该属性的改变操作，不会被包含进编辑器的Undo/Redo命令中 | UPROPERTY / DetailsPanel | `verified_UE5.8` | code, test, media | `references/sources/Specifier/UPROPERTY/DetaisPanel/NonTransactional/NonTransactional.md` |
+| `UPROPERTY.NotReplicated` | 跳过复制。这只会应用到服务请求函数中的结构体成员和参数 | UPROPERTY / Network | `verified_UE5.8` | code, test | `references/sources/Specifier/UPROPERTY/Network/NotReplicated.md` |
+| `UPROPERTY.RepRetry` | UE5.8 中已废弃。UHT 遇到 RepRetry 会记录 deprecated 错误，不应再作为可推荐的 UPROPERTY specifier 使用 | UPROPERTY / Network | `removed_or_deprecated` | text | `references/sources/Specifier/UPROPERTY/Network/RepRetry.md` |
+| `UPROPERTY.Replicated` | 指定该属性应随网络进行复制 | UPROPERTY / Network | `verified_UE5.8` | code, test | `references/sources/Specifier/UPROPERTY/Network/Replicated.md` |
 | `UPROPERTY.ReplicatedUsing` | 指定一个通知回调函数，在属性通过网络更新后执行 | UPROPERTY / Network | `verified_UE5.8` | code, test, media | `references/sources/Specifier/UPROPERTY/Network/ReplicatedUsing/ReplicatedUsing.md` |
 | `UPROPERTY.SaveGame` | 在SaveGame存档的时候，只序列化有SaveGame标记的属性，而不序列化别的属性 | UPROPERTY / Serialization | `verified_UE5.8` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/Serialization/SaveGame/SaveGame.md` |
-| `UPROPERTY.Setter` | 为属性增加一个C++的Set函数，只在C++层面应用 | UPROPERTY / Blueprint | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/Blueprint/Setter/Setter.md` |
-| `UPROPERTY.SimpleDisplay` | 在细节面板中直接可见，不折叠到高级中 | UPROPERTY / DetailsPanel | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/DetaisPanel/SimpleDisplay/SimpleDisplay.md` |
-| `UPROPERTY.SkipSerialization` | 二进制序列化时跳过该属性，但在ExportText的时候依然可以导出 | UPROPERTY / Serialization | `imported_from_unreal_specifiers` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/Serialization/SkipSerialization/SkipSerialization.md` |
-| `UPROPERTY.TextExportTransient` | 在ExportText导出为.COPY格式的时候，忽略该属性 | UPROPERTY / Serialization | `imported_from_unreal_specifiers` | code, test, principle | `references/sources/Specifier/UPROPERTY/Serialization/TextExportTransient.md` |
+| `UPROPERTY.Setter` | 为属性增加一个C++的Set函数，只在C++层面应用 | UPROPERTY / Blueprint | `verified_UE5.8` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/Blueprint/Setter/Setter.md` |
+| `UPROPERTY.SimpleDisplay` | 在细节面板中直接可见，不折叠到高级中 | UPROPERTY / DetailsPanel | `verified_UE5.8` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/DetaisPanel/SimpleDisplay/SimpleDisplay.md` |
+| `UPROPERTY.SkipSerialization` | 二进制序列化时跳过该属性，但在ExportText的时候依然可以导出 | UPROPERTY / Serialization | `verified_UE5.8` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/Serialization/SkipSerialization/SkipSerialization.md` |
+| `UPROPERTY.TextExportTransient` | 在ExportText导出为.COPY格式的时候，忽略该属性 | UPROPERTY / Serialization | `verified_UE5.8` | code, test, principle | `references/sources/Specifier/UPROPERTY/Serialization/TextExportTransient.md` |
 | `UPROPERTY.Transient` | 不序列化该属性，该属性初始化时候会被0填充 | UPROPERTY / Serialization | `verified_UE5.8` | code, test, principle, media | `references/sources/Specifier/UPROPERTY/Serialization/Transient/Transient.md` |
 | `UPROPERTY.UPROPERTY(标识符)` | UPROPERTY(标识符) | UPROPERTY | `imported_from_unreal_specifiers` | text | `references/sources/Specifier/UPROPERTY.md` |
 | `UPROPERTY.VisibleAnywhere` | 在默认值和实例细节面板均可见，但不可编辑 | UPROPERTY / DetailsPanel | `verified_UE5.8` | text | `references/sources/Specifier/UPROPERTY/DetaisPanel/VisibleAnywhere.md` |

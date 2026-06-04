@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "Unreliable"
 scope: "UFUNCTION"
 category: "Network"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -22,3 +22,20 @@ usage: "UFUNCTION / Network"
 - **常用程度：★★★★★**
 
 指定一个RPC函数为“不可靠的”，当遇见网络错误时就会被丢弃。一般用在传播效果表现的函数上，就算漏掉也没有关系。
+
+## 行为
+
+在 UE5.8 UHT 中写入 `Unreliable` export flag；`UhtFunction` 校验会和 `Reliable` 互斥，并要求只用于 replicated function。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtFunctionSpecifiers.cs` 对应 specifier 分支
+  - UE5.8 `UhtFunction.cs` replicated/event 校验
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+在非 RPC 函数上单独写 `Unreliable`；或和 `Reliable` 同时写。

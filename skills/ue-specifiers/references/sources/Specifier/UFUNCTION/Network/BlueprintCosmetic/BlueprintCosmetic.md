@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "BlueprintCosmetic"
 scope: "UFUNCTION"
 category: "Network"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -60,3 +60,20 @@ if (NetMode == NM_DedicatedServer && Function->HasAllFunctionFlags(FUNC_Blueprin
 }
 }
 ```
+
+## 行为
+
+在 UE5.8 UHT 中写入 `FUNC_BlueprintCosmetic`，用于标记 cosmetic Blueprint 函数。它不是网络发送标志，不能替代 `Client`/`NetMulticast`。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtFunctionSpecifiers.cs` 对应 specifier 分支
+  - UE5.8 `UhtFunction.cs` replicated/event 校验
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+把 cosmetic 限制和 RPC 方向混用；或在 dedicated server 关键逻辑里依赖 cosmetic 函数执行。

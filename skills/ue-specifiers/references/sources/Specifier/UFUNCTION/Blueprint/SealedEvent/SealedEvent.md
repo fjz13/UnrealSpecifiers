@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "SealedEvent"
 scope: "UFUNCTION"
 category: "Blueprint"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -119,3 +119,20 @@ if ((Context.Function->FunctionFlags & OverrideFlagsToCheck) != (OverridenFuncti
 ```
 
 在编译的时候检测的是否是重载父类的函数，但因为SealedEvent不作用于普通函数，也不作用于BlueprintEvent，因此感觉只能在C++中继承。
+
+## 行为
+
+在 UE5.8 UHT 中写入 `SealedEvent` export flag；`UhtFunction` 后续校验要求它只能用于 event。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtFunctionSpecifiers.cs` 对应 specifier 分支
+  - UE5.8 `UhtFunction.cs` replicated/event 校验
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+把 `SealedEvent` 用在普通 `BlueprintCallable` 函数上；或把它理解成 C++ `final` 的完整替代。

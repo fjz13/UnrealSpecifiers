@@ -4,7 +4,7 @@ id: "meta.ExpandEnumAsExecs"
 kind: "meta"
 symbol: "ExpandEnumAsExecs"
 category: "Blueprint"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -98,3 +98,20 @@ public:
 是如何控制Exec流向的？在函数的实现里，只要把相应的引用输出参数赋值，就自然会流向不同的Pin。这部分逻辑是在UK2Node_CallFunction::ExpandNode中实现。大概逻辑是针对Input引脚，会在中间插入UK2Node_AssignmentStatement，执行不同输入Pin，会相应的设置输入enum参数的的值。而针对Output引脚，会在中间插入UK2Node_SwitchEnum，这样当我们在函数中设置引用输出enum参数的值后，就可以根据enum的值，流向相应的不同输出Pin节点。而对bool参数，也会创建相应的中间蓝图节点来获取和设置bool参数。
 
 函数原始的参数Pin会被隐藏起来，从而只暴露生成后的Exec Pin。
+
+## 行为
+
+UE5.8 UHT 验证 `ExpandEnumAsExecs` 指向函数参数，BlueprintGraph 把指定 enum 输入展开为 exec 分支。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 UHT metadata validator/parser
+  - UE5.8 BlueprintGraph 或 PropertyEditor metadata 读取路径
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+列出多个输入 enum；或指向非 enum/不存在参数。

@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "BlueprintGetter"
 scope: "UFUNCTION"
 category: "Blueprint"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -27,3 +27,21 @@ usage: "UFUNCTION / Blueprint"
 此说明符隐含BlueprintPure和BlueprintCallable。
 
 更多可以参考UPROPERTY的BlueprintGetter
+
+## 行为
+
+在 UE5.8 UHT 中设置 accessor export flag，并同时写入 `BlueprintCallable`、`BlueprintPure` 和 `BlueprintGetter` metadata。UHT 拒绝把 Blueprint event 同时作为 getter。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtFunctionSpecifiers.cs` 对应 specifier 分支
+  - UE5.8 `UhtFunction.cs` replicated/event 校验
+  - 本地样例辅助对照：`D:/github/GitWorkspace/Hello/Source/Insider/Property/Blueprint/MyProperty_Get.h`。
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+把 getter 写成事件；或忘记它通常要和属性侧 `BlueprintGetter=FuncName` 配合。

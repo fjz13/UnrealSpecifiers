@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "BlueprintAuthorityOnly"
 scope: "UFUNCTION"
 category: "Network"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -112,3 +112,20 @@ int32 AActor::GetFunctionCallspace( UFunction* Function, FFrame* Stack )
 	FunctionCallspace::Type Callspace = (LocalRole < ROLE_Authority) && Function->HasAllFunctionFlags(FUNC_BlueprintAuthorityOnly) ? FunctionCallspace::Absorbed : FunctionCallspace::Local;
 }
 ```
+
+## 行为
+
+在 UE5.8 UHT 中写入 `FUNC_BlueprintAuthorityOnly`。它是 Blueprint 调用侧的 authority 限制标志，不等同于 RPC，也不会自动把函数发送到服务器。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtFunctionSpecifiers.cs` 对应 specifier 分支
+  - UE5.8 `UhtFunction.cs` replicated/event 校验
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+把它当成 `Server` RPC 使用；或以为它会替代运行时 authority 判断。

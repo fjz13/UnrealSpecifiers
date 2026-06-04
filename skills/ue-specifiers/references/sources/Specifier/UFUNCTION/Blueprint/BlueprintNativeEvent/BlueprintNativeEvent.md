@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "BlueprintNativeEvent"
 scope: "UFUNCTION"
 category: "Blueprint"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -62,3 +62,20 @@ void AMyFunction_Default::MyFunc_NativeEvent()
 	ProcessEvent(FindFunctionChecked(NAME_AMyFunction_Default_MyFunc_NativeEvent),NULL);
 }
 ```
+
+## 行为
+
+在 UE5.8 UHT 中设置 `Event | BlueprintEvent | Native`。UHT 拒绝 replicated/private/accessor 组合以及和 `BlueprintImplementableEvent` 混用。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtFunctionSpecifiers.cs` 对应 specifier 分支
+  - UE5.8 `UhtFunction.cs` replicated/event 校验
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+声明后不实现 `_Implementation`；或以为它可以直接和 RPC specifier 叠加。

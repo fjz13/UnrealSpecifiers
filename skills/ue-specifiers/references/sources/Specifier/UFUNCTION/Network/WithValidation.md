@@ -5,7 +5,7 @@ kind: "specifier"
 symbol: "WithValidation"
 scope: "UFUNCTION"
 category: "Network"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -131,3 +131,21 @@ DEFINE_FUNCTION(AMyFunction_Network::execMyFunc2_NetMulticast)
 	P_NATIVE_END;
 }
 ```
+
+## 行为
+
+在 UE5.8 UHT 中写入 `FUNC_NetValidate`，并允许可选 validation implementation name。UE5.8 源码中该 specifier 仍存在，但仅适用于网络 RPC 校验路径。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtFunctionSpecifiers.cs` 对应 specifier 分支
+  - UE5.8 `UhtFunction.cs` replicated/event 校验
+  - 本地样例辅助对照：`D:/github/GitWorkspace/Hello/Source/Insider/Function/MyFunction_Network.h 和 MyFunction_PlayerController.h`。
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+把它用在非 RPC 函数上；或忘记验证实现必须和 UHT 生成/期望的签名匹配。

@@ -4,7 +4,7 @@ id: "meta.InlineEditConditionToggle"
 kind: "meta"
 symbol: "InlineEditConditionToggle"
 category: "DetailsPanel"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -100,3 +100,19 @@ bool FPropertyNode::SupportsEditConditionToggle() const
 	return false;
 }
 ```
+
+## 行为
+
+UE5.8 PropertyEditor 在解析 `EditCondition` 后检查条件 bool 属性的 `InlineEditConditionToggle`，用于显示/支持 inline toggle。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `PropertyNode.cpp` `SupportsEditConditionToggle`
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+把它写在被控制属性上而不是条件 bool 属性上；或用于复杂表达式却期待一定出现 toggle。

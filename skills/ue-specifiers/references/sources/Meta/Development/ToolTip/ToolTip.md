@@ -4,7 +4,7 @@ id: "meta.ToolTip"
 kind: "meta"
 symbol: "ToolTip"
 category: "Development"
-source_status: "imported_from_unreal_specifiers"
+source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
@@ -243,3 +243,20 @@ class INSIDER_API UMyClass_ToolTip_TypeB :public UObject
 
 UCLASS(BlueprintType, Blueprintable, meta = (ToolTip = "This is a ToolTip within Class. There're so so so so so so so many words I want to say, but here's too narrow.\nThis is a new line.", ShortToolTip = "This is a ShortToolTip within Class."))
 ```
+
+## 行为
+
+UE5.8 UHT 从 metadata/comment 中维护 `ToolTip`，`GetToolTipText` 在没有 short tooltip 时读取它，并在空值时回退到 source name。
+
+## UE5.8 审计结论
+
+- 状态：`verified_UE5.8`。
+- 结论：已按 UE5.8 源码验证。
+- 证据：
+  - UE5.8 `UhtType.cs` `GetToolTipText`
+  - UE5.8 `UhtParsingScope.cs` comment-to-tooltip path
+- 批次记录：`references/audits/ue5.8-p0-complete-pass.md`。
+
+## 常见误用
+
+把注释、`ToolTip` 和 `ShortToolTip` 的优先级混淆；或用它承载本地化之外的大段运行说明。
