@@ -14,6 +14,14 @@ usage: "UFUNCTION"
 
 # ExpandBoolAsExecs
 
+## Decision Summary
+
+- **Use when:** bool 结果/参数应在 Blueprint 节点上展开为执行引脚分支。
+- **Do not use when:** bool 只是普通数据输出或调用方应自行分支。
+- **Requires:** 指向实际 bool 参数/返回语义，并确认节点形态清晰。
+- **Conflicts:** 不改变函数执行逻辑，只改变 Blueprint 节点呈现。
+- **Prefer instead:** 简单结果用普通 bool 返回并让调用方 Branch。
+
 - **功能描述：** 是ExpandEnumAsExecs的别名，完全等价其功能。
 - **使用位置：** UFUNCTION
 - **元数据类型：** string="abc"

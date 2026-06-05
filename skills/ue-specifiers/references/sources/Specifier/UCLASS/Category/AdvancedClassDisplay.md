@@ -15,6 +15,14 @@ usage: "UCLASS / Category"
 
 # AdvancedClassDisplay
 
+## Decision Summary
+
+- **Use when:** 类的属性在 Details Panel 中默认应偏高级展示。
+- **Do not use when:** 类的大多数属性是日常配置入口。
+- **Requires:** 类确实有 editor-exposed 属性需要这种展示策略。
+- **Conflicts:** 不改变属性的编辑/可见权限。
+- **Prefer instead:** 只对个别属性折叠时用属性侧 `AdvancedDisplay`。
+
 - **功能描述：**  把该类下的所有属性都默认显示在高级目录下
 - **引擎模块：** Category
 - **元数据类型：** bool

@@ -15,6 +15,14 @@ usage: "UCLASS / Config"
 
 # PerObjectConfig
 
+## Decision Summary
+
+- **Use when:** 每个对象实例需要独立的 config section 存储配置属性。
+- **Do not use when:** 类级默认配置已经足够，或值属于运行时状态。
+- **Requires:** 类和属性侧 config 语义配套，且对象命名/持久化策略稳定。
+- **Conflicts:** 不替代 SaveGame 或实例编辑保存。
+- **Prefer instead:** 普通类配置用 `Config`；玩家进度用 SaveGame。
+
 - **功能描述：**  在已经有config配置文件名字的情况下，指定应该按每个对象实例来存储值，而不是一个类一个存储值。
 - **引擎模块：** Config
 - **元数据类型：** bool

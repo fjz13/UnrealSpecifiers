@@ -1,29 +1,35 @@
 ---
-title: "SimpleDisplay"
-id: "UPROPERTY.SimpleDisplay"
+title: "AdvancedDisplay"
+id: "UPROPERTY.AdvancedDisplay"
 kind: "specifier"
-symbol: "SimpleDisplay"
+symbol: "AdvancedDisplay"
 scope: "UPROPERTY"
 category: "DetailsPanel"
 source_status: "verified_UE5.8"
 target_ue_version: "UE5.8"
 normalization_status: "normalized"
 normalized_at: "2026-06-04"
-summary: "在细节面板中直接可见，不折叠到高级中"
+summary: "被折叠到高级栏下，要手动打开。一般用在不太常用的属性上面"
 usage: "UPROPERTY / DetailsPanel"
 ---
 
-# SimpleDisplay
+# AdvancedDisplay
 
-- **功能描述：** 在细节面板中直接可见，不折叠到高级中。
+## Decision Summary
+
+- **Use when:** Details Panel 属性是低频高级设置，应默认折叠。
+- **Do not use when:** 属性是配置该对象的核心字段。
+- **Requires:** 属性已经暴露到 Details Panel。
+- **Conflicts:** 不改变属性可见性、可编辑性或 Blueprint 访问。
+- **Prefer instead:** 必填或高频属性保持普通显示；真正不该显示用更窄暴露策略。
+
+- **功能描述：** 被折叠到高级栏下，要手动打开。一般用在不太常用的属性上面。
 - **元数据类型：** bool
 - **引擎模块：** DetailsPanel, Editor
-- **作用机制：** 在PropertyFlags中加入CPF_SimpleDisplay
-- **常用程度：** ★★★
+- **作用机制：** 在PropertyFlags中加入CPF_AdvancedDisplay
+- **常用程度：★★★★★**
 
-在细节面板中直接可见，不折叠到高级中。
-
-默认情况下本身就是不折叠，但可以用来覆盖掉类上的AdvancedClassDisplay的设置。具体可参见AdvancedClassDisplay的代码和效果。
+被折叠到高级栏下，要手动打开。一般用在不太常用的属性上面。
 
 ## 示例代码：
 
@@ -46,7 +52,7 @@ class INSIDER_API UMyProperty_Test :public UObject
 
 ## 原理：
 
-如果有CPF_SimpleDisplay，则bAdvanced =false
+如果CPF_AdvancedDisplay，bAdvanced =true
 
 ```cpp
 void FPropertyNode::InitNode(const FPropertyNodeInitParams& InitParams)
@@ -60,7 +66,7 @@ void FPropertyNode::InitNode(const FPropertyNodeInitParams& InitParams)
 
 ## 行为
 
-在 UE5.8 UHT 中写入 `CPF_SimpleDisplay`，用于 Details Panel 展示优先级/折叠分组语义。
+在 UE5.8 UHT 中写入 `CPF_AdvancedDisplay`。属性侧 specifier 是 Details/Blueprint 展示折叠标志，不同于 UFUNCTION 的 `meta=(AdvancedDisplay=...)` 参数规则。
 
 ## UE5.8 审计结论
 
@@ -71,4 +77,4 @@ void FPropertyNode::InitNode(const FPropertyNodeInitParams& InitParams)
 
 ## 常见误用
 
-以为它改变属性可编辑性；或和 `AdvancedDisplay` 同时表达相反意图。
+把 UPROPERTY `AdvancedDisplay` 写成函数参数列表；或以为它改变序列化/访问权限。

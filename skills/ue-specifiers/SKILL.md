@@ -1,6 +1,6 @@
 ---
 name: ue-specifiers
-description: Use when writing, editing, reviewing, validating, or explaining Unreal Engine C++ reflected declarations and their specifiers/metadata, including UCLASS, USTRUCT, UENUM, UINTERFACE, UPROPERTY, UFUNCTION, UPARAM, UMETA, meta=(...), Blueprint exposure, Details Panel behavior, replication, SaveGame, Config, Instanced objects, editor-only behavior, UHT diagnostics, and Unreal Engine version-specific specifier behavior.
+description: Use when writing, editing, reviewing, validating, or explaining Unreal Engine C++ reflected declarations: UCLASS, USTRUCT, UENUM, UINTERFACE, UPROPERTY, UFUNCTION, UPARAM, UMETA, meta=(...), Blueprint exposure, Details Panel, replication/RPC, SaveGame, Config, Instanced objects, UMG binding, type pickers, UHT diagnostics, or UE5.8 specifier behavior.
 ---
 
 # ue-specifiers
@@ -30,9 +30,9 @@ When writing or editing UE C++ reflected declarations:
 1. Infer the reflected contract before choosing specifiers: C++ only, Blueprint API, Details Panel editing, config, SaveGame, replication/RPC, instanced subobject, type/object picker, editor-only behavior, or UHT-only behavior.
 2. Use the minimal specifier and metadata set that satisfies that contract. Do not add Blueprint, editor, config, network, or SaveGame exposure unless the code path requires it.
 3. Check that every chosen specifier/meta key is valid for its macro and declaration kind: `UCLASS`, `USTRUCT`, `UENUM`, `UINTERFACE`, `UPROPERTY`, `UFUNCTION`, `UPARAM`, `UMETA`, or `meta=(...)`.
-4. For common choices, search `references/indexes/common.index.md` first. If it contains the target, use its `Summary`, `Usage`, and `Doc` directly.
-5. For obscure, version-sensitive, UHT-diagnostic, or combination-sensitive choices, open `references/indexes/routing.index.md`, choose the smallest next file, then use `references/indexes/sources.index.md` only as a category directory.
-6. Open source documents only when needed to resolve validity, scope, caveats, common misuse, or UE version behavior. In `common.index.md`, `Doc` is relative to `references/sources/`; in category indexes, combine the nearest `Doc root` with the row `Doc`, and treat `Doc root` as relative to `references/sources/`.
+4. For common choices, search `references/indexes/common.index.md` first. If a bare symbol can refer to multiple source docs and the macro/context is unclear, use `references/indexes/ambiguous-symbols.index.md` to disambiguate. Otherwise use the common row's `Summary`, `Usage`, and `Doc` directly.
+5. For combination-sensitive choices such as exposure, editor UI, persistence, networking, instancing, Blueprint node shape, UMG binding, bitmask, or picker behavior, check `references/indexes/constraints.index.md` before opening source docs. For obscure, version-sensitive, or UHT-diagnostic choices, open `references/indexes/routing.index.md`, choose the smallest next file, then use `references/indexes/sources.index.md` only as a category directory.
+6. Open source documents only when needed to resolve validity, scope, caveats, common misuse, or UE version behavior. When a source document has `Decision Summary`, read that section first and use the longer body only for evidence or edge cases. In `common.index.md`, `Doc` is relative to `references/sources/`; in category indexes, combine the nearest `Doc root` with the row `Doc`, and treat `Doc root` as relative to `references/sources/`.
 7. Prefer code that compiles under UE5.8 UHT behavior. Mention version uncertainty only when the item is not verified for the target UE version or when behavior is version-sensitive.
 
 ## Code Output Rules

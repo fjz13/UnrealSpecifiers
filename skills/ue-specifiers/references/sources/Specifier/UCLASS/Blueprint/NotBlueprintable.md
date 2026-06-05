@@ -15,6 +15,14 @@ usage: "UCLASS / Blueprint"
 
 # NotBlueprintable
 
+## Decision Summary
+
+- **Use when:** 类不应被 Blueprint 派生，即使继承链上可能允许 Blueprintable。
+- **Do not use when:** 设计目标是允许 Blueprint 扩展该类。
+- **Requires:** 确认下游工作流不依赖 Blueprint 子类。
+- **Conflicts:** 与 `Blueprintable` 语义相反。
+- **Prefer instead:** 只想禁止作为变量类型时考虑 `NotBlueprintType`。
+
 - **功能描述：** 不可在蓝图里继承，隐含作用也不可当作变量
 - **引擎模块：** Blueprint
 - **元数据类型：** bool

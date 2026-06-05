@@ -14,6 +14,14 @@ usage: "UFUNCTION"
 
 # CustomStructureParam
 
+## Decision Summary
+
+- **Use when:** Blueprint 自定义 thunk 需要处理 wildcard/custom struct 参数。
+- **Do not use when:** 函数参数类型固定且 UHT 可正常生成 thunk。
+- **Requires:** 通常与 `CustomThunk` 和手写 thunk 代码配合。
+- **Conflicts:** 高维护成本，不适合作为普通 Blueprint API 装饰。
+- **Prefer instead:** 能用固定类型或泛型容器表达时避免自定义 thunk。
+
 - **功能描述：** 被CustomStructureParam标记的函数参数会变成Wildcard的通配符参数，其引脚的类型会等于连接的变量类型。
 - **使用位置：** UFUNCTION
 - **引擎模块：** Blueprint

@@ -14,6 +14,14 @@ usage: "UPROPERTY"
 
 # BindWidget
 
+## Decision Summary
+
+- **Use when:** `UUserWidget` C++ 类需要绑定同名 UMG widget 成员。
+- **Do not use when:** widget 是动态创建、可选存在，或不依赖蓝图层级中的同名控件。
+- **Requires:** 成员名、类型和 Widget Blueprint 中的控件匹配；属性通常是 widget 指针。
+- **Conflicts:** 不要用于普通 UObject/Actor 属性；它是 UMG 绑定元数据。
+- **Prefer instead:** 可选绑定用 `BindWidgetOptional`；动态控件用运行时查找或创建逻辑。
+
 - **功能描述：** 指定在C++类中该Widget属性一定要绑定到UMG的某个同名控件。
 - **使用位置：** UPROPERTY
 - **引擎模块：** Widget Property

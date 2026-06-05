@@ -15,6 +15,14 @@ usage: "UPROPERTY / Serialization"
 
 # Transient
 
+## Decision Summary
+
+- **Use when:** 属性是运行时临时状态，不应被常规序列化/保存。
+- **Do not use when:** 值需要随资产、对象默认值、SaveGame 或配置持久化。
+- **Requires:** 初始化路径能在加载后重新建立该值。
+- **Conflicts:** 与持久化意图相反；不要和 SaveGame/Config 语义混用。
+- **Prefer instead:** 需要保存的状态使用普通序列化、SaveGame 或 Config。
+
 - **功能描述：** 不序列化该属性，该属性初始化时候会被0填充。
 - **元数据类型：** bool
 - **引擎模块：** Serialization

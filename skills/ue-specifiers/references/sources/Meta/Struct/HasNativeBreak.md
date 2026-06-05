@@ -15,6 +15,14 @@ usage: "USTRUCT"
 
 # HasNativeBreak
 
+## Decision Summary
+
+- **Use when:** 结构体在 Blueprint 中需要使用指定 C++ 函数作为 Break 节点。
+- **Do not use when:** 默认自动生成的 Break 节点已经满足需求。
+- **Requires:** 指定函数签名与 Blueprint Break struct 语义匹配。
+- **Conflicts:** 不改变结构体数据布局。
+- **Prefer instead:** 简单 USTRUCT 使用默认 Break/Make 节点。
+
 - **功能描述：** 为该结构指定一个C++内的UFunction函数作为Break节点的实现
 - **使用位置：** USTRUCT
 - **引擎模块：** Struct

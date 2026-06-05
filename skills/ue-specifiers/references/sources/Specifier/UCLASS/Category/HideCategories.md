@@ -15,6 +15,14 @@ usage: "UCLASS / Category"
 
 # HideCategories
 
+## Decision Summary
+
+- **Use when:** 类在 Details Panel 中需要隐藏不适合用户配置的继承分类。
+- **Do not use when:** 分类里的设置仍是目标用户常用配置。
+- **Requires:** 分类名应对应实际 Details Panel 分类。
+- **Conflicts:** 不移除属性或改变运行时行为。
+- **Prefer instead:** 单个属性不应暴露时调整属性 specifier，而不是隐藏整个分类。
+
 - **功能描述：**  在类的ClassDefaults属性面板里隐藏某些Category的属性。
 - **引擎模块：** Category
 - **元数据类型：** strings=(abc，"d|e"，"x|y|z")

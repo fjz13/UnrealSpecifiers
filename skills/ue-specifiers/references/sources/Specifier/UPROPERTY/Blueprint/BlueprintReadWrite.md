@@ -15,6 +15,14 @@ usage: "UPROPERTY / Blueprint"
 
 # BlueprintReadWrite
 
+## Decision Summary
+
+- **Use when:** Blueprint 需要读取并直接写入属性。
+- **Do not use when:** 属性写入需要校验、副作用、复制通知或封装逻辑。
+- **Requires:** Details Panel 可见/可编辑要另加 `Visible*` 或 `Edit*` specifier。
+- **Conflicts:** `BlueprintReadOnly`。
+- **Prefer instead:** 需要控制写入流程时用 `BlueprintReadOnly` 加 setter 函数。
+
 - **功能描述：** 可从蓝图读取或写入此属性。
 
 - **元数据类型：** bool

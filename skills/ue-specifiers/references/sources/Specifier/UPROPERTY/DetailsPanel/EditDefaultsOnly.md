@@ -15,6 +15,14 @@ usage: "UPROPERTY / DetailsPanel"
 
 # EditDefaultsOnly
 
+## Decision Summary
+
+- **Use when:** 属性只应在 CDO、蓝图类默认值或 archetype 默认值中编辑。
+- **Do not use when:** 放到关卡里的单个实例也需要改值。
+- **Requires:** 需要 Blueprint 访问时另加 `BlueprintReadOnly` 或 `BlueprintReadWrite`。
+- **Conflicts:** `EditAnywhere`、`EditInstanceOnly`、`VisibleAnywhere`、`VisibleDefaultsOnly`、`VisibleInstanceOnly`。
+- **Prefer instead:** 默认值和实例都可编辑用 `EditAnywhere`；只改实例用 `EditInstanceOnly`。
+
 - **功能描述：** 只能在默认值面板里编辑
 - **元数据类型：** bool
 - **引擎模块：** DetailsPanel, Editor

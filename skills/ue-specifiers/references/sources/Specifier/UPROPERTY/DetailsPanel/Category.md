@@ -15,6 +15,14 @@ usage: "UPROPERTY / DetailsPanel"
 
 # Category
 
+## Decision Summary
+
+- **Use when:** Details Panel 或 Blueprint 中的属性需要清晰分类。
+- **Do not use when:** 属性未暴露给 editor/Blueprint，或分类只服务 C++ 阅读。
+- **Requires:** 分类名应短、稳定，并符合项目约定；嵌套分类可用 `|`。
+- **Conflicts:** 不提供编辑、可见、保存、复制或 Blueprint 访问语义。
+- **Prefer instead:** C++-only 成员用代码结构表达分组。
+
 - **功能描述：** 指定属性的类别，使用 | 运算符定义嵌套类目。
 - **元数据类型：** strings=“a|b|c”
 - **引擎模块：** DetailsPanel, Editor

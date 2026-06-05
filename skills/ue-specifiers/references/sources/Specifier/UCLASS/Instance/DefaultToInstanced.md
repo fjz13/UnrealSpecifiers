@@ -15,6 +15,14 @@ usage: "UCLASS / Instance"
 
 # DefaultToInstanced
 
+## Decision Summary
+
+- **Use when:** 类的对象引用属性默认应按 instanced subobject 语义处理。
+- **Do not use when:** 类型主要作为外部资产、共享对象或普通引用使用。
+- **Requires:** 持有方属性和对象生命周期应适合 instanced ownership。
+- **Conflicts:** 与资产引用/共享引用语义相反。
+- **Prefer instead:** 单个属性需要内联拥有时优先在属性侧使用 `Instanced`。
+
 - **功能描述：**  指定该类的所有实例属性都默认是UPROPERTY(instanced)，即都默认创建新的实例，而不是对对象的引用。
 - **引擎模块：** Instance
 - **元数据类型：** bool

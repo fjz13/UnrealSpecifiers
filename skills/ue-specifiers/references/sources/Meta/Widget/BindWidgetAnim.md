@@ -14,6 +14,14 @@ usage: "UPROPERTY"
 
 # BindWidgetAnim
 
+## Decision Summary
+
+- **Use when:** `UUserWidget` C++ 类需要绑定 Widget Blueprint 中同名动画。
+- **Do not use when:** 动画不存在、名称不稳定，或只在蓝图内部播放。
+- **Requires:** 属性类型通常为 `UWidgetAnimation*`，并匹配 Widget Blueprint 动画名。
+- **Conflicts:** 不要用于普通 widget 控件绑定；控件用 `BindWidget`。
+- **Prefer instead:** 可选动画用可选绑定模式或运行时判空后查找。
+
 - **功能描述：** 指定在C++类中该UWidgetAnimation属性一定要绑定到UMG下的某个动画
 - **使用位置：** UPROPERTY
 - **引擎模块：** Widget Property

@@ -15,6 +15,14 @@ usage: "UCLASS / Blueprint"
 
 # BlueprintType
 
+## Decision Summary
+
+- **Use when:** 类需要作为 Blueprint 变量、参数或返回类型使用。
+- **Do not use when:** 只是允许 Blueprint 派生该类。
+- **Requires:** 类型暴露给 Blueprint 后，其可见 API 应保持稳定。
+- **Conflicts:** 不等同于 `Blueprintable`；二者解决不同问题。
+- **Prefer instead:** 只需要允许创建 Blueprint 子类时用 `Blueprintable`。
+
 - **功能描述：** 可当做变量类型
 - **引擎模块：** Blueprint
 - **元数据类型：** bool

@@ -14,6 +14,14 @@ usage: "UPROPERTY"
 
 # ShowInnerProperties
 
+## Decision Summary
+
+- **Use when:** Details Panel 需要展开显示对象属性内部字段。
+- **Do not use when:** 对象引用应作为独立对象/资产被选择和管理。
+- **Requires:** 被显示对象的属性结构适合内联浏览。
+- **Conflicts:** 不代表对象所有权；内联拥有语义仍看 `Instanced` 等 specifier。
+- **Prefer instead:** 需要内联创建/拥有子对象时使用 `Instanced`/`EditInlineNew` 组合。
+
 - **功能描述：** 在属性细节面板中显示对象引用的内部属性
 - **使用位置：** UPROPERTY
 - **引擎模块：** Object Property

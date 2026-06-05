@@ -14,6 +14,14 @@ usage: "UPROPERTY"
 
 # Input
 
+## Decision Summary
+
+- **Use when:** RigVM/RigUnit 字段需要标记为输入 pin。
+- **Do not use when:** 字段不是 RigVM 暴露参数，或属于普通 UE 反射属性。
+- **Requires:** 目标类型和模块应处在 RigVM/Control Rig 工作流中。
+- **Conflicts:** 不适用于普通 Blueprint 函数参数方向。
+- **Prefer instead:** 普通 UFUNCTION 参数方向使用 C++ 参数声明和 UPARAM 规则。
+
 - **功能描述：** 指定FRigUnit下的该属性作为输入引脚。
 - **使用位置：** UPROPERTY
 - **引擎模块：** RigVMStruct

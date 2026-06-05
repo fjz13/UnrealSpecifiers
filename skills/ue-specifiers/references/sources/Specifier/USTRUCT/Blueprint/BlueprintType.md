@@ -15,6 +15,14 @@ usage: "USTRUCT / Blueprint"
 
 # BlueprintType
 
+## Decision Summary
+
+- **Use when:** USTRUCT 需要作为 Blueprint 变量、参数、返回值或 pin 类型。
+- **Do not use when:** struct 只在 C++ 内部使用。
+- **Requires:** 暴露字段和 Make/Break 行为应适合 Blueprint 使用。
+- **Conflicts:** 不自动暴露所有成员；成员仍需各自的 UPROPERTY/metadata。
+- **Prefer instead:** 内部数据结构保持 C++-only。
+
 - **功能描述：**  允许这个结构在蓝图中声明变量
 - **元数据类型：** bool
 - **引擎模块：** Blueprint

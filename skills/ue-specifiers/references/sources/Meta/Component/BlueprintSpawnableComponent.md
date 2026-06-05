@@ -14,6 +14,14 @@ usage: "UCLASS"
 
 # BlueprintSpawnableComponent
 
+## Decision Summary
+
+- **Use when:** ActorComponent 类需要能在 Blueprint 组件面板中添加。
+- **Do not use when:** 组件只应由 C++ 创建，或需要受控生命周期/依赖注入。
+- **Requires:** 组件类设计应适合蓝图创建、配置和序列化。
+- **Conflicts:** 不替代 `BlueprintType`/`Blueprintable` 的类型暴露语义。
+- **Prefer instead:** 内部组件用 `CreateDefaultSubobject` 或受控工厂创建。
+
 - **功能描述：** 允许该组件出现在Actor蓝图里Add组件的面板里。
 - **使用位置：** UCLASS
 - **引擎模块：** Component Property

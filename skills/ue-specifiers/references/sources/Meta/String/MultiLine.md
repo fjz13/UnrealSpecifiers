@@ -14,6 +14,14 @@ usage: "UPROPERTY"
 
 # MultiLine
 
+## Decision Summary
+
+- **Use when:** 字符串/Text 属性需要在 Details Panel 中多行编辑。
+- **Do not use when:** 文本应保持短单行输入。
+- **Requires:** 属性类型应支持多行编辑展示。
+- **Conflicts:** 不改变字符串内容、长度或本地化语义。
+- **Prefer instead:** 短标签、ID、key 使用单行输入。
+
 - **功能描述：** 使得文本属性编辑框支持换行。
 - **使用位置：** UPROPERTY
 - **引擎模块：** String/Text Property

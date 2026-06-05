@@ -14,6 +14,14 @@ usage: "UPROPERTY"
 
 # MaxLength
 
+## Decision Summary
+
+- **Use when:** Details Panel 字符串输入需要最大长度提示/限制。
+- **Do not use when:** 长度限制是运行时安全或协议要求。
+- **Requires:** 适用于支持该 metadata 的字符串类属性。
+- **Conflicts:** 不替代 C++ 运行时校验。
+- **Prefer instead:** 强约束在 setter、保存或提交路径校验。
+
 - **功能描述：** 在文本编辑框里限制文本的最大长度
 - **使用位置：** UPROPERTY
 - **引擎模块：** String/Text Property

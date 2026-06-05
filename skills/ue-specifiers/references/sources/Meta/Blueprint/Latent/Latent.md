@@ -14,6 +14,14 @@ usage: "UFUNCTION"
 
 # Latent
 
+## Decision Summary
+
+- **Use when:** BlueprintCallable 函数是 latent action，需要暂停并稍后恢复执行流。
+- **Do not use when:** 函数只是同步执行、异步回调、delegate 通知或普通 async C++ 操作。
+- **Requires:** 通常需要 `LatentInfo` 参数并符合 Blueprint latent 函数约定。
+- **Conflicts:** 不要和普通 pure/query 函数语义混用。
+- **Prefer instead:** 简单异步通知用 delegate/event；同步命令用普通 `BlueprintCallable`。
+
 - **功能描述：** 标明一个函数是一个延迟异步操作
 - **使用位置：** UFUNCTION
 - **引擎模块：** Blueprint

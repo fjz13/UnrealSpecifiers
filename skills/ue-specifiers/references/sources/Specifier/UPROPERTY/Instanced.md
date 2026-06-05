@@ -15,6 +15,14 @@ usage: "UPROPERTY / Instance"
 
 # Instanced
 
+## Decision Summary
+
+- **Use when:** `UObject*` 属性需要拥有并内联保存一个子对象实例。
+- **Do not use when:** 属性只是引用外部资产、类、Actor 或非拥有对象。
+- **Requires:** 被实例化对象类通常需要 `EditInlineNew`，属性类型必须适合 UObject 子对象所有权。
+- **Conflicts:** 与软引用/资产引用语义相反；不要用它表达资源选择。
+- **Prefer instead:** 资产引用用 `TObjectPtr`/`TSoftObjectPtr` 加类型选择 metadata；组件默认子对象用 `CreateDefaultSubobject`。
+
 - **功能描述：** 指定对该对象属性的编辑赋值应该新创建一个实例并作为子对象，而不是寻找一个对象引用。
 - **元数据类型：** bool
 - **引擎模块：** Instance

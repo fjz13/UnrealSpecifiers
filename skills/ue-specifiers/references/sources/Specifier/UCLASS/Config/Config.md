@@ -15,6 +15,14 @@ usage: "UCLASS / Config"
 
 # Config
 
+## Decision Summary
+
+- **Use when:** 类需要从指定 `.ini` 配置域加载 `Config` 属性。
+- **Do not use when:** 只是想保存运行时状态或玩家进度。
+- **Requires:** 属性侧使用 `Config`/`GlobalConfig` 才会形成具体配置字段语义。
+- **Conflicts:** 不替代 SaveGame、复制或实例编辑。
+- **Prefer instead:** 玩家进度用 SaveGame；运行时同步用复制；编辑器默认值用普通默认对象/蓝图默认值。
+
 - **功能描述：**  指定配置文件的名字，把该对象的值保存到ini配置文件中。
 - **引擎模块：** Config
 - **元数据类型：** string="abc"

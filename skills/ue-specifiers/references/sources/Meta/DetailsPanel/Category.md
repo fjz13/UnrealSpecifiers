@@ -14,6 +14,14 @@ usage: "UFUNCTION, UPROPERTY"
 
 # Category
 
+## Decision Summary
+
+- **Use when:** 暴露到 Details Panel 或 Blueprint 的成员需要清晰分组。
+- **Do not use when:** 成员没有 editor/Blueprint 暴露，或分类只是在 C++ 中自我说明。
+- **Requires:** 分类字符串应稳定、短且符合项目命名约定。
+- **Conflicts:** 不提供访问、编辑、保存或复制语义。
+- **Prefer instead:** 不暴露的 C++ 成员用代码结构和注释表达分组。
+
 - **功能描述：** 指定属性在细节面板中的分类
 
 - **使用位置：** UFUNCTION, UPROPERTY
@@ -25,7 +33,7 @@ usage: "UFUNCTION, UPROPERTY"
 - **关联项：**
 
   UFUNCTION：[Category](../../Specifier/UFUNCTION/Category.md)
-  UPROPERTY：[Category](../../Specifier/UPROPERTY/DetaisPanel/Category.md)
+  UPROPERTY：[Category](../../Specifier/UPROPERTY/DetailsPanel/Category.md)
 
 - **常用程度：** ★★★★★
 

@@ -15,6 +15,14 @@ usage: "UCLASS / Blueprint"
 
 # NotBlueprintType
 
+## Decision Summary
+
+- **Use when:** 类不应作为 Blueprint 变量、参数或返回类型暴露。
+- **Do not use when:** Blueprint API 需要引用该类型。
+- **Requires:** 确认已有函数/属性暴露不会需要该类型。
+- **Conflicts:** 与 `BlueprintType` 语义相反。
+- **Prefer instead:** 只想禁止 Blueprint 派生时使用 `NotBlueprintable`。
+
 - **功能描述：** 不可当做变量类型
 - **引擎模块：** Blueprint
 - **元数据类型：** bool

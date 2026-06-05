@@ -15,6 +15,14 @@ usage: "UENUM::UMETA"
 
 # Spacer
 
+## Decision Summary
+
+- **Use when:** enum 下拉列表需要视觉分隔项来组织选项。
+- **Do not use when:** enum 是普通业务值集合或会被 C++ 逻辑直接使用。
+- **Requires:** 确认分隔项不会被当成真实可选业务值处理。
+- **Conflicts:** 不替代分类、隐藏或删除枚举项。
+- **Prefer instead:** 普通枚举保持真实选项列表；不应选择的项用 `Hidden`。
+
 - **功能描述：** 隐藏UENUM的某个值
 - **使用位置：** UENUM::UMETA
 - **引擎模块：** Enum Property

@@ -14,6 +14,14 @@ usage: "UPARAM, UPROPERTY"
 
 # GetOptions
 
+## Decision Summary
+
+- **Use when:** 字符串/名称属性的 Details Panel 下拉选项需要由函数动态提供。
+- **Do not use when:** 选项固定且可用 enum 或静态类型表达。
+- **Requires:** 指定函数必须存在并返回 editor 可消费的选项列表。
+- **Conflicts:** 不提供运行时合法性校验。
+- **Prefer instead:** 固定有限集合用 enum；资产/对象选择用类型 picker metadata。
+
 - **功能描述：** 指定一个外部类的函数提供选项给FName或FString属性在细节面板中下拉选项框提供值列表。
 - **使用位置：** UPARAM, UPROPERTY
 - **引擎模块：** String/Text Property

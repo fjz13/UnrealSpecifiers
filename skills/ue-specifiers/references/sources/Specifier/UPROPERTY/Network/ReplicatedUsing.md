@@ -15,6 +15,14 @@ usage: "UPROPERTY / Network"
 
 # ReplicatedUsing
 
+## Decision Summary
+
+- **Use when:** 属性复制到接收端后需要执行 OnRep 通知逻辑。
+- **Do not use when:** 属性只需要静默同步，或回调逻辑其实应在服务器 setter 中执行。
+- **Requires:** 有效的 RepNotify 函数名、复制开启、`GetLifetimeReplicatedProps` 注册。
+- **Conflicts:** 不要和普通 `Replicated` 同时用于同一属性。
+- **Prefer instead:** 不需要通知时用 `Replicated`；主动行为同步用 RPC。
+
 - **功能描述：** 指定一个通知回调函数，在属性通过网络更新后执行。
 - **元数据类型：** string="abc"
 - **引擎模块：** Network

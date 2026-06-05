@@ -14,6 +14,14 @@ usage: "UPROPERTY"
 
 # PasswordField
 
+## Decision Summary
+
+- **Use when:** editor 输入框需要隐藏敏感字符串显示。
+- **Do not use when:** 数据需要真正安全存储或加密。
+- **Requires:** 适用于支持该 metadata 的字符串属性展示。
+- **Conflicts:** 只影响 UI 显示，不提供安全保护。
+- **Prefer instead:** 真正敏感数据使用安全存储/凭据流程，不放普通 UPROPERTY。
+
 - **功能描述：** 使得文本属性显示为密码框
 - **使用位置：** UPROPERTY
 - **引擎模块：** String/Text Property

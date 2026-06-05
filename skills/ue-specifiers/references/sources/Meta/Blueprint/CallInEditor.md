@@ -14,6 +14,14 @@ usage: "UFUNCTION"
 
 # CallInEditor
 
+## Decision Summary
+
+- **Use when:** UFUNCTION 需要在 editor Details Panel 中以按钮形式调用。
+- **Do not use when:** 函数是运行时 gameplay 调用点或需要复杂参数输入。
+- **Requires:** 函数副作用必须适合编辑器环境。
+- **Conflicts:** 与普通运行时 `BlueprintCallable` 语义不同。
+- **Prefer instead:** 复杂编辑器工作流用 Editor Utility 或专门编辑器工具。
+
 - **功能描述：** 可以在Actor的细节面板上作为一个按钮来调用该函数。
 
 - **使用位置：** UFUNCTION

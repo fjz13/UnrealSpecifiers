@@ -14,6 +14,14 @@ usage: "UFUNCTION"
 
 # MapKeyParam
 
+## Decision Summary
+
+- **Use when:** `MapKeyParam` metadata 的 `UFUNCTION` 场景需要：指定一个函数参数为Map的Key，其根据MapParam指定的实际Map参数的Key类型而相应改变。
+- **Do not use when:** 目标声明不属于 `UFUNCTION`，或该展示/编辑/节点行为不是代码契约的一部分。
+- **Requires:** metadata key 名称、参数名和目标声明类型必须与 UE5.8 UHT/编辑器消费路径匹配。
+- **Conflicts:** 不要把 metadata 当成 C++ 访问控制、持久化、网络复制或运行时校验，除非正文明确说明。
+- **Prefer instead:** 常见组合先看 `constraints.index.md`；不确定宏上下文时先看 `ambiguous-symbols.index.md`。
+
 - **功能描述：** 指定一个函数参数为Map的Key，其根据MapParam指定的实际Map参数的Key类型而相应改变。
 - **使用位置：** UFUNCTION
 - **元数据类型：** string="abc"

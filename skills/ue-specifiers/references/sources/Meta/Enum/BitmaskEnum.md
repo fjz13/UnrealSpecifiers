@@ -15,6 +15,14 @@ usage: "UPROPERTY"
 
 # BitmaskEnum
 
+## Decision Summary
+
+- **Use when:** bitmask 整数属性需要指定用于显示位名的 enum。
+- **Do not use when:** bitmask 不对应稳定枚举位，或属性不是掩码编辑。
+- **Requires:** 属性通常已有 `Bitmask`，metadata 值指向可用 enum。
+- **Conflicts:** enum 位值设计错误时 metadata 不能修复语义。
+- **Prefer instead:** 普通 enum 选择不要转成 int bitmask。
+
 - **功能描述：** 使用位标记后采用的枚举名字
 - **使用位置：** UPROPERTY
 - **元数据类型：** string="abc"

@@ -14,6 +14,14 @@ usage: "UPROPERTY"
 
 # AllowPrivateAccess
 
+## Decision Summary
+
+- **Use when:** C++ 属性保持 `private`，但确实需要 Blueprint 读取或编辑暴露。
+- **Do not use when:** 只是为了绕过封装，或属性不需要 Blueprint 访问。
+- **Requires:** 通常与 `BlueprintReadOnly`/`BlueprintReadWrite` 等 Blueprint 暴露 specifier 搭配。
+- **Conflicts:** 不改变 C++ 可见性，也不替代 getter/setter 设计。
+- **Prefer instead:** 需要写入校验时保持属性私有并暴露受控函数。
+
 - **功能描述：** 允许一个在C++中private的属性，可以在蓝图中访问。
 - **使用位置：** UPROPERTY
 - **元数据类型：** bool

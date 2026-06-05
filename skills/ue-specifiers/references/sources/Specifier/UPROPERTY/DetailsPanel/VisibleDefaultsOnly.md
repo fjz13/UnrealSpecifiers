@@ -15,6 +15,14 @@ usage: "UPROPERTY / DetailsPanel"
 
 # VisibleDefaultsOnly
 
+## Decision Summary
+
+- **Use when:** 属性只需要在类默认值/蓝图默认值面板中可见且不可编辑。
+- **Do not use when:** 实例面板也需要展示，或属性需要手动编辑。
+- **Requires:** 需要 Blueprint 访问时另加 `BlueprintReadOnly` 或 `BlueprintReadWrite`。
+- **Conflicts:** `EditAnywhere`、`EditDefaultsOnly`、`EditInstanceOnly`、`VisibleAnywhere`、`VisibleInstanceOnly`。
+- **Prefer instead:** 两侧都展示用 `VisibleAnywhere`；需要默认值可编辑用 `EditDefaultsOnly`。
+
 - **功能描述：** 在默认值细节面板可见，但不可编辑
 - **元数据类型：** bool
 - **引擎模块：** DetailsPanel, Editor

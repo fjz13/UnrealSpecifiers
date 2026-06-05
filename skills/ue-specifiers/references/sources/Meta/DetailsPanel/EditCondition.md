@@ -14,6 +14,14 @@ usage: "UPROPERTY"
 
 # EditCondition
 
+## Decision Summary
+
+- **Use when:** 一个 Details Panel 属性是否可编辑依赖另一个条件表达式。
+- **Do not use when:** 条件应在运行时强制校验，或属性根本不应暴露编辑。
+- **Requires:** 条件引用的字段/表达式在 editor metadata 支持范围内。
+- **Conflicts:** 它只控制编辑器可编辑状态，不替代 C++ 校验。
+- **Prefer instead:** 运行时不变量用 setter、validation 或 `PostEditChangeProperty` 处理。
+
 - **功能描述：** 给一个属性指定另外一个属性或者表达式来作为是否可编辑的条件。
 - **使用位置：** UPROPERTY
 - **引擎模块：** DetailsPanel

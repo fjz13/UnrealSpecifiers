@@ -15,6 +15,14 @@ usage: "UPROPERTY / Config"
 
 # Config
 
+## Decision Summary
+
+- **Use when:** 属性值应从类关联的 `.ini` 配置中加载。
+- **Do not use when:** 值是玩家存档、运行时网络状态，或需要在实例上自由编辑。
+- **Requires:** 所在 `UCLASS` 通常需要 `Config=...`，属性通常不应依赖实例级写入。
+- **Conflicts:** 常见误区是与编辑型 specifier 混用来期待实例保存；二者语义不同。
+- **Prefer instead:** 玩家进度用 `SaveGame`；运行时同步用复制 specifier。
+
 - **功能描述：** 指定该属性是一个配置属性，该属性可以被序列化读写到ini文件（路径由uclass的config标签指定）中。
 - **元数据类型：** bool
 - **引擎模块：** Config

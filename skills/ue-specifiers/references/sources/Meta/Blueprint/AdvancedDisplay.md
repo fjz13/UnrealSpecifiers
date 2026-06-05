@@ -14,6 +14,14 @@ usage: "UFUNCTION"
 
 # AdvancedDisplay
 
+## Decision Summary
+
+- **Use when:** Blueprint 节点参数太多，需要把低频参数折叠到高级区域。
+- **Do not use when:** 参数是调用该节点的核心输入，或隐藏后会让节点语义不清。
+- **Requires:** 用在支持参数展示控制的 Blueprint-exposed 函数/属性上下文。
+- **Conflicts:** 不要把它当成默认值、校验或访问控制；它只影响展示。
+- **Prefer instead:** 真正可选的参数配合合理默认值；核心参数保持直接可见。
+
 - **功能描述：** 把函数的一些参数折叠起来不显示，需要手动点开下拉箭头来展开编辑。
 - **使用位置：** UFUNCTION
 - **引擎模块：** Blueprint

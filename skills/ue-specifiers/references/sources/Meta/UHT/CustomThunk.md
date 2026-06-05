@@ -14,6 +14,14 @@ usage: "UFUNCTION"
 
 # CustomThunk
 
+## Decision Summary
+
+- **Use when:** UHT 生成的默认 Blueprint 调用 thunk 不够用，必须手写参数解析/调用桥接。
+- **Do not use when:** 普通 UFUNCTION 暴露已经能表达函数签名。
+- **Requires:** 手写 thunk 实现和完整测试；通常是高级引擎/插件场景。
+- **Conflicts:** 不要作为解决普通 Blueprint 类型问题的快捷方式。
+- **Prefer instead:** 固定签名、常规反射类型和普通 `BlueprintCallable`。
+
 - **功能描述：** 指定UHT不为该函数生成蓝图调用的辅助函数，而需要用户自定义编写。
 
 - **使用位置：** UFUNCTION

@@ -15,6 +15,14 @@ usage: "UPROPERTY / Network"
 
 # Replicated
 
+## Decision Summary
+
+- **Use when:** Actor 或 replicated subobject 的属性需要从服务器同步到客户端。
+- **Do not use when:** 只需要本地编辑器默认值、存档或配置。
+- **Requires:** 拥有者必须启用复制，并在 `GetLifetimeReplicatedProps` 中注册属性。
+- **Conflicts:** 不要和 `ReplicatedUsing` 同时用于同一属性；需要通知时用 `ReplicatedUsing`。
+- **Prefer instead:** 需要接收端回调用 `ReplicatedUsing`；客户端到服务器行为用 RPC。
+
 - **功能描述：** 指定该属性应随网络进行复制。
 
 - **元数据类型：** bool

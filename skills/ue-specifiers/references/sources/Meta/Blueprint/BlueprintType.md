@@ -14,6 +14,14 @@ usage: "UCLASS, UENUM, UINTERFACE, USTRUCT"
 
 # BlueprintType
 
+## Decision Summary
+
+- **Use when:** UCLASS/USTRUCT/UENUM/UINTERFACE 类型需要作为 Blueprint 变量、参数或返回类型。
+- **Do not use when:** 只是想允许 Blueprint 派生类，或类型不应进入 Blueprint API。
+- **Requires:** 类型及其暴露成员应适合 Blueprint 使用。
+- **Conflicts:** 不等同于 `Blueprintable`。
+- **Prefer instead:** 允许 Blueprint 继承用 `Blueprintable`；C++-only 类型不暴露。
+
 - **功能描述：** 表明可以作为一个蓝图变量
 
 - **使用位置：** UCLASS, UENUM, UINTERFACE, USTRUCT

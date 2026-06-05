@@ -14,6 +14,14 @@ usage: "UPROPERTY"
 
 # ConsoleVariable
 
+## Decision Summary
+
+- **Use when:** 属性需要与控制台变量/cvar 名称建立编辑器或设置项关联。
+- **Do not use when:** 只是普通配置字段或运行时变量。
+- **Requires:** metadata 值应是实际存在且语义匹配的 console variable。
+- **Conflicts:** 不创建 cvar，也不替代配置加载逻辑。
+- **Prefer instead:** 普通 ini 配置用 `Config` 属性和类配置。
+
 - **功能描述：** 把一个Conifg属性的值同步到一个同名的控制台变量。
 - **使用位置：** UPROPERTY
 - **引擎模块：** Config

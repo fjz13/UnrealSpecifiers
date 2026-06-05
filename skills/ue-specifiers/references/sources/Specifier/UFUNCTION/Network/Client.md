@@ -15,6 +15,14 @@ usage: "UFUNCTION / Network"
 
 # Client
 
+## Decision Summary
+
+- **Use when:** 服务器需要在 owning client 上执行某个 RPC。
+- **Do not use when:** 客户端要请求服务器，或需要广播给所有客户端。
+- **Requires:** 正确的网络 owner；通常搭配 `Reliable` 或 `Unreliable` 选择可靠性。
+- **Conflicts:** RPC 方向 specifier 之间互斥；不要同时写 `Server` 或 `NetMulticast`。
+- **Prefer instead:** 客户端请求服务器用 `Server`；广播用 `NetMulticast`。
+
 - **功能描述：** 在Client-owned的Actor上（PlayerController或Pawn）执行一个RPC函数，只运行在客户端上。对应的实现函数会添加_Implementation后缀。
 - **元数据类型：** bool
 - **引擎模块：** Network

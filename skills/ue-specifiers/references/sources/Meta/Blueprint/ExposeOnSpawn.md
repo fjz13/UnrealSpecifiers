@@ -14,6 +14,14 @@ usage: "UPROPERTY"
 
 # ExposeOnSpawn
 
+## Decision Summary
+
+- **Use when:** Blueprint Spawn/Create 节点需要在创建对象时传入该属性初值。
+- **Do not use when:** 属性应在构造后由 setter、初始化函数或默认值配置。
+- **Requires:** 属性需要具备 Blueprint 可访问/可编辑的反射暴露上下文。
+- **Conflicts:** 不保证运行时不变量；传入值仍可能需要 C++ 校验。
+- **Prefer instead:** 初始化逻辑复杂时用显式初始化函数或受控 spawn API。
+
 - **功能描述：** 使该属性在ContructObject或SpawnActor等创建对象的时候暴露出来。
 - **使用位置：** UPROPERTY
 - **引擎模块：** Blueprint

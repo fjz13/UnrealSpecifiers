@@ -15,6 +15,14 @@ usage: "UPARAM / Blueprint"
 
 # DisplayName
 
+## Decision Summary
+
+- **Use when:** Blueprint 参数 pin 需要比 C++ 参数名更友好的显示名。
+- **Do not use when:** C++ 参数名已经清晰，或只是想隐藏糟糕命名。
+- **Requires:** 显示名应稳定，避免影响 Blueprint 用户查找和理解。
+- **Conflicts:** 不改变 C++ 参数名、顺序或类型。
+- **Prefer instead:** 新 API 优先改好 C++ 参数名。
+
 - **功能描述：** 更改函数参数在蓝图节点上的显示名字
 
 - **元数据类型：** string="abc"

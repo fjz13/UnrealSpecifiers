@@ -14,6 +14,14 @@ usage: "UFUNCTION"
 
 # ReturnDisplayName
 
+## Decision Summary
+
+- **Use when:** Blueprint 节点返回值 pin 需要比默认名称更清晰的显示名。
+- **Do not use when:** 返回值语义已由函数名或类型清楚表达。
+- **Requires:** 仅影响展示，名称应稳定。
+- **Conflicts:** 不改变返回值类型或 C++ 签名。
+- **Prefer instead:** 新函数优先使用清晰命名和单一明确返回语义。
+
 - **功能描述：** 改变函数返回值的名字，默认是ReturnValue
 - **使用位置：** UFUNCTION
 - **引擎模块：** Blueprint

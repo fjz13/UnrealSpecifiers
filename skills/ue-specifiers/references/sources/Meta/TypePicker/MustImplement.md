@@ -14,6 +14,14 @@ usage: "UPROPERTY"
 
 # MustImplement
 
+## Decision Summary
+
+- **Use when:** 类选择器需要限制为实现某个接口的类。
+- **Do not use when:** 只是限制继承自某个具体基类。
+- **Requires:** metadata 值应指向接口类型，属性类型必须支持对应类选择器。
+- **Conflicts:** 可与类过滤 metadata 组合，但要确认交集不是空集合。
+- **Prefer instead:** 基类过滤用 `AllowedClasses`；排除类型用 `DisallowedClasses`。
+
 - **功能描述：** 指定TSubClassOf或FSoftClassPath属性选择的类必须实现该接口
 - **使用位置：** UPROPERTY
 - **引擎模块：** TypePicker

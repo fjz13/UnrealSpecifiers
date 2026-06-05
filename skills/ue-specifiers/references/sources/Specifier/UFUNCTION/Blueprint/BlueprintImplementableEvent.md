@@ -15,6 +15,14 @@ usage: "UFUNCTION / Blueprint"
 
 # BlueprintImplementableEvent
 
+## Decision Summary
+
+- **Use when:** C++ 声明事件入口，具体实现完全交给 Blueprint。
+- **Do not use when:** C++ 需要提供默认实现或必须执行核心逻辑。
+- **Requires:** 函数声明应符合 Blueprint 可实现事件约束，通常不写 C++ 函数体。
+- **Conflicts:** 不要和需要 C++ 默认逻辑的场景混用。
+- **Prefer instead:** 需要 C++ 默认实现并允许 Blueprint 覆写时用 `BlueprintNativeEvent`。
+
 - **功能描述：** 指定一个函数调用点，可以在蓝图中重载实现。
 
 - **元数据类型：** bool

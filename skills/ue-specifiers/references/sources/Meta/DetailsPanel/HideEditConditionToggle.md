@@ -14,6 +14,14 @@ usage: "UPROPERTY"
 
 # HideEditConditionToggle
 
+## Decision Summary
+
+- **Use when:** 属性有 `EditCondition`，但不希望 Details Panel 显示自动生成的条件 toggle。
+- **Do not use when:** 用户需要直接切换条件来启用该属性。
+- **Requires:** 已存在明确的 `EditCondition` 使用场景。
+- **Conflicts:** 不替代 `EditCondition`；只影响条件 toggle 展示。
+- **Prefer instead:** 需要用户控制启用状态时保留 toggle 或使用显式 bool。
+
 - **功能描述：** 用在使用EditCondition的属性上，表示该属性不想要其EditCondition用到的属性被隐藏起来。
 - **使用位置：** UPROPERTY
 - **引擎模块：** DetailsPanel

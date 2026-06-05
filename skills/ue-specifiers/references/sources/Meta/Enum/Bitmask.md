@@ -15,6 +15,14 @@ usage: "UPROPERTY"
 
 # Bitmask
 
+## Decision Summary
+
+- **Use when:** 整数属性在 Details Panel 中应按位掩码编辑。
+- **Do not use when:** 属性是普通数值范围或单个 enum 值。
+- **Requires:** 常与 `BitmaskEnum` 指向的 enum 或 `Bitflags` enum 搭配。
+- **Conflicts:** 不提供运行时位合法性校验。
+- **Prefer instead:** 单个选项用普通 enum 属性。
+
 - **功能描述：** 设定一个属性采用Bitmask赋值
 - **使用位置：** UPROPERTY
 - **引擎模块：** Enum Property

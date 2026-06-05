@@ -14,6 +14,14 @@ usage: "UCLASS, UENUM::UMETA, UFUNCTION, UPARAM, UPROPERTY"
 
 # DisplayName
 
+## Decision Summary
+
+- **Use when:** Blueprint/editor 展示名需要比 C++ 标识符更友好。
+- **Do not use when:** 只是想重命名 C++ API 或隐藏不清晰命名。
+- **Requires:** 保持展示名稳定，避免破坏用户查找和教程一致性。
+- **Conflicts:** 不改变真实 C++ 名称、序列化名或调用签名。
+- **Prefer instead:** 新 API 优先使用清晰 C++ 命名，只在展示确有必要时加 display name。
+
 - **功能描述：** 此节点在蓝图中的命名将被此处提供的值所取代，而非代码生成的命名。
 
 - **使用位置：** UCLASS, UENUM::UMETA, UFUNCTION, UPARAM, UPROPERTY

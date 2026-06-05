@@ -15,6 +15,14 @@ usage: "UPARAM / Blueprint"
 
 # ref
 
+## Decision Summary
+
+- **Use when:** 非 const 引用参数在 Blueprint 中应作为输入引用，而不是输出 pin。
+- **Do not use when:** 参数确实是函数输出结果。
+- **Requires:** 参数形态必须是 UHT/Blueprint 支持的引用参数。
+- **Conflicts:** 不改变 C++ 引用语义，只影响 Blueprint pin 方向解释。
+- **Prefer instead:** 输出数据用返回值或明确 output 引用参数。
+
 - **功能描述：** 使得函数的参数变成引用类型
 
 - **元数据类型：** bool

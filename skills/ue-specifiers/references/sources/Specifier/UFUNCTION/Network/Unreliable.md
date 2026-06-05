@@ -15,6 +15,14 @@ usage: "UFUNCTION / Network"
 
 # Unreliable
 
+## Decision Summary
+
+- **Use when:** RPC 是高频、表现型或可被后续状态覆盖，允许丢包。
+- **Do not use when:** RPC 丢失会破坏游戏状态、交易、授权或关键用户操作。
+- **Requires:** 必须搭配 RPC 方向 specifier，如 `Server`、`Client` 或 `NetMulticast`。
+- **Conflicts:** `Reliable`。
+- **Prefer instead:** 关键低频事件用 `Reliable`；持续状态优先考虑属性复制。
+
 - **功能描述：** 指定一个RPC函数为“不可靠的”，当遇见网络错误时就会被丢弃。一般用在传播效果表现的函数上，就算漏掉也没有关系。
 
 - **元数据类型：** bool

@@ -15,6 +15,14 @@ usage: "UCLASS / Blueprint"
 
 # Blueprintable
 
+## Decision Summary
+
+- **Use when:** C++ 类需要允许创建 Blueprint 派生类。
+- **Do not use when:** 类只是运行时内部类型、不可安全扩展，或不应让设计师派生。
+- **Requires:** 类 API 和生命周期应适合 Blueprint 扩展。
+- **Conflicts:** 与 `NotBlueprintable` 语义相反。
+- **Prefer instead:** 只需要作为变量/参数类型暴露时考虑 `BlueprintType`。
+
 - **功能描述：** 可以在蓝图里被继承，隐含的作用也可当变量类型
 - **引擎模块：** Blueprint
 - **元数据类型：** bool

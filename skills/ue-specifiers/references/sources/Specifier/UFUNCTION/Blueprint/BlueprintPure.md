@@ -15,6 +15,14 @@ usage: "UFUNCTION / Blueprint"
 
 # BlueprintPure
 
+## Decision Summary
+
+- **Use when:** 函数是查询/转换类节点，应该在 Blueprint 中没有执行引脚。
+- **Do not use when:** 函数会修改状态、触发副作用、依赖调用顺序，或只是 `void` 函数。
+- **Requires:** 必须有返回值或 output 参数；类型仍需 Blueprint 可反射。
+- **Conflicts:** 不与 `BlueprintCallable` 互斥，`BlueprintPure` 会隐式设置 callable 行为。
+- **Prefer instead:** 有副作用或需要执行顺序时用 `BlueprintCallable`。
+
 - **功能描述：** 指定作为一个纯函数，一般用于Get函数用来返回值。
 - **元数据类型：** bool
 - **引擎模块：** Blueprint

@@ -14,6 +14,14 @@ usage: "UCLASS"
 
 # UCLASS(标识符)
 
+## Decision Summary
+
+- **Use when:** `UCLASS(标识符)` specifier 的 `UCLASS` 场景需要：UE5.8 UHT 通过 UhtClassParser 识别 UCLASS，创建 class 类型并使用 UhtTableNames.Class 的 keyword/specifier table 解析 specifier。该页是 UCLA。
+- **Do not use when:** 声明宏、目标类型或代码契约不属于 `UCLASS`。
+- **Requires:** specifier 必须放在 UE5.8 UHT 支持的宏和声明位置，并满足正文 caveat。
+- **Conflicts:** 不要和同类互斥 specifier 或语义相反的暴露/持久化/网络规则混用。
+- **Prefer instead:** 能用更窄暴露范围或更明确 metadata 表达时，优先选择更窄方案。
+
 ## UHT
 
 | Name                                                       | 引擎模块 | 功能描述                                                     | 常用程度 |

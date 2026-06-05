@@ -15,6 +15,14 @@ usage: "UENUM / BlueprintType"
 
 # BlueprintType
 
+## Decision Summary
+
+- **Use when:** enum 需要作为 Blueprint 变量、参数、返回值或下拉选项。
+- **Do not use when:** enum 只在 C++ 内部使用。
+- **Requires:** 枚举项名称和 UMETA 展示应适合 Blueprint 用户。
+- **Conflicts:** 不等同于 bitmask/flags 语义。
+- **Prefer instead:** C++-only enum 保持普通 enum 或不暴露。
+
 - **功能描述：**  可以作为蓝图变量
 - **元数据类型：** bool
 - **引擎模块：** Blueprint

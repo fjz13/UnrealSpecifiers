@@ -15,6 +15,14 @@ usage: "UFUNCTION / Network"
 
 # NetMulticast
 
+## Decision Summary
+
+- **Use when:** 服务器需要把一次 RPC 广播到相关客户端。
+- **Do not use when:** 只需要通知 owning client，或客户端要请求服务器。
+- **Requires:** 从服务器调用才有广播语义；通常搭配 `Reliable` 或 `Unreliable` 选择可靠性。
+- **Conflicts:** RPC 方向 specifier 之间互斥；不要同时写 `Server` 或 `Client`。
+- **Prefer instead:** 只通知 owning client 用 `Client`；客户端请求服务器用 `Server`。
+
 - **功能描述：** 定义一个多播RPC函数在服务器和客户端上都执行。对应的实现函数会添加_Implementation后缀。
 
 - **元数据类型：** bool

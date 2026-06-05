@@ -14,6 +14,14 @@ usage: "UFUNCTION"
 
 # CallableWithoutWorldContext
 
+## Decision Summary
+
+- **Use when:** 带 `WorldContext` 的函数仍允许没有 world context 的 Blueprint 类调用。
+- **Do not use when:** 函数执行必须依赖有效 world，或普通调用点都能提供上下文。
+- **Requires:** 通常与 `WorldContext` metadata 一起评估，不是独立的 world 获取机制。
+- **Conflicts:** 语义上不要用它绕过真正必需的 world 校验。
+- **Prefer instead:** 需要调用方明确传入时显示 world/context 参数，或保留默认 `WorldContext` 行为。
+
 - **功能描述：** 让函数也可以脱离WorldContextObject而使用
 - **使用位置：** UFUNCTION
 - **元数据类型：** bool

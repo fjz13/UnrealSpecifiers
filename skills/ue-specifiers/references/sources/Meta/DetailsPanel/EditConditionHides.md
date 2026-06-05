@@ -14,6 +14,14 @@ usage: "UPROPERTY"
 
 # EditConditionHides
 
+## Decision Summary
+
+- **Use when:** `EditCondition` 为 false 时应隐藏属性，而不只是禁用编辑。
+- **Do not use when:** 用户仍需要看到当前值或理解该设置存在。
+- **Requires:** 通常与 `EditCondition` 一起使用。
+- **Conflicts:** 不单独表达条件；没有条件时没有清晰意义。
+- **Prefer instead:** 只需要灰掉不可编辑时保留普通 `EditCondition`。
+
 - **功能描述：** 在已经有EditCondition的情况下，指定该属性在EditCondition不满足的情况下隐藏起来。
 - **使用位置：** UPROPERTY
 - **元数据类型：** bool

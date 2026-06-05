@@ -14,6 +14,14 @@ usage: "UPARAM"
 
 # CPP_Default_XXX
 
+## Decision Summary
+
+- **Use when:** Blueprint 节点需要为指定参数提供 C++ 暴露后的默认值 metadata。
+- **Do not use when:** 默认值可以直接由 C++ 默认参数或函数设计表达。
+- **Requires:** `XXX` 必须匹配实际参数名，默认值字符串要能被 Blueprint 参数解析。
+- **Conflicts:** 不替代 `AutoCreateRefTerm` 的未连接引用参数语义。
+- **Prefer instead:** 新代码优先让 C++ 签名默认值清晰可读。
+
 - **功能描述：** XXX=参数名字
 - **使用位置：** UPARAM
 - **引擎模块：** Blueprint

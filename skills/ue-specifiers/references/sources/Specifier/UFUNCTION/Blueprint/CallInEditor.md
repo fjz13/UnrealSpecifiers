@@ -15,6 +15,14 @@ usage: "UFUNCTION / Blueprint"
 
 # CallInEditor
 
+## Decision Summary
+
+- **Use when:** 无参数编辑器工具函数需要在 Details Panel 中作为按钮执行。
+- **Do not use when:** 函数是运行时 gameplay API、需要参数输入，或会在非编辑器上下文执行。
+- **Requires:** 通常用于 editor-facing UObject/Actor 函数，并确认副作用适合编辑器执行。
+- **Conflicts:** 不替代 `BlueprintCallable` 的运行时调用语义。
+- **Prefer instead:** 复杂编辑器工具用 Editor Utility、Blutility 或专门编辑器扩展。
+
 - **功能描述：** 可以在属性细节面板上作为一个按钮来调用该函数。
 
 - **元数据类型：** bool

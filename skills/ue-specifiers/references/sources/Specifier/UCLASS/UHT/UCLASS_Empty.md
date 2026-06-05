@@ -15,6 +15,14 @@ usage: "UCLASS / UHT"
 
 # UCLASS()
 
+## Decision Summary
+
+- **Use when:** 类需要 UE 反射/UObject 体系，但不需要额外 class specifier。
+- **Do not use when:** 类不需要反射、GC、Blueprint/editor 或 UObject 生命周期支持。
+- **Requires:** 类必须符合 UObject/UCLASS 声明和生成代码要求。
+- **Conflicts:** 空 `UCLASS()` 不代表 Blueprint、config、abstract 或 editor 暴露。
+- **Prefer instead:** C++-only 非 UObject 类型不要加 UCLASS。
+
 - **功能描述：** 留空的默认行为是不能在蓝图中被继承，不能在蓝图中定义变量，但拥有反射的功能。
 
 - **引擎模块：** UHT

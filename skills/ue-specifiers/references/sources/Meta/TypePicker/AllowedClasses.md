@@ -14,6 +14,14 @@ usage: "UPROPERTY"
 
 # AllowedClasses
 
+## Decision Summary
+
+- **Use when:** 类/对象选择器只允许选择指定基类集合。
+- **Do not use when:** 需要按接口、标签、动态函数或资产规则过滤。
+- **Requires:** metadata 值使用类名列表，并且属性类型必须是支持类/对象选择器的类型。
+- **Conflicts:** 与 `DisallowedClasses` 可组合但要避免规则互相抵消；精确匹配另看 `ExactClass`。
+- **Prefer instead:** 接口约束用 `MustImplement`；动态过滤用 `GetAllowedClasses`/`GetDisallowedClasses`。
+
 - **功能描述：** 用在类或对象选择器上，指定选择的对象必须属于某一些类型基类。
 - **使用位置：** UPROPERTY
 - **引擎模块：** TypePicker

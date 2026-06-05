@@ -14,6 +14,14 @@ usage: "UPROPERTY"
 
 # InlineEditConditionToggle
 
+## Decision Summary
+
+- **Use when:** bool 条件字段只作为另一个属性的内联启用开关展示。
+- **Do not use when:** bool 本身也是需要独立配置和解释的设置。
+- **Requires:** 通常被其他属性的 `EditCondition` 引用。
+- **Conflicts:** 不要把它用于非 bool 业务字段。
+- **Prefer instead:** 独立开关保持普通可见 bool 属性。
+
 - **功能描述：** 使这个bool属性在被用作EditCondition的时候内联到对方的属性行里成为一个单选框，而不是自己成为一个编辑行。
 - **使用位置：** UPROPERTY
 - **元数据类型：** bool

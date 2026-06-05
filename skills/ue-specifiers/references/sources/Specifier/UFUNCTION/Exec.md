@@ -15,6 +15,14 @@ usage: "UFUNCTION / Exec"
 
 # Exec
 
+## Decision Summary
+
+- **Use when:** `Exec` specifier 的 `UFUNCTION / Exec` 场景需要：在特定类里注册一个函数为作为控制台命令，允许接受参数。
+- **Do not use when:** 声明宏、目标类型或代码契约不属于 `UFUNCTION / Exec`。
+- **Requires:** specifier 必须放在 UE5.8 UHT 支持的宏和声明位置，并满足正文 caveat。
+- **Conflicts:** 不要和同类互斥 specifier 或语义相反的暴露/持久化/网络规则混用。
+- **Prefer instead:** 能用更窄暴露范围或更明确 metadata 表达时，优先选择更窄方案。
+
 - **功能描述：** 在特定类里注册一个函数为作为控制台命令，允许接受参数。
 - **元数据类型：** bool
 - **引擎模块：** Behavior

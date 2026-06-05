@@ -15,6 +15,14 @@ usage: "UPROPERTY / DetailsPanel"
 
 # EditInstanceOnly
 
+## Decision Summary
+
+- **Use when:** 属性只应在已放置实例或运行时实例的 Details Panel 中编辑。
+- **Do not use when:** 蓝图类默认值也需要配置该属性。
+- **Requires:** 需要 Blueprint 访问时另加 `BlueprintReadOnly` 或 `BlueprintReadWrite`。
+- **Conflicts:** `EditAnywhere`、`EditDefaultsOnly`、`VisibleAnywhere`、`VisibleDefaultsOnly`、`VisibleInstanceOnly`。
+- **Prefer instead:** 类默认值可编辑用 `EditDefaultsOnly`；两侧都可编辑用 `EditAnywhere`。
+
 - **功能描述：** 只能在实例的细节面板上编辑该属性
 
 - **元数据类型：** bool

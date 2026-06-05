@@ -14,6 +14,14 @@ usage: "UFUNCTION"
 
 # ExpandEnumAsExecs
 
+## Decision Summary
+
+- **Use when:** enum 参数/结果应在 Blueprint 节点上展开为多个执行分支。
+- **Do not use when:** enum 只是普通数据值，或分支数量会让节点过重。
+- **Requires:** 指向实际 enum 参数/返回语义，并确认枚举项适合分支展示。
+- **Conflicts:** 不改变 C++ 逻辑，只改变 Blueprint 节点形态。
+- **Prefer instead:** 简单状态输出用普通 enum 返回并让调用方 Switch。
+
 - **功能描述：** 指定多个enum或bool类型的函数参数，自动根据条目生成相应的多个输入或输出执行引脚，并根据实参值不同来相应改变控制流。
 - **使用位置：** UFUNCTION
 - **引擎模块：** Blueprint

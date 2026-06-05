@@ -14,6 +14,14 @@ usage: "UPROPERTY"
 
 # SliderExponent
 
+## Decision Summary
+
+- **Use when:** 数值 slider 需要非线性拖拽手感以覆盖大范围数值。
+- **Do not use when:** 数值范围小且线性拖拽足够清晰。
+- **Requires:** 适用于支持 slider metadata 的数值属性。
+- **Conflicts:** 不改变真实数值范围或 clamp 规则。
+- **Prefer instead:** 范围限制用 `ClampMin`/`ClampMax`；UI 范围用 `UIMin`/`UIMax`。
+
 - **功能描述：** 指定数字输入框上滚动条拖动的变化指数分布
 - **使用位置：** UPROPERTY
 - **引擎模块：** Numeric Property

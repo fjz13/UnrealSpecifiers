@@ -15,6 +15,14 @@ usage: "UFUNCTION / Network"
 
 # WithValidation
 
+## Decision Summary
+
+- **Use when:** RPC 调用在执行前需要 UHT 生成的 validation hook。
+- **Do not use when:** 校验逻辑可以清晰地放在 server RPC 实现或业务函数入口。
+- **Requires:** RPC 方向 specifier，通常是 `Server`，并实现对应 validation 逻辑。
+- **Conflicts:** 不替代权限、ownership、rate limit 或业务级安全校验。
+- **Prefer instead:** 新代码优先在 server authoritative 路径显式校验输入和权限。
+
 - **功能描述：** 指定一个RPC函数在执行前需要验证，只有验证通过才可以执行。
 - **元数据类型：** bool
 - **引擎模块：** Network

@@ -79,20 +79,20 @@ Count: 85
 | `Blueprintable` | 可以在蓝图中实现 | UINTERFACE / Blueprint | `Specifier/UINTERFACE/Blueprint/Blueprintable.md` |
 | `DisplayName` | 更改函数参数在蓝图节点上的显示名字 | UPARAM / Blueprint | `Specifier/UPARAM/Blueprint/DisplayName.md` |
 | `ref` | 使得函数的参数变成引用类型 | UPARAM / Blueprint | `Specifier/UPARAM/Blueprint/ref.md` |
-| `AdvancedDisplay` | 被折叠到高级栏下，要手动打开。一般用在不太常用的属性上面 | UPROPERTY / DetailsPanel | `Specifier/UPROPERTY/DetaisPanel/AdvancedDisplay.md` |
+| `AdvancedDisplay` | 被折叠到高级栏下，要手动打开。一般用在不太常用的属性上面 | UPROPERTY / DetailsPanel | `Specifier/UPROPERTY/DetailsPanel/AdvancedDisplay.md` |
 | `BlueprintReadOnly` | 此属性可由蓝图读取，但不能被修改 | UPROPERTY / Blueprint | `Specifier/UPROPERTY/Blueprint/BlueprintReadOnly.md` |
 | `BlueprintReadWrite` | 可从蓝图读取或写入此属性 | UPROPERTY / Blueprint | `Specifier/UPROPERTY/Blueprint/BlueprintReadWrite.md` |
-| `Category` | 指定属性的类别，使用 | 运算符定义嵌套类目 | UPROPERTY / DetailsPanel | `Specifier/UPROPERTY/DetaisPanel/Category.md` |
-| `EditAnywhere` | 在默认值和实例的细节面板上均可编辑 | UPROPERTY / DetailsPanel | `Specifier/UPROPERTY/DetaisPanel/EditAnywhere.md` |
-| `EditDefaultsOnly` | 只能在默认值面板里编辑 | UPROPERTY / DetailsPanel | `Specifier/UPROPERTY/DetaisPanel/EditDefaultsOnly.md` |
-| `EditInstanceOnly` | 只能在实例的细节面板上编辑该属性 | UPROPERTY / DetailsPanel | `Specifier/UPROPERTY/DetaisPanel/EditInstanceOnly.md` |
+| `Category` | 指定属性的类别，使用 &#124; 运算符定义嵌套类目 | UPROPERTY / DetailsPanel | `Specifier/UPROPERTY/DetailsPanel/Category.md` |
+| `EditAnywhere` | 在默认值和实例的细节面板上均可编辑 | UPROPERTY / DetailsPanel | `Specifier/UPROPERTY/DetailsPanel/EditAnywhere.md` |
+| `EditDefaultsOnly` | 只能在默认值面板里编辑 | UPROPERTY / DetailsPanel | `Specifier/UPROPERTY/DetailsPanel/EditDefaultsOnly.md` |
+| `EditInstanceOnly` | 只能在实例的细节面板上编辑该属性 | UPROPERTY / DetailsPanel | `Specifier/UPROPERTY/DetailsPanel/EditInstanceOnly.md` |
 | `Replicated` | 指定该属性应随网络进行复制 | UPROPERTY / Network | `Specifier/UPROPERTY/Network/Replicated.md` |
 | `ReplicatedUsing` | 指定一个通知回调函数，在属性通过网络更新后执行 | UPROPERTY / Network | `Specifier/UPROPERTY/Network/ReplicatedUsing.md` |
 | `SaveGame` | 在SaveGame存档的时候，只序列化有SaveGame标记的属性，而不序列化别的属性 | UPROPERTY / Serialization | `Specifier/UPROPERTY/Serialization/SaveGame.md` |
 | `Transient` | 不序列化该属性，该属性初始化时候会被0填充 | UPROPERTY / Serialization | `Specifier/UPROPERTY/Serialization/Transient.md` |
-| `VisibleAnywhere` | 在默认值和实例细节面板均可见，但不可编辑 | UPROPERTY / DetailsPanel | `Specifier/UPROPERTY/DetaisPanel/VisibleAnywhere.md` |
-| `VisibleDefaultsOnly` | 在默认值细节面板可见，但不可编辑 | UPROPERTY / DetailsPanel | `Specifier/UPROPERTY/DetaisPanel/VisibleDefaultsOnly.md` |
-| `VisibleInstanceOnly` | 在实例细节面板可见，但不可编辑 | UPROPERTY / DetailsPanel | `Specifier/UPROPERTY/DetaisPanel/VisibleInstanceOnly.md` |
+| `VisibleAnywhere` | 在默认值和实例细节面板均可见，但不可编辑 | UPROPERTY / DetailsPanel | `Specifier/UPROPERTY/DetailsPanel/VisibleAnywhere.md` |
+| `VisibleDefaultsOnly` | 在默认值细节面板可见，但不可编辑 | UPROPERTY / DetailsPanel | `Specifier/UPROPERTY/DetailsPanel/VisibleDefaultsOnly.md` |
+| `VisibleInstanceOnly` | 在实例细节面板可见，但不可编辑 | UPROPERTY / DetailsPanel | `Specifier/UPROPERTY/DetailsPanel/VisibleInstanceOnly.md` |
 | `BlueprintType` | 允许这个结构在蓝图中声明变量 | USTRUCT / Blueprint | `Specifier/USTRUCT/Blueprint/BlueprintType.md` |
 
 ## ★★★★

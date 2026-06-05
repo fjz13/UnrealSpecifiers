@@ -14,6 +14,14 @@ usage: "UCLASS, UINTERFACE"
 
 # IsBlueprintBase
 
+## Decision Summary
+
+- **Use when:** 需要显式控制类型是否可作为 Blueprint 基类。
+- **Do not use when:** 常规 `Blueprintable`/`NotBlueprintable` specifier 已能表达意图。
+- **Requires:** 确认目标宏和引擎路径消费该 metadata。
+- **Conflicts:** 不等同于变量类型暴露的 `BlueprintType`。
+- **Prefer instead:** 普通类继承暴露用 `Blueprintable` 或 `NotBlueprintable`。
+
 - **功能描述：** 说明此类是否为创建蓝图的一个可接受基类，与 UCLASS 说明符、Blueprintable 或 'NotBlueprintable` 相似。
 
 - **使用位置：** UCLASS, UINTERFACE

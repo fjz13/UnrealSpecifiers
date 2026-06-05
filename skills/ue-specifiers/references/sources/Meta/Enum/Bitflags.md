@@ -15,6 +15,14 @@ usage: "UENUM"
 
 # Bitflags
 
+## Decision Summary
+
+- **Use when:** enum 类型要作为 bit flags 使用，并配合 bitmask 属性选择多个枚举位。
+- **Do not use when:** enum 表示互斥单选状态。
+- **Requires:** 通常与属性侧 `Bitmask`/`BitmaskEnum` 组合。
+- **Conflicts:** 不改变 C++ 枚举值本身的位设计。
+- **Prefer instead:** 单选枚举保持普通 `UENUM`/`UMETA`。
+
 - **功能描述：** 设定一个枚举支持采用位标记赋值，从而在蓝图中可以识别出来是BitMask
 - **使用位置：** UENUM
 - **引擎模块：** Enum Property

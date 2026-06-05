@@ -14,6 +14,14 @@ usage: "UFUNCTION"
 
 # Keywords
 
+## Decision Summary
+
+- **Use when:** Blueprint 节点需要通过同义词或常用搜索词更容易被找到。
+- **Do not use when:** 关键词只是重复节点名或堆砌无关词。
+- **Requires:** 关键词应贴近用户会搜索的术语。
+- **Conflicts:** 不改变节点行为或分类。
+- **Prefer instead:** 节点命名和 Category 已足够清楚时不添加。
+
 - **功能描述：** 指定一系列关键字用于在蓝图内右键找到该函数
 - **使用位置：** UFUNCTION
 - **引擎模块：** Blueprint

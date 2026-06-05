@@ -15,6 +15,14 @@ usage: "UCLASS / Category"
 
 # CollapseCategories
 
+## Decision Summary
+
+- **Use when:** `CollapseCategories` specifier 的 `UCLASS / Category` 场景需要：在类的属性面板里隐藏所有带Category的属性，但是只对带有多个嵌套Category的属性才起作用。
+- **Do not use when:** 声明宏、目标类型或代码契约不属于 `UCLASS / Category`。
+- **Requires:** specifier 必须放在 UE5.8 UHT 支持的宏和声明位置，并满足正文 caveat。
+- **Conflicts:** 不要和同类互斥 specifier 或语义相反的暴露/持久化/网络规则混用。
+- **Prefer instead:** 能用更窄暴露范围或更明确 metadata 表达时，优先选择更窄方案。
+
 - **功能描述：**  在类的属性面板里隐藏所有带Category的属性，但是只对带有多个嵌套Category的属性才起作用。
 - **引擎模块：** Category
 - **元数据类型：** bool

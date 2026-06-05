@@ -14,6 +14,14 @@ usage: "UFUNCTION"
 
 # AutoCreateRefTerm
 
+## Decision Summary
+
+- **Use when:** Blueprint 节点的引用输入参数未连接时也需要自动创建默认临时值。
+- **Do not use when:** 参数必须由调用者显式提供，或默认空值会掩盖调用错误。
+- **Requires:** metadata 值列出实际参数名，参数类型/引用形态需符合 Blueprint 节点支持。
+- **Conflicts:** 不替代 `CPP_Default_XXX` 的固定默认值语义。
+- **Prefer instead:** 普通默认值用 C++ 默认参数或 `CPP_Default_XXX`。
+
 - **功能描述：** 指定函数的多个输入引用参数在没有连接的时候自动为其创建默认值
 - **使用位置：** UFUNCTION
 - **引擎模块：** Blueprint

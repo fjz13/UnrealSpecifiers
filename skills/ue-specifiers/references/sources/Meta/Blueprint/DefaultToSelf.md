@@ -14,6 +14,14 @@ usage: "UFUNCTION"
 
 # DefaultToSelf
 
+## Decision Summary
+
+- **Use when:** Blueprint 函数参数默认应绑定到调用图中的 self/context 对象。
+- **Do not use when:** 调用者必须显式选择目标对象以避免歧义。
+- **Requires:** metadata 值应指向实际存在的对象参数。
+- **Conflicts:** 不替代 `WorldContext`；self 默认值和 world 解析是不同语义。
+- **Prefer instead:** 目标对象对行为关键时让 pin 显示并要求显式连接。
+
 - **功能描述：** 用在函数上，指定一个参数的默认值为Self值
 - **使用位置：** UFUNCTION
 - **引擎模块：** Blueprint

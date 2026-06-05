@@ -15,6 +15,14 @@ usage: "UFUNCTION / Category"
 
 # Category
 
+## Decision Summary
+
+- **Use when:** Blueprint-exposed 函数需要在节点菜单或详情中合理分组。
+- **Do not use when:** 函数不是 Blueprint/editor 暴露 API。
+- **Requires:** 分类字符串应短、稳定，并与项目 Blueprint API 分组一致。
+- **Conflicts:** 不影响函数调用权限、纯/非纯、网络或编辑器执行行为。
+- **Prefer instead:** C++-only helper 不需要 Category。
+
 - **功能描述：** 在蓝图的右键菜单中为该函数指定类别分组，可以嵌套多级
 
 - **元数据类型：** strings=“a|b|c”

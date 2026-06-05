@@ -15,6 +15,14 @@ usage: "UPROPERTY / UHT"
 
 # FieldNotify
 
+## Decision Summary
+
+- **Use when:** 属性变化需要参与 UE Field Notification/绑定通知工作流。
+- **Do not use when:** 属性只是普通数据字段，或通知可以由显式 delegate/event 完成。
+- **Requires:** 目标类和模块应支持 FieldNotify 使用路径。
+- **Conflicts:** 不替代 replication notify、setter 校验或普通 Blueprint dispatch。
+- **Prefer instead:** 普通 gameplay 变化通知用 delegate、event 或 RepNotify。
+
 - **功能描述：** 在打开MVVM插件后，使得该属性变成支持FieldNotify的属性。
 
 - **元数据类型：** bool

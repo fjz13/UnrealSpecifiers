@@ -15,6 +15,14 @@ usage: "UFUNCTION / UHT"
 
 # Variadic
 
+## Decision Summary
+
+- **Use when:** `Variadic` specifier 的 `UFUNCTION / UHT` 场景需要：标识一个函数可以接受任意类型的多个参数（包括input/output)．。
+- **Do not use when:** 声明宏、目标类型或代码契约不属于 `UFUNCTION / UHT`。
+- **Requires:** specifier 必须放在 UE5.8 UHT 支持的宏和声明位置，并满足正文 caveat。
+- **Conflicts:** 不要和同类互斥 specifier 或语义相反的暴露/持久化/网络规则混用。
+- **Prefer instead:** 能用更窄暴露范围或更明确 metadata 表达时，优先选择更窄方案。
+
 - **功能描述：** 标识一个函数可以接受任意类型的多个参数（包括input/output)．
 
 - **元数据类型：** bool

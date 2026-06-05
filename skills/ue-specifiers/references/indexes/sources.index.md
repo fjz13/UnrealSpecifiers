@@ -26,6 +26,8 @@ Total source markdown files: 447; meta=303, specifier=144
 
 - Start from `references/indexes/routing.index.md` for normal user questions.
 - Use `references/indexes/common.index.md` for common/high-frequency choices.
+- Use `references/indexes/ambiguous-symbols.index.md` when a bare symbol has multiple valid macro/context meanings.
+- Use `references/indexes/constraints.index.md` for specifier/meta combinations, mutually exclusive choices, and code-generation guardrails.
 - Use these category files for exact symbol lookup, cold items, deprecated items, and Doc routing.
 - Do not duplicate source explanations here; open the `Doc` for behavior details and caveats.
 

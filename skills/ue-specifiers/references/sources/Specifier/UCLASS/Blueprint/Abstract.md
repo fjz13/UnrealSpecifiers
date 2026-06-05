@@ -15,6 +15,14 @@ usage: "UCLASS / Blueprint"
 
 # Abstract
 
+## Decision Summary
+
+- **Use when:** 类是基类/模板，不应被直接实例化或作为具体 Blueprint 类使用。
+- **Do not use when:** 设计师需要创建该类的实例或 Blueprint 子类作为可用对象。
+- **Requires:** 下游应有可实例化的非 abstract 派生类。
+- **Conflicts:** 不替代 C++ 纯虚设计；它影响 UE 反射/编辑器可实例化语义。
+- **Prefer instead:** 只想限制 C++ 构造时用 C++ 访问控制或工厂流程。
+
 - **功能描述：** 指定此类为抽象基类。可被继承，但不可生成对象。
 - **引擎模块：** Blueprint
 - **元数据类型：** bool

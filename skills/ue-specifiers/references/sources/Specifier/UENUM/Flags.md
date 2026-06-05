@@ -15,6 +15,14 @@ usage: "UENUM / Flags"
 
 # Flags
 
+## Decision Summary
+
+- **Use when:** UENUM 表示可组合位标志，而不是互斥枚举值。
+- **Do not use when:** enum 语义是单选状态或类别。
+- **Requires:** 枚举值设计应符合位掩码组合语义。
+- **Conflicts:** 不自动让属性成为 bitmask UI；属性侧仍需对应 metadata。
+- **Prefer instead:** 单选状态用普通 `BlueprintType` enum。
+
 - **功能描述：**  把该枚举的值作为一个标志来拼接字符串输出。
 - **元数据类型：** bool
 - **引擎模块：** Trait

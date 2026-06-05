@@ -14,6 +14,14 @@ usage: "UPROPERTY"
 
 # UIMin
 
+## Decision Summary
+
+- **Use when:** 只想调整 Details Panel slider/拖拽 UI 的最小显示范围。
+- **Do not use when:** 需要禁止用户输入更小的值。
+- **Requires:** 适用于支持数值 metadata 的数值属性。
+- **Conflicts:** 不提供硬性数值限制。
+- **Prefer instead:** 需要硬限制用 `ClampMin`。
+
 - **功能描述：** 指定数字输入框上滚动条拖动的最小范围值
 - **使用位置：** UPROPERTY
 - **引擎模块：** Numeric Property

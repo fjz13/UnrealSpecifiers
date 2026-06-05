@@ -15,6 +15,14 @@ usage: "UPROPERTY / Serialization"
 
 # SaveGame
 
+## Decision Summary
+
+- **Use when:** `USaveGame` 对象序列化时需要保存该属性。
+- **Do not use when:** 只是想在编辑器默认值、配置文件或网络复制中保留值。
+- **Requires:** 实际保存/读取仍需要 SaveGame 对象、归档流程或 `UGameplayStatics` 调用。
+- **Conflicts:** 无常见 UHT 互斥，但语义上不要把它当成 `Config` 或 `Replicated` 的替代。
+- **Prefer instead:** 项目配置用 `Config`；多人同步用 `Replicated`/`ReplicatedUsing`。
+
 - **功能描述：** 在SaveGame存档的时候，只序列化有SaveGame标记的属性，而不序列化别的属性。
 - **元数据类型：** bool
 - **引擎模块：** Serialization

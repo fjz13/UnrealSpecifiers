@@ -14,6 +14,14 @@ usage: "UPROPERTY"
 
 # UPROPERTY(标识符)
 
+## Decision Summary
+
+- **Use when:** `UPROPERTY(标识符)` specifier 的 `UPROPERTY` 场景需要：UE5.8 UHT 在 property parser 中解析 UPROPERTY，成员属性使用 UhtTableNames.PropertyMember 的 specifier table。该页是 UPROPERTY 条目索引，不是单个。
+- **Do not use when:** 声明宏、目标类型或代码契约不属于 `UPROPERTY`。
+- **Requires:** specifier 必须放在 UE5.8 UHT 支持的宏和声明位置，并满足正文 caveat。
+- **Conflicts:** 不要和同类互斥 specifier 或语义相反的暴露/持久化/网络规则混用。
+- **Prefer instead:** 能用更窄暴露范围或更明确 metadata 表达时，优先选择更窄方案。
+
  ## Serialization
 
 | Name                                                                                                     | 引擎模块                 | 功能描述                                                                                                                 | 常用程度  |
@@ -31,7 +39,7 @@ usage: "UPROPERTY"
 
 | Name                                                                                                     | 引擎模块                 | 功能描述                                                                                                                 | 常用程度  |
 |----------------------------------------------------------------------------------------------------------|----------------------|----------------------------------------------------------------------------------------------------------------------|-------|
-| [Interp](UPROPERTY/DetaisPanel/Interp.md)                                                         | Sequencer            | 指定该属性值可暴露到时间轴里编辑，在平常的Timeline或UMG的动画里使用。                                                                             | ★★★   |
+| [Interp](UPROPERTY/DetailsPanel/Interp.md)                                                         | Sequencer            | 指定该属性值可暴露到时间轴里编辑，在平常的Timeline或UMG的动画里使用。                                                                             | ★★★   |
 
 
  ## Network
@@ -62,24 +70,24 @@ usage: "UPROPERTY"
 
 | Name                                                                                                     | 引擎模块                 | 功能描述                                                                                                                 | 常用程度  |
 |----------------------------------------------------------------------------------------------------------|----------------------|----------------------------------------------------------------------------------------------------------------------|-------|
-| [NonTransactional](UPROPERTY/DetaisPanel/NonTransactional.md)                           | Editor               | 对该属性的改变操作，不会被包含进编辑器的Undo/Redo命令中。                                                                                    | ★★    |
+| [NonTransactional](UPROPERTY/DetailsPanel/NonTransactional.md)                           | Editor               | 对该属性的改变操作，不会被包含进编辑器的Undo/Redo命令中。                                                                                    | ★★    |
 
 
  ## DetailsPanel
 
 | Name                                                                                                     | 引擎模块                 | 功能描述                                                                                                                 | 常用程度  |
 |----------------------------------------------------------------------------------------------------------|----------------------|----------------------------------------------------------------------------------------------------------------------|-------|
-| [Category](UPROPERTY/DetaisPanel/Category.md)                                                   | DetailsPanel, Editor | 指定属性的类别，使用 &#124; 运算符定义嵌套类目。                                                                                         | ★★★★★ |
-| [SimpleDisplay](UPROPERTY/DetaisPanel/SimpleDisplay.md)                                    | DetailsPanel, Editor | 在细节面板中直接可见，不折叠到高级中。                                                                                                  | ★★★   |
-| [AdvancedDisplay](UPROPERTY/DetaisPanel/AdvancedDisplay.md)                              | DetailsPanel, Editor | 被折叠到高级栏下，要手动打开。一般用在不太常用的属性上面。                                                                                        | ★★★★★ |
-| [EditAnywhere](UPROPERTY/DetaisPanel/EditAnywhere.md)                                       | DetailsPanel, Editor | 在默认值和实例的细节面板上均可编辑                                                                                                    | ★★★★★ |
-| [EditDefaultsOnly](UPROPERTY/DetaisPanel/EditDefaultsOnly.md)                                            | DetailsPanel, Editor | 只能在默认值面板里编辑                                                                                                          | ★★★★★ |
-| [EditInstanceOnly](UPROPERTY/DetaisPanel/EditInstanceOnly.md)                                            | DetailsPanel, Editor | 只能在实例的细节面板上编辑该属性                                                                                                     | ★★★★★ |
-| [VisibleAnywhere](UPROPERTY/DetaisPanel/VisibleAnywhere.md)                                              | DetailsPanel, Editor | 在默认值和实例细节面板均可见，但不可编辑                                                                                                 | ★★★★★ |
-| [VisibleDefaultsOnly](UPROPERTY/DetaisPanel/VisibleDefaultsOnly.md)                                      | DetailsPanel, Editor | 在默认值细节面板可见，但不可编辑                                                                                                     | ★★★★★ |
-| [VisibleInstanceOnly](UPROPERTY/DetaisPanel/VisibleInstanceOnly.md)                                      | DetailsPanel, Editor | 在实例细节面板可见，但不可编辑                                                                                                      | ★★★★★ |
-| [EditFixedSize](UPROPERTY/DetaisPanel/EditFixedSize.md)                                    | DetailsPanel, Editor | 在细节面板上不允许改变该容器的元素个数。                                                                                                 | ★★★   |
-| [NoClear](UPROPERTY/DetaisPanel/NoClear.md)                                                      | DetailsPanel, Editor | 指定该属性的编辑选项中不出现Clear按钮，不允许置null。                                                                                      | ★★★   |
+| [Category](UPROPERTY/DetailsPanel/Category.md)                                                   | DetailsPanel, Editor | 指定属性的类别，使用 &#124; 运算符定义嵌套类目。                                                                                         | ★★★★★ |
+| [SimpleDisplay](UPROPERTY/DetailsPanel/SimpleDisplay.md)                                    | DetailsPanel, Editor | 在细节面板中直接可见，不折叠到高级中。                                                                                                  | ★★★   |
+| [AdvancedDisplay](UPROPERTY/DetailsPanel/AdvancedDisplay.md)                              | DetailsPanel, Editor | 被折叠到高级栏下，要手动打开。一般用在不太常用的属性上面。                                                                                        | ★★★★★ |
+| [EditAnywhere](UPROPERTY/DetailsPanel/EditAnywhere.md)                                       | DetailsPanel, Editor | 在默认值和实例的细节面板上均可编辑                                                                                                    | ★★★★★ |
+| [EditDefaultsOnly](UPROPERTY/DetailsPanel/EditDefaultsOnly.md)                                            | DetailsPanel, Editor | 只能在默认值面板里编辑                                                                                                          | ★★★★★ |
+| [EditInstanceOnly](UPROPERTY/DetailsPanel/EditInstanceOnly.md)                                            | DetailsPanel, Editor | 只能在实例的细节面板上编辑该属性                                                                                                     | ★★★★★ |
+| [VisibleAnywhere](UPROPERTY/DetailsPanel/VisibleAnywhere.md)                                              | DetailsPanel, Editor | 在默认值和实例细节面板均可见，但不可编辑                                                                                                 | ★★★★★ |
+| [VisibleDefaultsOnly](UPROPERTY/DetailsPanel/VisibleDefaultsOnly.md)                                      | DetailsPanel, Editor | 在默认值细节面板可见，但不可编辑                                                                                                     | ★★★★★ |
+| [VisibleInstanceOnly](UPROPERTY/DetailsPanel/VisibleInstanceOnly.md)                                      | DetailsPanel, Editor | 在实例细节面板可见，但不可编辑                                                                                                      | ★★★★★ |
+| [EditFixedSize](UPROPERTY/DetailsPanel/EditFixedSize.md)                                    | DetailsPanel, Editor | 在细节面板上不允许改变该容器的元素个数。                                                                                                 | ★★★   |
+| [NoClear](UPROPERTY/DetailsPanel/NoClear.md)                                                      | DetailsPanel, Editor | 指定该属性的编辑选项中不出现Clear按钮，不允许置null。                                                                                      | ★★★   |
 
 
  ## Config

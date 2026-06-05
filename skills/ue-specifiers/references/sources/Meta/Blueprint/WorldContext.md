@@ -14,6 +14,14 @@ usage: "UFUNCTION"
 
 # WorldContext
 
+## Decision Summary
+
+- **Use when:** 静态 BlueprintCallable 函数需要从某个参数推断 `UWorld` 上下文。
+- **Do not use when:** 函数已经是实例方法，或没有使用 world-dependent API。
+- **Requires:** metadata 值必须指向一个可作为 world context 的参数名。
+- **Conflicts:** 与错误参数名组合会让节点隐藏/调用语义失真。
+- **Prefer instead:** 实例方法可直接使用对象上下文；无法提供上下文时考虑显示传入 WorldContextObject。
+
 - **功能描述：** 指定函数的一个参数自动接收WorldContext对象，以便确定当前运行所处于的World
 - **使用位置：** UFUNCTION
 - **引擎模块：** Blueprint

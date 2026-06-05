@@ -15,6 +15,14 @@ usage: "UENUM::UMETA"
 
 # Hidden
 
+## Decision Summary
+
+- **Use when:** enum 项不应出现在 Blueprint/editor 选择列表中。
+- **Do not use when:** 枚举值仍应作为设计师可选项。
+- **Requires:** 确认隐藏项仅用于内部、兼容或 sentinel 语义。
+- **Conflicts:** 不删除枚举值，也不阻止 C++ 使用。
+- **Prefer instead:** 不需要的枚举项从 API 设计中移除或避免暴露。
+
 - **功能描述：** 隐藏UENUM的某个值
 - **使用位置：** UENUM::UMETA
 - **引擎模块：** Enum Property

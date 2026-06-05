@@ -14,6 +14,14 @@ usage: "UFUNCTION"
 
 # CommutativeAssociativeBinaryOperator
 
+## Decision Summary
+
+- **Use when:** Blueprint 函数表示可交换、可结合的二元运算，并适合生成可扩展输入节点。
+- **Do not use when:** 运算顺序重要，或函数不是严格二元运算语义。
+- **Requires:** 函数签名和行为应符合 Blueprint 运算节点期望。
+- **Conflicts:** 不改变 C++ 函数的真实数学性质。
+- **Prefer instead:** 顺序敏感逻辑使用普通 `BlueprintCallable`/`BlueprintPure` 节点。
+
 - **功能描述：** 标记一个二元运算函数的运算支持交换律和结合律，在蓝图节点上增加一个“+”引脚，允许动态的直接添加多个输入值。
 - **使用位置：** UFUNCTION
 - **引擎模块：** Blueprint

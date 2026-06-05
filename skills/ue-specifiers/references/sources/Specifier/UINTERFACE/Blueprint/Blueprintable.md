@@ -15,6 +15,14 @@ usage: "UINTERFACE / Blueprint"
 
 # Blueprintable
 
+## Decision Summary
+
+- **Use when:** 接口需要允许 Blueprint 类型实现或参与 Blueprint-facing 接口工作流。
+- **Do not use when:** 接口只供 C++ 类型实现和调用。
+- **Requires:** 接口函数签名应适合 Blueprint 暴露和实现。
+- **Conflicts:** 与禁止 Blueprint 实现/暴露的接口设计目标相反。
+- **Prefer instead:** C++-only 扩展点保持普通接口，不暴露给 Blueprint。
+
 - **功能描述：**  可以在蓝图中实现
 - **元数据类型：** bool
 - **引擎模块：** Blueprint

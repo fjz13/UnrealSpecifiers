@@ -15,6 +15,14 @@ usage: "UFUNCTION / Blueprint"
 
 # BlueprintCallable
 
+## Decision Summary
+
+- **Use when:** 函数需要作为有执行引脚的 Blueprint 节点被调用。
+- **Do not use when:** 函数只是无副作用查询并适合 pure 节点形态。
+- **Requires:** 公开给 Blueprint 的函数通常应有清晰 `Category`，并保持参数/返回类型 Blueprint 可反射。
+- **Conflicts:** 无直接互斥；与 `BlueprintPure` 组合时节点会变成 pure 形态。
+- **Prefer instead:** 查询型 getter 用 `BlueprintPure`；事件覆写入口用 `BlueprintImplementableEvent` 或 `BlueprintNativeEvent`。
+
 - **功能描述：** 暴露到蓝图中可被调用
 
 - **元数据类型：** bool

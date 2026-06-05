@@ -15,6 +15,14 @@ usage: "UENUM::UMETA"
 
 # DisplayName
 
+## Decision Summary
+
+- **Use when:** enum 枚举项在 Blueprint/editor 中需要友好显示名。
+- **Do not use when:** 只是想改变枚举项 C++ 名称。
+- **Requires:** 展示名应稳定，避免破坏已有用户认知。
+- **Conflicts:** 不改变实际枚举值或 C++ 标识符。
+- **Prefer instead:** 新枚举项优先使用清晰 C++ 名称。
+
 - **功能描述：** 改变枚举值的显示名称
 - **使用位置：** UENUM::UMETA
 - **引擎模块：** Enum Property

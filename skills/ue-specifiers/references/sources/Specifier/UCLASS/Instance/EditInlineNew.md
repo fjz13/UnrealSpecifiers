@@ -15,6 +15,14 @@ usage: "UCLASS / Instance"
 
 # EditInlineNew
 
+## Decision Summary
+
+- **Use when:** UObject 类需要能在拥有者 Details Panel 中以内联方式创建实例。
+- **Do not use when:** 类应该作为独立资产、Actor、组件模板或外部引用被选择。
+- **Requires:** 持有方属性通常需要 `Instanced`，否则内联创建缺少正确所有权语义。
+- **Conflicts:** 不适合 Actor 类；Actor 实例应通过关卡放置或生成流程管理。
+- **Prefer instead:** 资产型配置用 DataAsset/Blueprint 资产引用；组件用组件创建流程。
+
 - **功能描述：**  指定该类的对象可以在属性细节面板里直接内联创建，要和属性的Instanced配合。
 - **引擎模块：** Instance
 - **元数据类型：** bool

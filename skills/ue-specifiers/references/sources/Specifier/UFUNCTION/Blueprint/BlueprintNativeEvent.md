@@ -15,6 +15,14 @@ usage: "UFUNCTION / Blueprint"
 
 # BlueprintNativeEvent
 
+## Decision Summary
+
+- **Use when:** C++ 需要提供默认实现，同时允许 Blueprint 覆写事件。
+- **Do not use when:** 实现必须完全由 Blueprint 提供，或函数只是普通可调用 API。
+- **Requires:** C++ 侧实现对应的 `_Implementation` 函数。
+- **Conflicts:** 不要把它当成普通 `BlueprintCallable` 的替代。
+- **Prefer instead:** 纯 Blueprint 实现入口用 `BlueprintImplementableEvent`；普通调用节点用 `BlueprintCallable`。
+
 - **功能描述：** 可以在蓝图总覆盖实现，但是也在C++中提供一个默认实现。
 
 - **元数据类型：** bool

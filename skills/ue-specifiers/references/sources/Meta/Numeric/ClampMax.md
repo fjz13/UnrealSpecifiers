@@ -14,6 +14,14 @@ usage: "UPROPERTY"
 
 # ClampMax
 
+## Decision Summary
+
+- **Use when:** Details Panel 输入值需要硬性最大值限制。
+- **Do not use when:** 只是希望 UI slider 终点更友好。
+- **Requires:** 适用于支持数值 metadata 的数值属性。
+- **Conflicts:** 不替代运行时校验，尤其是代码或反序列化直接赋值。
+- **Prefer instead:** 仅调整 UI slider 范围用 `UIMax`。
+
 - **功能描述：** 指定数字输入框实际接受的最大值
 - **使用位置：** UPROPERTY
 - **引擎模块：** Numeric Property

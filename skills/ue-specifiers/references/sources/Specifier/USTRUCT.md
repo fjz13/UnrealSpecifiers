@@ -14,6 +14,14 @@ usage: "USTRUCT"
 
 # USTRUCT(标识符)
 
+## Decision Summary
+
+- **Use when:** `USTRUCT(标识符)` specifier 的 `USTRUCT` 场景需要：UE5.8 UHT 通过 UhtScriptStructParser 识别 USTRUCT，创建 script struct 并使用 UhtTableNames.ScriptStruct 的 keyword/specifier table。
+- **Do not use when:** 声明宏、目标类型或代码契约不属于 `USTRUCT`。
+- **Requires:** specifier 必须放在 UE5.8 UHT 支持的宏和声明位置，并满足正文 caveat。
+- **Conflicts:** 不要和同类互斥 specifier 或语义相反的暴露/持久化/网络规则混用。
+- **Prefer instead:** 能用更窄暴露范围或更明确 metadata 表达时，优先选择更窄方案。
+
  ## UHT
 
 | Name                                                         | 引擎模块      | 功能描述                                                     | 常用程度 |

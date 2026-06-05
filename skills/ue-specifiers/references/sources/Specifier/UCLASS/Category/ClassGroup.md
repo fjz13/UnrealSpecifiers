@@ -15,6 +15,14 @@ usage: "UCLASS / Category"
 
 # ClassGroup
 
+## Decision Summary
+
+- **Use when:** `ClassGroup` specifier 的 `UCLASS / Category` 场景需要：指定组件在Actor的AddComponent面板里的分组，以及在蓝图右键菜单中的分组。
+- **Do not use when:** 声明宏、目标类型或代码契约不属于 `UCLASS / Category`。
+- **Requires:** specifier 必须放在 UE5.8 UHT 支持的宏和声明位置，并满足正文 caveat。
+- **Conflicts:** 不要和同类互斥 specifier 或语义相反的暴露/持久化/网络规则混用。
+- **Prefer instead:** 能用更窄暴露范围或更明确 metadata 表达时，优先选择更窄方案。
+
 - **功能描述：**  指定组件在Actor的AddComponent面板里的分组，以及在蓝图右键菜单中的分组。
 - **引擎模块：** Category, Editor
 - **元数据类型：** string="a|b|c"

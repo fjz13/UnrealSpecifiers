@@ -14,6 +14,14 @@ usage: "UCLASS"
 
 # TakeRecorderDisplayName
 
+## Decision Summary
+
+- **Use when:** 需要理解 `TakeRecorderDisplayName` 在不同 UE 版本中的行为变化。
+- **Do not use when:** 不要不看版本说明就直接套用到 UE5.8 新代码。
+- **Requires:** 确认目标 UE 版本，并阅读正文的 changed-in-version 说明。
+- **Conflicts:** 版本行为不一致时，以目标项目使用的 UE 版本为准。
+- **Prefer instead:** UE5.8 代码优先采用正文记录的当前行为。
+
 - **功能描述：** 指定UTakeRecorderSource的显示名字。
 - **使用位置：** UCLASS
 - **引擎模块：** Sequencer

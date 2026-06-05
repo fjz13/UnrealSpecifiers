@@ -15,6 +15,14 @@ usage: "USTRUCT / Serialization"
 
 # immutable
 
+## Decision Summary
+
+- **Use when:** 迁移、诊断或阅读旧代码时需要识别 `immutable`。
+- **Do not use when:** 不要在新的 UE5.8 代码中把它作为常规方案。
+- **Requires:** 确认目标代码确实依赖旧版本或兼容路径，并阅读正文的版本说明。
+- **Conflicts:** 与当前 UE5.8 推荐写法冲突时，以当前引擎行为为准。
+- **Prefer instead:** 新代码优先使用正文或索引中指向的当前替代项。
+
 - **功能描述：** UE5.8 中正在淘汰。`Immutable` 只允许 NoExportTypes.h 中的 mirror structs，项目自定义 USTRUCT 不应使用。
 - **元数据类型：** bool
 - **引擎模块：** Serialization

@@ -14,6 +14,14 @@ usage: "UPROPERTY"
 
 # OnEvaluate
 
+## Decision Summary
+
+- **Use when:** 迁移、诊断或阅读旧代码时需要识别 `OnEvaluate`。
+- **Do not use when:** 不要在新的 UE5.8 代码中把它作为常规方案。
+- **Requires:** 确认目标代码确实依赖旧版本或兼容路径，并阅读正文的版本说明。
+- **Conflicts:** 与当前 UE5.8 推荐写法冲突时，以当前引擎行为为准。
+- **Prefer instead:** 新代码优先使用正文或索引中指向的当前替代项。
+
 - **使用位置：** UPROPERTY
 - **引擎模块：** AnimationGraph
 ## UE5.8 审计结论
