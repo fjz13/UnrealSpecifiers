@@ -18,7 +18,7 @@ usage: "UCLASS"
 
 - **Use when:** `DontUseGenericSpawnObject` metadata 的 `UCLASS` 场景需要：阻止使用蓝图中的Generic Create Object节点来生成本类的对象。
 - **Do not use when:** 目标声明不属于 `UCLASS`，或该展示/编辑/节点行为不是代码契约的一部分。
-- **Requires:** metadata key 名称、参数名和目标声明类型必须与 UE5.8 UHT/编辑器消费路径匹配。
+- **Requires:** 目标通常是非 Actor、非 ActorComponent 的 Blueprint 可见 UObject 类，并应提供更合适的 Blueprint 工厂/创建函数。
 - **Conflicts:** 不要把 metadata 当成 C++ 访问控制、持久化、网络复制或运行时校验，除非正文明确说明。
 - **Prefer instead:** 常见组合先看 `constraints.index.md`；不确定宏上下文时先看 `ambiguous-symbols.index.md`。
 

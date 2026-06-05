@@ -18,7 +18,7 @@ usage: "UFUNCTION"
 
 - **Use when:** `HidePin` metadata 的 `UFUNCTION` 场景需要：用在函数调用上，指定要隐藏的参数名称，也可以隐藏返回值。可以隐藏多个参数。
 - **Do not use when:** 目标声明不属于 `UFUNCTION`，或该展示/编辑/节点行为不是代码契约的一部分。
-- **Requires:** metadata key 名称、参数名和目标声明类型必须与 UE5.8 UHT/编辑器消费路径匹配。
+- **Requires:** 值必须指向实际函数 pin 名称或 `ReturnValue`；隐藏 pin 只改变 Blueprint 节点展示，不提供默认值或运行时校验。
 - **Conflicts:** 不要把 metadata 当成 C++ 访问控制、持久化、网络复制或运行时校验，除非正文明确说明。
 - **Prefer instead:** 常见组合先看 `constraints.index.md`；不确定宏上下文时先看 `ambiguous-symbols.index.md`。
 

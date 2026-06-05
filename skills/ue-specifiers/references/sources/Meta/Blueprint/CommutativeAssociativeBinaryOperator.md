@@ -18,7 +18,7 @@ usage: "UFUNCTION"
 
 - **Use when:** Blueprint 函数表示可交换、可结合的二元运算，并适合生成可扩展输入节点。
 - **Do not use when:** 运算顺序重要，或函数不是严格二元运算语义。
-- **Requires:** 函数签名和行为应符合 Blueprint 运算节点期望。
+- **Requires:** `BlueprintPure` 函数，且刚好两个同类型参数和一个返回值；真实运算语义也应满足交换律和结合律。
 - **Conflicts:** 不改变 C++ 函数的真实数学性质。
 - **Prefer instead:** 顺序敏感逻辑使用普通 `BlueprintCallable`/`BlueprintPure` 节点。
 

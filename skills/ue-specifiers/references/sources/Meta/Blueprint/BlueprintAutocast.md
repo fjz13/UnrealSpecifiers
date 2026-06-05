@@ -18,7 +18,7 @@ usage: "UFUNCTION"
 
 - **Use when:** `BlueprintAutocast` metadata 的 `UFUNCTION` 场景需要：告诉蓝图系统这个函数是用来支持从A类型到B类型的自动转换。
 - **Do not use when:** 目标声明不属于 `UFUNCTION`，或该展示/编辑/节点行为不是代码契约的一部分。
-- **Requires:** metadata key 名称、参数名和目标声明类型必须与 UE5.8 UHT/编辑器消费路径匹配。
+- **Requires:** 函数应是 `BlueprintPure` 的转换函数；输入和返回类型应表达清晰、低成本、无副作用的 Blueprint 自动转换。
 - **Conflicts:** 不要把 metadata 当成 C++ 访问控制、持久化、网络复制或运行时校验，除非正文明确说明。
 - **Prefer instead:** 常见组合先看 `constraints.index.md`；不确定宏上下文时先看 `ambiguous-symbols.index.md`。
 

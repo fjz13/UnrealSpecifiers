@@ -18,7 +18,7 @@ usage: "UPROPERTY"
 
 - **Use when:** `Untracked` metadata 的 `UPROPERTY` 场景需要：使得TSoftObjectPtr和FSoftObjectPath的软对象引用类型的属性，不跟踪记录资产的。
 - **Do not use when:** 目标声明不属于 `UPROPERTY`，或该展示/编辑/节点行为不是代码契约的一部分。
-- **Requires:** metadata key 名称、参数名和目标声明类型必须与 UE5.8 UHT/编辑器消费路径匹配。
+- **Requires:** 目标属性应是 `TSoftObjectPtr`、`FSoftObjectPath` 等软引用路径；它只影响资产依赖 tracking。
 - **Conflicts:** 不要把 metadata 当成 C++ 访问控制、持久化、网络复制或运行时校验，除非正文明确说明。
 - **Prefer instead:** 常见组合先看 `constraints.index.md`；不确定宏上下文时先看 `ambiguous-symbols.index.md`。
 

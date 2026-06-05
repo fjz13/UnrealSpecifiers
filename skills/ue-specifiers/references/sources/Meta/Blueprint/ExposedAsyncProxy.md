@@ -18,7 +18,7 @@ usage: "UCLASS"
 
 - **Use when:** `ExposedAsyncProxy` metadata 的 `UCLASS` 场景需要：在 Async Task 节点中公开此类的一个代理对象。
 - **Do not use when:** 目标声明不属于 `UCLASS`，或该展示/编辑/节点行为不是代码契约的一部分。
-- **Requires:** metadata key 名称、参数名和目标声明类型必须与 UE5.8 UHT/编辑器消费路径匹配。
+- **Requires:** 目标类应符合 `UBlueprintAsyncActionBase`/`UCancellableAsyncAction` 或 GameplayTask 异步节点路径；工厂函数和输出 delegate 仍需按 async action 模式声明。
 - **Conflicts:** 不要把 metadata 当成 C++ 访问控制、持久化、网络复制或运行时校验，除非正文明确说明。
 - **Prefer instead:** 常见组合先看 `constraints.index.md`；不确定宏上下文时先看 `ambiguous-symbols.index.md`。
 

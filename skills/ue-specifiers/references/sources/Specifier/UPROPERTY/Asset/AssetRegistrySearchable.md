@@ -19,7 +19,7 @@ usage: "UPROPERTY / Asset"
 
 - **Use when:** `AssetRegistrySearchable` specifier 的 `UPROPERTY / Asset` 场景需要：标记该属性可以作为AssetRegistry的Tag和Value值来进行资产的过滤搜索。
 - **Do not use when:** 声明宏、目标类型或代码契约不属于 `UPROPERTY / Asset`。
-- **Requires:** specifier 必须放在 UE5.8 UHT 支持的宏和声明位置，并满足正文 caveat。
+- **Requires:** 属性值需要作为 Asset Registry tag 参与资产搜索/过滤；不等于运行时资产校验。
 - **Conflicts:** 不要和同类互斥 specifier 或语义相反的暴露/持久化/网络规则混用。
 - **Prefer instead:** 能用更窄暴露范围或更明确 metadata 表达时，优先选择更窄方案。
 

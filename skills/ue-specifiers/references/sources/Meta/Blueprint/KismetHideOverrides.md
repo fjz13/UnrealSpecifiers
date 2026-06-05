@@ -18,7 +18,7 @@ usage: "UCLASS"
 
 - **Use when:** `KismetHideOverrides` metadata 的 `UCLASS` 场景需要：不允许被覆盖的蓝图事件的列表。
 - **Do not use when:** 目标声明不属于 `UCLASS`，或该展示/编辑/节点行为不是代码契约的一部分。
-- **Requires:** metadata key 名称、参数名和目标声明类型必须与 UE5.8 UHT/编辑器消费路径匹配。
+- **Requires:** 值应指向本类中实际存在的 Blueprint event 名称；它隐藏 override 入口，不改变 C++ 虚函数或事件调用行为。
 - **Conflicts:** 不要把 metadata 当成 C++ 访问控制、持久化、网络复制或运行时校验，除非正文明确说明。
 - **Prefer instead:** 常见组合先看 `constraints.index.md`；不确定宏上下文时先看 `ambiguous-symbols.index.md`。
 

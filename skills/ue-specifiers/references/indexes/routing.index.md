@@ -6,9 +6,9 @@
 
 ## Route Order
 
-1. If the user asks for a common symbol or common scenario, search `common.index.md` first.
-2. If a bare symbol can refer to multiple source docs and the macro/context is unclear, check `ambiguous-symbols.index.md`.
-3. If the task combines exposure, editing, persistence, replication, instancing, UMG binding, Blueprint node shaping, numeric UI, bitmask, or picker behavior, check `constraints.index.md`.
+1. If the task combines exposure, editing, persistence, replication, instancing, UMG binding, Blueprint node shaping, numeric UI, bitmask, picker behavior, or subsystem metadata, check `constraints.index.md`.
+2. If the user asks for a single common symbol or direct lookup, search `common.index.md`.
+3. If a bare symbol can refer to multiple source docs and the macro/context is unclear, check `ambiguous-symbols.index.md`.
 4. If common does not contain the target, use `sources.index.md` to choose one category file.
 5. Search only that category file for the exact ID, metadata key, macro, subsystem, or `Doc`.
 6. Open only the selected source files by combining `references/sources/`, the nearest `Doc root`, and the row `Doc`.

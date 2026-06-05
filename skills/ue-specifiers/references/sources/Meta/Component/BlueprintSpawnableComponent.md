@@ -18,7 +18,7 @@ usage: "UCLASS"
 
 - **Use when:** ActorComponent 类需要能在 Blueprint 组件面板中添加。
 - **Do not use when:** 组件只应由 C++ 创建，或需要受控生命周期/依赖注入。
-- **Requires:** 组件类设计应适合蓝图创建、配置和序列化。
+- **Requires:** 目标应是适合由 Blueprint Add Component UI 创建和配置的 `UActorComponent` 类。
 - **Conflicts:** 不替代 `BlueprintType`/`Blueprintable` 的类型暴露语义。
 - **Prefer instead:** 内部组件用 `CreateDefaultSubobject` 或受控工厂创建。
 

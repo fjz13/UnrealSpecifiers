@@ -18,7 +18,7 @@ usage: "UPROPERTY"
 
 - **Use when:** `FilePathFilter` metadata 的 `UPROPERTY` 场景需要：设定文件选择器的扩展名，规则符合系统对话框的格式规范，可以填写多个扩展名。
 - **Do not use when:** 目标声明不属于 `UPROPERTY`，或该展示/编辑/节点行为不是代码契约的一部分。
-- **Requires:** metadata key 名称、参数名和目标声明类型必须与 UE5.8 UHT/编辑器消费路径匹配。
+- **Requires:** 目标属性应是 `FFilePath`；值是编辑器文件选择器过滤规则，不保证文件存在或可加载。
 - **Conflicts:** 不要把 metadata 当成 C++ 访问控制、持久化、网络复制或运行时校验，除非正文明确说明。
 - **Prefer instead:** 常见组合先看 `constraints.index.md`；不确定宏上下文时先看 `ambiguous-symbols.index.md`。
 

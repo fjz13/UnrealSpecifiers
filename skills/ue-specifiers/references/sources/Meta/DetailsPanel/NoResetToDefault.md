@@ -18,7 +18,7 @@ usage: "UPROPERTY"
 
 - **Use when:** `NoResetToDefault` metadata 的 `UPROPERTY` 场景需要：禁用和隐藏属性在细节面板上的“重置”功能。
 - **Do not use when:** 目标声明不属于 `UPROPERTY`，或该展示/编辑/节点行为不是代码契约的一部分。
-- **Requires:** metadata key 名称、参数名和目标声明类型必须与 UE5.8 UHT/编辑器消费路径匹配。
+- **Requires:** 只影响 Details Panel 是否显示 reset-to-default 入口，不改变默认值、序列化或 runtime reset 逻辑。
 - **Conflicts:** 不要把 metadata 当成 C++ 访问控制、持久化、网络复制或运行时校验，除非正文明确说明。
 - **Prefer instead:** 常见组合先看 `constraints.index.md`；不确定宏上下文时先看 `ambiguous-symbols.index.md`。
 

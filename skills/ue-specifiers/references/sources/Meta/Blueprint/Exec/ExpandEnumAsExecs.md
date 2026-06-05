@@ -18,7 +18,7 @@ usage: "UFUNCTION"
 
 - **Use when:** enum 参数/结果应在 Blueprint 节点上展开为多个执行分支。
 - **Do not use when:** enum 只是普通数据值，或分支数量会让节点过重。
-- **Requires:** 指向实际 enum 参数/返回语义，并确认枚举项适合分支展示。
+- **Requires:** 指向实际 bool/enum 参数或 `ReturnValue`；输入 exec 只能有一个，输出 exec 可由引用输出参数或返回值生成。
 - **Conflicts:** 不改变 C++ 逻辑，只改变 Blueprint 节点形态。
 - **Prefer instead:** 简单状态输出用普通 enum 返回并让调用方 Switch。
 

@@ -18,7 +18,7 @@ usage: "UFUNCTION"
 
 - **Use when:** `NotBlueprintThreadSafe` metadata 的 `UFUNCTION` 场景需要：用在函数上，标记这个函数是不线程安全的。
 - **Do not use when:** 目标声明不属于 `UFUNCTION`，或该展示/编辑/节点行为不是代码契约的一部分。
-- **Requires:** metadata key 名称、参数名和目标声明类型必须与 UE5.8 UHT/编辑器消费路径匹配。
+- **Requires:** 用于从 class-level `BlueprintThreadSafe` 默认值中排除特定函数；该函数仍应避免被误路由到线程安全调用路径。
 - **Conflicts:** 不要把 metadata 当成 C++ 访问控制、持久化、网络复制或运行时校验，除非正文明确说明。
 - **Prefer instead:** 常见组合先看 `constraints.index.md`；不确定宏上下文时先看 `ambiguous-symbols.index.md`。
 

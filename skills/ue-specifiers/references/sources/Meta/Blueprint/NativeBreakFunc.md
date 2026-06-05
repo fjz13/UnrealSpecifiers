@@ -18,7 +18,7 @@ usage: "UFUNCTION"
 
 - **Use when:** `NativeBreakFunc` metadata 的 `UFUNCTION` 场景需要：指定一个函数采用BreakStruct的图标。
 - **Do not use when:** 目标声明不属于 `UFUNCTION`，或该展示/编辑/节点行为不是代码契约的一部分。
-- **Requires:** metadata key 名称、参数名和目标声明类型必须与 UE5.8 UHT/编辑器消费路径匹配。
+- **Requires:** 函数签名和行为应符合 Break 节点语义；该 metadata 主要改变 Blueprint Break-style 节点展示，不自动验证拆分正确性。
 - **Conflicts:** 不要把 metadata 当成 C++ 访问控制、持久化、网络复制或运行时校验，除非正文明确说明。
 - **Prefer instead:** 常见组合先看 `constraints.index.md`；不确定宏上下文时先看 `ambiguous-symbols.index.md`。
 

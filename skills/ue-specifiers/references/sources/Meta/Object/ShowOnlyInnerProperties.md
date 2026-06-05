@@ -18,7 +18,7 @@ usage: "UPROPERTY"
 
 - **Use when:** `ShowOnlyInnerProperties` metadata 的 `UPROPERTY` 场景需要：把结构属性的内部属性直接上提一个层级直接展示。
 - **Do not use when:** 目标声明不属于 `UPROPERTY`，或该展示/编辑/节点行为不是代码契约的一部分。
-- **Requires:** metadata key 名称、参数名和目标声明类型必须与 UE5.8 UHT/编辑器消费路径匹配。
+- **Requires:** 目标应是结构体属性；该 metadata 只改变 Details Panel 展示层级，不改变数据布局或访问路径。
 - **Conflicts:** 不要把 metadata 当成 C++ 访问控制、持久化、网络复制或运行时校验，除非正文明确说明。
 - **Prefer instead:** 常见组合先看 `constraints.index.md`；不确定宏上下文时先看 `ambiguous-symbols.index.md`。
 

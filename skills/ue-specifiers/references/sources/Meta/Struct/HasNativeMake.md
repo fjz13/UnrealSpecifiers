@@ -19,7 +19,7 @@ usage: "USTRUCT"
 
 - **Use when:** 结构体在 Blueprint 中需要使用指定 C++ 函数作为 Make 节点。
 - **Do not use when:** 默认自动生成的 Make 节点已经满足需求。
-- **Requires:** 指定函数签名与 Blueprint Make struct 语义匹配。
+- **Requires:** metadata 值应是可解析的 `/Script/Module.Class.Function` 路径，目标函数签名与 Blueprint Make struct 语义匹配。
 - **Conflicts:** 不改变结构体构造或序列化规则。
 - **Prefer instead:** 简单 USTRUCT 使用默认 Make/Break 节点。
 

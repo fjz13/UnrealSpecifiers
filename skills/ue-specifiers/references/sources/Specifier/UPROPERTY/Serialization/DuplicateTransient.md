@@ -19,7 +19,7 @@ usage: "UPROPERTY / Serialization"
 
 - **Use when:** `DuplicateTransient` specifier 的 `UPROPERTY / Serialization` 场景需要：在对象复制或COPY格式导出的时候，忽略该属性。
 - **Do not use when:** 声明宏、目标类型或代码契约不属于 `UPROPERTY / Serialization`。
-- **Requires:** specifier 必须放在 UE5.8 UHT 支持的宏和声明位置，并满足正文 caveat。
+- **Requires:** 用于对象复制/COPY 导出时应重置或排除的属性；不是通用持久化关闭开关。
 - **Conflicts:** 不要和同类互斥 specifier 或语义相反的暴露/持久化/网络规则混用。
 - **Prefer instead:** 能用更窄暴露范围或更明确 metadata 表达时，优先选择更窄方案。
 
