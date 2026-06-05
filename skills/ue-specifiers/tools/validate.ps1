@@ -1,7 +1,7 @@
 param(
     [int]$ExpectedSourceCount = 447,
     [int]$ExpectedCommonRows = 93,
-    [int]$ExpectedConstraintRows = 34,
+    [int]$ExpectedConstraintRows = 38,
     [int]$ExpectedAmbiguousRows = 82
 )
 
